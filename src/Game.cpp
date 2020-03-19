@@ -20,12 +20,9 @@ void Game::loop(void) {
 
     switch(gameState) {
 
-        case GameState::TextTitle: 
-            TitleText(); 
-            break;
 
         case GameState::MainMenu: 
-            UpdateMainMenu(); 
+            updateMainMenu(); 
             break;
 
         case GameState::Game: 

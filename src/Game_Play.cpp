@@ -34,100 +34,254 @@ uint8_t Game::getSurround8(uint8_t x, uint8_t y, uint8_t b) {
 
 }
 
+Point Game::setRandomBlock(uint8_t rep, uint8_t block) {
+  
+    bool done = false;
+    Point out;
 
-Point Game::setRandomBlock(uint8_t rep,uint8_t blk) {
-  bool Done = false;
-  Point out;
-  do{    
-  for(uint8_t i = 0; i < MAP_WIDTH; i++)
-      for(uint8_t j = 0; j < MAP_HEIGHT; j++) {
-        if ((getBlock(MAP_HEIGHT, MAP_WIDTH, i,j) == rep)&&(random(0,100)==0)) {
-          setBlock(MAP_HEIGHT, MAP_WIDTH, i,j,blk);
-          out.x = i;
-          out.y = j;
-          Done = true;
-          return out;
+    do {    
+
+        for(uint8_t i = 0; i < MAP_WIDTH; i++) {
+
+            for(uint8_t j = 0; j < MAP_HEIGHT; j++) {
+
+                if ((getBlock(MAP_HEIGHT, MAP_WIDTH, i,j) == rep)&&(random(0,100)==0)) {
+
+                    setBlock(MAP_HEIGHT, MAP_WIDTH, i, j, block);
+                    out.x = i;
+                    out.y = j;
+                    done = true;
+                    return out;
+
+                }
+
+            }
+
         }
-      }
-  }while(Done == false);
-  return out;
+
+    }
+    while (done == false);
+
+    return out;
+
 }
+
+// Point Game::setRandomBlock(uint8_t rep,uint8_t blk) {
+//   bool Done = false;
+//   Point out;
+//   do{    
+//   for(uint8_t i = 0; i < MAP_WIDTH; i++)
+//       for(uint8_t j = 0; j < MAP_HEIGHT; j++) {
+//         if ((getBlock(MAP_HEIGHT, MAP_WIDTH, i,j) == rep)&&(random(0,100)==0)) {
+//           setBlock(MAP_HEIGHT, MAP_WIDTH, i,j,blk);
+//           out.x = i;
+//           out.y = j;
+//           Done = true;
+//           return out;
+//         }
+//       }
+//   }while(Done == false);
+//   return out;
+// }
 
 Point Game::setRandomItem(uint8_t blk) {
-  bool Done = false;
-  Point out;
-  do{    
-  for(uint8_t i = 0; i < MAP_WIDTH; i++)
-      for(uint8_t j = 0; j < MAP_HEIGHT; j++) {
-        if ((getBlock(MAP_HEIGHT, MAP_WIDTH, i,j) == 8)&&(random(0,100)==0)) {
-          dropItem(i,j,false, this->objects);
-          out.x = i;
-          out.y = j;
-          Done = true;
-          return out;
+
+    bool Done = false;
+    Point out;
+
+    do {    
+
+        for(uint8_t i = 0; i < MAP_WIDTH; i++) {
+
+            for(uint8_t j = 0; j < MAP_HEIGHT; j++) {
+
+                if ((getBlock(MAP_HEIGHT, MAP_WIDTH, i,j) == 8)&&(random(0,100)==0)) {
+
+                    dropItem(i,j,false, this->objects);
+                    out.x = i;
+                    out.y = j;
+                    Done = true;
+                    return out;
+
+                }
+
+            }
         }
-      }
-  } while(Done == false);
-  return out;
+
+    } 
+    while(Done == false);
+
+    return out;
+
 }
 
+// Point Game::setRandomItem(uint8_t blk) {
+//   bool Done = false;
+//   Point out;
+//   do{    
+//   for(uint8_t i = 0; i < MAP_WIDTH; i++)
+//       for(uint8_t j = 0; j < MAP_HEIGHT; j++) {
+//         if ((getBlock(MAP_HEIGHT, MAP_WIDTH, i,j) == 8)&&(random(0,100)==0)) {
+//           dropItem(i,j,false, this->objects);
+//           out.x = i;
+//           out.y = j;
+//           Done = true;
+//           return out;
+//         }
+//       }
+//   } while(Done == false);
+//   return out;
+// }
+
 void Game::init(uint16_t x, uint16_t y) {
-  //sound.tone(NOTE_C7H,150, NOTE_REST,100, NOTE_C6,150);
-  player.setX(x);
-  player.setY(y);
-  player.setDirection(Direction::Up);
-  player.setCoins(0);
-  player.setKeys(0);
-  player.setKills(0);
-  player.setHealth(100);
-  
-  for (uint8_t i = 0; i < 6; i++) {
-    bullets.getBullet(i).kill();
-  }
-  for (uint8_t i = 0; i < MAXOBJECT; i++) {
-      
+
+    //sound.tone(NOTE_C7H,150, NOTE_REST,100, NOTE_C6,150);
+    player.setX(x);
+    player.setY(y);
+    player.setDirection(Direction::Up);
+    player.setCoins(0);
+    player.setKeys(0);
+    player.setKills(0);
+    player.setHealth(100);
+
+    for (uint8_t i = 0; i < 6; i++) {
+
+        bullets.getBullet(i).kill();
+
+    }
+
+    for (uint8_t i = 0; i < MAXOBJECT; i++) {
+
         auto & object = this->objects.getSprite(i);
         object.setActive(false);
-        
-  }
-  Timer = 255;
-  printf("timer=255\n");
+
+    }
+
+    Timer = 255;
+    printf("timer=255\n");
+
 }
+
+// void Game::init(uint16_t x, uint16_t y) {
+//   //sound.tone(NOTE_C7H,150, NOTE_REST,100, NOTE_C6,150);
+//   player.setX(x);
+//   player.setY(y);
+//   player.setDirection(Direction::Up);
+//   player.setCoins(0);
+//   player.setKeys(0);
+//   player.setKills(0);
+//   player.setHealth(100);
+  
+//   for (uint8_t i = 0; i < 6; i++) {
+//     bullets.getBullet(i).kill();
+//   }
+//   for (uint8_t i = 0; i < MAXOBJECT; i++) {
+      
+//         auto & object = this->objects.getSprite(i);
+//         object.setActive(false);
+        
+//   }
+//   Timer = 255;
+//   printf("timer=255\n");
+// }
 
 
 void Game::generateCave() {
-  uint8_t Temp[MAP_SIZE];
-  MAP_HEIGHT = 15;
-  MAP_WIDTH = 15;
-  for(uint8_t i = 0; i < MAP_SIZE; i++) {Temp[i] = 8; Map[i] = 8;}
-  fillRandom();
-  for(uint8_t count = 0; count < 6; count++) {
-    for(uint8_t j = 0; j < MAP_WIDTH; j++)
-      for(uint8_t i = 0; i < MAP_HEIGHT; i++) {
-        if(((getBlock(MAP_HEIGHT, MAP_WIDTH, i,j) == 0)&&(getSurround8(i,j,0) >= 3))||((getBlock(MAP_HEIGHT, MAP_WIDTH, i,j) == 1)&&(getSurround8(i,j,0) >= 5)))
-          Temp[getOffset(MAP_HEIGHT, MAP_WIDTH, i,j)] = 0;
-        else
-          Temp[getOffset(MAP_HEIGHT, MAP_WIDTH, i,j)] = 1;
+
+    uint16_t temp[MAP_SIZE];
+    MAP_HEIGHT = 15;
+    MAP_WIDTH = 15;
+
+    for(uint16_t i = 0; i < MAP_SIZE; i++) {
+        temp[i] = 8; Map[i] = 8;
     }
-    for(uint16_t i = 0; i<MAP_SIZE; i++) { Map[i] = Temp[i]; }
-  }
-  for(uint8_t i = 0; i < MAP_WIDTH; i++)
-      for(uint8_t j = 0; j < MAP_HEIGHT; j++) {
-        if (getBlock(MAP_HEIGHT, MAP_WIDTH, i,j) == 0) {
-          setBlock(MAP_HEIGHT, MAP_WIDTH, i,j,8);
-        } else {
-          setBlock(MAP_HEIGHT, MAP_WIDTH, i,j,BARREL);
+
+    fillRandom();
+
+    for(uint8_t count = 0; count < 6; count++) {
+    
+        for(uint8_t j = 0; j < MAP_WIDTH; j++) {
+            
+            for(uint8_t i = 0; i < MAP_HEIGHT; i++) {
+                if ((getBlock(MAP_HEIGHT, MAP_WIDTH, i, j) == 0 && getSurround8(i, j, 0) >= 3) ||
+                    (getBlock(MAP_HEIGHT, MAP_WIDTH, i, j) == 1 && getSurround8(i, j, 0) >= 5)) {
+                    temp[getOffset(MAP_HEIGHT, MAP_WIDTH, i,j)] = 0;
+                }
+                else {
+                    temp[getOffset(MAP_HEIGHT, MAP_WIDTH, i,j)] = 1;
+                }
+            }
+
         }
-      }
-  setRandomBlock(8,DOWN_STAIRS);
-  Point pl = setRandomBlock(8,UP_STAIRS);
-  init((pl.x*16)+8,(pl.y*16)+8);
-  for(uint8_t count = 0; count < 6; count++) {
-    setRandomItem(8);
-  }
-  Timer = 150;
-  printf("timer=150\n");
+    
+        for(uint16_t i = 0; i < MAP_SIZE; i++) { 
+            Map[i] = temp[i]; 
+        }
+
+    }
+
+    for (uint8_t i = 0; i < MAP_WIDTH; i++) {
+
+        for (uint8_t j = 0; j < MAP_HEIGHT; j++) {
+
+            if (getBlock(MAP_HEIGHT, MAP_WIDTH, i,j) == 0) {
+                setBlock(MAP_HEIGHT, MAP_WIDTH, i,j,8);
+            } 
+            else {
+                setBlock(MAP_HEIGHT, MAP_WIDTH, i,j,BARREL);
+            }
+
+        }
+
+    }
+
+    setRandomBlock(8,DOWN_STAIRS);
+    Point pl = setRandomBlock(8,UP_STAIRS);
+    init((pl.x*16)+8,(pl.y*16)+8);
+
+    for(uint8_t count = 0; count < 6; count++) {
+        setRandomItem(8);
+    }
+
+    Timer = 150;
+    printf("timer=150\n");
+
 }
+
+
+// void Game::generateCave() {
+//   uint8_t Temp[MAP_SIZE];
+//   MAP_HEIGHT = 15;
+//   MAP_WIDTH = 15;
+//   for(uint8_t i = 0; i < MAP_SIZE; i++) {Temp[i] = 8; Map[i] = 8;}
+//   fillRandom();
+//   for(uint8_t count = 0; count < 6; count++) {
+//     for(uint8_t j = 0; j < MAP_WIDTH; j++)
+//       for(uint8_t i = 0; i < MAP_HEIGHT; i++) {
+//         if(((getBlock(MAP_HEIGHT, MAP_WIDTH, i,j) == 0)&&(getSurround8(i,j,0) >= 3))||((getBlock(MAP_HEIGHT, MAP_WIDTH, i,j) == 1)&&(getSurround8(i,j,0) >= 5)))
+//           Temp[getOffset(MAP_HEIGHT, MAP_WIDTH, i,j)] = 0;
+//         else
+//           Temp[getOffset(MAP_HEIGHT, MAP_WIDTH, i,j)] = 1;
+//     }
+//     for(uint16_t i = 0; i<MAP_SIZE; i++) { Map[i] = Temp[i]; }
+//   }
+//   for(uint8_t i = 0; i < MAP_WIDTH; i++)
+//       for(uint8_t j = 0; j < MAP_HEIGHT; j++) {
+//         if (getBlock(MAP_HEIGHT, MAP_WIDTH, i,j) == 0) {
+//           setBlock(MAP_HEIGHT, MAP_WIDTH, i,j,8);
+//         } else {
+//           setBlock(MAP_HEIGHT, MAP_WIDTH, i,j,BARREL);
+//         }
+//       }
+//   setRandomBlock(8,DOWN_STAIRS);
+//   Point pl = setRandomBlock(8,UP_STAIRS);
+//   init((pl.x*16)+8,(pl.y*16)+8);
+//   for(uint8_t count = 0; count < 6; count++) {
+//     setRandomItem(8);
+//   }
+//   Timer = 150;
+//   printf("timer=150\n");
+// }
 
 
 bool Game::Intersect(uint16_t Min0, uint16_t Max0, uint16_t Min1, uint16_t Max1) {
@@ -146,12 +300,13 @@ bool Game::Collision(uint16_t x, uint16_t y, uint16_t x1, uint16_t y1) {
 
 const uint8_t offsets[] = { 0, 12, 8, 9, 10, 11, 3, 4, 5, 6 };
 
-void Game::LoadMAP(uint8_t L) {
+void Game::loadMap(uint8_t L) {
 
     const uint8_t * CLevel = Maps[L];
 
     MAP_WIDTH = CLevel[0] >> 4;
     MAP_HEIGHT = CLevel[0] & 0x0F;
+
     uint8_t UsedMap = MAP_WIDTH*MAP_HEIGHT; 
     uint16_t px = (((CLevel[1]) >> 4)*16)+8;
     uint16_t py = (((CLevel[1]) & 0x0F)*16)+8;
@@ -162,11 +317,10 @@ void Game::LoadMAP(uint8_t L) {
 
 
     // Read map data ..
-    {
 
-      uint8_t cursor = 0;
+    uint8_t cursor = 0;
 
-      while (true) {
+    while (true) {
 
         uint8_t data = CLevel[index];
         uint8_t tile = data >> 3;
@@ -176,21 +330,19 @@ void Game::LoadMAP(uint8_t L) {
 
         if (run > 0) {
 
-          for (uint8_t x = 0; x < run; x++) {
+            for (uint8_t x = 0; x < run; x++) {
 
-            Map[cursor] = tile;
-            cursor++;
+                Map[cursor] = tile;
+                cursor++;
 
-          }
+            }
 
         }
         else {
-        
-          break;
-        
-        }
 
-      }
+            break;
+
+        }
 
     }
     
@@ -290,11 +442,11 @@ void Game::LoadMAP(uint8_t L) {
 }
 
 void Game::nextLevelLoad() {
-
+printf("GameType :%i", gameType);
     if (gameType) {
 
         if (Level < MAXLEVEL) {
-            LoadMAP(Level);
+            loadMap(Level);
             Level++; 
             gameState = GameState::Game;
             gameType = !gameType;

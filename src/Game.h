@@ -44,9 +44,9 @@ class Game {
         bool Collision(uint16_t x, uint16_t y, uint16_t x1, uint16_t y1);
         void RenderEnviroment();
         void RenderPlayer();
-        void UpdateMainMenu();
+        void updateMainMenu();
         void TitleText();
-        void LoadMAP(uint8_t L);
+        void loadMap(uint8_t L);
         void nextLevelLoad();
         void UpdateObjects();
         void RenderObjects();

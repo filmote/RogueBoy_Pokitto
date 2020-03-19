@@ -188,7 +188,7 @@ using PS = Pokitto::Sound;
 
 // const uint8_t offsets[] = { 0, 12, 8, 9, 10, 11, 3, 4, 5, 6 };
 
-// void Game::LoadMAP(uint8_t L) {
+// void Game::loadMap(uint8_t L) {
 
 //     const uint8_t * CLevel = Maps[L];
 
@@ -336,7 +336,7 @@ using PS = Pokitto::Sound;
 //     if (gameType) {
 
 //         if (Level < MAXLEVEL) {
-//             LoadMAP(Level);
+//             loadMap(Level);
 //             Level++; 
 //             gameState = GameState::Game;
 //             gameType = !gameType;

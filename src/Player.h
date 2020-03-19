@@ -7,6 +7,6 @@ using PD = Pokitto::Display;
 using PS = Pokitto::Sound;
 
 
-enum class GameState { MainMenu, Settings, Game ,LoadMap ,GameOver, MapEnding, TextTitle, Dead, WinState};
+enum class GameState { MainMenu, Settings, Game , LoadMap ,GameOver, MapEnding, Dead, WinState};
 
 

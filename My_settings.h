@@ -18,7 +18,8 @@
 #define TILE_SIZE 16
 
 
-#define MAP_SIZE 225
+#define MAP_SIZE 1600
+//sjh 225
 
 
 
