@@ -6,34 +6,68 @@ using PD = Pokitto::Display;
 using PS = Pokitto::Sound;
 
 
-// void Game::DrawHealth() {
-//   //sprites.drawOverwrite(0, 56, HealthBar, 0);
-//   float Drawn = (static_cast<float>(player.getHealth()) / 100)*42;
-// //  ard.drawFastHLine(9,59,Drawn,BLACK);
+// void Game::drawHealth() {
+
+//     PD::setColor(0);
+//     PD::fillRect(0, 81, 63, 6);
+//     PD::drawBitmap(1, 82, Images::Health);
+//     PD::setColor(8);
+//     PD::drawRect(7, 82, 54, 4);
+//     PD::drawLine(9, 84, 9 + player.getHealth() / 2, 84);
+
 // }
 
 
-// void Game::DrawHolding() {
+// void Game::drawHolding() {
 //   //sprites.drawExternalMask(98, 43 ,slots,SlotsMask, 0,0);
-//   PD::setCursor(108,45);
-//   PD::print(player.getKeys());
-//   PD::setCursor(108,55);
-//   PD::print(player.getCoins());
+
+//     PD::setColor(6);
+//     PD::drawBitmap(82, 69, Images::Keys_Main);
+//     PD::drawBitmap(82, 79, Images::Coins_Main);
+//     PD::setCursor(94, 70);
+//     if (player.getKeys() < 10)     PD::print("0");
+//     PD::print(player.getKeys(), 10);
+//     PD::setCursor(94, 80);
+//     if (player.getCoins() < 10)     PD::print("0");
+//     PD::print(player.getCoins(), 10);
+//     PD::drawBitmap(82, 69, Images::Keys_Outline);
+//     PD::drawBitmap(82, 79, Images::Coins_Outline);
+
 // }
 
-// void Game::DrawTime() {
-//   //sprites.drawOverwrite(90, -6 ,TimeSlot,0);
-//   PD::setCursor(102,1);
-//   PD::print(Timer);
+// void Game::drawTime() {
+
+//     PD::drawBitmap(74, 0,Images::Time_Main);
+//     PD::setColor(6);
+//     PD::setCursor(87,1);
+
+//     if (this->timer < 100)    PD::print("0");
+//     if (this->timer < 10)     PD::print("0");
+
+//     PD::print(this->timer, 10);
+//     PD::drawBitmap(74, 0, Images::Time_Outline);
+
 // }
 
-// void Game::DrawHud() {
+// void Game::drawHud() {
 //   DrawHealth();
 //   DrawHolding();
 //   DrawTime();
-//   PD::setCursor(0,0);
-//   PD::print("L:");
-//   PD::print(Level, 10);
+
+//     PD::setColor(0);
+//     PD::drawBitmap(0, 0, Images::Level_Main);
+ 
+//     PD::setColor(7);
+//     PD::setCursor(3,1);
+//       PD::print("L");
+//     PD::setCursor(10,1);
+
+//     if (Level < 10) {
+//       PD::print("0");
+//     }
+
+//     PD::print(Level, 10);
+//     PD::drawBitmap(0, 0, Images::Level_Outline);
 // }
 
 // void Game::RenderEnviroment()
@@ -47,7 +81,7 @@ using PS = Pokitto::Sound;
 //   {
 //     for(int j = -8; j < 8; j++)
 //     {
-//       uint8_t block = getBlock(MAP_HEIGHT, MAP_WIDTH, tileX + i, tileY + j);
+//       uint8_t block = getBlock(map, tileX + i, tileY + j);
       
 //       int drawX = (i * 16) + CENTERX - offsetX;
 //       int drawY = (j * 16) + CENTERY - offsetY;

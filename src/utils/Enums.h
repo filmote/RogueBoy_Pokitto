@@ -24,3 +24,14 @@ enum class SpriteType : uint8_t {
     BulletLeft,
     
 };
+
+enum class GameState : uint8_t {
+    MainMenu, 
+    Settings, 
+    Game, 
+    LoadMap,
+    GameOver, 
+    mapEnding, 
+    Dead, 
+    WinState
+};

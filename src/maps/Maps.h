@@ -81,7 +81,7 @@ uint8_t enum Block {CLOSED_CHEST,
 
 const uint8_t TEST_MAP[] = {
   //Map Dimentions (unused)
-  MAP_HEIGHT, MAP_WIDTH,
+  map.height, map.width,
   //PLAYER STARTING POSITION
   0, 0,
   //MAP DATA

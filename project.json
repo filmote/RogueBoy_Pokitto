@@ -935,6 +935,12 @@
 		},
 		"/src/Game_InitMap.cpp": {
 			"sdcard": false
+		},
+		"/src/maps/Structs.h": {
+			"sdcard": false
+		},
+		"/src/utils/Structs.h": {
+			"sdcard": false
 		}
 	}
 }
