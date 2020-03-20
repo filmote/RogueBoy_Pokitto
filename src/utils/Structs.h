@@ -12,11 +12,3 @@ struct Point {
     int16_t y;
 
 };
-
-struct MapInformation {
-
-    uint16_t width;
-    uint16_t height;
-    uint8_t level;
-
-};

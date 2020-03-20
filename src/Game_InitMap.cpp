@@ -39,7 +39,7 @@ void Game::loadMap(uint8_t L) {
 
             for (uint8_t x = 0; x < run; x++) {
 
-                Map[cursor] = tile;
+                this->map.setBlock(cursor, tile);
                 cursor++;
 
             }
@@ -117,7 +117,7 @@ void Game::loadMap(uint8_t L) {
     uint8_t i = 0;
     for (int x=0; x<map.width; x++) {
         for (int y=0; y<map.height; y++) {
-            printf("%i ", Map[i]);
+            printf("%i ", this->map.getBlock(x, y));
             i++;
         }
         printf("\n");
@@ -149,8 +149,8 @@ void Game::loadMap(uint8_t L) {
 void Game::nextLevelLoad() {
 
     if (map.level < MAXLEVEL) {
-        loadMap(map.level);
-        map.level++; 
+        this->loadMap(map.level);
+        this->map.level++; 
         gameState = GameState::Game;
     } 
     else {

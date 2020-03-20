@@ -11,6 +11,7 @@
 #include "entities/Player.h"
 #include "entities/Sprite.h"
 #include "entities/Sprites.h"
+#include "entities/Map.h"
 #include "maps/Maps.h"
 
 
@@ -53,8 +54,8 @@ class Game {
         uint8_t getTileXOffset(uint16_t x);
         uint8_t getTileYOffset(uint16_t y);
         uint16_t getDistance(int x,int y,int x1,int y1);
-        uint8_t getBlock(MapInformation map, uint16_t x, uint16_t y);
-        void setBlock(MapInformation map, uint8_t x, uint8_t y, uint8_t bl);
+        // uint8_t getBlock(MapInformation map, uint16_t x, uint16_t y);
+        // void setBlock(MapInformation map, uint8_t x, uint8_t y, uint8_t bl);
         uint8_t getOffset(MapInformation map, uint8_t x, uint8_t y);
         bool isWalkable(MapInformation map, uint16_t x, uint16_t y);
         void dropItem(uint16_t x, uint16_t y, bool EnDrop, Sprites &Objects);
@@ -76,10 +77,10 @@ class Game {
         bool gameType = true;
         int points = 0;
 
-        MapInformation map = { 15, 15 };
-        const uint8_t * Maps[18] = { MAP_1, MAP_2, MAP_3, MAP_4, MAP_5, MAP_6, MAP_7, MAP_8, MAP_9, MAP_10, MAP_11, MAP_12, MAP_13, MAP_14, MAP_15, MAP_16, MAP_17, MAP_18 };
-        uint8_t Map[MAP_SIZE];
+        MapInformation map;
 
+    const uint8_t * Maps[18] = { MAP_1, MAP_2, MAP_3, MAP_4, MAP_5, MAP_6, MAP_7, MAP_8, MAP_9, MAP_10, MAP_11, MAP_12, MAP_13, MAP_14, MAP_15, MAP_16, MAP_17, MAP_18 };
+    
 };
 
 

@@ -126,7 +126,7 @@ void Game::renderEnviroment() {
     
         for(int j = -8; j < 8; j++) {
             
-            uint8_t block = getBlock(map, tileX + i, tileY + j);
+            uint8_t block = this->map.getBlock(tileX + i, tileY + j);
 
             int drawX = (i * 16) + CENTERX - offsetX;
             int drawY = (j * 16) + CENTERY - offsetY;

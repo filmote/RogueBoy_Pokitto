@@ -941,6 +941,9 @@
 		},
 		"/src/utils/Structs.h": {
 			"sdcard": false
+		},
+		"/src/entities/Map.h": {
+			"sdcard": false
 		}
 	}
 }

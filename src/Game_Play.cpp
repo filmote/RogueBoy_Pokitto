@@ -190,7 +190,7 @@ void Game::updateObjects() {
                 
         };
 
-        if (getBlock(map, getTileX(rx), getTileY(ry)) == 4) {
+        if (this->map.getBlock(getTileX(rx), getTileY(ry)) == 4) {
             barrelBreak(map, getTileX(rx), getTileY(ry), this->objects);
         } 
 
@@ -338,10 +338,10 @@ void Game::playerMovement() {
         int rely = getTileY(y);
         uint8_t ofx = getTileXOffset(x);
         uint8_t ofy = getTileYOffset(y);
-        uint8_t block = getBlock(map, relx,rely);
+        uint8_t block = this->map.getBlock(relx, rely);
 
         if (between(3, 3, 11, 11, ofx, ofy) && block == PRESS_PLATE) {
-            setBlock(map, relx,rely,RUBBLE);
+            this->map.setBlock(relx,rely,RUBBLE);
             updateEnvironmentBlock(map, relx, rely, this->environments);
             //sound.tone(NOTE_D2,150,NOTE_E2,50);
         }
@@ -369,7 +369,7 @@ void Game::playerMovement() {
 
         int relx = getTileX(x);
         int rely = getTileY(y);
-        uint8_t block = getBlock(map, relx,rely);
+        uint8_t block = this->map.getBlock(relx, rely);
 
         if (block == DOWN_STAIRS) {
             //sound.tone(NOTE_C3,100,NOTE_E3,100,NOTE_G3,100);
@@ -378,37 +378,37 @@ void Game::playerMovement() {
         else {
 
             switch(direction) {
-                case Direction::Up: rely--; break;
-                case Direction::Down: rely++; break;
-                case Direction::Right: relx++; break;
-                case Direction::Left: relx--; break;
+                case Direction::Up:     rely--; break;
+                case Direction::Down:   rely++; break;
+                case Direction::Right:  relx++; break;
+                case Direction::Left:   relx--; break;
             }
 
-            block = getBlock(map, relx,rely);
+            block = this->map.getBlock(relx, rely);
 
             switch (block) {
 
                 case SWITCH_ON: 
-                    setBlock(map, relx, rely, SWITCH_OFF); 
+                    this->map.setBlock(relx, rely, SWITCH_OFF); 
                     updateEnvironmentBlock(map, relx, rely, this->environments); 
                     //sound.tone(NOTE_D3,50,NOTE_E5,50); 
                     break;
 
                 case SWITCH_OFF: 
-                    setBlock(map, relx, rely, SWITCH_ON); 
+                    this->map.setBlock(relx, rely, SWITCH_ON); 
                     updateEnvironmentBlock(map, relx, rely, this->environments); 
                     //sound.tone(NOTE_D5,50,NOTE_E3,50); 
                     break;
 
                 case CLOSED_CHEST: 
-                    setBlock(map, relx, rely, OPEN_CHEST); 
+                    this->map.setBlock(relx, rely, OPEN_CHEST); 
                     player.setKeys(player.getKeys() + 1); 
                                     //sound.tone(NOTE_D3,50,NOTE_E5,50); 
                     break;
 
                 case LOCKED_DOOR: 
                     if (player.getKeys() > 0) {
-                        setBlock(map, relx, rely, OPEN_DOOR); 
+                        this->map.setBlock(relx, rely, OPEN_DOOR); 
                         player.setKeys(player.getKeys() - 1);  
                         //sound.tone(NOTE_D3,50,NOTE_E5,50);
                     } 
@@ -419,7 +419,7 @@ void Game::playerMovement() {
 
                 case LOCKED_STAIRS: 
                     if (player.getKeys() > 0) {
-                        setBlock(map, relx, rely, DOWN_STAIRS); 
+                        this->map.setBlock(relx, rely, DOWN_STAIRS); 
                         player.setKeys(player.getKeys() - 1);
                         //sound.tone(NOTE_D3,50,NOTE_E5,50);
                     } 
@@ -447,26 +447,26 @@ void Game::updateEnvironmentBlock(MapInformation map, uint8_t x, uint8_t y, Envi
             uint8_t x1 = environment.finishX();
             uint8_t y1 = environment.finishY();
 
-            switch(getBlock(map, x1, y1)) {
+            switch(this->map.getBlock(x1, y1)) {
 
                 case SPEAR_DOOR: 
-                    setBlock(map, x1, y1, OPEN_DOOR); 
+                    this->map.setBlock(x1, y1, OPEN_DOOR); 
                     break;
                 
                 case OPEN_DOOR: 
-                    setBlock(map, x1, y1, SPEAR_DOOR); 
+                    this->map.setBlock(x1, y1, SPEAR_DOOR); 
                     break;
 
                 case LOCKED_STAIRS: 
-                    setBlock(map, x1, y1, DOWN_STAIRS); 
+                    this->map.setBlock(x1, y1, DOWN_STAIRS); 
                     break;
 
                 case DOWN_STAIRS: 
-                    setBlock(map, x1, y1, LOCKED_STAIRS); 
+                    this->map.setBlock(x1, y1, LOCKED_STAIRS); 
                     break;
 
                 case EXPLOSIVE_BARREL: 
-                    setBlock(map, x1, y1, RUBBLE); 
+                    this->map.setBlock(x1, y1, RUBBLE); 
                     break;
 
             }
@@ -484,209 +484,197 @@ void Game::swap(uint8_t & a, uint8_t & b) {
     b = t;
 }
 
-    bool Game::between(uint8_t x, uint8_t y, uint8_t x1, uint8_t y1, uint8_t x2, uint8_t y2) {
-        if (x > x1)
-            swap(x, x1);
-            
-        if (y > y1)
-            swap(y, y1);
-            
-        return ((x <= x2) && (x2 <= x1) && (y <= y2) && (y2 <= y1));
-    }
-
-    int8_t Game::getTileX(uint16_t x) {
-        return (x / TILE_WIDTH);
-    }
-
-    uint8_t Game::getTileY(uint16_t y) {
-       return (y / TILE_HEIGHT);
-    }
-
-    uint8_t Game::getTileXOffset(uint16_t x) {
-        return (x % TILE_WIDTH);
-    }
-
-    uint8_t Game::getTileYOffset(uint16_t y) {
-        return (y % TILE_HEIGHT);
-    }
-
-    uint16_t Game::getDistance(int x,int y,int x1,int y1) {uint16_t ret = (abs(getTileX(x)-getTileX(x1))+abs(getTileY(y)-getTileY(y1))); return ret;}
-
-    uint8_t Game::getBlock(MapInformation map, uint16_t x, uint16_t y) {
-        if ((x >= map.width) || (y >= map.height)) {
-            return BLANK_WALL;
-        } 
-        else {
-            uint8_t Block = Map[(x + (y * map.width))];
-            return Block;
-        }
-    }
-
-    void Game::setBlock(MapInformation map, uint8_t x, uint8_t y, uint8_t bl) {
-        if ((x >= map.width) || (y >= map.height)) {
-            return;
-        }
-        Map[(x + (y * (map.width)))] = bl;
-    }
-
-    uint8_t Game::getOffset(MapInformation map, uint8_t x, uint8_t y) {
-        if ((x >= map.width) || (y >= map.height)) {
-            return 0;
-        }
-        return (x + (y * (map.width)));
-    }
-
-
-    bool Game::isWalkable(MapInformation map, uint16_t x, uint16_t y) {
-        uint8_t p[4];
-        bool Walk = true; 
-        p[0] = (getBlock(map, getTileX(x-4), getTileY(y-4)));
-        p[1] = (getBlock(map, getTileX(x+3), getTileY(y-4)));
-        p[2] = (getBlock(map, getTileX(x-4), getTileY(y+3)));
-        p[3] = (getBlock(map, getTileX(x+3), getTileY(y+3)));
-        for (uint8_t i=0; i<4;i++) {
-            if (!((p[i] == OPEN_DOOR)||(p[i] == UP_STAIRS)||(p[i] == DOWN_STAIRS)||(p[i] == EMPTY)||(p[i] == OPEN_CHEST)||(p[i] == RUBBLE)||(p[i] == PRESS_PLATE))) {
-                Walk = false;
-                break;
-            }
-        }
-        return Walk;
-    }
-
-    void Game::dropItem(uint16_t x, uint16_t y, bool EnDrop, Sprites &objects) {
+bool Game::between(uint8_t x, uint8_t y, uint8_t x1, uint8_t y1, uint8_t x2, uint8_t y2) {
+    if (x > x1)
+        swap(x, x1);
         
-        bool newSlot = true;
-        uint8_t found = 0;
+    if (y > y1)
+        swap(y, y1);
         
-        for (uint8_t i = 0; i < objects.getObjectNum(); i++) {
+    return ((x <= x2) && (x2 <= x1) && (y <= y2) && (y2 <= y1));
+}
 
-            auto &obj = this->objects.getSprite(i);
-            
-            if (!(obj.getActive())) {
-                newSlot = false;
-                found = i;
-                break;
-            }
+int8_t Game::getTileX(uint16_t x) {
+    return (x / TILE_WIDTH);
+}
 
+uint8_t Game::getTileY(uint16_t y) {
+    return (y / TILE_HEIGHT);
+}
+
+uint8_t Game::getTileXOffset(uint16_t x) {
+    return (x % TILE_WIDTH);
+}
+
+uint8_t Game::getTileYOffset(uint16_t y) {
+    return (y % TILE_HEIGHT);
+}
+
+uint16_t Game::getDistance(int x,int y,int x1,int y1) {uint16_t ret = (abs(getTileX(x)-getTileX(x1))+abs(getTileY(y)-getTileY(y1))); return ret;}
+
+
+uint8_t Game::getOffset(MapInformation map, uint8_t x, uint8_t y) {
+    if ((x >= map.width) || (y >= map.height)) {
+        return 0;
+    }
+    return (x + (y * (map.width)));
+}
+
+
+bool Game::isWalkable(MapInformation map, uint16_t x, uint16_t y) {
+    
+    uint8_t p[4];
+    bool Walk = true; 
+
+    p[0] = (this->map.getBlock(getTileX(x-4), getTileY(y-4)));
+    p[1] = (this->map.getBlock(getTileX(x+3), getTileY(y-4)));
+    p[2] = (this->map.getBlock(getTileX(x-4), getTileY(y+3)));
+    p[3] = (this->map.getBlock(getTileX(x+3), getTileY(y+3)));
+
+    for (uint8_t i=0; i<4;i++) {
+        if (!((p[i] == OPEN_DOOR)||(p[i] == UP_STAIRS)||(p[i] == DOWN_STAIRS)||(p[i] == EMPTY)||(p[i] == OPEN_CHEST)||(p[i] == RUBBLE)||(p[i] == PRESS_PLATE))) {
+            Walk = false;
+            break;
+        }
+    }
+    return Walk;
+}
+
+void Game::dropItem(uint16_t x, uint16_t y, bool EnDrop, Sprites &objects) {
+    
+    bool newSlot = true;
+    uint8_t found = 0;
+    
+    for (uint8_t i = 0; i < objects.getObjectNum(); i++) {
+
+        auto &obj = this->objects.getSprite(i);
+        
+        if (!(obj.getActive())) {
+            newSlot = false;
+            found = i;
+            break;
         }
 
-        if (this->objects.getObjectNum() == MAXOBJECT && newSlot) return;
+    }
 
-        if (newSlot) {
+    if (this->objects.getObjectNum() == MAXOBJECT && newSlot) return;
 
-            if (this->objects.getObjectNum() < MAXOBJECT) {
+    if (newSlot) {
 
-                uint8_t oNum = this->objects.getObjectNum();
-                oNum++;
-                this->objects.setObjectNum(oNum);
+        if (this->objects.getObjectNum() < MAXOBJECT) {
+
+            uint8_t oNum = this->objects.getObjectNum();
+            oNum++;
+            this->objects.setObjectNum(oNum);
+            
+        }
+        
+        uint8_t id = random(1,5);
+        uint8_t offset = 0;
+        auto object = this->objects.getSprite(this->objects.getObjectNum());
+        
+        if ((id != 4) && (id != 2)) {
+            
+            switch (id) {
+                
+                case 1: offset = 12;  break; //Coin
+                case 3: offset = 9;   break; //Jelly Filled Doughnut
+                case 5: offset = 11;  break; //Ham
                 
             }
-            
-            uint8_t id = random(1,5);
-            uint8_t offset = 0;
-            auto object = this->objects.getSprite(this->objects.getObjectNum());
-            
-            if ((id != 4) && (id != 2)) {
-                
-                switch (id) {
-                    
-                    case 1: offset = 12;  break; //Coin
-                    case 3: offset = 9;   break; //Jelly Filled Doughnut
-                    case 5: offset = 11;  break; //Ham
-                    
-                }
-                if (!EnDrop) {
-                    object.setSprite((x * TILE_SIZE) + 8, (y * TILE_SIZE) + 8, 1, id, offset, true);
-                }
-                else{
-                    object.setSprite(x, y, 1, id, offset, true);
-                }
-                
+            if (!EnDrop) {
+                object.setSprite((x * TILE_SIZE) + 8, (y * TILE_SIZE) + 8, 1, id, offset, true);
+            }
+            else{
+                object.setSprite(x, y, 1, id, offset, true);
             }
             
-        } 
-        else {
-    
-            uint8_t id = random(1,5);
-            uint8_t offset = 0;
-            auto object = this->objects.getSprite(found);
-    
-            if ((id != 4) && (id != 2)) {
-    
-                switch (id) {
-                    
-                    case 1: offset = 12;  break; //Coin
-                    case 3: offset = 9;   break; //Jelly Filled Doughnut
-                    case 5: offset = 11;  break; //Ham
-                    
-                }
-    
-                if (!EnDrop) {
-                    object.setSprite((x * TILE_SIZE) + 8, (y * TILE_SIZE) + 8, 1, id, offset, true);
-                }
-                else{
-                    object.setSprite(x, y, 1, id, offset, true);
-                }
+        }
+        
+    } 
+    else {
+
+        uint8_t id = random(1,5);
+        uint8_t offset = 0;
+        auto object = this->objects.getSprite(found);
+
+        if ((id != 4) && (id != 2)) {
+
+            switch (id) {
                 
+                case 1: offset = 12;  break; //Coin
+                case 3: offset = 9;   break; //Jelly Filled Doughnut
+                case 5: offset = 11;  break; //Ham
+                
+            }
+
+            if (!EnDrop) {
+                object.setSprite((x * TILE_SIZE) + 8, (y * TILE_SIZE) + 8, 1, id, offset, true);
+            }
+            else{
+                object.setSprite(x, y, 1, id, offset, true);
             }
             
         }
         
     }
     
-    
-    void Game::spriteAI(MapInformation map, Player &player, Sprite &sprite) {
+}
 
-        uint16_t x = sprite.getX();
-        uint16_t y = sprite.getY();
-            
-        switch(sprite.getType()) {
 
-            case 1: 
-                if (Pokitto::Core::frameCount % 5 == 0) { 
-                    sprite.setFrame(sprite.getFrame() + 1); 
-                    sprite.setFrame(sprite.getFrame() % 6);
-                } 
-                break;
+void Game::spriteAI(MapInformation map, Player &player, Sprite &sprite) {
 
-            case 6:            
-            case 7:     
-            case 8:   
-                if (getDistance(x, y, player.getX(), player.getY()) <= 5) {
-                    if (x < player.getX() && isWalkable(map, x+1,y)) { x++; }
-                    if (x > player.getX() && isWalkable(map, x-1,y)) { x--; }
-                    if (y < player.getY() && isWalkable(map, x,y+1)) { y++; }
-                    if (y > player.getY() && isWalkable(map, x,y-1)) { y--; }
-                }
-                break;
+    uint16_t x = sprite.getX();
+    uint16_t y = sprite.getY();
+        
+    switch(sprite.getType()) {
 
-            case 9: 
-                if (getDistance(x, y, player.getX(), player.getY()) < 5) {
-                    if (x < player.getX() && isWalkable(map, x+1,y)) { x++; }
-                    if (x > player.getX() && isWalkable(map, x-1,y)) { x--; }
-                    if (y < player.getY() && isWalkable(map, x,y+1)) { y++; }
-                    if (y > player.getY() && isWalkable(map, x,y-1)) { y--; }
-                }
-                if (Pokitto::Core::frameCount % 5 == 0) { 
-                    sprite.setFrame(sprite.getFrame() + 1); 
-                    sprite.setFrame(sprite.getFrame() % 2);
-                } 
+        case 1: 
+            if (Pokitto::Core::frameCount % 5 == 0) { 
+                sprite.setFrame(sprite.getFrame() + 1); 
+                sprite.setFrame(sprite.getFrame() % 6);
+            } 
+            break;
 
-                //if (Pokitto::Core::frameCount % 5 == 0) { ++Frame; Frame %= 2; } 
-                break;
+        case 6:            
+        case 7:     
+        case 8:   
+            if (getDistance(x, y, player.getX(), player.getY()) <= 5) {
+                if (x < player.getX() && isWalkable(map, x+1,y)) { x++; }
+                if (x > player.getX() && isWalkable(map, x-1,y)) { x--; }
+                if (y < player.getY() && isWalkable(map, x,y+1)) { y++; }
+                if (y > player.getY() && isWalkable(map, x,y-1)) { y--; }
+            }
+            break;
 
-        }
+        case 9: 
+            if (getDistance(x, y, player.getX(), player.getY()) < 5) {
+                if (x < player.getX() && isWalkable(map, x+1,y)) { x++; }
+                if (x > player.getX() && isWalkable(map, x-1,y)) { x--; }
+                if (y < player.getY() && isWalkable(map, x,y+1)) { y++; }
+                if (y > player.getY() && isWalkable(map, x,y-1)) { y--; }
+            }
+            if (Pokitto::Core::frameCount % 5 == 0) { 
+                sprite.setFrame(sprite.getFrame() + 1); 
+                sprite.setFrame(sprite.getFrame() % 2);
+            } 
 
-        sprite.setX(x);
-        sprite.setY(y);
-    
+            //if (Pokitto::Core::frameCount % 5 == 0) { ++Frame; Frame %= 2; } 
+            break;
+
     }
 
-    void Game::barrelBreak(MapInformation map, uint8_t x, uint8_t y, Sprites &objects) {
-        setBlock(map, x, y, 18);
-        dropItem(x, y, false, this->objects);
-        //sound.tone(NOTE_C3,50, NOTE_C2,50, NOTE_E3,150);
-    }
+    sprite.setX(x);
+    sprite.setY(y);
+
+}
+
+void Game::barrelBreak(MapInformation map, uint8_t x, uint8_t y, Sprites &objects) {
+    
+    this->map.setBlock(x, y, 18);
+    dropItem(x, y, false, this->objects);
+    //sound.tone(NOTE_C3,50, NOTE_C2,50, NOTE_E3,150);
+}
 
 
 
