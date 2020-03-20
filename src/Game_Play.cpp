@@ -604,9 +604,9 @@ void Game::barrelBreak(MapInformation map, uint8_t x, uint8_t y, Sprites &object
 void Game::death() {
 
     PD::setCursor(0,0);
-    PD::print("SCORED:");
+    PD::print("Scored: ");
     PD::print(this->points, 10);
-    PD::print("\nGot To Level:");
+    PD::print("\nGot To Level: ");
     PD::print(map.getLevel(), 10);
 
     if (PC::buttons.pressed(BTN_A) || PC::buttons.pressed(BTN_B)) {
@@ -622,7 +622,7 @@ void Game::win() {
     
     PD::setCursor(0,0);
     PD::print("WellDone!\n");
-    PD::print("YOU SCORED:");
+    PD::print("You Scored: ");
     PD::print(this->points, 10);
 
     if (PC::buttons.pressed(BTN_A) || PC::buttons.pressed(BTN_B)) { 
