@@ -1,28 +1,27 @@
 #define PROJ_BUTTONS_POLLING_ONLY
-#define PROJ_SCREENMODE             2
 
+#define _MAP_LARGE
 
-
-
-#define MAXLEVEL 18
-#define MAXOBJECT 15
-#define MAXENVIROMENT 15
-
-#define CENTERX 55
-#define CENTERY 44
-//#define CENTERX 110
-//#define CENTERY 88
+#ifndef MAP_LARGE
+    #define PROJ_SCREENMODE             2
+    #define CENTERX 55
+    #define CENTERY 44
+#else
+    #define PROJ_SCREENMODE             15
+    #define CENTERX 110
+    #define CENTERY 88
+#endif
 
 #define TILE_WIDTH 16
 #define TILE_HEIGHT 16
 #define TILE_SIZE 16
 
 
+#define MAXLEVEL 18
+#define MAXOBJECT 15
+#define MAXENVIROMENT 15
+
 #define MAP_SIZE 1600
-//sjh 225
-
-
-
 #define CLOSED_CHEST  0
 #define OPEN_CHEST  5 //isWalkable
 

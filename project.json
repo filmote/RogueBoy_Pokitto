@@ -944,6 +944,27 @@
 		},
 		"/src/entities/Map.h": {
 			"sdcard": false
+		},
+		"/src/entities/Map.cpp": {
+			"sdcard": false
+		},
+		"/src/entities/MapInformation.h": {
+			"sdcard": false
+		},
+		"/src/entities/MapInformation.cpp": {
+			"sdcard": false
+		},
+		"/src/entities/Entities.h": {
+			"sdcard": false
+		},
+		"/src/Game_Render.cpp": {
+			"sdcard": false
+		},
+		"/src/images/a644efc7660cd21ff220106b6518b84741f46fe3.png": {
+			"sdcard": false
+		},
+		"/src/images/a644efc7660cd21ff220106b6518b84741f46fe3.h": {
+			"sdcard": false
 		}
 	}
 }

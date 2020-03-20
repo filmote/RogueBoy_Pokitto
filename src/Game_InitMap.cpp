@@ -10,12 +10,12 @@ const uint8_t offsets[] = { 0, 12, 8, 9, 10, 11, 3, 4, 5, 6 };
 
 void Game::loadMap(uint8_t L) {
 
-    const uint8_t * CLevel = Maps[L];
+    const uint8_t * CLevel = this->maps[L];
 
-    map.width = CLevel[0] >> 4;
-    map.height = CLevel[0] & 0x0F;
+    map.setWidth(CLevel[0] >> 4);
+    map.setHeight(CLevel[0] & 0x0F);
 
-    uint8_t UsedMap = map.width*map.height; 
+    uint8_t UsedMap = map.getWidth()*map.getHeight(); 
     uint16_t px = (((CLevel[1]) >> 4)*16)+8;
     uint16_t py = (((CLevel[1]) & 0x0F)*16)+8;
     uint8_t index = OFFSET;
@@ -110,13 +110,13 @@ void Game::loadMap(uint8_t L) {
 
     printf("-----------------------------\n");
     printf("Map: %i", L);
-    printf(", W: %i", map.width);
-    printf(", H: %i",map.height);
+    printf(", W: %i", map.getWidth());
+    printf(", H: %i",map.getHeight());
     printf("\n-----------------------------\n");
 
     uint8_t i = 0;
-    for (int x=0; x<map.width; x++) {
-        for (int y=0; y<map.height; y++) {
+    for (int x=0; x<map.getWidth(); x++) {
+        for (int y=0; y<map.getHeight(); y++) {
             printf("%i ", this->map.getBlock(x, y));
             i++;
         }
@@ -148,9 +148,9 @@ void Game::loadMap(uint8_t L) {
 
 void Game::nextLevelLoad() {
 
-    if (map.level < MAXLEVEL) {
-        this->loadMap(map.level);
-        this->map.level++; 
+    if (map.getLevel() < MAXLEVEL) {
+        this->loadMap(map.getLevel());
+        this->map.setLevel(map.getLevel() + 1); 
         gameState = GameState::Game;
     } 
     else {

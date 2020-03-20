@@ -5,18 +5,6 @@ using PC = Pokitto::Core;
 using PD = Pokitto::Display;
 using PS = Pokitto::Sound;
 
-
-// void Game::fillRandom() {
-
-//     uint8_t r = 0;
-
-//     for(uint16_t i = 0; i<MAP_SIZE; i++) {
-//         r = rand() % 2;
-//         Map[i] = r;
-//     }
-
-// }
-
 void Game::init(uint16_t x, uint16_t y) {
 
     //sound.tone(NOTE_C7H,150, NOTE_REST,100, NOTE_C6,150);
@@ -122,19 +110,19 @@ void Game::updateObjects() {
                   switch (type) {
 
                     case 6:   
-                      player.setHealth(player.getHealth() - (10 * Diff)); 
+                      player.setHealth(player.getHealth() - (10 * diff)); 
                       break;
 
                     case 7: 
-                      player.setHealth(player.getHealth() - (5 * Diff)); 
+                      player.setHealth(player.getHealth() - (5 * diff)); 
                       break;
               
                     case 8: 
-                      player.setHealth(player.getHealth() - (2 * Diff)); 
+                      player.setHealth(player.getHealth() - (2 * diff)); 
                       break;
 
                     case 9: 
-                      player.setHealth(player.getHealth() - Diff); 
+                      player.setHealth(player.getHealth() - diff); 
                       break;
 
                   }
@@ -168,7 +156,7 @@ void Game::updateObjects() {
       uint16_t rx = bullet.getX();
       uint16_t ry = bullet.getY();
     
-      if (!isWalkable(map, rx,ry)) {
+      if (!this->map.isWalkable(rx, ry)) {
 
         switch (bullet.getDirection()) {
 
@@ -190,8 +178,8 @@ void Game::updateObjects() {
                 
         };
 
-        if (this->map.getBlock(getTileX(rx), getTileY(ry)) == 4) {
-            barrelBreak(map, getTileX(rx), getTileY(ry), this->objects);
+        if (this->map.getBlock(this->map.getTileX(rx), this->map.getTileY(ry)) == 4) {
+            barrelBreak(map, this->map.getTileX(rx), this->map.getTileY(ry), this->objects);
         } 
 
         bullet.setActive(false);
@@ -243,7 +231,7 @@ void Game::mapEnding() {
 
     PD::setCursor(0,0);
     PD::print("Level: ");
-    PD::print(map.level, 10);
+    PD::print(map.getLevel(), 10);
     PD::print("\nKills: ");
     PD::print(player.getKills(), 10);
     PD::print("\nCoins: ");
@@ -296,7 +284,7 @@ void Game::playerMovement() {
     moving = false;
 
     if ((PC::buttons.pressed(BTN_UP) || PC::buttons.repeat(BTN_UP, 1))) {
-        if (isWalkable(map, x,y-2)) {
+        if (this->map.isWalkable(x,y - 2)) {
             y-=2;
             moving = true;
         }
@@ -304,7 +292,7 @@ void Game::playerMovement() {
     }
 
     if ((PC::buttons.pressed(BTN_DOWN) || PC::buttons.repeat(BTN_DOWN, 1))) {
-        if (isWalkable(map, x,y+2)) {
+        if (this->map.isWalkable(x, y + 2)) {
             y+=2;
             moving = true;
         }
@@ -312,7 +300,7 @@ void Game::playerMovement() {
     }
 
     if ((PC::buttons.pressed(BTN_RIGHT) || PC::buttons.repeat(BTN_RIGHT, 1))) {
-        if (isWalkable(map, x+2,y)) {
+        if (this->map.isWalkable(x + 2, y)) {
             x+=2;
             moving = true;
         }
@@ -320,7 +308,7 @@ void Game::playerMovement() {
     }
     
     if ((PC::buttons.pressed(BTN_LEFT) || PC::buttons.repeat(BTN_LEFT, 1))) {
-        if (isWalkable(map, x-2,y)) {
+        if (this->map.isWalkable(x - 2, y)) {
             x-=2;
             moving = true;
         }
@@ -334,13 +322,13 @@ void Game::playerMovement() {
 
     if (moving) {    
         
-        int relx = getTileX(x);
-        int rely = getTileY(y);
-        uint8_t ofx = getTileXOffset(x);
-        uint8_t ofy = getTileYOffset(y);
+        int relx = this->map.getTileX(x);
+        int rely = this->map.getTileY(y);
+        uint8_t ofx = this->map.getTileXOffset(x);
+        uint8_t ofy = this->map.getTileYOffset(y);
         uint8_t block = this->map.getBlock(relx, rely);
 
-        if (between(3, 3, 11, 11, ofx, ofy) && block == PRESS_PLATE) {
+        if (this->map. between(3, 3, 11, 11, ofx, ofy) && block == PRESS_PLATE) {
             this->map.setBlock(relx,rely,RUBBLE);
             updateEnvironmentBlock(map, relx, rely, this->environments);
             //sound.tone(NOTE_D2,150,NOTE_E2,50);
@@ -367,8 +355,8 @@ void Game::playerMovement() {
 
     if (PC::buttons.pressed(BTN_A)) {
 
-        int relx = getTileX(x);
-        int rely = getTileY(y);
+        int relx = this->map.getTileX(x);
+        int rely = this->map.getTileY(y);
         uint8_t block = this->map.getBlock(relx, rely);
 
         if (block == DOWN_STAIRS) {
@@ -477,69 +465,6 @@ void Game::updateEnvironmentBlock(MapInformation map, uint8_t x, uint8_t y, Envi
 
 }
 
-
-void Game::swap(uint8_t & a, uint8_t & b) {
-    uint8_t t = a;
-    a = b;
-    b = t;
-}
-
-bool Game::between(uint8_t x, uint8_t y, uint8_t x1, uint8_t y1, uint8_t x2, uint8_t y2) {
-    if (x > x1)
-        swap(x, x1);
-        
-    if (y > y1)
-        swap(y, y1);
-        
-    return ((x <= x2) && (x2 <= x1) && (y <= y2) && (y2 <= y1));
-}
-
-int8_t Game::getTileX(uint16_t x) {
-    return (x / TILE_WIDTH);
-}
-
-uint8_t Game::getTileY(uint16_t y) {
-    return (y / TILE_HEIGHT);
-}
-
-uint8_t Game::getTileXOffset(uint16_t x) {
-    return (x % TILE_WIDTH);
-}
-
-uint8_t Game::getTileYOffset(uint16_t y) {
-    return (y % TILE_HEIGHT);
-}
-
-uint16_t Game::getDistance(int x,int y,int x1,int y1) {uint16_t ret = (abs(getTileX(x)-getTileX(x1))+abs(getTileY(y)-getTileY(y1))); return ret;}
-
-
-uint8_t Game::getOffset(MapInformation map, uint8_t x, uint8_t y) {
-    if ((x >= map.width) || (y >= map.height)) {
-        return 0;
-    }
-    return (x + (y * (map.width)));
-}
-
-
-bool Game::isWalkable(MapInformation map, uint16_t x, uint16_t y) {
-    
-    uint8_t p[4];
-    bool Walk = true; 
-
-    p[0] = (this->map.getBlock(getTileX(x-4), getTileY(y-4)));
-    p[1] = (this->map.getBlock(getTileX(x+3), getTileY(y-4)));
-    p[2] = (this->map.getBlock(getTileX(x-4), getTileY(y+3)));
-    p[3] = (this->map.getBlock(getTileX(x+3), getTileY(y+3)));
-
-    for (uint8_t i=0; i<4;i++) {
-        if (!((p[i] == OPEN_DOOR)||(p[i] == UP_STAIRS)||(p[i] == DOWN_STAIRS)||(p[i] == EMPTY)||(p[i] == OPEN_CHEST)||(p[i] == RUBBLE)||(p[i] == PRESS_PLATE))) {
-            Walk = false;
-            break;
-        }
-    }
-    return Walk;
-}
-
 void Game::dropItem(uint16_t x, uint16_t y, bool EnDrop, Sprites &objects) {
     
     bool newSlot = true;
@@ -639,20 +564,20 @@ void Game::spriteAI(MapInformation map, Player &player, Sprite &sprite) {
         case 6:            
         case 7:     
         case 8:   
-            if (getDistance(x, y, player.getX(), player.getY()) <= 5) {
-                if (x < player.getX() && isWalkable(map, x+1,y)) { x++; }
-                if (x > player.getX() && isWalkable(map, x-1,y)) { x--; }
-                if (y < player.getY() && isWalkable(map, x,y+1)) { y++; }
-                if (y > player.getY() && isWalkable(map, x,y-1)) { y--; }
+            if (this->map. getDistance(x, y, player.getX(), player.getY()) <= 5) {
+                if (x < player.getX() && this->map.isWalkable(x+1,y)) { x++; }
+                if (x > player.getX() && this->map.isWalkable(x-1,y)) { x--; }
+                if (y < player.getY() && this->map.isWalkable(x,y+1)) { y++; }
+                if (y > player.getY() && this->map.isWalkable(x,y-1)) { y--; }
             }
             break;
 
         case 9: 
-            if (getDistance(x, y, player.getX(), player.getY()) < 5) {
-                if (x < player.getX() && isWalkable(map, x+1,y)) { x++; }
-                if (x > player.getX() && isWalkable(map, x-1,y)) { x--; }
-                if (y < player.getY() && isWalkable(map, x,y+1)) { y++; }
-                if (y > player.getY() && isWalkable(map, x,y-1)) { y--; }
+            if (this->map. getDistance(x, y, player.getX(), player.getY()) < 5) {
+                if (x < player.getX() && this->map.isWalkable(x+1,y)) { x++; }
+                if (x > player.getX() && this->map.isWalkable(x-1,y)) { x--; }
+                if (y < player.getY() && this->map.isWalkable(x,y+1)) { y++; }
+                if (y > player.getY() && this->map.isWalkable(x,y-1)) { y--; }
             }
             if (Pokitto::Core::frameCount % 5 == 0) { 
                 sprite.setFrame(sprite.getFrame() + 1); 
@@ -676,20 +601,21 @@ void Game::barrelBreak(MapInformation map, uint8_t x, uint8_t y, Sprites &object
     //sound.tone(NOTE_C3,50, NOTE_C2,50, NOTE_E3,150);
 }
 
-
-
 void Game::death() {
 
     PD::setCursor(0,0);
     PD::print("SCORED:");
     PD::print(this->points, 10);
     PD::print("\nGot To Level:");
-    PD::print(map.level, 10);
+    PD::print(map.getLevel(), 10);
 
     if (PC::buttons.pressed(BTN_A) || PC::buttons.pressed(BTN_B)) {
         //sound.noTone(); 
-        gameState = GameState::MainMenu; map.level = 0; this->points = 0; gameType = true;
+        gameState = GameState::MainMenu; 
+        map.setLevel(0); 
+        this->points = 0; 
     }
+
 }
 
 void Game::win() {
@@ -702,7 +628,7 @@ void Game::win() {
     if (PC::buttons.pressed(BTN_A) || PC::buttons.pressed(BTN_B)) { 
         //sound.noTone(); 
         gameState = GameState::MainMenu; 
-        map.level = 0; 
+        map.setLevel(0); 
         this->points = 0;
     }
 
