@@ -8,13 +8,7 @@ using PS = Pokitto::Sound;
 void Game::init(uint16_t x, uint16_t y) {
 
     //sound.tone(NOTE_C7H,150, NOTE_REST,100, NOTE_C6,150);
-    player.setX(x);
-    player.setY(y);
-    player.setDirection(Direction::Up);
-    player.setCoins(0);
-    player.setKeys(0);
-    player.setKills(0);
-    player.setHealth(100);
+    player.init(x, y);
 
     for (uint8_t i = 0; i < 6; i++) {
 
@@ -220,9 +214,6 @@ void Game::renderObjects() {
 
 }
 
-//const uint16_t DeathNotes[] = {NOTE_A3,500,NOTE_REST,100,NOTE_A3,500,NOTE_REST,100,NOTE_A3,250,NOTE_REST,100,NOTE_A3,250,NOTE_REST,50,NOTE_C3,500,NOTE_REST,100,NOTE_B3,250,NOTE_REST,100,NOTE_B3,250,NOTE_REST,100,NOTE_A3,500,NOTE_REST,100,NOTE_B3,250, TONES_END};
-
-
 void Game::mapEnding() {
 
     int padd = player.getCoins() * 5;    
@@ -266,7 +257,7 @@ void Game::updateGame() {
     if (this->timer == 0) { player.setHealth(0); }
     
     if (player.getHealth() <= 0) {
-    //sound.tones(DeathNotes); 
+        //sound.tones(DeathNotes); 
         gameState = GameState::Dead;
 
     }
@@ -328,8 +319,8 @@ void Game::playerMovement() {
         uint8_t ofy = this->map.getTileYOffset(y);
         uint8_t block = this->map.getBlock(relx, rely);
 
-        if (this->map. between(3, 3, 11, 11, ofx, ofy) && block == PRESS_PLATE) {
-            this->map.setBlock(relx,rely,RUBBLE);
+        if (this->map. between(3, 3, 11, 11, ofx, ofy) && block == MapTiles::PressPlate) {
+            this->map.setBlock(relx,rely,MapTiles::Rubble);
             updateEnvironmentBlock(map, relx, rely, this->environments);
             //sound.tone(NOTE_D2,150,NOTE_E2,50);
         }
@@ -359,7 +350,7 @@ void Game::playerMovement() {
         int rely = this->map.getTileY(y);
         uint8_t block = this->map.getBlock(relx, rely);
 
-        if (block == DOWN_STAIRS) {
+        if (block == MapTiles::DownStairs) {
             //sound.tone(NOTE_C3,100,NOTE_E3,100,NOTE_G3,100);
             gameState = GameState::mapEnding;
         } 
@@ -376,27 +367,27 @@ void Game::playerMovement() {
 
             switch (block) {
 
-                case SWITCH_ON: 
-                    this->map.setBlock(relx, rely, SWITCH_OFF); 
+                case MapTiles::SwitchOn: 
+                    this->map.setBlock(relx, rely, MapTiles::SwitchOff); 
                     updateEnvironmentBlock(map, relx, rely, this->environments); 
                     //sound.tone(NOTE_D3,50,NOTE_E5,50); 
                     break;
 
-                case SWITCH_OFF: 
-                    this->map.setBlock(relx, rely, SWITCH_ON); 
+                case MapTiles::SwitchOff: 
+                    this->map.setBlock(relx, rely, MapTiles::SwitchOn); 
                     updateEnvironmentBlock(map, relx, rely, this->environments); 
                     //sound.tone(NOTE_D5,50,NOTE_E3,50); 
                     break;
 
-                case CLOSED_CHEST: 
-                    this->map.setBlock(relx, rely, OPEN_CHEST); 
+                case MapTiles::ClosedChest: 
+                    this->map.setBlock(relx, rely, MapTiles::OpenChest); 
                     player.setKeys(player.getKeys() + 1); 
-                                    //sound.tone(NOTE_D3,50,NOTE_E5,50); 
+                    //sound.tone(NOTE_D3,50,NOTE_E5,50); 
                     break;
 
-                case LOCKED_DOOR: 
+                case MapTiles::LockedDoor: 
                     if (player.getKeys() > 0) {
-                        this->map.setBlock(relx, rely, OPEN_DOOR); 
+                        this->map.setBlock(relx, rely, MapTiles::OpenDoor); 
                         player.setKeys(player.getKeys() - 1);  
                         //sound.tone(NOTE_D3,50,NOTE_E5,50);
                     } 
@@ -405,9 +396,9 @@ void Game::playerMovement() {
                     }  
                     break;
 
-                case LOCKED_STAIRS: 
+                case MapTiles::LockedStairs: 
                     if (player.getKeys() > 0) {
-                        this->map.setBlock(relx, rely, DOWN_STAIRS); 
+                        this->map.setBlock(relx, rely, MapTiles::DownStairs); 
                         player.setKeys(player.getKeys() - 1);
                         //sound.tone(NOTE_D3,50,NOTE_E5,50);
                     } 
@@ -437,24 +428,24 @@ void Game::updateEnvironmentBlock(MapInformation map, uint8_t x, uint8_t y, Envi
 
             switch(this->map.getBlock(x1, y1)) {
 
-                case SPEAR_DOOR: 
-                    this->map.setBlock(x1, y1, OPEN_DOOR); 
+                case MapTiles::SpearDoor: 
+                    this->map.setBlock(x1, y1, MapTiles::OpenDoor); 
                     break;
                 
-                case OPEN_DOOR: 
-                    this->map.setBlock(x1, y1, SPEAR_DOOR); 
+                case MapTiles::OpenDoor: 
+                    this->map.setBlock(x1, y1, MapTiles::SpearDoor); 
                     break;
 
-                case LOCKED_STAIRS: 
-                    this->map.setBlock(x1, y1, DOWN_STAIRS); 
+                case MapTiles::LockedStairs: 
+                    this->map.setBlock(x1, y1, MapTiles::DownStairs); 
                     break;
 
-                case DOWN_STAIRS: 
-                    this->map.setBlock(x1, y1, LOCKED_STAIRS); 
+                case MapTiles::DownStairs: 
+                    this->map.setBlock(x1, y1, MapTiles::LockedStairs); 
                     break;
 
-                case EXPLOSIVE_BARREL: 
-                    this->map.setBlock(x1, y1, RUBBLE); 
+                case MapTiles::ExplosiveBarrel: 
+                    this->map.setBlock(x1, y1, MapTiles::Rubble); 
                     break;
 
             }

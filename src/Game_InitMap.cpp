@@ -10,99 +10,72 @@ const uint8_t offsets[] = { 0, 12, 8, 9, 10, 11, 3, 4, 5, 6 };
 
 void Game::loadMap(uint8_t L) {
 
-    const uint8_t * CLevel = this->maps[L];
+    const uint8_t * levelToLoad = this->maps[L];
+    uint16_t cursor = 0;
 
-    map.setWidth(CLevel[0] >> 4);
-    map.setHeight(CLevel[0] & 0x0F);
+    map.setWidth(levelToLoad[cursor++]);
+    map.setHeight(levelToLoad[cursor++]);
 
-    uint8_t UsedMap = map.getWidth()*map.getHeight(); 
-    uint16_t px = (((CLevel[1]) >> 4)*16)+8;
-    uint16_t py = (((CLevel[1]) & 0x0F)*16)+8;
-    uint8_t index = OFFSET;
+    uint8_t UsedMap = map.getWidth() * map.getHeight(); 
+
+    uint16_t px = (levelToLoad[cursor++] * TILE_SIZE) + 8;
+    uint16_t py = (levelToLoad[cursor++] * TILE_SIZE) + 8;
 
     init(px, py);
 
 
     // Read map data ..
 
-    uint8_t cursor = 0;
+    for (uint16_t idx = 0; idx < map.getWidth() * map.getHeight(); idx++) {
 
-    while (true) {
-
-        uint8_t data = CLevel[index];
-        uint8_t tile = data >> 3;
-        uint8_t run = data & 0x07;
-
-        index++;
-
-        if (run > 0) {
-
-            for (uint8_t x = 0; x < run; x++) {
-
-                this->map.setBlock(cursor, tile);
-                cursor++;
-
-            }
-
-        }
-        else {
-
-            break;
-
-        }
+        uint8_t tile = levelToLoad[cursor];
+        this->map.setBlock(idx, tile);
+        cursor++;
 
     }
-    
+
 
     // Load objects ..
 
-    objects.setObjectNum(CLevel[index++]);
+    objects.setObjectNum(levelToLoad[cursor++]);
 
     for (int i = 0; i < MAXOBJECT; i++) {
 
-        uint8_t id = 0;
-        uint8_t h = 0;
-        uint8_t offset = 0;
-        uint16_t px = 0;
-        uint16_t py = 0;
-        bool active = false;
-
         if (i < objects.getObjectNum()) {
-          id = CLevel[index++];
-          px = (((CLevel[index]) >> 4) * TILE_SIZE) + 8;
-          py = (((CLevel[index++]) & 0x0f) * TILE_SIZE) + 8;
-          h = CLevel[index++];
-          active = true;
-        }
 
-        auto & object = objects.getSprite(i);
-        object.setSprite(px, py, h, id, offsets[id], active);
+            uint8_t id = levelToLoad[cursor++];
+            uint16_t px = (levelToLoad[cursor++] * TILE_SIZE) + 8;
+            uint16_t py = (levelToLoad[cursor++] * TILE_SIZE) + 8;
+            uint8_t h = levelToLoad[cursor++];
+            uint8_t offset = 0;
+            bool active = true;
+
+            auto & object = objects.getSprite(i);
+            object.setSprite(px, py, h, id, offsets[id], active);
+
+        }
 
     }
 
 
     // Load environment elements ..
 
-    this->environments.setEnvironmentNum(CLevel[index++]);
+    this->environments.setEnvironmentNum(levelToLoad[cursor++]);
     
     for (int i = 0; i < MAXENVIROMENT; i++) {
     
-        uint8_t x1 = 0;
-        uint8_t y1 = 0;
-        uint8_t x2 = 0;
-        uint8_t y2 = 0;
-        bool active = false;
-    
         if (i < this->environments.getEnvironmentNum()) {
-          x1 = CLevel[index] >> 4;
-          y1 = CLevel[index++] & 0x0f;
-          x2 = CLevel[index] >> 4;
-          y2 = CLevel[index++] & 0x0f;
-          active = true;
-        }
 
-        auto & environment = this->environments.getEnvironment(i);
-        environment.setEnv(x1, y1, x2, y2, active);
+            uint8_t x1 = levelToLoad[cursor++];
+            uint8_t y1 = levelToLoad[cursor++];
+            uint8_t x2 = levelToLoad[cursor++];
+            uint8_t y2 = levelToLoad[cursor++];
+            bool active = true;
+
+            auto & environment = this->environments.getEnvironment(i);
+            environment.setEnv(x1, y1, x2, y2, active);
+
+        }
 
     }
 

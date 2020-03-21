@@ -37,6 +37,17 @@ class Player {
             this->frame %= 4;
         }
 
+        void init(uint16_t x, uint16_t y) {
+            this->x = x;
+            this->y = y;
+            this->direction = Direction::Up;
+            this->coins = 0;
+            this->keys = 0;
+            this->kills = 0;
+            this->health = 100;
+            this->moving = false;
+        }
+
     private:
 
         uint16_t x;

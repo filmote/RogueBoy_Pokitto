@@ -1,4 +1,5 @@
 #include "MapInformation.h"
+#include "../utils/Enums.h"
 
 uint8_t MapInformation::getLevel() {
     return this->level;
@@ -27,7 +28,7 @@ void MapInformation::setHeight(uint16_t height) {
 uint8_t MapInformation::getBlock(uint16_t x, uint16_t y) {
 
     if ((x >= this->width) || (y >= this->height)) {
-        return BLANK_WALL;
+        return MapTiles::BlankWall;
     } 
     else {
         uint8_t Block = this->mapData[(x + (y * this->width))];
@@ -41,7 +42,7 @@ void MapInformation::setBlock(uint8_t x, uint8_t y, uint8_t block) {
     if ((x >= this->width) || (y >= this->height)) {
         return;
     }
-    this->mapData[(x + (y * (this->width)))] = block;
+    this->mapData[x + (y * (this->width))] = block;
 
 }
 
@@ -124,7 +125,7 @@ bool MapInformation::isWalkable(uint16_t x, uint16_t y) {
 
     for (uint8_t i=0; i<4;i++) {
 
-        if (!((p[i] == OPEN_DOOR)||(p[i] == UP_STAIRS)||(p[i] == DOWN_STAIRS)||(p[i] == EMPTY)||(p[i] == OPEN_CHEST)||(p[i] == RUBBLE)||(p[i] == PRESS_PLATE))) {
+        if (!((p[i] == MapTiles::OpenDoor)||(p[i] == MapTiles::UpStairs)||(p[i] == MapTiles::DownStairs)||(p[i] == MapTiles::Empty)||(p[i] == MapTiles::OpenChest)||(p[i] == MapTiles::Rubble)||(p[i] == MapTiles::PressPlate))) {
             walk = false;
             break;
         }
