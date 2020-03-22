@@ -60,7 +60,7 @@ class Game {
         uint8_t diff = 1;
         uint8_t timer = 255;
         int points = 0;
-        uint8_t inventoryCursor = 0;
+        InventoryMenu inventoryMenu;
         
         MapInformation map;
 

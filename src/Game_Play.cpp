@@ -29,117 +29,114 @@ void Game::updateObjects() {
 
       if (Ud) { this->spriteAI(map, player, objectI); }
       
-      if (this->collision(objectI.getX(), objectI.getY(), player.getX(), player.getY())) {
+      if (!objectI.getPreventImmediatePickup() && this->collision(objectI.getX(), objectI.getY(), player.getX(), player.getY())) {
 
-          {
-            uint16_t note = 0;
-            uint16_t duration = 0;
-            uint8_t type = objectI.getType();
+        uint16_t note = 0;
+        uint16_t duration = 0;
+        uint8_t type = objectI.getType();
 
-            switch (type) {
-              
-              case Object::Coin: 
-                player.setCoins(player.getCoins() + 1); 
-                objectI.setActive(false); 
-                break;
+        switch (type) {
+            
+            case Object::Coin: 
+            player.setCoins(player.getCoins() + 1); 
+            objectI.setActive(false); 
+            break;
 
-              case Object::SackOCash: 
-                player.setCoins(player.getCoins() + 5); 
-                objectI.setActive(false); 
-                break;
+            case Object::SackOCash: 
+            player.setCoins(player.getCoins() + 5); 
+            objectI.setActive(false); 
+            break;
 
-              case Object::Key: 
-                {
-                    uint8_t slot = this->player.addInventoryItem(Object::Key);
-                    if (slot != NO_SLOT_FOUND) {
-                        objectI.setActive(false);
-                        // sound picked up item
-                    }
-                    else {
-                        // sound could not pick up
-                    }
-
+            case Object::Key: 
+            {
+                uint8_t slot = this->player.addInventoryItem(Object::Key);
+                if (slot != NO_SLOT_FOUND) {
+                    objectI.setActive(false);
+                    // sound picked up item
                 }
-                break;
-
-              case Object::Donut: 
-                {
-                    uint8_t slot = this->player.addInventoryItem(Object::Donut);
-                    if (slot != NO_SLOT_FOUND) {
-                        objectI.setActive(false);
-                        // sound picked up item
-                    }
-                    else {
-                        // sound could not pick up
-                    }
-
-                }
-                break;
-
-              case Object::Ham: 
-                {
-                    uint8_t slot = this->player.addInventoryItem(Object::Ham);
-                    if (slot != NO_SLOT_FOUND) {
-                        objectI.setActive(false);
-                        // sound picked up item
-                    }
-                    else {
-                        // sound could not pick up
-                    }
-
-                }
-                break;
-
-              case Object::Spanner: 
-                {
-                    uint8_t slot = this->player.addInventoryItem(Object::Spanner);
-                    if (slot != NO_SLOT_FOUND) {
-                        objectI.setActive(false);
-                        // sound picked up item
-                    }
-                    else {
-                        // sound could not pick up
-                    }
-
-                }
-                break;
-
-              case Object::Floater:
-              case Object::Skull:
-              case Object::Spider:
-              case Object::Bat:
-
-                if (PC::frameCount % 5 == 0) { 
-
-                  switch (type) {
-
-                    case Object::Floater:   
-                      player.setHealth(player.getHealth() - (10 * diff)); 
-                      break;
-
-                    case Object::Skull: 
-                      player.setHealth(player.getHealth() - (5 * diff)); 
-                      break;
-              
-                    case Object::Spider:
-                      player.setHealth(player.getHealth() - (2 * diff)); 
-                      break;
-
-                    case Object::Bat: 
-                      player.setHealth(player.getHealth() - diff); 
-                      break;
-
-                  }
-
+                else {
+                    // sound could not pick up
                 }
 
-                break;
+            }
+            break;
 
-              }
+            case Object::Donut: 
+            {
+                uint8_t slot = this->player.addInventoryItem(Object::Donut);
+                if (slot != NO_SLOT_FOUND) {
+                    objectI.setActive(false);
+                    // sound picked up item
+                }
+                else {
+                    // sound could not pick up
+                }
+
+            }
+            break;
+
+            case Object::Ham: 
+            {
+                uint8_t slot = this->player.addInventoryItem(Object::Ham);
+                if (slot != NO_SLOT_FOUND) {
+                    objectI.setActive(false);
+                    // sound picked up item
+                }
+                else {
+                    // sound could not pick up
+                }
+
+            }
+            break;
+
+            case Object::Spanner: 
+            {
+                uint8_t slot = this->player.addInventoryItem(Object::Spanner);
+                if (slot != NO_SLOT_FOUND) {
+                    objectI.setActive(false);
+                    // sound picked up item
+                }
+                else {
+                    // sound could not pick up
+                }
+
+            }
+            break;
+
+            case Object::Floater:
+            case Object::Skull:
+            case Object::Spider:
+            case Object::Bat:
+
+            if (PC::frameCount % 5 == 0) { 
+
+                switch (type) {
+
+                case Object::Floater:   
+                    player.setHealth(player.getHealth() - (10 * diff)); 
+                    break;
+
+                case Object::Skull: 
+                    player.setHealth(player.getHealth() - (5 * diff)); 
+                    break;
+            
+                case Object::Spider:
+                    player.setHealth(player.getHealth() - (2 * diff)); 
+                    break;
+
+                case Object::Bat: 
+                    player.setHealth(player.getHealth() - diff); 
+                    break;
+
+                }
 
             }
 
-         }
+            break;
+
+            }
+
+        }
 
       }
       

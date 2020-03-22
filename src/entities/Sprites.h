@@ -15,6 +15,7 @@ class Sprites {
         Sprites() {};  
 
         Sprite & getSprite(uint8_t index);
+        uint8_t getFirstInactiveSpriteIndex(Object type);
         uint8_t getObjectNum();
 
         void setObjectNum(uint8_t oNum);

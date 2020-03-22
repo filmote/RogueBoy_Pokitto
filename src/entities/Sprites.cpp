@@ -7,6 +7,25 @@ Sprite & Sprites::getSprite(uint8_t index) {
     
 }
 
+
+uint8_t Sprites::getFirstInactiveSpriteIndex(Object type) {
+
+    for (uint8_t i = 0; i < this->oNum; i++) {
+
+        auto &object = this->objects[i];
+
+        if (object.getType() == type && !object.getActive()) {
+
+            return i;
+
+        }
+
+    }
+
+    return NO_SPRITE_FOUND;
+        
+}
+
 uint8_t Sprites::getObjectNum() {
 
     return this->oNum;

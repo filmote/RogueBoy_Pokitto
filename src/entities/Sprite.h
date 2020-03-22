@@ -121,6 +121,18 @@ class Sprite {
 
         };
 
+        void setPreventImmediatePickup(bool value) {
+
+             this->preventImmediatePickup = value;
+
+        }
+
+        bool getPreventImmediatePickup() {
+
+            return this->preventImmediatePickup;
+        }
+
+
     private:
 
         uint8_t offset;
@@ -133,6 +145,7 @@ class Sprite {
 
         int8_t lastMoveX;
         int8_t lastMoveY;
+        bool preventImmediatePickup;
 
 };
 

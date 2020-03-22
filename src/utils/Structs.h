@@ -14,6 +14,14 @@ struct Point {
 
 };
 
+struct InventoryMenu {
+
+    uint8_t mainCursor = 0;
+    uint8_t actionCursor = 0;
+    bool showActionMenu = false;
+
+};
+
 struct InventoryItem {
 
     uint8_t index;      // Ordinal index in collection.
