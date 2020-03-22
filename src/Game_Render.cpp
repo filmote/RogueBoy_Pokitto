@@ -6,6 +6,13 @@ using PD = Pokitto::Display;
 using PS = Pokitto::Sound;
 
 
+void Game::renderObjects() {
+
+    objects.render(player);
+    bullets.render(player);
+
+}
+
 void Game::drawHealth() {
     
     #ifndef MAP_LARGE
@@ -39,8 +46,8 @@ void Game::drawHolding() {
         PD::drawBitmap(82, 69, Images::Keys_Main);
         PD::drawBitmap(82, 79, Images::Coins_Main);
         PD::setCursor(94, 70);
-        if (player.getKeys() < 10)  PD::print("0");
-        PD::print(player.getKeys(), 10);
+        if (player.getInventoryCount(Object::Key) < 10)  PD::print("0");
+        PD::print(player.getInventoryCount(Object::Key), 10);
         PD::setCursor(94, 80);
         if (player.getCoins() < 10) PD::print("0");
         PD::print(player.getCoins(), 10);
@@ -53,8 +60,8 @@ void Game::drawHolding() {
         PD::drawBitmap(192, 157, Images::Keys_Main);
         PD::drawBitmap(192, 167, Images::Coins_Main);
         PD::setCursor(204, 158);
-        if (player.getKeys() < 10)  PD::print("0");
-        PD::print(player.getKeys(), 10);
+        if (player.getInventoryCount(Object::Key) < 10)  PD::print("0");
+        PD::print(player.getInventoryCount(Object::Key), 10);
         PD::setCursor(204, 168);
         if (player.getCoins() < 10) PD::print("0");
         PD::print(player.getCoins(), 10);
@@ -152,7 +159,7 @@ void Game::renderPlayer() {
     const uint8_t PlayerFrames[] = { 0, 1, 0, 2 };
     
     if(!player.getMoving()) {
-        PD::drawBitmap(CENTERX - 4, CENTERY - 4, Images::Sprites[0]);
+        PD::drawBitmap(CENTERX - 4, CENTERY - 4, Images::Players[0]);
     }
     else {
 
@@ -160,7 +167,7 @@ void Game::renderPlayer() {
             player.incFrame();
         }
 
-        PD::drawBitmap(CENTERX - 4, CENTERY - 4, Images::Sprites[PlayerFrames[player.getFrame()]]);
+        PD::drawBitmap(CENTERX - 4, CENTERY - 4, Images::Players[PlayerFrames[player.getFrame()]]);
 
     }
 

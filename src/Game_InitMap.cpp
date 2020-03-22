@@ -8,9 +8,9 @@ using PS = Pokitto::Sound;
 
 const uint8_t offsets[] = { 0, 12, 8, 9, 10, 11, 3, 4, 5, 6 };
 
-void Game::loadMap(uint8_t L) {
+void Game::loadMap(uint8_t level) {
 
-    const uint8_t * levelToLoad = this->maps[L];
+    const uint8_t * levelToLoad = this->maps[level];
     uint16_t cursor = 0;
 
     map.setWidth(levelToLoad[cursor++]);
@@ -34,7 +34,6 @@ void Game::loadMap(uint8_t L) {
 
     }
 
-
     // Load objects ..
 
     objects.setObjectNum(levelToLoad[cursor++]);
@@ -43,7 +42,7 @@ void Game::loadMap(uint8_t L) {
 
         if (i < objects.getObjectNum()) {
 
-            uint8_t id = levelToLoad[cursor++];
+            uint8_t type = levelToLoad[cursor++];
             uint16_t px = (levelToLoad[cursor++] * TILE_SIZE) + 8;
             uint16_t py = (levelToLoad[cursor++] * TILE_SIZE) + 8;
             uint8_t h = levelToLoad[cursor++];
@@ -51,7 +50,7 @@ void Game::loadMap(uint8_t L) {
             bool active = true;
 
             auto & object = objects.getSprite(i);
-            object.setSprite(px, py, h, id, offsets[id], active);
+            object.setSprite(px, py, h, static_cast<Object>(type), offsets[type], active);
 
         }
 
@@ -82,14 +81,14 @@ void Game::loadMap(uint8_t L) {
 
 
     printf("-----------------------------\n");
-    printf("Map: %i", L);
+    printf("Map: %i", level);
     printf(", W: %i", map.getWidth());
     printf(", H: %i",map.getHeight());
     printf("\n-----------------------------\n");
 
     uint8_t i = 0;
-    for (int x=0; x<map.getWidth(); x++) {
-        for (int y=0; y<map.getHeight(); y++) {
+    for (int y=0; y<map.getHeight(); y++) {
+        for (int x=0; x<map.getWidth(); x++) {
             printf("%i ", this->map.getBlock(x, y));
             i++;
         }

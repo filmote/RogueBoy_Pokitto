@@ -30,23 +30,35 @@ enum class GameState : uint8_t {
     Game, 
     LoadMap,
     GameOver, 
-    mapEnding, 
+    EndOfLevel, 
     Dead, 
-    WinState
+    WinState,
+    Inventory
+};
+
+
+enum class Rotation : uint8_t {
+    Up, 
+    UpRight, 
+    Right, 
+    DownRight,
+    Down, 
+    DownLeft, 
+    Left, 
+    UpLeft
 };
 
 enum Object {
-
-    Coin = 1,
-    SackOCash = 2,
-    Donut = 3,
-    Key = 4,
-    Ham = 5, 
-    Floater = 6,
-    Skull = 7,
-    Spider = 8, 
-    Bat = 9,
-
+    Coin = 0,
+    SackOCash = 1,
+    Donut = 2,
+    Key = 3,
+    Ham = 4, 
+    Floater = 5,
+    Skull = 6,
+    Spider = 7, 
+    Bat = 8,
+    Spanner = 9,
 };
 
 enum MapTiles {
@@ -68,5 +80,6 @@ enum MapTiles {
     SpearDoor = 15,
     ExplosiveBarrel = 16,
     LockedStairs = 17,
-    Rubble = 18
+    Rubble = 18,
+    SwitchBroken = 19,
 };

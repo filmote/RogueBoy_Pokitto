@@ -5,40 +5,6 @@ using PC = Pokitto::Core;
 using PD = Pokitto::Display;
 using PS = Pokitto::Sound;
 
-void Game::init(uint16_t x, uint16_t y) {
-
-    //sound.tone(NOTE_C7H,150, NOTE_REST,100, NOTE_C6,150);
-    player.init(x, y);
-
-    for (uint8_t i = 0; i < 6; i++) {
-
-        bullets.getBullet(i).kill();
-
-    }
-
-    for (uint8_t i = 0; i < MAXOBJECT; i++) {
-
-        auto & object = this->objects.getSprite(i);
-        object.setActive(false);
-
-    }
-
-    this->timer = 255;
-
-}
-
-bool Game::intersect(uint16_t Min0, uint16_t Max0, uint16_t Min1, uint16_t Max1) {
-
-    return ((Max0 > Min1) && (Min0 < Max1));
-
-}
-
-bool Game::collision(uint16_t x, uint16_t y, uint16_t x1, uint16_t y1) {
-
-    return (this->intersect(x, x + 8, x1, x1 + 8) && this->intersect(y, y + 8, y1, y1 + 8));
-
-}
-
 void Game::updateObjects() {
 
   for (uint8_t i = 0; i < this->objects.getObjectNum(); i++) {
@@ -72,57 +38,103 @@ void Game::updateObjects() {
 
             switch (type) {
               
-              case 1: 
+              case Object::Coin: 
                 player.setCoins(player.getCoins() + 1); 
                 objectI.setActive(false); 
                 break;
 
-              case 2: 
+              case Object::SackOCash: 
                 player.setCoins(player.getCoins() + 5); 
                 objectI.setActive(false); 
                 break;
 
-              case 3: 
-                player.setHealth(player.getHealth() + 5); 
-                objectI.setActive(false); 
+              case Object::Key: 
+                {
+                    uint8_t slot = this->player.addInventoryItem(Object::Key);
+                    if (slot != NO_SLOT_FOUND) {
+                        objectI.setActive(false);
+                        // sound picked up item
+                    }
+                    else {
+                        // sound could not pick up
+                    }
+
+                }
                 break;
 
-              case 4: 
-                player.setKeys(player.getKeys() + 1); 
-                objectI.setActive(false); 
+              case Object::Donut: 
+                {
+                    uint8_t slot = this->player.addInventoryItem(Object::Donut);
+                    if (slot != NO_SLOT_FOUND) {
+                        objectI.setActive(false);
+                        // sound picked up item
+                    }
+                    else {
+                        // sound could not pick up
+                    }
+
+                }
                 break;
 
-              case 5: 
-                player.setHealth(player.getHealth() + 10); 
-                objectI.setActive(false); 
+              case Object::Ham: 
+                {
+                    uint8_t slot = this->player.addInventoryItem(Object::Ham);
+                    if (slot != NO_SLOT_FOUND) {
+                        objectI.setActive(false);
+                        // sound picked up item
+                    }
+                    else {
+                        // sound could not pick up
+                    }
+
+                }
                 break;
 
-              case 6 ... 9:
+              case Object::Spanner: 
+                {
+                    uint8_t slot = this->player.addInventoryItem(Object::Spanner);
+                    if (slot != NO_SLOT_FOUND) {
+                        objectI.setActive(false);
+                        // sound picked up item
+                    }
+                    else {
+                        // sound could not pick up
+                    }
+
+                }
+                break;
+
+              case Object::Floater:
+              case Object::Skull:
+              case Object::Spider:
+              case Object::Bat:
 
                 if (PC::frameCount % 5 == 0) { 
 
                   switch (type) {
 
-                    case 6:   
+                    case Object::Floater:   
                       player.setHealth(player.getHealth() - (10 * diff)); 
                       break;
 
-                    case 7: 
+                    case Object::Skull: 
                       player.setHealth(player.getHealth() - (5 * diff)); 
                       break;
               
-                    case 8: 
+                    case Object::Spider:
                       player.setHealth(player.getHealth() - (2 * diff)); 
                       break;
 
-                    case 9: 
+                    case Object::Bat: 
                       player.setHealth(player.getHealth() - diff); 
                       break;
 
                   }
 
                 }
+
                 break;
+
               }
 
             }
@@ -206,43 +218,6 @@ void Game::updateObjects() {
   }
 
 }
-
-void Game::renderObjects() {
-
-    objects.render(player);
-    bullets.render(player);
-
-}
-
-void Game::mapEnding() {
-
-    int padd = player.getCoins() * 5;    
-    int kadd = player.getKeys() * 10;
-    int killp = player.getKills() * 15;
-
-    PD::setCursor(0,0);
-    PD::print("Level: ");
-    PD::print(map.getLevel(), 10);
-    PD::print("\nKills: ");
-    PD::print(player.getKills(), 10);
-    PD::print("\nCoins: ");
-    PD::print(player.getCoins(), 10);
-    PD::print("\nKeys: ");
-    PD::print(player.getKeys(), 10);
-    PD::print("\nTime Bonus: ");
-    PD::print(this->timer/10);
-    PD::print("\nLevel Points: ");
-    PD::print(kadd + padd + killp + (this->timer/10), 10);
-    
-    PD::print("\nTotal Points: ");
-    PD::print(this->points+kadd+padd+killp+(this->timer/10), 10);
-    
-    if ((PC::frameCount % 240 == 0) || (PC::buttons.pressed(BTN_A))) {
-        gameState = GameState::LoadMap;
-        this->points += padd + kadd + killp + (this->timer/10);
-    }
-}
-
 
 void Game::updateGame() {
     
@@ -344,6 +319,18 @@ void Game::playerMovement() {
   
     }
 
+
+    // Display Inventory?
+
+    if (PC::buttons.pressed(BTN_C)) {
+
+        gameState = GameState::Inventory;
+  
+    }
+
+
+    // Operate lever, open door ..
+
     if (PC::buttons.pressed(BTN_A)) {
 
         int relx = this->map.getTileX(x);
@@ -352,7 +339,7 @@ void Game::playerMovement() {
 
         if (block == MapTiles::DownStairs) {
             //sound.tone(NOTE_C3,100,NOTE_E3,100,NOTE_G3,100);
-            gameState = GameState::mapEnding;
+            gameState = GameState::EndOfLevel;
         } 
         else {
 
@@ -370,40 +357,59 @@ void Game::playerMovement() {
                 case MapTiles::SwitchOn: 
                     this->map.setBlock(relx, rely, MapTiles::SwitchOff); 
                     updateEnvironmentBlock(map, relx, rely, this->environments); 
-                    //sound.tone(NOTE_D3,50,NOTE_E5,50); 
+                    // sound move switch 
                     break;
 
                 case MapTiles::SwitchOff: 
                     this->map.setBlock(relx, rely, MapTiles::SwitchOn); 
                     updateEnvironmentBlock(map, relx, rely, this->environments); 
-                    //sound.tone(NOTE_D5,50,NOTE_E3,50); 
+                    // sound move switch 
                     break;
 
                 case MapTiles::ClosedChest: 
-                    this->map.setBlock(relx, rely, MapTiles::OpenChest); 
-                    player.setKeys(player.getKeys() + 1); 
-                    //sound.tone(NOTE_D3,50,NOTE_E5,50); 
+                    {
+                        uint8_t slot = this->player.addInventoryItem(Object::Key);
+
+                        if (slot != NO_SLOT_FOUND) {
+
+                            this->map.setBlock(relx, rely, MapTiles::OpenChest); 
+                            // sound open chest
+
+                        }
+                        
+                    }
                     break;
 
                 case MapTiles::LockedDoor: 
-                    if (player.getKeys() > 0) {
+                    if (this->player.getInventoryCount(Object::Key) > 0) {
                         this->map.setBlock(relx, rely, MapTiles::OpenDoor); 
-                        player.setKeys(player.getKeys() - 1);  
-                        //sound.tone(NOTE_D3,50,NOTE_E5,50);
+                        this->player.decInventoryItem(Object::Key);
+                        // sound unlock door
                     } 
                     else {
-                        //sound.tone(NOTE_D2,150,NOTE_E2,50);
+                        // sound missing keys
                     }  
                     break;
 
                 case MapTiles::LockedStairs: 
-                    if (player.getKeys() > 0) {
+                    if (this->player.getInventoryCount(Object::Key) > 0) {
                         this->map.setBlock(relx, rely, MapTiles::DownStairs); 
-                        player.setKeys(player.getKeys() - 1);
-                        //sound.tone(NOTE_D3,50,NOTE_E5,50);
+                        this->player.decInventoryItem(Object::Key);
+                        // sound unlock door
                     } 
                     else {
-                        //sound.tone(NOTE_D2,150,NOTE_E2,50);
+                        // sound missing keys
+                    } 
+                    break;
+
+                case MapTiles::SwitchBroken: 
+                    if (this->player.getInventoryCount(Object::Spanner) > 0) {
+                        this->map.setBlock(relx, rely, MapTiles::SwitchOn); 
+                        this->player.decInventoryItem(Object::Spanner);
+                        // sound fix
+                    } 
+                    else {
+                        // sound missing keys / spanner
                     } 
                     break;
 
@@ -457,7 +463,7 @@ void Game::updateEnvironmentBlock(MapInformation map, uint8_t x, uint8_t y, Envi
 }
 
 void Game::dropItem(uint16_t x, uint16_t y, bool EnDrop, Sprites &objects) {
-    
+
     bool newSlot = true;
     uint8_t found = 0;
     
@@ -499,10 +505,14 @@ void Game::dropItem(uint16_t x, uint16_t y, bool EnDrop, Sprites &objects) {
                 
             }
             if (!EnDrop) {
-                object.setSprite((x * TILE_SIZE) + 8, (y * TILE_SIZE) + 8, 1, id, offset, true);
+
+                object.setSprite((x * TILE_SIZE) + 8, (y * TILE_SIZE) + 8, 1, static_cast<Object>(id), offset, true);
+
             }
             else{
-                object.setSprite(x, y, 1, id, offset, true);
+
+                object.setSprite(x, y, 1, static_cast<Object>(id), offset, true);
+
             }
             
         }
@@ -525,10 +535,10 @@ void Game::dropItem(uint16_t x, uint16_t y, bool EnDrop, Sprites &objects) {
             }
 
             if (!EnDrop) {
-                object.setSprite((x * TILE_SIZE) + 8, (y * TILE_SIZE) + 8, 1, id, offset, true);
+                object.setSprite((x * TILE_SIZE) + 8, (y * TILE_SIZE) + 8, 1, static_cast<Object>(id), offset, true);
             }
             else{
-                object.setSprite(x, y, 1, id, offset, true);
+                object.setSprite(x, y, 1, static_cast<Object>(id), offset, true);
             }
             
         }
@@ -545,82 +555,46 @@ void Game::spriteAI(MapInformation map, Player &player, Sprite &sprite) {
         
     switch(sprite.getType()) {
 
-        case 1: 
+        case Object::Coin: 
+
             if (Pokitto::Core::frameCount % 5 == 0) { 
                 sprite.setFrame(sprite.getFrame() + 1); 
                 sprite.setFrame(sprite.getFrame() % 6);
             } 
+
             break;
 
-        case 6:            
-        case 7:     
-        case 8:   
-            if (this->map. getDistance(x, y, player.getX(), player.getY()) <= 5) {
-                if (x < player.getX() && this->map.isWalkable(x+1,y)) { x++; }
-                if (x > player.getX() && this->map.isWalkable(x-1,y)) { x--; }
-                if (y < player.getY() && this->map.isWalkable(x,y+1)) { y++; }
-                if (y > player.getY() && this->map.isWalkable(x,y-1)) { y--; }
+        case Object::Floater:            
+        case Object::Skull:     
+        case Object::Spider:   
+
+            if (this->map.getDistance(x, y, player.getX(), player.getY()) <= 5) {
+                if (x < player.getX() && this->map.isWalkable(x + 1, y)) { x++; }
+                if (x > player.getX() && this->map.isWalkable(x - 1, y)) { x--; }
+                if (y < player.getY() && this->map.isWalkable(x, y + 1)) { y++; }
+                if (y > player.getY() && this->map.isWalkable(x, y - 1)) { y--; }
             }
+
             break;
 
-        case 9: 
-            if (this->map. getDistance(x, y, player.getX(), player.getY()) < 5) {
-                if (x < player.getX() && this->map.isWalkable(x+1,y)) { x++; }
-                if (x > player.getX() && this->map.isWalkable(x-1,y)) { x--; }
-                if (y < player.getY() && this->map.isWalkable(x,y+1)) { y++; }
-                if (y > player.getY() && this->map.isWalkable(x,y-1)) { y--; }
+        case Object::Bat: 
+
+            if (this->map.getDistance(x, y, player.getX(), player.getY()) < 5) {
+                if (x < player.getX() && this->map.isWalkable(x + 1, y)) { x++; }
+                if (x > player.getX() && this->map.isWalkable(x - 1, y)) { x--; }
+                if (y < player.getY() && this->map.isWalkable(x, y + 1)) { y++; }
+                if (y > player.getY() && this->map.isWalkable(x, y - 1)) { y--; }
             }
+
             if (Pokitto::Core::frameCount % 5 == 0) { 
                 sprite.setFrame(sprite.getFrame() + 1); 
                 sprite.setFrame(sprite.getFrame() % 2);
             } 
 
-            //if (Pokitto::Core::frameCount % 5 == 0) { ++Frame; Frame %= 2; } 
             break;
 
     }
 
-    sprite.setX(x);
-    sprite.setY(y);
-
-}
-
-void Game::barrelBreak(MapInformation map, uint8_t x, uint8_t y, Sprites &objects) {
-    
-    this->map.setBlock(x, y, 18);
-    dropItem(x, y, false, this->objects);
-    //sound.tone(NOTE_C3,50, NOTE_C2,50, NOTE_E3,150);
-}
-
-void Game::death() {
-
-    PD::setCursor(0,0);
-    PD::print("Scored: ");
-    PD::print(this->points, 10);
-    PD::print("\nGot To Level: ");
-    PD::print(map.getLevel(), 10);
-
-    if (PC::buttons.pressed(BTN_A) || PC::buttons.pressed(BTN_B)) {
-        //sound.noTone(); 
-        gameState = GameState::MainMenu; 
-        map.setLevel(0); 
-        this->points = 0; 
-    }
-
-}
-
-void Game::win() {
-    
-    PD::setCursor(0,0);
-    PD::print("WellDone!\n");
-    PD::print("You Scored: ");
-    PD::print(this->points, 10);
-
-    if (PC::buttons.pressed(BTN_A) || PC::buttons.pressed(BTN_B)) { 
-        //sound.noTone(); 
-        gameState = GameState::MainMenu; 
-        map.setLevel(0); 
-        this->points = 0;
-    }
+    sprite.setPosition(x, y);
 
 }

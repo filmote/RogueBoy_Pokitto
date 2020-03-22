@@ -2,6 +2,7 @@
 
 #include "Pokitto.h"
 #include "../utils/Enums.h"
+#include "../utils/Structs.h"
 
 using PC = Pokitto::Core;
 using PD = Pokitto::Display;
@@ -12,41 +13,41 @@ class Player {
 
     public:
 
-        uint16_t getX()                             { return this->x; }
-        uint16_t getY()                             { return this->y; }
-        Direction getDirection()                    { return this->direction; }
-        int8_t getHealth()                          { return this->health; }
-        uint8_t getCoins()                          { return this->coins; }
-        uint8_t getKills()                          { return this->kills; }
-        uint8_t getKeys()                           { return this->keys; }
-        uint8_t getFrame()                          { return this->frame; }
-        bool getMoving()                            { return this->moving; }
+        Player();
 
-        void setX(uint16_t x)                       { this->x = x; }
-        void setY(uint16_t y)                       { this->y = y; }
-        void setDirection(Direction direction)      { this->direction = direction; }
-        void setHealth(int8_t health)               { this->health = health; if (this->health > 100) this->health = 100; }
-        void setCoins(uint8_t coins)                { this->coins = coins; }
-        void setKills(uint8_t kills)                { this->kills = kills; }
-        void setKeys(uint8_t keys)                  { this->keys = keys; }
-        void setFrame(uint8_t frame)                { this->frame = frame;}
-        void setMoving(bool moving)                 { this->moving = moving; }
+        uint16_t getX();
+        uint16_t getY();
+        Direction getDirection();
+        int8_t getHealth();
+        uint8_t getCoins();
+        uint8_t getKills();
+        uint8_t getFrame();
+        bool getMoving();
 
-        void incFrame() {
-            this->frame++;
-            this->frame %= 4;
-        }
+        void setX(uint16_t x);
+        void setY(uint16_t y);
+        void setDirection(Direction direction);
+        void setHealth(int8_t health);
+        void setCoins(uint8_t coins);
+        void setKills(uint8_t kills);
+        void setFrame(uint8_t frame);
+        void setMoving(bool moving);
 
-        void init(uint16_t x, uint16_t y) {
-            this->x = x;
-            this->y = y;
-            this->direction = Direction::Up;
-            this->coins = 0;
-            this->keys = 0;
-            this->kills = 0;
-            this->health = 100;
-            this->moving = false;
-        }
+        void incFrame();
+        void init(uint16_t x, uint16_t y);
+
+
+        // Inventory methods
+
+        InventoryItem & getInventoryItem(uint8_t index);
+        InventoryItem & getActiveInventoryItem(uint8_t index);                  // index skips qty = 0 values
+        uint8_t addInventoryItem(Object type);                                  // returns slot used if success, NO_SLOT_FOUND if failed
+        uint8_t decInventoryItem(Object type);                                  // returns slot used if success, NO_SLOT_FOUND if failed
+        uint8_t getInventorySlot(Object type);                                  // returns slot used if success, NO_SLOT_FOUND if failed
+        uint8_t getEmptySlot();                                                 // returns slot used if success, NO_SLOT_FOUND if failed
+        uint8_t getInventoryCount();
+        uint8_t getInventoryCount(Object type);
+        uint8_t getActiveSlotCount();
 
     private:
 
@@ -54,9 +55,11 @@ class Player {
         uint16_t y;
         Direction direction;
         int8_t health;
-        uint8_t keys;
         uint8_t coins;
         uint8_t kills;
         bool moving;
         uint8_t frame;
+
+        InventoryItem inventoryItems[MAX_INVENTORY_ITEMS];
+
 };

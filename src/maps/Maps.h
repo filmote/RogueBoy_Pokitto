@@ -48,8 +48,46 @@ using PS = Pokitto::Sound;
 //     /* Environment Count */ 0,
 // };
 
+const uint8_t MAP_Test[] = {
+    /* Map Size */   12, 9,
+    /* Player Pos */ 0, 0,
+    9,8,8,8, 8,19,8,8, 8,8,8,8, 
+    8,8,8,8, 8,8,8,8, 8,8,8,8, 
+    8,8,8,8, 8,8,8,8, 8,8,8,8, 
+
+    8,8,8,8, 8,8,8,8, 8,8,8,8, 
+    8,8,8,8, 8,8,8,8, 8,8,8,8, 
+    8,8,8,8, 8,8,8,8, 8,8,8,8, 
+
+    8,8,8,8, 8,8,8,8, 8,8,8,8, 
+    8,8,8,8, 8,8,8,8, 8,8,8,8, 
+    8,8,8,8, 8,8,8,8, 8,8,8,3,
+
+    /* Object Count */ 13,
+    Object::Coin, 1, 1, 0,
+    Object::Coin, 1, 2, 0,
+    Object::Coin, 2, 2, 0,
+    Object::Donut, 3, 3, 20,
+    Object::Key, 4, 3, 20,
+
+    Object::Donut, 10, 3, 20,
+    Object::Ham, 11, 3, 20,
+    Object::Spanner, 5, 5, 20,
+
+    Object::Ham, 11, 4, 20,
+    Object::Ham, 11, 5, 20,
+    Object::Ham, 11, 6, 20,
+    Object::Ham, 11, 7, 20,
+    Object::Donut, 9, 8, 20,
+
+    /* Environment Count */ 1,
+
+};
+
+// -----------------------------------------------------------------------------
+
 const uint8_t MAP_1[] = {
-    /* Map Size */   40, 40,
+    /* Map Size */   4, 4,
     /* Player Pos */ 0, 0,
     9,8,8,8,
     8,8,8,8,

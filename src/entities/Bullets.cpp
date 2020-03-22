@@ -58,7 +58,7 @@ void Bullets::render(Player &player) {
             int x = (player.getX() - bullet.getX());
             int y = (player.getY() - bullet.getY());
 
-            PD::drawBitmap((CENTERX - 4) - x, (CENTERY - 4) - y, Images::Sprites[18 + static_cast<uint8_t>(bullet.getDirection())]);
+            PD::drawBitmap((CENTERX - 4) - x, (CENTERY - 4) - y, Images::Bullets[static_cast<uint8_t>(bullet.getDirection())]);
 
         }
 

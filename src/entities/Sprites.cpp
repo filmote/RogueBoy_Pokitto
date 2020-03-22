@@ -27,12 +27,55 @@ void Sprites::render(Player &player) {
 
         if (object.getActive()) {
 
-            int x = (player.getX() - object.getX());
-            int y = (player.getY() - object.getY());
+            int x = (CENTERX - PLAYER_SIZE_HALF) - (player.getX() - object.getX());
+            int y = (CENTERY - PLAYER_SIZE_HALF) - (player.getY() - object.getY());
             uint8_t frame = object.getFrame();
             uint8_t offset = object.getOffset();
+            Rotation rotation = object.getRotation();
 
-            PD::drawBitmap((CENTERX-4) - x,(CENTERY-4) - y, Images::Sprites[frame + offset]);
+            switch (object.getType()) {
+
+                case Object::Coin:
+                    PD::drawBitmap(x, y, Images::Coins[frame]);
+                    break;
+
+                case Object::Bat:
+                    PD::drawBitmap(x, y, Images::Bats[frame]);
+                    break;
+
+                case Object::Spider:
+                    PD::drawBitmap(x, y, Images::Spiders[static_cast<uint8_t>(rotation)]);
+                    break;
+
+                case Object::SackOCash:
+                    PD::drawBitmap(x, y, Images::SackOCash);
+                    break;
+
+                case Object::Donut:
+                    PD::drawBitmap(x, y, Images::Donut);
+                    break;
+
+                case Object::Key:
+                    PD::drawBitmap(x, y, Images::Key);
+                    break;
+
+                case Object::Ham:
+                    PD::drawBitmap(x, y, Images::Ham);
+                    break;
+
+                case Object::Floater:
+                    PD::drawBitmap(x, y, Images::Floater);
+                    break;
+
+                case Object::Skull:
+                    PD::drawBitmap(x, y, Images::Skull);
+                    break;
+
+                case Object::Spanner:
+                    PD::drawBitmap(x, y, Images::Spanner);
+                    break;
+
+            }
 
         }
 

@@ -20,7 +20,6 @@ void Game::loop(void) {
 
     switch(gameState) {
 
-
         case GameState::MainMenu: 
             updateMainMenu(); 
             break;
@@ -33,8 +32,12 @@ void Game::loop(void) {
             nextLevelLoad(); 
             break;
 
-        case GameState::mapEnding: 
-            mapEnding(); 
+        case GameState::EndOfLevel: 
+            endOfLevel(); 
+            break;
+
+        case GameState::Inventory: 
+            showInventory(); 
             break;
 
         case GameState::Dead: 

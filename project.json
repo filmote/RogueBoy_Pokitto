@@ -983,6 +983,444 @@
 		},
 		"/src/images/ffce61e8a61091733e1106e344a13ffb4de0d329.h": {
 			"sdcard": false
+		},
+		"/src/images/bullets": {
+			"sdcard": false
+		},
+		"/src/images/bullets/Sprite_19.png": {
+			"sdcard": false
+		},
+		"/src/images/bullets/Sprite_19.h": {
+			"sdcard": false
+		},
+		"/src/images/bullets/Sprite_18.h": {
+			"sdcard": false
+		},
+		"/src/images/bullets/Sprite_21.h": {
+			"sdcard": false
+		},
+		"/src/images/bullets/Sprite_20.png": {
+			"sdcard": false
+		},
+		"/src/images/bullets/Sprite_18.png": {
+			"sdcard": false
+		},
+		"/src/images/bullets/Sprite_21.png": {
+			"sdcard": false
+		},
+		"/src/images/bullets/Sprite_20.h": {
+			"sdcard": false
+		},
+		"/src/images/bullets/Bullet_00.png": {
+			"sdcard": false
+		},
+		"/src/images/bullets/Bullet_01.png": {
+			"sdcard": false
+		},
+		"/src/images/bullets/Bullet_02.png": {
+			"sdcard": false
+		},
+		"/src/images/bullets/Bullet_03.png": {
+			"sdcard": false
+		},
+		"/src/images/bullets/Bullets.h": {
+			"sdcard": false
+		},
+		"/src/images/bullets/Bullet_00.h": {
+			"sdcard": false
+		},
+		"/src/images/bullets/Bullet_01.h": {
+			"sdcard": false
+		},
+		"/src/images/bullets/Bullet_02.h": {
+			"sdcard": false
+		},
+		"/src/images/bullets/Bullet_03.h": {
+			"sdcard": false
+		},
+		"/src/images/enemies": {
+			"sdcard": false
+		},
+		"/src/images/enemies/Bat_01.h": {
+			"sdcard": false
+		},
+		"/src/images/enemies/Bat_01.png": {
+			"sdcard": false
+		},
+		"/src/images/enemies/Bat_02.h": {
+			"sdcard": false
+		},
+		"/src/images/enemies/Bat_02.png": {
+			"sdcard": false
+		},
+		"/src/images/enemies/Spider.h": {
+			"sdcard": false
+		},
+		"/src/images/enemies/Spider.png": {
+			"sdcard": false
+		},
+		"/src/images/enemies/Enemies.h": {
+			"sdcard": false
+		},
+		"/src/images/enemies/Spider_00.png": {
+			"sdcard": false
+		},
+		"/src/images/enemies/Spider_00 copy.png": {
+			"sdcard": false
+		},
+		"/src/images/enemies/Spider_01.png": {
+			"sdcard": false
+		},
+		"/src/images/enemies/Spider_00 copy 2.png": {
+			"sdcard": false
+		},
+		"/src/images/enemies/Spider_00 copy 3.png": {
+			"sdcard": false
+		},
+		"/src/images/enemies/Spider_02.png": {
+			"sdcard": false
+		},
+		"/src/images/enemies/Spider_04.png": {
+			"sdcard": false
+		},
+		"/src/images/enemies/Spider_06.png": {
+			"sdcard": false
+		},
+		"/src/images/enemies/Spider_01 copy.png": {
+			"sdcard": false
+		},
+		"/src/images/enemies/Spider_01 copy 2.png": {
+			"sdcard": false
+		},
+		"/src/images/enemies/Spider_01 copy 3.png": {
+			"sdcard": false
+		},
+		"/src/images/enemies/Spider_03.png": {
+			"sdcard": false
+		},
+		"/src/images/enemies/Spider_05.png": {
+			"sdcard": false
+		},
+		"/src/images/enemies/Spider_07.png": {
+			"sdcard": false
+		},
+		"/src/images/enemies/Spider_06 copy.png": {
+			"sdcard": false
+		},
+		"/src/images/enemies/Bat_00.png": {
+			"sdcard": false
+		},
+		"/src/images/enemies/Spider_00.h": {
+			"sdcard": false
+		},
+		"/src/images/enemies/Spider_01.h": {
+			"sdcard": false
+		},
+		"/src/images/enemies/Spider_04.h": {
+			"sdcard": false
+		},
+		"/src/images/enemies/Spider_06.h": {
+			"sdcard": false
+		},
+		"/src/images/enemies/Spider_03.h": {
+			"sdcard": false
+		},
+		"/src/images/enemies/Spider_07.h": {
+			"sdcard": false
+		},
+		"/src/images/enemies/Spider_05.h": {
+			"sdcard": false
+		},
+		"/src/images/enemies/Spider_02.h": {
+			"sdcard": false
+		},
+		"/src/images/enemies/Bat_00.h": {
+			"sdcard": false
+		},
+		"/src/images/Eye.png": {
+			"sdcard": false
+		},
+		"/src/images/Rabbit.png": {
+			"sdcard": false
+		},
+		"/src/images/Spider16x16.png": {
+			"sdcard": false
+		},
+		"/src/images/Dinosuar.png": {
+			"sdcard": false
+		},
+		"/src/images/Dinosaur.png": {
+			"sdcard": false
+		},
+		"/src/images/enemies/Dinosaur.png": {
+			"sdcard": false
+		},
+		"/src/images/enemies/Eye.png": {
+			"sdcard": false
+		},
+		"/src/images/enemies/Rabbit.png": {
+			"sdcard": false
+		},
+		"/src/images/enemies/Spider16x16.png": {
+			"sdcard": false
+		},
+		"/src/images/enemies/Dinosaur.h": {
+			"sdcard": false
+		},
+		"/src/images/enemies/Eye.h": {
+			"sdcard": false
+		},
+		"/src/images/enemies/Rabbit.h": {
+			"sdcard": false
+		},
+		"/src/images/enemies/Spider16x16.h": {
+			"sdcard": false
+		},
+		"/src/images/coins": {
+			"sdcard": false
+		},
+		"/src/images/coins/Sprite_14.png": {
+			"sdcard": false
+		},
+		"/src/images/coins/Sprite_15.png": {
+			"sdcard": false
+		},
+		"/src/images/coins/Sprite_16.h": {
+			"sdcard": false
+		},
+		"/src/images/coins/Sprite_16.png": {
+			"sdcard": false
+		},
+		"/src/images/coins/Sprite_17.h": {
+			"sdcard": false
+		},
+		"/src/images/coins/Sprite_12.h": {
+			"sdcard": false
+		},
+		"/src/images/coins/Sprite_13.h": {
+			"sdcard": false
+		},
+		"/src/images/coins/Sprite_13.png": {
+			"sdcard": false
+		},
+		"/src/images/coins/Sprite_12.png": {
+			"sdcard": false
+		},
+		"/src/images/coins/Sprite_14.h": {
+			"sdcard": false
+		},
+		"/src/images/coins/Sprite_15.h": {
+			"sdcard": false
+		},
+		"/src/images/coins/Sprite_17.png": {
+			"sdcard": false
+		},
+		"/src/images/coins/Coin_00.png": {
+			"sdcard": false
+		},
+		"/src/images/coins/Coin_01.png": {
+			"sdcard": false
+		},
+		"/src/images/coins/Coin_02.png": {
+			"sdcard": false
+		},
+		"/src/images/coins/Coin_03.png": {
+			"sdcard": false
+		},
+		"/src/images/coins/Coin_04.png": {
+			"sdcard": false
+		},
+		"/src/images/coins/Coin_05.png": {
+			"sdcard": false
+		},
+		"/src/images/coins/Coins.h": {
+			"sdcard": false
+		},
+		"/src/images/coins/Coin_00.h": {
+			"sdcard": false
+		},
+		"/src/images/coins/Coin_01.h": {
+			"sdcard": false
+		},
+		"/src/images/coins/Coin_04.h": {
+			"sdcard": false
+		},
+		"/src/images/coins/Coin_02.h": {
+			"sdcard": false
+		},
+		"/src/images/coins/Coin_03.h": {
+			"sdcard": false
+		},
+		"/src/images/coins/Coin_05.h": {
+			"sdcard": false
+		},
+		"/src/images/Sprite_10.png": {
+			"sdcard": false
+		},
+		"/src/images/Donut.png": {
+			"sdcard": false
+		},
+		"/src/images/sprites/Donut.png": {
+			"sdcard": false
+		},
+		"/src/images/Sprite_11.png": {
+			"sdcard": false
+		},
+		"/src/images/Key.png": {
+			"sdcard": false
+		},
+		"/src/images/sprites/Key.png": {
+			"sdcard": false
+		},
+		"/src/images/Sprite_08.png": {
+			"sdcard": false
+		},
+		"/src/images/SackOCash.png": {
+			"sdcard": false
+		},
+		"/src/images/sprites/SackOCash.png": {
+			"sdcard": false
+		},
+		"/src/images/Sprite_03.png": {
+			"sdcard": false
+		},
+		"/src/images/Ham.png": {
+			"sdcard": false
+		},
+		"/src/images/sprites/Ham.png": {
+			"sdcard": false
+		},
+		"/src/images/Sprite_04.png": {
+			"sdcard": false
+		},
+		"/src/images/Floater.png": {
+			"sdcard": false
+		},
+		"/src/images/sprites/Floater.png": {
+			"sdcard": false
+		},
+		"/src/images/sprites/Something.png": {
+			"sdcard": false
+		},
+		"/src/images/Skull.png": {
+			"sdcard": false
+		},
+		"/src/images/sprites/Skull.png": {
+			"sdcard": false
+		},
+		"/src/images/sprites/Key.h": {
+			"sdcard": false
+		},
+		"/src/images/sprites/Donut.h": {
+			"sdcard": false
+		},
+		"/src/images/sprites/Something.h": {
+			"sdcard": false
+		},
+		"/src/images/sprites/Skull.h": {
+			"sdcard": false
+		},
+		"/src/images/player": {
+			"sdcard": false
+		},
+		"/src/images/player/Sprite_00.png": {
+			"sdcard": false
+		},
+		"/src/images/player/Sprite_01.png": {
+			"sdcard": false
+		},
+		"/src/images/player/Sprite_02.png": {
+			"sdcard": false
+		},
+		"/src/images/player/Player_00.png": {
+			"sdcard": false
+		},
+		"/src/images/player/Player_01.png": {
+			"sdcard": false
+		},
+		"/src/images/player/Player_02.png": {
+			"sdcard": false
+		},
+		"/src/images/player/Players.h": {
+			"sdcard": false
+		},
+		"/src/images/players": {
+			"sdcard": false
+		},
+		"/src/images/players/Player_00.png": {
+			"sdcard": false
+		},
+		"/src/images/players/Player_01.png": {
+			"sdcard": false
+		},
+		"/src/images/players/Players.h": {
+			"sdcard": false
+		},
+		"/src/images/players/Player_02.png": {
+			"sdcard": false
+		},
+		"/src/images/players/Player_00.h": {
+			"sdcard": false
+		},
+		"/src/images/players/Player_01.h": {
+			"sdcard": false
+		},
+		"/src/images/players/Player_02.h": {
+			"sdcard": false
+		},
+		"/src/images/sprites/Ham.h": {
+			"sdcard": false
+		},
+		"/src/images/sprites/Floater.h": {
+			"sdcard": false
+		},
+		"/src/images/sprites/SackOCash.h": {
+			"sdcard": false
+		},
+		"/src/Game_InitMap copy.cpp": {
+			"sdcard": false
+		},
+		"/src/Game_Inventory.cpp": {
+			"sdcard": false
+		},
+		"/src/Game_GameOver.cpp": {
+			"sdcard": false
+		},
+		"/src/entities/Player.cpp": {
+			"sdcard": false
+		},
+		"/src/images/sprites/Ham copy.png": {
+			"sdcard": false
+		},
+		"/src/images/sprites/Spanner.png": {
+			"sdcard": false
+		},
+		"/src/images/sprites/Spanner.h": {
+			"sdcard": false
+		},
+		"/src/Game_Utils": {
+			"sdcard": false
+		},
+		"/src/Game_Utils.cpp": {
+			"sdcard": false
+		},
+		"/src/images/Tile_19.png": {
+			"sdcard": false
+		},
+		"/src/images/background/Tile_19.png": {
+			"sdcard": false
+		},
+		"/src/images/background/Tile_19.h": {
+			"sdcard": false
+		},
+		"/src/images/Arrow copy.png": {
+			"sdcard": false
+		},
+		"/src/images/Arrow_Dark.png": {
+			"sdcard": false
+		},
+		"/src/images/Arrow_Dark.h": {
+			"sdcard": false
 		}
 	}
 }

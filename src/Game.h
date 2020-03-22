@@ -27,17 +27,18 @@ class Game {
         void renderPlayer();
 
         void updateMainMenu();
-        void loadMap(uint8_t L);
+        void loadMap(uint8_t level);
         void nextLevelLoad();
+        void showInventory();
 
         void init(uint16_t x, uint16_t y);
-        bool intersect(uint16_t Min0, uint16_t Max0, uint16_t Min1, uint16_t Max1);
+        bool intersect(uint16_t min0, uint16_t max0, uint16_t min1, uint16_t max1);
         bool collision(uint16_t x, uint16_t y, uint16_t x1, uint16_t y1);
         void updateObjects();
         void renderObjects();
         void death();
         void win();
-        void mapEnding();
+        void endOfLevel();
         void updateGame();
         void playerMovement();
         void updateEnvironmentBlock(MapInformation map, uint8_t x, uint8_t y, Environments &Envi);
@@ -59,10 +60,11 @@ class Game {
         uint8_t diff = 1;
         uint8_t timer = 255;
         int points = 0;
-
+        uint8_t inventoryCursor = 0;
+        
         MapInformation map;
 
-        const uint8_t * maps[18] = { MAP_1, MAP_2, MAP_3, MAP_4, MAP_5, MAP_6, MAP_7, MAP_8, MAP_9, MAP_10, MAP_11, MAP_12, MAP_13, MAP_14, MAP_15, MAP_16, MAP_17, MAP_18 };
+        const uint8_t * maps[18] = { MAP_Test, MAP_2, MAP_3, MAP_4, MAP_5, MAP_6, MAP_7, MAP_8, MAP_9, MAP_10, MAP_11, MAP_12, MAP_13, MAP_14, MAP_15, MAP_16, MAP_17, MAP_18 };
     
 };
 
