@@ -94,7 +94,34 @@ void Sprites::render(Player &player) {
                     PD::drawBitmap(x, y, Images::Spanner);
                     break;
 
+                case Object::Potion:
+                    PD::drawBitmap(x, y, Images::Potion);
+                    break;
+
             }
+
+        }
+
+    }
+
+}
+
+
+void Sprites::clearPreventImmediatePickup(Player &player) {
+
+    uint8_t playerX = player.getX() / TILE_WIDTH;
+    uint8_t playerY = player.getY() / TILE_HEIGHT;
+
+    for (uint8_t i = 0; i < this->oNum; i++) {
+
+        auto &object = this->objects[i];
+
+        uint8_t objectX = object.getX() / TILE_WIDTH;
+        uint8_t objectY = object.getY() / TILE_HEIGHT;    
+
+        if (object.getPreventImmediatePickup() && (playerX != objectX || playerY != objectY)) {
+
+            object.setPreventImmediatePickup(false);
 
         }
 

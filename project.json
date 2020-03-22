@@ -1427,6 +1427,15 @@
 		},
 		"/RogueBoy_Pokitto.bin.2.h": {
 			"sdcard": false
+		},
+		"/src/images/sprites/SackOCash copy.png": {
+			"sdcard": false
+		},
+		"/src/images/sprites/Potion.png": {
+			"sdcard": false
+		},
+		"/src/images/sprites/Potion.h": {
+			"sdcard": false
 		}
 	}
 }

@@ -23,7 +23,7 @@ void Game::init(uint16_t x, uint16_t y) {
 
     }
 
-    this->timer = 255;
+    this->map.setTimer(255);
 
 }
 

@@ -53,16 +53,16 @@ void Game::endOfLevel() {
     PD::print("\nCoins: ");
     PD::print(player.getCoins(), 10);
     PD::print("\nTime Bonus: ");
-    PD::print(this->timer/10);
+    PD::print(this->map.getTimer() / 10);
     PD::print("\nLevel Points: ");
-    PD::print(padd + killp + (this->timer/10), 10);
+    PD::print(padd + killp + (this->map.getTimer()/10), 10);
     
     PD::print("\nTotal Points: ");
-    PD::print(this->points+padd+killp+(this->timer/10), 10);
+    PD::print(this->points+padd+killp+(this->map.getTimer()/10), 10);
     
     if ((PC::frameCount % 240 == 0) || (PC::buttons.pressed(BTN_A))) {
         gameState = GameState::LoadMap;
-        this->points += padd + killp + (this->timer/10);
+        this->points += padd + killp + (this->map.getTimer()/10);
     }
 
 }

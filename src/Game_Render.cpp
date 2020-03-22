@@ -80,10 +80,10 @@ void Game::drawTime() {
         PD::setColor(6);
         PD::setCursor(87,1);
     
-        if (this->timer < 100)    PD::print("0");
-        if (this->timer < 10)     PD::print("0");
+        if (this->map.getTimer() < 100)    PD::print("0");
+        if (this->map.getTimer() < 10)     PD::print("0");
     
-        PD::print(this->timer, 10);
+        PD::print(map.getTimer(), 10);
         PD::drawBitmap(74, 0, Images::Time_Outline);
         
     #else
@@ -92,10 +92,10 @@ void Game::drawTime() {
         PD::setColor(6);
         PD::setCursor(197,1);
     
-        if (this->timer < 100)    PD::print("0");
-        if (this->timer < 10)     PD::print("0");
+        if (map.getTimer() < 100)    PD::print("0");
+        if (map.getTimer() < 10)     PD::print("0");
     
-        PD::print(this->timer, 10);
+        PD::print(this->map.getTimer(), 10);
         PD::drawBitmap(184, 0, Images::Time_Outline);
     
     #endif

@@ -9,5 +9,6 @@ namespace Images {
     #include "SackOCash.h"
     #include "Skull.h"
     #include "Spanner.h"
+    #include "Potion.h"
 
 };

@@ -23,6 +23,8 @@ void Game::loadMap(uint8_t level) {
 
     init(px, py);
 
+    map.setTimer(levelToLoad[cursor++]);
+
 
     // Read map data ..
 

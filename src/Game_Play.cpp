@@ -38,101 +38,63 @@ void Game::updateObjects() {
         switch (type) {
             
             case Object::Coin: 
-            player.setCoins(player.getCoins() + 1); 
-            objectI.setActive(false); 
-            break;
+                player.setCoins(player.getCoins() + 1); 
+                objectI.setActive(false); 
+                break;
 
             case Object::SackOCash: 
-            player.setCoins(player.getCoins() + 5); 
-            objectI.setActive(false); 
-            break;
+                player.setCoins(player.getCoins() + 5); 
+                objectI.setActive(false); 
+                break;
 
             case Object::Key: 
-            {
-                uint8_t slot = this->player.addInventoryItem(Object::Key);
-                if (slot != NO_SLOT_FOUND) {
-                    objectI.setActive(false);
-                    // sound picked up item
-                }
-                else {
-                    // sound could not pick up
-                }
-
-            }
-            break;
-
             case Object::Donut: 
-            {
-                uint8_t slot = this->player.addInventoryItem(Object::Donut);
-                if (slot != NO_SLOT_FOUND) {
-                    objectI.setActive(false);
-                    // sound picked up item
-                }
-                else {
-                    // sound could not pick up
-                }
-
-            }
-            break;
-
             case Object::Ham: 
-            {
-                uint8_t slot = this->player.addInventoryItem(Object::Ham);
-                if (slot != NO_SLOT_FOUND) {
-                    objectI.setActive(false);
-                    // sound picked up item
-                }
-                else {
-                    // sound could not pick up
-                }
-
-            }
-            break;
-
             case Object::Spanner: 
-            {
-                uint8_t slot = this->player.addInventoryItem(Object::Spanner);
-                if (slot != NO_SLOT_FOUND) {
-                    objectI.setActive(false);
-                    // sound picked up item
-                }
-                else {
-                    // sound could not pick up
-                }
+            case Object::Potion:             
+                {
+                    uint8_t slot = this->player.addInventoryItem(static_cast<Object>(type));
+                    if (slot != NO_SLOT_FOUND) {
+                        objectI.setActive(false);
+                        // sound picked up item
+                    }
+                    else {
+                        // sound could not pick up
+                    }
 
-            }
-            break;
+                }
+                break;
 
             case Object::Floater:
             case Object::Skull:
             case Object::Spider:
             case Object::Bat:
 
-            if (PC::frameCount % 5 == 0) { 
+                if (PC::frameCount % 5 == 0) { 
 
-                switch (type) {
+                    switch (type) {
 
-                case Object::Floater:   
-                    player.setHealth(player.getHealth() - (10 * diff)); 
-                    break;
+                    case Object::Floater:   
+                        player.setHealth(player.getHealth() - (10 * diff)); 
+                        break;
 
-                case Object::Skull: 
-                    player.setHealth(player.getHealth() - (5 * diff)); 
-                    break;
-            
-                case Object::Spider:
-                    player.setHealth(player.getHealth() - (2 * diff)); 
-                    break;
+                    case Object::Skull: 
+                        player.setHealth(player.getHealth() - (5 * diff)); 
+                        break;
+                
+                    case Object::Spider:
+                        player.setHealth(player.getHealth() - (2 * diff)); 
+                        break;
 
-                case Object::Bat: 
-                    player.setHealth(player.getHealth() - diff); 
-                    break;
+                    case Object::Bat: 
+                        player.setHealth(player.getHealth() - diff); 
+                        break;
+
+                    }
 
                 }
 
-            }
-
-            break;
+                break;
 
             }
 
@@ -225,8 +187,8 @@ void Game::updateGame() {
     this->renderObjects();
     this->drawHud();
     
-    if (Pokitto::Core::frameCount % 15 == 0) { this->timer--;  }
-    if (this->timer == 0) { player.setHealth(0); }
+    if (Pokitto::Core::frameCount % 15 == 0) { this->map.decTimer();  }
+    if (this->map.getTimer() == 0) { player.setHealth(0); }
     
     if (player.getHealth() <= 0) {
         //sound.tones(DeathNotes); 
@@ -297,6 +259,11 @@ void Game::playerMovement() {
             //sound.tone(NOTE_D2,150,NOTE_E2,50);
         }
 
+
+        // If the player has moved, then any object he may have previously dropped will be available for pickup once the player has moved off the tile ..
+
+        this->objects.clearPreventImmediatePickup(player);
+
     }
 
 
@@ -321,7 +288,8 @@ void Game::playerMovement() {
 
     if (PC::buttons.pressed(BTN_C)) {
 
-        gameState = GameState::Inventory;
+        this->gameState = GameState::Inventory;
+        this->inventoryMenu.mainCursor = 0;
   
     }
 

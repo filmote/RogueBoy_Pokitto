@@ -29,7 +29,9 @@ class Game {
         void updateMainMenu();
         void loadMap(uint8_t level);
         void nextLevelLoad();
+
         void showInventory();
+        void renderInventoryItem(InventoryItem inventotyItem);
 
         void init(uint16_t x, uint16_t y);
         bool intersect(uint16_t min0, uint16_t max0, uint16_t min1, uint16_t max1);
@@ -58,7 +60,6 @@ class Game {
         GameState gameState = GameState::MainMenu;
 
         uint8_t diff = 1;
-        uint8_t timer = 255;
         int points = 0;
         InventoryMenu inventoryMenu;
         

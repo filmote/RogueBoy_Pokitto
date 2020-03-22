@@ -59,6 +59,7 @@ enum Object {
     Spider = 7, 
     Bat = 8,
     Spanner = 9,
+    Potion = 10,
 };
 
 enum MapTiles {
@@ -82,4 +83,30 @@ enum MapTiles {
     LockedStairs = 17,
     Rubble = 18,
     SwitchBroken = 19,
+};
+
+const char object_Desc_00[] = "Coin";
+const char object_Desc_01[] = "Sack of Coins";
+const char object_Desc_02[] = "Donut";
+const char object_Desc_03[] = "Key";
+const char object_Desc_04[] = "Ham";
+const char object_Desc_05[] = "Floater";
+const char object_Desc_06[] = "Skull";
+const char object_Desc_07[] = "Spider";
+const char object_Desc_08[] = "Bat";
+const char object_Desc_09[] = "Spanner";
+const char object_Desc_10[] = "Potion";
+
+const char * const object_Descs[] = { 
+    object_Desc_00,
+    object_Desc_01,
+    object_Desc_02,
+    object_Desc_03,
+    object_Desc_04,
+    object_Desc_05,
+    object_Desc_06,
+    object_Desc_07,
+    object_Desc_08,
+    object_Desc_09,
+    object_Desc_10,
 };

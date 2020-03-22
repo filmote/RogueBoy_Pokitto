@@ -11,9 +11,9 @@ void Game::showInventory() {
 
     // If the cursor > active inventory slots then decrease it ..
 
-    if (this->inventoryMenu.mainCursor > player.getActiveSlotCount() - 1) {
+    if (this->inventoryMenu.mainCursor > player.getActiveSlotCount()) {
 
-        this->inventoryMenu.mainCursor = player.getActiveSlotCount() - 1;
+        this->inventoryMenu.mainCursor = player.getActiveSlotCount();
 
     }
 
@@ -36,13 +36,19 @@ void Game::showInventory() {
 
     if (!inventoryMenu.showActionMenu) {
 
+        if (PC::buttons.pressed(BTN_C)) {
+      
+            gameState = GameState::Game;
+
+        }
+
         if (PC::buttons.pressed(BTN_UP) && this->inventoryMenu.mainCursor > 0) {
 
             this->inventoryMenu.mainCursor--;
 
         }
 
-        if (PC::buttons.pressed(BTN_DOWN) && this->inventoryMenu.mainCursor < player.getActiveSlotCount() - 1) {
+        if (PC::buttons.pressed(BTN_DOWN) && this->inventoryMenu.mainCursor < player.getActiveSlotCount()) {
 
             this->inventoryMenu.mainCursor++;
 
@@ -50,13 +56,26 @@ void Game::showInventory() {
 
         if (PC::buttons.pressed(BTN_A)) {
 
-            this->inventoryMenu.showActionMenu = true;
-            this->inventoryMenu.actionCursor = 0;
+            if (this->inventoryMenu.mainCursor < player.getActiveSlotCount()) {
+                this->inventoryMenu.showActionMenu = true;
+                this->inventoryMenu.actionCursor = 0;
+            }
+            else {
+
+                gameState = GameState::Game;
+
+            }
 
         }
 
     }
     else {
+
+        if (PC::buttons.pressed(BTN_C)) {
+
+            this->inventoryMenu.showActionMenu = false;
+
+        }
 
         if (PC::buttons.pressed(BTN_UP) && this->inventoryMenu.actionCursor > 0) {
 
@@ -85,24 +104,31 @@ void Game::showInventory() {
             
                                 case Object::Key:
                                 case Object::Spanner:
+                                case Object::Potion:
                                     //sound do nothing
                                     break;
             
                                 case Object::Donut:
-                                    if (player.getHealth() < 1000) {
+                                    if (player.getHealth() < 100) {
                                         player.setHealth(player.getHealth() + 5); 
                                         inventoryItem.quantity--;  
                                         itemUsed = true;
                                         //sound health going up
                                     }
+                                    else {
+                                        //sound cannot use
+                                    }
                                     break;
             
                                 case Object::Ham:
-                                    if (player.getHealth() < 1000) {
+                                    if (player.getHealth() < 100) {
                                         player.setHealth(player.getHealth() + 10); 
                                         inventoryItem.quantity--;  
                                         itemUsed = true;
                                         //sound health going up
+                                    }
+                                    else {
+                                        //sound cannot use
                                     }
                                     break;
             
@@ -172,106 +198,28 @@ void Game::showInventory() {
     // Render Inventory ..
 
     PD::setColor(0);
-    PD::fillRectangle(1, 1, 87, 67);
+    PD::fillRectangle(0, 0, 86, 72);
     PD::setColor(1);
-    PD::drawRectangle(2, 2, 85, 65);
+    PD::drawRectangle(0, 0, 85, 71);
     PD::setColor(7);
-    PD::setCursor(6,5);
-    PD::print("Inventory");
+    PD::setCursor(4, 3);
+    PD::print("Inventory\n\n");
 
     uint8_t items = 0;
 
-    for (uint8_t i = 0; i < MAX_INVENTORY_ITEMS; i++) {
-
-        InventoryItem inventoryItem = this->player.getInventoryItem(i);
-
-        if (inventoryItem.quantity > 0) {
-
-            PD::setCursor(12, 17 + (items * 9));
-            items++;
-
-            switch (inventoryItem.type) {
-
-                case Object::Key:
-                    PD::print("Key x ");
-                    PD::print(inventoryItem.quantity, 10);
-                    PD::print("\n");
-                    break;
-
-                case Object::Donut:
-                    PD::print("Donut x ");
-                    PD::print(inventoryItem.quantity, 10);
-                    PD::print("\n");
-                    break;
-
-                case Object::Ham:
-                    PD::print("Ham x ");
-                    PD::print(inventoryItem.quantity, 10);
-                    PD::print("\n");
-                    break;
-
-                case Object::Spanner:
-                    PD::print("Spanner x ");
-                    PD::print(inventoryItem.quantity, 10);
-                    PD::print("\n");
-                    break;
-                
-            }
- 
-        }
-
-    }
-    
     if (player.getInventoryCount() > 0) {
 
-        // if (this->player.getActiveInventoryItem(this->inventoryMenu.mainCursor).getCanEat()) {        
+        for (uint8_t i = 0; i < MAX_INVENTORY_ITEMS; i++) {
 
-        //     PD::drawBitmap(6, 12 + this->inventoryMenu.mainCursor * 8, Images::Arrow);
+            InventoryItem inventoryItem = this->player.getInventoryItem(i);
 
-        // }
-        // else {
-        
-        //     PD::drawBitmap(6, 21 + this->inventoryMenu.mainCursor * 8, Images::Arrow_Dark);
+            if (inventoryItem.quantity > 0) {
 
-        // }
+                PD::setCursor(10, 14 + (items * 9));
+                items++;
 
-        if (!this->inventoryMenu.showActionMenu) {
-
-            PD::drawBitmap(5, 18 + (this->inventoryMenu.mainCursor * 9), Images::Arrow);
-
-        }
-        else {
-
-            PD::drawBitmap(5, 18 + (this->inventoryMenu.mainCursor * 9), Images::Arrow_Dark);
-
-            PD::setColor(0);
-            PD::fillRect(39, 11 + this->inventoryMenu.mainCursor * 8, 69, 49);
-            PD::setColor(1);
-            PD::drawRectangle(40, 12 + this->inventoryMenu.mainCursor * 8, 67, 47);
-            PD::setColor(7);
-            PD::setCursor(44, 15 + this->inventoryMenu.mainCursor * 8);
-            PD::print("Actions");
-            PD::setCursor(50, 27 + this->inventoryMenu.mainCursor * 8);
-            PD::print("Use");
-            PD::setCursor(50, 36 + this->inventoryMenu.mainCursor * 8);
-            PD::print("Drop");
-            PD::setCursor(50, 49 + this->inventoryMenu.mainCursor * 8);
-            PD::print("Go Back");
-
-            switch (this->inventoryMenu.actionCursor) {
-
-                case 0:
-                    PD::drawBitmap(44, 27 + (this->inventoryMenu.mainCursor * 9), Images::Arrow);
-                    break;
-
-                case 1:
-                    PD::drawBitmap(44, 36 + (this->inventoryMenu.mainCursor * 9), Images::Arrow);
-                    break;
-
-                case 2:
-                    PD::drawBitmap(44, 49 + (this->inventoryMenu.mainCursor * 9), Images::Arrow);
-                    break;
-                    
+                renderInventoryItem(inventoryItem);
+    
             }
 
         }
@@ -279,8 +227,70 @@ void Game::showInventory() {
     }
     else {
 
-        PD::print("You are not carrying anything.");
+        PD::setCursor(10, 14);
+        PD::print("Empty !");       
 
     }
+
+    PD::setCursor(10, 62);
+    PD::setColor(7);
+    PD::print("Go Back");
+
+    if (!this->inventoryMenu.showActionMenu) {
+
+        if (this->inventoryMenu.mainCursor < player.getActiveSlotCount()) {
+            PD::drawBitmap(3, 15 + (this->inventoryMenu.mainCursor * 9), Images::Arrow);
+        }
+        else {
+            PD::drawBitmap(3, 63, Images::Arrow);
+        }
+
+    }
+    else {
+
+        PD::drawBitmap(5, 16 + (this->inventoryMenu.mainCursor * 9), Images::Arrow_Dark);
+
+        PD::setColor(0);
+        PD::fillRect(39, 5 + this->inventoryMenu.mainCursor * 9, 69, 47);
+        PD::setColor(1);
+        PD::drawRectangle(40, 6 + this->inventoryMenu.mainCursor * 9, 67, 45);
+        PD::setColor(7);
+        PD::setCursor(44, 9 + this->inventoryMenu.mainCursor * 9);
+        PD::print("Actions");
+        PD::setCursor(50, 20 + this->inventoryMenu.mainCursor * 9);
+        PD::print("Use");
+        PD::setCursor(50, 29 + this->inventoryMenu.mainCursor * 9);
+        PD::print("Drop");
+        PD::setCursor(50, 41 + this->inventoryMenu.mainCursor * 9);
+        PD::print("Go Back");
+
+        switch (this->inventoryMenu.actionCursor) {
+
+            case 0:
+                PD::drawBitmap(43, 21 + (this->inventoryMenu.mainCursor * 9), Images::Arrow);
+                break;
+
+            case 1:
+                PD::drawBitmap(43, 30 + (this->inventoryMenu.mainCursor * 9), Images::Arrow);
+                break;
+
+            case 2:
+                PD::drawBitmap(43, 42 + (this->inventoryMenu.mainCursor * 9), Images::Arrow);
+                break;
+                
+        }
+
+    }
+
+}
+
+void Game::renderInventoryItem(InventoryItem inventoryItem) {
+
+    PD::setColor(7);
+    PD::print(object_Descs[static_cast<uint8_t>(inventoryItem.type)]);
+    PD::setColor(5);
+    PD::print(" x ");
+    PD::print(inventoryItem.quantity, 10);
+    PD::print("\n");
 
 }

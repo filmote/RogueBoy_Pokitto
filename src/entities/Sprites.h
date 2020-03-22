@@ -22,6 +22,7 @@ class Sprites {
 
         void update();
         void render(Player &player);
+        void clearPreventImmediatePickup(Player &player);
 
     private:
 

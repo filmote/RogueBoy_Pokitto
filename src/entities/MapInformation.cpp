@@ -13,6 +13,10 @@ uint16_t MapInformation::getHeight() {
     return this->height;
 }
 
+uint16_t MapInformation::getTimer() {
+    return this->timer;
+}
+
 void MapInformation::setLevel(uint8_t level) {
     this->level = level;
 }
@@ -23,6 +27,14 @@ void MapInformation::setWidth(uint16_t width) {
 
 void MapInformation::setHeight(uint16_t height) {
     this->height = height;
+}
+
+void MapInformation::setTimer(uint16_t timer) {
+    this->timer = timer;
+}
+
+void MapInformation::decTimer() {
+    this->timer--;
 }
 
 uint8_t MapInformation::getBlock(uint16_t x, uint16_t y) {
