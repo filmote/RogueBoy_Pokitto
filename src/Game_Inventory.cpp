@@ -1,5 +1,6 @@
 #include "Pokitto.h"
 #include "Game.h"
+#include "utils/Enums.h"
 
 using PC = Pokitto::Core;
 using PD = Pokitto::Display;
@@ -105,7 +106,32 @@ void Game::showInventory() {
                                 case Object::Key:
                                 case Object::Spanner:
                                 case Object::Potion:
-                                    //sound do nothing
+                                    {
+                                        // Try the surrounding blocks to see if it can be used ..
+
+                                        uint8_t x = this->map.getTileX(this->player.getX());
+                                        uint8_t y = this->map.getTileY(this->player.getY());
+                                        MapTiles block = this->map.getBlock(x, y);
+
+                                        itemUsed = this->interactWithBlock(x, y, block);
+
+                                        const int8_t xOffset[] = { 0, 1, 1, 1, 0, -1, -1, -1 };
+                                        const int8_t yOffset[] = { -1, -1, 0, 1, 1, 1, 0, -1 };
+
+                                        if (!itemUsed) {
+
+                                            for (uint8_t i = 0; i < 8; i++) {
+
+                                                block = this->map.getBlock(x + xOffset[i], y + yOffset[i]);
+                                                itemUsed = this->interactWithBlock(x + xOffset[i], y + yOffset[i], block);
+
+                                                if (itemUsed) break;
+
+                                            }
+
+                                        }
+
+                                    }
                                     break;
             
                                 case Object::Donut:

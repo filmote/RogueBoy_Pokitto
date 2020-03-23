@@ -83,6 +83,7 @@ enum MapTiles {
     LockedStairs = 17,
     Rubble = 18,
     SwitchBroken = 19,
+    Grass = 20,
 };
 
 const char object_Desc_00[] = "Coin";

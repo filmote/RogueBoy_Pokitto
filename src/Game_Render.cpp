@@ -138,9 +138,9 @@ void Game::renderEnviroment() {
     int offsetX = this->map.getTileXOffset(player.getX());
     int offsetY = this->map.getTileYOffset(player.getY());
 
-    for (int i = -8; i < 8; i++) {
+    for (int i = -8; i < 7; i++) {
     
-        for(int j = -8; j < 8; j++) {
+        for(int j = -8; j < 7; j++) {
             
             uint8_t block = this->map.getBlock(tileX + i, tileY + j);
 

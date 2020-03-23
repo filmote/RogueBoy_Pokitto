@@ -97,7 +97,7 @@ void Player::init(uint16_t x, uint16_t y) {
 
         auto & inventoryHolding = this->inventoryItems[i];
         inventoryHolding.quantity = 0;
-printf("init\n");        
+       
     }
     
 }
@@ -107,9 +107,6 @@ printf("init\n");
 InventoryItem & Player::getInventoryItem(uint8_t index) {
 
     auto & inventoryHolding = this->inventoryItems[index];
-
-//    printf("Inc: %i, qty %i\n", inventoryHolding.type, inventoryHolding.quantity);
-
     return this->inventoryItems[index];
 
 }
@@ -174,7 +171,7 @@ uint8_t Player::addInventoryItem(Object type) {
     slot = getEmptySlot();
 
     if (slot != NO_SLOT_FOUND) {
-printf("add inv\n");
+
         InventoryItem & inventoryHolding = this->inventoryItems[slot];
         inventoryHolding.type = type;
         inventoryHolding.quantity = 1;
@@ -188,7 +185,7 @@ printf("add inv\n");
 
 
 uint8_t Player::decInventoryItem(Object type) {
-printf("descInv\n");
+
     uint8_t slot = getInventorySlot(type);
 
 

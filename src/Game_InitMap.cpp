@@ -31,7 +31,7 @@ void Game::loadMap(uint8_t level) {
     for (uint16_t idx = 0; idx < map.getWidth() * map.getHeight(); idx++) {
 
         uint8_t tile = levelToLoad[cursor];
-        this->map.setBlock(idx, tile);
+        this->map.setBlock(idx, static_cast<MapTiles>(tile));
         cursor++;
 
     }

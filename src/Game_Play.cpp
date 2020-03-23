@@ -294,13 +294,13 @@ void Game::playerMovement() {
     }
 
 
-    // Operate lever, open door ..
+    // Operate lever, open door, fix things ..
 
     if (PC::buttons.pressed(BTN_A)) {
 
         int relx = this->map.getTileX(x);
         int rely = this->map.getTileY(y);
-        uint8_t block = this->map.getBlock(relx, rely);
+        MapTiles block = static_cast<MapTiles>(this->map.getBlock(relx, rely));
 
         if (block == MapTiles::DownStairs) {
             //sound.tone(NOTE_C3,100,NOTE_E3,100,NOTE_G3,100);
@@ -309,82 +309,163 @@ void Game::playerMovement() {
         else {
 
             switch(direction) {
+
                 case Direction::Up:     rely--; break;
                 case Direction::Down:   rely++; break;
                 case Direction::Right:  relx++; break;
                 case Direction::Left:   relx--; break;
+
             }
 
-            block = this->map.getBlock(relx, rely);
+            block = static_cast<MapTiles>(this->map.getBlock(relx, rely));
+            this->interactWithBlock(relx, rely, block);
 
-            switch (block) {
+            // switch (block) {
 
-                case MapTiles::SwitchOn: 
-                    this->map.setBlock(relx, rely, MapTiles::SwitchOff); 
-                    updateEnvironmentBlock(map, relx, rely, this->environments); 
-                    // sound move switch 
-                    break;
+            //     case MapTiles::SwitchOn: 
+            //         this->map.setBlock(relx, rely, MapTiles::SwitchOff); 
+            //         updateEnvironmentBlock(map, relx, rely, this->environments); 
+            //         // sound move switch 
+            //         break;
 
-                case MapTiles::SwitchOff: 
-                    this->map.setBlock(relx, rely, MapTiles::SwitchOn); 
-                    updateEnvironmentBlock(map, relx, rely, this->environments); 
-                    // sound move switch 
-                    break;
+            //     case MapTiles::SwitchOff: 
+            //         this->map.setBlock(relx, rely, MapTiles::SwitchOn); 
+            //         updateEnvironmentBlock(map, relx, rely, this->environments); 
+            //         // sound move switch 
+            //         break;
 
-                case MapTiles::ClosedChest: 
-                    {
-                        uint8_t slot = this->player.addInventoryItem(Object::Key);
+            //     case MapTiles::ClosedChest: 
+            //         {
+            //             uint8_t slot = this->player.addInventoryItem(Object::Key);
 
-                        if (slot != NO_SLOT_FOUND) {
+            //             if (slot != NO_SLOT_FOUND) {
 
-                            this->map.setBlock(relx, rely, MapTiles::OpenChest); 
-                            // sound open chest
+            //                 this->map.setBlock(relx, rely, MapTiles::OpenChest); 
+            //                 // sound open chest
 
-                        }
+            //             }
                         
-                    }
-                    break;
+            //         }
+            //         break;
 
-                case MapTiles::LockedDoor: 
-                    if (this->player.getInventoryCount(Object::Key) > 0) {
-                        this->map.setBlock(relx, rely, MapTiles::OpenDoor); 
-                        this->player.decInventoryItem(Object::Key);
-                        // sound unlock door
-                    } 
-                    else {
-                        // sound missing keys
-                    }  
-                    break;
+            //     case MapTiles::LockedDoor: 
+            //         if (this->player.getInventoryCount(Object::Key) > 0) {
+            //             this->map.setBlock(relx, rely, MapTiles::OpenDoor); 
+            //             this->player.decInventoryItem(Object::Key);
+            //             // sound unlock door
+            //         } 
+            //         else {
+            //             // sound missing keys
+            //         }  
+            //         break;
 
-                case MapTiles::LockedStairs: 
-                    if (this->player.getInventoryCount(Object::Key) > 0) {
-                        this->map.setBlock(relx, rely, MapTiles::DownStairs); 
-                        this->player.decInventoryItem(Object::Key);
-                        // sound unlock door
-                    } 
-                    else {
-                        // sound missing keys
-                    } 
-                    break;
+            //     case MapTiles::LockedStairs: 
+            //         if (this->player.getInventoryCount(Object::Key) > 0) {
+            //             this->map.setBlock(relx, rely, MapTiles::DownStairs); 
+            //             this->player.decInventoryItem(Object::Key);
+            //             // sound unlock door
+            //         } 
+            //         else {
+            //             // sound missing keys
+            //         } 
+            //         break;
 
-                case MapTiles::SwitchBroken: 
-                    if (this->player.getInventoryCount(Object::Spanner) > 0) {
-                        this->map.setBlock(relx, rely, MapTiles::SwitchOn); 
-                        this->player.decInventoryItem(Object::Spanner);
-                        // sound fix
-                    } 
-                    else {
-                        // sound missing keys / spanner
-                    } 
-                    break;
+            //     case MapTiles::SwitchBroken: 
+            //         if (this->player.getInventoryCount(Object::Spanner) > 0) {
+            //             this->map.setBlock(relx, rely, MapTiles::SwitchOn); 
+            //             this->player.decInventoryItem(Object::Spanner);
+            //             // sound fix
+            //         } 
+            //         else {
+            //             // sound missing keys / spanner
+            //         } 
+            //         break;
 
-            }
+            // }
 
         }
 
     }
 
 }
+
+// ----------------------------------------------------------------------
+//   Handle player's interaction with a 'special' block.
+//
+//   Returns true if an element was changed.
+//
+bool Game::interactWithBlock(int x, int y, MapTiles block) {
+
+    switch (block) {
+
+        case MapTiles::SwitchOn: 
+            this->map.setBlock(x, y, MapTiles::SwitchOff); 
+            updateEnvironmentBlock(map, x, y, this->environments); 
+            // sound move switch 
+            return true;
+
+        case MapTiles::SwitchOff: 
+            this->map.setBlock(x, y, MapTiles::SwitchOn); 
+            updateEnvironmentBlock(map, x, y, this->environments); 
+            // sound move switch 
+            return true;
+
+        case MapTiles::ClosedChest: 
+            {
+                uint8_t slot = this->player.addInventoryItem(Object::Key);
+
+                if (slot != NO_SLOT_FOUND) {
+
+                    this->map.setBlock(x, y, MapTiles::OpenChest); 
+                    // sound open chest
+                    return true;
+
+                }
+                
+            }
+            return false;
+
+        case MapTiles::LockedDoor: 
+            if (this->player.getInventoryCount(Object::Key) > 0) {
+                this->map.setBlock(x, y, MapTiles::OpenDoor); 
+                this->player.decInventoryItem(Object::Key);
+                // sound unlock door
+                return true;
+            } 
+            else {
+                // sound missing keys
+                return false;
+            }  
+
+        case MapTiles::LockedStairs: 
+            if (this->player.getInventoryCount(Object::Key) > 0) {
+                this->map.setBlock(x, y, MapTiles::DownStairs); 
+                this->player.decInventoryItem(Object::Key);
+                // sound unlock door
+            } 
+            else {
+                // sound missing keys
+            } 
+            return true;
+
+        case MapTiles::SwitchBroken: 
+            if (this->player.getInventoryCount(Object::Spanner) > 0) {
+                this->map.setBlock(x, y, MapTiles::SwitchOn); 
+                this->player.decInventoryItem(Object::Spanner);
+                // sound fix
+                return true;
+            } 
+            else {
+                // sound missing keys / spanner
+                return false;
+            } 
+
+    }
+
+    return false;
+
+}
+
 
 void Game::updateEnvironmentBlock(MapInformation map, uint8_t x, uint8_t y, Environments &environments) {
 

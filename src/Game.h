@@ -43,6 +43,7 @@ class Game {
         void endOfLevel();
         void updateGame();
         void playerMovement();
+        bool interactWithBlock(int x, int y, MapTiles block);
         void updateEnvironmentBlock(MapInformation map, uint8_t x, uint8_t y, Environments &Envi);
 
         void dropItem(uint16_t x, uint16_t y, bool EnDrop, Sprites &Objects);

@@ -37,33 +37,34 @@ void MapInformation::decTimer() {
     this->timer--;
 }
 
-uint8_t MapInformation::getBlock(uint16_t x, uint16_t y) {
+MapTiles MapInformation::getBlock(int16_t x, int16_t y) {
 
-    if ((x >= this->width) || (y >= this->height)) {
-        return MapTiles::BlankWall;
+
+    if ((x < 0) || (x >= this->width) || (y< 0) || (y >= this->height)) {
+        return MapTiles::Grass;
     } 
     else {
-        uint8_t Block = this->mapData[(x + (y * this->width))];
+        MapTiles Block = static_cast<MapTiles>(this->mapData[(x + (y * this->width))]);
         return Block;
     }
 
 }
 
-void MapInformation::setBlock(uint8_t x, uint8_t y, uint8_t block) {
+void MapInformation::setBlock(uint8_t x, uint8_t y, MapTiles block) {
 
     if ((x >= this->width) || (y >= this->height)) {
         return;
     }
-    this->mapData[x + (y * (this->width))] = block;
+    this->mapData[x + (y * (this->width))] = static_cast<uint8_t>(block);
 
 }
 
-void MapInformation::setBlock(uint16_t index, uint8_t block) {
+void MapInformation::setBlock(uint16_t index, MapTiles block) {
 
     if (index > (this->height * this->width)) {
         return;
     }
-    this->mapData[index] = block;
+    this->mapData[index] = static_cast<uint8_t>(block);
 
 }
 
@@ -127,7 +128,7 @@ uint8_t MapInformation::getOffset(uint8_t x, uint8_t y) {
 
 bool MapInformation::isWalkable(uint16_t x, uint16_t y) {
     
-    uint8_t p[4];
+    MapTiles p[4];
     bool walk = true; 
 
     p[0] = (this->getBlock(this->getTileX(x-4), this->getTileY(y-4)));
@@ -137,7 +138,7 @@ bool MapInformation::isWalkable(uint16_t x, uint16_t y) {
 
     for (uint8_t i=0; i<4;i++) {
 
-        if (!((p[i] == MapTiles::OpenDoor)||(p[i] == MapTiles::UpStairs)||(p[i] == MapTiles::DownStairs)||(p[i] == MapTiles::Empty)||(p[i] == MapTiles::OpenChest)||(p[i] == MapTiles::Rubble)||(p[i] == MapTiles::PressPlate))) {
+        if (!((p[i] == MapTiles::OpenDoor) || (p[i] == MapTiles::UpStairs) || (p[i] == MapTiles::DownStairs) || (p[i] == MapTiles::Empty) || (p[i] == MapTiles::OpenChest) || (p[i] == MapTiles::Rubble) || (p[i] == MapTiles::PressPlate))) {
             walk = false;
             break;
         }

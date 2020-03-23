@@ -1436,6 +1436,18 @@
 		},
 		"/src/images/sprites/Potion.h": {
 			"sdcard": false
+		},
+		"/src/images/background/Tile_19 copy.png": {
+			"sdcard": false
+		},
+		"/src/images/background/Tile_20.png": {
+			"sdcard": false
+		},
+		"/src/images/background/Tile_20.h": {
+			"sdcard": false
 		}
+	},
+	"BUILDFlags": {
+		"Pokitto": {}
 	}
 }
