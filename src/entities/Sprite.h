@@ -66,7 +66,7 @@ class Sprite {
         };
 
         void damage() {
-    
+   printf("health : %i\n", health); 
             this->health -= 10;
     
             if (this->health <= 0) {
@@ -132,6 +132,24 @@ class Sprite {
             return this->preventImmediatePickup;
         }
 
+
+        bool isEnemy() {
+            
+            switch (this->type) {
+
+                case Object::Bat:
+                case Object::Floater:
+                case Object::Skull:
+                case Object::Spider:
+
+                    return true;
+
+                default:
+                    return false;
+                
+            }
+            
+        }
 
     private:
 

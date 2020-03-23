@@ -156,7 +156,7 @@ void Game::updateObjects() {
             
           auto &object = this->objects.getSprite(i);
           
-          if (object.getActive() && object.getType() >= 6 && this->collision(object.getX()-4, object.getY()-4, bullet.getX()-4, bullet.getY()-4)) {
+          if (object.getActive() && object.isEnemy() && this->collision(object.getX()-4, object.getY()-4, bullet.getX()-4, bullet.getY()-4)) {
 
               object.damage();
               bullet.setActive(false);
