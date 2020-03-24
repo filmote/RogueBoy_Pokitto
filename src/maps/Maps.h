@@ -6,47 +6,8 @@ using PC = Pokitto::Core;
 using PD = Pokitto::Display;
 using PS = Pokitto::Sound;
 
-/*
-   MAP DEFINITIONS
-   0 - Closed_chest
-   1 - Blank_Wall
-   2 - Locked_Door
-   3 - Stairs_Down
-   4 - Barrel
-   5 - Open_chest
-   6 - Open_Door
-   7 - Full_Block_Wall
-   8 - Blank Space
-   9 - Stairs_UP
-   10 - MapTiles::SwitchOn
-   11 - MapTiles::SwitchOff
-   12 - Wall_Torch
-   13 - Window_Wall
-   14 - Sign_wall
-   15 - Spear_Door
-   16 - Explosive_barrel
-   17 - Locked_Stairs_Down
-   18 - MapTiles::Rubble
-
-*/
-
 
 // -----------------------------------------------------------------------------
-
-// const uint8_t MAP_1[] = {
-//     /* Map Size */   4, 4,
-//     /* Player Pos */ 0, 0,
-//     9,8,8,8,
-//     8,8,8,8,
-//     8,8,8,8,
-//     8,8,8,3,
-//     /* Object Count */ 4,
-//     Object::Coin, 1, 1, 0,
-//     Object::Coin, 1, 2, 0,
-//     Object::Coin, 2, 2, 0,
-//     Object::Coin, 2, 1, 0,
-//     /* Environment Count */ 0,
-// };
 
 const uint8_t MAP_Test[] = {
     /* Map Size */   14, 11,
@@ -82,7 +43,7 @@ const uint8_t MAP_Test[] = {
     Object::Ham, 12, 8, 20,
     Object::Donut, 10, 9, 20,
 
-    /* Environment Count */ 1,
+    /* Environment Count */ 0,
 
 };
 

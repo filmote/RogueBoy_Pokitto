@@ -1445,6 +1445,9 @@
 		},
 		"/src/images/background/Tile_20.h": {
 			"sdcard": false
+		},
+		"/RogueBoy_Pokitto.bin.1.gif": {
+			"sdcard": false
 		}
 	},
 	"BUILDFlags": {
