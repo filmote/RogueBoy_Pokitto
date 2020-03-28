@@ -121,7 +121,7 @@ void Game::updateObjects() {
       uint16_t rx = bullet.getX();
       uint16_t ry = bullet.getY();
     
-      if (!this->map.isWalkable(rx, ry)) {
+      if (!this->map.isWalkable(rx, ry, bullet.getDirection())) {
 
         switch (bullet.getDirection()) {
 
@@ -209,7 +209,7 @@ void Game::playerMovement() {
     moving = false;
 
     if ((PC::buttons.pressed(BTN_UP) || PC::buttons.repeat(BTN_UP, 1))) {
-        if (this->map.isWalkable(x,y - 2)) {
+        if (this->map.isWalkable(x,y - 2, Direction::Up)) {
             y-=2;
             moving = true;
         }
@@ -217,7 +217,7 @@ void Game::playerMovement() {
     }
 
     if ((PC::buttons.pressed(BTN_DOWN) || PC::buttons.repeat(BTN_DOWN, 1))) {
-        if (this->map.isWalkable(x, y + 2)) {
+        if (this->map.isWalkable(x, y + 2, Direction::Down)) {
             y+=2;
             moving = true;
         }
@@ -225,7 +225,7 @@ void Game::playerMovement() {
     }
 
     if ((PC::buttons.pressed(BTN_RIGHT) || PC::buttons.repeat(BTN_RIGHT, 1))) {
-        if (this->map.isWalkable(x + 2, y)) {
+        if (this->map.isWalkable(x + 2, y, Direction::Right)) {
             x+=2;
             moving = true;
         }
@@ -233,7 +233,7 @@ void Game::playerMovement() {
     }
     
     if ((PC::buttons.pressed(BTN_LEFT) || PC::buttons.repeat(BTN_LEFT, 1))) {
-        if (this->map.isWalkable(x - 2, y)) {
+        if (this->map.isWalkable(x - 2, y, Direction::Left)) {
             x-=2;
             moving = true;
         }
@@ -615,10 +615,10 @@ void Game::spriteAI(MapInformation map, Player &player, Sprite &sprite) {
         case Object::Spider:   
 
             if (this->map.getDistance(x, y, player.getX(), player.getY()) <= 5) {
-                if (x < player.getX() && this->map.isWalkable(x + 1, y)) { x++; }
-                if (x > player.getX() && this->map.isWalkable(x - 1, y)) { x--; }
-                if (y < player.getY() && this->map.isWalkable(x, y + 1)) { y++; }
-                if (y > player.getY() && this->map.isWalkable(x, y - 1)) { y--; }
+                if (x < player.getX() && this->map.isWalkable(x + 1, y, Direction::Right)) { x++; }
+                if (x > player.getX() && this->map.isWalkable(x - 1, y, Direction::Left)) { x--; }
+                if (y < player.getY() && this->map.isWalkable(x, y + 1, Direction::Down)) { y++; }
+                if (y > player.getY() && this->map.isWalkable(x, y - 1, Direction::Up)) { y--; }
             }
 
             break;
@@ -626,10 +626,10 @@ void Game::spriteAI(MapInformation map, Player &player, Sprite &sprite) {
         case Object::Bat: 
 
             if (this->map.getDistance(x, y, player.getX(), player.getY()) < 5) {
-                if (x < player.getX() && this->map.isWalkable(x + 1, y)) { x++; }
-                if (x > player.getX() && this->map.isWalkable(x - 1, y)) { x--; }
-                if (y < player.getY() && this->map.isWalkable(x, y + 1)) { y++; }
-                if (y > player.getY() && this->map.isWalkable(x, y - 1)) { y--; }
+                if (x < player.getX() && this->map.isWalkable(x + 1, y, Direction::Right)) { x++; }
+                if (x > player.getX() && this->map.isWalkable(x - 1, y, Direction::Left)) { x--; }
+                if (y < player.getY() && this->map.isWalkable(x, y + 1, Direction::Down)) { y++; }
+                if (y > player.getY() && this->map.isWalkable(x, y - 1, Direction::Up)) { y--; }
             }
 
             if (Pokitto::Core::frameCount % 5 == 0) { 

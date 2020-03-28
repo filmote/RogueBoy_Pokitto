@@ -155,11 +155,9 @@ void Game::renderEnviroment() {
 }
 
 void Game::renderPlayer() {	
-
-    const uint8_t PlayerFrames[] = { 0, 1, 0, 2 };
     
     if(!player.getMoving()) {
-        PD::drawBitmap(CENTERX - 4, CENTERY - 4, Images::Players[0]);
+        PD::drawBitmap(CENTERX - 6, CENTERY - 6, Images::Players[0]);
     }
     else {
 
@@ -167,7 +165,7 @@ void Game::renderPlayer() {
             player.incFrame();
         }
 
-        PD::drawBitmap(CENTERX - 4, CENTERY - 4, Images::Players[PlayerFrames[player.getFrame()]]);
+        PD::drawBitmap(CENTERX - 6, CENTERY - 6, Images::Players[player.getFrame()]);
 
     }
 

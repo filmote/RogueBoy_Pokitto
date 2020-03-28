@@ -79,7 +79,7 @@ void Player::setMoving(bool moving) {
 void Player::incFrame() {
     
     this->frame++;
-    this->frame %= 4;
+    this->frame %= 2;
 
 }
 
