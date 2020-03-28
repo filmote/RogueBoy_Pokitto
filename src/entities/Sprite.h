@@ -76,7 +76,7 @@ class Sprite {
     
         };
 
-        Rotation getRotation() {
+        Direction getDirection() {
 
             switch (this->lastMoveX) {
 
@@ -84,40 +84,40 @@ class Sprite {
 
                     switch (this->lastMoveY) {
 
-                        case -1:    return Rotation::UpLeft;
-                        case  0:    return Rotation::Left;
-                        case  1:    return Rotation::DownLeft;
+                        case -1:    return Direction::UpLeft;
+                        case  0:    return Direction::Left;
+                        case  1:    return Direction::DownLeft;
                     }
                     
-                    return Rotation::Up;
+                    return Direction::Up;
 
                 case 0:
 
                     switch (this->lastMoveY) {
 
-                        case -1:    return Rotation::Up;
-                        case  0:    return Rotation::Up;
-                        case  1:    return Rotation::Down;
+                        case -1:    return Direction::Up;
+                        case  0:    return Direction::Up;
+                        case  1:    return Direction::Down;
 
                     }
                     
-                    return Rotation::Up;
+                    return Direction::Up;
 
                 case 1:
 
                     switch (this->lastMoveY) {
 
-                        case -1:    return Rotation::UpRight;
-                        case  0:    return Rotation::Right;
-                        case  1:    return Rotation::DownRight;
+                        case -1:    return Direction::UpRight;
+                        case  0:    return Direction::Right;
+                        case  1:    return Direction::DownRight;
 
                     }
                     
-                    return Rotation::Up;
+                    return Direction::Up;
 
             }
 
-            return Rotation::Up;
+            return Direction::Up;
 
         };
 

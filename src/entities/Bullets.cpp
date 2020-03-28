@@ -9,6 +9,9 @@ Bullet & Bullets::getBullet(uint8_t index) {
 
 void Bullets::update() {
 
+    this->frame++;
+    this->frame = this->frame % 4;
+
     for (uint8_t j=0;j<6;j++) {
 
         auto &bullet = this->bullets[j];
@@ -24,15 +27,35 @@ void Bullets::update() {
                     ry-=3; 
                     break;
 
-                case Direction::Down: 
-                    ry+=3; 
+                case Direction::UpRight: 
+                    ry-=3; 
+                    rx+=3; 
                     break;
 
                 case Direction::Right: 
                     rx+=3; 
                     break;
 
+                case Direction::DownRight: 
+                    ry+=3; 
+                    rx+=3; 
+                    break;
+
+                case Direction::Down: 
+                    ry+=3; 
+                    break;
+
+                case Direction::DownLeft: 
+                    ry+=3; 
+                    rx-=3; 
+                    break;
+
                 case Direction::Left: 
+                    rx-=3; 
+                    break;
+
+                case Direction::UpLeft: 
+                    ry-=3; 
                     rx-=3; 
                     break;
             
@@ -58,7 +81,7 @@ void Bullets::render(Player &player) {
             int x = (player.getX() - bullet.getX());
             int y = (player.getY() - bullet.getY());
 
-            PD::drawBitmap((CENTERX - 4) - x, (CENTERY - 4) - y, Images::Bullets[static_cast<uint8_t>(bullet.getDirection())]);
+            PD::drawBitmap((CENTERX - 4) - x, (CENTERY - 4) - y, Images::Bullets[this->frame]);
 
         }
 

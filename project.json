@@ -1949,6 +1949,39 @@
 		},
 		"/src/images/background/Tile_50.h": {
 			"sdcard": false
+		},
+		"/src/images/bullets/fireball_projectile_Frames.png": {
+			"sdcard": false
+		},
+		"/src/images/bullets/untitled folder": {
+			"sdcard": false
+		},
+		"/src/images/bullets/untitled folder/Bullet_00.png": {
+			"sdcard": false
+		},
+		"/src/images/bullets/untitled folder/Bullet_00.h": {
+			"sdcard": false
+		},
+		"/src/images/bullets/untitled folder/Bullet_01.png": {
+			"sdcard": false
+		},
+		"/src/images/bullets/untitled folder/Bullet_01.h": {
+			"sdcard": false
+		},
+		"/src/images/bullets/untitled folder/Bullet_02.png": {
+			"sdcard": false
+		},
+		"/src/images/bullets/untitled folder/Bullet_02.h": {
+			"sdcard": false
+		},
+		"/src/images/bullets/untitled folder/Bullet_03.png": {
+			"sdcard": false
+		},
+		"/src/images/bullets/untitled folder/Bullet_03.h": {
+			"sdcard": false
+		},
+		"/src/images/bullets/fireball_projectile_Frames.h": {
+			"sdcard": false
 		}
 	},
 	"BUILDFlags": {

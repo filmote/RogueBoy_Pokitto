@@ -127,44 +127,6 @@ uint8_t MapInformation::getOffset(uint8_t x, uint8_t y) {
 
 
 bool MapInformation::isWalkable(uint16_t x, uint16_t y, Direction direction) {
-    
-//     MapTiles p[4];
-//     bool walk = true; 
-
-//     p[0] = (this->getBlock(this->getTileX(x-4), this->getTileY(y-4)));
-//     p[1] = (this->getBlock(this->getTileX(x+3), this->getTileY(y-4)));
-//     p[2] = (this->getBlock(this->getTileX(x-4), this->getTileY(y+3)));
-//     p[3] = (this->getBlock(this->getTileX(x+3), this->getTileY(y+3)));
-
-// printf("UL %i, UR %i, LL, %i, LR, %i\n", p[0], p[1], p[2], p[3]);
-
-
-// //NewUpperLeftTriangle
-//     for (uint8_t i=0; i<4;i++) {
-
-//         switch (p[i]) {
-
-//             case MapTiles::OpenDoor:
-//             case MapTiles::UpStairs:
-//             case MapTiles::DownStairs:
-//             case MapTiles::Empty:
-//             case MapTiles::OpenChest:
-//             case MapTiles::Rubble:
-//             case MapTiles::PressPlate:
-//             case MapTiles::NewBlank:
-//                 walk = false;
-//                 break;
-
-//             // case MapTiles::NewUpperLeftTriangle:
-
-//             //     switch (direction)
-            
-//         }
-
-//     }
-
-//     return walk;
-
 
     MapTiles tile1 = MapTiles::NewBlank;
     MapTiles tile2 = MapTiles::NewBlank;
@@ -183,6 +145,18 @@ printf("x=%i %% 16 = %i .. ", x, (x + 4)% 16);
             if ((x + 4) % 16 <8) tile2 = this->getBlock(this->getTileX(x - 4 + 16), this->getTileY(y - 4));
             break;
 
+        case Direction::Right:
+        printf("Mod %i\n", (y + 4) % 16);
+// printf("%i,%i > %i,%i > %i,%i  ", x, y, x+4, y-4, x-4, y-4+16);        
+// printf("or  %i,%i > %i,%i > %i,%i .. ", this->getTileX(x), this->getTileY(y), this->getTileX(x + 4), this->getTileY(y - 4), this->getTileX(x + 4), this->getTileY(y - 4 + 16));        
+// printf("y=%i %% 16 = %i .. ", y, (y - 4) % 16);        
+            tile1 = this->getBlock(this->getTileX(x + 4), this->getTileY(y - 4));
+            if ((y - 4) % 16 > 8) {
+                tile2 = this->getBlock(this->getTileX(x + 4), this->getTileY(y - 4 + 16));
+            }
+// printf("%i %i\n", tile1, tile2);
+            break;
+            
         case Direction::Down:
 printf("%i,%i > %i,%i > %i,%i  ", x, y, x-4, y+4, x-4, y+4+16);        
 printf("or  %i,%i > %i,%i > %i,%i .. ", this->getTileX(x), this->getTileY(y), this->getTileX(x - 4), this->getTileY(y + 4), this->getTileX(x - 4+ 16), this->getTileY(y + 4));        
@@ -200,17 +174,6 @@ printf("y=%i %% 16 = %i .. ", y, (y - 4)% 16);
 printf("%i %i\n", tile1, tile2);
             break;
 
-        case Direction::Right:
-        printf("Mod %i\n", (y + 4) % 16);
-// printf("%i,%i > %i,%i > %i,%i  ", x, y, x+4, y-4, x-4, y-4+16);        
-// printf("or  %i,%i > %i,%i > %i,%i .. ", this->getTileX(x), this->getTileY(y), this->getTileX(x + 4), this->getTileY(y - 4), this->getTileX(x + 4), this->getTileY(y - 4 + 16));        
-// printf("y=%i %% 16 = %i .. ", y, (y - 4) % 16);        
-            tile1 = this->getBlock(this->getTileX(x + 4), this->getTileY(y - 4));
-            if ((y - 4) % 16 > 8) {
-                tile2 = this->getBlock(this->getTileX(x + 4), this->getTileY(y - 4 + 16));
-            }
-// printf("%i %i\n", tile1, tile2);
-            break;
             
     }
 printf("%i %i\n", tile1, tile2);

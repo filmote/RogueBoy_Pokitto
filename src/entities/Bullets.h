@@ -1,3 +1,4 @@
+
 #pragma once
 
 #include "Pokitto.h"
@@ -23,5 +24,6 @@ class Bullets {
     private:
 
         Bullet bullets[6];
+        uint8_t frame;
 
 };

@@ -129,15 +129,35 @@ void Game::updateObjects() {
                 ry-=5; 
                 break;
 
-            case Direction::Down: 
-                ry+=5; 
+            case Direction::UpRight:     
+                ry-=5; 
+                rx+=5; 
                 break;
 
             case Direction::Right: 
                 rx+=5; 
                 break;
 
+            case Direction::DownRight: 
+                ry+=5; 
+                rx+=5; 
+                break;
+
+            case Direction::Down: 
+                ry+=5; 
+                break;
+
+            case Direction::DownLeft: 
+                ry+=5; 
+                rx-=5; 
+                break;
+
             case Direction::Left: 
+                rx-=5; 
+                break;
+
+            case Direction::UpLeft: 
+                ry-=5; 
                 rx-=5; 
                 break;
                 
@@ -209,35 +229,75 @@ void Game::playerMovement() {
     moving = false;
 
     if ((PC::buttons.pressed(BTN_UP) || PC::buttons.repeat(BTN_UP, 1))) {
+
         if (this->map.isWalkable(x,y - 2, Direction::Up)) {
             y-=2;
             moving = true;
         }
+
         direction = Direction::Up;
+
     }
 
     if ((PC::buttons.pressed(BTN_DOWN) || PC::buttons.repeat(BTN_DOWN, 1))) {
+
         if (this->map.isWalkable(x, y + 2, Direction::Down)) {
             y+=2;
             moving = true;
         }
+
         direction = Direction::Down;
+
     }
 
     if ((PC::buttons.pressed(BTN_RIGHT) || PC::buttons.repeat(BTN_RIGHT, 1))) {
+
         if (this->map.isWalkable(x + 2, y, Direction::Right)) {
             x+=2;
             moving = true;
         }
-        direction = Direction::Right;
+
+        switch (direction) {
+
+            case Direction::Up:
+                direction = Direction::UpRight;
+                break;
+
+            case Direction::Down:
+                direction = Direction::DownRight;
+                break;
+
+            default:
+                direction = Direction::Right;
+                break;
+                
+        }
+
     }
     
     if ((PC::buttons.pressed(BTN_LEFT) || PC::buttons.repeat(BTN_LEFT, 1))) {
+
         if (this->map.isWalkable(x - 2, y, Direction::Left)) {
             x-=2;
             moving = true;
         }
-        direction = Direction::Left;
+
+        switch (direction) {
+
+            case Direction::Up:
+                direction = Direction::UpLeft;
+                break;
+
+            case Direction::Down:
+                direction = Direction::DownLeft;
+                break;
+
+            default:
+                direction = Direction::Left;
+                break;
+                
+        }
+
     }   
 
     player.setX(x);
@@ -274,9 +334,11 @@ void Game::playerMovement() {
         for (uint8_t i = 0; i < 6; i++) {
 
             if (bullets.getBullet(i).getActive() == false) {
+
                 bullets.getBullet(i).setBullet(x, y, direction);
                 //sound.tone(NOTE_F2H,50);
                 break;
+
             }
 
         }
@@ -310,10 +372,14 @@ void Game::playerMovement() {
 
             switch(direction) {
 
-                case Direction::Up:     rely--; break;
-                case Direction::Down:   rely++; break;
-                case Direction::Right:  relx++; break;
-                case Direction::Left:   relx--; break;
+                case Direction::Up:         rely--;         break;
+                case Direction::UpRight:    relx++; rely--; break;
+                case Direction::Right:      relx++;         break;
+                case Direction::DownRight:  relx++; rely++; break;
+                case Direction::Down:       rely++;         break;
+                case Direction::DownLeft:   relx--; rely++; break;
+                case Direction::Left:       relx--;         break;
+                case Direction::UpLeft:     relx--; rely--; break;
 
             }
 
@@ -626,10 +692,10 @@ void Game::spriteAI(MapInformation map, Player &player, Sprite &sprite) {
         case Object::Spider:   
 
             if (this->map.getDistance(x, y, player.getX(), player.getY()) <= 5) {
-                if (x < player.getX() && this->map.isWalkable(x + 1, y, Direction::Right)) { x++; }
-                if (x > player.getX() && this->map.isWalkable(x - 1, y, Direction::Left)) { x--; }
-                if (y < player.getY() && this->map.isWalkable(x, y + 1, Direction::Down)) { y++; }
-                if (y > player.getY() && this->map.isWalkable(x, y - 1, Direction::Up)) { y--; }
+                if (x < player.getX() && this->map.isWalkable(x + 1, y, Direction::Right))   { x++; }
+                if (x > player.getX() && this->map.isWalkable(x - 1, y, Direction::Left))    { x--; }
+                if (y < player.getY() && this->map.isWalkable(x, y + 1, Direction::Down))    { y++; }
+                if (y > player.getY() && this->map.isWalkable(x, y - 1, Direction::Up))      { y--; }
             }
 
             break;
@@ -637,10 +703,10 @@ void Game::spriteAI(MapInformation map, Player &player, Sprite &sprite) {
         case Object::Bat: 
 
             if (this->map.getDistance(x, y, player.getX(), player.getY()) < 5) {
-                if (x < player.getX() && this->map.isWalkable(x + 1, y, Direction::Right)) { x++; }
-                if (x > player.getX() && this->map.isWalkable(x - 1, y, Direction::Left)) { x--; }
-                if (y < player.getY() && this->map.isWalkable(x, y + 1, Direction::Down)) { y++; }
-                if (y > player.getY() && this->map.isWalkable(x, y - 1, Direction::Up)) { y--; }
+                if (x < player.getX() && this->map.isWalkable(x + 1, y, Direction::Right))   { x++; }
+                if (x > player.getX() && this->map.isWalkable(x - 1, y, Direction::Left))    { x--; }
+                if (y < player.getY() && this->map.isWalkable(x, y + 1, Direction::Down))    { y++; }
+                if (y > player.getY() && this->map.isWalkable(x, y - 1, Direction::Up))      { y--; }
             }
 
             if (Pokitto::Core::frameCount % 5 == 0) { 

@@ -50,7 +50,7 @@ void Sprites::render(Player &player) {
             int y = (CENTERY - PLAYER_SIZE_HALF) - (player.getY() - object.getY());
             uint8_t frame = object.getFrame();
             uint8_t offset = object.getOffset();
-            Rotation rotation = object.getRotation();
+            Direction direction = object.getDirection();
 
             switch (object.getType()) {
 
@@ -63,7 +63,7 @@ void Sprites::render(Player &player) {
                     break;
 
                 case Object::Spider:
-                    PD::drawBitmap(x, y, Images::Spiders[static_cast<uint8_t>(rotation)]);
+                    PD::drawBitmap(x, y, Images::Spiders[static_cast<uint8_t>(direction)]);
                     break;
 
                 case Object::SackOCash:

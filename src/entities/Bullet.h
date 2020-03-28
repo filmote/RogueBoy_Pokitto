@@ -16,7 +16,7 @@ class Bullet {
         bool getActive()                { return active;}
         uint16_t getX()                 { return x;}
         uint16_t getY()                 { return y;}
-        Direction getDirection()        { return direction;}
+        Direction getDirection()          { return direction;}
 
         void setX(uint16_t x)           { this->x = x;}
         void setY(uint16_t y)           { this->y = y;}
