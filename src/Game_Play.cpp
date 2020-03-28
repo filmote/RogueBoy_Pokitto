@@ -75,19 +75,19 @@ void Game::updateObjects() {
                     switch (type) {
 
                     case Object::Floater:   
-                        player.setHealth(player.getHealth() - (10 * diff)); 
+                        //player.setHealth(player.getHealth() - (10 * diff)); 
                         break;
 
                     case Object::Skull: 
-                        player.setHealth(player.getHealth() - (5 * diff)); 
+                        //player.setHealth(player.getHealth() - (5 * diff)); 
                         break;
                 
                     case Object::Spider:
-                        player.setHealth(player.getHealth() - (2 * diff)); 
+                        //player.setHealth(player.getHealth() - (2 * diff)); 
                         break;
 
                     case Object::Bat: 
-                        player.setHealth(player.getHealth() - diff); 
+                        //SJH player.setHealth(player.getHealth() - diff); 
                         break;
 
                     }
@@ -426,6 +426,10 @@ bool Game::interactWithBlock(int x, int y, MapTiles block) {
             return false;
 
         case MapTiles::LockedDoor: 
+        case MapTiles::NewDoorTOP: 
+        case MapTiles::NewDoorBOT: 
+        case MapTiles::NewDoorLHS: 
+        case MapTiles::NewDoorRHS: 
             if (this->player.getInventoryCount(Object::Key) > 0) {
                 this->map.setBlock(x, y, MapTiles::OpenDoor); 
                 this->player.decInventoryItem(Object::Key);
@@ -498,6 +502,13 @@ void Game::updateEnvironmentBlock(MapInformation map, uint8_t x, uint8_t y, Envi
 
                 case MapTiles::ExplosiveBarrel: 
                     this->map.setBlock(x1, y1, MapTiles::Rubble); 
+                    break;
+
+                case MapTiles::NewDoorBOT: 
+                case MapTiles::NewDoorTOP: 
+                case MapTiles::NewDoorLHS: 
+                case MapTiles::NewDoorRHS: 
+                    this->map.setBlock(x1, y1, MapTiles::OpenDoor); 
                     break;
 
             }

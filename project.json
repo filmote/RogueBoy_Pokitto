@@ -1928,6 +1928,27 @@
 		},
 		"/src/images/background/Tile_48.h": {
 			"sdcard": false
+		},
+		"/src/images/background/Tile_08a.png": {
+			"sdcard": false
+		},
+		"/src/images/background/Tile_47 copy.png": {
+			"sdcard": false
+		},
+		"/src/images/background/Tile_49.png": {
+			"sdcard": false
+		},
+		"/src/images/background/Tile_49.h": {
+			"sdcard": false
+		},
+		"/src/images/background/Tile_49 copy.png": {
+			"sdcard": false
+		},
+		"/src/images/background/Tile_50.png": {
+			"sdcard": false
+		},
+		"/src/images/background/Tile_50.h": {
+			"sdcard": false
 		}
 	},
 	"BUILDFlags": {

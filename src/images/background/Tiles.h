@@ -45,6 +45,14 @@ namespace Images {
     #include "Tile_40.h"
     #include "Tile_41.h"
     #include "Tile_42.h"
+    #include "Tile_43.h"
+    #include "Tile_44.h"
+    #include "Tile_45.h"
+    #include "Tile_46.h"
+    #include "Tile_47.h"
+    #include "Tile_48.h"
+    #include "Tile_49.h"
+    #include "Tile_50.h"
 
     const uint8_t * const Tiles[] = { 
     Tile_00,
@@ -90,6 +98,14 @@ namespace Images {
     Tile_40,
     Tile_41,
     Tile_42,
+    Tile_43,
+    Tile_44,
+    Tile_45,
+    Tile_46,
+    Tile_47,
+    Tile_48,
+    Tile_49,
+    Tile_50,
     };
 
 };

@@ -63,7 +63,7 @@ enum Object {
 };
 
 enum MapTiles {
-    ClosedChest = 0,
+    Empty = 0,
     BlankWall = 1,
     LockedDoor = 2,
     DownStairs = 3,
@@ -71,7 +71,7 @@ enum MapTiles {
     OpenChest = 5,
     OpenDoor = 6,
     FullBlockWall = 7,
-    Empty = 8,
+    ClosedChest = 8,
     UpStairs = 9,
     SwitchOn = 10,
     SwitchOff = 11,
@@ -106,6 +106,14 @@ enum MapTiles {
     NewDoorRHS = 40,
     NewDoorTOP = 41,
     NewDoorBOT = 42,
+    NewStraightLR = 43,
+    NewStraightTB = 44,
+    NewEndTRL = 45,
+    NewEndRBL = 46,
+    NewEndTBL = 47,
+    NewEndTRB = 48,
+    NewFillTLTR = 49,
+    NewFillTRBR = 50,
 };
 
 const char object_Desc_00[] = "Coin";
