@@ -28,3 +28,4 @@ int main() {
     
     return 0;
 }
+//https://felipemanga.github.io/PokittoEmu/?url=https://github.com/filmote/RogueBoy_Pokitto/raw/master/RogueBoy_Pokitto.bin
