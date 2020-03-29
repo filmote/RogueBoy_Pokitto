@@ -79,7 +79,7 @@ void Player::setMoving(bool moving) {
 void Player::incFrame() {
     
     this->frame++;
-    this->frame %= 4;
+    this->frame %= 2;
 
 }
 
@@ -87,21 +87,13 @@ void Player::init(uint16_t x, uint16_t y) {
 
     this->x = x;
     this->y = y;
-    this->direction = Direction::Up;
+    this->direction = Direction::Down;
     this->coins = 0;
     this->kills = 0;
     this->health = 100;
     this->moving = false;
     
-    for (uint8_t i = 0; i < MAX_INVENTORY_ITEMS; i++) {
-
-        auto & inventoryHolding = this->inventoryItems[i];
-        inventoryHolding.quantity = 0;
-       
-    }
-    
 }
-
 
 
 InventoryItem & Player::getInventoryItem(uint8_t index) {

@@ -7,174 +7,215 @@ using PS = Pokitto::Sound;
 
 void Game::updateObjects() {
 
-  for (uint8_t i = 0; i < this->objects.getObjectNum(); i++) {
+    for (uint8_t i = 0; i < this->objects.getObjectNum(); i++) {
 
-    auto &objectI = this->objects.getSprite(i);
-    
-    if (objectI.getActive()) { 
+        auto &objectI = this->objects.getSprite(i);
 
-      bool Ud = true;
+        if (objectI.getActive()) { 
 
-      for (uint8_t j = 0; j < this->objects.getObjectNum(); j++) {
+            bool Ud = true;
 
-        auto &objectJ = this->objects.getSprite(j);
+            for (uint8_t j = 0; j < this->objects.getObjectNum(); j++) {
 
-        if (j < i && objectJ.getActive() && this->collision(objectI.getX(), objectI.getY(), objectJ.getX(), objectJ.getY()) && (objectJ.getType() >= 6)) {
+                auto &objectJ = this->objects.getSprite(j);
 
-            Ud = false;
-            
-        }
+                if (j < i && objectJ.getActive() && this->collision(objectI.getX(), objectI.getY(), objectJ.getX(), objectJ.getY()) && (objectJ.getType() >= 6)) {
 
-      }
-
-      if (Ud) { this->spriteAI(map, player, objectI); }
-      
-      if (!objectI.getPreventImmediatePickup() && this->collision(objectI.getX(), objectI.getY(), player.getX(), player.getY())) {
-
-        uint16_t note = 0;
-        uint16_t duration = 0;
-        uint8_t type = objectI.getType();
-
-        switch (type) {
-            
-            case Object::Coin: 
-                player.setCoins(player.getCoins() + 1); 
-                objectI.setActive(false); 
-                break;
-
-            case Object::SackOCash: 
-                player.setCoins(player.getCoins() + 5); 
-                objectI.setActive(false); 
-                break;
-
-            case Object::Key: 
-            case Object::Donut: 
-            case Object::Ham: 
-            case Object::Spanner: 
-            case Object::Potion:             
-                {
-                    uint8_t slot = this->player.addInventoryItem(static_cast<Object>(type));
-                    if (slot != NO_SLOT_FOUND) {
-                        objectI.setActive(false);
-                        // sound picked up item
-                    }
-                    else {
-                        // sound could not pick up
-                    }
+                    Ud = false;
 
                 }
-                break;
 
-            case Object::Floater:
-            case Object::Skull:
-            case Object::Spider:
-            case Object::Bat:
+            }
 
-                if (PC::frameCount % 5 == 0) { 
+            if (Ud) { this->spriteAI(map, player, objectI); }
 
-                    switch (type) {
+            if (!objectI.getPreventImmediatePickup() && this->collision(objectI.getX(), objectI.getY(), player.getX(), player.getY())) {
 
-                    case Object::Floater:   
-                        player.setHealth(player.getHealth() - (10 * diff)); 
+                uint16_t note = 0;
+                uint16_t duration = 0;
+                uint8_t type = objectI.getType();
+
+                switch (type) {
+
+                    case Object::Coin: 
+                        player.setCoins(player.getCoins() + 1); 
+                        objectI.setActive(false); 
                         break;
 
-                    case Object::Skull: 
-                        player.setHealth(player.getHealth() - (5 * diff)); 
+                    case Object::SackOCash: 
+                        player.setCoins(player.getCoins() + 5); 
+                        objectI.setActive(false); 
                         break;
-                
+
+                    case Object::Key: 
+                    case Object::Donut: 
+                    case Object::Ham: 
+                    case Object::Spanner: 
+                    case Object::Potion:             
+                        {
+                            uint8_t slot = this->player.addInventoryItem(static_cast<Object>(type));
+
+                            if (slot != NO_SLOT_FOUND) {
+                                objectI.setActive(false);
+                                // sound picked up item
+                            }
+                            else {
+                                // sound could not pick up
+                            }
+
+                        }
+                        break;
+
+                    case Object::Floater:
+                    case Object::Skull:
                     case Object::Spider:
-                        player.setHealth(player.getHealth() - (2 * diff)); 
-                        break;
+                    case Object::Bat:
 
-                    case Object::Bat: 
-                        player.setHealth(player.getHealth() - diff); 
-                        break;
+                        if (PC::frameCount % 5 == 0) { 
 
-                    }
+                            switch (type) {
+
+                                case Object::Floater:   
+                                    //player.setHealth(player.getHealth() - (10 * diff)); 
+                                    break;
+
+                                case Object::Skull: 
+                                    //player.setHealth(player.getHealth() - (5 * diff)); 
+                                    break;
+
+                                case Object::Spider:
+                                    //player.setHealth(player.getHealth() - (2 * diff)); 
+                                    break;
+
+                                case Object::Bat: 
+                                    //SJH player.setHealth(player.getHealth() - diff); 
+                                    break;
+
+                            }
+
+                        }
+
+                        break;
 
                 }
-
-                break;
 
             }
 
         }
 
-      }
-      
-  }
+    }
 
 
-  // Update bullets ..
+    // Update bullets ..
 
-  bullets.update();
+    // bullets.update();
 
 
-  // Have the bullets hit anything ?
+    // Have the bullets hit anything ?
 
-  for (uint8_t j = 0; j < 6; j++) {
+    for (uint8_t j = 0; j < 6; j++) {
 
-    auto &bullet = bullets.getBullet(j);
+        auto &bullet = bullets.getBullet(j);
 
-    if (bullet.getActive()) {
+        if (bullet.getActive()) {
 
-      uint16_t rx = bullet.getX();
-      uint16_t ry = bullet.getY();
-    
-      if (!this->map.isWalkable(rx, ry)) {
+            Direction xDirection = this->getNearestCardinalDirection(bullet.getDirection(), Axis::XAxis);
+            Direction yDirection = this->getNearestCardinalDirection(bullet.getDirection(), Axis::YAxis);
 
-        switch (bullet.getDirection()) {
+// printf("Bullet: %i, xDir: %i, yDir: %i, ", static_cast<uint8_t>(bullet.getDirection()), static_cast<uint8_t>(xDirection), static_cast<uint8_t>(yDirection));
 
-            case Direction::Up:     
-                ry-=5; 
-                break;
+            uint16_t rx = bullet.getX();
+            uint16_t ry = bullet.getY();
 
-            case Direction::Down: 
-                ry+=5; 
-                break;
+// printf("x: %i, y: %i, >> ", rx, ry);
 
-            case Direction::Right: 
-                rx+=5; 
-                break;
+            bullet.update();
 
-            case Direction::Left: 
-                rx-=5; 
-                break;
-                
-        };
+// printf("x: %i, y: %i, \n", bullet.getX(), bullet.getY());
 
-        if (this->map.getBlock(this->map.getTileX(rx), this->map.getTileY(ry)) == 4) {
-            barrelBreak(map, this->map.getTileX(rx), this->map.getTileY(ry), this->objects);
-        } 
+            if (xDirection != Direction::None && !this->map.isWalkable(bullet.getX(), ry, xDirection, 4, 4)) {
+                bullet.setActive(false);
+            }
 
-        bullet.setActive(false);
+            if (yDirection != Direction::None && bullet.getActive() && !this->map.isWalkable(rx, bullet.getY(), yDirection, 4, 4)) {
+                bullet.setActive(false);
+            }
 
-      }
-      else {
 
-        for (uint8_t i = 0; i < this->objects.getObjectNum(); i++) {
-            
-          auto &object = this->objects.getSprite(i);
-          
-          if (object.getActive() && object.isEnemy() && this->collision(object.getX()-4, object.getY()-4, bullet.getX()-4, bullet.getY()-4)) {
+            if (!bullet.getActive()) {
 
-              object.damage();
-              bullet.setActive(false);
+                switch (bullet.getDirection()) {
 
-              if (!object.getActive()) {
-                  player.setKills(player.getKills() + 1);
-                  dropItem(object.getX(), object.getY(), true, this->objects);
-              }
+                    case Direction::Up:     
+                        ry-=5; 
+                        break;
 
-          }
+                    case Direction::UpRight:     
+                        rx+=5; 
+                        ry-=5; 
+                        break;
+
+                    case Direction::Right: 
+                        rx+=5; 
+                        break;
+
+                    case Direction::DownRight: 
+                        rx+=5; 
+                        ry+=5; 
+                        break;
+
+                    case Direction::Down: 
+                        ry+=5; 
+                        break;
+
+                    case Direction::DownLeft: 
+                        ry+=5; 
+                        rx-=5; 
+                        break;
+
+                    case Direction::Left: 
+                        rx-=5; 
+                        break;
+
+                    case Direction::UpLeft: 
+                        rx-=5; 
+                        ry-=5; 
+                        break;
+
+                };
+
+                if (this->map.getBlock(this->map.getTileX(rx), this->map.getTileY(ry)) == 4) {
+                    barrelBreak(map, this->map.getTileX(rx), this->map.getTileY(ry), this->objects);
+                } 
+
+                bullet.setActive(false);
+
+            }
+            else {
+
+                for (uint8_t i = 0; i < this->objects.getObjectNum(); i++) {
+
+                    auto &object = this->objects.getSprite(i);
+
+                    if (object.getActive() && object.isEnemy() && this->collision(object.getX()-4, object.getY()-4, bullet.getX()-4, bullet.getY()-4)) {
+
+                        object.damage();
+                        bullet.setActive(false);
+
+                        if (!object.getActive()) {
+                            player.setKills(player.getKills() + 1);
+                            dropItem(object.getX(), object.getY(), true, this->objects);
+                        }
+
+                    }
+
+                }
+
+            }
 
         }
 
-      }
-
     }
-
-  }
 
 }
 
@@ -185,7 +226,7 @@ void Game::updateGame() {
     this->renderEnviroment();
     this->renderPlayer();
     this->renderObjects();
-    this->drawHud();
+    this->renderHud();
     
     if (Pokitto::Core::frameCount % 15 == 0) { this->map.decTimer();  }
     if (this->map.getTimer() == 0) { player.setHealth(0); }
@@ -209,35 +250,75 @@ void Game::playerMovement() {
     moving = false;
 
     if ((PC::buttons.pressed(BTN_UP) || PC::buttons.repeat(BTN_UP, 1))) {
-        if (this->map.isWalkable(x,y - 2)) {
+
+        if (this->map.isWalkable(x, y - 2, Direction::Up, 8, 12)) {
             y-=2;
             moving = true;
         }
+
         direction = Direction::Up;
+
     }
 
     if ((PC::buttons.pressed(BTN_DOWN) || PC::buttons.repeat(BTN_DOWN, 1))) {
-        if (this->map.isWalkable(x, y + 2)) {
+
+        if (this->map.isWalkable(x, y + 2, Direction::Down, 8, 12)) {
             y+=2;
             moving = true;
         }
+
         direction = Direction::Down;
+
     }
 
     if ((PC::buttons.pressed(BTN_RIGHT) || PC::buttons.repeat(BTN_RIGHT, 1))) {
-        if (this->map.isWalkable(x + 2, y)) {
+
+        if (this->map.isWalkable(x + 2, y, Direction::Right, 8, 12)) {
             x+=2;
             moving = true;
         }
-        direction = Direction::Right;
+
+        switch (direction) {
+
+            case Direction::Up:
+                direction = Direction::UpRight;
+                break;
+
+            case Direction::Down:
+                direction = Direction::DownRight;
+                break;
+
+            default:
+                direction = Direction::Right;
+                break;
+                
+        }
+
     }
     
     if ((PC::buttons.pressed(BTN_LEFT) || PC::buttons.repeat(BTN_LEFT, 1))) {
-        if (this->map.isWalkable(x - 2, y)) {
+printf("Left\n");
+        if (this->map.isWalkable(x - 2, y, Direction::Left, 8, 12)) {
             x-=2;
             moving = true;
         }
-        direction = Direction::Left;
+
+        switch (direction) {
+
+            case Direction::Up:
+                direction = Direction::UpLeft;
+                break;
+
+            case Direction::Down:
+                direction = Direction::DownLeft;
+                break;
+
+            default:
+                direction = Direction::Left;
+                break;
+                
+        }
+
     }   
 
     player.setX(x);
@@ -274,9 +355,11 @@ void Game::playerMovement() {
         for (uint8_t i = 0; i < 6; i++) {
 
             if (bullets.getBullet(i).getActive() == false) {
+
                 bullets.getBullet(i).setBullet(x, y, direction);
                 //sound.tone(NOTE_F2H,50);
                 break;
+
             }
 
         }
@@ -292,7 +375,7 @@ void Game::playerMovement() {
         this->inventoryMenu.mainCursor = 0;
   
     }
-
+    
 
     // Operate lever, open door, fix things ..
 
@@ -310,78 +393,19 @@ void Game::playerMovement() {
 
             switch(direction) {
 
-                case Direction::Up:     rely--; break;
-                case Direction::Down:   rely++; break;
-                case Direction::Right:  relx++; break;
-                case Direction::Left:   relx--; break;
+                case Direction::Up:         rely--;         break;
+                case Direction::UpRight:    relx++; rely--; break;
+                case Direction::Right:      relx++;         break;
+                case Direction::DownRight:  relx++; rely++; break;
+                case Direction::Down:       rely++;         break;
+                case Direction::DownLeft:   relx--; rely++; break;
+                case Direction::Left:       relx--;         break;
+                case Direction::UpLeft:     relx--; rely--; break;
 
             }
 
             block = static_cast<MapTiles>(this->map.getBlock(relx, rely));
             this->interactWithBlock(relx, rely, block);
-
-            // switch (block) {
-
-            //     case MapTiles::SwitchOn: 
-            //         this->map.setBlock(relx, rely, MapTiles::SwitchOff); 
-            //         updateEnvironmentBlock(map, relx, rely, this->environments); 
-            //         // sound move switch 
-            //         break;
-
-            //     case MapTiles::SwitchOff: 
-            //         this->map.setBlock(relx, rely, MapTiles::SwitchOn); 
-            //         updateEnvironmentBlock(map, relx, rely, this->environments); 
-            //         // sound move switch 
-            //         break;
-
-            //     case MapTiles::ClosedChest: 
-            //         {
-            //             uint8_t slot = this->player.addInventoryItem(Object::Key);
-
-            //             if (slot != NO_SLOT_FOUND) {
-
-            //                 this->map.setBlock(relx, rely, MapTiles::OpenChest); 
-            //                 // sound open chest
-
-            //             }
-                        
-            //         }
-            //         break;
-
-            //     case MapTiles::LockedDoor: 
-            //         if (this->player.getInventoryCount(Object::Key) > 0) {
-            //             this->map.setBlock(relx, rely, MapTiles::OpenDoor); 
-            //             this->player.decInventoryItem(Object::Key);
-            //             // sound unlock door
-            //         } 
-            //         else {
-            //             // sound missing keys
-            //         }  
-            //         break;
-
-            //     case MapTiles::LockedStairs: 
-            //         if (this->player.getInventoryCount(Object::Key) > 0) {
-            //             this->map.setBlock(relx, rely, MapTiles::DownStairs); 
-            //             this->player.decInventoryItem(Object::Key);
-            //             // sound unlock door
-            //         } 
-            //         else {
-            //             // sound missing keys
-            //         } 
-            //         break;
-
-            //     case MapTiles::SwitchBroken: 
-            //         if (this->player.getInventoryCount(Object::Spanner) > 0) {
-            //             this->map.setBlock(relx, rely, MapTiles::SwitchOn); 
-            //             this->player.decInventoryItem(Object::Spanner);
-            //             // sound fix
-            //         } 
-            //         else {
-            //             // sound missing keys / spanner
-            //         } 
-            //         break;
-
-            // }
 
         }
 
@@ -400,6 +424,7 @@ bool Game::interactWithBlock(int x, int y, MapTiles block) {
 
         case MapTiles::SwitchOn: 
             this->map.setBlock(x, y, MapTiles::SwitchOff); 
+            printf("%i,%i\n",x,y);
             updateEnvironmentBlock(map, x, y, this->environments); 
             // sound move switch 
             return true;
@@ -436,6 +461,52 @@ bool Game::interactWithBlock(int x, int y, MapTiles block) {
                 // sound missing keys
                 return false;
             }  
+        case MapTiles::NewDoorTOP: 
+            if (this->player.getInventoryCount(Object::Key) > 0) {
+                this->map.setBlock(x, y, MapTiles::NewDoorTOPOpen); 
+                this->player.decInventoryItem(Object::Key);
+                // sound unlock door
+                return true;
+            } 
+            else {
+                // sound missing keys
+                return false;
+            }  
+        case MapTiles::NewDoorBOT: 
+            if (this->player.getInventoryCount(Object::Key) > 0) {
+                this->map.setBlock(x, y, MapTiles::NewDoorBOTOpen); 
+                this->player.decInventoryItem(Object::Key);
+                // sound unlock door
+                return true;
+            } 
+            else {
+                // sound missing keys
+                return false;
+            }
+
+        case MapTiles::NewDoorLHS: 
+            if (this->player.getInventoryCount(Object::Key) > 0) {
+                this->map.setBlock(x, y, MapTiles::NewDoorLHSOpen); 
+                this->player.decInventoryItem(Object::Key);
+                // sound unlock door
+                return true;
+            } 
+            else {
+                // sound missing keys
+                return false;
+            }  
+
+        case MapTiles::NewDoorRHS: 
+            if (this->player.getInventoryCount(Object::Key) > 0) {
+                this->map.setBlock(x, y, MapTiles::NewDoorRHSOpen); 
+                this->player.decInventoryItem(Object::Key);
+                // sound unlock door
+                return true;
+            } 
+            else {
+                // sound missing keys
+                return false;
+            }  
 
         case MapTiles::LockedStairs: 
             if (this->player.getInventoryCount(Object::Key) > 0) {
@@ -450,7 +521,7 @@ bool Game::interactWithBlock(int x, int y, MapTiles block) {
 
         case MapTiles::SwitchBroken: 
             if (this->player.getInventoryCount(Object::Spanner) > 0) {
-                this->map.setBlock(x, y, MapTiles::SwitchOn); 
+                this->map.setBlock(x, y, MapTiles::SwitchOff); 
                 this->player.decInventoryItem(Object::Spanner);
                 // sound fix
                 return true;
@@ -477,7 +548,7 @@ void Game::updateEnvironmentBlock(MapInformation map, uint8_t x, uint8_t y, Envi
 
             uint8_t x1 = environment.finishX();
             uint8_t y1 = environment.finishY();
-
+printf("block %i\n",this->map.getBlock(x1, y1));
             switch(this->map.getBlock(x1, y1)) {
 
                 case MapTiles::SpearDoor: 
@@ -485,7 +556,8 @@ void Game::updateEnvironmentBlock(MapInformation map, uint8_t x, uint8_t y, Envi
                     break;
                 
                 case MapTiles::OpenDoor: 
-                    this->map.setBlock(x1, y1, MapTiles::SpearDoor); 
+//                    this->map.setBlock(x1, y1, MapTiles::SpearDoor); 
+                    this->map.setBlock(x1, y1, environment.getTile()); 
                     break;
 
                 case MapTiles::LockedStairs: 
@@ -498,6 +570,10 @@ void Game::updateEnvironmentBlock(MapInformation map, uint8_t x, uint8_t y, Envi
 
                 case MapTiles::ExplosiveBarrel: 
                     this->map.setBlock(x1, y1, MapTiles::Rubble); 
+                    break;
+
+                case MapTiles::NewDoorLHSOpen: 
+                    this->map.setBlock(x1, y1, MapTiles::NewDoorLHS); 
                     break;
 
             }
@@ -615,10 +691,10 @@ void Game::spriteAI(MapInformation map, Player &player, Sprite &sprite) {
         case Object::Spider:   
 
             if (this->map.getDistance(x, y, player.getX(), player.getY()) <= 5) {
-                if (x < player.getX() && this->map.isWalkable(x + 1, y)) { x++; }
-                if (x > player.getX() && this->map.isWalkable(x - 1, y)) { x--; }
-                if (y < player.getY() && this->map.isWalkable(x, y + 1)) { y++; }
-                if (y > player.getY() && this->map.isWalkable(x, y - 1)) { y--; }
+                if (x < player.getX() && this->map.isWalkable(x + 1, y, Direction::Right, 12, 12))   { x++; }
+                if (x > player.getX() && this->map.isWalkable(x - 1, y, Direction::Left, 12, 12))    { x--; }
+                if (y < player.getY() && this->map.isWalkable(x, y + 1, Direction::Down, 12, 12))    { y++; }
+                if (y > player.getY() && this->map.isWalkable(x, y - 1, Direction::Up, 12, 12))      { y--; }
             }
 
             break;
@@ -626,10 +702,10 @@ void Game::spriteAI(MapInformation map, Player &player, Sprite &sprite) {
         case Object::Bat: 
 
             if (this->map.getDistance(x, y, player.getX(), player.getY()) < 5) {
-                if (x < player.getX() && this->map.isWalkable(x + 1, y)) { x++; }
-                if (x > player.getX() && this->map.isWalkable(x - 1, y)) { x--; }
-                if (y < player.getY() && this->map.isWalkable(x, y + 1)) { y++; }
-                if (y > player.getY() && this->map.isWalkable(x, y - 1)) { y--; }
+                if (x < player.getX() && this->map.isWalkable(x + 1, y, Direction::Right, 12, 12))   { x++; }
+                if (x > player.getX() && this->map.isWalkable(x - 1, y, Direction::Left, 12, 12))    { x--; }
+                if (y < player.getY() && this->map.isWalkable(x, y + 1, Direction::Down, 12, 12))    { y++; }
+                if (y > player.getY() && this->map.isWalkable(x, y - 1, Direction::Up, 12, 12))      { y--; }
             }
 
             if (Pokitto::Core::frameCount % 5 == 0) { 
@@ -643,4 +719,62 @@ void Game::spriteAI(MapInformation map, Player &player, Sprite &sprite) {
 
     sprite.setPosition(x, y);
 
+}
+
+Direction Game::getNearestCardinalDirection(Direction direction, Axis axis) {
+
+    switch (axis) {
+
+        case Axis::XAxis:
+
+            switch (direction) {
+
+                case Direction::UpLeft:
+                case Direction::Left:
+                case Direction::DownLeft:
+
+                    return Direction::Left;
+
+                case Direction::Up:
+                case Direction::Down:
+
+                    return Direction::None;
+
+                case Direction::UpRight:
+                case Direction::Right:
+                case Direction::DownRight:
+
+                    return Direction::Right;
+                
+            }
+
+            break;
+
+        case Axis::YAxis:
+
+            switch (direction) {
+
+                case Direction::UpLeft:
+                case Direction::Up:
+                case Direction::UpRight:
+
+                    return Direction::Up;
+
+                case Direction::Left:
+                case Direction::Right:
+
+                    return Direction::None;
+
+                case Direction::DownLeft:
+                case Direction::Down:
+                case Direction::DownRight:
+
+                    return Direction::Down;
+                
+            }
+
+            break;
+
+
+    }
 }

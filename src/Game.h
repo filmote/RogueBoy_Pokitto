@@ -18,11 +18,11 @@ class Game {
 
     private:
 
-        void drawHealth();
-        void drawHolding();
-        void drawTime();
-        void drawLevel();
-        void drawHud();
+        // void drawHealth();
+        // void drawHolding();
+        // void drawTime();
+        // void drawLevel();
+        void renderHud();
         void renderEnviroment();
         void renderPlayer();
 
@@ -49,10 +49,10 @@ class Game {
         void dropItem(uint16_t x, uint16_t y, bool EnDrop, Sprites &Objects);
         void spriteAI(MapInformation map, Player &player, Sprite &sprite);
         void barrelBreak(MapInformation map, uint8_t x,uint8_t y, Sprites &objects);
+        Direction getNearestCardinalDirection(Direction direction, Axis axis);
 
     private:
 
-        uint8_t showarrow;
         Player player;
         Bullets bullets;
         Sprites objects;
@@ -67,7 +67,7 @@ class Game {
         MapInformation map;
 
 //        const uint8_t * maps[18] = { MAP_1, MAP_2, MAP_3, MAP_4, MAP_5, MAP_6, MAP_7, MAP_8, MAP_9, MAP_10, MAP_11, MAP_12, MAP_13, MAP_14, MAP_15, MAP_16, MAP_17, MAP_18 };
-        const uint8_t * maps[18] = { MAP_Test, MAP_2, MAP_3, MAP_4, MAP_5, MAP_6, MAP_7, MAP_8, MAP_9, MAP_10, MAP_11, MAP_12, MAP_13, MAP_14, MAP_15, MAP_16, MAP_17, MAP_18 };
+        const uint8_t * maps[19] = { MAP_Test, MAP_1, MAP_2, MAP_3, MAP_4, MAP_5, MAP_6, MAP_7, MAP_8, MAP_9, MAP_10, MAP_11, MAP_12, MAP_13, MAP_14, MAP_15, MAP_16, MAP_17, MAP_18,  };
     
 };
 

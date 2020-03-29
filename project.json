@@ -1448,6 +1448,777 @@
 		},
 		"/RogueBoy_Pokitto.bin.1.gif": {
 			"sdcard": false
+		},
+		"/src/images/CloudyMountain_WIP2-2.png": {
+			"sdcard": false
+		},
+		"/src/images/background/CloudyMountain_WIP2-2.png": {
+			"sdcard": false
+		},
+		"/src/images/background/CloudyMountain_WIP2-2 copy.png": {
+			"sdcard": false
+		},
+		"/src/images/background/Tile_21.png": {
+			"sdcard": false
+		},
+		"/src/images/background/Tile_22.png": {
+			"sdcard": false
+		},
+		"/src/images/background/Tile_23.png": {
+			"sdcard": false
+		},
+		"/src/images/background/Tile_24.png": {
+			"sdcard": false
+		},
+		"/src/images/background/Tile_25.png": {
+			"sdcard": false
+		},
+		"/src/images/background/Tile_26.png": {
+			"sdcard": false
+		},
+		"/src/images/background/Tile_27.png": {
+			"sdcard": false
+		},
+		"/src/images/background/Tile_28.png": {
+			"sdcard": false
+		},
+		"/src/images/background/Tile_29.png": {
+			"sdcard": false
+		},
+		"/src/images/background/Tile_30.png": {
+			"sdcard": false
+		},
+		"/src/images/background/Tile_31.png": {
+			"sdcard": false
+		},
+		"/src/images/background/Tile_32.png": {
+			"sdcard": false
+		},
+		"/src/images/background/Tile_32 copy.png": {
+			"sdcard": false
+		},
+		"/src/images/background/Tile_333.png": {
+			"sdcard": false
+		},
+		"/src/images/background/Tile_33.png": {
+			"sdcard": false
+		},
+		"/src/images/background/CloudyMountain_WIP2-2 copy.h": {
+			"sdcard": false
+		},
+		"/src/images/background/Tile_21.h": {
+			"sdcard": false
+		},
+		"/src/images/background/Tile_22.h": {
+			"sdcard": false
+		},
+		"/src/images/background/CloudyMountain_WIP2-2.h": {
+			"sdcard": false
+		},
+		"/src/images/background/Tile_23.h": {
+			"sdcard": false
+		},
+		"/src/images/background/Tile_25.h": {
+			"sdcard": false
+		},
+		"/src/images/background/Tile_24.h": {
+			"sdcard": false
+		},
+		"/src/images/CloudyMountain_WIP2-2.h": {
+			"sdcard": false
+		},
+		"/src/images/background/Tile_26.h": {
+			"sdcard": false
+		},
+		"/src/images/background/Tile_29.h": {
+			"sdcard": false
+		},
+		"/src/images/background/Tile_30.h": {
+			"sdcard": false
+		},
+		"/src/images/background/Tile_31.h": {
+			"sdcard": false
+		},
+		"/src/images/background/Tile_32.h": {
+			"sdcard": false
+		},
+		"/src/images/background/Tile_33.h": {
+			"sdcard": false
+		},
+		"/src/images/background/Tile_27.h": {
+			"sdcard": false
+		},
+		"/src/images/background/Tile_28.h": {
+			"sdcard": false
+		},
+		"/src/images/background/untitled folder": {
+			"sdcard": false
+		},
+		"/src/images/background/abckup": {
+			"sdcard": false
+		},
+		"/src/images/background/backup": {
+			"sdcard": false
+		},
+		"/src/images/background/backup/Tile_21.png": {
+			"sdcard": false
+		},
+		"/src/images/background/backup/Tile_22.png": {
+			"sdcard": false
+		},
+		"/src/images/background/backup/Tile_24.png": {
+			"sdcard": false
+		},
+		"/src/images/background/backup/Tile_23.png": {
+			"sdcard": false
+		},
+		"/src/images/background/backup/Tile_25.png": {
+			"sdcard": false
+		},
+		"/src/images/background/backup/Tile_26.png": {
+			"sdcard": false
+		},
+		"/src/images/background/backup/Tile_27.png": {
+			"sdcard": false
+		},
+		"/src/images/background/backup/Tile_28.png": {
+			"sdcard": false
+		},
+		"/src/images/background/backup/Tile_32.png": {
+			"sdcard": false
+		},
+		"/src/images/background/backup/Tile_33.png": {
+			"sdcard": false
+		},
+		"/src/images/background/backup/Tile_21.h": {
+			"sdcard": false
+		},
+		"/src/images/background/backup/Tile_22.h": {
+			"sdcard": false
+		},
+		"/src/images/background/backup/Tile_24.h": {
+			"sdcard": false
+		},
+		"/src/images/background/backup/Tile_23.h": {
+			"sdcard": false
+		},
+		"/src/images/background/backup/Tile_25.h": {
+			"sdcard": false
+		},
+		"/src/images/background/backup/Tile_26.h": {
+			"sdcard": false
+		},
+		"/src/images/background/backup/Tile_28.h": {
+			"sdcard": false
+		},
+		"/src/images/background/backup/Tile_32.h": {
+			"sdcard": false
+		},
+		"/src/images/background/backup/Tile_33.h": {
+			"sdcard": false
+		},
+		"/src/images/background/backup/Tile_27.h": {
+			"sdcard": false
+		},
+		"/src/images/background/backup/untitled folder": {
+			"sdcard": false
+		},
+		"/src/images/background/backup/Orig": {
+			"sdcard": false
+		},
+		"/src/images/background/backup/Orig/Tile_21.png": {
+			"sdcard": false
+		},
+		"/src/images/background/backup/Orig/Tile_21.h": {
+			"sdcard": false
+		},
+		"/src/images/background/backup/Orig/Tile_22.png": {
+			"sdcard": false
+		},
+		"/src/images/background/backup/Orig/Tile_22.h": {
+			"sdcard": false
+		},
+		"/src/images/background/backup/Orig/Tile_23.png": {
+			"sdcard": false
+		},
+		"/src/images/background/backup/Orig/Tile_23.h": {
+			"sdcard": false
+		},
+		"/src/images/background/backup/Orig/Tile_24.png": {
+			"sdcard": false
+		},
+		"/src/images/background/backup/Orig/Tile_24.h": {
+			"sdcard": false
+		},
+		"/src/images/background/backup/Orig/Tile_25.png": {
+			"sdcard": false
+		},
+		"/src/images/background/backup/Orig/Tile_25.h": {
+			"sdcard": false
+		},
+		"/src/images/background/backup/Orig/Tile_26.png": {
+			"sdcard": false
+		},
+		"/src/images/background/backup/Orig/Tile_33.png": {
+			"sdcard": false
+		},
+		"/src/images/background/backup/Orig/Tile_33.h": {
+			"sdcard": false
+		},
+		"/src/images/background/backup/DoubleSize": {
+			"sdcard": false
+		},
+		"/src/images/background/backup/DoubleSize/Tile_21.png": {
+			"sdcard": false
+		},
+		"/src/images/background/backup/DoubleSize/Tile_22.png": {
+			"sdcard": false
+		},
+		"/src/images/background/backup/DoubleSize/Tile_24.png": {
+			"sdcard": false
+		},
+		"/src/images/background/backup/DoubleSize/Tile_23.png": {
+			"sdcard": false
+		},
+		"/src/images/background/backup/DoubleSize/Tile_26.png": {
+			"sdcard": false
+		},
+		"/src/images/background/backup/DoubleSize/Tile_25.png": {
+			"sdcard": false
+		},
+		"/src/images/background/backup/DoubleSize/Tile_28.png": {
+			"sdcard": false
+		},
+		"/src/images/background/backup/DoubleSize/Tile_29.png": {
+			"sdcard": false
+		},
+		"/src/images/background/backup/DoubleSize/Tile_27.png": {
+			"sdcard": false
+		},
+		"/src/images/background/backup/DoubleSize/Tile_30.png": {
+			"sdcard": false
+		},
+		"/src/images/background/backup/DoubleSize/Tile_32.png": {
+			"sdcard": false
+		},
+		"/src/images/background/backup/DoubleSize/Tile_33.png": {
+			"sdcard": false
+		},
+		"/src/images/background/backup/DoubleSize/Tile_31.png": {
+			"sdcard": false
+		},
+		"/src/images/background/backup/Orig/Tile_29.png": {
+			"sdcard": false
+		},
+		"/src/images/background/backup/Orig/Tile_30.png": {
+			"sdcard": false
+		},
+		"/src/images/background/backup/Orig/Tile_31.png": {
+			"sdcard": false
+		},
+		"/src/images/background/backup/DoubleSize/Tile_21.h": {
+			"sdcard": false
+		},
+		"/src/images/background/backup/DoubleSize/Tile_24.h": {
+			"sdcard": false
+		},
+		"/src/images/background/backup/DoubleSize/Tile_22.h": {
+			"sdcard": false
+		},
+		"/src/images/background/backup/DoubleSize/Tile_23.h": {
+			"sdcard": false
+		},
+		"/src/images/background/backup/DoubleSize/Tile_25.h": {
+			"sdcard": false
+		},
+		"/src/images/background/backup/DoubleSize/Tile_29.h": {
+			"sdcard": false
+		},
+		"/src/images/background/backup/DoubleSize/Tile_28.h": {
+			"sdcard": false
+		},
+		"/src/images/background/backup/DoubleSize/Tile_26.h": {
+			"sdcard": false
+		},
+		"/src/images/background/backup/DoubleSize/Tile_31.h": {
+			"sdcard": false
+		},
+		"/src/images/background/backup/DoubleSize/Tile_33.h": {
+			"sdcard": false
+		},
+		"/src/images/background/backup/Orig/Tile_30.h": {
+			"sdcard": false
+		},
+		"/src/images/background/backup/DoubleSize/Tile_27.h": {
+			"sdcard": false
+		},
+		"/src/images/background/backup/DoubleSize/Tile_30.h": {
+			"sdcard": false
+		},
+		"/src/images/background/backup/DoubleSize/Tile_32.h": {
+			"sdcard": false
+		},
+		"/src/images/background/backup/Orig/Tile_26.h": {
+			"sdcard": false
+		},
+		"/src/images/background/backup/Orig/Tile_27.h": {
+			"sdcard": false
+		},
+		"/src/images/background/backup/Orig/Tile_27.png": {
+			"sdcard": false
+		},
+		"/src/images/background/backup/Orig/Tile_28.h": {
+			"sdcard": false
+		},
+		"/src/images/background/backup/Orig/Tile_28.png": {
+			"sdcard": false
+		},
+		"/src/images/background/backup/Orig/Tile_29.h": {
+			"sdcard": false
+		},
+		"/src/images/background/backup/Orig/Tile_31.h": {
+			"sdcard": false
+		},
+		"/src/images/background/backup/Orig/Tile_32.png": {
+			"sdcard": false
+		},
+		"/src/images/background/backup/Orig/Tile_32.h": {
+			"sdcard": false
+		},
+		"/src/images/background/Tile_24 copy.png": {
+			"sdcard": false
+		},
+		"/src/images/background/Tile_34.png": {
+			"sdcard": false
+		},
+		"/src/images/background/Tile_35.png": {
+			"sdcard": false
+		},
+		"/src/images/background/Tile_36.png": {
+			"sdcard": false
+		},
+		"/src/images/background/Tile_37.png": {
+			"sdcard": false
+		},
+		"/src/images/background/Tile_34.h": {
+			"sdcard": false
+		},
+		"/src/images/background/Tile_35.h": {
+			"sdcard": false
+		},
+		"/src/images/background/Tile_36.h": {
+			"sdcard": false
+		},
+		"/src/images/background/Tile_37.h": {
+			"sdcard": false
+		},
+		"/src/images/background/Tile_27 copy.png": {
+			"sdcard": false
+		},
+		"/src/images/background/Tile_38.png": {
+			"sdcard": false
+		},
+		"/src/images/background/Tile_38.h": {
+			"sdcard": false
+		},
+		"/src/images/background/Tile_34 copy.png": {
+			"sdcard": false
+		},
+		"/src/images/background/Tile_39.png": {
+			"sdcard": false
+		},
+		"/src/images/background/Tile_39.h": {
+			"sdcard": false
+		},
+		"/src/images/CloudyMountain_WIP2-2 copy.png": {
+			"sdcard": false
+		},
+		"/src/images/players/CloudyMountain_WIP2-2 copy.png": {
+			"sdcard": false
+		},
+		"/src/images/players/CloudyMountain_WIP2-2 copy.h": {
+			"sdcard": false
+		},
+		"/RogueBoy_Pokitto.bin.2.gif": {
+			"sdcard": false
+		},
+		"/RogueBoy_Pokitto.bin.3.gif": {
+			"sdcard": false
+		},
+		"/RogueBoy_Pokitto.bin.4.gif": {
+			"sdcard": false
+		},
+		"/src/images/background/RogueBoy_Pokitto_mockup4.png": {
+			"sdcard": false
+		},
+		"/src/images/background/Tile_41.png": {
+			"sdcard": false
+		},
+		"/src/images/background/Tile_40.png": {
+			"sdcard": false
+		},
+		"/src/images/background/Tile_42.png": {
+			"sdcard": false
+		},
+		"/src/images/background/Tile_41 copy.png": {
+			"sdcard": false
+		},
+		"/src/images/background/Tile_21 copy.png": {
+			"sdcard": false
+		},
+		"/src/images/background/Tile_43.png": {
+			"sdcard": false
+		},
+		"/src/images/background/Tile_43 copy.png": {
+			"sdcard": false
+		},
+		"/src/images/background/Tile_44.png": {
+			"sdcard": false
+		},
+		"/src/images/background/Tile_46.png": {
+			"sdcard": false
+		},
+		"/src/images/background/Tile_46 copy.png": {
+			"sdcard": false
+		},
+		"/src/images/background/Tile_45.png": {
+			"sdcard": false
+		},
+		"/src/images/background/Tile_45 copy.png": {
+			"sdcard": false
+		},
+		"/src/images/background/Tile_47.png": {
+			"sdcard": false
+		},
+		"/src/images/background/Tile_48.png": {
+			"sdcard": false
+		},
+		"/Book2.xlsx": {
+			"sdcard": false
+		},
+		"/~$Book2.xlsx": {
+			"sdcard": false
+		},
+		"/src/images/background/Tile_46.h": {
+			"sdcard": false
+		},
+		"/src/images/background/Tile_42.h": {
+			"sdcard": false
+		},
+		"/src/images/background/Tile_44.h": {
+			"sdcard": false
+		},
+		"/src/images/background/Tile_43.h": {
+			"sdcard": false
+		},
+		"/src/images/background/Tile_41.h": {
+			"sdcard": false
+		},
+		"/src/images/background/Tile_47.h": {
+			"sdcard": false
+		},
+		"/src/images/background/Tile_40.h": {
+			"sdcard": false
+		},
+		"/src/images/background/RogueBoy_Pokitto_mockup4.h": {
+			"sdcard": false
+		},
+		"/src/images/background/Tile_45.h": {
+			"sdcard": false
+		},
+		"/src/images/background/Tile_48.h": {
+			"sdcard": false
+		},
+		"/src/images/background/Tile_08a.png": {
+			"sdcard": false
+		},
+		"/src/images/background/Tile_47 copy.png": {
+			"sdcard": false
+		},
+		"/src/images/background/Tile_49.png": {
+			"sdcard": false
+		},
+		"/src/images/background/Tile_49.h": {
+			"sdcard": false
+		},
+		"/src/images/background/Tile_49 copy.png": {
+			"sdcard": false
+		},
+		"/src/images/background/Tile_50.png": {
+			"sdcard": false
+		},
+		"/src/images/background/Tile_50.h": {
+			"sdcard": false
+		},
+		"/src/images/bullets/fireball_projectile_Frames.png": {
+			"sdcard": false
+		},
+		"/src/images/bullets/untitled folder": {
+			"sdcard": false
+		},
+		"/src/images/bullets/untitled folder/Bullet_00.png": {
+			"sdcard": false
+		},
+		"/src/images/bullets/untitled folder/Bullet_00.h": {
+			"sdcard": false
+		},
+		"/src/images/bullets/untitled folder/Bullet_01.png": {
+			"sdcard": false
+		},
+		"/src/images/bullets/untitled folder/Bullet_01.h": {
+			"sdcard": false
+		},
+		"/src/images/bullets/untitled folder/Bullet_02.png": {
+			"sdcard": false
+		},
+		"/src/images/bullets/untitled folder/Bullet_02.h": {
+			"sdcard": false
+		},
+		"/src/images/bullets/untitled folder/Bullet_03.png": {
+			"sdcard": false
+		},
+		"/src/images/bullets/untitled folder/Bullet_03.h": {
+			"sdcard": false
+		},
+		"/src/images/bullets/fireball_projectile_Frames.h": {
+			"sdcard": false
+		},
+		"/src/images/players/Player_00_F0.png": {
+			"sdcard": false
+		},
+		"/src/images/players/Player_01_F1.png": {
+			"sdcard": false
+		},
+		"/src/images/players/Player_01_F1 copy.png": {
+			"sdcard": false
+		},
+		"/src/images/players/Player_00_F0 copy.png": {
+			"sdcard": false
+		},
+		"/src/images/players/Player_01_F1 copy 2.png": {
+			"sdcard": false
+		},
+		"/src/images/players/Player_00_F0 copy 2.png": {
+			"sdcard": false
+		},
+		"/src/images/players/Player_01_F1 copy 3.png": {
+			"sdcard": false
+		},
+		"/src/images/players/Player_00_F0 copy 3.png": {
+			"sdcard": false
+		},
+		"/src/images/players/Player_00_F0 copy 4.png": {
+			"sdcard": false
+		},
+		"/src/images/players/Player_01_F1 copy 4.png": {
+			"sdcard": false
+		},
+		"/src/images/players/Player_00_F0 copy 5.png": {
+			"sdcard": false
+		},
+		"/src/images/players/Player_01_F1 copy 5.png": {
+			"sdcard": false
+		},
+		"/src/images/players/Player_00_F0 copy 6.png": {
+			"sdcard": false
+		},
+		"/src/images/players/Player_01_F1 copy 6.png": {
+			"sdcard": false
+		},
+		"/src/images/players/Player_03.png": {
+			"sdcard": false
+		},
+		"/src/images/players/Player_04.png": {
+			"sdcard": false
+		},
+		"/src/images/players/Player_05.png": {
+			"sdcard": false
+		},
+		"/src/images/players/Player_06.png": {
+			"sdcard": false
+		},
+		"/src/images/players/Player_04_F0.png": {
+			"sdcard": false
+		},
+		"/src/images/players/Player_05_F0.png": {
+			"sdcard": false
+		},
+		"/src/images/players/Player_06_F0.png": {
+			"sdcard": false
+		},
+		"/src/images/players/Player_07_F0.png": {
+			"sdcard": false
+		},
+		"/src/images/players/Player_03_F0.png": {
+			"sdcard": false
+		},
+		"/src/images/players/Player_01_F0.png": {
+			"sdcard": false
+		},
+		"/src/images/players/Player_02_F1.png": {
+			"sdcard": false
+		},
+		"/src/images/players/Player_03_F1.png": {
+			"sdcard": false
+		},
+		"/src/images/players/Player_04_F1.png": {
+			"sdcard": false
+		},
+		"/src/images/players/Player_05_F1.png": {
+			"sdcard": false
+		},
+		"/src/images/players/Player_06_F1.png": {
+			"sdcard": false
+		},
+		"/src/images/players/Player_07_F1.png": {
+			"sdcard": false
+		},
+		"/src/images/players/Player_00_F1.png": {
+			"sdcard": false
+		},
+		"/src/images/players/Player_01_F0 copy.png": {
+			"sdcard": false
+		},
+		"/src/images/players/Player_02_F0.png": {
+			"sdcard": false
+		},
+		"/src/images/players/Player_05_F1 copy.png": {
+			"sdcard": false
+		},
+		"/src/images/players/Player_04_F0.h": {
+			"sdcard": false
+		},
+		"/src/images/players/Player_05_F0.h": {
+			"sdcard": false
+		},
+		"/src/images/players/Player_07_F0.h": {
+			"sdcard": false
+		},
+		"/src/images/players/Player_06_F0.h": {
+			"sdcard": false
+		},
+		"/src/images/players/Player_01_F1.h": {
+			"sdcard": false
+		},
+		"/src/images/players/Player_01_F0.h": {
+			"sdcard": false
+		},
+		"/src/images/players/Player_05_F1.h": {
+			"sdcard": false
+		},
+		"/src/images/players/Player_03_F1.h": {
+			"sdcard": false
+		},
+		"/src/images/players/Player_06_F1.h": {
+			"sdcard": false
+		},
+		"/src/images/players/Player_02_F1.h": {
+			"sdcard": false
+		},
+		"/src/images/players/Player_07_F1.h": {
+			"sdcard": false
+		},
+		"/src/images/players/Player_00_F0.h": {
+			"sdcard": false
+		},
+		"/src/images/players/Player_02_F0.h": {
+			"sdcard": false
+		},
+		"/src/images/players/Player_03_F0.h": {
+			"sdcard": false
+		},
+		"/src/images/players/Player_00_F1.h": {
+			"sdcard": false
+		},
+		"/src/images/players/Player_04_F1.h": {
+			"sdcard": false
+		},
+		"/src/images/scoreboard/RogueBoy_Pokitto_LatestMockup.png": {
+			"sdcard": false
+		},
+		"/src/images/scoreboard/RogueBoy_Pokitto_LatestMockup copy.png": {
+			"sdcard": false
+		},
+		"/src/images/scoreboard/Scorboard.png": {
+			"sdcard": false
+		},
+		"/src/images/scoreboard/RogueBoy_Pokitto_LatestMockup.h": {
+			"sdcard": false
+		},
+		"/src/images/scoreboard/Scorboard.h": {
+			"sdcard": false
+		},
+		"/src/images/scoreboard/Scoreboard.png": {
+			"sdcard": false
+		},
+		"/src/images/scoreboard/Scoreboard.h": {
+			"sdcard": false
+		},
+		"/src/entities/Bullet.cpp": {
+			"sdcard": false
+		},
+		"/src/images/background/Tile_39 copy.png": {
+			"sdcard": false
+		},
+		"/src/images/background/Tile_53.png": {
+			"sdcard": false
+		},
+		"/src/images/background/Tile_51.png": {
+			"sdcard": false
+		},
+		"/src/images/background/Tile_50 copy.png": {
+			"sdcard": false
+		},
+		"/src/images/background/Tile_52.png": {
+			"sdcard": false
+		},
+		"/src/images/background/Tile_53.h": {
+			"sdcard": false
+		},
+		"/src/images/background/Tile_51.h": {
+			"sdcard": false
+		},
+		"/src/images/background/Tile_52.h": {
+			"sdcard": false
+		},
+		"/src/images/background/Tile_53 copy.png": {
+			"sdcard": false
+		},
+		"/src/images/background/Tile_53 copy 2.png": {
+			"sdcard": false
+		},
+		"/src/images/background/Tile_53 copy 3.png": {
+			"sdcard": false
+		},
+		"/src/images/background/Tile_53 copy 4.png": {
+			"sdcard": false
+		},
+		"/src/images/background/Tile_54.png": {
+			"sdcard": false
+		},
+		"/src/images/background/Tile_55.png": {
+			"sdcard": false
+		},
+		"/src/images/background/Tile_56.png": {
+			"sdcard": false
+		},
+		"/src/images/background/Tile_55 copy.png": {
+			"sdcard": false
+		},
+		"/src/images/background/Tile_54.h": {
+			"sdcard": false
+		},
+		"/src/images/background/Tile_55.h": {
+			"sdcard": false
+		},
+		"/src/images/background/Tile_56.h": {
+			"sdcard": false
+		},
+		"/src/images/scoreboard/Fireball.png": {
+			"sdcard": false
+		},
+		"/src/images/scoreboard/Fireball.h": {
+			"sdcard": false
 		}
 	},
 	"BUILDFlags": {

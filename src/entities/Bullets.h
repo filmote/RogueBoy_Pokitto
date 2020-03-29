@@ -1,3 +1,4 @@
+
 #pragma once
 
 #include "Pokitto.h"
@@ -13,8 +14,6 @@ class Bullets {
     public:
 
         Bullets() {}  
-
-        void update();
 
         Bullet & getBullet(uint8_t index);
         void render(Player &player);

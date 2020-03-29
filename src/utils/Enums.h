@@ -1,12 +1,5 @@
 #pragma once
 
-enum class Direction : uint8_t {
-    Up,
-    Down,
-    Right,
-    Left
-};
-
 enum class SpriteType : uint8_t {
     Player_1 = 0,
     Player_2,
@@ -37,7 +30,7 @@ enum class GameState : uint8_t {
 };
 
 
-enum class Rotation : uint8_t {
+enum class Direction : uint8_t {
     Up, 
     UpRight, 
     Right, 
@@ -45,7 +38,13 @@ enum class Rotation : uint8_t {
     Down, 
     DownLeft, 
     Left, 
-    UpLeft
+    UpLeft,
+    None
+};
+
+enum class Axis : uint8_t {
+    XAxis,
+    YAxis
 };
 
 enum Object {
@@ -63,7 +62,7 @@ enum Object {
 };
 
 enum MapTiles {
-    ClosedChest = 0,
+    Empty = 0,
     BlankWall = 1,
     LockedDoor = 2,
     DownStairs = 3,
@@ -71,7 +70,7 @@ enum MapTiles {
     OpenChest = 5,
     OpenDoor = 6,
     FullBlockWall = 7,
-    Empty = 8,
+    ClosedChest = 8,
     UpStairs = 9,
     SwitchOn = 10,
     SwitchOff = 11,
@@ -84,6 +83,42 @@ enum MapTiles {
     Rubble = 18,
     SwitchBroken = 19,
     Grass = 20,
+    NewStraightRHS = 21,
+    NewStraightTOP = 22,
+    NewStraightLHS = 23,
+    NewStraightBOT = 24,
+    NewUpperLeftTriangle = 25,
+    NewUpperRightTriangle = 26,
+    NewLowerLeftTriangle = 27,
+    NewLowerRightTriangle = 28,
+    New9 = 29,
+    New10 = 30,
+    New11 = 31,
+    New12 = 32,
+    NewBlank = 33,
+    NewCornerLL = 34,
+    NewCornerLR = 35,
+    NewCornerTR = 36,
+    NewCornerTL = 37,
+    NewFill = 38,
+    NewDoorLHS = 39,
+    NewDoorRHS = 40,
+    NewDoorTOP = 41,
+    NewDoorBOT = 42,
+    NewStraightLR = 43,
+    NewStraightTB = 44,
+    NewEndTRL = 45,
+    NewEndRBL = 46,
+    NewEndTBL = 47,
+    NewEndTRB = 48,
+    NewFillTLTR = 49,
+    NewFillTRBR = 50,
+    NewFillBLBR = 51,
+    NewFillTLBL = 52,
+    NewDoorLHSOpen = 53,
+    NewDoorRHSOpen = 54,
+    NewDoorTOPOpen = 55,
+    NewDoorBOTOpen = 56,
 };
 
 const char object_Desc_00[] = "Coin";
