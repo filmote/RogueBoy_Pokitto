@@ -13,121 +13,117 @@ void Game::renderObjects() {
 
 }
 
-void Game::drawHealth() {
-    
-    #ifndef MAP_LARGE
-    
-        PD::setColor(0);
-        PD::fillRect(0, 81, 63, 6);
-        PD::drawBitmap(1, 82, Images::Health);
-        PD::setColor(8);
-        PD::drawRect(7, 82, 54, 4);
-        PD::drawLine(9, 84, 9 + player.getHealth() / 2, 84);
-        
-    #else
-    
-        PD::setColor(0);
-        PD::fillRect(0, 169, 63, 6);
-        PD::drawBitmap(1, 170, Images::Health);
-        PD::setColor(8);
-        PD::drawRect(7, 170, 54, 4);
-        PD::drawLine(9, 172, 9 + player.getHealth() / 2, 172);
-    
-    #endif
+// void Game::drawHealth() {
 
-}
+//     PD::setColor(0);
+//     PD::fillRect(0, 81, 63, 6);
+//     PD::drawBitmap(1, 82, Images::Health);
+//     PD::setColor(8);
+//     PD::drawRect(7, 82, 54, 4);
+//     PD::drawLine(9, 84, 9 + player.getHealth() / 2, 84);
+
+// }
 
 
-void Game::drawHolding() {
-    
-    #ifndef MAP_LARGE
-    
-        PD::setColor(6);
-        PD::drawBitmap(82, 69, Images::Keys_Main);
-        PD::drawBitmap(82, 79, Images::Coins_Main);
-        PD::setCursor(94, 70);
-        if (player.getInventoryCount(Object::Key) < 10)  PD::print("0");
-        PD::print(player.getInventoryCount(Object::Key), 10);
-        PD::setCursor(94, 80);
-        if (player.getCoins() < 10) PD::print("0");
-        PD::print(player.getCoins(), 10);
-        PD::drawBitmap(82, 69, Images::Keys_Outline);
-        PD::drawBitmap(82, 79, Images::Coins_Outline);
-        
-    #else
-    
-        PD::setColor(6);
-        PD::drawBitmap(192, 157, Images::Keys_Main);
-        PD::drawBitmap(192, 167, Images::Coins_Main);
-        PD::setCursor(204, 158);
-        if (player.getInventoryCount(Object::Key) < 10)  PD::print("0");
-        PD::print(player.getInventoryCount(Object::Key), 10);
-        PD::setCursor(204, 168);
-        if (player.getCoins() < 10) PD::print("0");
-        PD::print(player.getCoins(), 10);
-        PD::drawBitmap(192, 157, Images::Keys_Outline);
-        PD::drawBitmap(192, 167, Images::Coins_Outline);
-    
-    #endif
+// void Game::drawHolding() {
 
-}
+//     PD::setColor(6);
+//     PD::drawBitmap(82, 69, Images::Keys_Main);
+//     PD::drawBitmap(82, 79, Images::Coins_Main);
+//     PD::setCursor(94, 70);
+//     if (player.getInventoryCount(Object::Key) < 10)  PD::print("0");
+//     PD::print(player.getInventoryCount(Object::Key), 10);
+//     PD::setCursor(94, 80);
+//     if (player.getCoins() < 10) PD::print("0");
+//     PD::print(player.getCoins(), 10);
+//     PD::drawBitmap(82, 69, Images::Keys_Outline);
+//     PD::drawBitmap(82, 79, Images::Coins_Outline);
 
-void Game::drawTime() {
-    
-    #ifndef MAP_LARGE
+// }
 
-        PD::drawBitmap(74, 0,Images::Time_Main);
-        PD::setColor(6);
-        PD::setCursor(87,1);
-    
-        if (this->map.getTimer() < 100)    PD::print("0");
-        if (this->map.getTimer() < 10)     PD::print("0");
-    
-        PD::print(map.getTimer(), 10);
-        PD::drawBitmap(74, 0, Images::Time_Outline);
-        
-    #else
+// void Game::drawTime() {
 
-        PD::drawBitmap(184, 0,Images::Time_Main);
-        PD::setColor(6);
-        PD::setCursor(197,1);
-    
-        if (map.getTimer() < 100)    PD::print("0");
-        if (map.getTimer() < 10)     PD::print("0");
-    
-        PD::print(this->map.getTimer(), 10);
-        PD::drawBitmap(184, 0, Images::Time_Outline);
-    
-    #endif
+//     PD::drawBitmap(74, 0,Images::Time_Main);
+//     PD::setColor(6);
+//     PD::setCursor(87,1);
 
-}
+//     if (this->map.getTimer() < 100)    PD::print("0");
+//     if (this->map.getTimer() < 10)     PD::print("0");
 
-void Game::drawLevel() {
+//     PD::print(map.getTimer(), 10);
+//     PD::drawBitmap(74, 0, Images::Time_Outline);
 
-    PD::setColor(0);
-    PD::drawBitmap(0, 0, Images::Level_Main);
+// }
+
+// void Game::drawLevel() {
+
+//     PD::setColor(0);
+//     PD::drawBitmap(0, 0, Images::Level_Main);
  
-    PD::setColor(7);
-    PD::setCursor(3,1);
-    PD::print("L");
-    PD::setCursor(10,1);
+//     PD::setColor(7);
+//     PD::setCursor(3,1);
+//     PD::print("L");
+//     PD::setCursor(10,1);
 
+//     if (map.getLevel() < 10) {
+//       PD::print("0");
+//     }
+
+//     PD::print(map.getLevel(), 10);
+//     PD::drawBitmap(0, 0, Images::Level_Outline);
+
+// }
+
+
+void Game::renderHud() {
+    
+    // this->drawHealth();
+    // this->drawHolding();
+    // this->drawTime();
+    // this->drawLevel();
+
+    PD::drawBitmap(0, 72, Images::Scoreboard);
+    
+    
+    // Render current level ..
+
+    PD::setColor(6, 14);
+    PD::setCursor(10, 74);
+    
     if (map.getLevel() < 10) {
       PD::print("0");
     }
 
     PD::print(map.getLevel(), 10);
-    PD::drawBitmap(0, 0, Images::Level_Outline);
-
-}
 
 
-void Game::drawHud() {
-    
-    this->drawHealth();
-    this->drawHolding();
-    this->drawTime();
-    this->drawLevel();
+    // Time ..
+
+    PD::setCursor(39, 74);
+
+    if (this->map.getTimer() < 100)    PD::print("0");
+    if (this->map.getTimer() < 10)     PD::print("0");
+
+    PD::print(map.getTimer(), 10);
+
+
+    // Holdings ..
+
+    PD::setCursor(74, 74);
+    if (player.getInventoryCount(Object::Key) < 10)  PD::print("0");
+    PD::print(player.getInventoryCount(Object::Key), 10);
+    PD::setCursor(74, 80);
+    if (player.getCoins() < 10) PD::print("0");
+    PD::print(player.getCoins(), 10);
+
+
+    // Health ..
+
+    PD::setColor(8);
+    PD::drawLine(8, 85, 8 + player.getHealth() / 2 + (player.getHealth() > 50 ? 1 : 0), 85);
+
+
+    PD::setColor(6, 0);
 
 }
 
@@ -140,7 +136,7 @@ void Game::renderEnviroment() {
 
     for (int i = -8; i < 7; i++) {
     
-        for(int j = -8; j < 7; j++) {
+        for(int j = -4; j < 4; j++) {
             
             uint8_t block = this->map.getBlock(tileX + i, tileY + j);
 
@@ -157,7 +153,9 @@ void Game::renderEnviroment() {
 void Game::renderPlayer() {	
     
     if(!player.getMoving()) {
-        PD::drawBitmap(CENTERX - 6, CENTERY - 6, Images::Players[0]);
+//        PD::drawBitmap(CENTERX - 6, CENTERY - 6, Images::Players[0]);
+        PD::drawBitmap(CENTERX - 6, CENTERY - 6, Images::Players[static_cast<uint8_t>(player.getDirection()) * 2 + player.getFrame()]);
+
     }
     else {
 
@@ -165,7 +163,7 @@ void Game::renderPlayer() {
             player.incFrame();
         }
 
-        PD::drawBitmap(CENTERX - 6, CENTERY - 6, Images::Players[player.getFrame()]);
+        PD::drawBitmap(CENTERX - 6, CENTERY - 6, Images::Players[static_cast<uint8_t>(player.getDirection()) * 2 + player.getFrame()]);
 
     }
 

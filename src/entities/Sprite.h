@@ -26,6 +26,7 @@ class Sprite {
         void setFrame(uint8_t frame)    { this->frame = frame;}
         void setX(uint16_t x)           { this->x = x; }
         void setY(uint16_t y)           { this->y = y; }
+        void setType(Object type)       { this->type = type; }
 
         void setPosition(uint16_t x, uint16_t y) {
 
@@ -66,7 +67,7 @@ class Sprite {
         };
 
         void damage() {
-   printf("health : %i\n", health); 
+
             this->health -= 10;
     
             if (this->health <= 0) {

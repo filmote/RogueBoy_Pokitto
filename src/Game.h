@@ -18,11 +18,11 @@ class Game {
 
     private:
 
-        void drawHealth();
-        void drawHolding();
-        void drawTime();
-        void drawLevel();
-        void drawHud();
+        // void drawHealth();
+        // void drawHolding();
+        // void drawTime();
+        // void drawLevel();
+        void renderHud();
         void renderEnviroment();
         void renderPlayer();
 
@@ -49,6 +49,7 @@ class Game {
         void dropItem(uint16_t x, uint16_t y, bool EnDrop, Sprites &Objects);
         void spriteAI(MapInformation map, Player &player, Sprite &sprite);
         void barrelBreak(MapInformation map, uint8_t x,uint8_t y, Sprites &objects);
+        Direction getNearestCardinalDirection(Direction direction, Axis axis);
 
     private:
 

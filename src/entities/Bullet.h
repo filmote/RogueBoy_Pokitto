@@ -13,18 +13,20 @@ class Bullet {
 
         Bullet() {}  
 
-        bool getActive()                { return active;}
-        uint16_t getX()                 { return x;}
-        uint16_t getY()                 { return y;}
-        Direction getDirection()          { return direction;}
+        bool getActive();
+        uint16_t getX();
+        uint16_t getY();
+        uint8_t getFrame();
+        Direction getDirection();
 
-        void setX(uint16_t x)           { this->x = x;}
-        void setY(uint16_t y)           { this->y = y;}
-        void setActive(bool active)     { this->active = active;}
+        void setX(uint16_t x);
+        void setY(uint16_t y);
+        void setActive(bool active);
 
-        void kill()                     { this->active = false;}
+        void setBullet(uint16_t x, uint16_t y, Direction direction);
 
-        void setBullet(uint16_t x, uint16_t y, Direction direction) { this->x = x; this->y = y; this->direction = direction; this->active = true;}
+        void update();
+        void kill();
 
     private:
 
@@ -32,5 +34,6 @@ class Bullet {
         uint16_t y;
         Direction direction;
         bool active;
+        uint8_t frame;
 
 };

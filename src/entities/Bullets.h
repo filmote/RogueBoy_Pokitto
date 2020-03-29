@@ -15,8 +15,6 @@ class Bullets {
 
         Bullets() {}  
 
-        void update();
-
         Bullet & getBullet(uint8_t index);
         void render(Player &player);
 
@@ -24,6 +22,5 @@ class Bullets {
     private:
 
         Bullet bullets[6];
-        uint8_t frame;
 
 };

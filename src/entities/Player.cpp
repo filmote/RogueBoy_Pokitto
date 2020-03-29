@@ -93,12 +93,12 @@ void Player::init(uint16_t x, uint16_t y) {
     this->health = 100;
     this->moving = false;
     
-    for (uint8_t i = 0; i < MAX_INVENTORY_ITEMS; i++) {
+    // for (uint8_t i = 0; i < MAX_INVENTORY_ITEMS; i++) {
 
-        auto & inventoryHolding = this->inventoryItems[i];
-        inventoryHolding.quantity = 0;
+    //     auto & inventoryHolding = this->inventoryItems[i];
+    //     inventoryHolding.quantity = 0;
        
-    }
+    // }
     
 }
 

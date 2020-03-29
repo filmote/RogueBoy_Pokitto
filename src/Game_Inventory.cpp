@@ -9,6 +9,9 @@ using PS = Pokitto::Sound;
 
 void Game::showInventory() {
 
+    this->renderEnviroment();
+    this->renderHud();
+
 
     // If the cursor > active inventory slots then decrease it ..
 
@@ -20,20 +23,6 @@ void Game::showInventory() {
 
 
     // Handle player actions ..
-
-    if (PC::buttons.pressed(BTN_C)) {
-
-        if (this->inventoryMenu.showActionMenu) {
-
-            this->inventoryMenu.showActionMenu = false;
-        }
-        else {
-    
-            gameState = GameState::Game;
-
-        }
-
-    }
 
     if (!inventoryMenu.showActionMenu) {
 
@@ -177,32 +166,35 @@ void Game::showInventory() {
                 
                 case 1:
                     {
-                        // Find a matching Object in the sprites collecion that is disabled.
+                        // Find a matching Object in the sprites collecion that is disabled 0therwise add one ..
 
                         InventoryItem & inventoryItem = this->player.getActiveInventoryItem(this->inventoryMenu.mainCursor);
                         uint8_t spriteIdx = this->objects.getFirstInactiveSpriteIndex(inventoryItem.type);
 
-                        if (spriteIdx != NO_SPRITE_FOUND) {
+                        if (spriteIdx == NO_SPRITE_FOUND) {
 
-                            Sprite &sprite = this->objects.getSprite(spriteIdx);
+                            this->objects.setObjectNum(this->objects.getObjectNum() + 1);
+                            spriteIdx = this->objects.getObjectNum() - 1;
 
-                            uint8_t x = this->map.getTileX(this->player.getX());
-                            uint8_t y = this->map.getTileY(this->player.getY());
+                        }   
 
-                            sprite.setActive(true);
-                            sprite.setX((x * TILE_SIZE) + 4);
-                            sprite.setY((y * TILE_SIZE) + 4);
-                            sprite.setPreventImmediatePickup(true);
+                        Sprite &sprite = this->objects.getSprite(spriteIdx);
+                        uint8_t x = this->map.getTileX(this->player.getX());
+                        uint8_t y = this->map.getTileY(this->player.getY());
 
-                            inventoryItem.quantity--;
+                        sprite.setType(inventoryItem.type);
+                        sprite.setActive(true);
+                        sprite.setX((x * TILE_SIZE) + 4);
+                        sprite.setY((y * TILE_SIZE) + 4);
+                        sprite.setPreventImmediatePickup(true);
+
+                        inventoryItem.quantity--;
 
 
-                            // Did we just use the last item ?  If so move cursor up.
-                            
-                            if (inventoryItem.quantity == 0 && this->inventoryMenu.mainCursor > 0) this->inventoryMenu.mainCursor--;
-                            this->inventoryMenu.showActionMenu = false;
-
-                        }
+                        // Did we just use the last item ?  If so move cursor up.
+                        
+                        if (inventoryItem.quantity == 0 && this->inventoryMenu.mainCursor > 0) this->inventoryMenu.mainCursor--;
+                        this->inventoryMenu.showActionMenu = false;
 
                     }
   
@@ -224,10 +216,13 @@ void Game::showInventory() {
     // Render Inventory ..
 
     PD::setColor(0);
-    PD::fillRectangle(0, 0, 86, 72);
-    PD::setColor(1);
+    PD::fillRectangle(0, 0, 88, 73);
+    PD::setColor(9);
     PD::drawRectangle(0, 0, 85, 71);
-    PD::setColor(7);
+    PD::setColor(4);
+    PD::drawLine(1, 72, 86, 72);
+    PD::drawLine(86, 1, 86, 72);
+    PD::setColor(6);
     PD::setCursor(4, 3);
     PD::print("Inventory\n\n");
 
@@ -259,7 +254,7 @@ void Game::showInventory() {
     }
 
     PD::setCursor(10, 62);
-    PD::setColor(7);
+    PD::setColor(6);
     PD::print("Go Back");
 
     if (!this->inventoryMenu.showActionMenu) {
@@ -274,13 +269,17 @@ void Game::showInventory() {
     }
     else {
 
-        PD::drawBitmap(5, 16 + (this->inventoryMenu.mainCursor * 9), Images::Arrow_Dark);
+        PD::drawBitmap(3, 15 + (this->inventoryMenu.mainCursor * 9), Images::Arrow_Dark);
 
         PD::setColor(0);
-        PD::fillRect(39, 5 + this->inventoryMenu.mainCursor * 9, 69, 47);
-        PD::setColor(1);
+        PD::fillRect(39, 5 + this->inventoryMenu.mainCursor * 9, 72, 48);
+        PD::setColor(9);
         PD::drawRectangle(40, 6 + this->inventoryMenu.mainCursor * 9, 67, 45);
-        PD::setColor(7);
+        PD::setColor(4);
+        PD::drawLine(41, 52 + this->inventoryMenu.mainCursor * 9, 108, 52 + this->inventoryMenu.mainCursor * 9);
+        PD::drawLine(108, 7 + this->inventoryMenu.mainCursor * 9, 108, 52 + this->inventoryMenu.mainCursor * 9);
+
+        PD::setColor(6);
         PD::setCursor(44, 9 + this->inventoryMenu.mainCursor * 9);
         PD::print("Actions");
         PD::setCursor(50, 20 + this->inventoryMenu.mainCursor * 9);
@@ -312,7 +311,7 @@ void Game::showInventory() {
 
 void Game::renderInventoryItem(InventoryItem inventoryItem) {
 
-    PD::setColor(7);
+    PD::setColor(6);
     PD::print(object_Descs[static_cast<uint8_t>(inventoryItem.type)]);
     PD::setColor(5);
     PD::print(" x ");

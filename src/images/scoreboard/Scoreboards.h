@@ -11,5 +11,6 @@ namespace Images {
     #include "Time_Outline.h"
     #include "Level_Main.h"
     #include "Level_Outline.h"
+    #include "Scoreboard.h"
 
 };

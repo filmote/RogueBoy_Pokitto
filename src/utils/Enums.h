@@ -38,7 +38,13 @@ enum class Direction : uint8_t {
     Down, 
     DownLeft, 
     Left, 
-    UpLeft
+    UpLeft,
+    None
+};
+
+enum class Axis : uint8_t {
+    XAxis,
+    YAxis
 };
 
 enum Object {
