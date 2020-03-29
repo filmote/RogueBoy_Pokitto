@@ -53,7 +53,6 @@ class Game {
 
     private:
 
-        uint8_t showarrow;
         Player player;
         Bullets bullets;
         Sprites objects;
