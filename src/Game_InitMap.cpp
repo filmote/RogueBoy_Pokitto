@@ -83,40 +83,40 @@ void Game::loadMap(uint8_t level) {
 
 
 
-    printf("-----------------------------\n");
-    printf("Map: %i", level);
-    printf(", W: %i", map.getWidth());
-    printf(", H: %i",map.getHeight());
-    printf("\n-----------------------------\n");
+    //printf("-----------------------------\n");
+    //printf("Map: %i", level);
+    //printf(", W: %i", map.getWidth());
+    //printf(", H: %i",map.getHeight());
+    //printf("\n-----------------------------\n");
 
-    uint8_t i = 0;
-    for (int y=0; y<map.getHeight(); y++) {
-        for (int x=0; x<map.getWidth(); x++) {
-            printf("%i ", this->map.getBlock(x, y));
-            i++;
-        }
-        printf("\n");
-    }
+    // uint8_t i = 0;
+    // for (int y=0; y<map.getHeight(); y++) {
+    //     for (int x=0; x<map.getWidth(); x++) {
+    //printf("%i ", this->map.getBlock(x, y));
+    //         i++;
+    //     }
+    //printf("\n");
+    // }
 
-    printf("Obj: %i", this->objects.getObjectNum());
-    printf(", Env: %i\n", this->environments.getEnvironmentNum());
+    //printf("Obj: %i", this->objects.getObjectNum());
+    //printf(", Env: %i\n", this->environments.getEnvironmentNum());
 
-    for (int i=0; i<MAXOBJECT; i++) {
+    // for (int i=0; i<MAXOBJECT; i++) {
 
-        if (objects.getSprite(i).getActive()) {
-            printf("obj[%i] x: %i, y: %i, type: %i, health %1 \n", i, objects.getSprite(i).getX(), objects.getSprite(i).getY(), objects.getSprite(i).getType(), objects.getSprite(i).getHealth());
-        }
+    //     if (objects.getSprite(i).getActive()) {
+    //printf("obj[%i] x: %i, y: %i, type: %i, health %1 \n", i, objects.getSprite(i).getX(), objects.getSprite(i).getY(), objects.getSprite(i).getType(), objects.getSprite(i).getHealth());
+    //     }
 
-    }
+    // }
 
-    printf("\n");
-    for (int i=0; i<MAXENVIROMENT; i++) {
+    //printf("\n");
+    // for (int i=0; i<MAXENVIROMENT; i++) {
 
-        if (this->environments.getEnvironment(i).getActive()) {
-            printf("env[%i] x1: %i, y1: %i, x2 %i, y2 %i\n", i, this->environments.getEnvironment(i).getX(), this->environments.getEnvironment(i).getY(), this->environments.getEnvironment(i).finishX(), this->environments.getEnvironment(i).finishY());
-        }
+    //     if (this->environments.getEnvironment(i).getActive()) {
+    //printf("env[%i] x1: %i, y1: %i, x2 %i, y2 %i\n", i, this->environments.getEnvironment(i).getX(), this->environments.getEnvironment(i).getY(), this->environments.getEnvironment(i).finishX(), this->environments.getEnvironment(i).finishY());
+    //     }
 
-    }
+    // }
 
 }
 

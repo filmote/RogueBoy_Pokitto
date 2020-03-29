@@ -76,19 +76,20 @@ void Game::updateObjects() {
                             switch (type) {
 
                                 case Object::Floater:   
-                                    //player.setHealth(player.getHealth() - (10 * diff)); 
+                                    //SJH
+                                    player.setHealth(player.getHealth() - (10 * diff)); 
                                     break;
 
                                 case Object::Skull: 
-                                    //player.setHealth(player.getHealth() - (5 * diff)); 
+                                    player.setHealth(player.getHealth() - (5 * diff)); 
                                     break;
 
                                 case Object::Spider:
-                                    //player.setHealth(player.getHealth() - (2 * diff)); 
+                                    player.setHealth(player.getHealth() - (2 * diff)); 
                                     break;
 
                                 case Object::Bat: 
-                                    //SJH player.setHealth(player.getHealth() - diff); 
+                                    player.setHealth(player.getHealth() - diff); 
                                     break;
 
                             }
@@ -122,16 +123,16 @@ void Game::updateObjects() {
             Direction xDirection = this->getNearestCardinalDirection(bullet.getDirection(), Axis::XAxis);
             Direction yDirection = this->getNearestCardinalDirection(bullet.getDirection(), Axis::YAxis);
 
-// printf("Bullet: %i, xDir: %i, yDir: %i, ", static_cast<uint8_t>(bullet.getDirection()), static_cast<uint8_t>(xDirection), static_cast<uint8_t>(yDirection));
+//printf("Bullet: %i, xDir: %i, yDir: %i, ", static_cast<uint8_t>(bullet.getDirection()), static_cast<uint8_t>(xDirection), static_cast<uint8_t>(yDirection));
 
             uint16_t rx = bullet.getX();
             uint16_t ry = bullet.getY();
 
-// printf("x: %i, y: %i, >> ", rx, ry);
+//printf("x: %i, y: %i, >> ", rx, ry);
 
             bullet.update();
 
-// printf("x: %i, y: %i, \n", bullet.getX(), bullet.getY());
+//printf("x: %i, y: %i, \n", bullet.getX(), bullet.getY());
 
             if (xDirection != Direction::None && !this->map.isWalkable(bullet.getX(), ry, xDirection, 4, 4)) {
                 bullet.setActive(false);
@@ -297,7 +298,7 @@ void Game::playerMovement() {
     }
     
     if ((PC::buttons.pressed(BTN_LEFT) || PC::buttons.repeat(BTN_LEFT, 1))) {
-printf("Left\n");
+
         if (this->map.isWalkable(x - 2, y, Direction::Left, 8, 12)) {
             x-=2;
             moving = true;
@@ -424,7 +425,6 @@ bool Game::interactWithBlock(int x, int y, MapTiles block) {
 
         case MapTiles::SwitchOn: 
             this->map.setBlock(x, y, MapTiles::SwitchOff); 
-            printf("%i,%i\n",x,y);
             updateEnvironmentBlock(map, x, y, this->environments); 
             // sound move switch 
             return true;
@@ -548,7 +548,7 @@ void Game::updateEnvironmentBlock(MapInformation map, uint8_t x, uint8_t y, Envi
 
             uint8_t x1 = environment.finishX();
             uint8_t y1 = environment.finishY();
-printf("block %i\n",this->map.getBlock(x1, y1));
+
             switch(this->map.getBlock(x1, y1)) {
 
                 case MapTiles::SpearDoor: 
