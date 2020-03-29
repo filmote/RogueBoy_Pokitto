@@ -34,7 +34,8 @@ void MapInformation::setTimer(uint16_t timer) {
 }
 
 void MapInformation::decTimer() {
-    //SJH this->timer--;
+    //SJH 
+    this->timer--;
 }
 
 MapTiles MapInformation::getBlock(int16_t x, int16_t y) {
@@ -141,49 +142,35 @@ bool MapInformation::isWalkable(uint16_t x, uint16_t y, Direction direction, uin
     switch (direction) {
 
         case Direction::Up:
-printf("Up %i,%i > %i,%i > %i,%i  ", x, y, x-widthHalf, y-heightHalf, x-widthHalf, y-heightHalf+16);        
-printf("or  %i,%i > %i,%i > %i,%i .. ", this->getTileX(x), this->getTileY(y), this->getTileX(x - widthHalf), this->getTileY(y - heightHalf), this->getTileX(x - widthHalf+ 16), this->getTileY(y - heightHalf));        
-printf("x=%i %% 16 = %i .. ", x, ((x - widthHalf) % 16) + width);        
+            printf("Up (%i,%i) %i,%i > %i,%i > %i,%i .. ", x, y, this->getTileX(x), this->getTileY(y), this->getTileX(x - widthHalf), this->getTileY(y - heightHalf), this->getTileX(x - widthHalf+ 16), this->getTileY(y - heightHalf));        
+            printf("x=%i %% 16 = %i .. ", x, ((x - widthHalf) % 16) + width);        
             tile1 = this->getBlock(this->getTileX(x - widthHalf), this->getTileY(y - heightHalf));
-//            if ((x + sizeHalf) % 16 <8) tile2 = this->getBlock(this->getTileX(x - sizeHalf + 16), this->getTileY(y - sizeHalf));
-            if (((x - widthHalf) % 16) + width >= 16) tile2 = this->getBlock(this->getTileX(x - widthHalf + 16), this->getTileY(y - heightHalf));
-printf("%i %i", tile1, tile2);
+            if (((x - widthHalf) % 16) + width > 16) tile2 = this->getBlock(this->getTileX(x - widthHalf + 16), this->getTileY(y - heightHalf));
+            printf("%i %i ", tile1, tile2);
             break;
 
         case Direction::Right:
-printf("Right %i,%i > %i,%i > %i,%i  ", x, y, x+widthHalf, y-heightHalf, x-widthHalf, y-heightHalf+16);        
-printf("or  %i,%i > %i,%i > %i,%i .. ", this->getTileX(x), this->getTileY(y), this->getTileX(x + widthHalf), this->getTileY(y - heightHalf), this->getTileX(x + widthHalf), this->getTileY(y - heightHalf + 16));        
-printf("y=%i %% 16 = %i .. ", y, ((y - heightHalf) % 16) + height);        
-            tile1 = this->getBlock(this->getTileX(x + widthHalf), this->getTileY(y - heightHalf - 2));
-//            if ((y - sizeHalf) % 16 > 8) tile2 = this->getBlock(this->getTileX(x + sizeHalf), this->getTileY(y - heightHalf + 16)); 
-//            if ((y % 16) - sizeHalf < 0) tile2 = this->getBlock(this->getTileX(x + sizeHalf), this->getTileY(y - heightHalf + 16)); 
-            // if (((y - heightHalf) % 16) + height >= 16) tile2 = this->getBlock(this->getTileX(x + widthHalf), this->getTileY(y - heightHalf + 16)); 
-            if (((y - heightHalf) % 16) + height > 16) tile2 = this->getBlock(this->getTileX(x + widthHalf), this->getTileY(y - heightHalf + 16 - 2)); 
-printf("%i %i", tile1, tile2);
+            //printf("Right (%i,%i) %i,%i > %i,%i > %i,%i .. ", x, y, this->getTileX(x), this->getTileY(y), this->getTileX(x + widthHalf - 1), this->getTileY(y - heightHalf), this->getTileX(x + widthHalf - 1), this->getTileY(y - heightHalf + 16));        
+            //printf("y=%i %% 16 = %i .. ", y, ((y - heightHalf) % 16) + height);        
+            tile1 = this->getBlock(this->getTileX(x + widthHalf - 1), this->getTileY(y - heightHalf));
+            if (((y - heightHalf) % 16) + height > 16) tile2 = this->getBlock(this->getTileX(x + widthHalf - 1), this->getTileY(y - heightHalf + 16)); 
+            //printf("%i %i ", tile1, tile2);
             break;
 
         case Direction::Down:
-printf("Down %i,%i > %i,%i > %i,%i  ", x, y, x-widthHalf, y+heightHalf, x-widthHalf, y+heightHalf+16);        
-printf("or  %i,%i > %i,%i > %i,%i .. ", this->getTileX(x), this->getTileY(y), this->getTileX(x - widthHalf), this->getTileY(y + heightHalf), this->getTileX(x - widthHalf+ 16), this->getTileY(y + heightHalf));        
-printf("y=%i %% 16 = %i .. ", y, ((x - widthHalf) % 16) + width);        
-            tile1 = this->getBlock(this->getTileX(x - widthHalf), this->getTileY(y + heightHalf - 2));
-            // if ((x + sizeHalf) % 16 <= 8) tile2 = this->getBlock(this->getTileX(x - sizeHalf + 16), this->getTileY(y + heightHalf));
-//            if ((x % 16) + sizeHalf >= 16) tile2 = this->getBlock(this->getTileX(x - sizeHalf + 16), this->getTileY(y + heightHalf));
-            // if (((x - widthHalf) % 16) + width >= 16) tile2 = this->getBlock(this->getTileX(x - widthHalf + 16), this->getTileY(y + heightHalf));
-            if (((x - widthHalf) % 16) + width > 16) tile2 = this->getBlock(this->getTileX(x - widthHalf + 16 - 1), this->getTileY(y + heightHalf - 2));
-printf("%i %i", tile1, tile2);
+            //printf("Down (%i,%i) %i,%i > %i,%i > %i,%i .. ", x, y, this->getTileX(x), this->getTileY(y), this->getTileX(x - widthHalf), this->getTileY(y + heightHalf - 1), this->getTileX(x - widthHalf+ 16), this->getTileY(y + heightHalf - 1));        
+            //printf("y=%i %% 16 = %i .. ", y, ((x - widthHalf) % 16) + width);        
+            tile1 = this->getBlock(this->getTileX(x - widthHalf), this->getTileY(y + heightHalf - 1));
+            if (((x - widthHalf) % 16) + width > 16) tile2 = this->getBlock(this->getTileX(x - widthHalf + 16), this->getTileY(y + heightHalf - 1));
+            //printf("%i %i ", tile1, tile2);
             break;
 
         case Direction::Left:
-printf("Left %i,%i > %i,%i > %i,%i  ", x, y, x-widthHalf, y-heightHalf, x-widthHalf, y-heightHalf+16);        
-printf("or  %i,%i > %i,%i > %i,%i .. ", this->getTileX(x), this->getTileY(y), this->getTileX(x - widthHalf), this->getTileY(y - heightHalf), this->getTileX(x - widthHalf), this->getTileY(y - heightHalf + 16));        
-printf("y=%i %% 16 = %i .. ", y, (y - heightHalf)% 16);        
-            tile1 = this->getBlock(this->getTileX(x - widthHalf), this->getTileY(y - heightHalf - 2));
-            // if ((y - widthHalf) % 16 > 8) tile2 = this->getBlock(this->getTileX(x - widthHalf), this->getTileY(y - sizeHalf + 16));
-            // if ((y % 16) - widthHalf < 0) tile2 = this->getBlock(this->getTileX(x - widthHalf), this->getTileY(y - sizeHalf + 16));
-            if (((y - heightHalf) % 16) + height > 16) tile2 = this->getBlock(this->getTileX(x - widthHalf), this->getTileY(y - heightHalf + 16 - 2));
-
-printf("%i %i", tile1, tile2);
+            //printf("Left (%i,%i) %i,%i > %i,%i > %i,%i .. ", x, y, this->getTileX(x), this->getTileY(y), this->getTileX(x - widthHalf), this->getTileY(y - heightHalf), this->getTileX(x - widthHalf), this->getTileY(y - heightHalf + 16));        
+            //printf("y=%i %% 16 = %i .. ", y, ((y - heightHalf) % 16) + height);        
+            tile1 = this->getBlock(this->getTileX(x - widthHalf), this->getTileY(y - heightHalf));
+            if (((y - heightHalf) % 16) + height > 16) tile2 = this->getBlock(this->getTileX(x - widthHalf), this->getTileY(y - heightHalf + 16));
+            //printf("%i %i ", tile1, tile2);
             break;
 
             
@@ -200,90 +187,120 @@ printf("%i %i", tile1, tile2);
         case MapTiles::Rubble:
         case MapTiles::PressPlate:
         case MapTiles::NewBlank:
+        case MapTiles::NewDoorLHSOpen:
+        case MapTiles::NewDoorRHSOpen:
+        case MapTiles::NewDoorTOPOpen:
+        case MapTiles::NewDoorBOTOpen:
             walk = true;
             break;
 
         case MapTiles::NewStraightTOP:
-            {
-                xMod = (x - widthHalf) % 16;
-                yMod = (y + heightHalf) % 16;
-
-                switch (direction) {
-
-                    case Direction::Left:
-                    case Direction::Right:
-                        walk = true;
-                        break;
-
-                    case Direction::Down:
-                        // printf("STOP-D1,SBOT-D1 %i, %i > %i\n", xMod, yMod, xMod + yMod);
-                        // if (yMod != 0) {
-                        //     walk = true;
-                        // }
-                        // else {
-                            walk = false;
-                        // }
-                        break;
-
-                    default:
-                        walk = false;
-                        break;
-                    
-                }
-
-            }
-            break;
-
         case MapTiles::NewStraightBOT:
-            {
-                xMod = (x - widthHalf) % 16;
-                yMod = (y + heightHalf) % 16;
+        case MapTiles::NewDoorTOP:
+        case MapTiles::NewDoorBOT:
 
-                switch (direction) {
+            switch (direction) {
 
-                    case Direction::Left:
-                    case Direction::Right:
-                        walk = true;
-                        break;
+                case Direction::Left:
+                case Direction::Right:
+                    walk = true;
+                    break;
 
-                    case Direction::Up:
-                        printf("STOP-D1,SBOT-D1 %i, %i > %i\n", xMod, yMod, xMod + yMod);
-                        // if (yMod != 0) {
-                        //     walk = true;
-                        // }
-                        // else {
-                            walk = false;
-                        // }
-                        break;
-
-                    default:
-                        walk = false;
-                        break;
-                    
-                }
-
+                default:
+                    walk = false;
+                    break;
+                
             }
+
             break;
 
         case MapTiles::NewStraightLHS:
         case MapTiles::NewStraightRHS:
-            {
-                switch (direction) {
+        case MapTiles::NewDoorLHS:
+        case MapTiles::NewDoorRHS:
 
-                    case Direction::Up:
-                    case Direction::Down:
-                        walk = true;
-                        break;
+            switch (direction) {
 
-                    default:
-                        walk = false;
-                        break;
-                    
-                }
+                case Direction::Up:
+                case Direction::Down:
+                    walk = true;
+                    break;
 
+                default:
+                    walk = false;
+                    break;
+                
             }
+
             break;
 
+        case MapTiles::NewCornerLL:
+
+            switch (direction) {
+
+                case Direction::Down:
+                case Direction::Left:
+                    walk = true;
+                    break;
+
+                default:
+                    walk = false;
+                    break;
+                
+            }
+
+            break;
+
+        case MapTiles::NewCornerLR:
+
+            switch (direction) {
+
+                case Direction::Down:
+                case Direction::Right:
+                    walk = true;
+                    break;
+
+                default:
+                    walk = false;
+                    break;
+                
+            }
+
+            break;
+
+        case MapTiles::NewCornerTL:
+
+            switch (direction) {
+
+                case Direction::Up:
+                case Direction::Left:
+                    walk = true;
+                    break;
+
+                default:
+                    walk = false;
+                    break;
+                
+            }
+
+            break;
+
+        case MapTiles::NewCornerTR:
+
+            switch (direction) {
+
+                case Direction::Up:
+                case Direction::Right:
+                    walk = true;
+                    break;
+
+                default:
+                    walk = false;
+                    break;
+                
+            }
+
+            break;
 
         case MapTiles::NewUpperLeftTriangle:
             {
@@ -294,7 +311,7 @@ printf("%i %i", tile1, tile2);
 
                     case Direction::Left:
                         // printf("%i, %i > %i\n", xMod, yMod, xMod + yMod);
-                        if (xMod + yMod > 14) {
+                        if (xMod + yMod >= 16) {
                             walk = true;
                         }
                         else {
@@ -303,8 +320,8 @@ printf("%i %i", tile1, tile2);
                         break;
 
                     case Direction::Up:
-                        // printf("%i, %i > %i\n", xMod, yMod, xMod + yMod);
-                        if (xMod + yMod > 14) {
+                        printf("NULT:1 %i, %i > %i\n", xMod, yMod, xMod + yMod);
+                        if (xMod + yMod >= 16) {
                             walk = true;
                         }
                         else {
@@ -364,8 +381,8 @@ printf("%i %i", tile1, tile2);
                 switch (direction) {
 
                     case Direction::Left:
-                        // printf("LL-R1 %i, %i > %i\n", xMod, yMod, xMod + yMod);
-                        if (xMod >= yMod) {
+                        //printf("LL-R1 %i, %i > %i\n", xMod, yMod, xMod + yMod);
+                        if (yMod != 0 && xMod >= yMod) {
                             walk = true;
                         }
                         else {
@@ -400,7 +417,7 @@ printf("%i %i", tile1, tile2);
                 switch (direction) {
 
                     case Direction::Right:
-                        printf("LR-R1 %i, %i > %i\n", xMod, yMod, xMod + yMod);
+                        //printf("LR-R1 %i, %i > %i\n", xMod, yMod, xMod + yMod);
                         if (xMod + yMod <= 16) {
                             walk = true;
                         }
@@ -410,7 +427,7 @@ printf("%i %i", tile1, tile2);
                         break;
 
                     case Direction::Down:
-                        printf("LR-D1 %i, %i > %i\n", xMod, yMod, xMod + yMod);
+                        //printf("LR-D1 %i, %i > %i\n", xMod, yMod, xMod + yMod);
                         if (xMod + yMod <= 16) {
                             walk = true;
                         }
@@ -423,21 +440,6 @@ printf("%i %i", tile1, tile2);
                         walk = true;
                         break;
 
-                }
-
-            }
-            break;
-
-        case MapTiles::NewCornerLL:
-                {
-                xMod = (x + widthHalf) % 16;
-                yMod = (y + heightHalf) % 16;
-                // printf("NCBL-1 %i, %i > %i\n", xMod, yMod, xMod + yMod);
-                if (xMod == 0) {
-                    walk = true;
-                }
-                else {
-                    walk = false;
                 }
 
             }
@@ -461,15 +463,20 @@ printf("%i %i", tile1, tile2);
             case MapTiles::Rubble:
             case MapTiles::PressPlate:
             case MapTiles::NewBlank:
+            case MapTiles::NewDoorLHSOpen:
+            case MapTiles::NewDoorRHSOpen:
+            case MapTiles::NewDoorTOPOpen:
+            case MapTiles::NewDoorBOTOpen:
                 walk = true;
                 break;
 
             case MapTiles::NewStraightTOP:
+            case MapTiles::NewDoorTOP:
                 {
                     xMod = (x + widthHalf) % 16;
                     yMod = (y - heightHalf) % 16;
                     
-                    printf("STOP-2 %i, %i > %i\n", xMod, yMod, xMod + yMod);
+                    //printf("STOP-2 %i, %i > %i\n", xMod, yMod, xMod + yMod);
 
                     switch (direction) {
 
@@ -488,11 +495,12 @@ printf("%i %i", tile1, tile2);
                 break;
 
             case MapTiles::NewStraightBOT:
+            case MapTiles::NewDoorBOT:
                 {
                     xMod = (x + widthHalf) % 16;
                     yMod = (y + heightHalf) % 16;
                     
-                    printf("SBOT-2 %i, %i > %i\n", xMod, yMod, xMod + yMod);
+                    //printf("SBOT-2 %i, %i > %i\n", xMod, yMod, xMod + yMod);
 
                     switch (direction) {
 
@@ -512,6 +520,8 @@ printf("%i %i", tile1, tile2);
 
             case MapTiles::NewStraightLHS:
             case MapTiles::NewStraightRHS:
+            case MapTiles::NewDoorLHS:
+            case MapTiles::NewDoorRHS:
                 {
 
                     switch (direction) {
@@ -530,7 +540,75 @@ printf("%i %i", tile1, tile2);
                 }
                 break;
 
-            case MapTiles::NewUpperLeftTriangle:
+        case MapTiles::NewCornerLL:
+
+            switch (direction) {
+
+                case Direction::Down:
+                case Direction::Left:
+                    walk = true;
+                    break;
+
+                default:
+                    walk = false;
+                    break;
+                
+            }
+
+            break;
+
+        case MapTiles::NewCornerLR:
+
+            switch (direction) {
+
+                case Direction::Down:
+                case Direction::Right:
+                    walk = true;
+                    break;
+
+                default:
+                    walk = false;
+                    break;
+                
+            }
+
+            break;
+
+        case MapTiles::NewCornerTL:
+
+            switch (direction) {
+
+                case Direction::Up:
+                case Direction::Left:
+                    walk = true;
+                    break;
+
+                default:
+                    walk = false;
+                    break;
+                
+            }
+
+            break;
+
+        case MapTiles::NewCornerTR:
+
+            switch (direction) {
+
+                case Direction::Up:
+                case Direction::Right:
+                    walk = true;
+                    break;
+
+                default:
+                    walk = false;
+                    break;
+                
+            }
+
+            break;
+
+        case MapTiles::NewUpperLeftTriangle:
                 walk = true;
                 break;
 
@@ -643,7 +721,7 @@ printf("%i %i", tile1, tile2);
 
     }
 
-printf(" -----> %i\n", walk);
+    printf(" -----> %i\n", walk);
     return walk;
 
     

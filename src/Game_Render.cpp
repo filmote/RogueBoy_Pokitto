@@ -13,74 +13,8 @@ void Game::renderObjects() {
 
 }
 
-// void Game::drawHealth() {
-
-//     PD::setColor(0);
-//     PD::fillRect(0, 81, 63, 6);
-//     PD::drawBitmap(1, 82, Images::Health);
-//     PD::setColor(8);
-//     PD::drawRect(7, 82, 54, 4);
-//     PD::drawLine(9, 84, 9 + player.getHealth() / 2, 84);
-
-// }
-
-
-// void Game::drawHolding() {
-
-//     PD::setColor(6);
-//     PD::drawBitmap(82, 69, Images::Keys_Main);
-//     PD::drawBitmap(82, 79, Images::Coins_Main);
-//     PD::setCursor(94, 70);
-//     if (player.getInventoryCount(Object::Key) < 10)  PD::print("0");
-//     PD::print(player.getInventoryCount(Object::Key), 10);
-//     PD::setCursor(94, 80);
-//     if (player.getCoins() < 10) PD::print("0");
-//     PD::print(player.getCoins(), 10);
-//     PD::drawBitmap(82, 69, Images::Keys_Outline);
-//     PD::drawBitmap(82, 79, Images::Coins_Outline);
-
-// }
-
-// void Game::drawTime() {
-
-//     PD::drawBitmap(74, 0,Images::Time_Main);
-//     PD::setColor(6);
-//     PD::setCursor(87,1);
-
-//     if (this->map.getTimer() < 100)    PD::print("0");
-//     if (this->map.getTimer() < 10)     PD::print("0");
-
-//     PD::print(map.getTimer(), 10);
-//     PD::drawBitmap(74, 0, Images::Time_Outline);
-
-// }
-
-// void Game::drawLevel() {
-
-//     PD::setColor(0);
-//     PD::drawBitmap(0, 0, Images::Level_Main);
- 
-//     PD::setColor(7);
-//     PD::setCursor(3,1);
-//     PD::print("L");
-//     PD::setCursor(10,1);
-
-//     if (map.getLevel() < 10) {
-//       PD::print("0");
-//     }
-
-//     PD::print(map.getLevel(), 10);
-//     PD::drawBitmap(0, 0, Images::Level_Outline);
-
-// }
-
-
 void Game::renderHud() {
-    
-    // this->drawHealth();
-    // this->drawHolding();
-    // this->drawTime();
-    // this->drawLevel();
+
 
     PD::drawBitmap(0, 72, Images::Scoreboard);
     
@@ -121,6 +55,11 @@ void Game::renderHud() {
 
     PD::setColor(8);
     PD::drawLine(8, 85, 8 + player.getHealth() / 2 + (player.getHealth() > 50 ? 1 : 0), 85);
+
+
+    // Weapon ..
+
+    PD::drawBitmap(93, 74, Images::Fireball);
 
 
     PD::setColor(6, 0);

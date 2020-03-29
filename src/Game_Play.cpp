@@ -297,7 +297,7 @@ void Game::playerMovement() {
     }
     
     if ((PC::buttons.pressed(BTN_LEFT) || PC::buttons.repeat(BTN_LEFT, 1))) {
-
+printf("Left\n");
         if (this->map.isWalkable(x - 2, y, Direction::Left, 8, 12)) {
             x-=2;
             moving = true;
@@ -424,6 +424,7 @@ bool Game::interactWithBlock(int x, int y, MapTiles block) {
 
         case MapTiles::SwitchOn: 
             this->map.setBlock(x, y, MapTiles::SwitchOff); 
+            printf("%i,%i\n",x,y);
             updateEnvironmentBlock(map, x, y, this->environments); 
             // sound move switch 
             return true;
@@ -450,12 +451,54 @@ bool Game::interactWithBlock(int x, int y, MapTiles block) {
             return false;
 
         case MapTiles::LockedDoor: 
-        case MapTiles::NewDoorTOP: 
-        case MapTiles::NewDoorBOT: 
-        case MapTiles::NewDoorLHS: 
-        case MapTiles::NewDoorRHS: 
             if (this->player.getInventoryCount(Object::Key) > 0) {
                 this->map.setBlock(x, y, MapTiles::OpenDoor); 
+                this->player.decInventoryItem(Object::Key);
+                // sound unlock door
+                return true;
+            } 
+            else {
+                // sound missing keys
+                return false;
+            }  
+        case MapTiles::NewDoorTOP: 
+            if (this->player.getInventoryCount(Object::Key) > 0) {
+                this->map.setBlock(x, y, MapTiles::NewDoorTOPOpen); 
+                this->player.decInventoryItem(Object::Key);
+                // sound unlock door
+                return true;
+            } 
+            else {
+                // sound missing keys
+                return false;
+            }  
+        case MapTiles::NewDoorBOT: 
+            if (this->player.getInventoryCount(Object::Key) > 0) {
+                this->map.setBlock(x, y, MapTiles::NewDoorBOTOpen); 
+                this->player.decInventoryItem(Object::Key);
+                // sound unlock door
+                return true;
+            } 
+            else {
+                // sound missing keys
+                return false;
+            }
+
+        case MapTiles::NewDoorLHS: 
+            if (this->player.getInventoryCount(Object::Key) > 0) {
+                this->map.setBlock(x, y, MapTiles::NewDoorLHSOpen); 
+                this->player.decInventoryItem(Object::Key);
+                // sound unlock door
+                return true;
+            } 
+            else {
+                // sound missing keys
+                return false;
+            }  
+
+        case MapTiles::NewDoorRHS: 
+            if (this->player.getInventoryCount(Object::Key) > 0) {
+                this->map.setBlock(x, y, MapTiles::NewDoorRHSOpen); 
                 this->player.decInventoryItem(Object::Key);
                 // sound unlock door
                 return true;
@@ -478,7 +521,7 @@ bool Game::interactWithBlock(int x, int y, MapTiles block) {
 
         case MapTiles::SwitchBroken: 
             if (this->player.getInventoryCount(Object::Spanner) > 0) {
-                this->map.setBlock(x, y, MapTiles::SwitchOn); 
+                this->map.setBlock(x, y, MapTiles::SwitchOff); 
                 this->player.decInventoryItem(Object::Spanner);
                 // sound fix
                 return true;
@@ -505,7 +548,7 @@ void Game::updateEnvironmentBlock(MapInformation map, uint8_t x, uint8_t y, Envi
 
             uint8_t x1 = environment.finishX();
             uint8_t y1 = environment.finishY();
-
+printf("block %i\n",this->map.getBlock(x1, y1));
             switch(this->map.getBlock(x1, y1)) {
 
                 case MapTiles::SpearDoor: 
@@ -513,7 +556,8 @@ void Game::updateEnvironmentBlock(MapInformation map, uint8_t x, uint8_t y, Envi
                     break;
                 
                 case MapTiles::OpenDoor: 
-                    this->map.setBlock(x1, y1, MapTiles::SpearDoor); 
+//                    this->map.setBlock(x1, y1, MapTiles::SpearDoor); 
+                    this->map.setBlock(x1, y1, environment.getTile()); 
                     break;
 
                 case MapTiles::LockedStairs: 
@@ -528,11 +572,8 @@ void Game::updateEnvironmentBlock(MapInformation map, uint8_t x, uint8_t y, Envi
                     this->map.setBlock(x1, y1, MapTiles::Rubble); 
                     break;
 
-                case MapTiles::NewDoorBOT: 
-                case MapTiles::NewDoorTOP: 
-                case MapTiles::NewDoorLHS: 
-                case MapTiles::NewDoorRHS: 
-                    this->map.setBlock(x1, y1, MapTiles::OpenDoor); 
+                case MapTiles::NewDoorLHSOpen: 
+                    this->map.setBlock(x1, y1, MapTiles::NewDoorLHS); 
                     break;
 
             }

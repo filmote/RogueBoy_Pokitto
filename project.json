@@ -2156,6 +2156,69 @@
 		},
 		"/src/entities/Bullet.cpp": {
 			"sdcard": false
+		},
+		"/src/images/background/Tile_39 copy.png": {
+			"sdcard": false
+		},
+		"/src/images/background/Tile_53.png": {
+			"sdcard": false
+		},
+		"/src/images/background/Tile_51.png": {
+			"sdcard": false
+		},
+		"/src/images/background/Tile_50 copy.png": {
+			"sdcard": false
+		},
+		"/src/images/background/Tile_52.png": {
+			"sdcard": false
+		},
+		"/src/images/background/Tile_53.h": {
+			"sdcard": false
+		},
+		"/src/images/background/Tile_51.h": {
+			"sdcard": false
+		},
+		"/src/images/background/Tile_52.h": {
+			"sdcard": false
+		},
+		"/src/images/background/Tile_53 copy.png": {
+			"sdcard": false
+		},
+		"/src/images/background/Tile_53 copy 2.png": {
+			"sdcard": false
+		},
+		"/src/images/background/Tile_53 copy 3.png": {
+			"sdcard": false
+		},
+		"/src/images/background/Tile_53 copy 4.png": {
+			"sdcard": false
+		},
+		"/src/images/background/Tile_54.png": {
+			"sdcard": false
+		},
+		"/src/images/background/Tile_55.png": {
+			"sdcard": false
+		},
+		"/src/images/background/Tile_56.png": {
+			"sdcard": false
+		},
+		"/src/images/background/Tile_55 copy.png": {
+			"sdcard": false
+		},
+		"/src/images/background/Tile_54.h": {
+			"sdcard": false
+		},
+		"/src/images/background/Tile_55.h": {
+			"sdcard": false
+		},
+		"/src/images/background/Tile_56.h": {
+			"sdcard": false
+		},
+		"/src/images/scoreboard/Fireball.png": {
+			"sdcard": false
+		},
+		"/src/images/scoreboard/Fireball.h": {
+			"sdcard": false
 		}
 	},
 	"BUILDFlags": {

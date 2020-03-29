@@ -74,7 +74,8 @@ void Game::loadMap(uint8_t level) {
             bool active = true;
 
             auto & environment = this->environments.getEnvironment(i);
-            environment.setEnv(x1, y1, x2, y2, active);
+            MapTiles tile = this->map.getBlock(x2, y2);
+            environment.setEnv(x1, y1, x2, y2, active, tile);
 
         }
 

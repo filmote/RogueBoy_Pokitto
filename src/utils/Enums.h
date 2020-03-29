@@ -113,6 +113,12 @@ enum MapTiles {
     NewEndTRB = 48,
     NewFillTLTR = 49,
     NewFillTRBR = 50,
+    NewFillBLBR = 51,
+    NewFillTLBL = 52,
+    NewDoorLHSOpen = 53,
+    NewDoorRHSOpen = 54,
+    NewDoorTOPOpen = 55,
+    NewDoorBOTOpen = 56,
 };
 
 const char object_Desc_00[] = "Coin";
