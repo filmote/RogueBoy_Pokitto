@@ -2219,6 +2219,12 @@
 		},
 		"/src/images/scoreboard/Fireball.h": {
 			"sdcard": false
+		},
+		"/~$Levels.xlsx": {
+			"sdcard": false
+		},
+		"/Levels.xlsx": {
+			"sdcard": false
 		}
 	},
 	"BUILDFlags": {

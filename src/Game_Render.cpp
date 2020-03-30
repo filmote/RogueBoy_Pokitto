@@ -15,6 +15,7 @@ void Game::renderObjects() {
 
 void Game::renderHud() {
 
+    #ifndef LARGE_SCREEN
 
     PD::drawBitmap(0, 72, Images::Scoreboard);
     
@@ -64,6 +65,8 @@ void Game::renderHud() {
 
     PD::setColor(6, 0);
 
+    #endif
+
 }
 
 void Game::renderEnviroment() {
@@ -75,7 +78,7 @@ void Game::renderEnviroment() {
 
     for (int i = -8; i < 7; i++) {
     
-        for(int j = -4; j < 4; j++) {
+        for(int j = -7; j < 7; j++) {
             
             uint8_t block = this->map.getBlock(tileX + i, tileY + j);
 
