@@ -17,6 +17,10 @@ int main() {
     PC::setFrameRate(30);
     PD::setFont(fontKoubit);
 
+    // Kick off the random number generator ..
+    
+    srand(time(0));
+
     game.setup();
 
     while( PC::isRunning() ) {

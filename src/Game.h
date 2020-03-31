@@ -5,8 +5,9 @@
 #include "utils/Structs.h"
 #include "images/Images.h"
 #include "entities/Entities.h"
-#include "maps/maps.h"
-
+#include "maps/Maps.h"
+#include "maps/MapSegments.h"
+#include "maps/MapStructures.h"
 
 
 class Game {
@@ -65,9 +66,15 @@ class Game {
         InventoryMenu inventoryMenu;
         
         MapInformation map;
+        bool randomLevel = true;
 
 //        const uint8_t * maps[18] = { MAP_1, MAP_2, MAP_3, MAP_4, MAP_5, MAP_6, MAP_7, MAP_8, MAP_9, MAP_10, MAP_11, MAP_12, MAP_13, MAP_14, MAP_15, MAP_16, MAP_17, MAP_18 };
         const uint8_t * maps[20] = { MAP_Level1, MAP_Test, MAP_1, MAP_2, MAP_3, MAP_4, MAP_5, MAP_6, MAP_7, MAP_8, MAP_9, MAP_10, MAP_11, MAP_12, MAP_13, MAP_14, MAP_15, MAP_16, MAP_17, MAP_18,  };
+
+
+
+        const uint8_t * mapsSegments[4] = { MAP_Segment_00, MAP_Segment_01, MAP_Segment_02, MAP_Segment_03 };
+        const uint8_t * mapsRandom[1] = { Map_Random_1 };
     
 };
 

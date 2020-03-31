@@ -2220,10 +2220,19 @@
 		"/src/images/scoreboard/Fireball.h": {
 			"sdcard": false
 		},
+		"/Levels.xlsx": {
+			"sdcard": false
+		},
 		"/~$Levels.xlsx": {
 			"sdcard": false
 		},
-		"/Levels.xlsx": {
+		"/src/maps/MapSegments.h": {
+			"sdcard": false
+		},
+		"/src/maps/MapsStructures.h": {
+			"sdcard": false
+		},
+		"/src/maps/MapStructures.h": {
 			"sdcard": false
 		}
 	},
