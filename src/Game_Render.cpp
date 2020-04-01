@@ -79,6 +79,27 @@ void Game::renderEnviroment() {
             
             uint8_t block = this->map.getBlock(tileX + i, tileY + j);
 
+            switch (block) {
+
+                case MapTiles::NewStraightTorchBOT_F0:
+                case MapTiles::NewStraightTorchTOP_F0:
+                case MapTiles::NewStraightTorchLHS_F0:
+                case MapTiles::NewStraightTorchRHS_F0:
+                    if (PC::frameCount % 24 < 12) { block = block + 4; }
+                    break;
+
+                case MapTiles::NewStraightTorchBOT_F1:
+                case MapTiles::NewStraightTorchTOP_F1:
+                case MapTiles::NewStraightTorchLHS_F1:
+                case MapTiles::NewStraightTorchRHS_F1:
+                    if (PC::frameCount % 24 < 12) { block = block - 4; }
+                    break;
+
+                default:
+                    break;
+
+            }
+
             int drawX = (i * 16) + CENTERX - offsetX;
             int drawY = (j * 16) + CENTERY - offsetY;
             PD::drawBitmap(drawX, drawY, Images::Tiles[block]);
