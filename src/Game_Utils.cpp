@@ -5,7 +5,7 @@ using PC = Pokitto::Core;
 using PD = Pokitto::Display;
 using PS = Pokitto::Sound;
 
-void Game::init(uint16_t x, uint16_t y) {
+void Game::init(uint16_t x, uint16_t y, bool resetObjects) {
 
     //sound.tone(NOTE_C7H,150, NOTE_REST,100, NOTE_C6,150);
     player.init(x, y);
@@ -16,10 +16,14 @@ void Game::init(uint16_t x, uint16_t y) {
 
     }
 
-    for (uint8_t i = 0; i < MAXOBJECT; i++) {
+    if (resetObjects) {
+        
+        for (uint8_t i = 0; i < MAXOBJECT; i++) {
 
-        auto & object = this->objects.getSprite(i);
-        object.setActive(false);
+            auto & object = this->objects.getSprite(i);
+            object.setActive(false);
+
+        }
 
     }
 

@@ -33,7 +33,7 @@ uint8_t Sprites::getObjectNum() {
 }
 
 void Sprites::setObjectNum(uint8_t oNum) {
-
+printf("set Onum %i\n", oNum);
     this->oNum = oNum;
 
 }

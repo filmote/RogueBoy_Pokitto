@@ -1,9 +1,16 @@
 #define PROJ_BUTTONS_POLLING_ONLY
 
+#define LARGE_SCREEN
 
-#define PROJ_SCREENMODE             2
-#define CENTERX 55
-#define CENTERY 36
+#ifndef LARGE_SCREEN
+    #define PROJ_SCREENMODE             2
+    #define CENTERX 55
+    #define CENTERY 36
+#else
+    #define PROJ_SCREENMODE             15
+    #define CENTERX 110
+    #define CENTERY 110
+#endif
 
 #define TILE_WIDTH          16
 #define TILE_HEIGHT         16
@@ -24,3 +31,4 @@
 #define NO_SPRITE_FOUND     255
 #define MAX_INVENTORY_ITEMS 5                   // Number of item types the player can hold
 #define MAX_INVENTORY_COUNT 6                   // NUmber of items the player can hold, two of one type counts as two.
+#define RANDOM_TILE_SIZE    9

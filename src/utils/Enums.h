@@ -95,7 +95,7 @@ enum MapTiles {
     New10 = 30,
     New11 = 31,
     New12 = 32,
-    NewBlank = 33,
+    FullSquare = 33,
     NewCornerLL = 34,
     NewCornerLR = 35,
     NewCornerTR = 36,

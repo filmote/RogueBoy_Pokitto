@@ -63,7 +63,7 @@ class Sprite {
             this->frame = 0;
             this->offset = offset;
             this->active = active;
-            
+            printf("Active %i\n", this->active);
         };
 
         void damage() {
