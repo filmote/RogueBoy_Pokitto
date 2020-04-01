@@ -21,7 +21,7 @@ void Game::loadMap(uint8_t level) {
     uint16_t px = (levelToLoad[cursor++] * TILE_SIZE) + 8;
     uint16_t py = (levelToLoad[cursor++] * TILE_SIZE) + 8;
 
-    init(px, py);
+    init(px, py, true);
 
     map.setTimer(levelToLoad[cursor++]);
 
@@ -126,9 +126,10 @@ void Game::nextLevelLoad() {
     if (map.getLevel() < MAXLEVEL) {
 
         if (this->randomLevel) {
-printf("hereh\n");
+
             uint8_t randomLevel = 0; //SJH
             uint8_t environmentCount = 0;
+            uint8_t objectCount = 0;
 
             const uint8_t * levelToLoad = this->mapsRandom[randomLevel];
 
@@ -209,10 +210,41 @@ printf("rand %i\n", randOption);
 
                             }
 
+                        }
+
+                    }
+
+
+                    // Load objects ..
+
+                    options = tileToLoad[cursorTile++];
+                    randOption = random(0, options);
+
+                    if (options > 0) {
+printf("objects rand %i of %i options\n", randOption, options);
+                        while (true) {
+
+                            uint8_t option = tileToLoad[cursorTile++];
+
+                            if (option == 255) break;
+
+                            uint8_t type = tileToLoad[cursorTile++];
+                            uint16_t x = (tileToLoad[cursorTile++] * TILE_SIZE) + 8;
+                            uint16_t y = (tileToLoad[cursorTile++] * TILE_SIZE) + 8;
+                            uint8_t h = tileToLoad[cursorTile++];
+
+                            if (option == randOption) {
+printf("add object %i at %i, %i > %i, %i\n", type, x, y, (xTilesIdx * RANDOM_TILE_SIZE * TILE_SIZE) + x, (yTilesIdx * RANDOM_TILE_SIZE * TILE_SIZE) + y);
+                                auto & object = objects.getSprite(objectCount);
+                                object.setSprite((xTilesIdx * RANDOM_TILE_SIZE * TILE_SIZE) + x, (yTilesIdx * RANDOM_TILE_SIZE * TILE_SIZE) + y, h, static_cast<Object>(type), offsets[type], true);
+                                objectCount++;
+
+                            }
 
                         }
 
                     }
+
 
                 }
 
@@ -224,10 +256,11 @@ printf("rand %i\n", randOption);
     uint16_t py = (6 * TILE_SIZE) + 8;
 
 
-            init(px, py);
+            init(px, py, false);
 
 
             this->environments.setEnvironmentNum(environmentCount);
+            this->objects.setObjectNum(objectCount);
 
 
 
@@ -254,7 +287,7 @@ printf("rand %i\n", randOption);
     for (int i=0; i<MAXOBJECT; i++) {
 
         if (objects.getSprite(i).getActive()) {
-    printf("obj[%i] x: %i, y: %i, type: %i, health %1 \n", i, objects.getSprite(i).getX(), objects.getSprite(i).getY(), objects.getSprite(i).getType(), objects.getSprite(i).getHealth());
+            printf("obj[%i] x: %i, y: %i, type: %i, health %1 \n", i, objects.getSprite(i).getX(), objects.getSprite(i).getY(), objects.getSprite(i).getType(), objects.getSprite(i).getHealth());
         }
 
     }

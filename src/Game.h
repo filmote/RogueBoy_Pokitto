@@ -34,7 +34,7 @@ class Game {
         void showInventory();
         void renderInventoryItem(InventoryItem inventotyItem);
 
-        void init(uint16_t x, uint16_t y);
+        void init(uint16_t x, uint16_t y, bool resetObjects);
         bool intersect(uint16_t min0, uint16_t max0, uint16_t min1, uint16_t max1);
         bool collision(uint16_t x, uint16_t y, uint16_t x1, uint16_t y1);
         void updateObjects();

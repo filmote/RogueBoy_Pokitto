@@ -141,11 +141,11 @@ bool MapInformation::isWalkable(uint16_t x, uint16_t y, Direction direction, uin
     switch (direction) {
 
         case Direction::Up:
-            printf("Up (%i,%i) %i,%i > %i,%i > %i,%i .. ", x, y, this->getTileX(x), this->getTileY(y), this->getTileX(x - widthHalf), this->getTileY(y - heightHalf), this->getTileX(x - widthHalf+ 16), this->getTileY(y - heightHalf));        
-            printf("x=%i %% 16 = %i .. ", x, ((x - widthHalf) % 16) + width);        
+            // printf("Up (%i,%i) %i,%i > %i,%i > %i,%i .. ", x, y, this->getTileX(x), this->getTileY(y), this->getTileX(x - widthHalf), this->getTileY(y - heightHalf), this->getTileX(x - widthHalf+ 16), this->getTileY(y - heightHalf));        
+            // printf("x=%i %% 16 = %i .. ", x, ((x - widthHalf) % 16) + width);        
             tile1 = this->getBlock(this->getTileX(x - widthHalf), this->getTileY(y - heightHalf));
             if (((x - widthHalf) % 16) + width >= 16) tile2 = this->getBlock(this->getTileX(x - widthHalf + 16), this->getTileY(y - heightHalf));
-            printf("%i %i ", tile1, tile2);
+            // printf("%i %i ", tile1, tile2);
             break;
 
         case Direction::Right:
@@ -718,7 +718,7 @@ bool MapInformation::isWalkable(uint16_t x, uint16_t y, Direction direction, uin
 
     }
 
-    printf(" -----> %i\n", walk);
+    // printf(" -----> %i\n", walk);
     return walk;
 
     
