@@ -2477,6 +2477,12 @@
 		},
 		"/src/images/enemies/HealthBar.h": {
 			"sdcard": false
+		},
+		"/RogueBoy_Pokitto copy.bin": {
+			"sdcard": false
+		},
+		"/RogueBoy_Pokitto_V01.bin": {
+			"sdcard": false
 		}
 	},
 	"BUILDFlags": {
