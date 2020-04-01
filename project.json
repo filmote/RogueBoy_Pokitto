@@ -2234,7 +2234,7 @@
 		},
 		"/src/maps/MapStructures.h": {
 			"sdcard": false
-		}
+		},
 	},
 	"BUILDFlags": {
 		"Pokitto": {}

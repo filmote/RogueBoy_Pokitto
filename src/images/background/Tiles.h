@@ -59,7 +59,23 @@ namespace Images {
     #include "Tile_54.h"
     #include "Tile_55.h"
     #include "Tile_56.h"
-
+    #include "Tile_57.h"
+    #include "Tile_58.h"
+    #include "Tile_59.h"
+    #include "Tile_60.h"
+    #include "Tile_61.h"
+    #include "Tile_62.h"
+    #include "Tile_63.h"
+    #include "Tile_64.h"
+    #include "Tile_65.h"
+    #include "Tile_66.h"
+    #include "Tile_67.h"
+    #include "Tile_68.h"
+    #include "Tile_69.h"
+    #include "Tile_70.h"
+    #include "Tile_71.h"
+    #include "Tile_72.h"
+    
     const uint8_t * const Tiles[] = { 
     Tile_00,
     Tile_01,
@@ -118,6 +134,22 @@ namespace Images {
     Tile_54,
     Tile_55,
     Tile_56,
+    Tile_57,
+    Tile_58,
+    Tile_59,
+    Tile_60,
+    Tile_61,
+    Tile_62,
+    Tile_63,
+    Tile_64,
+    Tile_65,
+    Tile_66,
+    Tile_67,
+    Tile_68,
+    Tile_69,
+    Tile_70,
+    Tile_71,
+    Tile_72,
     };
 
 };

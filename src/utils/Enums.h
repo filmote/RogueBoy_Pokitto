@@ -119,6 +119,22 @@ enum MapTiles {
     NewDoorRHSOpen = 54,
     NewDoorTOPOpen = 55,
     NewDoorBOTOpen = 56,
+    NewSpearDoorLHS = 57,
+    NewSpearDoorRHS = 58,
+    NewSpearDoorTOP = 59,
+    NewSpearDoorBOT = 60,
+    NewSpearDoorLHSOpen = 61,
+    NewSpearDoorRHSOpen = 62,
+    NewSpearDoorTOPOpen = 63,
+    NewSpearDoorBOTOpen = 64,
+    NewStraightTorchLHS_F0 = 65,
+    NewStraightTorchRHS_F0 = 66,
+    NewStraightTorchTOP_F0 = 67,
+    NewStraightTorchBOT_F0 = 68,
+    NewStraightTorchLHS_F1 = 69,
+    NewStraightTorchRHS_F1 = 70,
+    NewStraightTorchTOP_F1 = 71,
+    NewStraightTorchBOT_F1 = 72,
 };
 
 const char object_Desc_00[] = "Coin";

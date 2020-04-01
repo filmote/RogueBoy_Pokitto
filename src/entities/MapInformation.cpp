@@ -189,6 +189,10 @@ bool MapInformation::isWalkable(uint16_t x, uint16_t y, Direction direction, uin
         case MapTiles::NewDoorRHSOpen:
         case MapTiles::NewDoorTOPOpen:
         case MapTiles::NewDoorBOTOpen:
+        case MapTiles::NewSpearDoorLHSOpen:
+        case MapTiles::NewSpearDoorRHSOpen:
+        case MapTiles::NewSpearDoorTOPOpen:
+        case MapTiles::NewSpearDoorBOTOpen:
             walk = true;
             break;
 
@@ -196,6 +200,10 @@ bool MapInformation::isWalkable(uint16_t x, uint16_t y, Direction direction, uin
         case MapTiles::NewStraightBOT:
         case MapTiles::NewDoorTOP:
         case MapTiles::NewDoorBOT:
+        case MapTiles::NewStraightTorchTOP_F0:
+        case MapTiles::NewStraightTorchTOP_F1:
+        case MapTiles::NewStraightTorchBOT_F0:
+        case MapTiles::NewStraightTorchBOT_F1:
 
             switch (direction) {
 
@@ -216,6 +224,10 @@ bool MapInformation::isWalkable(uint16_t x, uint16_t y, Direction direction, uin
         case MapTiles::NewStraightRHS:
         case MapTiles::NewDoorLHS:
         case MapTiles::NewDoorRHS:
+        case MapTiles::NewStraightTorchLHS_F0:
+        case MapTiles::NewStraightTorchLHS_F1:
+        case MapTiles::NewStraightTorchRHS_F0:
+        case MapTiles::NewStraightTorchRHS_F1:
 
             switch (direction) {
 
@@ -464,11 +476,17 @@ bool MapInformation::isWalkable(uint16_t x, uint16_t y, Direction direction, uin
             case MapTiles::NewDoorRHSOpen:
             case MapTiles::NewDoorTOPOpen:
             case MapTiles::NewDoorBOTOpen:
+            case MapTiles::NewSpearDoorLHSOpen:
+            case MapTiles::NewSpearDoorRHSOpen:
+            case MapTiles::NewSpearDoorTOPOpen:
+            case MapTiles::NewSpearDoorBOTOpen:
                 walk = true;
                 break;
 
             case MapTiles::NewStraightTOP:
             case MapTiles::NewDoorTOP:
+            case MapTiles::NewStraightTorchTOP_F0:
+            case MapTiles::NewStraightTorchTOP_F1:
                 {
                     xMod = (x + widthHalf) % 16;
                     yMod = (y - heightHalf) % 16;
@@ -493,6 +511,8 @@ bool MapInformation::isWalkable(uint16_t x, uint16_t y, Direction direction, uin
 
             case MapTiles::NewStraightBOT:
             case MapTiles::NewDoorBOT:
+            case MapTiles::NewStraightTorchBOT_F0:
+            case MapTiles::NewStraightTorchBOT_F1:
                 {
                     xMod = (x + widthHalf) % 16;
                     yMod = (y + heightHalf) % 16;
@@ -519,6 +539,10 @@ bool MapInformation::isWalkable(uint16_t x, uint16_t y, Direction direction, uin
             case MapTiles::NewStraightRHS:
             case MapTiles::NewDoorLHS:
             case MapTiles::NewDoorRHS:
+            case MapTiles::NewStraightTorchLHS_F0:
+            case MapTiles::NewStraightTorchLHS_F1:
+            case MapTiles::NewStraightTorchRHS_F0:
+            case MapTiles::NewStraightTorchRHS_F1:
                 {
 
                     switch (direction) {

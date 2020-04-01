@@ -553,6 +553,38 @@ void Game::updateEnvironmentBlock(MapInformation map, uint8_t x, uint8_t y, Envi
                 case MapTiles::SpearDoor: 
                     this->map.setBlock(x1, y1, MapTiles::OpenDoor); 
                     break;
+
+                case MapTiles::NewSpearDoorLHS: 
+                    this->map.setBlock(x1, y1, MapTiles::NewSpearDoorLHSOpen); 
+                    break;
+
+                case MapTiles::NewSpearDoorRHS: 
+                    this->map.setBlock(x1, y1, MapTiles::NewSpearDoorRHSOpen); 
+                    break;
+
+                case MapTiles::NewSpearDoorTOP: 
+                    this->map.setBlock(x1, y1, MapTiles::NewSpearDoorTOPOpen); 
+                    break;
+
+                case MapTiles::NewSpearDoorBOT: 
+                    this->map.setBlock(x1, y1, MapTiles::NewSpearDoorBOTOpen); 
+                    break;
+
+                case MapTiles::NewSpearDoorLHSOpen: 
+                    this->map.setBlock(x1, y1, MapTiles::NewSpearDoorLHS); 
+                    break;
+
+                case MapTiles::NewSpearDoorRHSOpen: 
+                    this->map.setBlock(x1, y1, MapTiles::NewSpearDoorRHS); 
+                    break;
+
+                case MapTiles::NewSpearDoorTOPOpen: 
+                    this->map.setBlock(x1, y1, MapTiles::NewSpearDoorTOP); 
+                    break;
+
+                case MapTiles::NewSpearDoorBOTOpen: 
+                    this->map.setBlock(x1, y1, MapTiles::NewSpearDoorBOT); 
+                    break;
                 
                 case MapTiles::OpenDoor: 
 //                    this->map.setBlock(x1, y1, MapTiles::SpearDoor); 
@@ -687,7 +719,22 @@ void Game::spriteAI(MapInformation map, Player &player, Sprite &sprite) {
 
         case Object::Floater:            
         case Object::Skull:     
+
+            if (this->map.getDistance(x, y, player.getX(), player.getY()) <= 5) {
+                if (x < player.getX() && this->map.isWalkable(x + 1, y, Direction::Right, 12, 12))   { x++; }
+                if (x > player.getX() && this->map.isWalkable(x - 1, y, Direction::Left, 12, 12))    { x--; }
+                if (y < player.getY() && this->map.isWalkable(x, y + 1, Direction::Down, 12, 12))    { y++; }
+                if (y > player.getY() && this->map.isWalkable(x, y - 1, Direction::Up, 12, 12))      { y--; }
+            }
+
+            break;
+
         case Object::Spider:   
+
+            if (Pokitto::Core::frameCount % 5 == 0) { 
+                sprite.setFrame(sprite.getFrame() + 1); 
+                sprite.setFrame(sprite.getFrame() % 2);
+            } 
 
             if (this->map.getDistance(x, y, player.getX(), player.getY()) <= 5) {
                 if (x < player.getX() && this->map.isWalkable(x + 1, y, Direction::Right, 12, 12))   { x++; }

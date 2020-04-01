@@ -4,14 +4,22 @@ namespace Images {
 
     #include "Bat_00.h"
     #include "Bat_01.h"
-    #include "Spider_00.h"
-    #include "Spider_01.h"
-    #include "Spider_02.h"
-    #include "Spider_03.h"
-    #include "Spider_04.h"
-    #include "Spider_05.h"
-    #include "Spider_06.h"
-    #include "Spider_07.h"
+    #include "Spider_00_F0.h"
+    #include "Spider_00_F1.h"
+    #include "Spider_01_F0.h"
+    #include "Spider_01_F1.h"
+    #include "Spider_02_F0.h"
+    #include "Spider_02_F1.h"
+    #include "Spider_03_F0.h"
+    #include "Spider_03_F1.h"
+    #include "Spider_04_F0.h"
+    #include "Spider_04_F1.h"
+    #include "Spider_05_F0.h"
+    #include "Spider_05_F1.h"
+    #include "Spider_06_F0.h"
+    #include "Spider_06_F1.h"
+    #include "Spider_07_F0.h"
+    #include "Spider_07_F1.h"
 
     const uint8_t * const Bats[] = { 
         Bat_00,
@@ -19,14 +27,22 @@ namespace Images {
     };
 
     const uint8_t * const Spiders[] = { 
-        Spider_00,
-        Spider_01,
-        Spider_02,
-        Spider_03,
-        Spider_04,
-        Spider_05,
-        Spider_06,
-        Spider_07,
+        Spider_00_F0,
+        Spider_00_F1,
+        Spider_01_F0,
+        Spider_01_F1,
+        Spider_02_F0,
+        Spider_02_F1,
+        Spider_03_F0,
+        Spider_03_F1,
+        Spider_04_F0,
+        Spider_04_F1,
+        Spider_05_F0,
+        Spider_05_F1,
+        Spider_06_F0,
+        Spider_06_F1,
+        Spider_07_F0,
+        Spider_07_F1,
     };
 
 };
