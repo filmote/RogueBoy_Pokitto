@@ -1,6 +1,6 @@
 #define PROJ_BUTTONS_POLLING_ONLY
 
-#define LARGE_SCREEN
+#define _LARGE_SCREEN
 
 #ifndef LARGE_SCREEN
     #define PROJ_SCREENMODE             2
@@ -32,3 +32,7 @@
 #define MAX_INVENTORY_ITEMS 5                   // Number of item types the player can hold
 #define MAX_INVENTORY_COUNT 6                   // NUmber of items the player can hold, two of one type counts as two.
 #define RANDOM_TILE_SIZE    9
+#define HEALTH_BAR_DELAY    8
+
+#define HEALTH_INC_DONUT    10
+#define HEALTH_INC_HAM      20

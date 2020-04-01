@@ -169,7 +169,7 @@ printf("Get tileIdx %i %i %i\n", xTilesIdx, yTilesIdx, tileIdx);
                     uint8_t randOption = random(0, options);
 
                     if (options > 0) {
-printf("rand %i\n", randOption);
+printf("maptiles rand %i of %i options\n", randOption, options);
                         while (true) {
 
                             uint8_t option = tileToLoad[cursorTile++];
@@ -199,7 +199,6 @@ printf("rand %i\n", randOption);
                             uint8_t y1 = tileToLoad[cursorTile++];
                             uint8_t x2 = tileToLoad[cursorTile++];
                             uint8_t y2 = tileToLoad[cursorTile++];
-    printf("Env > %i,%i,%i,%i\n",x1,y1,x2,y2 );
 
                             if (option == randOption) {
 
@@ -234,7 +233,6 @@ printf("objects rand %i of %i options\n", randOption, options);
                             uint8_t h = tileToLoad[cursorTile++];
 
                             if (option == randOption) {
-printf("add object %i at %i, %i > %i, %i\n", type, x, y, (xTilesIdx * RANDOM_TILE_SIZE * TILE_SIZE) + x, (yTilesIdx * RANDOM_TILE_SIZE * TILE_SIZE) + y);
                                 auto & object = objects.getSprite(objectCount);
                                 object.setSprite((xTilesIdx * RANDOM_TILE_SIZE * TILE_SIZE) + x, (yTilesIdx * RANDOM_TILE_SIZE * TILE_SIZE) + y, h, static_cast<Object>(type), offsets[type], true);
                                 objectCount++;
@@ -267,7 +265,7 @@ printf("add object %i at %i, %i > %i, %i\n", type, x, y, (xTilesIdx * RANDOM_TIL
 
 
     printf("-----------------------------\n");
-//    printf("Map: %i", level);
+//printf("Map: %i", level);
     printf(", W: %i", map.getWidth());
     printf(", H: %i",map.getHeight());
     printf("\n-----------------------------\n");

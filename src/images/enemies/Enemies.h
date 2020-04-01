@@ -20,6 +20,7 @@ namespace Images {
     #include "Spider_06_F1.h"
     #include "Spider_07_F0.h"
     #include "Spider_07_F1.h"
+    #include "HealthBar.h"
 
     const uint8_t * const Bats[] = { 
         Bat_00,

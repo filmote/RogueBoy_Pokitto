@@ -33,8 +33,16 @@ uint8_t Sprites::getObjectNum() {
 }
 
 void Sprites::setObjectNum(uint8_t oNum) {
-printf("set Onum %i\n", oNum);
+ 
     this->oNum = oNum;
+
+}
+
+void Sprites::renderHealthBar(uint32_t x, uint32_t y, uint8_t health) {
+
+    PD::drawBitmap(x, y, Images::HealthBar);
+    PD::setColor(8);
+    PD::drawLine(x + 2, y + 1, x + 2 + health, y + 1);
 
 }
 
@@ -60,11 +68,13 @@ void Sprites::render(Player &player) {
                     break;
 
                 case Object::Bat:
+                    if (object.getRenderHealthBar()) { this->renderHealthBar(x + 6, y - 6, 10 * object.getHealth() / object.getHealthOrig()); }
                     PD::drawBitmap(x, y, Images::Bats[frame]);
                     break;
 
                 case Object::Spider:
                     PD::drawBitmap(x, y, Images::Spiders[(static_cast<uint8_t>(direction) * 2) + frame]);
+                    if (object.getRenderHealthBar()) { this->renderHealthBar(x + 6, y - 6, 10 * object.getHealth() / object.getHealthOrig()); }
                     break;
 
                 case Object::SackOCash:
@@ -84,10 +94,12 @@ void Sprites::render(Player &player) {
                     break;
 
                 case Object::Floater:
+                    if (object.getRenderHealthBar()) { this->renderHealthBar(x + 6, y - 6, 10 * object.getHealth() / object.getHealthOrig()); }
                     PD::drawBitmap(x, y, Images::Floater);
                     break;
 
                 case Object::Skull:
+                    if (object.getRenderHealthBar()) { this->renderHealthBar(x + 6, y - 6, 10 * object.getHealth() / object.getHealthOrig()); }
                     PD::drawBitmap(x, y, Images::Skull);
                     break;
 

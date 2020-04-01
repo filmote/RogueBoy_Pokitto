@@ -125,7 +125,7 @@ void Game::showInventory() {
             
                                 case Object::Donut:
                                     if (player.getHealth() < 100) {
-                                        player.setHealth(player.getHealth() + 5); 
+                                        player.setHealth(player.getHealth() + HEALTH_INC_DONUT); 
                                         inventoryItem.quantity--;  
                                         itemUsed = true;
                                         //sound health going up
@@ -137,7 +137,7 @@ void Game::showInventory() {
             
                                 case Object::Ham:
                                     if (player.getHealth() < 100) {
-                                        player.setHealth(player.getHealth() + 10); 
+                                        player.setHealth(player.getHealth() + HEALTH_INC_HAM); 
                                         inventoryItem.quantity--;  
                                         itemUsed = true;
                                         //sound health going up

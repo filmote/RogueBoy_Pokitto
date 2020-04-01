@@ -20,13 +20,17 @@ class Sprite {
         uint8_t getFrame()              { return this->frame; }
         Object getType()                { return this->type; }
         int16_t getHealth()             { return this->health; }
+        int16_t getHealthOrig()         { return this->healthOrig; }
         bool getActive()                { return this->active; }
+        bool getRenderHealthBar()       { return this->renderHealthBar > 0; }
 
         void setActive(bool k)          { this->active = k; }
         void setFrame(uint8_t frame)    { this->frame = frame;}
         void setX(uint16_t x)           { this->x = x; }
         void setY(uint16_t y)           { this->y = y; }
         void setType(Object type)       { this->type = type; }
+
+        void decHealthBarCounter()      { if (this->renderHealthBar > 0) this->renderHealthBar--; }
 
         void setPosition(uint16_t x, uint16_t y) {
 
@@ -59,11 +63,12 @@ class Sprite {
             this->x = x;
             this->y = y;
             this->health = health;
+            this->healthOrig = health;
             this->type = type;
             this->frame = 0;
             this->offset = offset;
             this->active = active;
-            printf("Active %i\n", this->active);
+
         };
 
         void damage() {
@@ -74,6 +79,8 @@ class Sprite {
                 this->active = false; 
                 //sound.tone(NOTE_E5,50);
             }
+
+            this->renderHealthBar = HEALTH_BAR_DELAY;
     
         };
 
@@ -158,6 +165,7 @@ class Sprite {
         uint16_t x;
         uint16_t y;
         int16_t health;
+        int16_t healthOrig;
         Object type;
         uint8_t frame;
         bool active;
@@ -165,6 +173,7 @@ class Sprite {
         int8_t lastMoveX;
         int8_t lastMoveY;
         bool preventImmediatePickup;
+        uint8_t renderHealthBar;
 
 };
 

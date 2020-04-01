@@ -2235,6 +2235,249 @@
 		"/src/maps/MapStructures.h": {
 			"sdcard": false
 		},
+		"/src/images/background/Tile_57.png": {
+			"sdcard": false
+		},
+		"/src/images/background/Tile_58.png": {
+			"sdcard": false
+		},
+		"/src/images/background/Tile_59.png": {
+			"sdcard": false
+		},
+		"/src/images/background/Tile_60.png": {
+			"sdcard": false
+		},
+		"/src/images/background/Tile_58.h": {
+			"sdcard": false
+		},
+		"/src/images/background/Tile_60.h": {
+			"sdcard": false
+		},
+		"/src/images/background/Tile_57.h": {
+			"sdcard": false
+		},
+		"/src/images/background/Tile_59.h": {
+			"sdcard": false
+		},
+		"/src/images/enemies/Spider_04_F1.png": {
+			"sdcard": false
+		},
+		"/src/images/enemies/Spider_04_F0.png": {
+			"sdcard": false
+		},
+		"/src/images/enemies/Spider_00_F0.png": {
+			"sdcard": false
+		},
+		"/src/images/enemies/Spider_00_F1.png": {
+			"sdcard": false
+		},
+		"/src/images/enemies/Spider_01_F0.png": {
+			"sdcard": false
+		},
+		"/src/images/enemies/Spider_01_F0 copy.png": {
+			"sdcard": false
+		},
+		"/src/images/enemies/Spider_01_F1.png": {
+			"sdcard": false
+		},
+		"/src/images/enemies/Spider_00_F1 copy.png": {
+			"sdcard": false
+		},
+		"/src/images/enemies/Spider_02_F1.png": {
+			"sdcard": false
+		},
+		"/src/images/enemies/Spider_02_F0.png": {
+			"sdcard": false
+		},
+		"/src/images/enemies/Spider_03 copy.png": {
+			"sdcard": false
+		},
+		"/src/images/enemies/Spider_03_F1.png": {
+			"sdcard": false
+		},
+		"/src/images/enemies/Spider_03_F0.png": {
+			"sdcard": false
+		},
+		"/src/images/enemies/Spider_05_F1.png": {
+			"sdcard": false
+		},
+		"/src/images/enemies/Spider_07_F1.png": {
+			"sdcard": false
+		},
+		"/src/images/enemies/Spider_05_F0.h": {
+			"sdcard": false
+		},
+		"/src/images/enemies/Spider_02_F1 copy.png": {
+			"sdcard": false
+		},
+		"/src/images/enemies/Spider_06_F1.png": {
+			"sdcard": false
+		},
+		"/src/images/enemies/Spider_05_F0.png": {
+			"sdcard": false
+		},
+		"/src/images/enemies/Spider_06_F0.png": {
+			"sdcard": false
+		},
+		"/src/images/enemies/Spider_07_F0.png": {
+			"sdcard": false
+		},
+		"/src/images/enemies/Spider_01_F3.png": {
+			"sdcard": false
+		},
+		"/src/images/enemies/Spider_04_F0.h": {
+			"sdcard": false
+		},
+		"/src/images/enemies/Spider_00_F0.h": {
+			"sdcard": false
+		},
+		"/src/images/enemies/Spider_04_F1.h": {
+			"sdcard": false
+		},
+		"/src/images/enemies/Spider_00_F1.h": {
+			"sdcard": false
+		},
+		"/src/images/enemies/Spider_02_F1.h": {
+			"sdcard": false
+		},
+		"/src/images/enemies/Spider_02_F0.h": {
+			"sdcard": false
+		},
+		"/src/images/enemies/Spider_03_F0.h": {
+			"sdcard": false
+		},
+		"/src/images/enemies/Spider_03_F1.h": {
+			"sdcard": false
+		},
+		"/src/images/enemies/Spider_05_F1.h": {
+			"sdcard": false
+		},
+		"/src/images/enemies/Spider_07_F1.h": {
+			"sdcard": false
+		},
+		"/src/images/enemies/Spider_06_F1.h": {
+			"sdcard": false
+		},
+		"/src/images/enemies/Spider_06_F0.h": {
+			"sdcard": false
+		},
+		"/src/images/enemies/Spider_07_F0.h": {
+			"sdcard": false
+		},
+		"/src/images/enemies/Spider_01_F0.h": {
+			"sdcard": false
+		},
+		"/src/images/enemies/Spider_01_F1.h": {
+			"sdcard": false
+		},
+		"/ezgif-6-988a64773ead.gif": {
+			"sdcard": false
+		},
+		"/src/images/background/Tile_57 copy.png": {
+			"sdcard": false
+		},
+		"/src/images/background/Tile_61.png": {
+			"sdcard": false
+		},
+		"/src/images/background/Tile_62.png": {
+			"sdcard": false
+		},
+		"/src/images/background/Tile_61 copy.png": {
+			"sdcard": false
+		},
+		"/src/images/background/Tile_63.png": {
+			"sdcard": false
+		},
+		"/src/images/background/Tile_63 copy.png": {
+			"sdcard": false
+		},
+		"/src/images/background/Tile_64.png": {
+			"sdcard": false
+		},
+		"/src/images/background/Tile_61.h": {
+			"sdcard": false
+		},
+		"/src/images/background/Tile_62.h": {
+			"sdcard": false
+		},
+		"/src/images/background/Tile_63.h": {
+			"sdcard": false
+		},
+		"/src/images/background/Tile_64.h": {
+			"sdcard": false
+		},
+		"/src/images/background/Tile_65.png": {
+			"sdcard": false
+		},
+		"/src/images/background/Tile_22 copy.png": {
+			"sdcard": false
+		},
+		"/src/images/background/Tile_23 copy.png": {
+			"sdcard": false
+		},
+		"/src/images/background/Tile_66.png": {
+			"sdcard": false
+		},
+		"/src/images/background/Tile_67.png": {
+			"sdcard": false
+		},
+		"/src/images/background/Tile_68.png": {
+			"sdcard": false
+		},
+		"/src/images/background/Tile_67.h": {
+			"sdcard": false
+		},
+		"/src/images/background/Tile_68.h": {
+			"sdcard": false
+		},
+		"/src/images/background/Tile_65.h": {
+			"sdcard": false
+		},
+		"/src/images/background/Tile_66.h": {
+			"sdcard": false
+		},
+		"/src/images/background/Tile_68 copy.png": {
+			"sdcard": false
+		},
+		"/src/images/background/Tile_65 copy.png": {
+			"sdcard": false
+		},
+		"/src/images/background/Tile_69.png": {
+			"sdcard": false
+		},
+		"/src/images/background/Tile_69.h": {
+			"sdcard": false
+		},
+		"/src/images/background/Tile_66 copy.png": {
+			"sdcard": false
+		},
+		"/src/images/background/Tile_67 copy.png": {
+			"sdcard": false
+		},
+		"/src/images/background/Tile_70.png": {
+			"sdcard": false
+		},
+		"/src/images/background/Tile_71.png": {
+			"sdcard": false
+		},
+		"/src/images/background/Tile_72.png": {
+			"sdcard": false
+		},
+		"/src/images/background/Tile_70.h": {
+			"sdcard": false
+		},
+		"/src/images/background/Tile_71.h": {
+			"sdcard": false
+		},
+		"/src/images/background/Tile_72.h": {
+			"sdcard": false
+		},
+		"/src/images/enemies/HealthBar.png": {
+			"sdcard": false
+		},
+		"/src/images/enemies/HealthBar.h": {
+			"sdcard": false
+		}
 	},
 	"BUILDFlags": {
 		"Pokitto": {}

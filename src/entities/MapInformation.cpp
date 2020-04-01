@@ -34,7 +34,8 @@ void MapInformation::setTimer(uint16_t timer) {
 }
 
 void MapInformation::decTimer() {
-    //SJH this->timer--;
+    //SJH 
+    this->timer--;
 }
 
 MapTiles MapInformation::getBlock(int16_t x, int16_t y) {
@@ -198,8 +199,6 @@ bool MapInformation::isWalkable(uint16_t x, uint16_t y, Direction direction, uin
 
         case MapTiles::NewStraightTOP:
         case MapTiles::NewStraightBOT:
-        case MapTiles::NewDoorTOP:
-        case MapTiles::NewDoorBOT:
         case MapTiles::NewStraightTorchTOP_F0:
         case MapTiles::NewStraightTorchTOP_F1:
         case MapTiles::NewStraightTorchBOT_F0:
@@ -220,12 +219,60 @@ bool MapInformation::isWalkable(uint16_t x, uint16_t y, Direction direction, uin
 
             break;
 
+        case MapTiles::NewDoorTOP:
+        case MapTiles::NewSpearDoorTOP:
+
+            switch (direction) {
+
+                case Direction::Left:
+                case Direction::Right:
+                    walk = true;
+                    break;
+                
+                case Direction::Up:
+                    {
+                        yMod = (y - widthHalf) % 16;
+                        walk = (yMod > 2);
+                    }
+                    break;
+
+                default:
+                    walk = false;
+                    break;
+                
+            }
+
+            break;
+
+        case MapTiles::NewDoorBOT:
+        case MapTiles::NewSpearDoorBOT:
+
+            switch (direction) {
+
+                case Direction::Left:
+                case Direction::Right:
+                    walk = true;
+                    break;
+
+                case Direction::Up:
+                    {
+                        yMod = (y - widthHalf) % 16;
+                        walk = (yMod < 14);
+                    }
+                    break;
+
+                default:
+                    walk = false;
+                    break;
+                
+            }
+
+            break;
+
         case MapTiles::NewStraightLHS:
-        case MapTiles::NewStraightRHS:
-        case MapTiles::NewDoorLHS:
-        case MapTiles::NewDoorRHS:
         case MapTiles::NewStraightTorchLHS_F0:
         case MapTiles::NewStraightTorchLHS_F1:
+        case MapTiles::NewStraightRHS:
         case MapTiles::NewStraightTorchRHS_F0:
         case MapTiles::NewStraightTorchRHS_F1:
 
@@ -234,6 +281,55 @@ bool MapInformation::isWalkable(uint16_t x, uint16_t y, Direction direction, uin
                 case Direction::Up:
                 case Direction::Down:
                     walk = true;
+                    break;
+
+                default:
+                    walk = false;
+                    break;
+                
+            }
+
+            break;
+
+        case MapTiles::NewDoorLHS:
+        case MapTiles::NewSpearDoorLHS:
+
+            switch (direction) {
+
+                case Direction::Up:
+                case Direction::Down:
+                    walk = true;
+                    break;
+
+                case Direction::Left:
+                    {
+                        xMod = (x - widthHalf) % 16;
+                        walk = (xMod > 2);
+                    }
+                    break;
+
+                default:
+                    walk = false;
+                    break;
+                
+            }
+
+            break;
+
+        case MapTiles::NewSpearDoorRHS:
+
+            switch (direction) {
+
+                case Direction::Up:
+                case Direction::Down:
+                    walk = true;
+                    break;
+
+                case Direction::Right:
+                    {
+                        xMod = (x + widthHalf) % 16;
+                        walk = (xMod < 14);
+                    }
                     break;
 
                 default:
@@ -483,155 +579,221 @@ bool MapInformation::isWalkable(uint16_t x, uint16_t y, Direction direction, uin
                 walk = true;
                 break;
 
+
             case MapTiles::NewStraightTOP:
-            case MapTiles::NewDoorTOP:
+            case MapTiles::NewStraightBOT:
             case MapTiles::NewStraightTorchTOP_F0:
             case MapTiles::NewStraightTorchTOP_F1:
-                {
-                    xMod = (x + widthHalf) % 16;
-                    yMod = (y - heightHalf) % 16;
-                    
-                    //printf("STOP-2 %i, %i > %i\n", xMod, yMod, xMod + yMod);
-
-                    switch (direction) {
-
-                        // case Direction::Left:
-                        // case Direction::Right:
-                        //     walk = true;
-                        //     break;
-
-                        default:
-                            walk = false;
-                            break;
-                        
-                    }
-
-                }
-                break;
-
-            case MapTiles::NewStraightBOT:
-            case MapTiles::NewDoorBOT:
             case MapTiles::NewStraightTorchBOT_F0:
             case MapTiles::NewStraightTorchBOT_F1:
-                {
-                    xMod = (x + widthHalf) % 16;
-                    yMod = (y + heightHalf) % 16;
+
+                switch (direction) {
+
+                    case Direction::Left:
+                    case Direction::Right:
+                        walk = true;
+                        break;
+
+                    default:
+                        walk = false;
+                        break;
                     
-                    //printf("SBOT-2 %i, %i > %i\n", xMod, yMod, xMod + yMod);
-
-                    switch (direction) {
-
-                        // case Direction::Left:
-                        // case Direction::Right:
-                        //     walk = true;
-                        //     break;
-
-                        default:
-                            walk = false;
-                            break;
-                        
-                    }
-
                 }
+
+                break;
+
+            case MapTiles::NewDoorTOP:
+            case MapTiles::NewSpearDoorTOP:
+
+                switch (direction) {
+
+                    case Direction::Left:
+                    case Direction::Right:
+                        walk = true;
+                        break;
+                    
+                    case Direction::Up:
+                        {
+                            yMod = (y - widthHalf) % 16;
+                            walk = (yMod > 2);
+                        }
+                        break;
+
+                    default:
+                        walk = false;
+                        break;
+                    
+                }
+
+                break;
+
+            case MapTiles::NewDoorBOT:
+            case MapTiles::NewSpearDoorBOT:
+
+                switch (direction) {
+
+                    case Direction::Left:
+                    case Direction::Right:
+                        walk = true;
+                        break;
+
+                    case Direction::Up:
+                        {
+                            yMod = (y - widthHalf) % 16;
+                            walk = (yMod < 14);
+                        }
+                        break;
+
+                    default:
+                        walk = false;
+                        break;
+                    
+                }
+
                 break;
 
             case MapTiles::NewStraightLHS:
-            case MapTiles::NewStraightRHS:
-            case MapTiles::NewDoorLHS:
-            case MapTiles::NewDoorRHS:
             case MapTiles::NewStraightTorchLHS_F0:
             case MapTiles::NewStraightTorchLHS_F1:
+            case MapTiles::NewStraightRHS:
             case MapTiles::NewStraightTorchRHS_F0:
             case MapTiles::NewStraightTorchRHS_F1:
-                {
 
-                    switch (direction) {
+                switch (direction) {
 
-                        case Direction::Up:
-                        case Direction::Down:
-                            walk = true;
-                            break;
+                    case Direction::Up:
+                    case Direction::Down:
+                        walk = true;
+                        break;
 
-                        default:
-                            walk = false;
-                            break;
-                        
-                    }
-
+                    default:
+                        walk = false;
+                        break;
+                    
                 }
+
                 break;
 
-        case MapTiles::NewCornerLL:
+            case MapTiles::NewDoorLHS:
+            case MapTiles::NewSpearDoorLHS:
 
-            switch (direction) {
+                switch (direction) {
 
-                case Direction::Down:
-                case Direction::Left:
-                    walk = true;
-                    break;
+                    case Direction::Up:
+                    case Direction::Down:
+                        walk = true;
+                        break;
 
-                default:
-                    walk = false;
-                    break;
-                
-            }
+                    case Direction::Left:
+                        {
+                            xMod = (x - widthHalf) % 16;
+                            walk = (xMod > 2);
+                        }
+                        break;
 
-            break;
+                    default:
+                        walk = false;
+                        break;
+                    
+                }
 
-        case MapTiles::NewCornerLR:
-
-            switch (direction) {
-
-                case Direction::Down:
-                case Direction::Right:
-                    walk = true;
-                    break;
-
-                default:
-                    walk = false;
-                    break;
-                
-            }
-
-            break;
-
-        case MapTiles::NewCornerTL:
-
-            switch (direction) {
-
-                case Direction::Up:
-                case Direction::Left:
-                    walk = true;
-                    break;
-
-                default:
-                    walk = false;
-                    break;
-                
-            }
-
-            break;
-
-        case MapTiles::NewCornerTR:
-
-            switch (direction) {
-
-                case Direction::Up:
-                case Direction::Right:
-                    walk = true;
-                    break;
-
-                default:
-                    walk = false;
-                    break;
-                
-            }
-
-            break;
-
-        case MapTiles::NewUpperLeftTriangle:
-                walk = true;
                 break;
+
+            case MapTiles::NewSpearDoorRHS:
+
+                switch (direction) {
+
+                    case Direction::Up:
+                    case Direction::Down:
+                        walk = true;
+                        break;
+
+                    case Direction::Right:
+                        {
+                            xMod = (x + widthHalf) % 16;
+                            walk = (xMod < 14);
+                        }
+                        break;
+
+                    default:
+                        walk = false;
+                        break;
+                    
+                }
+
+                break;
+                    
+            case MapTiles::NewCornerLL:
+
+                switch (direction) {
+
+                    case Direction::Down:
+                    case Direction::Left:
+                        walk = true;
+                        break;
+
+                    default:
+                        walk = false;
+                        break;
+                    
+                }
+
+                break;
+
+            case MapTiles::NewCornerLR:
+
+                switch (direction) {
+
+                    case Direction::Down:
+                    case Direction::Right:
+                        walk = true;
+                        break;
+
+                    default:
+                        walk = false;
+                        break;
+                    
+                }
+
+                break;
+
+            case MapTiles::NewCornerTL:
+
+                switch (direction) {
+
+                    case Direction::Up:
+                    case Direction::Left:
+                        walk = true;
+                        break;
+
+                    default:
+                        walk = false;
+                        break;
+                    
+                }
+
+                break;
+
+            case MapTiles::NewCornerTR:
+
+                switch (direction) {
+
+                    case Direction::Up:
+                    case Direction::Right:
+                        walk = true;
+                        break;
+
+                    default:
+                        walk = false;
+                        break;
+                    
+                }
+
+                break;
+
+            case MapTiles::NewUpperLeftTriangle:
+                    walk = true;
+                    break;
 
             case MapTiles::NewUpperRightTriangle:
                 {

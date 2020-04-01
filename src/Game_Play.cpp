@@ -13,7 +13,14 @@ void Game::updateObjects() {
 
         if (objectI.getActive()) { 
 
-            bool Ud = true;
+
+            // Reduce the health bar visual indicator counter ..
+
+            objectI.decHealthBarCounter();
+
+            // Dow we need to update the object?
+
+            bool update = true;
 
             for (uint8_t j = 0; j < this->objects.getObjectNum(); j++) {
 
@@ -21,13 +28,16 @@ void Game::updateObjects() {
 
                 if (j < i && objectJ.getActive() && this->collision(objectI.getX(), objectI.getY(), objectJ.getX(), objectJ.getY()) && (objectJ.getType() >= 6)) {
 
-                    Ud = false;
+                    update = false;
 
                 }
 
             }
 
-            if (Ud) { this->spriteAI(map, player, objectI); }
+            if (update) { this->spriteAI(map, player, objectI); }
+
+
+            // Has a collision between two objects occurred ?
 
             if (!objectI.getPreventImmediatePickup() && this->collision(objectI.getX(), objectI.getY(), player.getX(), player.getY())) {
 
@@ -76,19 +86,23 @@ void Game::updateObjects() {
                             switch (type) {
 
                                 case Object::Floater:   
-                                    //SJH player.setHealth(player.getHealth() - (10 * diff)); 
+                                    //SJH 
+                                    player.setHealth(player.getHealth() - (10 * diff)); 
                                     break;
 
                                 case Object::Skull: 
-                                    //SJH player.setHealth(player.getHealth() - (5 * diff)); 
+                                    //SJH 
+                                    player.setHealth(player.getHealth() - (5 * diff)); 
                                     break;
 
                                 case Object::Spider:
-                                    //SJH player.setHealth(player.getHealth() - (2 * diff)); 
+                                    //SJH 
+                                    player.setHealth(player.getHealth() - (2 * diff)); 
                                     break;
 
                                 case Object::Bat: 
-                                    //SJH player.setHealth(player.getHealth() - diff); 
+                                    //SJH 
+                                    player.setHealth(player.getHealth() - diff); 
                                     break;
 
                             }
@@ -106,11 +120,6 @@ void Game::updateObjects() {
     }
 
 
-    // Update bullets ..
-
-    // bullets.update();
-
-
     // Have the bullets hit anything ?
 
     for (uint8_t j = 0; j < 6; j++) {
@@ -122,16 +131,10 @@ void Game::updateObjects() {
             Direction xDirection = this->getNearestCardinalDirection(bullet.getDirection(), Axis::XAxis);
             Direction yDirection = this->getNearestCardinalDirection(bullet.getDirection(), Axis::YAxis);
 
-//printf("Bullet: %i, xDir: %i, yDir: %i, ", static_cast<uint8_t>(bullet.getDirection()), static_cast<uint8_t>(xDirection), static_cast<uint8_t>(yDirection));
-
             uint16_t rx = bullet.getX();
             uint16_t ry = bullet.getY();
 
-//printf("x: %i, y: %i, >> ", rx, ry);
-
             bullet.update();
-
-//printf("x: %i, y: %i, \n", bullet.getX(), bullet.getY());
 
             if (xDirection != Direction::None && !this->map.isWalkable(bullet.getX(), ry, xDirection, 4, 4)) {
                 bullet.setActive(false);
@@ -736,7 +739,7 @@ void Game::spriteAI(MapInformation map, Player &player, Sprite &sprite) {
                 sprite.setFrame(sprite.getFrame() % 2);
             } 
 
-            if (this->map.getDistance(x, y, player.getX(), player.getY()) <= 5) {
+            if (this->map.getDistance(x, y, player.getX(), player.getY()) <= 7) {
                 if (x < player.getX() && this->map.isWalkable(x + 1, y, Direction::Right, 12, 12))   { x++; }
                 if (x > player.getX() && this->map.isWalkable(x - 1, y, Direction::Left, 12, 12))    { x--; }
                 if (y < player.getY() && this->map.isWalkable(x, y + 1, Direction::Down, 12, 12))    { y++; }
@@ -747,7 +750,7 @@ void Game::spriteAI(MapInformation map, Player &player, Sprite &sprite) {
 
         case Object::Bat: 
 
-            if (this->map.getDistance(x, y, player.getX(), player.getY()) < 5) {
+            if (this->map.getDistance(x, y, player.getX(), player.getY()) < 7) {
                 if (x < player.getX() && this->map.isWalkable(x + 1, y, Direction::Right, 12, 12))   { x++; }
                 if (x > player.getX() && this->map.isWalkable(x - 1, y, Direction::Left, 12, 12))    { x--; }
                 if (y < player.getY() && this->map.isWalkable(x, y + 1, Direction::Down, 12, 12))    { y++; }
