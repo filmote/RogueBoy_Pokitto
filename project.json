@@ -2621,6 +2621,1380 @@
 		},
 		"/src/images/enemies/Spider_16_03_F1.h": {
 			"sdcard": false
+		},
+		"\\Levels.xlsx": {
+			"sdcard": false
+		},
+		"\\My_settings.h": {
+			"sdcard": false
+		},
+		"\\main.cpp": {
+			"sdcard": false
+		},
+		"\\Book2.xlsx": {
+			"sdcard": false
+		},
+		"\\project.json": {
+			"sdcard": false
+		},
+		"\\RogueBoy_Pokitto.bin": {
+			"sdcard": false
+		},
+		"\\RogueBoy_Pokitto.bin.1.h": {
+			"sdcard": false
+		},
+		"\\RogueBoy_Pokitto.elf": {
+			"sdcard": false
+		},
+		"\\RogueBoy_Pokitto.bin.1.png": {
+			"sdcard": false
+		},
+		"\\RogueBoy_Pokitto_V01.bin": {
+			"sdcard": false
+		},
+		"\\src": {
+			"sdcard": false
+		},
+		"\\~$Levels.xlsx": {
+			"sdcard": false
+		},
+		"\\src\\entities": {
+			"sdcard": false
+		},
+		"\\src\\Game.h": {
+			"sdcard": false
+		},
+		"\\src\\Game.cpp": {
+			"sdcard": false
+		},
+		"\\src\\Game_Inventory.cpp": {
+			"sdcard": false
+		},
+		"\\src\\Game_GameOver.cpp": {
+			"sdcard": false
+		},
+		"\\src\\Game_Render.cpp": {
+			"sdcard": false
+		},
+		"\\src\\Game_Play.cpp": {
+			"sdcard": false
+		},
+		"\\src\\Game_InitMap.cpp": {
+			"sdcard": false
+		},
+		"\\src\\Game_Utils.cpp": {
+			"sdcard": false
+		},
+		"\\src\\Game_TitleScreen.cpp": {
+			"sdcard": false
+		},
+		"\\src\\images": {
+			"sdcard": false
+		},
+		"\\src\\maps": {
+			"sdcard": false
+		},
+		"\\src\\utils": {
+			"sdcard": false
+		},
+		"\\src\\entities\\Bullet.cpp": {
+			"sdcard": false
+		},
+		"\\src\\entities\\Bullet.h": {
+			"sdcard": false
+		},
+		"\\src\\entities\\Bullets.h": {
+			"sdcard": false
+		},
+		"\\src\\entities\\Bullets.cpp": {
+			"sdcard": false
+		},
+		"\\src\\entities\\Entities.h": {
+			"sdcard": false
+		},
+		"\\src\\entities\\Environment.h": {
+			"sdcard": false
+		},
+		"\\src\\entities\\Environments.cpp": {
+			"sdcard": false
+		},
+		"\\src\\entities\\MapInformation.cpp": {
+			"sdcard": false
+		},
+		"\\src\\entities\\Environments.h": {
+			"sdcard": false
+		},
+		"\\src\\entities\\MapInformation.h": {
+			"sdcard": false
+		},
+		"\\src\\entities\\Player.cpp": {
+			"sdcard": false
+		},
+		"\\src\\entities\\Sprites.cpp": {
+			"sdcard": false
+		},
+		"\\src\\entities\\Sprite.h": {
+			"sdcard": false
+		},
+		"\\src\\entities\\Player.h": {
+			"sdcard": false
+		},
+		"\\src\\entities\\Sprites.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\Arrow.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\Arrow_Dark.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\Arrow.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\Arrow_Dark.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\background": {
+			"sdcard": false
+		},
+		"\\src\\images\\bullets": {
+			"sdcard": false
+		},
+		"\\src\\images\\CloudyMountain_WIP2-2.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\CloudyMountain_WIP2-2.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\coins": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemies": {
+			"sdcard": false
+		},
+		"\\src\\images\\Images.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\Logo.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\Logo.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\players": {
+			"sdcard": false
+		},
+		"\\src\\images\\sprites": {
+			"sdcard": false
+		},
+		"\\src\\images\\scoreboard": {
+			"sdcard": false
+		},
+		"\\src\\maps\\Maps.h": {
+			"sdcard": false
+		},
+		"\\src\\maps\\MapSegments_Type_01.h": {
+			"sdcard": false
+		},
+		"\\src\\maps\\MapSegments_Type_00.h": {
+			"sdcard": false
+		},
+		"\\src\\maps\\MapSegments_Type_03.h": {
+			"sdcard": false
+		},
+		"\\src\\maps\\MapSegments_Type_02.h": {
+			"sdcard": false
+		},
+		"\\src\\maps\\MapSegments_Type_04.h": {
+			"sdcard": false
+		},
+		"\\src\\maps\\MapSegments_Type_05.h": {
+			"sdcard": false
+		},
+		"\\src\\maps\\MapSegments_Type_06.h": {
+			"sdcard": false
+		},
+		"\\src\\maps\\MapSegments_Type_07.h": {
+			"sdcard": false
+		},
+		"\\src\\maps\\MapSegments_Type_08.h": {
+			"sdcard": false
+		},
+		"\\src\\maps\\MapSegments_Type_09.h": {
+			"sdcard": false
+		},
+		"\\src\\maps\\MapSegments_Type_10.h": {
+			"sdcard": false
+		},
+		"\\src\\maps\\MapSegments_Type_12.h": {
+			"sdcard": false
+		},
+		"\\src\\maps\\MapSegments_Type_11.h": {
+			"sdcard": false
+		},
+		"\\src\\maps\\MapSegments_Type_13.h": {
+			"sdcard": false
+		},
+		"\\src\\maps\\MapSegments_Type_14.h": {
+			"sdcard": false
+		},
+		"\\src\\maps\\MapStructures.h": {
+			"sdcard": false
+		},
+		"\\src\\maps\\MapSegments_Type_15.h": {
+			"sdcard": false
+		},
+		"\\src\\utils\\Structs.h": {
+			"sdcard": false
+		},
+		"\\src\\utils\\Enums.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\background\\backup": {
+			"sdcard": false
+		},
+		"\\src\\images\\background\\CloudyMountain_WIP2-2 copy.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\background\\CloudyMountain_WIP2-2 copy.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\background\\CloudyMountain_WIP2-2.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\background\\CloudyMountain_WIP2-2.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\background\\RogueBoy_Pokitto_mockup4.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\background\\RogueBoy_Pokitto_mockup4.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\background\\Tiles.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\background\\Tile_00.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\background\\Tile_00.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\background\\Tile_01.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\background\\Tile_02.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\background\\Tile_01.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\background\\Tile_02.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\background\\Tile_03.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\background\\Tile_04.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\background\\Tile_03.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\background\\Tile_04.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\background\\Tile_05.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\background\\Tile_05.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\background\\Tile_06.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\background\\Tile_07.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\background\\Tile_07.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\background\\Tile_06.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\background\\Tile_08.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\background\\Tile_08.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\background\\Tile_09.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\background\\Tile_10.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\background\\Tile_09.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\background\\Tile_10.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\background\\Tile_11.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\background\\Tile_11.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\background\\Tile_12.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\background\\Tile_13.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\background\\Tile_12.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\background\\Tile_13.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\background\\Tile_14.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\background\\Tile_14.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\background\\Tile_15.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\background\\Tile_15.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\background\\Tile_16.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\background\\Tile_16.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\background\\Tile_17.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\background\\Tile_17.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\background\\Tile_18.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\background\\Tile_18.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\background\\Tile_19.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\background\\Tile_20.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\background\\Tile_19.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\background\\Tile_20.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\background\\Tile_21.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\background\\Tile_21.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\background\\Tile_22.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\background\\Tile_22.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\background\\Tile_23.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\background\\Tile_23.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\background\\Tile_24.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\background\\Tile_24.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\background\\Tile_25.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\background\\Tile_25.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\background\\Tile_26.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\background\\Tile_26.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\background\\Tile_27.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\background\\Tile_27.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\background\\Tile_28.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\background\\Tile_28.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\background\\Tile_29.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\background\\Tile_30.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\background\\Tile_29.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\background\\Tile_30.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\background\\Tile_31.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\background\\Tile_31.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\background\\Tile_32.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\background\\Tile_32.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\background\\Tile_33.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\background\\Tile_33.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\background\\Tile_34.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\background\\Tile_35.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\background\\Tile_35.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\background\\Tile_36.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\background\\Tile_34.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\background\\Tile_36.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\background\\Tile_37.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\background\\Tile_37.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\background\\Tile_38.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\background\\Tile_38.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\background\\Tile_39.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\background\\Tile_39.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\background\\Tile_40.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\background\\Tile_41.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\background\\Tile_40.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\background\\Tile_42.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\background\\Tile_41.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\background\\Tile_42.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\background\\Tile_43.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\background\\Tile_44.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\background\\Tile_43.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\background\\Tile_44.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\background\\Tile_45.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\background\\Tile_45.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\background\\Tile_46.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\background\\Tile_46.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\background\\Tile_47.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\background\\Tile_47.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\background\\Tile_48.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\background\\Tile_48.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\background\\Tile_49.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\background\\Tile_50.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\background\\Tile_49.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\background\\Tile_51.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\background\\Tile_50.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\background\\Tile_51.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\background\\Tile_52.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\background\\Tile_52.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\background\\Tile_53.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\background\\Tile_53.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\background\\Tile_54.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\background\\Tile_55.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\background\\Tile_54.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\background\\Tile_56.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\background\\Tile_55.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\background\\Tile_56.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\background\\Tile_57.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\background\\Tile_57.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\background\\Tile_58.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\background\\Tile_58.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\background\\Tile_59.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\background\\Tile_60.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\background\\Tile_59.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\background\\Tile_60.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\background\\Tile_61.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\background\\Tile_62.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\background\\Tile_61.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\background\\Tile_63.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\background\\Tile_62.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\background\\Tile_63.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\background\\Tile_64.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\background\\Tile_64.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\background\\Tile_65.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\background\\Tile_65.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\background\\Tile_66.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\background\\Tile_66.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\background\\Tile_67.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\background\\Tile_67.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\background\\Tile_68.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\background\\Tile_69.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\background\\Tile_68.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\background\\Tile_70.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\background\\Tile_69.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\background\\Tile_70.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\background\\Tile_71.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\background\\Tile_71.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\background\\Tile_72.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\background\\Tile_72.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\bullets\\Bullets.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\bullets\\Bullet_00.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\bullets\\Bullet_00.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\bullets\\Bullet_01.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\bullets\\Bullet_01.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\bullets\\Bullet_02.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\bullets\\Bullet_02.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\bullets\\Bullet_03.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\bullets\\fireball_projectile_Frames.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\bullets\\Bullet_03.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\bullets\\fireball_projectile_Frames.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\bullets\\untitled folder": {
+			"sdcard": false
+		},
+		"\\src\\images\\coins\\Coins.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\coins\\Coin_00.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\coins\\Coin_01.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\coins\\Coin_00.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\coins\\Coin_01.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\coins\\Coin_02.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\coins\\Coin_03.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\coins\\Coin_02.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\coins\\Coin_04.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\coins\\Coin_03.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\coins\\Coin_04.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\coins\\Coin_05.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\coins\\Coin_05.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemies\\Bat_00.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemies\\Bat_01.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemies\\Bat_00.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemies\\Dinosaur.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemies\\Bat_01.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemies\\Dinosaur.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemies\\Enemies.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemies\\Eye.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemies\\Eye.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemies\\HealthBar.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemies\\HealthBar.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemies\\Spider.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemies\\Rabbit.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemies\\Rabbit.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemies\\Spider_00_F0.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemies\\Spider16x16.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemies\\Spider_00_F0.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemies\\Spider_00_F1.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemies\\Spider_00_F1.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemies\\Spider_01_F0.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemies\\Spider_01_F0.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemies\\Spider_01_F1.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemies\\Spider_01_F1.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemies\\Spider_02_F0.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemies\\Spider_02_F0.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemies\\Spider_02_F1.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemies\\Spider_02_F1.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemies\\Spider_03_F0.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemies\\Spider_03_F0.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemies\\Spider_03_F1.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemies\\Spider_04_F0.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemies\\Spider_03_F1.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemies\\Spider_04_F1.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemies\\Spider_04_F0.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemies\\Spider_04_F1.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemies\\Spider_05_F0.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemies\\Spider_05_F0.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemies\\Spider_05_F1.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemies\\Spider_05_F1.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemies\\Spider_06_F0.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemies\\Spider_06_F0.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemies\\Spider_06_F1.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemies\\Spider_06_F1.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemies\\Spider_07_F0.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemies\\Spider_07_F0.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemies\\Spider_07_F1.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemies\\Spider_07_F1.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemies\\Spider_16_00_F0.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemies\\Spider_16_00_F0.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemies\\Spider_16_00_F1.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemies\\Spider_16_00_F1.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemies\\Spider_16_01_F0.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemies\\Spider_16_01_F0.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemies\\Spider_16_01_F1.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemies\\Spider_16_01_F1.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemies\\Spider_16_02_F0.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemies\\Spider_16_02_F0.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemies\\Spider_16_02_F1.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemies\\Spider_16_02_F1.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemies\\Spider_16_03_F0.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemies\\Spider_16_03_F0.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemies\\Spider_16_03_F1.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemies\\Spider_16_03_F1.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemies\\Spider_16_04_F0.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemies\\Spider_16_04_F1.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemies\\Spider_16_04_F0.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemies\\Spider_16_05_F0.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemies\\Spider_16_04_F1.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemies\\Spider_16_05_F0.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemies\\Spider_16_05_F1.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemies\\Spider_16_05_F1.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemies\\Spider_16_06_F0.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemies\\Spider_16_06_F1.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemies\\Spider_16_06_F0.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemies\\Spider_16_06_F1.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemies\\Spider_16_07_F0.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemies\\Spider_16_07_F0.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemies\\Spider_16_07_F1.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemies\\Spider_16_07_F1.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\players\\CloudyMountain_WIP2-2 copy.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\players\\CloudyMountain_WIP2-2 copy.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\players\\Players.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\players\\Player_00_F0.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\players\\Player_00_F0.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\players\\Player_00_F1.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\players\\Player_00_F1.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\players\\Player_01_F0.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\players\\Player_01_F0.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\players\\Player_01_F1.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\players\\Player_02_F0.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\players\\Player_01_F1.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\players\\Player_02_F1.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\players\\Player_02_F0.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\players\\Player_02_F1.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\players\\Player_03_F0.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\players\\Player_03_F0.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\players\\Player_03_F1.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\players\\Player_03_F1.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\players\\Player_04_F0.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\players\\Player_04_F0.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\players\\Player_04_F1.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\players\\Player_04_F1.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\players\\Player_05_F0.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\players\\Player_05_F1.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\players\\Player_05_F0.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\players\\Player_06_F0.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\players\\Player_05_F1.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\players\\Player_06_F0.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\players\\Player_06_F1.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\players\\Player_06_F1.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\players\\Player_07_F0.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\players\\Player_07_F1.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\players\\Player_07_F0.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\players\\Player_07_F1.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\sprites\\Donut.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\sprites\\Donut.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\sprites\\Floater.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\sprites\\Floater.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\sprites\\Ham.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\sprites\\Ham.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\sprites\\Key.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\sprites\\Key.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\sprites\\Potion.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\sprites\\Potion.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\sprites\\SackOCash.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\sprites\\SackOCash.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\sprites\\Something.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\sprites\\Skull.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\sprites\\Spanner.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\sprites\\Skull.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\sprites\\Spanner.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\sprites\\Something.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\sprites\\Sprites.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\scoreboard\\Fireball.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\scoreboard\\Fireball.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\scoreboard\\Scoreboard.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\scoreboard\\Scoreboard.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\scoreboard\\Scoreboards.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\background\\backup\\Tile_26.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\background\\backup\\DoubleSize": {
+			"sdcard": false
+		},
+		"\\src\\images\\background\\backup\\Orig": {
+			"sdcard": false
+		},
+		"\\src\\images\\bullets\\untitled folder\\Bullet_00.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\bullets\\untitled folder\\Bullet_00.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\bullets\\untitled folder\\Bullet_01.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\bullets\\untitled folder\\Bullet_02.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\bullets\\untitled folder\\Bullet_01.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\bullets\\untitled folder\\Bullet_02.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\bullets\\untitled folder\\Bullet_03.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\bullets\\untitled folder\\Bullet_03.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\background\\backup\\DoubleSize\\Tile_21.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\background\\backup\\DoubleSize\\Tile_22.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\background\\backup\\DoubleSize\\Tile_22.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\background\\backup\\DoubleSize\\Tile_21.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\background\\backup\\DoubleSize\\Tile_23.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\background\\backup\\DoubleSize\\Tile_25.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\background\\backup\\DoubleSize\\Tile_24.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\background\\backup\\DoubleSize\\Tile_23.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\background\\backup\\DoubleSize\\Tile_24.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\background\\backup\\DoubleSize\\Tile_25.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\background\\backup\\DoubleSize\\Tile_26.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\background\\backup\\DoubleSize\\Tile_26.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\background\\backup\\DoubleSize\\Tile_27.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\background\\backup\\DoubleSize\\Tile_27.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\background\\backup\\DoubleSize\\Tile_29.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\background\\backup\\DoubleSize\\Tile_28.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\background\\backup\\DoubleSize\\Tile_29.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\background\\backup\\DoubleSize\\Tile_28.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\background\\backup\\DoubleSize\\Tile_30.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\background\\backup\\DoubleSize\\Tile_30.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\background\\backup\\DoubleSize\\Tile_32.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\background\\backup\\DoubleSize\\Tile_31.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\background\\backup\\DoubleSize\\Tile_32.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\background\\backup\\DoubleSize\\Tile_31.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\background\\backup\\DoubleSize\\Tile_33.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\background\\backup\\DoubleSize\\Tile_33.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\background\\backup\\Orig\\Tile_21.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\background\\backup\\Orig\\Tile_22.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\background\\backup\\Orig\\Tile_21.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\background\\backup\\Orig\\Tile_23.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\background\\backup\\Orig\\Tile_23.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\background\\backup\\Orig\\Tile_22.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\background\\backup\\Orig\\Tile_24.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\background\\backup\\Orig\\Tile_24.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\background\\backup\\Orig\\Tile_25.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\background\\backup\\Orig\\Tile_26.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\background\\backup\\Orig\\Tile_25.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\background\\backup\\Orig\\Tile_26.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\background\\backup\\Orig\\Tile_27.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\background\\backup\\Orig\\Tile_27.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\background\\backup\\Orig\\Tile_28.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\background\\backup\\Orig\\Tile_28.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\background\\backup\\Orig\\Tile_29.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\background\\backup\\Orig\\Tile_29.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\background\\backup\\Orig\\Tile_30.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\background\\backup\\Orig\\Tile_31.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\background\\backup\\Orig\\Tile_31.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\background\\backup\\Orig\\Tile_30.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\background\\backup\\Orig\\Tile_32.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\background\\backup\\Orig\\Tile_32.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\background\\backup\\Orig\\Tile_33.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\background\\backup\\Orig\\Tile_33.png": {
+			"sdcard": false
+		},
+		"\\src\\maps\\MapSegments_Samples.h": {
+			"sdcard": false
+		},
+		"\\src\\maps\\MapSegments_Samples copy.h": {
+			"sdcard": false
 		}
 	},
 	"BUILDFlags": {

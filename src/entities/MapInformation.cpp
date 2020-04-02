@@ -34,8 +34,7 @@ void MapInformation::setTimer(uint16_t timer) {
 }
 
 void MapInformation::decTimer() {
-    //SJH 
-    this->timer--;
+    //SJH this->timer--;
 }
 
 MapTiles MapInformation::getBlock(int16_t x, int16_t y) {
@@ -142,11 +141,11 @@ bool MapInformation::isWalkable(uint16_t x, uint16_t y, Direction direction, uin
     switch (direction) {
 
         case Direction::Up:
-            // printf("Up (%i,%i) %i,%i > %i,%i > %i,%i .. ", x, y, this->getTileX(x), this->getTileY(y), this->getTileX(x - widthHalf), this->getTileY(y - heightHalf), this->getTileX(x - widthHalf+ 16), this->getTileY(y - heightHalf));        
-            // printf("x=%i %% 16 = %i .. ", x, ((x - widthHalf) % 16) + width);        
+            //printf("Up (%i,%i) %i,%i > %i,%i > %i,%i .. ", x, y, this->getTileX(x), this->getTileY(y), this->getTileX(x - widthHalf), this->getTileY(y - heightHalf), this->getTileX(x - widthHalf+ 16), this->getTileY(y - heightHalf));        
+            //printf("x=%i %% 16 = %i .. ", x, ((x - widthHalf) % 16) + width);        
             tile1 = this->getBlock(this->getTileX(x - widthHalf), this->getTileY(y - heightHalf));
             if (((x - widthHalf) % 16) + width >= 16) tile2 = this->getBlock(this->getTileX(x - widthHalf + 16), this->getTileY(y - heightHalf));
-            // printf("%i %i ", tile1, tile2);
+            //printf("%i %i ", tile1, tile2);
             break;
 
         case Direction::Right:
@@ -197,6 +196,50 @@ bool MapInformation::isWalkable(uint16_t x, uint16_t y, Direction direction, uin
             walk = true;
             break;
 
+        case MapTiles::Barrel:
+
+            switch (direction) {
+
+                case Direction::Left:
+                    {
+                        xMod = (x - widthHalf) % 16;
+                        yMod = (y - widthHalf) % 16;
+                        //printf("BAR1 L %i %i\n", xMod, yMod);
+                        walk = (xMod > 10) || (yMod == 0);
+                    }
+                    break;
+
+                case Direction::Right:
+                    {
+                        xMod = (x + widthHalf) % 16;
+                        yMod = (y - widthHalf) % 16;
+                        //printf("BAR1 R %i %i\n", xMod, yMod);
+                        walk = (xMod < 6) || (yMod == 0);
+                    }
+                    break;
+
+                case Direction::Up:
+                    {
+                        xMod = (x - widthHalf) % 16;
+                        yMod = (y - widthHalf) % 16;
+                        //printf("BAR1 U %i %i\n", xMod, yMod);
+                        walk = (xMod >= 12) || (yMod < 4);
+                    }
+                    break;
+
+                case Direction::Down:
+                    {
+                        xMod = (x - widthHalf) % 16;
+                        yMod = (y + widthHalf) % 16;
+                        //printf("BAR1 D %i %i\n", xMod, yMod);
+                        walk = (xMod >= 12) || (yMod == 0);
+                    }
+                    break;
+                
+            }
+
+            break;        
+
         case MapTiles::NewStraightTOP:
         case MapTiles::NewStraightBOT:
         case MapTiles::NewStraightTorchTOP_F0:
@@ -223,11 +266,6 @@ bool MapInformation::isWalkable(uint16_t x, uint16_t y, Direction direction, uin
         case MapTiles::NewSpearDoorTOP:
 
             switch (direction) {
-
-                case Direction::Left:
-                case Direction::Right:
-                    walk = true;
-                    break;
                 
                 case Direction::Up:
                     {
@@ -237,7 +275,7 @@ bool MapInformation::isWalkable(uint16_t x, uint16_t y, Direction direction, uin
                     break;
 
                 default:
-                    walk = false;
+                    walk = true;
                     break;
                 
             }
@@ -249,11 +287,6 @@ bool MapInformation::isWalkable(uint16_t x, uint16_t y, Direction direction, uin
 
             switch (direction) {
 
-                case Direction::Left:
-                case Direction::Right:
-                    walk = true;
-                    break;
-
                 case Direction::Up:
                     {
                         yMod = (y - widthHalf) % 16;
@@ -262,7 +295,7 @@ bool MapInformation::isWalkable(uint16_t x, uint16_t y, Direction direction, uin
                     break;
 
                 default:
-                    walk = false;
+                    walk = true;
                     break;
                 
             }
@@ -296,44 +329,35 @@ bool MapInformation::isWalkable(uint16_t x, uint16_t y, Direction direction, uin
 
             switch (direction) {
 
-                case Direction::Up:
-                case Direction::Down:
-                    walk = true;
-                    break;
-
                 case Direction::Left:
                     {
                         xMod = (x - widthHalf) % 16;
-                        walk = (xMod > 2);
+                        walk = (xMod > 6);
                     }
                     break;
 
                 default:
-                    walk = false;
+                    walk = true;
                     break;
                 
             }
 
             break;
 
+        case MapTiles::NewDoorRHS:
         case MapTiles::NewSpearDoorRHS:
 
             switch (direction) {
 
-                case Direction::Up:
-                case Direction::Down:
-                    walk = true;
-                    break;
-
                 case Direction::Right:
                     {
                         xMod = (x + widthHalf) % 16;
-                        walk = (xMod < 14);
+                        walk = (xMod < 10);
                     }
                     break;
 
                 default:
-                    walk = false;
+                    walk = true;
                     break;
                 
             }
@@ -579,7 +603,6 @@ bool MapInformation::isWalkable(uint16_t x, uint16_t y, Direction direction, uin
                 walk = true;
                 break;
 
-
             case MapTiles::NewStraightTOP:
             case MapTiles::NewStraightBOT:
             case MapTiles::NewStraightTorchTOP_F0:
@@ -602,25 +625,64 @@ bool MapInformation::isWalkable(uint16_t x, uint16_t y, Direction direction, uin
 
                 break;
 
+            case MapTiles::Barrel:
+
+                switch (direction) {
+
+                    case Direction::Left:
+                        {
+                            xMod = (x - widthHalf) % 16;
+                            yMod = (y - widthHalf) % 16;
+                            //printf("BAR2 L %i %i\n", xMod, yMod);
+                            walk = (xMod > 10) || (yMod == 8);
+                        }
+                        break;
+
+                    case Direction::Right:
+                        {
+                            xMod = (x + widthHalf) % 16;
+                            yMod = (y - widthHalf) % 16;
+                            //printf("BAR2 R %i %i\n", xMod, yMod);
+                            walk = (xMod < 6) || (yMod == 8);
+                        }
+                        break;
+
+                    case Direction::Up:
+                        {
+                            xMod = (x + widthHalf) % 16;
+                            yMod = (y - widthHalf) % 16;
+                            //printf("BAR2 U %i %i\n", xMod, yMod);
+                            walk = (xMod <= 4) || (yMod < 4);
+                        }
+                        break;
+
+                    case Direction::Down:
+                        {
+                            xMod = (x + widthHalf) % 16;
+                            yMod = (y + widthHalf) % 16;
+                            //printf("BAR2 D %i %i\n", xMod, yMod);
+                            walk = (xMod <= 4) || (yMod < 4);
+                        }
+                        break;
+                    
+                }
+
+                break;
+                
             case MapTiles::NewDoorTOP:
             case MapTiles::NewSpearDoorTOP:
 
                 switch (direction) {
 
-                    case Direction::Left:
-                    case Direction::Right:
-                        walk = true;
-                        break;
-                    
                     case Direction::Up:
                         {
                             yMod = (y - widthHalf) % 16;
-                            walk = (yMod > 2);
+                            walk = (yMod > 6);
                         }
                         break;
 
                     default:
-                        walk = false;
+                        walk = true;
                         break;
                     
                 }
@@ -632,20 +694,15 @@ bool MapInformation::isWalkable(uint16_t x, uint16_t y, Direction direction, uin
 
                 switch (direction) {
 
-                    case Direction::Left:
-                    case Direction::Right:
-                        walk = true;
-                        break;
-
                     case Direction::Up:
                         {
                             yMod = (y - widthHalf) % 16;
-                            walk = (yMod < 14);
+                            walk = (yMod < 10);
                         }
                         break;
 
                     default:
-                        walk = false;
+                        walk = true;
                         break;
                     
                 }
@@ -679,11 +736,6 @@ bool MapInformation::isWalkable(uint16_t x, uint16_t y, Direction direction, uin
 
                 switch (direction) {
 
-                    case Direction::Up:
-                    case Direction::Down:
-                        walk = true;
-                        break;
-
                     case Direction::Left:
                         {
                             xMod = (x - widthHalf) % 16;
@@ -692,21 +744,17 @@ bool MapInformation::isWalkable(uint16_t x, uint16_t y, Direction direction, uin
                         break;
 
                     default:
-                        walk = false;
+                        walk = true;
                         break;
                     
                 }
 
                 break;
 
+            case MapTiles::NewDoorRHS:
             case MapTiles::NewSpearDoorRHS:
 
                 switch (direction) {
-
-                    case Direction::Up:
-                    case Direction::Down:
-                        walk = true;
-                        break;
 
                     case Direction::Right:
                         {
@@ -716,7 +764,7 @@ bool MapInformation::isWalkable(uint16_t x, uint16_t y, Direction direction, uin
                         break;
 
                     default:
-                        walk = false;
+                        walk = true;
                         break;
                     
                 }
@@ -904,7 +952,7 @@ bool MapInformation::isWalkable(uint16_t x, uint16_t y, Direction direction, uin
 
     }
 
-    // printf(" -----> %i\n", walk);
+    //printf(" -----> %i\n", walk);
     return walk;
 
     

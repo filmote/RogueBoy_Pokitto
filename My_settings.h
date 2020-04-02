@@ -36,3 +36,4 @@
 
 #define HEALTH_INC_DONUT    10
 #define HEALTH_INC_HAM      20
+#define END_OF_OPTIONS      255
