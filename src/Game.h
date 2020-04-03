@@ -85,7 +85,7 @@ class Game {
         InventoryMenu inventoryMenu;
         
         MapInformation map;
-        bool randomLevel = true;
+        bool randomLevel = false;
 
 //        const uint8_t * maps[18] = { MAP_1, MAP_2, MAP_3, MAP_4, MAP_5, MAP_6, MAP_7, MAP_9, MAP_10, MAP_11, MAP_12, MAP_13, MAP_14, MAP_15, MAP_16, MAP_17, MAP_18 };
         const uint8_t * maps[20] = { MAP_Test, MAP_1, MAP_2, MAP_3, MAP_4, MAP_5, MAP_Test, MAP_6, MAP_7, MAP_8, MAP_9, MAP_10, MAP_11, MAP_12, MAP_13, MAP_14, MAP_15, MAP_16, MAP_17, MAP_18,  };
@@ -98,35 +98,35 @@ class Game {
         #define MAP_SEGMENT_TYPE_01_COUNT 3
         #define MAP_SEGMENT_TYPE_02_COUNT 3
         #define MAP_SEGMENT_TYPE_03_COUNT 3
-        #define MAP_SEGMENT_TYPE_04_COUNT 1
-        #define MAP_SEGMENT_TYPE_05_COUNT 0
-        #define MAP_SEGMENT_TYPE_06_COUNT 0
-        #define MAP_SEGMENT_TYPE_07_COUNT 0
+        #define MAP_SEGMENT_TYPE_04_COUNT 3
+        #define MAP_SEGMENT_TYPE_05_COUNT 3
+        #define MAP_SEGMENT_TYPE_06_COUNT 3
+        #define MAP_SEGMENT_TYPE_07_COUNT 3
         #define MAP_SEGMENT_TYPE_08_COUNT 1
         #define MAP_SEGMENT_TYPE_09_COUNT 0
         #define MAP_SEGMENT_TYPE_10_COUNT 0
-        #define MAP_SEGMENT_TYPE_11_COUNT 0
-        #define MAP_SEGMENT_TYPE_12_COUNT 0
-        #define MAP_SEGMENT_TYPE_13_COUNT 0
+        #define MAP_SEGMENT_TYPE_11_COUNT 2
+        #define MAP_SEGMENT_TYPE_12_COUNT 2
+        #define MAP_SEGMENT_TYPE_13_COUNT 2
         #define MAP_SEGMENT_TYPE_14_COUNT 0
-        #define MAP_SEGMENT_TYPE_15_COUNT 0
+        #define MAP_SEGMENT_TYPE_15_COUNT 1
 
         const uint8_t * mapSegments_Type00[MAP_SEGMENT_TYPE_00_COUNT] = { MAP_Segment_Type00_00, MAP_Segment_Type00_01, MAP_Segment_Type00_02 };
         const uint8_t * mapSegments_Type01[MAP_SEGMENT_TYPE_01_COUNT] = { MAP_Segment_Type01_00, MAP_Segment_Type01_01, MAP_Segment_Type01_02 };
         const uint8_t * mapSegments_Type02[MAP_SEGMENT_TYPE_02_COUNT] = { MAP_Segment_Type02_00, MAP_Segment_Type02_01, MAP_Segment_Type02_02 };
         const uint8_t * mapSegments_Type03[MAP_SEGMENT_TYPE_03_COUNT] = { MAP_Segment_Type03_00, MAP_Segment_Type03_01, MAP_Segment_Type03_02 };
-        const uint8_t * mapSegments_Type04[MAP_SEGMENT_TYPE_04_COUNT] = { MAP_Segment_Type04_00 };
-        const uint8_t * mapSegments_Type05[MAP_SEGMENT_TYPE_05_COUNT] = { };
-        const uint8_t * mapSegments_Type06[MAP_SEGMENT_TYPE_06_COUNT] = { };
-        const uint8_t * mapSegments_Type07[MAP_SEGMENT_TYPE_07_COUNT] = { };
+        const uint8_t * mapSegments_Type04[MAP_SEGMENT_TYPE_04_COUNT] = { MAP_Segment_Type04_00, MAP_Segment_Type04_01, MAP_Segment_Type04_02 };
+        const uint8_t * mapSegments_Type05[MAP_SEGMENT_TYPE_05_COUNT] = { MAP_Segment_Type05_00, MAP_Segment_Type05_01, MAP_Segment_Type05_02 };
+        const uint8_t * mapSegments_Type06[MAP_SEGMENT_TYPE_06_COUNT] = { MAP_Segment_Type06_00, MAP_Segment_Type06_01, MAP_Segment_Type06_02 };
+        const uint8_t * mapSegments_Type07[MAP_SEGMENT_TYPE_07_COUNT] = { MAP_Segment_Type07_00, MAP_Segment_Type07_01, MAP_Segment_Type07_02 };
         const uint8_t * mapSegments_Type08[MAP_SEGMENT_TYPE_08_COUNT] = { MAP_Segment_Type08_00 };
         const uint8_t * mapSegments_Type09[MAP_SEGMENT_TYPE_09_COUNT] = { };
         const uint8_t * mapSegments_Type10[MAP_SEGMENT_TYPE_10_COUNT] = { };
-        const uint8_t * mapSegments_Type11[MAP_SEGMENT_TYPE_11_COUNT] = { };
-        const uint8_t * mapSegments_Type12[MAP_SEGMENT_TYPE_12_COUNT] = { };
-        const uint8_t * mapSegments_Type13[MAP_SEGMENT_TYPE_13_COUNT] = { };
+        const uint8_t * mapSegments_Type11[MAP_SEGMENT_TYPE_11_COUNT] = { MAP_Segment_Type11_00, MAP_Segment_Type11_01 };
+        const uint8_t * mapSegments_Type12[MAP_SEGMENT_TYPE_12_COUNT] = { MAP_Segment_Type12_00, MAP_Segment_Type12_01 };
+        const uint8_t * mapSegments_Type13[MAP_SEGMENT_TYPE_13_COUNT] = { MAP_Segment_Type13_00, MAP_Segment_Type13_01 };
         const uint8_t * mapSegments_Type14[MAP_SEGMENT_TYPE_14_COUNT] = { };
-        const uint8_t * mapSegments_Type15[MAP_SEGMENT_TYPE_15_COUNT] = { };
+        const uint8_t * mapSegments_Type15[MAP_SEGMENT_TYPE_15_COUNT] = { MAP_Segment_Type11_00 };
 
         const uint8_t mapSegments_Counts[16] = { MAP_SEGMENT_TYPE_00_COUNT, MAP_SEGMENT_TYPE_01_COUNT, MAP_SEGMENT_TYPE_02_COUNT, MAP_SEGMENT_TYPE_03_COUNT, 
                                                  MAP_SEGMENT_TYPE_04_COUNT, MAP_SEGMENT_TYPE_05_COUNT, MAP_SEGMENT_TYPE_06_COUNT, MAP_SEGMENT_TYPE_07_COUNT, 

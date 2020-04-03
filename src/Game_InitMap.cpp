@@ -6,7 +6,19 @@ using PD = Pokitto::Display;
 using PS = Pokitto::Sound;
 
 
-const uint8_t offsets[] = { 0, 12, 8, 9, 10, 11, 3, 4, 5, 6 };
+const uint8_t offsets[] = { 
+    /* Coin */          0, 
+    /* Sack of Cash */  12, 
+    /* Donut */         4, 
+    /* Key */           9, 
+    /* Ham */           10, 
+    /* Floater */       11, 
+    /* Skull */         3, 
+    /* Bat */           4, 
+    /* Spanner */       5, 
+    /* Potion */        6, 
+    /* BgSpider */      0 
+};
 
 void Game::loadMap(uint8_t level) {
 
@@ -182,7 +194,7 @@ printf("Player %i %i, EOL %i %i\n",playerX, playerY, levelEndX, levelEndY);
                     uint8_t cursorTile = 0;
                     const uint8_t * segmentToLoad; // = this->mapsSegments[tileIdx];
 
-                    //printf("segmentDetails >  %i, & 128 > %i, & 64 > %i, &32 > %i\n", segmentDetails, segmentDetails & 128, segmentDetails & 64, segmentDetails & 32);
+                    // printf("segmentDetails >  %i, & 128 > %i, & 64 > %i, &32 > %i\n", segmentDetails, segmentDetails & 128, segmentDetails & 64, segmentDetails & 32);
 
                     // Determine which segement to load ..
 
@@ -212,7 +224,7 @@ printf("Get seg3 %i %i Seg %i, id %i\n", xSegment, ySegment, segmentType, segmen
 
 
 
-                    //printf("Get tileIdx %i %i %i\n", xSegment, ySegment, tileIdx);
+                    // printf("Get tileIdx %i %i %i\n", xSegment, ySegment, tileIdx);
                     printf("-----------------------------------------------------------------------------\n");
 
                     for (uint8_t y = 0; y < RANDOM_TILE_SIZE; y++) {
@@ -221,11 +233,11 @@ printf("Get seg3 %i %i Seg %i, id %i\n", xSegment, ySegment, segmentType, segmen
 
                             uint8_t tile = segmentToLoad[cursorTile++];
                             this->map.setBlock((xSegment * RANDOM_TILE_SIZE) + x, (ySegment * RANDOM_TILE_SIZE) + y, static_cast<MapTiles>(tile));
-                            //printf("%i, ", tile);
+                            // printf("%i, ", tile);
 
                         }
                             
-                        //printf("\n");
+                        // printf("\n");
 
                     }
 
@@ -237,7 +249,7 @@ printf("Get seg3 %i %i Seg %i, id %i\n", xSegment, ySegment, segmentType, segmen
                     uint8_t randOption = random(0, options);
 
                     if (options > 0) {
-                        //printf("maptiles rand %i of %i options\n", randOption, options);
+                        printf("maptiles rand %i of %i options\n", randOption, options);
                         while (true) {
 
                             uint8_t option = segmentToLoad[cursorTile++];
@@ -290,7 +302,7 @@ printf("Get seg3 %i %i Seg %i, id %i\n", xSegment, ySegment, segmentType, segmen
                     randOption = random(0, options);
 
                     if (options > 0) {
-                        //printf("objects rand %i of %i options\n", randOption, options);
+                        // printf("objects rand %i of %i options\n", randOption, options);
                         while (true) {
 
                             uint8_t option = segmentToLoad[cursorTile++];
@@ -317,7 +329,7 @@ printf("Get seg3 %i %i Seg %i, id %i\n", xSegment, ySegment, segmentType, segmen
                     // If this is the entry level, then read in the player starting position ..
 
                     if (playerX == xSegment && playerY == ySegment) {
-
+                        printf("initPlayer\n");
                         uint8_t playerOptions = segmentToLoad[cursorTile++];
                         uint8_t playerRandom = random(0, playerOptions);
 
@@ -334,6 +346,8 @@ printf("Get seg3 %i %i Seg %i, id %i\n", xSegment, ySegment, segmentType, segmen
                         uint16_t py = (ySegment * RANDOM_TILE_SIZE * TILE_SIZE) + (playerY * TILE_SIZE) + 8;
 
                         this->map.setBlock((xSegment * RANDOM_TILE_SIZE) + playerX, (ySegment * RANDOM_TILE_SIZE) + playerY, static_cast<MapTiles>(MapTiles::UpStairs));
+
+
                         init(px, py, false);
 
 
@@ -343,7 +357,7 @@ printf("Get seg3 %i %i Seg %i, id %i\n", xSegment, ySegment, segmentType, segmen
                     // If this is the exit level, then read in the valid exit positions ..
 
                     if (levelEndX == xSegment && levelEndY == ySegment) {
-
+                        printf("initEOL\n");
                         uint8_t eolOptions = segmentToLoad[cursorTile++];
                         uint8_t eolRandom = random(0, eolOptions);
 
@@ -372,7 +386,7 @@ printf("Get seg3 %i %i Seg %i, id %i\n", xSegment, ySegment, segmentType, segmen
 
 
     printf("-----------------------------\n");
-//printf("Map: %i", level);
+// printf("Map: %i", level);
     printf(", W: %i", map.getWidth());
     printf(", H: %i",map.getHeight());
     printf("\n-----------------------------\n");

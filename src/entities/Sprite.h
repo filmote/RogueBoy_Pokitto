@@ -149,6 +149,7 @@ class Sprite {
                 case Object::Floater:
                 case Object::Skull:
                 case Object::Spider:
+                case Object::BigSpider:
 
                     return true;
 

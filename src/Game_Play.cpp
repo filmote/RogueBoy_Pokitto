@@ -79,6 +79,7 @@ void Game::updateObjects() {
                     case Object::Floater:
                     case Object::Skull:
                     case Object::Spider:
+                    case Object::BigSpider:
                     case Object::Bat:
 
                         if (PC::frameCount % 5 == 0) { 
@@ -98,6 +99,11 @@ void Game::updateObjects() {
                                 case Object::Spider:
                                     //SJH 
                                     player.setHealth(player.getHealth() - (2 * diff)); 
+                                    break;
+
+                                case Object::BigSpider:
+                                    //SJH 
+                                    player.setHealth(player.getHealth() - (6 * diff)); 
                                     break;
 
                                 case Object::Bat: 
@@ -233,7 +239,7 @@ void Game::updateGame() {
     
     if (Pokitto::Core::frameCount % 15 == 0) { this->map.decTimer();  }
     if (this->map.getTimer() == 0) { player.setHealth(0); }
-    
+
     if (player.getHealth() <= 0) {
         //sound.tones(DeathNotes); 
         gameState = GameState::Dead;
@@ -740,10 +746,26 @@ void Game::spriteAI(MapInformation map, Player &player, Sprite &sprite) {
             } 
 
             if (this->map.getDistance(x, y, player.getX(), player.getY()) <= 7) {
-                if (x < player.getX() && this->map.isWalkable(x + 1, y, Direction::Right, 12, 12))   { x++; }
-                if (x > player.getX() && this->map.isWalkable(x - 1, y, Direction::Left, 12, 12))    { x--; }
-                if (y < player.getY() && this->map.isWalkable(x, y + 1, Direction::Down, 12, 12))    { y++; }
-                if (y > player.getY() && this->map.isWalkable(x, y - 1, Direction::Up, 12, 12))      { y--; }
+                if (x < player.getX() && this->map.isWalkable(x + 1, y, Direction::Right, 8, 8))   { x++; }
+                if (x > player.getX() && this->map.isWalkable(x - 1, y, Direction::Left, 8, 8))    { x--; }
+                if (y < player.getY() && this->map.isWalkable(x, y + 1, Direction::Down, 8, 8))    { y++; }
+                if (y > player.getY() && this->map.isWalkable(x, y - 1, Direction::Up, 8, 8))      { y--; }
+            }
+
+            break;
+
+        case Object::BigSpider:   
+
+            if (Pokitto::Core::frameCount % 5 == 0) { 
+                sprite.setFrame(sprite.getFrame() + 1); 
+                sprite.setFrame(sprite.getFrame() % 2);
+            } 
+
+            if (this->map.getDistance(x, y, player.getX(), player.getY()) <= 7) {
+                if (x < player.getX() && this->map.isWalkable(x + 1, y, Direction::Right, 16, 16))   { x++; }
+                if (x > player.getX() && this->map.isWalkable(x - 1, y, Direction::Left, 16, 16))    { x--; }
+                if (y < player.getY() && this->map.isWalkable(x, y + 1, Direction::Down, 16, 16))    { y++; }
+                if (y > player.getY() && this->map.isWalkable(x, y - 1, Direction::Up, 16, 16))      { y--; }
             }
 
             break;

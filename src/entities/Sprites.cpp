@@ -68,12 +68,17 @@ void Sprites::render(Player &player) {
                     break;
 
                 case Object::Bat:
-                    if (object.getRenderHealthBar()) { this->renderHealthBar(x + 6, y - 6, 10 * object.getHealth() / object.getHealthOrig()); }
                     PD::drawBitmap(x, y, Images::Bats[frame]);
+                    if (object.getRenderHealthBar()) { this->renderHealthBar(x + 6, y - 6, 10 * object.getHealth() / object.getHealthOrig()); }
                     break;
 
                 case Object::Spider:
                     PD::drawBitmap(x, y, Images::Spiders[(static_cast<uint8_t>(direction) * 2) + frame]);
+                    if (object.getRenderHealthBar()) { this->renderHealthBar(x + 6, y - 6, 10 * object.getHealth() / object.getHealthOrig()); }
+                    break;
+
+                case Object::BigSpider:
+                    PD::drawBitmap(x, y, Images::BigSpiders[(static_cast<uint8_t>(direction) * 2) + frame]);
                     if (object.getRenderHealthBar()) { this->renderHealthBar(x + 6, y - 6, 10 * object.getHealth() / object.getHealthOrig()); }
                     break;
 
@@ -82,6 +87,7 @@ void Sprites::render(Player &player) {
                     break;
 
                 case Object::Donut:
+                printf("px %i, py %i, ox %i, oy %i, x %i, y %i, offset %i\n",player.getX(), player.getY(), object.getX(), object.getY(), x,y,offset);
                     PD::drawBitmap(x, y, Images::Donut);
                     break;
 

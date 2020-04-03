@@ -59,6 +59,7 @@ enum Object {
     Bat = 8,
     Spanner = 9,
     Potion = 10,
+    BigSpider = 11, 
 };
 
 enum MapTiles {
@@ -91,10 +92,10 @@ enum MapTiles {
     NewUpperRightTriangle = 26,
     NewLowerLeftTriangle = 27,
     NewLowerRightTriangle = 28,
-    New9 = 29,
-    New10 = 30,
-    New11 = 31,
-    New12 = 32,
+    NewCornerFillLR = 29,
+    NewCornerFillLL = 30,
+    NewCornerFillUR = 31,
+    NewCornerFillUL = 32,
     FullSquare = 33,
     NewCornerLL = 34,
     NewCornerLR = 35,
@@ -148,6 +149,7 @@ const char object_Desc_07[] = "Spider";
 const char object_Desc_08[] = "Bat";
 const char object_Desc_09[] = "Spanner";
 const char object_Desc_10[] = "Potion";
+const char object_Desc_11[] = "Big Spider";
 
 const char * const object_Descs[] = { 
     object_Desc_00,
@@ -161,4 +163,5 @@ const char * const object_Descs[] = {
     object_Desc_08,
     object_Desc_09,
     object_Desc_10,
+    object_Desc_11,
 };
