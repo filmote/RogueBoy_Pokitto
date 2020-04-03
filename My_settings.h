@@ -24,7 +24,7 @@
 #define MAXOBJECT           50
 #define MAXENVIROMENT       50
 
-#define MAP_SIZE            1600
+#define MAP_SIZE            3600
 
 
 #define NO_SLOT_FOUND       255

@@ -156,3 +156,53 @@ const uint8_t MAP_Segment_Type03_02[] = {
     1,7,
 
 };
+
+const uint8_t MAP_Segment_Type03_03[] = {
+  // 0, 1, 2, 3, 4, 5, 6, 7, 8
+    38,38,38,21, 0,34,24,24,30,  // 0
+    38,38,38,21, 0, 0, 0, 0,23,  // 1
+    38,38,38,21, 0, 0, 0, 0,23,  // 2
+    24,24,24,24,44,36, 0, 0,23,  // 3
+     0, 0, 0, 0, 0,43, 0, 0,23,  // 4
+    22,22,36, 0, 0,46, 0, 0,23,  // 5
+    38,38,21, 0, 0, 0, 0, 0,23,  // 6
+    38,38,21, 0, 0, 0, 0, 0,23,  // 7
+    38,38,31,22,22,22,22,22,32,  // 8
+
+    // -----------------------------------
+    // TileMap and Environment Options
+    // -----------------------------------
+   
+    // Number of Options
+    2,
+
+    // Tilemap Options -------------------
+    // Opt, Tile, x, y
+
+    0,MapTiles::Barrel,7,7,
+    0,MapTiles::Barrel,6,7,
+    1,MapTiles::Barrel,5,7,
+    END_OF_OPTIONS,
+
+    // Environment Options ---------------
+    // Opt, Source x, y, Dest x, y 
+
+    END_OF_OPTIONS,
+
+    // Enemy Options ---------------------
+    // Opt , Object, x, y, Health 
+    2,
+    0,Object::Bat,3,7,40,
+    0,Object::Spider,4,4,40,
+    0,Object::Coin,7,3,0,
+    1,Object::Bat,4,6,40,
+    1,Object::Spider,6,1,40,
+    1,Object::Coin,5,1,0,
+    1,Object::Coin,6,1,0,
+    END_OF_OPTIONS,
+
+    // Entrance / Exit Options -----------
+    1,
+    7,7,
+
+};

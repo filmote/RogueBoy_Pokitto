@@ -69,7 +69,7 @@ Bit 4 .. 0  Segment specification (range 0 - 31).
 
 // -----------------------------------------------------------------------------
 
-const uint8_t Map_Random_2[] = {
+const uint8_t Map_Random_1[] = {
     /* Map Size */   2, 1,
     /* Timer */      200,
     /* Player Start Segment / End of Level Segment */ 2,
@@ -77,12 +77,12 @@ const uint8_t Map_Random_2[] = {
     0,0,1,0,
     1,0,0,0,
     /* Map Data */
-    THIS_SEG | 13, 1,
-    THIS_SEG | 13, 1,
+    THIS_SEG | 0, 3,
+    THIS_SEG | 0, 3,
 };
 
 
-const uint8_t Map_Random_1[] = {
+const uint8_t Map_Random_2[] = {
     /* Map Size */   2, 2,
     /* Timer */      200,
     /* Player Start Segment / End of Level Segment */ 2,

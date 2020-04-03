@@ -16,7 +16,7 @@ class Sprite {
 
         uint16_t getX()                 { return this->x; }
         uint16_t getY()                 { return this->y; }
-        uint8_t getOffset()             { return this->offset; }
+        int8_t getOffset()              { return this->offset; }
         uint8_t getFrame()              { return this->frame; }
         Object getType()                { return this->type; }
         int16_t getHealth()             { return this->health; }
@@ -58,7 +58,7 @@ class Sprite {
 
         }
 
-        void setSprite(uint16_t x, uint16_t y, uint8_t health, Object type, uint8_t offset, bool active) {
+        void setSprite(uint16_t x, uint16_t y, uint8_t health, Object type, int8_t offset, bool active) {
 
             this->x = x;
             this->y = y;
@@ -162,7 +162,7 @@ class Sprite {
 
     private:
 
-        uint8_t offset;
+        int8_t offset;
         uint16_t x;
         uint16_t y;
         int16_t health;

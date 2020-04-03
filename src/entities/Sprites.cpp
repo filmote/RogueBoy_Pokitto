@@ -58,63 +58,64 @@ void Sprites::render(Player &player) {
             int y = (CENTERY - PLAYER_SIZE_HALF) - (player.getY() - object.getY());
             
             uint8_t frame = object.getFrame();
-            uint8_t offset = object.getOffset();
+            int8_t offset = object.getOffset();
             Direction direction = object.getDirection();
 
             switch (object.getType()) {
 
                 case Object::Coin:
-                    PD::drawBitmap(x, y, Images::Coins[frame]);
+                    PD::drawBitmap(x + offset, y + offset, Images::Coins[frame]);
                     break;
 
                 case Object::Bat:
-                    PD::drawBitmap(x, y, Images::Bats[frame]);
+                    PD::drawBitmap(x + offset, y + offset, Images::Bats[frame]);
                     if (object.getRenderHealthBar()) { this->renderHealthBar(x + 6, y - 6, 10 * object.getHealth() / object.getHealthOrig()); }
                     break;
 
                 case Object::Spider:
-                    PD::drawBitmap(x, y, Images::Spiders[(static_cast<uint8_t>(direction) * 2) + frame]);
+                    PD::drawBitmap(x + offset, y + offset, Images::Spiders[(static_cast<uint8_t>(direction) * 2) + frame]);
                     if (object.getRenderHealthBar()) { this->renderHealthBar(x + 6, y - 6, 10 * object.getHealth() / object.getHealthOrig()); }
                     break;
 
                 case Object::BigSpider:
-                    PD::drawBitmap(x, y, Images::BigSpiders[(static_cast<uint8_t>(direction) * 2) + frame]);
+                    PD::drawBitmap(x + offset, y + offset, Images::BigSpiders[(static_cast<uint8_t>(direction) * 2) + frame]);
                     if (object.getRenderHealthBar()) { this->renderHealthBar(x + 6, y - 6, 10 * object.getHealth() / object.getHealthOrig()); }
                     break;
 
                 case Object::SackOCash:
-                    PD::drawBitmap(x, y, Images::SackOCash);
+                    PD::drawBitmap(x + offset, y + offset, Images::SackOCash);
                     break;
 
                 case Object::Donut:
-                printf("px %i, py %i, ox %i, oy %i, x %i, y %i, offset %i\n",player.getX(), player.getY(), object.getX(), object.getY(), x,y,offset);
-                    PD::drawBitmap(x, y, Images::Donut);
+                   PD::drawBitmap(x + offset, y + offset, Images::Donut);
+//                    PD::drawBitmap(x, y, Images::Donut);
                     break;
 
                 case Object::Key:
-                    PD::drawBitmap(x, y, Images::Key);
+                printf("px %i, py %i, ox %i, oy %i, x %i, y %i, offset %i\n",player.getX(), player.getY(), object.getX(), object.getY(), x,y,offset);
+                    PD::drawBitmap(x + offset, y + offset, Images::Key);
                     break;
 
                 case Object::Ham:
-                    PD::drawBitmap(x, y, Images::Ham);
+                    PD::drawBitmap(x + offset, y + offset, Images::Ham);
                     break;
 
                 case Object::Floater:
                     if (object.getRenderHealthBar()) { this->renderHealthBar(x + 6, y - 6, 10 * object.getHealth() / object.getHealthOrig()); }
-                    PD::drawBitmap(x, y, Images::Floater);
+                    PD::drawBitmap(x + offset, y + offset, Images::Floater);
                     break;
 
                 case Object::Skull:
                     if (object.getRenderHealthBar()) { this->renderHealthBar(x + 6, y - 6, 10 * object.getHealth() / object.getHealthOrig()); }
-                    PD::drawBitmap(x, y, Images::Skull);
+                    PD::drawBitmap(x + offset, y + offset, Images::Skull);
                     break;
 
                 case Object::Spanner:
-                    PD::drawBitmap(x, y, Images::Spanner);
+                    PD::drawBitmap(x + offset, y + offset, Images::Spanner);
                     break;
 
                 case Object::Potion:
-                    PD::drawBitmap(x, y, Images::Potion);
+                    PD::drawBitmap(x + offset, y + offset, Images::Potion);
                     break;
 
             }

@@ -6,18 +6,19 @@ using PD = Pokitto::Display;
 using PS = Pokitto::Sound;
 
 
-const uint8_t offsets[] = { 
+const int8_t offsets[] = { 
     /* Coin */          0, 
-    /* Sack of Cash */  12, 
-    /* Donut */         4, 
-    /* Key */           9, 
-    /* Ham */           10, 
-    /* Floater */       11, 
-    /* Skull */         3, 
-    /* Bat */           4, 
-    /* Spanner */       5, 
-    /* Potion */        6, 
-    /* BgSpider */      0 
+    /* Sack of Cash */  0, 
+    /* Donut */         0, 
+    /* Key */           0, 
+    /* Ham */           0, 
+    /* Floater */       0, 
+    /* Skull */         0, 
+    /* Spider */        0,
+    /* Bat */           0, 
+    /* Spanner */       -3, 
+    /* Potion */        0, 
+    /* BgSpider */      -4
 };
 
 void Game::loadMap(uint8_t level) {
@@ -60,7 +61,6 @@ void Game::loadMap(uint8_t level) {
             uint16_t px = (levelToLoad[cursor++] * TILE_SIZE) + 8;
             uint16_t py = (levelToLoad[cursor++] * TILE_SIZE) + 8;
             uint8_t h = levelToLoad[cursor++];
-            uint8_t offset = 0;
             bool active = true;
 
             auto & object = objects.getSprite(i);
