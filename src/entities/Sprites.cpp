@@ -92,7 +92,6 @@ void Sprites::render(Player &player) {
                     break;
 
                 case Object::Key:
-                printf("px %i, py %i, ox %i, oy %i, x %i, y %i, offset %i\n",player.getX(), player.getY(), object.getX(), object.getY(), x,y,offset);
                     PD::drawBitmap(x + offset, y + offset, Images::Key);
                     break;
 

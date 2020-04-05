@@ -26,7 +26,8 @@ enum class GameState : uint8_t {
     EndOfLevel, 
     Dead, 
     WinState,
-    Inventory
+    Inventory,
+    MapDetails
 };
 
 

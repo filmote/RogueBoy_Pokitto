@@ -61,6 +61,8 @@ void Game::endOfLevel() {
     PD::print(this->points+padd+killp+(this->map.getTimer()/10), 10);
     
     if ((PC::frameCount % 240 == 0) || (PC::buttons.pressed(BTN_A))) {
+
+        if (this->randomLevel) { this->mapRandomLow++; }
         gameState = GameState::LoadMap;
         this->points += padd + killp + (this->map.getTimer()/10);
     }

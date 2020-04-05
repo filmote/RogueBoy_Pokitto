@@ -92,22 +92,22 @@ void Game::updateObjects() {
                                     break;
 
                                 case Object::Skull: 
-                                    //SJH 
+                                    //SJH
                                     player.setHealth(player.getHealth() - (5 * diff)); 
                                     break;
 
                                 case Object::Spider:
-                                    //SJH 
+                                    //SJH
                                     player.setHealth(player.getHealth() - (2 * diff)); 
                                     break;
 
                                 case Object::BigSpider:
-                                    //SJH 
+                                    //SJH
                                     player.setHealth(player.getHealth() - (6 * diff)); 
                                     break;
 
                                 case Object::Bat: 
-                                    //SJH 
+                                    //SJH
                                     player.setHealth(player.getHealth() - diff); 
                                     break;
 
@@ -384,6 +384,19 @@ void Game::playerMovement() {
         this->inventoryMenu.mainCursor = 0;
   
     }
+
+
+    // Display Map Details ..
+
+    #ifdef DEBUG
+
+        if (PC::buttons.pressed(BTN_A) && PC::buttons.pressed(BTN_C)) {
+
+            this->gameState = GameState::MapDetails;
+    
+        }
+
+    #endif
     
 
     // Operate lever, open door, fix things ..

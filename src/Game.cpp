@@ -48,7 +48,15 @@ void Game::loop(void) {
             win(); 
             break;
 
+        #ifdef DEBUG
+            case GameState::MapDetails:  
+                mapDetails(); 
+                break;
+        #endif
+
     }
 	
 }
+
+
 

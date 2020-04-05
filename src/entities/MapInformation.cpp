@@ -34,7 +34,8 @@ void MapInformation::setTimer(uint16_t timer) {
 }
 
 void MapInformation::decTimer() {
-    //SJH this->timer--;
+    //SJH
+    this->timer--;
 }
 
 MapTiles MapInformation::getBlock(int16_t x, int16_t y) {
@@ -50,7 +51,7 @@ MapTiles MapInformation::getBlock(int16_t x, int16_t y) {
 
 }
 
-void MapInformation::setBlock(uint8_t x, uint8_t y, MapTiles block) {
+void MapInformation::setBlock(uint16_t x, uint16_t y, MapTiles block) {
 
     if ((x >= this->width) || (y >= this->height)) {
         return;
@@ -125,6 +126,15 @@ uint8_t MapInformation::getOffset(uint8_t x, uint8_t y) {
 
 }
 
+void MapInformation::clearMap() {
+
+    for (uint32_t x = 0; x < MAP_SIZE; x ++) {
+
+        this->mapData[x] = MapTiles::NewFill;
+
+    }
+
+}
 
 bool MapInformation::isWalkable(uint16_t x, uint16_t y, Direction direction, uint8_t width, uint8_t height) {
 

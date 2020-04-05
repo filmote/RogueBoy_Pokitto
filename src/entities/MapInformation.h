@@ -27,12 +27,13 @@ class MapInformation {
         void setWidth(uint16_t width);
         void setHeight(uint16_t height);
         void setTimer(uint16_t timer);
-        void setBlock(uint8_t x, uint8_t y, MapTiles block);
+        void setBlock(uint16_t x, uint16_t y, MapTiles block);
         void setBlock(uint16_t index, MapTiles block);
         bool between(uint8_t x, uint8_t y, uint8_t x1, uint8_t y1, uint8_t x2, uint8_t y2);
         bool isWalkable(uint16_t x, uint16_t y, Direction direction, uint8_t width, uint8_t height);
 
         void decTimer();
+        void clearMap();
 
 
     private:       

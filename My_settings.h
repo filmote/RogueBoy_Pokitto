@@ -12,6 +12,8 @@
     #define CENTERY 110
 #endif
 
+#define _DEBUG
+
 #define TILE_WIDTH          16
 #define TILE_HEIGHT         16
 #define TILE_SIZE           16
@@ -21,10 +23,12 @@
 
 
 #define MAXLEVEL            18
-#define MAXOBJECT           50
-#define MAXENVIROMENT       50
+#define MAXOBJECT           200
+#define MAXENVIROMENT       200
 
-#define MAP_SIZE            3600
+#define MAP_SIZE_X          45
+#define MAP_SIZE_Y          45
+#define MAP_SIZE            (MAP_SIZE_X * MAP_SIZE_Y)
 
 
 #define NO_SLOT_FOUND       255
@@ -37,3 +41,31 @@
 #define HEALTH_INC_DONUT    10
 #define HEALTH_INC_HAM      20
 #define END_OF_OPTIONS      255
+
+
+/*
+Bit 7       Blank segment.
+Bit 6       Any Segment from the nominated Type.
+Bit 5       Specify a specific segment (over two bytes, sgement type, index)
+Bit 4 .. 0  Segment specification (range 0 - 31).
+*/
+
+#define BLANK_SEG   128
+#define ANY_SEG     64
+#define THIS_SEG    32
+#define SEG_00      0
+#define SEG_01      1
+#define SEG_02      2
+#define SEG_03      3
+#define SEG_04      4
+#define SEG_05      5
+#define SEG_06      6
+#define SEG_07      7
+#define SEG_08      8
+#define SEG_09      9
+#define SEG_10      10
+#define SEG_11      11
+#define SEG_12      12
+#define SEG_13      13
+#define SEG_14      14
+#define SEG_15      15

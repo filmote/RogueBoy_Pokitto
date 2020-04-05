@@ -211,7 +211,66 @@ void Game::showInventory() {
 
     }
     
-    
+
+    // Work out arrow direction ..
+
+    Direction rot = Direction::Up;
+printf("Dire %i,%i %i,%i > ", this->player.getX() / TILE_SIZE, this->player.getY() / TILE_SIZE,this->eolXTile, this->eolYTile);
+    if (this->player.getX() / TILE_SIZE > this->eolXTile) { // Left
+
+        if (this->player.getY() / TILE_SIZE > this->eolYTile) {
+
+            rot = Direction::UpLeft;
+
+        }
+        else if (this->player.getY() / TILE_SIZE == this->eolYTile) {
+
+            rot = Direction::Left;
+
+        }
+        else if (this->player.getY() / TILE_SIZE < this->eolYTile) {
+
+            rot = Direction::DownLeft;
+
+        }
+
+    }
+    else if (this->player.getX() / TILE_SIZE == this->eolXTile) { // Up / down
+
+        if (this->player.getY() / TILE_SIZE > this->eolYTile) {
+
+            rot = Direction::Up;
+
+        }
+        else if (this->player.getY() / TILE_SIZE < this->eolYTile) {
+
+            rot = Direction::Left;
+
+        }
+
+    }
+    else if (this->player.getX() / TILE_SIZE < this->eolXTile) { // Right
+
+        if (this->player.getY() / TILE_SIZE > this->eolYTile) {
+
+            rot = Direction::UpRight;
+
+        }
+        else if (this->player.getY() / TILE_SIZE == this->eolYTile) {
+
+            rot = Direction::Right;
+
+        }
+        else if (this->player.getY() / TILE_SIZE < this->eolYTile) {
+
+            rot = Direction::DownRight;
+
+        }
+
+    }
+    printf("%i\n", static_cast<uint8_t>(rot));
+    PD::drawBitmap(93, 74, Images::Directions[static_cast<uint8_t>(rot)]);
+       
 
     // Render Inventory ..
 

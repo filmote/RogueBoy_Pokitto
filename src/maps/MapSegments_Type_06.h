@@ -7,7 +7,7 @@ using PD = Pokitto::Display;
 using PS = Pokitto::Sound;
 
 
-/* -----------------------------------------------------------------------------
+/* -------------------------------------------------------------------------------------
 
 Type 0       1         2         3         4         5         6         7         8   
 .......   .......   .......   .......   .......   .......   .......   .......   .......
@@ -156,3 +156,118 @@ const uint8_t MAP_Segment_Type06_02[] = {
     1,7,
 
 };
+
+const uint8_t MAP_Segment_Type06_03[] = {
+  // 0, 1, 2, 3, 4, 5, 6, 7, 8
+     0, 0, 0,21, 0,23, 0, 0, 0,  // 0
+     0, 0, 0,21, 0,23, 0, 0, 0,  // 1
+     0, 0, 0,21, 0,23, 0, 0, 0,  // 2
+    24,24,24,21, 0,23,24,24,24,  // 3
+     0, 0, 0,43, 0,43, 0, 0, 0,  // 4
+    36, 0, 0,46, 0,46, 0, 0,37,  // 5
+    21, 0, 0, 0, 0, 0, 0, 0,23,  // 6
+    21, 0, 0, 0, 0, 0, 0, 0,23,  // 7
+    31,22,22,22,22,22,22,22,32,  // 8
+
+    // -----------------------------------
+    // TileMap and Environment Options
+    // -----------------------------------
+   
+    // Number of Options
+    3,
+
+    // Tilemap Options -------------------
+    // Opt, Tile, x, y
+
+    0,MapTiles::Barrel,6,7,
+    0,MapTiles::Barrel,7,5,
+    1,MapTiles::Barrel,5,7,
+    1,MapTiles::Barrel,6,4,
+    2,MapTiles::Barrel,2,7,
+    END_OF_OPTIONS,
+
+    // Environment Options ---------------
+    // Opt, Source x, y, Dest x, y 
+
+    END_OF_OPTIONS,
+
+    // Enemy Options ---------------------
+    // Opt , Object, x, y, Health 
+    3,
+    0,Object::Bat,7,6,40,
+    0,Object::Bat,1,6,40,
+    0,Object::Donut,4,7,40,
+    1,Object::Bat,4,7,40,
+    1,Object::Bat,1,6,40,
+    1,Object::Floater,7,6,40,
+    2,Object::Bat,4,7,40,
+    2,Object::Skull,1,6,40,
+    2,Object::Ham,7,6,0,
+    END_OF_OPTIONS,
+
+    // Entrance / Exit Options -----------
+    1,
+    7,7,
+
+};
+
+
+const uint8_t MAP_Segment_Type06_04[] = {
+  // 0, 1, 2, 3, 4, 5, 6, 7, 8
+    29,24,24,35, 0,34,30,38,38,  // 0
+    21, 0, 0, 0, 0, 0,23,38,38,  // 1
+    21, 0, 0, 0, 0, 0,23,38,38,  // 2
+    35, 0,45, 0, 0, 0,23,24,24,  // 3
+     0, 0,43, 0, 0, 0,43, 0, 0,  // 4
+    22,22,21, 0, 0, 0,46, 0,37,  // 5
+    38,38,21, 0, 0, 0, 0, 0,23,  // 6
+    38,38,21, 0, 0, 0, 0, 0,23,  // 7
+    38,38,31,22,22,22,22,22,32,  // 8
+
+    // -----------------------------------
+    // TileMap and Environment Options
+    // -----------------------------------
+   
+    // Number of Options
+    3,
+
+    // Tilemap Options -------------------
+    // Opt, Tile, x, y
+
+    0,MapTiles::Barrel,1,1,
+    0,MapTiles::Barrel,1,3,
+    1,MapTiles::Barrel,4,7,
+    1,MapTiles::Barrel,6,7,
+    1,MapTiles::FullSquare,4,3,
+    1,MapTiles::FullSquare,4,5,
+    2,MapTiles::Barrel,1,1,
+    2,MapTiles::Barrel,4,7,
+    END_OF_OPTIONS,
+
+    // Environment Options ---------------
+    // Opt, Source x, y, Dest x, y 
+
+    END_OF_OPTIONS,
+
+    // Enemy Options ---------------------
+    // Opt , Object, x, y, Health 
+    3,
+    0,Object::Bat,2,2,40,
+    0,Object::Bat,3,7,40,
+    0,Object::Donut,5,7,40,
+    1,Object::Bat,5,7,40,
+    1,Object::Bat,3,7,40,
+    1,Object::Floater,2,2,40,
+    2,Object::Bat,3,7,40,
+    2,Object::Skull,2,2,40,
+    2,Object::Ham,5,7,0,
+    END_OF_OPTIONS,
+
+    // Entrance / Exit Options -----------
+    1,
+    3,7,
+
+};
+
+
+
