@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<textures>
+	<texture>
+		<id>0</id>
+		<filepath>Textures/Tile_55.png</filepath>
+		<transparent r = "0" g = "0" b = "0" a = "255"></transparent>
+	</texture>
+</textures>
