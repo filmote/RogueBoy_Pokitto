@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<tiles>
+	<tile> 
+		<name>Closed Chest</name>
+		<id>0</id>
+		<texture>0</texture>
+		<exit>false</exit>
+		<gate>
+			<active>0</active>
+			<value>false</value>
+		</gate>
+		<switch>
+			<value>false</value>
+		</switch>
+	</tile>
+</tiles>
