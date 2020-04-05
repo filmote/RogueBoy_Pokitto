@@ -4100,6 +4100,513 @@
 		},
 		"\\src\\images\\scoreboard\\Direction_07.h": {
 			"sdcard": false
+		},
+		"\\LevelEditor": {
+			"sdcard": false
+		},
+		"\\LevelEditor\\Config": {
+			"sdcard": false
+		},
+		"\\LevelEditor\\Config\\SpriteAssignments.xml": {
+			"sdcard": false
+		},
+		"\\LevelEditor\\Config\\TextureAssignments.xml": {
+			"sdcard": false
+		},
+		"\\LevelEditor\\Config\\TileAssignments.xml": {
+			"sdcard": false
+		},
+		"\\LevelEditor\\RogueboyLevelEditor.exe": {
+			"sdcard": false
+		},
+		"\\LevelEditor\\RogueboyLevelEditor.exe.config": {
+			"sdcard": false
+		},
+		"\\LevelEditor\\RogueboyLevelEditor.pdb": {
+			"sdcard": false
+		},
+		"\\LevelEditor\\Textures": {
+			"sdcard": false
+		},
+		"\\LevelEditor\\Textures\\Sprites": {
+			"sdcard": false
+		},
+		"\\LevelEditor\\Textures\\Sprites\\Coin_00.png": {
+			"sdcard": false
+		},
+		"\\LevelEditor\\Textures\\Sprites\\Floater.png": {
+			"sdcard": false
+		},
+		"\\LevelEditor\\Textures\\Sprites\\Donut.png": {
+			"sdcard": false
+		},
+		"\\LevelEditor\\Textures\\Sprites\\Bat_00.png": {
+			"sdcard": false
+		},
+		"\\LevelEditor\\Textures\\Sprites\\Ham.png": {
+			"sdcard": false
+		},
+		"\\LevelEditor\\Textures\\Sprites\\Key.png": {
+			"sdcard": false
+		},
+		"\\LevelEditor\\Textures\\Sprites\\Potion.png": {
+			"sdcard": false
+		},
+		"\\LevelEditor\\Textures\\Sprites\\Jelly_Filled_Doughnut.png": {
+			"sdcard": false
+		},
+		"\\LevelEditor\\Textures\\Sprites\\SackOCash.png": {
+			"sdcard": false
+		},
+		"\\LevelEditor\\Textures\\Sprites\\Skull.png": {
+			"sdcard": false
+		},
+		"\\LevelEditor\\Textures\\Sprites\\Spider_00.png": {
+			"sdcard": false
+		},
+		"\\LevelEditor\\Textures\\Tile_00.png": {
+			"sdcard": false
+		},
+		"\\LevelEditor\\Textures\\Tile_01.png": {
+			"sdcard": false
+		},
+		"\\LevelEditor\\Textures\\Tile_02.png": {
+			"sdcard": false
+		},
+		"\\LevelEditor\\Textures\\Tile_03.png": {
+			"sdcard": false
+		},
+		"\\LevelEditor\\Textures\\Tile_04.png": {
+			"sdcard": false
+		},
+		"\\LevelEditor\\Textures\\Tile_05.png": {
+			"sdcard": false
+		},
+		"\\LevelEditor\\Textures\\Tile_06.png": {
+			"sdcard": false
+		},
+		"\\LevelEditor\\Textures\\Tile_07.png": {
+			"sdcard": false
+		},
+		"\\LevelEditor\\Textures\\Tile_08.png": {
+			"sdcard": false
+		},
+		"\\LevelEditor\\Textures\\Tile_09.png": {
+			"sdcard": false
+		},
+		"\\LevelEditor\\Textures\\Tile_10.png": {
+			"sdcard": false
+		},
+		"\\LevelEditor\\Textures\\Tile_11.png": {
+			"sdcard": false
+		},
+		"\\LevelEditor\\Textures\\Tile_13.png": {
+			"sdcard": false
+		},
+		"\\LevelEditor\\Textures\\Tile_12.png": {
+			"sdcard": false
+		},
+		"\\LevelEditor\\Textures\\Tile_14.png": {
+			"sdcard": false
+		},
+		"\\LevelEditor\\Textures\\Tile_15.png": {
+			"sdcard": false
+		},
+		"\\LevelEditor\\Textures\\Tile_17.png": {
+			"sdcard": false
+		},
+		"\\LevelEditor\\Textures\\Tile_16.png": {
+			"sdcard": false
+		},
+		"\\LevelEditor\\Textures\\Tile_19.png": {
+			"sdcard": false
+		},
+		"\\LevelEditor\\Textures\\Tile_18.png": {
+			"sdcard": false
+		},
+		"\\LevelEditor\\Textures\\Tile_20.png": {
+			"sdcard": false
+		},
+		"\\LevelEditor\\Textures\\Tile_21.png": {
+			"sdcard": false
+		},
+		"\\LevelEditor\\Textures\\Tile_22.png": {
+			"sdcard": false
+		},
+		"\\LevelEditor\\Textures\\Tile_23.png": {
+			"sdcard": false
+		},
+		"\\LevelEditor\\Textures\\Tile_24.png": {
+			"sdcard": false
+		},
+		"\\LevelEditor\\Textures\\Tile_25.png": {
+			"sdcard": false
+		},
+		"\\LevelEditor\\Textures\\Tile_26.png": {
+			"sdcard": false
+		},
+		"\\LevelEditor\\Textures\\Tile_27.png": {
+			"sdcard": false
+		},
+		"\\LevelEditor\\Textures\\Tile_28.png": {
+			"sdcard": false
+		},
+		"\\LevelEditor\\Textures\\Tile_29.png": {
+			"sdcard": false
+		},
+		"\\LevelEditor\\Textures\\Tile_30.png": {
+			"sdcard": false
+		},
+		"\\LevelEditor\\Textures\\Tile_31.png": {
+			"sdcard": false
+		},
+		"\\LevelEditor\\Textures\\Tile_32.png": {
+			"sdcard": false
+		},
+		"\\LevelEditor\\Textures\\Tile_33.png": {
+			"sdcard": false
+		},
+		"\\LevelEditor\\Textures\\Tile_34.png": {
+			"sdcard": false
+		},
+		"\\LevelEditor\\Textures\\Tile_35.png": {
+			"sdcard": false
+		},
+		"\\LevelEditor\\Textures\\Tile_36.png": {
+			"sdcard": false
+		},
+		"\\LevelEditor\\Textures\\Tile_37.png": {
+			"sdcard": false
+		},
+		"\\LevelEditor\\Textures\\Tile_38.png": {
+			"sdcard": false
+		},
+		"\\LevelEditor\\Textures\\Tile_39.png": {
+			"sdcard": false
+		},
+		"\\LevelEditor\\Textures\\Tile_40.png": {
+			"sdcard": false
+		},
+		"\\LevelEditor\\Textures\\Tile_41.png": {
+			"sdcard": false
+		},
+		"\\LevelEditor\\Textures\\Tile_42.png": {
+			"sdcard": false
+		},
+		"\\LevelEditor\\Textures\\Tile_43.png": {
+			"sdcard": false
+		},
+		"\\LevelEditor\\Textures\\Tile_44.png": {
+			"sdcard": false
+		},
+		"\\LevelEditor\\Textures\\Tile_45.png": {
+			"sdcard": false
+		},
+		"\\LevelEditor\\Textures\\Tile_46.png": {
+			"sdcard": false
+		},
+		"\\LevelEditor\\Textures\\Tile_47.png": {
+			"sdcard": false
+		},
+		"\\LevelEditor\\Textures\\Tile_48.png": {
+			"sdcard": false
+		},
+		"\\LevelEditor\\Textures\\Tile_49.png": {
+			"sdcard": false
+		},
+		"\\LevelEditor\\Textures\\Tile_50.png": {
+			"sdcard": false
+		},
+		"\\LevelEditor\\Textures\\Tile_51.png": {
+			"sdcard": false
+		},
+		"\\LevelEditor\\Textures\\Tile_52.png": {
+			"sdcard": false
+		},
+		"\\LevelEditor\\Textures\\Tile_53.png": {
+			"sdcard": false
+		},
+		"\\LevelEditor\\Textures\\Tile_54.png": {
+			"sdcard": false
+		},
+		"\\LevelEditor\\Textures\\Tile_55.png": {
+			"sdcard": false
+		},
+		"\\LevelEditor\\Textures\\UI": {
+			"sdcard": false
+		},
+		"\\LevelEditor\\Textures\\Tile_56.png": {
+			"sdcard": false
+		},
+		"\\LevelEditor\\Textures\\UI\\ConnectionEditButton.png": {
+			"sdcard": false
+		},
+		"\\LevelEditor\\Textures\\UI\\DrawButtonIcon.png": {
+			"sdcard": false
+		},
+		"\\LevelEditor\\Textures\\UI\\EraserButtonIcon.png": {
+			"sdcard": false
+		},
+		"\\LevelEditor\\Textures\\UI\\Icon.png": {
+			"sdcard": false
+		},
+		"\\LevelEditor\\Textures\\UI\\OriginButtonIcon.png": {
+			"sdcard": false
+		},
+		"\\LevelEditor\\Textures\\UI\\MoveButtonIcon.png": {
+			"sdcard": false
+		},
+		"\\LevelEditor\\Textures\\UI\\RectangleButtonIcon.png": {
+			"sdcard": false
+		},
+		"\\LevelEditor\\Textures\\UI\\WallButtonIcon.png": {
+			"sdcard": false
+		},
+		"\\LevelEditor\\Textures\\UI\\SpriteEditButtonIcon.png": {
+			"sdcard": false
+		},
+		"\\LevelEditor\\Textures\\Sprites\\Spanner.png": {
+			"sdcard": false
+		},
+		"\\LevelEditor\\Textures\\Sprites\\Bat_00.h": {
+			"sdcard": false
+		},
+		"\\LevelEditor\\Textures\\Sprites\\Coin_00.h": {
+			"sdcard": false
+		},
+		"\\LevelEditor\\Textures\\Sprites\\Donut.h": {
+			"sdcard": false
+		},
+		"\\LevelEditor\\Textures\\Sprites\\Floater.h": {
+			"sdcard": false
+		},
+		"\\LevelEditor\\Textures\\Sprites\\Ham.h": {
+			"sdcard": false
+		},
+		"\\LevelEditor\\Textures\\Sprites\\Jelly_Filled_Doughnut.h": {
+			"sdcard": false
+		},
+		"\\LevelEditor\\Textures\\Sprites\\Key.h": {
+			"sdcard": false
+		},
+		"\\LevelEditor\\Textures\\Sprites\\Potion.h": {
+			"sdcard": false
+		},
+		"\\LevelEditor\\Textures\\Sprites\\Skull.h": {
+			"sdcard": false
+		},
+		"\\LevelEditor\\Textures\\Sprites\\SackOCash.h": {
+			"sdcard": false
+		},
+		"\\LevelEditor\\Textures\\Sprites\\Spanner.h": {
+			"sdcard": false
+		},
+		"\\LevelEditor\\Textures\\Sprites\\Spider_00.h": {
+			"sdcard": false
+		},
+		"\\LevelEditor\\Textures\\Tile_00.h": {
+			"sdcard": false
+		},
+		"\\LevelEditor\\Textures\\Tile_01.h": {
+			"sdcard": false
+		},
+		"\\LevelEditor\\Textures\\Tile_03.h": {
+			"sdcard": false
+		},
+		"\\LevelEditor\\Textures\\Tile_04.h": {
+			"sdcard": false
+		},
+		"\\LevelEditor\\Textures\\Tile_05.h": {
+			"sdcard": false
+		},
+		"\\LevelEditor\\Textures\\Tile_06.h": {
+			"sdcard": false
+		},
+		"\\LevelEditor\\Textures\\Tile_07.h": {
+			"sdcard": false
+		},
+		"\\LevelEditor\\Textures\\Tile_08.h": {
+			"sdcard": false
+		},
+		"\\LevelEditor\\Textures\\Tile_02.h": {
+			"sdcard": false
+		},
+		"\\LevelEditor\\Textures\\UI\\ConnectionEditButton.h": {
+			"sdcard": false
+		},
+		"\\LevelEditor\\Textures\\Tile_09.h": {
+			"sdcard": false
+		},
+		"\\LevelEditor\\Textures\\Tile_10.h": {
+			"sdcard": false
+		},
+		"\\LevelEditor\\Textures\\Tile_11.h": {
+			"sdcard": false
+		},
+		"\\LevelEditor\\Textures\\Tile_12.h": {
+			"sdcard": false
+		},
+		"\\LevelEditor\\Textures\\Tile_13.h": {
+			"sdcard": false
+		},
+		"\\LevelEditor\\Textures\\Tile_14.h": {
+			"sdcard": false
+		},
+		"\\LevelEditor\\Textures\\Tile_15.h": {
+			"sdcard": false
+		},
+		"\\LevelEditor\\Textures\\Tile_16.h": {
+			"sdcard": false
+		},
+		"\\LevelEditor\\Textures\\Tile_17.h": {
+			"sdcard": false
+		},
+		"\\LevelEditor\\Textures\\Tile_18.h": {
+			"sdcard": false
+		},
+		"\\LevelEditor\\Textures\\Tile_19.h": {
+			"sdcard": false
+		},
+		"\\LevelEditor\\Textures\\Tile_20.h": {
+			"sdcard": false
+		},
+		"\\LevelEditor\\Textures\\Tile_21.h": {
+			"sdcard": false
+		},
+		"\\LevelEditor\\Textures\\Tile_23.h": {
+			"sdcard": false
+		},
+		"\\LevelEditor\\Textures\\Tile_22.h": {
+			"sdcard": false
+		},
+		"\\LevelEditor\\Textures\\Tile_24.h": {
+			"sdcard": false
+		},
+		"\\LevelEditor\\Textures\\Tile_26.h": {
+			"sdcard": false
+		},
+		"\\LevelEditor\\Textures\\Tile_25.h": {
+			"sdcard": false
+		},
+		"\\LevelEditor\\Textures\\Tile_28.h": {
+			"sdcard": false
+		},
+		"\\LevelEditor\\Textures\\Tile_27.h": {
+			"sdcard": false
+		},
+		"\\LevelEditor\\Textures\\Tile_29.h": {
+			"sdcard": false
+		},
+		"\\LevelEditor\\Textures\\Tile_30.h": {
+			"sdcard": false
+		},
+		"\\LevelEditor\\Textures\\Tile_31.h": {
+			"sdcard": false
+		},
+		"\\LevelEditor\\Textures\\Tile_33.h": {
+			"sdcard": false
+		},
+		"\\LevelEditor\\Textures\\Tile_32.h": {
+			"sdcard": false
+		},
+		"\\LevelEditor\\Textures\\Tile_35.h": {
+			"sdcard": false
+		},
+		"\\LevelEditor\\Textures\\Tile_34.h": {
+			"sdcard": false
+		},
+		"\\LevelEditor\\Textures\\Tile_38.h": {
+			"sdcard": false
+		},
+		"\\LevelEditor\\Textures\\Tile_37.h": {
+			"sdcard": false
+		},
+		"\\LevelEditor\\Textures\\Tile_39.h": {
+			"sdcard": false
+		},
+		"\\LevelEditor\\Textures\\Tile_43.h": {
+			"sdcard": false
+		},
+		"\\LevelEditor\\Textures\\Tile_42.h": {
+			"sdcard": false
+		},
+		"\\LevelEditor\\Textures\\Tile_41.h": {
+			"sdcard": false
+		},
+		"\\LevelEditor\\Textures\\Tile_44.h": {
+			"sdcard": false
+		},
+		"\\LevelEditor\\Textures\\Tile_45.h": {
+			"sdcard": false
+		},
+		"\\LevelEditor\\Textures\\Tile_46.h": {
+			"sdcard": false
+		},
+		"\\LevelEditor\\Textures\\Tile_48.h": {
+			"sdcard": false
+		},
+		"\\LevelEditor\\Textures\\Tile_49.h": {
+			"sdcard": false
+		},
+		"\\LevelEditor\\Textures\\Tile_50.h": {
+			"sdcard": false
+		},
+		"\\LevelEditor\\Textures\\Tile_52.h": {
+			"sdcard": false
+		},
+		"\\LevelEditor\\Textures\\Tile_36.h": {
+			"sdcard": false
+		},
+		"\\LevelEditor\\Textures\\Tile_40.h": {
+			"sdcard": false
+		},
+		"\\LevelEditor\\Textures\\Tile_54.h": {
+			"sdcard": false
+		},
+		"\\LevelEditor\\Textures\\Tile_53.h": {
+			"sdcard": false
+		},
+		"\\LevelEditor\\Textures\\Tile_55.h": {
+			"sdcard": false
+		},
+		"\\LevelEditor\\Textures\\Tile_56.h": {
+			"sdcard": false
+		},
+		"\\LevelEditor\\Textures\\UI\\DrawButtonIcon.h": {
+			"sdcard": false
+		},
+		"\\LevelEditor\\Textures\\Tile_51.h": {
+			"sdcard": false
+		},
+		"\\LevelEditor\\Textures\\UI\\EraserButtonIcon.h": {
+			"sdcard": false
+		},
+		"\\LevelEditor\\Textures\\UI\\Icon.h": {
+			"sdcard": false
+		},
+		"\\LevelEditor\\Textures\\UI\\MoveButtonIcon.h": {
+			"sdcard": false
+		},
+		"\\LevelEditor\\Textures\\UI\\OriginButtonIcon.h": {
+			"sdcard": false
+		},
+		"\\LevelEditor\\Textures\\UI\\RectangleButtonIcon.h": {
+			"sdcard": false
+		},
+		"\\LevelEditor\\Textures\\Tile_47.h": {
+			"sdcard": false
+		},
+		"\\LevelEditor\\Textures\\UI\\WallButtonIcon.h": {
+			"sdcard": false
+		},
+		"\\LevelEditor\\Textures\\UI\\SpriteEditButtonIcon.h": {
+			"sdcard": false
+		},
+		"\\RogueBoy_Pokitto - Copy.bin": {
+			"sdcard": false
+		},
+		"\\RogueBoy_Pokitto_V02.bin": {
+			"sdcard": false
 		}
 	},
 	"BUILDFlags": {
