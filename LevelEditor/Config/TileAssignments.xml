@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <tiles>
 	<tile> 
-		<name>Soul Tile</name>
+		<name>Closed Chest</name>
 		<id>0</id>
 		<texture>0</texture>
 		<exit>false</exit>
