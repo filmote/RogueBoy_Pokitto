@@ -4607,6 +4607,9 @@
 		},
 		"\\RogueBoy_Pokitto_V02.bin": {
 			"sdcard": false
+		},
+		"\\54363E10": {
+			"sdcard": false
 		}
 	},
 	"BUILDFlags": {

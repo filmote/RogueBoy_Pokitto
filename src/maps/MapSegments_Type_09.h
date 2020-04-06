@@ -138,5 +138,61 @@ const uint8_t MAP_Segment_Type09_01[] = {
 };
 
 
+const uint8_t MAP_Segment_Type09_02[] = {
+  // 0, 1, 2, 3, 4, 5, 6, 7, 8
+    38,38,38,21, 0,34,30,38,38,	  // 0
+    38,38,38,21, 0,11,23,38,38,	  // 1
+    29,24,51,35,59,47,24,24,30,	  // 2
+    35,11,46, 0, 0, 0, 0,11,23,	  // 3
+     0, 0,57, 0, 0, 0, 0,11,23,	  // 4
+    22,22,36, 0, 0, 0, 0,11,23,	  // 5
+    38,38,50,48,60,37,22,22,32,	  // 6
+    38,38,21,11, 0,23,38,38,38,	  // 7
+    38,38,31,36, 0,23,38,38,38,	  // 8
+
+
+    // -----------------------------------
+    // TileMap and Environment Options
+    // -----------------------------------
+   
+    // Number of Options
+    1,
+
+    // Tilemap Options -------------------
+    // Opt, Tile, x, y
+    END_OF_OPTIONS,
+
+    // Environment Options ---------------
+    // Opt, Source x, y, Dest x, y 
+    0,5,1,4,2,
+    0,1,3,2,4,
+    0,3,7,4,6,
+    0,7,3,4,2,
+    0,7,4,2,4,
+    0,7,5,4,6,
+    END_OF_OPTIONS,
+
+    // Enemy Options ---------------------
+    // Opt , Object, x, y, Health 
+    3,
+    0,Object::Bat,6,3,40,
+    0,Object::Bat,6,5,40,
+    0,Object::Coin,3,3,0,
+    0,Object::Coin,3,5,0,
+    1,Object::Floater,6,3,40,
+    1,Object::Floater,6,5,40,
+    1,Object::SackOCash,3,3,0,
+    1,Object::Donut,3,5,0,
+    2,Object::Skull,6,3,40,
+    2,Object::Skull,6,5,40,
+    END_OF_OPTIONS,
+
+    // Entrance / Exit Options -----------
+    1,
+    4,4,
+
+};
+
+
 
 

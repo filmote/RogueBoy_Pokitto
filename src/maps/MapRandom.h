@@ -70,16 +70,13 @@ Type 9       10        11        12        13        14        15
 */
 
 const uint8_t Map_Random_Test[] = {
-    /* Map Size */   3,3,
+    /* Map Size */   2,1,
     /* Timer */      255,
-    /* Player Start Segment / End of Level Segment */ 4,
+    /* Player Start Segment / End of Level Segment */ 2,
     /* px, py, EolX, EolY */
-    0,0,2,2,
-    0,0,0,2,
-    2,2,0,0,
-    2,2,0,2,    
+    0,0,1,0,
+    1,0,0,0,
     /* Map Data */
-    ANY_SEG | 0,  ANY_SEG | 8,  ANY_SEG | 1,
-    ANY_SEG | 7,  ANY_SEG | 6,  ANY_SEG | 9,
-    ANY_SEG | 2,  ANY_SEG | 6,  ANY_SEG | 3,
+    THIS_SEG | 9, 2,
+    THIS_SEG | 9, 2,
 };
