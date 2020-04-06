@@ -77,6 +77,6 @@ const uint8_t Map_Random_Test[] = {
     0,0,1,0,
     1,0,0,0,
     /* Map Data */
-    THIS_SEG | 9, 2,
-    THIS_SEG | 9, 2,
+    THIS_SEG | 13, 3,
+    THIS_SEG | 13, 3,
 };
