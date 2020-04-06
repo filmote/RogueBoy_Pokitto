@@ -154,7 +154,7 @@ bool MapInformation::isWalkable(uint16_t x, uint16_t y, Direction direction, uin
             // printf("Up (%i,%i) %i,%i > %i,%i > %i,%i .. ", x, y, this->getTileX(x), this->getTileY(y), this->getTileX(x - widthHalf), this->getTileY(y - heightHalf), this->getTileX(x - widthHalf+ 16), this->getTileY(y - heightHalf));        
             // printf("x=%i %% 16 = %i .. ", x, ((x - widthHalf) % 16) + width);        
             tile1 = this->getBlock(this->getTileX(x - widthHalf), this->getTileY(y - heightHalf));
-            if (((x - widthHalf) % 16) + width >= 16) tile2 = this->getBlock(this->getTileX(x - widthHalf + 16), this->getTileY(y - heightHalf));
+            if (((x - widthHalf) % 16) + width > 16) tile2 = this->getBlock(this->getTileX(x - widthHalf + 16), this->getTileY(y - heightHalf));
             // printf("%i %i ", tile1, tile2);
             break;
 
@@ -476,13 +476,13 @@ bool MapInformation::isWalkable(uint16_t x, uint16_t y, Direction direction, uin
             break;
 
         case MapTiles::NewUpperRightTriangle:
-            xMod = (x + widthHalf) % 16;
-            yMod = (y - heightHalf) % 16;
 
             switch (direction) {
 
                 case Direction::Right:
-                    // printf("UR-R1 %i, %i > %i\n", xMod - 2, yMod, xMod + yMod);
+                    xMod = (x + widthHalf) % 16;
+                    yMod = (y + heightHalf) % 16;
+                                // printf("UR-R1 %i, %i > %i\n", xMod - 2, yMod, xMod + yMod);
                     if (xMod - 2 < yMod) {
                         walk = true;
                     }
@@ -492,8 +492,10 @@ bool MapInformation::isWalkable(uint16_t x, uint16_t y, Direction direction, uin
                     break;
 
                 case Direction::Up:
+                    xMod = (x + widthHalf) % 16;
+                    yMod = (y - heightHalf) % 16;
                     // printf("UR-U1 %i, %i > %i\n", xMod, yMod, xMod + yMod);
-                    if (xMod - 2 < yMod) {
+                    if (xMod!= 0 && xMod <= yMod) {
                         walk = true;
                     }
                     else {
@@ -851,7 +853,7 @@ bool MapInformation::isWalkable(uint16_t x, uint16_t y, Direction direction, uin
                 switch (direction) {
 
                     case Direction::Up:
-                        // printf("UR-U2 %i, %i > %i\n", xMod, yMod, xMod + yMod);
+                        printf("UR-U2 %i, %i > %i\n", xMod, yMod, xMod + yMod);
                         if (xMod - 2 < yMod) {
                             walk = true;
                         }
