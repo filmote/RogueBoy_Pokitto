@@ -271,3 +271,48 @@ const uint8_t MAP_Segment_Type02_04[] = {
     5,3
 
 };
+
+
+const uint8_t MAP_Segment_Type02_05[] = {
+  // 0, 1, 2, 3, 4, 5, 6, 7, 8
+    38,38,38,21, 0,34,24,24,30,  // 0
+    38,38,38,21, 0, 0, 0, 0,23,  // 1
+    38,38,38,21, 0, 0, 0, 0,23,  // 2
+    38,38,38,38,27, 0, 0, 0,34,  // 3
+    38,38,38,38,38,27, 0, 0, 0,  // 4
+    38,38,38,38,38,38,22,22,22,  // 5
+    38,38,38,38,38,38,38,38,38,  // 6
+    38,38,38,38,38,38,38,38,38,  // 7
+    38,38,38,38,38,38,38,38,38,  // 8
+
+    // -----------------------------------
+    // TileMap and Environment Options
+    // -----------------------------------
+   
+    // Number of Options
+    2,
+
+    // Tilemap Options -------------------
+    // Opt, Tile, x, y
+
+    0,MapTiles::Barrel,4,2,
+    0,MapTiles::Barrel,6,4,
+    END_OF_OPTIONS,
+
+    // Environment Options ---------------
+    // Opt, Source x, y, Dest x, y 
+
+    END_OF_OPTIONS,
+
+    // Enemy Options ---------------------
+    // Opt , Object, x, y, Health 
+    2,
+    0,Object::Bat,5,3,40,
+    1,Object::Spider,5,3,40,
+    END_OF_OPTIONS,
+
+    // Entrance / Exit Options -----------
+    1,
+    7,1,
+
+};
