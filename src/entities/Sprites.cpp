@@ -86,9 +86,9 @@ void Sprites::render(Player &player) {
                     PD::drawBitmap(x + offset, y + offset, Images::SackOCash);
                     break;
 
-                case Object::Donut:
-                   PD::drawBitmap(x + offset, y + offset, Images::Donut);
-//                    PD::drawBitmap(x, y, Images::Donut);
+                case Object::Bread:
+                   PD::drawBitmap(x + offset, y + offset, Images::Bread);
+//                    PD::drawBitmap(x, y, Images::Bread);
                     break;
 
                 case Object::Key:

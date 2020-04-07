@@ -32,7 +32,7 @@ struct InventoryItem {
 
         switch (type) {
 
-            case Object::Donut:
+            case Object::Bread:
             case Object::Ham:
                 return true;
 

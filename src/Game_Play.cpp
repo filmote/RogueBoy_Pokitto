@@ -58,7 +58,7 @@ void Game::updateObjects() {
                         break;
 
                     case Object::Key: 
-                    case Object::Donut: 
+                    case Object::Bread: 
                     case Object::Ham: 
                     case Object::Spanner: 
                     case Object::Potion:             

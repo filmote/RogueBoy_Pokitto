@@ -4625,6 +4625,12 @@
 		},
 		"\\src\\images\\background\\Tile_73.h": {
 			"sdcard": false
+		},
+		"\\64CA3420": {
+			"sdcard": false
+		},
+		"\\src\\images\\sprites\\Bread.png": {
+			"sdcard": false
 		}
 	},
 	"BUILDFlags": {

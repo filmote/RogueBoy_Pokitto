@@ -142,7 +142,7 @@ enum MapTiles {
 
 const char object_Desc_00[] = "Coin";
 const char object_Desc_01[] = "Sack of Coins";
-const char object_Desc_02[] = "Donut";
+const char object_Desc_02[] = "Bread";
 const char object_Desc_03[] = "Key";
 const char object_Desc_04[] = "Ham";
 const char object_Desc_05[] = "Floater";
