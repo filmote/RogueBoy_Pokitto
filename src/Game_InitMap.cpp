@@ -133,7 +133,7 @@ void Game::loadMap(uint8_t level) {
     for (int i=0; i<MAXENVIROMENT; i++) {
 
         if (this->environments.getEnvironment(i).getActive()) {
-    printf("env[%i] x1: %i, y1: %i, x2 %i, y2 %i\n", i, this->environments.getEnvironment(i).getX(), this->environments.getEnvironment(i).getY(), this->environments.getEnvironment(i).finishX(), this->environments.getEnvironment(i).finishY());
+    printf("env[%i] x1: %i, y1: %i, x2 %i, y2 %i\n", i, this->environments.getEnvironment(i).getX(), this->environments.getEnvironment(i).getY(), this->environments.getEnvironment(i).getFinishX(), this->environments.getEnvironment(i).getFinishY());
         }
 
     }
@@ -169,7 +169,7 @@ void Game::nextLevelLoad() {
             uint8_t environmentCount = 0;
             uint8_t objectCount = 0;
 
-            const uint8_t * levelToLoad = this->mapsRandom[randomLevel];
+            const uint8_t * levelToLoad = Map_Random_Size_03_03;//Map_Random_Test;//SJH this->mapsRandom[randomLevel];
 
             uint16_t cursor = 0;
             uint8_t xSegments = levelToLoad[cursor++];
@@ -222,7 +222,7 @@ printf("Player %i %i, EOL %i %i\n",playerX, playerY, levelEndX, levelEndY);
                     uint8_t cursorTile = 0;
                     const uint8_t * segmentToLoad = nullptr; // = this->mapsSegments[tileIdx];
 
-                    // printf("segmentDetails >  %i, & 128 > %i, & 64 > %i, &32 > %i\n", segmentDetails, segmentDetails & 128, segmentDetails & 64, segmentDetails & 32);
+                    printf("segmentDetails >  %i, & 128 > %i, & 64 > %i, &32 > %i\n", segmentDetails, segmentDetails & 128, segmentDetails & 64, segmentDetails & 32);
 
                     // Determine which segement to load ..
 
@@ -322,10 +322,10 @@ printf("Player %i %i, EOL %i %i\n",playerX, playerY, levelEndX, levelEndY);
 
                                 if (option == 255) break;
 
-                                uint8_t x1 = segmentToLoad[cursorTile++];
-                                uint8_t y1 = segmentToLoad[cursorTile++];
-                                uint8_t x2 = segmentToLoad[cursorTile++];
-                                uint8_t y2 = segmentToLoad[cursorTile++];
+                                int8_t x1 = segmentToLoad[cursorTile++];
+                                int8_t y1 = segmentToLoad[cursorTile++];
+                                int8_t x2 = segmentToLoad[cursorTile++];
+                                int8_t y2 = segmentToLoad[cursorTile++];
 
                                 if (option == randOption) {
 
@@ -433,8 +433,7 @@ printf("Player %i %i, EOL %i %i\n",playerX, playerY, levelEndX, levelEndY);
             this->environments.setEnvironmentNum(environmentCount);
             this->objects.setObjectNum(objectCount);
 
-
-            #ifdef debug
+            #ifdef DEBUG
 
                 printf("-----------------------------\n");
                 printf("W: %i", map.getWidth());
@@ -482,7 +481,7 @@ printf("Player %i %i, EOL %i %i\n",playerX, playerY, levelEndX, levelEndY);
                 for (int i=0; i<MAXENVIROMENT; i++) {
 
                     if (this->environments.getEnvironment(i).getActive()) {
-                    printf("env[%i] x1: %i, y1: %i, x2 %i, y2 %i\n", i, this->environments.getEnvironment(i).getX(), this->environments.getEnvironment(i).getY(), this->environments.getEnvironment(i).finishX(), this->environments.getEnvironment(i).finishY());
+                    printf("env[%i] x1: %i, y1: %i, x2 %i, y2 %i\n", i, this->environments.getEnvironment(i).getX(), this->environments.getEnvironment(i).getY(), this->environments.getEnvironment(i).getFinishX(), this->environments.getEnvironment(i).getFinishY());
                     }
 
                 }

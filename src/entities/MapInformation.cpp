@@ -202,6 +202,7 @@ bool MapInformation::isWalkable(uint16_t x, uint16_t y, Direction direction, uin
         case MapTiles::NewSpearDoorRHSOpen:
         case MapTiles::NewSpearDoorTOPOpen:
         case MapTiles::NewSpearDoorBOTOpen:
+        case MapTiles::WormHole:
             walk = true;
             break;
 
@@ -601,6 +602,7 @@ bool MapInformation::isWalkable(uint16_t x, uint16_t y, Direction direction, uin
             case MapTiles::NewSpearDoorRHSOpen:
             case MapTiles::NewSpearDoorTOPOpen:
             case MapTiles::NewSpearDoorBOTOpen:
+            case MapTiles::WormHole:
                 walk = true;
                 break;
 
@@ -853,7 +855,7 @@ bool MapInformation::isWalkable(uint16_t x, uint16_t y, Direction direction, uin
                 switch (direction) {
 
                     case Direction::Up:
-                        printf("UR-U2 %i, %i > %i\n", xMod, yMod, xMod + yMod);
+                        // printf("UR-U2 %i, %i > %i\n", xMod, yMod, xMod + yMod);
                         if (xMod - 2 < yMod) {
                             walk = true;
                         }

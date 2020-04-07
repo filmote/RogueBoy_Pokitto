@@ -137,6 +137,7 @@ enum MapTiles {
     NewStraightTorchRHS_F1 = 70,
     NewStraightTorchTOP_F1 = 71,
     NewStraightTorchBOT_F1 = 72,
+    WormHole = 73,
 };
 
 const char object_Desc_00[] = "Coin";

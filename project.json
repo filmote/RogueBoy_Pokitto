@@ -4613,6 +4613,18 @@
 		},
 		"\\25D49E10": {
 			"sdcard": false
+		},
+		"\\B373C220": {
+			"sdcard": false
+		},
+		"\\src\\images\\background\\Tile_72 - Copy.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\background\\Tile_73.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\background\\Tile_73.h": {
+			"sdcard": false
 		}
 	},
 	"BUILDFlags": {

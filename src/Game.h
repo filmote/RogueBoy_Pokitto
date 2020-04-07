@@ -133,10 +133,10 @@ class Game {
         */
 
 
-        #define MAP_SEGMENT_TYPE_00_COUNT 5
-        #define MAP_SEGMENT_TYPE_01_COUNT 5
-        #define MAP_SEGMENT_TYPE_02_COUNT 5
-        #define MAP_SEGMENT_TYPE_03_COUNT 5
+        #define MAP_SEGMENT_TYPE_00_COUNT 6
+        #define MAP_SEGMENT_TYPE_01_COUNT 6
+        #define MAP_SEGMENT_TYPE_02_COUNT 6
+        #define MAP_SEGMENT_TYPE_03_COUNT 6
         #define MAP_SEGMENT_TYPE_04_COUNT 4
         #define MAP_SEGMENT_TYPE_05_COUNT 4
         #define MAP_SEGMENT_TYPE_06_COUNT 6
@@ -148,12 +148,12 @@ class Game {
         #define MAP_SEGMENT_TYPE_12_COUNT 4
         #define MAP_SEGMENT_TYPE_13_COUNT 4
         #define MAP_SEGMENT_TYPE_14_COUNT 4
-        #define MAP_SEGMENT_TYPE_15_COUNT 1
+        #define MAP_SEGMENT_TYPE_15_COUNT 4
 
-        const uint8_t * mapSegments_Type00[MAP_SEGMENT_TYPE_00_COUNT] = { MAP_Segment_Type00_00, MAP_Segment_Type00_01, MAP_Segment_Type00_02, MAP_Segment_Type00_03, MAP_Segment_Type00_04 };
-        const uint8_t * mapSegments_Type01[MAP_SEGMENT_TYPE_01_COUNT] = { MAP_Segment_Type01_00, MAP_Segment_Type01_01, MAP_Segment_Type01_02, MAP_Segment_Type01_03, MAP_Segment_Type01_04 };
-        const uint8_t * mapSegments_Type02[MAP_SEGMENT_TYPE_02_COUNT] = { MAP_Segment_Type02_00, MAP_Segment_Type02_01, MAP_Segment_Type02_02, MAP_Segment_Type02_03, MAP_Segment_Type02_04 };
-        const uint8_t * mapSegments_Type03[MAP_SEGMENT_TYPE_03_COUNT] = { MAP_Segment_Type03_00, MAP_Segment_Type03_01, MAP_Segment_Type03_02, MAP_Segment_Type03_03, MAP_Segment_Type03_04 };
+        const uint8_t * mapSegments_Type00[MAP_SEGMENT_TYPE_00_COUNT] = { MAP_Segment_Type00_00, MAP_Segment_Type00_01, MAP_Segment_Type00_02, MAP_Segment_Type00_03, MAP_Segment_Type00_04, MAP_Segment_Type00_05 };
+        const uint8_t * mapSegments_Type01[MAP_SEGMENT_TYPE_01_COUNT] = { MAP_Segment_Type01_00, MAP_Segment_Type01_01, MAP_Segment_Type01_02, MAP_Segment_Type01_03, MAP_Segment_Type01_04, MAP_Segment_Type01_05 };
+        const uint8_t * mapSegments_Type02[MAP_SEGMENT_TYPE_02_COUNT] = { MAP_Segment_Type02_00, MAP_Segment_Type02_01, MAP_Segment_Type02_02, MAP_Segment_Type02_03, MAP_Segment_Type02_04, MAP_Segment_Type02_05 };
+        const uint8_t * mapSegments_Type03[MAP_SEGMENT_TYPE_03_COUNT] = { MAP_Segment_Type03_00, MAP_Segment_Type03_01, MAP_Segment_Type03_02, MAP_Segment_Type03_03, MAP_Segment_Type03_04, MAP_Segment_Type03_05 };
         const uint8_t * mapSegments_Type04[MAP_SEGMENT_TYPE_04_COUNT] = { MAP_Segment_Type04_00, MAP_Segment_Type04_01, MAP_Segment_Type04_02, MAP_Segment_Type04_03 };
         const uint8_t * mapSegments_Type05[MAP_SEGMENT_TYPE_05_COUNT] = { MAP_Segment_Type05_00, MAP_Segment_Type05_01, MAP_Segment_Type05_02, MAP_Segment_Type05_03 };
 
@@ -167,7 +167,7 @@ class Game {
         const uint8_t * mapSegments_Type12[MAP_SEGMENT_TYPE_12_COUNT] = { MAP_Segment_Type12_00, MAP_Segment_Type12_01, MAP_Segment_Type12_02, MAP_Segment_Type12_03 };
         const uint8_t * mapSegments_Type13[MAP_SEGMENT_TYPE_13_COUNT] = { MAP_Segment_Type13_00, MAP_Segment_Type13_01, MAP_Segment_Type13_02, MAP_Segment_Type13_03 };
         const uint8_t * mapSegments_Type14[MAP_SEGMENT_TYPE_14_COUNT] = { MAP_Segment_Type14_00, MAP_Segment_Type14_01, MAP_Segment_Type14_02, MAP_Segment_Type14_03 };
-        const uint8_t * mapSegments_Type15[MAP_SEGMENT_TYPE_15_COUNT] = { MAP_Segment_Type15_00 };
+        const uint8_t * mapSegments_Type15[MAP_SEGMENT_TYPE_15_COUNT] = { MAP_Segment_Type15_00, MAP_Segment_Type15_01, MAP_Segment_Type15_02, MAP_Segment_Type15_03 };
 
         const uint8_t mapSegments_Counts[16] = { MAP_SEGMENT_TYPE_00_COUNT, MAP_SEGMENT_TYPE_01_COUNT, MAP_SEGMENT_TYPE_02_COUNT, MAP_SEGMENT_TYPE_03_COUNT, 
                                                  MAP_SEGMENT_TYPE_04_COUNT, MAP_SEGMENT_TYPE_05_COUNT, MAP_SEGMENT_TYPE_06_COUNT, MAP_SEGMENT_TYPE_07_COUNT, 
@@ -182,11 +182,11 @@ class Game {
 
         // ---------------------------------------------------------------------------------------------
 
-        const uint8_t * mapsRandom[16] = {
+        const uint8_t * mapsRandom[17] = {
             Map_Random_Size_00_00, Map_Random_Size_00_01, Map_Random_Size_00_02, Map_Random_Size_00_04,
             Map_Random_Size_01_00, Map_Random_Size_01_01, Map_Random_Size_01_02, Map_Random_Size_01_04,
             Map_Random_Size_02_00, Map_Random_Size_02_01, Map_Random_Size_02_02, Map_Random_Size_02_04, Map_Random_Size_02_05,
-            Map_Random_Size_03_00, Map_Random_Size_03_01, Map_Random_Size_03_02, 
+            Map_Random_Size_03_00, Map_Random_Size_03_01, Map_Random_Size_03_02, Map_Random_Size_03_03
         };
 
 };

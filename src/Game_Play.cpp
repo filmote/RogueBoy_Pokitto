@@ -407,27 +407,36 @@ void Game::playerMovement() {
         int rely = this->map.getTileY(y);
         MapTiles block = static_cast<MapTiles>(this->map.getBlock(relx, rely));
 
-        if (block == MapTiles::DownStairs) {
-            //sound.tone(NOTE_C3,100,NOTE_E3,100,NOTE_G3,100);
-            gameState = GameState::EndOfLevel;
-        } 
-        else {
+        switch (block) {
 
-            switch(direction) {
+            case MapTiles::DownStairs:
+                //sound.tone(NOTE_C3,100,NOTE_E3,100,NOTE_G3,100);
+                gameState = GameState::EndOfLevel;
+                break;
 
-                case Direction::Up:         rely--;         break;
-                case Direction::UpRight:    relx++; rely--; break;
-                case Direction::Right:      relx++;         break;
-                case Direction::DownRight:  relx++; rely++; break;
-                case Direction::Down:       rely++;         break;
-                case Direction::DownLeft:   relx--; rely++; break;
-                case Direction::Left:       relx--;         break;
-                case Direction::UpLeft:     relx--; rely--; break;
+            case MapTiles::WormHole:
+                this->interactWithBlock(relx, rely, block);
+                break;
 
-            }
+            default:
 
-            block = static_cast<MapTiles>(this->map.getBlock(relx, rely));
-            this->interactWithBlock(relx, rely, block);
+                switch(direction) {
+
+                    case Direction::Up:         rely--;         break;
+                    case Direction::UpRight:    relx++; rely--; break;
+                    case Direction::Right:      relx++;         break;
+                    case Direction::DownRight:  relx++; rely++; break;
+                    case Direction::Down:       rely++;         break;
+                    case Direction::DownLeft:   relx--; rely++; break;
+                    case Direction::Left:       relx--;         break;
+                    case Direction::UpLeft:     relx--; rely--; break;
+
+                }
+
+                block = static_cast<MapTiles>(this->map.getBlock(relx, rely));
+                this->interactWithBlock(relx, rely, block);
+                break;
+
 
         }
 
@@ -482,6 +491,7 @@ bool Game::interactWithBlock(int x, int y, MapTiles block) {
                 // sound missing keys
                 return false;
             }  
+
         case MapTiles::NewDoorTOP: 
             if (this->player.getInventoryCount(Object::Key) > 0) {
                 this->map.setBlock(x, y, MapTiles::NewDoorTOPOpen); 
@@ -493,6 +503,7 @@ bool Game::interactWithBlock(int x, int y, MapTiles block) {
                 // sound missing keys
                 return false;
             }  
+
         case MapTiles::NewDoorBOT: 
             if (this->player.getInventoryCount(Object::Key) > 0) {
                 this->map.setBlock(x, y, MapTiles::NewDoorBOTOpen); 
@@ -552,6 +563,25 @@ bool Game::interactWithBlock(int x, int y, MapTiles block) {
                 return false;
             } 
 
+        case MapTiles::WormHole:
+            {
+                for (uint8_t i = 0; i < this->environments.getEnvironmentNum(); i++) {
+
+                    auto environment = this->environments.getEnvironment(i);
+
+                    if (environment.getX() == x && environment.getY() == y) {
+
+                        player.setX(environment.getFinishX() * TILE_SIZE + 8);
+                        player.setY(environment.getFinishY() * TILE_SIZE + 8);
+                        break;
+
+                    }
+
+                }
+
+            }
+            return false;
+
     }
 
     return false;
@@ -567,8 +597,8 @@ void Game::updateEnvironmentBlock(MapInformation map, uint8_t x, uint8_t y, Envi
 
         if (environment.checkStart(x,y) && environment.getActive()) {
 
-            uint8_t x1 = environment.finishX();
-            uint8_t y1 = environment.finishY();
+            uint8_t x1 = environment.getFinishX();
+            uint8_t y1 = environment.getFinishY();
 
             switch(this->map.getBlock(x1, y1)) {
 

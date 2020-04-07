@@ -13,11 +13,11 @@ class Environment{
 
         Environment() {}
 
-        uint8_t finishX()   { return this->x1; }
-        uint8_t finishY()   { return this->y1; }
-        uint8_t getX()      { return this->x; }
-        uint8_t getY()      { return this->y; }
-        bool getActive()    { return this->active; }
+        uint8_t getFinishX()    { return this->x1; }
+        uint8_t getFinishY()    { return this->y1; }
+        uint8_t getX()          { return this->x; }
+        uint8_t getY()          { return this->y; }
+        bool getActive()        { return this->active; }
         MapTiles getTile()      { return this->tile; }
 
         bool checkStart(uint8_t x, uint8_t y) { return (this->x == x && this->y == y); }
