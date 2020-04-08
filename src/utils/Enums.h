@@ -18,6 +18,7 @@ enum class SpriteType : uint8_t {
 };
 
 enum class GameState : uint8_t {
+    SplashScreen,
     MainMenu, 
     Settings, 
     Game, 

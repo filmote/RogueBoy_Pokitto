@@ -7,6 +7,7 @@
 #include "enemies/Enemies.h"
 #include "sprites/Sprites.h"
 #include "players/Players.h"
+#include "ppot/PPOT.h"
 
 namespace Images {
 

@@ -20,6 +20,10 @@ void Game::loop(void) {
 
     switch(gameState) {
 
+        case GameState::SplashScreen: 
+            splashScreen(); 
+            break;
+
         case GameState::MainMenu: 
             updateMainMenu(); 
             break;

@@ -4700,6 +4700,63 @@
 		},
 		"\\src\\Game_Render2.cpp": {
 			"sdcard": false
+		},
+		"\\src\\images\\ppot": {
+			"sdcard": false
+		},
+		"\\src\\images\\ppot\\Ppot_00.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\ppot\\Ppot_00.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\ppot\\Ppot_01.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\ppot\\Ppot_01.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\ppot\\Ppot_02.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\ppot\\Ppot_02.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\ppot\\Ppot_03.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\ppot\\Ppot_03.png": {
+			"sdcard": false
+		},
+		"\\src\\SplashScreenState.cpp": {
+			"sdcard": false
+		},
+		"\\src\\SplashScreenState.h": {
+			"sdcard": false
+		},
+		"\\src\\Game_SplashScreen.h": {
+			"sdcard": false
+		},
+		"\\src\\Game_Splash.cpp": {
+			"sdcard": false
+		},
+		"\\src\\Game_SplashScreen.cpp": {
+			"sdcard": false
+		},
+		"\\src\\images\\ppot\\Ppot_Full.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\ppot\\PPOT.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\ppot\\Ppot_Arrow.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\ppot\\Ppot_Arrow.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\ppot\\Ppot_Full.h": {
+			"sdcard": false
 		}
 	},
 	"BUILDFlags": {

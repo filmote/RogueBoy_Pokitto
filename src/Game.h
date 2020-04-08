@@ -41,17 +41,13 @@ class Game {
 
     private:
 
-        // void drawHealth();
-        // void drawHolding();
-        // void drawTime();
-        // void drawLevel();
+        void splashScreen();
         void renderHud();
         void renderEnviroment();
         void renderEnviroment_Top_Left(int x, int y, int drawX, int drawY);
         void renderEnviroment_Top_Right(int x, int y, int drawX, int drawY);
         void renderEnviroment_Bot_Left(int x, int y, int drawX, int drawY);
         void renderEnviroment_Bot_Right(int x, int y, int drawX, int drawY);
-//        void renderEnviroment_EndTRL(int x, int y, int drawX, int drawY);
         
         void renderPlayer();
 
@@ -93,7 +89,7 @@ class Game {
         Sprites objects;
         Environments environments;
 
-        GameState gameState = GameState::MainMenu;
+        GameState gameState = GameState::SplashScreen;
 
         uint8_t diff = 1;
         int points = 0;
@@ -104,6 +100,7 @@ class Game {
         MapInformation map;
         bool randomLevel = true;
         uint8_t mapRandomLow = 0;
+        uint8_t splashScreenCounter = 0;
 
 //        const uint8_t * maps[18] = { MAP_1, MAP_2, MAP_3, MAP_4, MAP_5, MAP_6, MAP_7, MAP_9, MAP_10, MAP_11, MAP_12, MAP_13, MAP_14, MAP_15, MAP_16, MAP_17, MAP_18 };
         const uint8_t * maps[20] = { MAP_Test, MAP_1, MAP_2, MAP_3, MAP_4, MAP_5, MAP_Test, MAP_6, MAP_7, MAP_8, MAP_9, MAP_10, MAP_11, MAP_12, MAP_13, MAP_14, MAP_15, MAP_16, MAP_17, MAP_18,  };
