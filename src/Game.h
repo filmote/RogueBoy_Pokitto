@@ -47,6 +47,12 @@ class Game {
         // void drawLevel();
         void renderHud();
         void renderEnviroment();
+        void renderEnviroment_Top_Left(int x, int y, int drawX, int drawY);
+        void renderEnviroment_Top_Right(int x, int y, int drawX, int drawY);
+        void renderEnviroment_Bot_Left(int x, int y, int drawX, int drawY);
+        void renderEnviroment_Bot_Right(int x, int y, int drawX, int drawY);
+//        void renderEnviroment_EndTRL(int x, int y, int drawX, int drawY);
+        
         void renderPlayer();
 
         void updateMainMenu();

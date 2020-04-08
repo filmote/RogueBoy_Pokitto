@@ -82,6 +82,9 @@ void Game::renderEnviroment() {
             
             uint8_t block = this->map.getBlock(tileX + i, tileY + j);
 
+            int drawX = (i * 16) + CENTERX - offsetX;
+            int drawY = (j * 16) + CENTERY - offsetY;
+
             switch (block) {
 
                 case MapTiles::NewStraightTorchBOT_F0:
@@ -98,13 +101,137 @@ void Game::renderEnviroment() {
                     if (PC::frameCount % 24 < 12) { block = block - 4; }
                     break;
 
+                case MapTiles::NewStraightTOP:
+                    this->renderEnviroment_Top_Left(tileX + i, tileY + j, drawX, drawY);
+                    this->renderEnviroment_Top_Right(tileX + i, tileY + j, drawX, drawY);
+                    break;
+
+                case MapTiles::NewStraightBOT:
+                    this->renderEnviroment_Bot_Left(tileX + i, tileY + j, drawX, drawY);
+                    this->renderEnviroment_Bot_Right(tileX + i, tileY + j, drawX, drawY);
+                    break;
+
+                case MapTiles::NewStraightTB:
+                    this->renderEnviroment_Top_Left(tileX + i, tileY + j, drawX, drawY);
+                    this->renderEnviroment_Top_Right(tileX + i, tileY + j, drawX, drawY);
+                    this->renderEnviroment_Bot_Left(tileX + i, tileY + j, drawX, drawY);
+                    this->renderEnviroment_Bot_Right(tileX + i, tileY + j, drawX, drawY);
+                    break;
+
+                case MapTiles::NewEndTBL:
+                    this->renderEnviroment_Top_Right(tileX + i, tileY + j, drawX, drawY);
+                    this->renderEnviroment_Bot_Right(tileX + i, tileY + j, drawX, drawY);
+                    break;
+
+                case MapTiles::NewEndTRB:
+                    this->renderEnviroment_Top_Left(tileX + i, tileY + j, drawX, drawY);
+                    this->renderEnviroment_Bot_Left(tileX + i, tileY + j, drawX, drawY);
+                    break;
+
+                case MapTiles::NewEndTRL:
+
+                    switch (this->map.getBlock(tileX + i - 1, tileY + j + 1)) {
+
+                        case MapTiles::NewStraightTOP:
+                        case MapTiles::NewStraightTB:
+                        // printf("e\n");
+                            PD::drawBitmap(drawX, drawY + 16, Images::NewCornerFillTL);
+                            break;
+
+                    }
+
+                    switch (this->map.getBlock(tileX + i + 1, tileY + j + 1)) {
+
+                        case MapTiles::NewStraightTOP:
+                        case MapTiles::NewStraightTB:
+                        // printf("f\n");
+                            PD::drawBitmap(drawX + 16, drawY + 16, Images::NewCornerFillTR);
+                            break;
+
+                    }
+                    break;
+
+                case MapTiles::NewEndRBL:
+
+                    switch (this->map.getBlock(tileX + i - 1, tileY + j - 1)) {
+
+                        case MapTiles::NewStraightBOT:
+                        case MapTiles::NewStraightTB:
+                        // printf("g\n");
+                            PD::drawBitmap(drawX, drawY - 8, Images::NewCornerFillLL);
+                            break;
+
+                    }
+
+                    switch (this->map.getBlock(tileX + i + 1, tileY + j - 1)) {
+
+                        case MapTiles::NewStraightBOT:
+                        case MapTiles::NewStraightTB:
+                        // printf("h\n");
+                            PD::drawBitmap(drawX + 16, drawY - 8, Images::NewCornerFillLR);
+                            break;
+
+                    }
+                    break;
+
+                case MapTiles::NewCornerTL:
+
+                    switch (this->map.getBlock(tileX + i - 1, tileY + j + 1)) {
+
+                        case MapTiles::NewStraightTOP:
+                        case MapTiles::NewStraightTB:
+                        case MapTiles::NewEndTBL:
+                        // printf("i\n");
+                            PD::drawBitmap(drawX, drawY + 16, Images::NewCornerFillTL);
+                            break;
+
+                    }
+
+                    switch (this->map.getBlock(tileX + i, tileY + j + 1)) {
+
+                        case MapTiles::NewStraightRHS:
+                        case MapTiles::NewStraightLR:
+                        case MapTiles::NewCornerLR:
+                        case MapTiles::NewEndRBL:
+                        // printf("j\n");
+                            PD::drawBitmap(drawX + 8, drawY + 8, Images::NewCornerFillLR);
+                            break;
+
+                    }
+                    break;
+
+                case MapTiles::NewCornerTR:
+
+                    switch (this->map.getBlock(tileX + i + 1, tileY + j + 1)) {
+
+                        case MapTiles::NewStraightTOP:
+                        case MapTiles::NewStraightTB:
+                        case MapTiles::NewEndTBL:
+                        // printf("k\n");
+                            PD::drawBitmap(drawX + 8, drawY + 16, Images::NewCornerFillTR);
+                            break;
+
+                    }
+
+                    switch (this->map.getBlock(tileX + i, tileY + j + 1)) {
+
+                        case MapTiles::NewStraightLHS:
+                        case MapTiles::NewStraightLR:
+                        case MapTiles::NewCornerLL:
+                        case MapTiles::NewEndRBL:
+                        // printf("l\n");
+                            PD::drawBitmap(drawX, drawY + 8, Images::NewCornerFillLL);
+                            break;
+
+                    }
+                    break;
+
                 default:
                     break;
 
             }
 
-            int drawX = (i * 16) + CENTERX - offsetX;
-            int drawY = (j * 16) + CENTERY - offsetY;
+
             PD::drawBitmap(drawX, drawY, Images::Tiles[block]);
 
         }

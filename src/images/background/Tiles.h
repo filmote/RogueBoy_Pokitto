@@ -76,6 +76,10 @@ namespace Images {
     #include "Tile_71.h"
     #include "Tile_72.h"
     #include "Tile_73.h"
+    #include "NewCornerFillTL.h"
+    #include "NewCornerFillTR.h"
+    #include "NewCornerFillLL.h"
+    #include "NewCornerFillLR.h"
     
     const uint8_t * const Tiles[] = { 
     Tile_00,

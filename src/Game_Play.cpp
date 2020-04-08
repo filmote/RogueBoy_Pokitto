@@ -87,28 +87,23 @@ void Game::updateObjects() {
                             switch (type) {
 
                                 case Object::Floater:   
-                                    //SJH 
-                                    player.setHealth(player.getHealth() - (10 * diff)); 
+                                    //SJH player.setHealth(player.getHealth() - (10 * diff)); 
                                     break;
 
                                 case Object::Skull: 
-                                    //SJH
-                                    player.setHealth(player.getHealth() - (5 * diff)); 
+                                    //SJH player.setHealth(player.getHealth() - (5 * diff)); 
                                     break;
 
                                 case Object::Spider:
-                                    //SJH
-                                    player.setHealth(player.getHealth() - (2 * diff)); 
+                                    //SJH player.setHealth(player.getHealth() - (2 * diff)); 
                                     break;
 
                                 case Object::BigSpider:
-                                    //SJH
-                                    player.setHealth(player.getHealth() - (6 * diff)); 
+                                    //SJH player.setHealth(player.getHealth() - (6 * diff)); 
                                     break;
 
                                 case Object::Bat: 
-                                    //SJH
-                                    player.setHealth(player.getHealth() - diff); 
+                                    //SJH player.setHealth(player.getHealth() - diff); 
                                     break;
 
                             }

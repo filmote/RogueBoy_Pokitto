@@ -51,7 +51,7 @@ enum class Axis : uint8_t {
 enum Object {
     Coin = 0,
     SackOCash = 1,
-    Donut = 2,
+    Bread = 2,
     Key = 3,
     Ham = 4, 
     Floater = 5,

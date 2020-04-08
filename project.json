@@ -4631,6 +4631,75 @@
 		},
 		"\\src\\images\\sprites\\Bread.png": {
 			"sdcard": false
+		},
+		"\\src\\images\\sprites\\Bread.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\Tile_32.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\Tile_29.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\Tile_30.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\Tile_31.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\Tile_32.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\Tile_29.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\Tile_30.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\Tile_31.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\NewCornerFillLL.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\NewCornerFillLLL.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\NewCornerFillLR.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\NewCornerFillTR.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\NewCornerFillTL.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\background\\NewCornerFillLL.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\background\\NewCornerFillLR.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\background\\NewCornerFillTL.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\background\\NewCornerFillTR.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\background\\NewCornerFillLR.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\background\\NewCornerFillLL.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\background\\NewCornerFillTL.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\background\\NewCornerFillTR.h": {
+			"sdcard": false
+		},
+		"\\src\\Game_Render2.cpp": {
+			"sdcard": false
 		}
 	},
 	"BUILDFlags": {

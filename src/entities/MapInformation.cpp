@@ -34,8 +34,7 @@ void MapInformation::setTimer(uint16_t timer) {
 }
 
 void MapInformation::decTimer() {
-    //SJH
-    this->timer--;
+    //SJH this->timer--;
 }
 
 MapTiles MapInformation::getBlock(int16_t x, int16_t y) {

@@ -9,7 +9,7 @@ using PS = Pokitto::Sound;
 const int8_t offsets[] = { 
     /* Coin */          0, 
     /* Sack of Cash */  0, 
-    /* Donut */         0, 
+    /* Bread */         0, 
     /* Key */           0, 
     /* Ham */           0, 
     /* Floater */       0, 
