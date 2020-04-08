@@ -23,7 +23,7 @@ void Game::splashScreen() {
     }
     
     if (PC::frameCount % 12 == 0) {
-        
+
         splashScreenCounter++;
         
         if (splashScreenCounter == 4) {
@@ -37,9 +37,9 @@ void Game::splashScreen() {
 
     //  Render the state ..
 
-    PD::drawBitmap(44, 54, Images::Ppot_Full);
-    PD::drawBitmap(64, 76, Images::Ppot[splashScreenCounter]);
+    PD::drawBitmap(22, 27, Images::Ppot_Full);
+    PD::drawBitmap(32, 38, Images::Ppot[splashScreenCounter]);
 
-    if (splashScreenCounter < 2) PD::drawBitmap(163, 72, Images::Ppot_Arrow);
+    if (splashScreenCounter < 2) PD::drawBitmap(82, 36, Images::Ppot_Arrow);
 
 }

@@ -133,7 +133,7 @@ const uint8_t MAP_Segment_Type15_01[] = {
 
     // Entrance / Exit Options -----------
     1,
-    0,4
+    2,4
 
 };
 
@@ -228,7 +228,7 @@ const uint8_t MAP_Segment_Type15_03[] = {
 
     // Entrance / Exit Options -----------
     1,
-    8,4,
+    6,4,
 
 };
 
