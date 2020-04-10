@@ -11,14 +11,22 @@ uint16_t Bullet::getX()                 { return x;}
 uint16_t Bullet::getY()                 { return y;}
 uint8_t Bullet::getFrame()              { return frame;}
 Direction Bullet::getDirection()        { return direction;}
+Weapon Bullet::getWeapon()              { return weapon;}
 
 void Bullet::setX(uint16_t x)           { this->x = x;}
 void Bullet::setY(uint16_t y)           { this->y = y;}
 void Bullet::setActive(bool active)     { this->active = active;}
+void Bullet::setWeapon(Weapon weapon)   { this->weapon = weapon;}
 
 void Bullet::kill()                     { this->active = false;}
 
-void Bullet::setBullet(uint16_t x, uint16_t y, Direction direction) { this->x = x; this->y = y; this->direction = direction; this->active = true;}
+void Bullet::setBullet(uint16_t x, uint16_t y, Direction direction, Weapon weapon) { 
+    this->x = x; 
+    this->y = y; 
+    this->direction = direction; 
+    this->active = true; 
+    this->weapon = weapon; 
+}
 
 void Bullet::update() {
 

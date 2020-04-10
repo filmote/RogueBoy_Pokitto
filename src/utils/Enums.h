@@ -1,5 +1,10 @@
 #pragma once
 
+enum class Weapon : uint8_t {
+    FireBall = 0,
+    IceSpell,
+};
+
 enum class SpriteType : uint8_t {
     Player_1 = 0,
     Player_2,
@@ -62,6 +67,7 @@ enum Object {
     Spanner = 9,
     Potion = 10,
     BigSpider = 11, 
+    IceSpell = 12,
 };
 
 enum MapTiles {
@@ -138,7 +144,10 @@ enum MapTiles {
     NewStraightTorchRHS_F1 = 70,
     NewStraightTorchTOP_F1 = 71,
     NewStraightTorchBOT_F1 = 72,
-    WormHole = 73,
+    WormHole_F0 = 73,
+    WormHole_F1 = 74,
+    WormHole_F2 = 75,
+    WormHole_F3 = 76,
 };
 
 const char object_Desc_00[] = "Coin";
@@ -153,6 +162,7 @@ const char object_Desc_08[] = "Bat";
 const char object_Desc_09[] = "Spanner";
 const char object_Desc_10[] = "Potion";
 const char object_Desc_11[] = "Big Spider";
+const char object_Desc_12[] = "Ice Spell";
 
 const char * const object_Descs[] = { 
     object_Desc_00,
@@ -167,4 +177,5 @@ const char * const object_Descs[] = {
     object_Desc_09,
     object_Desc_10,
     object_Desc_11,
+    object_Desc_12,
 };

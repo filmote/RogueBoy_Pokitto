@@ -10,5 +10,12 @@ namespace Images {
     #include "Skull.h"
     #include "Spanner.h"
     #include "Potion.h"
+    #include "IceSpell_F0.h"
+    #include "IceSpell_F1.h"
+
+    const uint8_t * const IceSpell[] = { 
+        IceSpell_F0,
+        IceSpell_F1,
+    };
 
 };

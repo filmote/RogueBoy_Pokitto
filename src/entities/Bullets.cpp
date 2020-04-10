@@ -19,7 +19,17 @@ void Bullets::render(Player &player) {
             int x = (player.getX() - bullet.getX());
             int y = (player.getY() - bullet.getY());
 
-            PD::drawBitmap((CENTERX - 4) - x, (CENTERY - 4) - y, Images::Bullets[bullet.getFrame()]);
+            switch (bullet.getWeapon()) {
+
+                case Weapon::FireBall:
+                    PD::drawBitmap((CENTERX - 4) - x, (CENTERY - 4) - y, Images::Bullets[bullet.getFrame()]);
+                    break;
+
+                case Weapon::IceSpell:
+                    PD::drawBitmap((CENTERX - 4) - x, (CENTERY - 4) - y, Images::Bullets[bullet.getFrame() + 4]);
+                    break;
+                    
+            }
 
         }
 

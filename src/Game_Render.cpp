@@ -60,7 +60,17 @@ void Game::renderHud() {
 
     // Weapon ..
 
-    PD::drawBitmap(93, 74, Images::Fireball);
+    switch (this->player.getWeapon()) {
+
+        case Weapon::FireBall:
+            PD::drawBitmap(93, 74, Images::Fireball);
+            break;
+
+        case Weapon::IceSpell:
+            PD::drawBitmap(94, 75, Images::IceSpell_Scoreboard[this->player.getWeaponFrame()]);
+            break;
+
+    }
 
 
     PD::setColor(6, 0);
@@ -99,6 +109,10 @@ void Game::renderEnviroment() {
                 case MapTiles::NewStraightTorchLHS_F1:
                 case MapTiles::NewStraightTorchRHS_F1:
                     if (PC::frameCount % 24 < 12) { block = block - 4; }
+                    break;
+
+                case MapTiles::WormHole_F0:
+                    block = block + (PC::frameCount % 20) / 5;
                     break;
 
                 case MapTiles::NewStraightTOP:

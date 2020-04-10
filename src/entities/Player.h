@@ -23,6 +23,7 @@ class Player {
         uint8_t getKills();
         uint8_t getFrame();
         bool getMoving();
+        Weapon getWeapon();
 
         void setX(uint16_t x);
         void setY(uint16_t y);
@@ -32,9 +33,13 @@ class Player {
         void setKills(uint8_t kills);
         void setFrame(uint8_t frame);
         void setMoving(bool moving);
+        void setWeapon(Weapon weapon);
 
         void incFrame();
         void init(uint16_t x, uint16_t y);
+        void decWeaponCount();
+        uint8_t getWeaponFrame();
+        uint32_t getWeaponCount();
 
 
         // Inventory methods
@@ -59,6 +64,8 @@ class Player {
         uint8_t kills;
         bool moving;
         uint8_t frame;
+        Weapon weapon = Weapon::FireBall;
+        uint32_t weaponCount;
 
         InventoryItem inventoryItems[MAX_INVENTORY_ITEMS];
 

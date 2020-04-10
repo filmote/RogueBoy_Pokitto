@@ -41,7 +41,8 @@
 #define HEALTH_INC_BREAD    10
 #define HEALTH_INC_HAM      20
 #define END_OF_OPTIONS      255
-
+#define ICE_SPELL_DELAY     360
+#define ICE_SPELL_DELAY_INC 30
 
 /*
 Bit 7       Blank segment.

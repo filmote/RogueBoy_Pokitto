@@ -8,11 +8,14 @@
 #include "sprites/Sprites.h"
 #include "players/Players.h"
 #include "ppot/PPOT.h"
+#include "levelChange/LevelSplash.h"
 
 namespace Images {
 
     #include "Logo.h"
     #include "Arrow.h"
     #include "Arrow_Dark.h"
+    #include "Dreamer2345_Base.h"
+    #include "Dreamer2345_Eye.h"
 
 }

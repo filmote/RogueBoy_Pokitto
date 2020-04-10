@@ -138,29 +138,19 @@ const uint8_t Map_Random_Size_03_02[] = {
 3   ╾─┬─┬─┤
 4     └─┴─┘
 */
-// const uint8_t Map_Random_Size_03_03[] = {
-//     /* Map Size */   5,5,
-//     /* Timer */      255,
-//     /* Player Start Segment / End of Level Segment */ 3,
-//     /* px, py, EolX, EolY */
-//     1,1,1,3,
-//     1,1,4,1,
-//     1,1,2,4,
-//     /* Map Data */
-//     ANY_SEG | 0,  ANY_SEG | 1,       BLANK_SEG,         BLANK_SEG,         BLANK_SEG,
-//     ANY_SEG | 7,  THIS_SEG | 3, 4,   BLANK_SEG,         BLANK_SEG,         ANY_SEG | 11,
-//     ANY_SEG | 2,  THIS_SEG | 15, 1,  THIS_SEG | 15, 2,  THIS_SEG | 15, 3,  ANY_SEG | 9,
-//     BLANK_SEG,    ANY_SEG | 14,      ANY_SEG | 8,       ANY_SEG | 8,       ANY_SEG | 9,
-//     BLANK_SEG,    BLANK_SEG,         ANY_SEG | 2,       ANY_SEG | 6,       ANY_SEG | 3,
-
-// };
 const uint8_t Map_Random_Size_03_03[] = {
-    /* Map Size */   3,1,
+    /* Map Size */   5,5,
     /* Timer */      255,
-    /* Player Start Segment / End of Level Segment */ 1,
+    /* Player Start Segment / End of Level Segment */ 3,
     /* px, py, EolX, EolY */
-    0,0,2,0,
+    1,1,1,3,
+    1,1,4,1,
+    1,1,2,4,
     /* Map Data */
-    THIS_SEG | 15, 1,  THIS_SEG | 15, 2,  THIS_SEG | 15, 3,  
+    ANY_SEG | 0,  ANY_SEG | 1,       BLANK_SEG,         BLANK_SEG,         BLANK_SEG,
+    ANY_SEG | 7,  THIS_SEG | 3, 4,   BLANK_SEG,         BLANK_SEG,         ANY_SEG | 11,
+    ANY_SEG | 2,  THIS_SEG | 15, 1,  THIS_SEG | 15, 2,  THIS_SEG | 15, 3,  ANY_SEG | 9,
+    BLANK_SEG,    ANY_SEG | 14,      ANY_SEG | 8,       ANY_SEG | 8,       ANY_SEG | 9,
+    BLANK_SEG,    BLANK_SEG,         ANY_SEG | 2,       ANY_SEG | 6,       ANY_SEG | 3,
 
 };

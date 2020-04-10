@@ -4766,6 +4766,420 @@
 		},
 		"\\RogueBoy_Pokitto.bin.1.gif": {
 			"sdcard": false
+		},
+		"\\src\\images\\EndOfLevelSplash.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\background\\Tile_74.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\background\\Tile_75.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\background\\Tile_76.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\EndOfLevelSplash.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\background\\Tile_74.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\background\\Tile_75.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\background\\Tile_76.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\Dreamer2345.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\Dreamer2345.h": {
+			"sdcard": false
+		},
+		"\\RogueBoy_Pokitto.bin.2.gif": {
+			"sdcard": false
+		},
+		"\\src\\images\\Dreamer2345 - Copy.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\Dreamer2345_F1.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\Dreamer2345_F0.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\Dreamer2345_F1.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\Dreamer2345_F0.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\Dreamer2345_Base.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\Dreamer2345_Eye.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\Dreamer2345_Base.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\Dreamer2345_Eye.h": {
+			"sdcard": false
+		},
+		"\\RogueBoy_Pokitto.bin.4.gif": {
+			"sdcard": false
+		},
+		"\\src\\images\\EndOfLevelSplash - Copy.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\EndOfLevelSplashLeft.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\EndOfLevelSplash_Top.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\EndOfLevelSplash_Left.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\EndOfLevelSplash_Right.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\EndOfLevelSplash_Bottom.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\New folder": {
+			"sdcard": false
+		},
+		"\\src\\images\\levelChange": {
+			"sdcard": false
+		},
+		"\\src\\images\\levelChange\\EndOfLevelSplash.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\levelChange\\EndOfLevelSplash_Bottom.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\levelChange\\EndOfLevelSplash_Left.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\levelChange\\EndOfLevelSplash_Right.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\levelChange\\EndOfLevelSplash_Top.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\levelChange\\levelSplash.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\levelChange\\levelSplash_Bottom.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\levelChange\\levelSplash_Top.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\levelChange\\LevelSplash_Right.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\levelChange\\LevelSplash_Left.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\levelChange\\LevelSplash.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\levelChange\\LevelSplash_Top.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\levelChange\\levelSplash_Bottom.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\levelChange\\levelSplash_Top.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\levelChange\\LevelSplash_Right.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\levelChange\\LevelSplash_Left.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\levelChange\\LevelSplash_Full.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\levelChange\\LevelSplash_Full.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\levelChange\\LevelSplash_Bottom.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\scoreboard\\Colon.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\levelChange\\Colon.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\levelChange\\Colon.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\bullets\\BulletIce_00.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\bullets\\BulletIce_01.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\bullets\\BulletIce_02.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\bullets\\BulletIce_03.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\sprites\\IceSpell.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\sprites\\IceSpell - Copy.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\sprites\\IceSpell_F1.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\sprites\\IceSpell_F0.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\bullets\\BulletIce_00.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\bullets\\BulletIce_01.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\bullets\\BulletIce_02.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\bullets\\BulletIce_03.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\sprites\\IceSpell_F1.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\sprites\\IceSpell_F0.h": {
+			"sdcard": false
+		},
+		"\\IceSpell_F0.png": {
+			"sdcard": false
+		},
+		"\\IceSpell_F0 - Copy.png": {
+			"sdcard": false
+		},
+		"\\IceSpell_F1.png": {
+			"sdcard": false
+		},
+		"\\IceSpell_F1 - Copy.png": {
+			"sdcard": false
+		},
+		"\\IceSpell_F1 - Copy (2).png": {
+			"sdcard": false
+		},
+		"\\IceSpell_F1 - Copy (3).png": {
+			"sdcard": false
+		},
+		"\\IceSpell_F1 - Copy (4).png": {
+			"sdcard": false
+		},
+		"\\IceSpell_F1 - Copy (5).png": {
+			"sdcard": false
+		},
+		"\\IceSpell_F1 - Copy (6).png": {
+			"sdcard": false
+		},
+		"\\IceSpell_F1 - Copy (7).png": {
+			"sdcard": false
+		},
+		"\\IceSpell_F1 - Copy (8).png": {
+			"sdcard": false
+		},
+		"\\IceSpell_F1 - Copy (9).png": {
+			"sdcard": false
+		},
+		"\\IceSpell_F2.png": {
+			"sdcard": false
+		},
+		"\\IceSpell_F4.png": {
+			"sdcard": false
+		},
+		"\\IceSpell_F5.png": {
+			"sdcard": false
+		},
+		"\\IceSpell_F6.png": {
+			"sdcard": false
+		},
+		"\\IceSpell_F7.png": {
+			"sdcard": false
+		},
+		"\\IceSpell_F8.png": {
+			"sdcard": false
+		},
+		"\\IceSpell_F9.png": {
+			"sdcard": false
+		},
+		"\\IceSpell_F10.png": {
+			"sdcard": false
+		},
+		"\\IceSpell_F11.png": {
+			"sdcard": false
+		},
+		"\\IceSpell_F3.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\scoreboard\\IceSpell_F4.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\scoreboard\\IceSpell_F5.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\scoreboard\\IceSpell_F6.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\scoreboard\\IceSpell_F7.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\scoreboard\\IceSpell_F8.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\scoreboard\\IceSpell_F9.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\scoreboard\\IceSpell_F10.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\scoreboard\\IceSpell_F11.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\scoreboard\\IceSpell_F0.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\scoreboard\\IceSpell_F1.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\scoreboard\\IceSpell_F2.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\scoreboard\\IceSpell_F3.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\scoreboard\\IceSpell_F0.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\scoreboard\\IceSpell_F2.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\scoreboard\\IceSpell_F1.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\scoreboard\\IceSpell_F3.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\scoreboard\\IceSpell_F4.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\scoreboard\\IceSpell_F5.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\scoreboard\\IceSpell_F6.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\scoreboard\\IceSpell_F7.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\scoreboard\\IceSpell_F8.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\scoreboard\\IceSpell_F11.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\scoreboard\\IceSpell_F10.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\scoreboard\\IceSpell_F9.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\scoreboard\\IceSpell_Scoreboard_F0.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\scoreboard\\IceSpell_Scoreboard_F11.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\scoreboard\\IceSpell_Scoreboard_F10.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\scoreboard\\IceSpell_Scoreboard_F9.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\scoreboard\\IceSpell_Scoreboard_F8.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\scoreboard\\IceSpell_Scoreboard_F7.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\scoreboard\\IceSpell_Scoreboard_F6.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\scoreboard\\IceSpell_Scoreboard_F5.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\scoreboard\\IceSpell_Scoreboard_F4.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\scoreboard\\IceSpell_Scoreboard_F3.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\scoreboard\\IceSpell_Scoreboard_F2.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\scoreboard\\IceSpell_Scoreboard_F1.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\scoreboard\\IceSpell_Scoreboard_F0.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\scoreboard\\IceSpell_Scoreboard_F11.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\scoreboard\\IceSpell_Scoreboard_F10.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\scoreboard\\IceSpell_Scoreboard_F9.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\scoreboard\\IceSpell_Scoreboard_F8.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\scoreboard\\IceSpell_Scoreboard_F7.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\scoreboard\\IceSpell_Scoreboard_F6.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\scoreboard\\IceSpell_Scoreboard_F5.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\scoreboard\\IceSpell_Scoreboard_F4.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\scoreboard\\IceSpell_Scoreboard_F3.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\scoreboard\\IceSpell_Scoreboard_F1.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\scoreboard\\IceSpell_Scoreboard_F2.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\sprites\\43d1c38dae394b8181120e06df46868eb75a20bc.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\43d1c38dae394b8181120e06df46868eb75a20bc.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemies\\43d1c38dae394b8181120e06df46868eb75a20bc.png": {
+			"sdcard": false
 		}
 	},
 	"BUILDFlags": {

@@ -201,7 +201,7 @@ bool MapInformation::isWalkable(uint16_t x, uint16_t y, Direction direction, uin
         case MapTiles::NewSpearDoorRHSOpen:
         case MapTiles::NewSpearDoorTOPOpen:
         case MapTiles::NewSpearDoorBOTOpen:
-        case MapTiles::WormHole:
+        case MapTiles::WormHole_F0:
             walk = true;
             break;
 
@@ -601,7 +601,7 @@ bool MapInformation::isWalkable(uint16_t x, uint16_t y, Direction direction, uin
             case MapTiles::NewSpearDoorRHSOpen:
             case MapTiles::NewSpearDoorTOPOpen:
             case MapTiles::NewSpearDoorBOTOpen:
-            case MapTiles::WormHole:
+            case MapTiles::WormHole_F0:
                 walk = true;
                 break;
 

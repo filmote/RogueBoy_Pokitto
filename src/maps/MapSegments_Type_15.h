@@ -129,8 +129,10 @@ const uint8_t MAP_Segment_Type15_01[] = {
 
     // Enemy Options ---------------------
     // Opt , Object, x, y, Health 
-    0,
-
+    1,
+    0,Object::IceSpell,0,4,0,
+    END_OF_OPTIONS,
+    
     // Entrance / Exit Options -----------
     1,
     2,4

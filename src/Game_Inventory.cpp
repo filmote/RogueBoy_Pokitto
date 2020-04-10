@@ -92,6 +92,13 @@ void Game::showInventory() {
             
                             switch (inventoryItem.type) {
             
+                                case Object::IceSpell:
+
+                                    this->player.setWeapon(Weapon::IceSpell);
+                                    itemUsed = true;
+                                    inventoryItem.quantity--;  
+                                    break;
+            
                                 case Object::Key:
                                 case Object::Spanner:
                                 case Object::Potion:

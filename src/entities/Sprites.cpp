@@ -117,6 +117,10 @@ void Sprites::render(Player &player) {
                     PD::drawBitmap(x + offset, y + offset, Images::Potion);
                     break;
 
+                case Object::IceSpell:
+                    PD::drawBitmap(x + offset, y + offset, Images::IceSpell[frame]);
+                    break;
+
             }
 
         }

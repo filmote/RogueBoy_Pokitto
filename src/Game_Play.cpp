@@ -7,6 +7,14 @@ using PS = Pokitto::Sound;
 
 void Game::updateObjects() {
 
+
+    // Update weapon statistics ..
+
+    this->player.decWeaponCount();
+
+
+    // Update other objects ..
+
     for (uint8_t i = 0; i < this->objects.getObjectNum(); i++) {
 
         auto &objectI = this->objects.getSprite(i);
@@ -33,6 +41,7 @@ void Game::updateObjects() {
                 }
 
             }
+
 
             if (update) { this->spriteAI(map, player, objectI); }
 
@@ -62,6 +71,7 @@ void Game::updateObjects() {
                     case Object::Ham: 
                     case Object::Spanner: 
                     case Object::Potion:             
+                    case Object::IceSpell:             
                         {
                             uint8_t slot = this->player.addInventoryItem(static_cast<Object>(type));
 
@@ -360,7 +370,10 @@ void Game::playerMovement() {
 
             if (bullets.getBullet(i).getActive() == false) {
 
-                bullets.getBullet(i).setBullet(x, y, direction);
+                const int32_t xOffsets[8] = { 0, 2, 2, 2, 0, -2, -2, -2 };
+                const int32_t yOffsets[8] = { -6, -6, 0, 6, 6, 6, 0, -2 };
+
+                bullets.getBullet(i).setBullet(x + xOffsets[static_cast<uint8_t>(direction)], y + yOffsets[static_cast<uint8_t>(direction)], direction, this->player.getWeapon());
                 //sound.tone(NOTE_F2H,50);
                 break;
 
@@ -409,7 +422,7 @@ void Game::playerMovement() {
                 gameState = GameState::EndOfLevel;
                 break;
 
-            case MapTiles::WormHole:
+            case MapTiles::WormHole_F0:
                 this->interactWithBlock(relx, rely, block);
                 break;
 
@@ -558,7 +571,7 @@ bool Game::interactWithBlock(int x, int y, MapTiles block) {
                 return false;
             } 
 
-        case MapTiles::WormHole:
+        case MapTiles::WormHole_F0:
             {
                 for (uint8_t i = 0; i < this->environments.getEnvironmentNum(); i++) {
 
@@ -750,8 +763,9 @@ void Game::dropItem(uint16_t x, uint16_t y, bool EnDrop, Sprites &objects) {
 
 void Game::spriteAI(MapInformation map, Player &player, Sprite &sprite) {
 
-    uint16_t x = sprite.getX();
-    uint16_t y = sprite.getY();
+    Point location;
+    location.x = sprite.getX();
+    location.y = sprite.getY();
         
     switch(sprite.getType()) {
 
@@ -767,11 +781,18 @@ void Game::spriteAI(MapInformation map, Player &player, Sprite &sprite) {
         case Object::Floater:            
         case Object::Skull:     
 
-            if (this->map.getDistance(x, y, player.getX(), player.getY()) <= 5) {
-                if (x < player.getX() && this->map.isWalkable(x + 1, y, Direction::Right, 12, 12))   { x++; }
-                if (x > player.getX() && this->map.isWalkable(x - 1, y, Direction::Left, 12, 12))    { x--; }
-                if (y < player.getY() && this->map.isWalkable(x, y + 1, Direction::Down, 12, 12))    { y++; }
-                if (y > player.getY() && this->map.isWalkable(x, y - 1, Direction::Up, 12, 12))      { y--; }
+            switch (this->player.getWeapon()) {
+
+                case Weapon::FireBall:
+                    this->spriteAI_UpdateEnemy(location, map, player, 12);
+                    break;
+
+                case Weapon::IceSpell:
+                    if (this->player.getWeaponCount() % 2 == 0) {
+                        this->spriteAI_UpdateEnemy(location, map, player, 12);
+                    }
+                    break;
+
             }
 
             break;
@@ -783,11 +804,22 @@ void Game::spriteAI(MapInformation map, Player &player, Sprite &sprite) {
                 sprite.setFrame(sprite.getFrame() % 2);
             } 
 
-            if (this->map.getDistance(x, y, player.getX(), player.getY()) <= 7) {
-                if (x < player.getX() && this->map.isWalkable(x + 1, y, Direction::Right, 8, 8))   { x++; }
-                if (x > player.getX() && this->map.isWalkable(x - 1, y, Direction::Left, 8, 8))    { x--; }
-                if (y < player.getY() && this->map.isWalkable(x, y + 1, Direction::Down, 8, 8))    { y++; }
-                if (y > player.getY() && this->map.isWalkable(x, y - 1, Direction::Up, 8, 8))      { y--; }
+            if (this->map.getDistance(location.x, location.y, player.getX(), player.getY()) <= 7) {
+
+                switch (this->player.getWeapon()) {
+
+                    case Weapon::FireBall:
+                        this->spriteAI_UpdateEnemy(location, map, player, 8);
+                        break;
+
+                    case Weapon::IceSpell:
+                        if (this->player.getWeaponCount() % 2 == 0) {
+                            this->spriteAI_UpdateEnemy(location, map, player, 8);
+                        }
+                        break;
+
+                }
+                
             }
 
             break;
@@ -799,22 +831,44 @@ void Game::spriteAI(MapInformation map, Player &player, Sprite &sprite) {
                 sprite.setFrame(sprite.getFrame() % 2);
             } 
 
-            if (this->map.getDistance(x, y, player.getX(), player.getY()) <= 7) {
-                if (x < player.getX() && this->map.isWalkable(x + 1, y, Direction::Right, 16, 16))   { x++; }
-                if (x > player.getX() && this->map.isWalkable(x - 1, y, Direction::Left, 16, 16))    { x--; }
-                if (y < player.getY() && this->map.isWalkable(x, y + 1, Direction::Down, 16, 16))    { y++; }
-                if (y > player.getY() && this->map.isWalkable(x, y - 1, Direction::Up, 16, 16))      { y--; }
+            if (this->map.getDistance(location.x, location.y, player.getX(), player.getY()) <= 7) {
+                
+                switch (this->player.getWeapon()) {
+
+                    case Weapon::FireBall:
+                        this->spriteAI_UpdateEnemy(location, map, player, 8);
+                        break;
+
+                    case Weapon::IceSpell:
+                        if (this->player.getWeaponCount() % 2 == 0) {
+                            this->spriteAI_UpdateEnemy(location, map, player, 8);
+                        }
+                        break;
+
+                }
+
             }
 
             break;
 
         case Object::Bat: 
 
-            if (this->map.getDistance(x, y, player.getX(), player.getY()) < 7) {
-                if (x < player.getX() && this->map.isWalkable(x + 1, y, Direction::Right, 12, 12))   { x++; }
-                if (x > player.getX() && this->map.isWalkable(x - 1, y, Direction::Left, 12, 12))    { x--; }
-                if (y < player.getY() && this->map.isWalkable(x, y + 1, Direction::Down, 12, 12))    { y++; }
-                if (y > player.getY() && this->map.isWalkable(x, y - 1, Direction::Up, 12, 12))      { y--; }
+            if (this->map.getDistance(location.x, location.y, player.getX(), player.getY()) < 7) {
+
+                switch (this->player.getWeapon()) {
+
+                    case Weapon::FireBall:
+                        this->spriteAI_UpdateEnemy(location, map, player, 12);
+                        break;
+
+                    case Weapon::IceSpell:
+                        if (this->player.getWeaponCount() % 2 == 0) {
+                            this->spriteAI_UpdateEnemy(location, map, player, 12);
+                        }
+                        break;
+
+                }
+
             }
 
             if (Pokitto::Core::frameCount % 5 == 0) { 
@@ -824,9 +878,29 @@ void Game::spriteAI(MapInformation map, Player &player, Sprite &sprite) {
 
             break;
 
+        case Object::IceSpell: 
+
+            if (Pokitto::Core::frameCount % 16 == 0) { 
+                sprite.setFrame(sprite.getFrame() + 1); 
+                sprite.setFrame(sprite.getFrame() % 2);
+            } 
+
+            break;
+
     }
 
-    sprite.setPosition(x, y);
+    sprite.setPosition(location.x, location.y);
+
+}
+
+void Game::spriteAI_UpdateEnemy(Point &point, MapInformation map, Player &player, uint8_t size) {
+
+    if (map.getDistance(point.x, point.y, player.getX(), player.getY()) <= 5) {
+        if (point.x < player.getX() && map.isWalkable(point.x + 1, point.y, Direction::Right, size, size))   { point.x++; }
+        if (point.x > player.getX() && map.isWalkable(point.x - 1, point.y, Direction::Left, size, size))    { point.x--; }
+        if (point.y < player.getY() && map.isWalkable(point.x, point.y + 1, Direction::Down, size, size))    { point.y++; }
+        if (point.y > player.getY() && map.isWalkable(point.x, point.y - 1, Direction::Up, size, size))      { point.y--; }
+    }
 
 }
 

@@ -43,6 +43,10 @@ bool Player::getMoving() {
     return this->moving; 
 }
 
+Weapon Player::getWeapon() { 
+    return this->weapon; 
+}
+
 void Player::setX(uint16_t x) { 
     this->x = x; 
 }
@@ -74,6 +78,50 @@ void Player::setFrame(uint8_t frame) {
 
 void Player::setMoving(bool moving) { 
     this->moving = moving; 
+}
+
+void Player::setWeapon(Weapon weapon) { 
+    this->weapon = weapon; 
+
+    switch (weapon) {
+
+        case Weapon::IceSpell:
+            this->weaponCount = ICE_SPELL_DELAY;
+            break;
+
+        default: 
+            break;
+
+    }
+
+}
+
+void Player::decWeaponCount() {
+
+    if (this->weaponCount > 0) {
+
+        this->weaponCount--;
+
+        if (this->weaponCount == 0) {
+
+            this->weapon = Weapon::FireBall;
+
+        }
+
+    }
+
+}
+
+uint8_t Player::getWeaponFrame() {
+
+    return this->weaponCount / ICE_SPELL_DELAY_INC;
+    
+}
+
+uint32_t Player::getWeaponCount() {
+
+    return this->weaponCount;
+    
 }
 
 void Player::incFrame() {
