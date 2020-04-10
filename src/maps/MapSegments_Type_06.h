@@ -202,7 +202,7 @@ const uint8_t MAP_Segment_Type06_03[] = {
     1,Object::Floater,7,6,40,
     2,Object::Bat,4,7,40,
     2,Object::Skull,1,6,40,
-    2,Object::Ham,7,6,0,
+    2,Object::Chicken,7,6,0,
     END_OF_OPTIONS,
 
     // Entrance / Exit Options -----------
@@ -260,7 +260,7 @@ const uint8_t MAP_Segment_Type06_04[] = {
     1,Object::Floater,2,2,40,
     2,Object::Bat,3,7,40,
     2,Object::Skull,2,2,40,
-    2,Object::Ham,5,7,0,
+    2,Object::Chicken,5,7,0,
     END_OF_OPTIONS,
 
     // Entrance / Exit Options -----------

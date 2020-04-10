@@ -16,6 +16,8 @@ class Sprite {
 
         uint16_t getX()                 { return this->x; }
         uint16_t getY()                 { return this->y; }
+        uint8_t getWidth()              { return this->width; }
+        uint8_t getHeight()             { return this->height; }
         int8_t getOffset()              { return this->offset; }
         uint8_t getFrame()              { return this->frame; }
         Object getType()                { return this->type; }
@@ -62,6 +64,8 @@ class Sprite {
 
             this->x = x;
             this->y = y;
+            this->width = this->widths[static_cast<uint8_t>(type)];
+            this->height = this->heights[static_cast<uint8_t>(type)];;
             this->health = health;
             this->healthOrig = health;
             this->type = type;
@@ -165,6 +169,8 @@ class Sprite {
         int8_t offset;
         uint16_t x;
         uint16_t y;
+        uint16_t width;
+        uint16_t height;
         int16_t health;
         int16_t healthOrig;
         Object type;
@@ -176,6 +182,37 @@ class Sprite {
         bool preventImmediatePickup;
         uint8_t renderHealthBar;
 
+        const uint8_t widths[13] =  { 
+            8,  /* Coin */
+            8,  /* SackOfCash */
+            8,  /* Bread */
+            8,  /* Key */
+            8,  /* Chicken */
+            8,  /* Floater */
+            10, /* Skull */
+            8,  /* Spider */
+            8,  /* Bat */
+            12, /* Spanner */
+            8,  /* Potion */
+            16, /* BigSpider */
+            13, /* IceSpell */
+        };
+
+        const uint8_t heights[13] = { 
+            8,  /* Coin */
+            8,  /* SackOfCash */
+            8,  /* Bread */
+            8,  /* Key */
+            8,  /* Chicken */
+            8,  /* Floater */  
+            9,  /* Skull */
+            8,  /* Spider */
+            8,  /* Bat */
+            12, /* Spanner */
+            8,  /* Potion */
+            16, /* BigSpider */
+            11, /* IceSpell */
+        };
 };
 
 

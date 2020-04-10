@@ -96,7 +96,7 @@ void Game::endOfLevel() {
     PD::setCursor(73, 52);
     this->printPaddedNumber(this->points + pts, 4);
     
-    if ((PC::frameCount % 10400 == 0) || (PC::buttons.pressed(BTN_A))) {  //SJH 400
+    if ((PC::frameCount % 400 == 0) || (PC::buttons.pressed(BTN_A))) {  
 
         if (this->randomLevel) { this->mapRandomLow++; }
         gameState = GameState::LoadMap;

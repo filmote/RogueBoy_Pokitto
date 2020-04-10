@@ -102,7 +102,7 @@ const uint8_t MAP_Segment_Type05_01[] = {
     0,Object::Coin,2,3,0,
     0,Object::Spider,6,5,40,
     0,Object::Spider,5,6,40,
-    1,Object::Ham,6,6,0,
+    1,Object::Chicken,6,6,0,
     1,Object::Spider,2,2,60,
     1,Object::Bat,3,2,40,
     1,Object::Bat,2,3,40,

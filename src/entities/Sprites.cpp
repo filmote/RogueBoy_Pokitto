@@ -95,8 +95,8 @@ void Sprites::render(Player &player) {
                     PD::drawBitmap(x + offset, y + offset, Images::Key);
                     break;
 
-                case Object::Ham:
-                    PD::drawBitmap(x + offset, y + offset, Images::Ham);
+                case Object::Chicken:
+                    PD::drawBitmap(x + offset, y + offset, Images::Chicken);
                     break;
 
                 case Object::Floater:

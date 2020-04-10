@@ -68,7 +68,7 @@ void Game::updateObjects() {
 
                     case Object::Key: 
                     case Object::Bread: 
-                    case Object::Ham: 
+                    case Object::Chicken: 
                     case Object::Spanner: 
                     case Object::Potion:             
                     case Object::IceSpell:             
@@ -97,23 +97,28 @@ void Game::updateObjects() {
                             switch (type) {
 
                                 case Object::Floater:   
-                                    //SJH player.setHealth(player.getHealth() - (10 * diff)); 
+                                    //SJH 
+                                    player.setHealth(player.getHealth() - (10 * diff)); 
                                     break;
 
                                 case Object::Skull: 
-                                    //SJH player.setHealth(player.getHealth() - (5 * diff)); 
+                                    //SJH 
+                                    player.setHealth(player.getHealth() - (5 * diff)); 
                                     break;
 
                                 case Object::Spider:
-                                    //SJH player.setHealth(player.getHealth() - (2 * diff)); 
+                                    //SJH 
+                                    player.setHealth(player.getHealth() - (2 * diff)); 
                                     break;
 
                                 case Object::BigSpider:
-                                    //SJH player.setHealth(player.getHealth() - (6 * diff)); 
+                                    //SJH 
+                                    player.setHealth(player.getHealth() - (6 * diff)); 
                                     break;
 
                                 case Object::Bat: 
-                                    //SJH player.setHealth(player.getHealth() - diff); 
+                                    //SJH 
+                                    player.setHealth(player.getHealth() - diff); 
                                     break;
 
                             }
@@ -253,6 +258,36 @@ void Game::updateGame() {
 
 }
 
+bool Game::isBlockedByEnemy(Player player, uint16_t playerX, uint16_t playerY) {
+
+    Rect playerRect = { playerX - (player.getWidth() / 2), playerY - (player.getHeight() / 2), player.getWidth(), player.getHeight() };
+
+    for (uint8_t i = 0; i < this->objects.getObjectNum(); i++) {
+
+        auto &object = this->objects.getSprite(i);
+
+        if (object.getActive() && object.isEnemy()) {
+            
+            Rect objectRect = { object.getX() - (object.getWidth() / 2),  object.getY() - (object.getHeight() / 2), object.getWidth(), object.getHeight() };
+
+            if (collide(playerRect, objectRect)) return true;
+
+        }
+
+    }
+
+    return false;
+
+}
+
+bool Game::isBlockedByPlayer(Player player, Sprite enemy, uint16_t enemyX, uint16_t enemyY) {
+   
+    Rect playerRect = { this->player.getX() - (player.getWidth() / 2), this->player.getY() - (player.getHeight() / 2), player.getWidth(), player.getHeight() };
+    Rect enemyRect = { enemyX - (enemy.getWidth() / 2), enemyY - (enemy.getHeight() / 2), enemy.getWidth(), enemy.getHeight() };
+
+    return collide(playerRect, enemyRect);
+
+}
 
 void Game::playerMovement() {
 
@@ -265,7 +300,7 @@ void Game::playerMovement() {
 
     if ((PC::buttons.pressed(BTN_UP) || PC::buttons.repeat(BTN_UP, 1))) {
 
-        if (this->map.isWalkable(x, y - 2, Direction::Up, 8, 12)) {
+        if (this->map.isWalkable(x, y - 2, Direction::Up, this->player.getWidth(), this->player.getHeight()) && !isBlockedByEnemy(this->player, x, y - 2)) {
             y-=2;
             moving = true;
         }
@@ -276,7 +311,7 @@ void Game::playerMovement() {
 
     if ((PC::buttons.pressed(BTN_DOWN) || PC::buttons.repeat(BTN_DOWN, 1))) {
 
-        if (this->map.isWalkable(x, y + 2, Direction::Down, 8, 12)) {
+        if (this->map.isWalkable(x, y + 2, Direction::Down, this->player.getWidth(), this->player.getHeight()) && !isBlockedByEnemy(this->player, x, y + 2)) {
             y+=2;
             moving = true;
         }
@@ -287,7 +322,7 @@ void Game::playerMovement() {
 
     if ((PC::buttons.pressed(BTN_RIGHT) || PC::buttons.repeat(BTN_RIGHT, 1))) {
 
-        if (this->map.isWalkable(x + 2, y, Direction::Right, 8, 12)) {
+        if (this->map.isWalkable(x + 2, y, Direction::Right, this->player.getWidth(), this->player.getHeight()) && !isBlockedByEnemy(this->player, x + 2, y)) {
             x+=2;
             moving = true;
         }
@@ -312,7 +347,7 @@ void Game::playerMovement() {
     
     if ((PC::buttons.pressed(BTN_LEFT) || PC::buttons.repeat(BTN_LEFT, 1))) {
 
-        if (this->map.isWalkable(x - 2, y, Direction::Left, 8, 12)) {
+        if (this->map.isWalkable(x - 2, y, Direction::Left, this->player.getWidth(), this->player.getHeight()) && !isBlockedByEnemy(this->player, x - 2, y)) {
             x-=2;
             moving = true;
         }
@@ -713,8 +748,8 @@ void Game::dropItem(uint16_t x, uint16_t y, bool EnDrop, Sprites &objects) {
             switch (id) {
                 
                 case 1: offset = 12;  break; //Coin
-                case 3: offset = 9;   break; //Jelly Filled Doughnut
-                case 5: offset = 11;  break; //Ham
+                case 3: offset = 9;   break; //Doughnut
+                case 5: offset = 11;  break; //Chicken
                 
             }
             if (!EnDrop) {
@@ -741,9 +776,9 @@ void Game::dropItem(uint16_t x, uint16_t y, bool EnDrop, Sprites &objects) {
 
             switch (id) {
                 
-                case 1: offset = 12;  break; //Coin
-                case 3: offset = 9;   break; //Jelly Filled Doughnut
-                case 5: offset = 11;  break; //Ham
+                case 1: offset = 12;  break; // Coin
+                case 3: offset = 9;   break; // Doughnut
+                case 5: offset = 11;  break; // Chicken
                 
             }
 
@@ -761,7 +796,7 @@ void Game::dropItem(uint16_t x, uint16_t y, bool EnDrop, Sprites &objects) {
 }
 
 
-void Game::spriteAI(MapInformation map, Player &player, Sprite &sprite) {
+void Game::spriteAI(MapInformation &map, Player &player, Sprite &sprite) {
 
     Point location;
     location.x = sprite.getX();
@@ -784,12 +819,12 @@ void Game::spriteAI(MapInformation map, Player &player, Sprite &sprite) {
             switch (this->player.getWeapon()) {
 
                 case Weapon::FireBall:
-                    this->spriteAI_UpdateEnemy(location, map, player, 12);
+                    this->spriteAI_UpdateEnemy(location, map, player, sprite);
                     break;
 
                 case Weapon::IceSpell:
                     if (this->player.getWeaponCount() % 2 == 0) {
-                        this->spriteAI_UpdateEnemy(location, map, player, 12);
+                        this->spriteAI_UpdateEnemy(location, map, player, sprite);
                     }
                     break;
 
@@ -809,12 +844,12 @@ void Game::spriteAI(MapInformation map, Player &player, Sprite &sprite) {
                 switch (this->player.getWeapon()) {
 
                     case Weapon::FireBall:
-                        this->spriteAI_UpdateEnemy(location, map, player, 8);
+                        this->spriteAI_UpdateEnemy(location, map, player, sprite);
                         break;
 
                     case Weapon::IceSpell:
                         if (this->player.getWeaponCount() % 2 == 0) {
-                            this->spriteAI_UpdateEnemy(location, map, player, 8);
+                            this->spriteAI_UpdateEnemy(location, map, player, sprite);
                         }
                         break;
 
@@ -836,12 +871,12 @@ void Game::spriteAI(MapInformation map, Player &player, Sprite &sprite) {
                 switch (this->player.getWeapon()) {
 
                     case Weapon::FireBall:
-                        this->spriteAI_UpdateEnemy(location, map, player, 8);
+                        this->spriteAI_UpdateEnemy(location, map, player, sprite);
                         break;
 
                     case Weapon::IceSpell:
                         if (this->player.getWeaponCount() % 2 == 0) {
-                            this->spriteAI_UpdateEnemy(location, map, player, 8);
+                            this->spriteAI_UpdateEnemy(location, map, player, sprite);
                         }
                         break;
 
@@ -858,12 +893,12 @@ void Game::spriteAI(MapInformation map, Player &player, Sprite &sprite) {
                 switch (this->player.getWeapon()) {
 
                     case Weapon::FireBall:
-                        this->spriteAI_UpdateEnemy(location, map, player, 12);
+                        this->spriteAI_UpdateEnemy(location, map, player, sprite);
                         break;
 
                     case Weapon::IceSpell:
                         if (this->player.getWeaponCount() % 2 == 0) {
-                            this->spriteAI_UpdateEnemy(location, map, player, 12);
+                            this->spriteAI_UpdateEnemy(location, map, player, sprite);
                         }
                         break;
 
@@ -893,13 +928,13 @@ void Game::spriteAI(MapInformation map, Player &player, Sprite &sprite) {
 
 }
 
-void Game::spriteAI_UpdateEnemy(Point &point, MapInformation map, Player &player, uint8_t size) {
+void Game::spriteAI_UpdateEnemy(Point &point, MapInformation &map, Player &player, Sprite &enemy) {
 
     if (map.getDistance(point.x, point.y, player.getX(), player.getY()) <= 5) {
-        if (point.x < player.getX() && map.isWalkable(point.x + 1, point.y, Direction::Right, size, size))   { point.x++; }
-        if (point.x > player.getX() && map.isWalkable(point.x - 1, point.y, Direction::Left, size, size))    { point.x--; }
-        if (point.y < player.getY() && map.isWalkable(point.x, point.y + 1, Direction::Down, size, size))    { point.y++; }
-        if (point.y > player.getY() && map.isWalkable(point.x, point.y - 1, Direction::Up, size, size))      { point.y--; }
+        if (point.x < player.getX() && map.isWalkable(point.x + 1, point.y, Direction::Right, enemy.getWidth(), enemy.getHeight()) && !isBlockedByPlayer(player, enemy, point.x + 1, point.y))   { point.x++; }
+        if (point.x > player.getX() && map.isWalkable(point.x - 1, point.y, Direction::Left, enemy.getWidth(), enemy.getHeight()) && !isBlockedByPlayer(player, enemy, point.x - 1, point.y))    { point.x--; }
+        if (point.y < player.getY() && map.isWalkable(point.x, point.y + 1, Direction::Down, enemy.getWidth(), enemy.getHeight()) && !isBlockedByPlayer(player, enemy, point.x, point.y + 1))    { point.y++; }
+        if (point.y > player.getY() && map.isWalkable(point.x, point.y - 1, Direction::Up, enemy.getWidth(), enemy.getHeight()) && !isBlockedByPlayer(player, enemy, point.x, point.y - 1))      { point.y--; }
     }
 
 }
@@ -958,6 +993,6 @@ Direction Game::getNearestCardinalDirection(Direction direction, Axis axis) {
 
             break;
 
-
     }
+
 }

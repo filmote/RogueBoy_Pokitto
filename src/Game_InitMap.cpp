@@ -11,7 +11,7 @@ const int8_t offsets[] = {
     /* Sack of Cash */  0, 
     /* Bread */         0, 
     /* Key */           0, 
-    /* Ham */           0, 
+    /* Chickens */      0, 
     /* Floater */       0, 
     /* Skull */         0, 
     /* Spider */        0,
@@ -170,7 +170,7 @@ void Game::nextLevelLoad() {
             uint8_t environmentCount = 0;
             uint8_t objectCount = 0;
 
-            const uint8_t * levelToLoad = Map_Random_Test;//SJH this->mapsRandom[randomLevel];
+            const uint8_t * levelToLoad = this->mapsRandom[randomLevel];//Map_Random_Test;//SJH this->mapsRandom[randomLevel];
 
             uint16_t cursor = 0;
             uint8_t xSegments = levelToLoad[cursor++];

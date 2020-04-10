@@ -44,7 +44,7 @@ bool Game::collision(uint16_t x, uint16_t y, uint16_t x1, uint16_t y1) {
 }
 
 
-void Game::barrelBreak(MapInformation map, uint8_t x, uint8_t y, Sprites &objects) {
+void Game::barrelBreak(MapInformation &map, uint8_t x, uint8_t y, Sprites &objects) {
     
     this->map.setBlock(x, y, MapTiles::Rubble);
     dropItem(x, y, false, this->objects);

@@ -5183,6 +5183,12 @@
 		},
 		"\\src\\images\\enemies\\43d1c38dae394b8181120e06df46868eb75a20bc.h": {
 			"sdcard": false
+		},
+		"\\src\\images\\sprites\\Chicken.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\sprites\\Chicken.png": {
+			"sdcard": false
 		}
 	},
 	"BUILDFlags": {

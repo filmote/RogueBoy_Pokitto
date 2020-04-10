@@ -142,9 +142,9 @@ void Game::showInventory() {
                                     }
                                     break;
             
-                                case Object::Ham:
+                                case Object::Chicken:
                                     if (player.getHealth() < 100) {
-                                        player.setHealth(player.getHealth() + HEALTH_INC_HAM); 
+                                        player.setHealth(player.getHealth() + HEALTH_INC_CHICKEN); 
                                         inventoryItem.quantity--;  
                                         itemUsed = true;
                                         //sound health going up

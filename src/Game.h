@@ -26,11 +26,6 @@
 #include "maps/Maps.h"
 #include "maps/MapRandom.h"
 
-struct Cell {
-    uint8_t segment;
-    uint8_t variation;
-    bool isBlank;
-};
 
 class Game {
     
@@ -73,12 +68,16 @@ class Game {
         void updateEnvironmentBlock(MapInformation map, uint8_t x, uint8_t y, Environments &Envi);
 
         void dropItem(uint16_t x, uint16_t y, bool EnDrop, Sprites &Objects);
-        void spriteAI(MapInformation map, Player &player, Sprite &sprite);
-        void spriteAI_UpdateEnemy(Point &point, MapInformation map, Player &player, uint8_t size);
-        void barrelBreak(MapInformation map, uint8_t x,uint8_t y, Sprites &objects);
+        void spriteAI(MapInformation &map, Player &player, Sprite &sprite);
+        void spriteAI_UpdateEnemy(Point &point, MapInformation &map, Player &player, Sprite &enemy);
+        void barrelBreak(MapInformation &map, uint8_t x, uint8_t y, Sprites &objects);
         Direction getNearestCardinalDirection(Direction direction, Axis axis);
         const uint8_t * getSegment(uint8_t segmentType, uint8_t segmentIndex);
         void printPaddedNumber(int32_t number, uint8_t places);
+
+        bool isBlockedByEnemy(Player player, uint16_t playerX, uint16_t playerY);
+        bool isBlockedByPlayer(Player player, Sprite enemy, uint16_t enemyX, uint16_t enemyY);
+
 
         #ifdef DEBUG
         void clearCells();

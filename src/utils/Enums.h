@@ -59,7 +59,7 @@ enum Object {
     SackOCash = 1,
     Bread = 2,
     Key = 3,
-    Ham = 4, 
+    Chicken = 4, 
     Floater = 5,
     Skull = 6,
     Spider = 7, 
@@ -154,7 +154,7 @@ const char object_Desc_00[] = "Coin";
 const char object_Desc_01[] = "Sack of Coins";
 const char object_Desc_02[] = "Bread";
 const char object_Desc_03[] = "Key";
-const char object_Desc_04[] = "Ham";
+const char object_Desc_04[] = "Chicken";
 const char object_Desc_05[] = "Floater";
 const char object_Desc_06[] = "Skull";
 const char object_Desc_07[] = "Spider";

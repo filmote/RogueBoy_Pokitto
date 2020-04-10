@@ -168,7 +168,7 @@ const uint8_t MAP_Segment_Type08_02[] = {
     2,Object::Floater, 2, 2, 40,
     2,Object::Skull, 3, 7, 40,
     2,Object::Skull, 5, 6, 40,
-    2,Object::Ham, 1, 2, 40,
+    2,Object::Chicken, 1, 2, 40,
     END_OF_OPTIONS,
 
     // Entrance / Exit Options -----------
@@ -224,7 +224,7 @@ const uint8_t MAP_Segment_Type08_03[] = {
     1,Object::Floater,1,3,40,
     2,Object::Bat,4,6,40,
     2,Object::Skull,7,3,40,
-    2,Object::Ham,2,1,0,
+    2,Object::Chicken,2,1,0,
     END_OF_OPTIONS,
 
     // Entrance / Exit Options -----------
@@ -280,7 +280,7 @@ const uint8_t MAP_Segment_Type08_04[] = {
     1,Object::Floater,4,6,40,
     2,Object::Bat,4,6,40,
     2,Object::Skull,4,5,40,
-    2,Object::Ham,5,7,0,
+    2,Object::Chicken,5,7,0,
     END_OF_OPTIONS,
 
     // Entrance / Exit Options -----------

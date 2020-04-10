@@ -204,7 +204,7 @@ const uint8_t MAP_Segment_Type09_03[] = {
     1,Object::Floater,6,2,40,
     2,Object::Bat,7,1,40,
     2,Object::Skull,6,2,40,
-    2,Object::Ham,7,7,0,
+    2,Object::Chicken,7,7,0,
     END_OF_OPTIONS,
 
     // Entrance / Exit Options -----------

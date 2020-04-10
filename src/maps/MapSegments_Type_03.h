@@ -265,7 +265,7 @@ const uint8_t MAP_Segment_Type03_04[] = {
     0,Object::Coin,4,5,0,
     1,Object::Bat,3,4,40,
     1,Object::Bat,6,3,40,
-    1,Object::Ham,4,5,0,
+    1,Object::Chicken,4,5,0,
     END_OF_OPTIONS,
 
     // Entrance / Exit Options -----------

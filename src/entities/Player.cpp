@@ -19,6 +19,14 @@ uint16_t Player::getY() {
     return this->y; 
 }
 
+const uint8_t Player::getWidth() { 
+    return 8; 
+}
+
+const uint8_t Player::getHeight() { 
+    return 12; 
+}
+
 Direction Player::getDirection() { 
     return this->direction; 
 }

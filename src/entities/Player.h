@@ -17,6 +17,8 @@ class Player {
 
         uint16_t getX();
         uint16_t getY();
+        const uint8_t getWidth();
+        const uint8_t getHeight();
         Direction getDirection();
         int8_t getHealth();
         uint8_t getCoins();

@@ -4,7 +4,7 @@ namespace Images {
 
     #include "Bread.h"
     #include "Floater.h"
-    #include "Ham.h"
+    #include "Chicken.h"
     #include "Key.h"
     #include "SackOCash.h"
     #include "Skull.h"
