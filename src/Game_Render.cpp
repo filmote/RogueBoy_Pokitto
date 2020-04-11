@@ -352,7 +352,7 @@ void Game::renderEnviroment(int8_t damageOffsetX, int8_t damageOffsetY) {
 
 void Game::renderPlayer(int8_t damageOffsetX, int8_t damageOffsetY) {	
     
-    if(!player.getMoving()) {
+    if (!player.getMoving()) {
 
         PD::drawBitmap(CENTERX - 6 - damageOffsetX, CENTERY - 6 - damageOffsetY, Images::Players[static_cast<uint8_t>(player.getDirection()) * 2 + player.getFrame()]);
 
@@ -365,6 +365,18 @@ void Game::renderPlayer(int8_t damageOffsetX, int8_t damageOffsetY) {
 
         PD::drawBitmap(CENTERX - 6 - damageOffsetX, CENTERY - 6 - damageOffsetY, Images::Players[static_cast<uint8_t>(player.getDirection()) * 2 + player.getFrame()]);
 
+    }
+
+    if (this->shockwave > 0) {
+
+        uint8_t offset = (this->shockwave == 1 ? 29 : 1 + ((9 - this->shockwave) * 4));
+printf("showave %i %i %i\n", this->shockwave, 9 - this->shockwave, offset);
+        PD::drawBitmap(CENTERX - 2 - damageOffsetX - offset, CENTERY - 4 - damageOffsetY - offset, Images::Pulse_TL[8 - this->shockwave]);
+        PD::drawBitmap(CENTERX + 2 - damageOffsetX, CENTERY - 4 - damageOffsetY - offset, Images::Pulse_TR[8 - this->shockwave]);
+
+        PD::drawBitmap(CENTERX - 2 - damageOffsetX - offset, CENTERY + 4 - damageOffsetY, Images::Pulse_TL[8 - this->shockwave], 0, 2);
+        PD::drawBitmap(CENTERX + 2 - damageOffsetX, CENTERY + 4 - damageOffsetY, Images::Pulse_TR[8 - this->shockwave], 0, 2);
+       
     }
 
 }

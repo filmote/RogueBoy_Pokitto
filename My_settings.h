@@ -24,7 +24,7 @@
 
 #define MAXLEVEL            18
 #define MAXOBJECT           200
-#define MAXENVIROMENT       200
+#define MAXENVIROMENT       100
 
 #define MAP_SIZE_X          45
 #define MAP_SIZE_Y          45

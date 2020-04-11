@@ -7,12 +7,9 @@ using PS = Pokitto::Sound;
 
 void Game::updateObjects() {
 
-printf("shake %i\n", this->shake);
-
-    // Update weapon statistics ..
-
     this->player.decWeaponCount();
     if (this->shake > 0) this->shake--;
+    if (this->shockwave > 0) this->shockwave--;
 
 
     // Update other objects ..
@@ -447,15 +444,20 @@ void Game::playerMovement() {
                 const int32_t xOffsets[8] = { 0, 2, 2, 2, 0, -2, -2, -2 };
                 const int32_t yOffsets[8] = { -6, -6, 0, 6, 6, 6, 0, -2 };
 
-                bullets.getBullet(i).setBullet(x + xOffsets[static_cast<uint8_t>(direction)], y + yOffsets[static_cast<uint8_t>(direction)], direction, this->player.getWeapon());
                 //sound.tone(NOTE_F2H,50);
 
 
                 switch (this->player.getWeapon()) {
 
+                    case Object::FireBall:
+                        bullets.getBullet(i).setBullet(x + xOffsets[static_cast<uint8_t>(direction)], y + yOffsets[static_cast<uint8_t>(direction)], direction, this->player.getWeapon());
+                        break;
+
                     case Object::GreenSpell:
                     case Object::YellowSpell:
                         {
+                            bullets.getBullet(i).setBullet(x + xOffsets[static_cast<uint8_t>(direction)], y + yOffsets[static_cast<uint8_t>(direction)], direction, this->player.getWeapon());
+
                             uint8_t slot = this->player.getInventorySlot(this->player.getWeapon());
                             InventoryItem &inventoryItem = this->player.getInventoryItem(slot);
 
@@ -470,10 +472,34 @@ void Game::playerMovement() {
 
                     case Object::MauveSpell:
                         {
+                            printf("Shot Mauve\n");
+                            int16_t xMin = this->player.getX() - 55;
+                            int16_t xMax = this->player.getX() + 55;
+                            int16_t yMin = this->player.getY() - 36;
+                            int16_t yMax = this->player.getY() + 36;
+
+                            for (uint8_t i = 0; i < this->objects.getObjectNum(); i++) {
+
+                                auto &object = this->objects.getSprite(i);
+if (object.getActive() && object.isEnemy()) {
+
+printf("x %i - %i, y %i - %i > %i,%i\n", xMin, xMax, yMin, yMax, object.getX(), object.getY());
+
+}
+
+                                if (object.getActive() && object.isEnemy() && object.getX() >= xMin && object.getX() <= xMax && object.getY() >= yMin & object.getY() <= yMax) {
+printf("Kill\n");
+                                    object.damage(Object::MauveSpell);
+
+                                }
+
+                            }
+                            
                             uint8_t slot = this->player.getInventorySlot(this->player.getWeapon());
                             InventoryItem &inventoryItem = this->player.getInventoryItem(slot);
 
-                            inventoryItem.quantity--;
+                            //SJH inventoryItem.quantity--;
+                            this->shockwave = 9;
 
                             if (inventoryItem.quantity == 0) {
                                 this->player.setWeapon(Object::FireBall);
@@ -877,14 +903,14 @@ void Game::spriteAI(MapInformation &map, Player &player, Sprite &sprite) {
 
             switch (this->player.getWeapon()) {
 
-                case Object::FireBall:
-                    this->spriteAI_UpdateEnemy(location, map, player, sprite);
-                    break;
-
                 case Object::IceSpell:
                     if (this->player.getWeaponCount() % 2 == 0) {
                         this->spriteAI_UpdateEnemy(location, map, player, sprite);
                     }
+                    break;
+
+                default:
+                    this->spriteAI_UpdateEnemy(location, map, player, sprite);
                     break;
 
             }
@@ -902,14 +928,14 @@ void Game::spriteAI(MapInformation &map, Player &player, Sprite &sprite) {
 
                 switch (this->player.getWeapon()) {
 
-                    case Object::FireBall:
-                        this->spriteAI_UpdateEnemy(location, map, player, sprite);
-                        break;
-
                     case Object::IceSpell:
                         if (this->player.getWeaponCount() % 2 == 0) {
                             this->spriteAI_UpdateEnemy(location, map, player, sprite);
                         }
+                        break;
+
+                    default:
+                        this->spriteAI_UpdateEnemy(location, map, player, sprite);
                         break;
 
                 }
@@ -929,14 +955,14 @@ void Game::spriteAI(MapInformation &map, Player &player, Sprite &sprite) {
                 
                 switch (this->player.getWeapon()) {
 
-                    case Object::FireBall:
-                        this->spriteAI_UpdateEnemy(location, map, player, sprite);
-                        break;
-
                     case Object::IceSpell:
                         if (this->player.getWeaponCount() % 2 == 0) {
                             this->spriteAI_UpdateEnemy(location, map, player, sprite);
                         }
+                        break;
+
+                    default:
+                        this->spriteAI_UpdateEnemy(location, map, player, sprite);
                         break;
 
                 }

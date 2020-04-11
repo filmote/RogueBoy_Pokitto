@@ -22,11 +22,11 @@ const uint8_t MAP_Test[] = {
     0,0,0,0,0,0,
     0,0,0,0,0,0,
 
-    /* Object Count */ 4,
+    /* Object Count */ 3,
     Object::GreenSpell,3,5,0,
     Object::YellowSpell,4,5,0,
-//    Object::MauveSpell,5,5,0,
-    Object::Spider, 0, 0, 20,
+    Object::MauveSpell,5,5,0,
+    // Object::Spider, 0, 0, 20,
 
     /* Environment Count */ 0,
 

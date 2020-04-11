@@ -109,6 +109,7 @@ class Game {
         uint8_t splashScreenCounter = 0;
         uint8_t splashScreenMode = 0;
         uint8_t shake = 0;
+        uint8_t shockwave = 0;
 
 //       const uint8_t * maps[18] = { MAP_1, MAP_2, MAP_3, MAP_4, MAP_5, MAP_6, MAP_7, MAP_9, MAP_10, MAP_11, MAP_12, MAP_13, MAP_14, MAP_15, MAP_16, MAP_17, MAP_18 };
 //        const uint8_t * maps[20] = { MAP_Test, MAP_1, MAP_2, MAP_3, MAP_4, MAP_5, MAP_Test, MAP_6, MAP_7, MAP_8, MAP_9, MAP_10, MAP_11, MAP_12, MAP_13, MAP_14, MAP_15, MAP_16, MAP_17, MAP_18,  };

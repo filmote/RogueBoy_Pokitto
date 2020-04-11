@@ -5324,6 +5324,393 @@
 		},
 		"\\src\\images\\sprites\\MauveSpell.h": {
 			"sdcard": false
+		},
+		"\\src\\images\\sprites\\YellowSpell - Copy - Copy.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\sprites\\Pulse_00.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\sprites\\YellowSpell - Copy - Copy (2).png": {
+			"sdcard": false
+		},
+		"\\src\\images\\sprites\\YellowSpell - Copy - Copy (3).png": {
+			"sdcard": false
+		},
+		"\\src\\images\\sprites\\YellowSpell - Copy - Copy (4).png": {
+			"sdcard": false
+		},
+		"\\src\\images\\sprites\\YellowSpell - Copy - Copy (5).png": {
+			"sdcard": false
+		},
+		"\\src\\images\\sprites\\YellowSpell - Copy - Copy (6).png": {
+			"sdcard": false
+		},
+		"\\src\\images\\sprites\\Pulse_01.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\sprites\\Pulse_02.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\sprites\\Pulse_03.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\sprites\\Pulse_04.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\sprites\\Pulse_05.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\sprites\\Pulse_06.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\shockwaves": {
+			"sdcard": false
+		},
+		"\\src\\images\\shockwaves\\Pulse_00.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\shockwaves\\Pulse_01.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\shockwaves\\Pulse_02.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\shockwaves\\Pulse_03.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\shockwaves\\Pulse_04.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\shockwaves\\Pulse_05.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\shockwaves\\Pulse_06.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\shockwaves\\Pulse_06 - Copy.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\shockwaves\\Pulse_07.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\shockwaves\\Shockwaves.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\sprites\\YellowSpell - Copy - Copy.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\shockwaves\\Pulse_00.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\shockwaves\\Pulse_01.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\shockwaves\\Pulse_02.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\shockwaves\\Pulse_03.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\shockwaves\\Pulse_04.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\shockwaves\\Pulse_05.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\shockwaves\\Pulse_06.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\shockwaves\\Pulse_07.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\shockwaves\\Pulse_1_00.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\shockwaves\\Pulse_1_01.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\shockwaves\\Pulse_1_02.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\shockwaves\\Pulse_1_03.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\shockwaves\\Pulse_1_04.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\shockwaves\\Pulse_1_05.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\shockwaves\\Pulse_1_06.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\shockwaves\\Pulse_TR_07.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\shockwaves\\Pulse_TR_06.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\shockwaves\\Pulse_TR_05.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\shockwaves\\Pulse_TR_04.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\shockwaves\\Pulse_TR_03.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\shockwaves\\Pulse_TR_02.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\shockwaves\\Pulse_TR_01.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\shockwaves\\Pulse_TR_00.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\shockwaves\\Pulse_TR_07 - Copy.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\shockwaves\\Pulse_TR_00 - Copy.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\shockwaves\\Pulse_TR_01 - Copy.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\shockwaves\\Pulse_TR_02 - Copy.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\shockwaves\\Pulse_TR_04 - Copy.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\shockwaves\\Pulse_TR_03 - Copy.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\shockwaves\\Pulse_TR_05 - Copy.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\shockwaves\\Pulse_TR_06 - Copy.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\shockwaves\\Pulse_TL_00 (1).png": {
+			"sdcard": false
+		},
+		"\\src\\images\\shockwaves\\Pulse_TL_00 (2).png": {
+			"sdcard": false
+		},
+		"\\src\\images\\shockwaves\\Pulse_TL_00 (3).png": {
+			"sdcard": false
+		},
+		"\\src\\images\\shockwaves\\Pulse_TL_00 (4).png": {
+			"sdcard": false
+		},
+		"\\src\\images\\shockwaves\\Pulse_TL_00 (5).png": {
+			"sdcard": false
+		},
+		"\\src\\images\\shockwaves\\Pulse_TL_00 (6).png": {
+			"sdcard": false
+		},
+		"\\src\\images\\shockwaves\\Pulse_TL_00 (7).png": {
+			"sdcard": false
+		},
+		"\\src\\images\\shockwaves\\Pulse_TL_00 (8).png": {
+			"sdcard": false
+		},
+		"\\src\\images\\shockwaves\\Pulse_TL_00.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\shockwaves\\Pulse_TL_01.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\shockwaves\\Pulse_TL_02.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\shockwaves\\Pulse_TL_03.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\shockwaves\\Pulse_TL_04.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\shockwaves\\Pulse_TL_05.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\shockwaves\\Pulse_TL_06.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\shockwaves\\Pulse_TL_07.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\shockwaves\\Pulse_TL_00.png.~tmp": {
+			"sdcard": false
+		},
+		"\\src\\images\\shockwaves\\Pulse_TL_01.png.~tmp": {
+			"sdcard": false
+		},
+		"\\src\\images\\shockwaves\\Pulse_TL_02.png.~tmp": {
+			"sdcard": false
+		},
+		"\\src\\images\\shockwaves\\Pulse_TL_03.png.~tmp": {
+			"sdcard": false
+		},
+		"\\src\\images\\shockwaves\\Pulse_TL_04.png.~tmp": {
+			"sdcard": false
+		},
+		"\\src\\images\\shockwaves\\Pulse_TL_05.png.~tmp": {
+			"sdcard": false
+		},
+		"\\src\\images\\shockwaves\\Pulse_TL_06.png.~tmp": {
+			"sdcard": false
+		},
+		"\\src\\images\\shockwaves\\Pulse_TL_07.png.~tmp": {
+			"sdcard": false
+		},
+		"\\src\\images\\shockwaves\\Pulse_TL_00 - Copy.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\shockwaves\\Pulse_TL_01 - Copy.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\shockwaves\\Pulse_TL_02 - Copy.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\shockwaves\\Pulse_TL_03 - Copy.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\shockwaves\\Pulse_TL_04 - Copy.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\shockwaves\\Pulse_TL_05 - Copy.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\shockwaves\\Pulse_TL_06 - Copy.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\shockwaves\\Pulse_TL_07 - Copy.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\shockwaves\\Pulse_LL_00.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\shockwaves\\Pulse_LL_01.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\shockwaves\\Pulse_LL_02.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\shockwaves\\Pulse_LL_03.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\shockwaves\\Pulse_LL_04.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\shockwaves\\Pulse_LL_05.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\shockwaves\\Pulse_LL_06.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\shockwaves\\Pulse_LL_07.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\shockwaves\\Pulse_LL_00.png.~tmp": {
+			"sdcard": false
+		},
+		"\\src\\images\\shockwaves\\Pulse_TR_00.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\shockwaves\\Pulse_TL_00.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\shockwaves\\Pulse_TL_01.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\shockwaves\\Pulse_TL_02.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\shockwaves\\Pulse_TL_03.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\shockwaves\\Pulse_TL_04.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\shockwaves\\Pulse_TL_05.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\shockwaves\\Pulse_TL_06.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\shockwaves\\Pulse_TL_07.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\shockwaves\\Pulse_TR_03.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\shockwaves\\Pulse_TR_00 - Copy.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\shockwaves\\Pulse_TR_04.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\shockwaves\\Pulse_TR_05.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\shockwaves\\Pulse_TR_06.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\shockwaves\\Pulse_TR_01.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\shockwaves\\Pulse_TR_07.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\shockwaves\\Pulse_TR_07 - Copy.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\shockwaves\\Pulse_TR_02.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\shockwaves\\Pulse_LL_01.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\shockwaves\\Pulse_LL_02.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\shockwaves\\Pulse_TR_04 - Copy.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\shockwaves\\Pulse_TR_05 - Copy.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\shockwaves\\Pulse_TR_03 - Copy.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\shockwaves\\Pulse_TR_02 - Copy.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\shockwaves\\Pulse_TR_06 - Copy.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\shockwaves\\Pulse_LL_00.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\shockwaves\\Pulse_TR_01 - Copy.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\shockwaves\\Pulse_LL_06.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\shockwaves\\Pulse_LL_07.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\shockwaves\\Pulse_LL_04.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\shockwaves\\Pulse_LL_05.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\shockwaves\\Pulse_LL_03.h": {
+			"sdcard": false
 		}
 	},
 	"BUILDFlags": {

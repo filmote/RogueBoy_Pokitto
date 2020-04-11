@@ -9,6 +9,7 @@
 #include "players/Players.h"
 #include "ppot/PPOT.h"
 #include "levelChange/LevelSplash.h"
+#include "shockwaves/Shockwaves.h"
 
 namespace Images {
 
