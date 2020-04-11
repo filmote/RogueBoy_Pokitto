@@ -9,7 +9,7 @@ using PS = Pokitto::Sound;
 
 void Game::showInventory() {
 
-    this->renderEnviroment();
+    this->renderEnviroment(0, 0);
     this->renderHud();
 
 
@@ -110,14 +110,10 @@ void Game::showInventory() {
                                         break;
                 
                                     case Object::GreenSpell:
-
-                                        this->player.setWeapon(Object::GreenSpell);
-                                        itemUsed = true;
-                                        break;
-                
                                     case Object::YellowSpell:
+                                    case Object::MauveSpell:
 
-                                        this->player.setWeapon(Object::YellowSpell);
+                                        this->player.setWeapon(inventoryItem.type);
                                         itemUsed = true;
                                         break;
                 

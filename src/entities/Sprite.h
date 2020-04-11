@@ -77,9 +77,32 @@ class Sprite {
 
         };
 
-        void damage() {
 
-            this->health -= 10;
+        void damage(Object weapon) {
+
+            switch (weapon) {
+
+                case Object::FireBall:
+                    this->health -= DAMAGE_FIREBALL;
+                    break;
+
+                case Object::IceSpell:
+                    this->health -= DAMAGE_ICESPELL;
+                    break;
+
+                case Object::GreenSpell:
+                    this->health -= DAMAGE_GREENSPELL;
+                    break;
+
+                case Object::YellowSpell:
+                    this->health -= DAMAGE_YELLOWSPELL;
+                    break;
+
+                case Object::MauveSpell:
+                    this->health = 0;
+                    break;
+
+            }
     
             if (this->health <= 0) {
                 this->active = false; 
@@ -185,7 +208,7 @@ class Sprite {
         bool preventImmediatePickup;
         uint8_t renderHealthBar;
 
-        const uint8_t widths[15] =  { 
+        const uint8_t widths[16] =  { 
             8,  /* Coin */
             8,  /* SackOfCash */
             8,  /* Bread */
@@ -201,9 +224,10 @@ class Sprite {
             13, /* IceSpell */
             8,  /* GreenSpell */
             8,  /* YellowSpell */
+            8,  /* MauveSpell */
         };
 
-        const uint8_t heights[15] = { 
+        const uint8_t heights[16] = { 
             8,  /* Coin */
             8,  /* SackOfCash */
             8,  /* Bread */
@@ -219,10 +243,11 @@ class Sprite {
             11, /* IceSpell */
             8,  /* GreenSpell */
             8,  /* YellowSpell */
+            8,  /* MauveSpell */
         };
 
                 
-        const int8_t offsets[15] = { 
+        const int8_t offsets[16] = { 
             0,  /* Coin */
             0,  /* SackOfCash */
             0,  /* Bread */
@@ -238,6 +263,7 @@ class Sprite {
             -2, /* IceSpell */
             0,  /* GreenSpell */
             0,  /* YellowSpell */
+            0,  /* MauveSpell */
         };
 
 };

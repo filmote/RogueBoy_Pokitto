@@ -318,6 +318,7 @@ uint8_t Player::getInventoryCount() {
                 case Object::IceSpell:
                 case Object::GreenSpell:
                 case Object::YellowSpell:
+                case Object::MauveSpell:
                     count = count + 1;
                     break;
 

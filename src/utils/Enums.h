@@ -16,6 +16,7 @@ enum Object {
     IceSpell = 12,
     GreenSpell = 13,
     YellowSpell = 14,
+    MauveSpell = 15,
     FireBall = 255
 };
 
@@ -162,6 +163,7 @@ const char object_Desc_11[] = "Big Spider";
 const char object_Desc_12[] = "Ice Spell";
 const char object_Desc_13[] = "Green";
 const char object_Desc_14[] = "Yellow";
+const char object_Desc_15[] = "Mauve";
 
 const char * const object_Descs[] = { 
     object_Desc_00,
@@ -179,4 +181,5 @@ const char * const object_Descs[] = {
     object_Desc_12,
     object_Desc_13,
     object_Desc_14,
+    object_Desc_15,
 };

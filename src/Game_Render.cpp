@@ -94,6 +94,18 @@ void Game::renderHud() {
             }
             break;
 
+        case Object::MauveSpell:
+            {
+                PD::drawBitmap(94, 75, Images::MauveSpell_Scoreboard);
+                PD::setFont(font3x5);
+                uint8_t items = this->player.getInventoryCount(Object::MauveSpell);
+                PD::setColor(6);
+                PD::setCursor(100,81);
+                this->printPaddedNumber(items, 2);
+                PD::setFont(fontKoubit);
+            }
+            break;
+
     }
 
     PD::setColor(6, 0);
@@ -102,7 +114,7 @@ void Game::renderHud() {
 
 }
 
-void Game::renderEnviroment() {
+void Game::renderEnviroment(int8_t damageOffsetX, int8_t damageOffsetY) {
 
     int tileX = this->map.getTileX(player.getX());
     int tileY = this->map.getTileY(player.getY());
@@ -115,8 +127,8 @@ void Game::renderEnviroment() {
             
             uint8_t block = this->map.getBlock(tileX + i, tileY + j);
 
-            int drawX = (i * 16) + CENTERX - offsetX;
-            int drawY = (j * 16) + CENTERY - offsetY;
+            int drawX = (i * 16) + CENTERX - offsetX + damageOffsetX;
+            int drawY = (j * 16) + CENTERY - offsetY + damageOffsetY;
 
             switch (block) {
 
@@ -338,11 +350,11 @@ void Game::renderEnviroment() {
 
 }
 
-void Game::renderPlayer() {	
+void Game::renderPlayer(int8_t damageOffsetX, int8_t damageOffsetY) {	
     
     if(!player.getMoving()) {
 
-        PD::drawBitmap(CENTERX - 6, CENTERY - 6, Images::Players[static_cast<uint8_t>(player.getDirection()) * 2 + player.getFrame()]);
+        PD::drawBitmap(CENTERX - 6 - damageOffsetX, CENTERY - 6 - damageOffsetY, Images::Players[static_cast<uint8_t>(player.getDirection()) * 2 + player.getFrame()]);
 
     }
     else {
@@ -351,7 +363,7 @@ void Game::renderPlayer() {
             player.incFrame();
         }
 
-        PD::drawBitmap(CENTERX - 6, CENTERY - 6, Images::Players[static_cast<uint8_t>(player.getDirection()) * 2 + player.getFrame()]);
+        PD::drawBitmap(CENTERX - 6 - damageOffsetX, CENTERY - 6 - damageOffsetY, Images::Players[static_cast<uint8_t>(player.getDirection()) * 2 + player.getFrame()]);
 
     }
 

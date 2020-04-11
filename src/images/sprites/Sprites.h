@@ -14,6 +14,7 @@ namespace Images {
     #include "IceSpell_F1.h"
     #include "GreenSpell.h"
     #include "YellowSpell.h"
+    #include "MauveSpell.h"
 
     const uint8_t * const IceSpell[] = { 
         IceSpell_F0,

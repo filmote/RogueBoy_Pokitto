@@ -129,6 +129,10 @@ void Sprites::render(Player &player) {
                     PD::drawBitmap(x + offset, y + offset, Images::YellowSpell);
                     break;
 
+                case Object::MauveSpell:
+                    PD::drawBitmap(x + offset, y + offset, Images::MauveSpell);
+                    break;
+
             }
 
         }

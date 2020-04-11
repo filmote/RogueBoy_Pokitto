@@ -7,10 +7,12 @@ using PS = Pokitto::Sound;
 
 void Game::updateObjects() {
 
+printf("shake %i\n", this->shake);
 
     // Update weapon statistics ..
 
     this->player.decWeaponCount();
+    if (this->shake > 0) this->shake--;
 
 
     // Update other objects ..
@@ -26,6 +28,7 @@ void Game::updateObjects() {
 
             objectI.decHealthBarCounter();
 
+
             // Dow we need to update the object?
 
             bool update = true;
@@ -34,7 +37,7 @@ void Game::updateObjects() {
 
                 auto &objectJ = this->objects.getSprite(j);
 
-                if (j < i && objectJ.getActive() && this->collision(objectI.getX(), objectI.getY(), objectJ.getX(), objectJ.getY()) && (objectJ.getType() >= 6)) {
+                if (j < i && objectJ.getActive() && this->collision(objectI, objectJ) && (objectJ.getType() >= 6)) {
 
                     update = false;
 
@@ -48,7 +51,7 @@ void Game::updateObjects() {
 
             // Has a collision between two objects occurred ?
 
-            if (!objectI.getPreventImmediatePickup() && this->collision(objectI.getX(), objectI.getY(), player.getX(), player.getY())) {
+            if (!objectI.getPreventImmediatePickup() && this->collision(player, objectI, true)) {
 
                 uint16_t note = 0;
                 uint16_t duration = 0;
@@ -72,6 +75,7 @@ void Game::updateObjects() {
                     case Object::Spanner:
                     case Object::Potion:
                     case Object::IceSpell:
+                    case Object::MauveSpell:
                         {
                             uint8_t slot = this->player.addInventoryItem(static_cast<Object>(type), 1);
 
@@ -107,6 +111,10 @@ void Game::updateObjects() {
                     case Object::Spider:
                     case Object::BigSpider:
                     case Object::Bat:
+
+                        if (this->shake < 3) {
+                            this->shake = this->shake + 2;
+                        }
 
                         if (PC::frameCount % 5 == 0) { 
 
@@ -232,9 +240,9 @@ void Game::updateObjects() {
 
                     auto &object = this->objects.getSprite(i);
 
-                    if (object.getActive() && object.isEnemy() && this->collision(object.getX()-4, object.getY()-4, bullet.getX()-4, bullet.getY()-4)) {
+                    if (object.getActive() && object.isEnemy() && this->collision(object, bullet)) {
 
-                        object.damage();
+                        object.damage(bullet.getWeapon());
                         bullet.setActive(false);
 
                         if (!object.getActive()) {
@@ -256,10 +264,25 @@ void Game::updateObjects() {
 
 void Game::updateGame() {
     
+    // const uint8_t offX[4] = { 0, 1, 0, -1 };
+    // const uint8_t offY[4] = { 1, 0, -1, 0 };
+    // const uint8_t offX[4] = { 1, -1,};
+    // const uint8_t offY[4] = { -1, 1 };
+    const uint8_t offX[4] = { 1, 0,};
+    const uint8_t offY[4] = { 0, 1 };
+
     this->playerMovement();
     this->updateObjects();
-    this->renderEnviroment();
-    this->renderPlayer();
+
+    if (this->shake > 0) {
+        this->renderEnviroment(offX[(this->shake - 1) % 2], offY[(this->shake - 1) % 2]);
+        this->renderPlayer(offX[(this->shake - 1) % 2], offY[(this->shake - 1) % 2]);
+    }
+    else {
+        this->renderEnviroment(0, 0);
+        this->renderPlayer(0, 0);
+    }
+
     this->renderObjects();
     this->renderHud();
     
@@ -444,6 +467,21 @@ void Game::playerMovement() {
 
                         }
                         break;
+
+                    case Object::MauveSpell:
+                        {
+                            uint8_t slot = this->player.getInventorySlot(this->player.getWeapon());
+                            InventoryItem &inventoryItem = this->player.getInventoryItem(slot);
+
+                            inventoryItem.quantity--;
+
+                            if (inventoryItem.quantity == 0) {
+                                this->player.setWeapon(Object::FireBall);
+                            }
+
+                        }
+                        break;
+
 
                 }
 

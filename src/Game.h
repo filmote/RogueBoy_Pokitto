@@ -38,13 +38,13 @@ class Game {
 
         void splashScreen();
         void renderHud();
-        void renderEnviroment();
+        void renderEnviroment(int8_t damageOffsetX, int8_t damageOffsetY);
         void renderEnviroment_Top_Left(int x, int y, int drawX, int drawY);
         void renderEnviroment_Top_Right(int x, int y, int drawX, int drawY);
         void renderEnviroment_Bot_Left(int x, int y, int drawX, int drawY);
         void renderEnviroment_Bot_Right(int x, int y, int drawX, int drawY);
         
-        void renderPlayer();
+        void renderPlayer(int8_t damageOffsetX, int8_t damageOffsetY);
 
         void updateMainMenu();
         void loadMap(uint8_t level);
@@ -57,7 +57,10 @@ class Game {
 
         void init(uint16_t x, uint16_t y, bool resetObjects);
         bool intersect(uint16_t min0, uint16_t max0, uint16_t min1, uint16_t max1);
-        bool collision(uint16_t x, uint16_t y, uint16_t x1, uint16_t y1);
+        //bool collision(uint16_t x, uint16_t y, uint16_t x1, uint16_t y1);
+        bool collision(Player &player, Sprite &enemy, bool touching);
+        bool collision(Sprite &object1, Sprite &object2);
+        bool collision(Sprite &object, Bullet &bullet);        
         void updateObjects();
         void renderObjects();
         void death();
@@ -105,6 +108,7 @@ class Game {
 
         uint8_t splashScreenCounter = 0;
         uint8_t splashScreenMode = 0;
+        uint8_t shake = 0;
 
 //       const uint8_t * maps[18] = { MAP_1, MAP_2, MAP_3, MAP_4, MAP_5, MAP_6, MAP_7, MAP_9, MAP_10, MAP_11, MAP_12, MAP_13, MAP_14, MAP_15, MAP_16, MAP_17, MAP_18 };
 //        const uint8_t * maps[20] = { MAP_Test, MAP_1, MAP_2, MAP_3, MAP_4, MAP_5, MAP_Test, MAP_6, MAP_7, MAP_8, MAP_9, MAP_10, MAP_11, MAP_12, MAP_13, MAP_14, MAP_15, MAP_16, MAP_17, MAP_18,  };

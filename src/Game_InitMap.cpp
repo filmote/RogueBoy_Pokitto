@@ -100,42 +100,9 @@ void Game::loadMap(uint8_t level) {
 
     }
 
-
-
-    printf("-----------------------------\n");
-    printf("Map: %i", level);
-    printf(", W: %i", map.getWidth());
-    printf(", H: %i",map.getHeight());
-    printf("\n-----------------------------\n");
-
-    uint8_t i = 0;
-    for (int y=0; y<map.getHeight(); y++) {
-        for (int x=0; x<map.getWidth(); x++) {
-    printf("%i ", this->map.getBlock(x, y));
-            i++;
-        }
-    printf("\n");
-    }
-
-    printf("Obj: %i", this->objects.getObjectNum());
-    printf(", Env: %i\n", this->environments.getEnvironmentNum());
-
-    for (int i=0; i<MAXOBJECT; i++) {
-
-        if (objects.getSprite(i).getActive()) {
-    printf("obj[%i] x: %i, y: %i, type: %i, health %1 \n", i, objects.getSprite(i).getX(), objects.getSprite(i).getY(), objects.getSprite(i).getType(), objects.getSprite(i).getHealth());
-        }
-
-    }
-
-    printf("\n");
-    for (int i=0; i<MAXENVIROMENT; i++) {
-
-        if (this->environments.getEnvironment(i).getActive()) {
-    printf("env[%i] x1: %i, y1: %i, x2 %i, y2 %i\n", i, this->environments.getEnvironment(i).getX(), this->environments.getEnvironment(i).getY(), this->environments.getEnvironment(i).getFinishX(), this->environments.getEnvironment(i).getFinishY());
-        }
-
-    }
+    #ifdef DEBUG
+    this->printMap();
+    #endif
 
 }
 
@@ -263,12 +230,6 @@ printf("Player %i %i, EOL %i %i\n",playerX, playerY, levelEndX, levelEndY);
 
                     }
 
-
-
-
-                    // printf("Get tileIdx %i %i %i\n", xSegment, ySegment, tileIdx);
-                    //printf("-----------------------------------------------------------------------------\n");
-
                     if (segmentToLoad != nullptr) {
                             
                         for (uint8_t y = 0; y < RANDOM_TILE_SIZE; y++) {
@@ -277,14 +238,10 @@ printf("Player %i %i, EOL %i %i\n",playerX, playerY, levelEndX, levelEndY);
 
                                 uint8_t tile = segmentToLoad[cursorTile++];
                                 this->map.setBlock((xSegment * RANDOM_TILE_SIZE) + x, (ySegment * RANDOM_TILE_SIZE) + y, static_cast<MapTiles>(tile));
-                                // printf("%i, ", tile);
 
                             }
-                                
-                            // printf("\n");
 
                         }
-
 
 
                         // Load map options ..
@@ -448,57 +405,7 @@ printf("Player %i %i, EOL %i %i\n",playerX, playerY, levelEndX, levelEndY);
             this->objects.setObjectNum(objectCount);
 
             #ifdef DEBUG
-
-                printf("-----------------------------\n");
-                printf("W: %i", map.getWidth());
-                printf("H: %i",map.getHeight());
-                printf("\n-----------------------------\n");
-
-
-                for (int y=0; y<map.getHeight()/9; y++) {
-                    for (int x=0; x<map.getWidth()/9; x++) {
-                        if (this->cells[y][x].isBlank) {
-                            printf("Blank, ");
-                        }
-                        else {
-                            printf("S%i R%i, ", this->cells[y][x].segment, this->cells[y][x].variation);
-                        }
-                    }
-                    printf("\n");
-                }
-
-
-                uint8_t i = 0;
-                for (int y=0; y<map.getHeight(); y++) {
-                    if (y % 9 == 0) printf("----------------------------------------------------------------------------------------------------------------------------\n");
-                    for (int x=0; x<map.getWidth(); x++) {
-                        if (x % 9 == 0) printf(" | ");
-                        if (this->map.getBlock(x, y) < 10) printf("0");
-                        printf("%i ", this->map.getBlock(x, y));
-                        i++;
-                    }
-                printf("\n");
-                }
-
-                printf("Obj: %i", this->objects.getObjectNum());
-                printf(", Env: %i\n", this->environments.getEnvironmentNum());
-
-                for (int i=0; i<MAXOBJECT; i++) {
-
-                    if (objects.getSprite(i).getActive()) {
-                        printf("obj[%i] x: %i, y: %i, type: %i, health %1 \n", i, objects.getSprite(i).getX(), objects.getSprite(i).getY(), objects.getSprite(i).getType(), objects.getSprite(i).getHealth());
-                    }
-
-                }
-
-                printf("\n");
-                for (int i=0; i<MAXENVIROMENT; i++) {
-
-                    if (this->environments.getEnvironment(i).getActive()) {
-                    printf("env[%i] x1: %i, y1: %i, x2 %i, y2 %i\n", i, this->environments.getEnvironment(i).getX(), this->environments.getEnvironment(i).getY(), this->environments.getEnvironment(i).getFinishX(), this->environments.getEnvironment(i).getFinishY());
-                    }
-
-                }
+            this->printMap();
 
             #endif
 
@@ -562,5 +469,60 @@ void Game::clearCells() {
 
     }
 
+}
+
+void Game::printMap() {
+
+    printf("-----------------------------\n");
+    printf("W: %i", map.getWidth());
+    printf("H: %i",map.getHeight());
+    printf("\n-----------------------------\n");
+
+
+    for (int y=0; y<map.getHeight()/9; y++) {
+        for (int x=0; x<map.getWidth()/9; x++) {
+            if (this->cells[y][x].isBlank) {
+                printf("Blank, ");
+            }
+            else {
+                printf("S%i R%i, ", this->cells[y][x].segment, this->cells[y][x].variation);
+            }
+        }
+        printf("\n");
+    }
+
+
+    uint8_t i = 0;
+    for (int y=0; y<map.getHeight(); y++) {
+        if (y % 9 == 0) printf("----------------------------------------------------------------------------------------------------------------------------\n");
+        for (int x=0; x<map.getWidth(); x++) {
+            if (x % 9 == 0) printf(" | ");
+            if (this->map.getBlock(x, y) < 10) printf("0");
+            printf("%i ", this->map.getBlock(x, y));
+            i++;
+        }
+    printf("\n");
+    }
+
+    printf("Obj: %i", this->objects.getObjectNum());
+    printf(", Env: %i\n", this->environments.getEnvironmentNum());
+
+    for (int i=0; i<MAXOBJECT; i++) {
+
+        if (objects.getSprite(i).getActive()) {
+            printf("obj[%i] x: %i, y: %i, type: %i, health %i \n", i, objects.getSprite(i).getX(), objects.getSprite(i).getY(), objects.getSprite(i).getType(), objects.getSprite(i).getHealth());
+        }
+
+    }
+
+    printf("\n");
+    for (int i=0; i<MAXENVIROMENT; i++) {
+
+        if (this->environments.getEnvironment(i).getActive()) {
+        printf("env[%i] x1: %i, y1: %i, x2 %i, y2 %i\n", i, this->environments.getEnvironment(i).getX(), this->environments.getEnvironment(i).getY(), this->environments.getEnvironment(i).getFinishX(), this->environments.getEnvironment(i).getFinishY());
+        }
+
+    }
+    
 }
 #endif

@@ -44,6 +44,11 @@
 #define ICE_SPELL_DELAY     360
 #define ICE_SPELL_DELAY_INC 30
 
+#define DAMAGE_FIREBALL     10
+#define DAMAGE_ICESPELL     10
+#define DAMAGE_GREENSPELL   20
+#define DAMAGE_YELLOWSPELL  30
+
 /*
 Bit 7       Blank segment.
 Bit 6       Any Segment from the nominated Type.

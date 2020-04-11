@@ -5300,6 +5300,30 @@
 		},
 		"\\src\\images\\scoreboard\\GreenSpell_Scoreboard.h": {
 			"sdcard": false
+		},
+		"\\src\\images\\scoreboard\\YellowSpell_Scoreboard - Copy.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\scoreboard\\OrangeSpell_Scoreboard.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\scoreboard\\YellowSpell_Scoreboard - Copy.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\scoreboard\\MauveSpell_Scoreboard.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\sprites\\YellowSpell - Copy.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\sprites\\MauveSpell.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\scoreboard\\MauveSpell_Scoreboard.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\sprites\\MauveSpell.h": {
+			"sdcard": false
 		}
 	},
 	"BUILDFlags": {
