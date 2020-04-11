@@ -21,12 +21,20 @@ void Bullets::render(Player &player) {
 
             switch (bullet.getWeapon()) {
 
-                case Weapon::FireBall:
+                case Object::FireBall:
                     PD::drawBitmap((CENTERX - 4) - x, (CENTERY - 4) - y, Images::Bullets[bullet.getFrame()]);
                     break;
 
-                case Weapon::IceSpell:
+                case Object::IceSpell:
                     PD::drawBitmap((CENTERX - 4) - x, (CENTERY - 4) - y, Images::Bullets[bullet.getFrame() + 4]);
+                    break;
+
+                case Object::GreenSpell:
+                    PD::drawBitmap((CENTERX - 4) - x, (CENTERY - 4) - y, Images::Bullets[bullet.getFrame() + 8]);
+                    break;
+
+                case Object::YellowSpell:
+                    PD::drawBitmap((CENTERX - 4) - x, (CENTERY - 4) - y, Images::Bullets[bullet.getFrame() + 12]);
                     break;
                     
             }

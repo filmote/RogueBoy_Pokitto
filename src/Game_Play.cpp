@@ -66,14 +66,30 @@ void Game::updateObjects() {
                         objectI.setActive(false); 
                         break;
 
-                    case Object::Key: 
-                    case Object::Bread: 
-                    case Object::Chicken: 
-                    case Object::Spanner: 
-                    case Object::Potion:             
-                    case Object::IceSpell:             
+                    case Object::Key:
+                    case Object::Bread:
+                    case Object::Chicken:
+                    case Object::Spanner:
+                    case Object::Potion:
+                    case Object::IceSpell:
                         {
-                            uint8_t slot = this->player.addInventoryItem(static_cast<Object>(type));
+                            uint8_t slot = this->player.addInventoryItem(static_cast<Object>(type), 1);
+
+                            if (slot != NO_SLOT_FOUND) {
+                                objectI.setActive(false);
+                                // sound picked up item
+                            }
+                            else {
+                                // sound could not pick up
+                            }
+
+                        }
+                        break;
+
+                    case Object::GreenSpell:
+                    case Object::YellowSpell:
+                        {
+                            uint8_t slot = this->player.addInventoryItem(static_cast<Object>(type), objectI.getQuantity());
 
                             if (slot != NO_SLOT_FOUND) {
                                 objectI.setActive(false);
@@ -410,6 +426,27 @@ void Game::playerMovement() {
 
                 bullets.getBullet(i).setBullet(x + xOffsets[static_cast<uint8_t>(direction)], y + yOffsets[static_cast<uint8_t>(direction)], direction, this->player.getWeapon());
                 //sound.tone(NOTE_F2H,50);
+
+
+                switch (this->player.getWeapon()) {
+
+                    case Object::GreenSpell:
+                    case Object::YellowSpell:
+                        {
+                            uint8_t slot = this->player.getInventorySlot(this->player.getWeapon());
+                            InventoryItem &inventoryItem = this->player.getInventoryItem(slot);
+
+                            inventoryItem.quantity--;
+
+                            if (inventoryItem.quantity == 0) {
+                                this->player.setWeapon(Object::FireBall);
+                            }
+
+                        }
+                        break;
+
+                }
+
                 break;
 
             }
@@ -510,7 +547,7 @@ bool Game::interactWithBlock(int x, int y, MapTiles block) {
 
         case MapTiles::ClosedChest: 
             {
-                uint8_t slot = this->player.addInventoryItem(Object::Key);
+                uint8_t slot = this->player.addInventoryItem(Object::Key, 1);
 
                 if (slot != NO_SLOT_FOUND) {
 
@@ -744,22 +781,15 @@ void Game::dropItem(uint16_t x, uint16_t y, bool EnDrop, Sprites &objects) {
         auto object = this->objects.getSprite(this->objects.getObjectNum());
         
         if ((id != 4) && (id != 2)) {
-            
-            switch (id) {
-                
-                case 1: offset = 12;  break; //Coin
-                case 3: offset = 9;   break; //Doughnut
-                case 5: offset = 11;  break; //Chicken
-                
-            }
+
             if (!EnDrop) {
 
-                object.setSprite((x * TILE_SIZE) + 8, (y * TILE_SIZE) + 8, 1, static_cast<Object>(id), offset, true);
+                object.setSprite((x * TILE_SIZE) + 8, (y * TILE_SIZE) + 8, 1, static_cast<Object>(id), true);
 
             }
             else{
 
-                object.setSprite(x, y, 1, static_cast<Object>(id), offset, true);
+                object.setSprite(x, y, 1, static_cast<Object>(id), true);
 
             }
             
@@ -769,24 +799,15 @@ void Game::dropItem(uint16_t x, uint16_t y, bool EnDrop, Sprites &objects) {
     else {
 
         uint8_t id = random(1,5);
-        uint8_t offset = 0;
         auto object = this->objects.getSprite(found);
 
         if ((id != 4) && (id != 2)) {
 
-            switch (id) {
-                
-                case 1: offset = 12;  break; // Coin
-                case 3: offset = 9;   break; // Doughnut
-                case 5: offset = 11;  break; // Chicken
-                
-            }
-
             if (!EnDrop) {
-                object.setSprite((x * TILE_SIZE) + 8, (y * TILE_SIZE) + 8, 1, static_cast<Object>(id), offset, true);
+                object.setSprite((x * TILE_SIZE) + 8, (y * TILE_SIZE) + 8, 1, static_cast<Object>(id), true);
             }
             else{
-                object.setSprite(x, y, 1, static_cast<Object>(id), offset, true);
+                object.setSprite(x, y, 1, static_cast<Object>(id), true);
             }
             
         }
@@ -818,11 +839,11 @@ void Game::spriteAI(MapInformation &map, Player &player, Sprite &sprite) {
 
             switch (this->player.getWeapon()) {
 
-                case Weapon::FireBall:
+                case Object::FireBall:
                     this->spriteAI_UpdateEnemy(location, map, player, sprite);
                     break;
 
-                case Weapon::IceSpell:
+                case Object::IceSpell:
                     if (this->player.getWeaponCount() % 2 == 0) {
                         this->spriteAI_UpdateEnemy(location, map, player, sprite);
                     }
@@ -843,11 +864,11 @@ void Game::spriteAI(MapInformation &map, Player &player, Sprite &sprite) {
 
                 switch (this->player.getWeapon()) {
 
-                    case Weapon::FireBall:
+                    case Object::FireBall:
                         this->spriteAI_UpdateEnemy(location, map, player, sprite);
                         break;
 
-                    case Weapon::IceSpell:
+                    case Object::IceSpell:
                         if (this->player.getWeaponCount() % 2 == 0) {
                             this->spriteAI_UpdateEnemy(location, map, player, sprite);
                         }
@@ -870,11 +891,11 @@ void Game::spriteAI(MapInformation &map, Player &player, Sprite &sprite) {
                 
                 switch (this->player.getWeapon()) {
 
-                    case Weapon::FireBall:
+                    case Object::FireBall:
                         this->spriteAI_UpdateEnemy(location, map, player, sprite);
                         break;
 
-                    case Weapon::IceSpell:
+                    case Object::IceSpell:
                         if (this->player.getWeaponCount() % 2 == 0) {
                             this->spriteAI_UpdateEnemy(location, map, player, sprite);
                         }
@@ -892,11 +913,11 @@ void Game::spriteAI(MapInformation &map, Player &player, Sprite &sprite) {
 
                 switch (this->player.getWeapon()) {
 
-                    case Weapon::FireBall:
+                    case Object::FireBall:
                         this->spriteAI_UpdateEnemy(location, map, player, sprite);
                         break;
 
-                    case Weapon::IceSpell:
+                    case Object::IceSpell:
                         if (this->player.getWeaponCount() % 2 == 0) {
                             this->spriteAI_UpdateEnemy(location, map, player, sprite);
                         }

@@ -49,17 +49,13 @@ const uint8_t MAP_Segment_Type13_00[] = {
     // Opt, Tile, x, y
 
     1,MapTiles::NewCornerLR,0,3,
-    1,MapTiles::NewCornerFillLR,0,2,
     1,MapTiles::NewStraightBOT,1,2,
-    1,MapTiles::NewCornerFillLL,2,2,
     1,MapTiles::NewCornerLL,2,3,
     1,MapTiles::SwitchOn,1,3,
     1,MapTiles::NewSpearDoorLHS,3,4,
 
     1,MapTiles::NewCornerTR,3,5,
-    1,MapTiles::NewCornerFillUR,3,6,
     1,MapTiles::NewStraightTOP,4,6,
-    1,MapTiles::NewCornerFillUL,5,6,
     1,MapTiles::NewCornerTL,5,5,
     1,MapTiles::SwitchOn,4,5,
     END_OF_OPTIONS,

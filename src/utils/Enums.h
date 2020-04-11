@@ -1,8 +1,22 @@
 #pragma once
 
-enum class Weapon : uint8_t {
-    FireBall = 0,
-    IceSpell,
+enum Object {
+    Coin = 0,
+    SackOCash = 1,
+    Bread = 2,
+    Key = 3,
+    Chicken = 4, 
+    Floater = 5,
+    Skull = 6,
+    Spider = 7, 
+    Bat = 8,
+    Spanner = 9,
+    Potion = 10,
+    BigSpider = 11, 
+    IceSpell = 12,
+    GreenSpell = 13,
+    YellowSpell = 14,
+    FireBall = 255
 };
 
 enum class SpriteType : uint8_t {
@@ -18,8 +32,7 @@ enum class SpriteType : uint8_t {
     BulletUp = 18,
     BulletDown,
     BulletRight,
-    BulletLeft,
-    
+    BulletLeft,    
 };
 
 enum class GameState : uint8_t {
@@ -52,22 +65,6 @@ enum class Direction : uint8_t {
 enum class Axis : uint8_t {
     XAxis,
     YAxis
-};
-
-enum Object {
-    Coin = 0,
-    SackOCash = 1,
-    Bread = 2,
-    Key = 3,
-    Chicken = 4, 
-    Floater = 5,
-    Skull = 6,
-    Spider = 7, 
-    Bat = 8,
-    Spanner = 9,
-    Potion = 10,
-    BigSpider = 11, 
-    IceSpell = 12,
 };
 
 enum MapTiles {
@@ -163,6 +160,8 @@ const char object_Desc_09[] = "Spanner";
 const char object_Desc_10[] = "Potion";
 const char object_Desc_11[] = "Big Spider";
 const char object_Desc_12[] = "Ice Spell";
+const char object_Desc_13[] = "Green";
+const char object_Desc_14[] = "Yellow";
 
 const char * const object_Descs[] = { 
     object_Desc_00,
@@ -178,4 +177,6 @@ const char * const object_Descs[] = {
     object_Desc_10,
     object_Desc_11,
     object_Desc_12,
+    object_Desc_13,
+    object_Desc_14,
 };

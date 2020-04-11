@@ -14,25 +14,27 @@ class Sprite {
 
         Sprite() {};
 
-        uint16_t getX()                 { return this->x; }
-        uint16_t getY()                 { return this->y; }
-        uint8_t getWidth()              { return this->width; }
-        uint8_t getHeight()             { return this->height; }
-        int8_t getOffset()              { return this->offset; }
-        uint8_t getFrame()              { return this->frame; }
-        Object getType()                { return this->type; }
-        int16_t getHealth()             { return this->health; }
-        int16_t getHealthOrig()         { return this->healthOrig; }
-        bool getActive()                { return this->active; }
-        bool getRenderHealthBar()       { return this->renderHealthBar > 0; }
+        uint16_t getX()                         { return this->x; }
+        uint16_t getY()                         { return this->y; }
+        uint8_t getWidth()                      { return this->width; }
+        uint8_t getHeight()                     { return this->height; }
+        int8_t getOffset()                      { return this->offset; }
+        uint8_t getFrame()                      { return this->frame; }
+        uint8_t getQuantity()                   { return this->quantity; }
+        Object getType()                        { return this->type; }
+        int16_t getHealth()                     { return this->health; }
+        int16_t getHealthOrig()                 { return this->healthOrig; }
+        bool getActive()                        { return this->active; }
+        bool getRenderHealthBar()               { return this->renderHealthBar > 0; }
 
-        void setActive(bool k)          { this->active = k; }
-        void setFrame(uint8_t frame)    { this->frame = frame;}
-        void setX(uint16_t x)           { this->x = x; }
-        void setY(uint16_t y)           { this->y = y; }
-        void setType(Object type)       { this->type = type; }
+        void setActive(bool k)                  { this->active = k; }
+        void setFrame(uint8_t frame)            { this->frame = frame;}
+        void setQuantity(uint8_t quantity)      { this->quantity = quantity;}
+        void setX(uint16_t x)                   { this->x = x; }
+        void setY(uint16_t y)                   { this->y = y; }
+        void setType(Object type)               { this->type = type; }
 
-        void decHealthBarCounter()      { if (this->renderHealthBar > 0) this->renderHealthBar--; }
+        void decHealthBarCounter()              { if (this->renderHealthBar > 0) this->renderHealthBar--; }
 
         void setPosition(uint16_t x, uint16_t y) {
 
@@ -60,7 +62,7 @@ class Sprite {
 
         }
 
-        void setSprite(uint16_t x, uint16_t y, uint8_t health, Object type, int8_t offset, bool active) {
+        void setSprite(uint16_t x, uint16_t y, uint8_t health, Object type, bool active) {
 
             this->x = x;
             this->y = y;
@@ -70,7 +72,7 @@ class Sprite {
             this->healthOrig = health;
             this->type = type;
             this->frame = 0;
-            this->offset = offset;
+            this->offset = this->offsets[static_cast<uint8_t>(type)];;
             this->active = active;
 
         };
@@ -176,13 +178,14 @@ class Sprite {
         Object type;
         uint8_t frame;
         bool active;
+        uint8_t quantity;
 
         int8_t lastMoveX;
         int8_t lastMoveY;
         bool preventImmediatePickup;
         uint8_t renderHealthBar;
 
-        const uint8_t widths[13] =  { 
+        const uint8_t widths[15] =  { 
             8,  /* Coin */
             8,  /* SackOfCash */
             8,  /* Bread */
@@ -196,9 +199,11 @@ class Sprite {
             8,  /* Potion */
             16, /* BigSpider */
             13, /* IceSpell */
+            8,  /* GreenSpell */
+            8,  /* YellowSpell */
         };
 
-        const uint8_t heights[13] = { 
+        const uint8_t heights[15] = { 
             8,  /* Coin */
             8,  /* SackOfCash */
             8,  /* Bread */
@@ -212,7 +217,29 @@ class Sprite {
             8,  /* Potion */
             16, /* BigSpider */
             11, /* IceSpell */
+            8,  /* GreenSpell */
+            8,  /* YellowSpell */
         };
+
+                
+        const int8_t offsets[15] = { 
+            0,  /* Coin */
+            0,  /* SackOfCash */
+            0,  /* Bread */
+            0,  /* Key */
+            0,  /* Chicken */
+            0,  /* Floater */  
+            0,  /* Skull */
+            0,  /* Spider */
+            0,  /* Bat */
+            -3, /* Spanner */
+            0,  /* Potion */
+            -4, /* BigSpider */
+            -2, /* IceSpell */
+            0,  /* GreenSpell */
+            0,  /* YellowSpell */
+        };
+
 };
 
 

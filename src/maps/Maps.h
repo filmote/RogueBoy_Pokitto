@@ -22,7 +22,9 @@ const uint8_t MAP_Test[] = {
     0,0,0,0,0,0,
     0,0,0,0,0,0,
 
-    /* Object Count */ 0,
+    /* Object Count */ 2,
+    Object::GreenSpell,3,5,0,
+    Object::YellowSpell,4,5,0,
 
     /* Environment Count */ 0,
     12,15,13,18,
@@ -635,7 +637,7 @@ const uint8_t MAP_18[] = {
     8,6,5,8,
 };
 
-
-
-//         const uint8_t * maps[18] = { MAP_1, MAP_2, MAP_3, MAP_4, MAP_5, MAP_6, MAP_7, MAP_9, MAP_10, MAP_11, MAP_12, MAP_13, MAP_14, MAP_15, MAP_16, MAP_17, MAP_18 };
-// //        const uint8_t * maps[20] = { MAP_Test, MAP_1, MAP_2, MAP_3, MAP_4, MAP_5, MAP_Test, MAP_6, MAP_7, MAP_8, MAP_9, MAP_10, MAP_11, MAP_12, MAP_13, MAP_14, MAP_15, MAP_16, MAP_17, MAP_18,  };
+// constexpr const uint8_t numberOfMaps = 19;
+// constexpr const uint8_t * maps[19] = { MAP_1, MAP_2, MAP_3, MAP_4, MAP_5, MAP_6, MAP_7, MAP_8, MAP_9, MAP_10, MAP_11, MAP_12, MAP_13, MAP_14, MAP_15, MAP_16, MAP_17, MAP_18 };
+constexpr const uint8_t numberOfMaps = 21;
+constexpr const uint8_t * maps[21] = { MAP_Test, MAP_1, MAP_2, MAP_3, MAP_4, MAP_5, MAP_Test, MAP_6, MAP_7, MAP_8, MAP_9, MAP_10, MAP_11, MAP_12, MAP_13, MAP_14, MAP_15, MAP_16, MAP_17, MAP_18,  };

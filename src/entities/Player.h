@@ -25,7 +25,7 @@ class Player {
         uint8_t getKills();
         uint8_t getFrame();
         bool getMoving();
-        Weapon getWeapon();
+        Object getWeapon();
 
         void setX(uint16_t x);
         void setY(uint16_t y);
@@ -35,7 +35,7 @@ class Player {
         void setKills(uint8_t kills);
         void setFrame(uint8_t frame);
         void setMoving(bool moving);
-        void setWeapon(Weapon weapon);
+        void setWeapon(Object weapon);
 
         void incFrame();
         void init(uint16_t x, uint16_t y);
@@ -48,7 +48,7 @@ class Player {
 
         InventoryItem & getInventoryItem(uint8_t index);
         InventoryItem & getActiveInventoryItem(uint8_t index);                  // index skips qty = 0 values
-        uint8_t addInventoryItem(Object type);                                  // returns slot used if success, NO_SLOT_FOUND if failed
+        uint8_t addInventoryItem(Object type, uint8_t qty);                     // returns slot used if success, NO_SLOT_FOUND if failed
         uint8_t decInventoryItem(Object type);                                  // returns slot used if success, NO_SLOT_FOUND if failed
         uint8_t getInventorySlot(Object type);                                  // returns slot used if success, NO_SLOT_FOUND if failed
         uint8_t getEmptySlot();                                                 // returns slot used if success, NO_SLOT_FOUND if failed
@@ -66,7 +66,7 @@ class Player {
         uint8_t kills;
         bool moving;
         uint8_t frame;
-        Weapon weapon = Weapon::FireBall;
+        Object weapon = Object::FireBall;
         uint32_t weaponCount;
 
         InventoryItem inventoryItems[MAX_INVENTORY_ITEMS];

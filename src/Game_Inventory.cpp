@@ -87,84 +87,109 @@ void Game::showInventory() {
                     {
                         bool itemUsed = false;
                         InventoryItem & inventoryItem = this->player.getActiveInventoryItem(this->inventoryMenu.mainCursor);
-            
-                        if (inventoryItem.quantity > 0) {
-            
-                            switch (inventoryItem.type) {
-            
-                                case Object::IceSpell:
 
-                                    this->player.setWeapon(Weapon::IceSpell);
-                                    itemUsed = true;
-                                    inventoryItem.quantity--;  
-                                    break;
-            
-                                case Object::Key:
-                                case Object::Spanner:
-                                case Object::Potion:
-                                    {
-                                        // Try the surrounding blocks to see if it can be used ..
 
-                                        uint8_t x = this->map.getTileX(this->player.getX());
-                                        uint8_t y = this->map.getTileY(this->player.getY());
-                                        MapTiles block = this->map.getBlock(x, y);
+                        // If the user selected 'put away' ..
 
-                                        itemUsed = this->interactWithBlock(x, y, block);
+                        if (inventoryItem.type == this->player.getWeapon()) {
 
-                                        const int8_t xOffset[] = { 0, 1, 1, 1, 0, -1, -1, -1 };
-                                        const int8_t yOffset[] = { -1, -1, 0, 1, 1, 1, 0, -1 };
+                            this->player.setWeapon(Object::FireBall);
 
-                                        if (!itemUsed) {
+                        }
+                        else {
+                
+                            if (inventoryItem.quantity > 0) {
+                
+                                switch (inventoryItem.type) {
+                
+                                    case Object::IceSpell:
 
-                                            for (uint8_t i = 0; i < 8; i++) {
+                                        this->player.setWeapon(Object::IceSpell);
+                                        itemUsed = true;
+                                        inventoryItem.quantity--;  
+                                        break;
+                
+                                    case Object::GreenSpell:
 
-                                                block = this->map.getBlock(x + xOffset[i], y + yOffset[i]);
-                                                itemUsed = this->interactWithBlock(x + xOffset[i], y + yOffset[i], block);
+                                        this->player.setWeapon(Object::GreenSpell);
+                                        itemUsed = true;
+                                        break;
+                
+                                    case Object::YellowSpell:
 
-                                                if (itemUsed) break;
+                                        this->player.setWeapon(Object::YellowSpell);
+                                        itemUsed = true;
+                                        break;
+                
+                                    case Object::Key:
+                                    case Object::Spanner:
+                                    case Object::Potion:
+                                        {
+                                            // Try the surrounding blocks to see if it can be used ..
+
+                                            uint8_t x = this->map.getTileX(this->player.getX());
+                                            uint8_t y = this->map.getTileY(this->player.getY());
+                                            MapTiles block = this->map.getBlock(x, y);
+
+                                            itemUsed = this->interactWithBlock(x, y, block);
+
+                                            const int8_t xOffset[] = { 0, 1, 1, 1, 0, -1, -1, -1 };
+                                            const int8_t yOffset[] = { -1, -1, 0, 1, 1, 1, 0, -1 };
+
+                                            if (!itemUsed) {
+
+                                                for (uint8_t i = 0; i < 8; i++) {
+
+                                                    block = this->map.getBlock(x + xOffset[i], y + yOffset[i]);
+                                                    itemUsed = this->interactWithBlock(x + xOffset[i], y + yOffset[i], block);
+
+                                                    if (itemUsed) break;
+
+                                                }
 
                                             }
 
                                         }
+                                        break;
+                
+                                    case Object::Bread:
+                                        if (player.getHealth() < 100) {
+                                            player.setHealth(player.getHealth() + HEALTH_INC_BREAD); 
+                                            inventoryItem.quantity--;  
+                                            itemUsed = true;
+                                            //sound health going up
+                                        }
+                                        else {
+                                            //sound cannot use
+                                        }
+                                        break;
+                
+                                    case Object::Chicken:
+                                        if (player.getHealth() < 100) {
+                                            player.setHealth(player.getHealth() + HEALTH_INC_CHICKEN); 
+                                            inventoryItem.quantity--;  
+                                            itemUsed = true;
+                                            //sound health going up
+                                        }
+                                        else {
+                                            //sound cannot use
+                                        }
+                                        break;
+                
+                                }
+                
+                                // Did we just use the last item ?  If so move cursor up.
 
-                                    }
-                                    break;
-            
-                                case Object::Bread:
-                                    if (player.getHealth() < 100) {
-                                        player.setHealth(player.getHealth() + HEALTH_INC_BREAD); 
-                                        inventoryItem.quantity--;  
-                                        itemUsed = true;
-                                        //sound health going up
-                                    }
-                                    else {
-                                        //sound cannot use
-                                    }
-                                    break;
-            
-                                case Object::Chicken:
-                                    if (player.getHealth() < 100) {
-                                        player.setHealth(player.getHealth() + HEALTH_INC_CHICKEN); 
-                                        inventoryItem.quantity--;  
-                                        itemUsed = true;
-                                        //sound health going up
-                                    }
-                                    else {
-                                        //sound cannot use
-                                    }
-                                    break;
-            
+                                if (itemUsed) {           
+                                    
+                                    if (inventoryItem.quantity == 0 && this->inventoryMenu.mainCursor > 0) this->inventoryMenu.mainCursor--;
+                                    this->inventoryMenu.showActionMenu = false;
+                                    gameState = GameState::Game;
+                                    
+                                }
+                
                             }
-            
-                            // Did we just use the last item ?  If so move cursor up.
 
-                            if (itemUsed) {           
-                                
-                                if (inventoryItem.quantity == 0 && this->inventoryMenu.mainCursor > 0) this->inventoryMenu.mainCursor--;
-                                this->inventoryMenu.showActionMenu = false;
-                                
-                            }
-            
                         }
                         
                     }
@@ -173,7 +198,7 @@ void Game::showInventory() {
                 
                 case 1:
                     {
-                        // Find a matching Object in the sprites collecion that is disabled 0therwise add one ..
+                        // Find a matching Object in the sprites collecion that is disabled, otherwise add one ..
 
                         InventoryItem & inventoryItem = this->player.getActiveInventoryItem(this->inventoryMenu.mainCursor);
                         uint8_t spriteIdx = this->objects.getFirstInactiveSpriteIndex(inventoryItem.type);
@@ -194,8 +219,20 @@ void Game::showInventory() {
                         sprite.setX((x * TILE_SIZE) + 4);
                         sprite.setY((y * TILE_SIZE) + 4);
                         sprite.setPreventImmediatePickup(true);
+                        sprite.setQuantity(inventoryItem.quantity);
 
-                        inventoryItem.quantity--;
+                        switch (inventoryItem.type) {
+
+                            case Object::GreenSpell:
+                            case Object::YellowSpell:
+                                inventoryItem.quantity = 0;
+                                break;
+
+                            default:
+                                inventoryItem.quantity--;
+                                break;
+
+                        }
 
 
                         // Did we just use the last item ?  If so move cursor up.
@@ -349,7 +386,16 @@ void Game::showInventory() {
         PD::setCursor(44, 9 + this->inventoryMenu.mainCursor * 9);
         PD::print("Actions");
         PD::setCursor(50, 20 + this->inventoryMenu.mainCursor * 9);
-        PD::print("Use");
+
+        InventoryItem & inventoryItem = this->player.getActiveInventoryItem(this->inventoryMenu.mainCursor);
+
+        if (inventoryItem.type == this->player.getWeapon()) {
+            PD::print("Put Away");
+        }
+        else {
+            PD::print("Use");
+        }
+
         PD::setCursor(50, 29 + this->inventoryMenu.mainCursor * 9);
         PD::print("Drop");
         PD::setCursor(50, 41 + this->inventoryMenu.mainCursor * 9);

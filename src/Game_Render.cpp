@@ -62,16 +62,39 @@ void Game::renderHud() {
 
     switch (this->player.getWeapon()) {
 
-        case Weapon::FireBall:
+        case Object::FireBall:
             PD::drawBitmap(93, 74, Images::Fireball);
             break;
 
-        case Weapon::IceSpell:
+        case Object::IceSpell:
             PD::drawBitmap(94, 75, Images::IceSpell_Scoreboard[this->player.getWeaponFrame()]);
             break;
 
-    }
+        case Object::GreenSpell:
+            {
+                PD::drawBitmap(94, 75, Images::GreenSpell_Scoreboard);
+                PD::setFont(font3x5);
+                uint8_t items = this->player.getInventoryCount(Object::GreenSpell);
+                PD::setColor(6);
+                PD::setCursor(100,81);
+                this->printPaddedNumber(items, 2);
+                PD::setFont(fontKoubit);
+            }
+            break;
 
+        case Object::YellowSpell:
+            {
+                PD::drawBitmap(94, 75, Images::YellowSpell_Scoreboard);
+                PD::setFont(font3x5);
+                uint8_t items = this->player.getInventoryCount(Object::YellowSpell);
+                PD::setColor(6);
+                PD::setCursor(100,81);
+                this->printPaddedNumber(items, 2);
+                PD::setFont(fontKoubit);
+            }
+            break;
+
+    }
 
     PD::setColor(6, 0);
 
@@ -188,7 +211,6 @@ void Game::renderEnviroment() {
 
                         case MapTiles::NewStraightTOP:
                         case MapTiles::NewStraightTB:
-                        // printf("e\n");
                             PD::drawBitmap(drawX, drawY + 16, Images::NewCornerFillTL);
                             break;
 
@@ -198,7 +220,6 @@ void Game::renderEnviroment() {
 
                         case MapTiles::NewStraightTOP:
                         case MapTiles::NewStraightTB:
-                        // printf("f\n");
                             PD::drawBitmap(drawX + 16, drawY + 16, Images::NewCornerFillTR);
                             break;
 
@@ -211,7 +232,6 @@ void Game::renderEnviroment() {
 
                         case MapTiles::NewStraightBOT:
                         case MapTiles::NewStraightTB:
-                        // printf("g\n");
                             PD::drawBitmap(drawX, drawY - 8, Images::NewCornerFillLL);
                             break;
 
@@ -221,7 +241,6 @@ void Game::renderEnviroment() {
 
                         case MapTiles::NewStraightBOT:
                         case MapTiles::NewStraightTB:
-                        // printf("h\n");
                             PD::drawBitmap(drawX + 16, drawY - 8, Images::NewCornerFillLR);
                             break;
 
@@ -236,7 +255,6 @@ void Game::renderEnviroment() {
                         case MapTiles::NewStraightTB:
                         case MapTiles::NewCornerTL:
                         case MapTiles::NewEndTBL:
-                        // printf("i\n");
                             PD::drawBitmap(drawX, drawY + 16, Images::NewCornerFillTL);
                             break;
 
@@ -248,7 +266,6 @@ void Game::renderEnviroment() {
                         case MapTiles::NewStraightLR:
                         case MapTiles::NewCornerLR:
                         case MapTiles::NewEndRBL:
-                        // printf("j\n");
                             PD::drawBitmap(drawX + 8, drawY + 8, Images::NewCornerFillLR);
                             break;
 
@@ -262,7 +279,6 @@ void Game::renderEnviroment() {
                         case MapTiles::NewStraightTOP:
                         case MapTiles::NewStraightTB:
                         case MapTiles::NewEndTBL:
-                        // printf("k\n");
                             PD::drawBitmap(drawX + 8, drawY + 16, Images::NewCornerFillTR);
                             break;
 
@@ -274,7 +290,6 @@ void Game::renderEnviroment() {
                         case MapTiles::NewStraightLR:
                         case MapTiles::NewCornerLL:
                         case MapTiles::NewEndRBL:
-                        // printf("l\n");
                             PD::drawBitmap(drawX, drawY + 8, Images::NewCornerFillLL);
                             break;
 
@@ -283,24 +298,12 @@ void Game::renderEnviroment() {
 
                 case MapTiles::NewCornerLL:
 
-                    // switch (this->map.getBlock(tileX + i + 1, tileY + j + 1)) {
-
-                    //     case MapTiles::NewStraightTOP:
-                    //     case MapTiles::NewStraightTB:
-                    //     case MapTiles::NewEndTBL:
-                    //     // printf("i\n");
-                    //         PD::drawBitmap(drawX, drawY + 16, Images::NewCornerFillTL);
-                    //         break;
-
-                    // }
-
                     switch (this->map.getBlock(tileX + i + 1, tileY + j + 1)) {
 
                         case MapTiles::NewStraightLHS:
                         case MapTiles::NewStraightLR:
                         case MapTiles::NewCornerLL:
                         case MapTiles::NewEndRBL:
-                        // printf("j\n");
                             PD::drawBitmap(drawX + 16, drawY + 8, Images::NewCornerFillLL);
                             break;
 
@@ -309,24 +312,12 @@ void Game::renderEnviroment() {
 
                 case MapTiles::NewCornerLR:
 
-                    // switch (this->map.getBlock(tileX + i + 1, tileY + j + 1)) {
-
-                    //     case MapTiles::NewStraightTOP:
-                    //     case MapTiles::NewStraightTB:
-                    //     case MapTiles::NewEndTBL:
-                    //     // printf("i\n");
-                    //         PD::drawBitmap(drawX, drawY + 16, Images::NewCornerFillTL);
-                    //         break;
-
-                    // }
-
                     switch (this->map.getBlock(tileX + i - 1, tileY + j + 1)) {
 
                         case MapTiles::NewStraightRHS:
                         case MapTiles::NewStraightLR:
                         case MapTiles::NewCornerLR:
                         case MapTiles::NewEndRBL:
-                        // printf("j\n");
                             PD::drawBitmap(drawX - 8, drawY + 8, Images::NewCornerFillLR);
                             break;
 
@@ -350,7 +341,7 @@ void Game::renderEnviroment() {
 void Game::renderPlayer() {	
     
     if(!player.getMoving()) {
-//        PD::drawBitmap(CENTERX - 6, CENTERY - 6, Images::Players[0]);
+
         PD::drawBitmap(CENTERX - 6, CENTERY - 6, Images::Players[static_cast<uint8_t>(player.getDirection()) * 2 + player.getFrame()]);
 
     }

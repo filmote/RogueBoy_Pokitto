@@ -51,7 +51,7 @@ bool Player::getMoving() {
     return this->moving; 
 }
 
-Weapon Player::getWeapon() { 
+Object Player::getWeapon() { 
     return this->weapon; 
 }
 
@@ -88,12 +88,13 @@ void Player::setMoving(bool moving) {
     this->moving = moving; 
 }
 
-void Player::setWeapon(Weapon weapon) { 
+void Player::setWeapon(Object weapon) { 
+    
     this->weapon = weapon; 
 
     switch (weapon) {
 
-        case Weapon::IceSpell:
+        case Object::IceSpell:
             this->weaponCount = ICE_SPELL_DELAY;
             break;
 
@@ -112,7 +113,7 @@ void Player::decWeaponCount() {
 
         if (this->weaponCount == 0) {
 
-            this->weapon = Weapon::FireBall;
+            this->weapon = Object::FireBall;
 
         }
 
@@ -186,7 +187,7 @@ InventoryItem & Player::getActiveInventoryItem(uint8_t index) {
 }
 
 
-uint8_t Player::addInventoryItem(Object type) {
+uint8_t Player::addInventoryItem(Object type, uint8_t qty) {
 
     uint8_t slot = NO_SLOT_FOUND;
 
@@ -208,7 +209,7 @@ uint8_t Player::addInventoryItem(Object type) {
     if (slot != NO_SLOT_FOUND) {
 
         InventoryItem & inventoryHolding = this->inventoryItems[slot];
-        inventoryHolding.quantity++;
+        inventoryHolding.quantity = inventoryHolding.quantity + qty;
         return slot;
 
     }
@@ -222,7 +223,7 @@ uint8_t Player::addInventoryItem(Object type) {
 
         InventoryItem & inventoryHolding = this->inventoryItems[slot];
         inventoryHolding.type = type;
-        inventoryHolding.quantity = 1;
+        inventoryHolding.quantity = qty;
         return slot;
 
     }
@@ -312,7 +313,19 @@ uint8_t Player::getInventoryCount() {
 
         if (inventoryHolding.quantity > 0) {
 
-            count = count + inventoryHolding.quantity;
+            switch (inventoryHolding.type) {
+
+                case Object::IceSpell:
+                case Object::GreenSpell:
+                case Object::YellowSpell:
+                    count = count + 1;
+                    break;
+
+                default:
+                    count = count + inventoryHolding.quantity;
+                    break;
+
+            }
 
         }
 

@@ -121,6 +121,14 @@ void Sprites::render(Player &player) {
                     PD::drawBitmap(x + offset, y + offset, Images::IceSpell[frame]);
                     break;
 
+                case Object::GreenSpell:
+                    PD::drawBitmap(x + offset, y + offset, Images::GreenSpell);
+                    break;
+
+                case Object::YellowSpell:
+                    PD::drawBitmap(x + offset, y + offset, Images::YellowSpell);
+                    break;
+
             }
 
         }

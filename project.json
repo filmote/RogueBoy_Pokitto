@@ -5189,6 +5189,117 @@
 		},
 		"\\src\\images\\sprites\\Chicken.png": {
 			"sdcard": false
+		},
+		"\\src\\images\\bullets\\Bullet_Green_00.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\bullets\\Bullet_03 - Copy.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\bullets\\Bullet_01 - Copy.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\bullets\\Bullet_02 - Copy.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\bullets\\Bullet_Green_01.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\bullets\\Bullet_Green_02.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\bullets\\Bullet_Green_03.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\bullets\\Bullet_Green_00 - Copy.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\bullets\\Bullet_Green_01 - Copy.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\bullets\\Bullet_Green_02 - Copy.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\bullets\\Bullet_Green_03 - Copy.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\bullets\\Bullet_Yellow_00.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\bullets\\Bullet_Yellow_01.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\bullets\\Bullet_Yellow_03.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\bullets\\Bullet_Yellow_02.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\scoreboard\\Fireball - Copy (2).png": {
+			"sdcard": false
+		},
+		"\\src\\images\\scoreboard\\GreenSpell_Scoreboard.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\scoreboard\\YellowSpell_Scoreboard.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\sprites\\Potion - Copy.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\sprites\\Potion - Copy (2).png": {
+			"sdcard": false
+		},
+		"\\src\\images\\sprites\\Potion_Green.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\sprites\\Potion_Yellow.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\sprites\\GreenSpell.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\sprites\\YellowSpell.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\bullets\\Bullet_Green_00.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\bullets\\Bullet_Green_01.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\bullets\\Bullet_Green_02.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\bullets\\Bullet_Green_03.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\bullets\\Bullet_Yellow_00.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\bullets\\Bullet_Yellow_01.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\bullets\\Bullet_Yellow_03.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\bullets\\Bullet_Yellow_02.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\scoreboard\\GreenSpell_ScoreBoard.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\scoreboard\\YellowSpell_Scoreboard.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\sprites\\GreenSpell.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\sprites\\YellowSpell.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\scoreboard\\GreenSpell_Scoreboard.h": {
+			"sdcard": false
 		}
 	},
 	"BUILDFlags": {

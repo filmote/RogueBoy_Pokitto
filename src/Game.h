@@ -52,6 +52,7 @@ class Game {
 
         void showInventory();
         void mapDetails();
+        void printMap();
         void renderInventoryItem(InventoryItem inventotyItem);
 
         void init(uint16_t x, uint16_t y, bool resetObjects);
@@ -99,13 +100,13 @@ class Game {
         uint16_t eolYTile;
         
         MapInformation map;
-        bool randomLevel = true;
+        bool randomLevel = false;
         uint8_t mapRandomLow = 0;
 
         uint8_t splashScreenCounter = 0;
         uint8_t splashScreenMode = 0;
 
-        const uint8_t * maps[18] = { MAP_1, MAP_2, MAP_3, MAP_4, MAP_5, MAP_6, MAP_7, MAP_9, MAP_10, MAP_11, MAP_12, MAP_13, MAP_14, MAP_15, MAP_16, MAP_17, MAP_18 };
+//       const uint8_t * maps[18] = { MAP_1, MAP_2, MAP_3, MAP_4, MAP_5, MAP_6, MAP_7, MAP_9, MAP_10, MAP_11, MAP_12, MAP_13, MAP_14, MAP_15, MAP_16, MAP_17, MAP_18 };
 //        const uint8_t * maps[20] = { MAP_Test, MAP_1, MAP_2, MAP_3, MAP_4, MAP_5, MAP_Test, MAP_6, MAP_7, MAP_8, MAP_9, MAP_10, MAP_11, MAP_12, MAP_13, MAP_14, MAP_15, MAP_16, MAP_17, MAP_18,  };
 
         #ifdef DEBUG

@@ -6,25 +6,10 @@ using PD = Pokitto::Display;
 using PS = Pokitto::Sound;
 
 
-const int8_t offsets[] = { 
-    /* Coin */          0, 
-    /* Sack of Cash */  0, 
-    /* Bread */         0, 
-    /* Key */           0, 
-    /* Chickens */      0, 
-    /* Floater */       0, 
-    /* Skull */         0, 
-    /* Spider */        0,
-    /* Bat */           0, 
-    /* Spanner */       -3, 
-    /* Potion */        0, 
-    /* BgSpider */      -4,
-    /* IceSpell */      -2, 
-};
 
 void Game::loadMap(uint8_t level) {
 
-    const uint8_t * levelToLoad = this->maps[level];
+    const uint8_t * levelToLoad = maps[level];
     uint16_t cursor = 0;
 
     map.setWidth(levelToLoad[cursor++]);
@@ -46,6 +31,14 @@ void Game::loadMap(uint8_t level) {
 
         uint8_t tile = levelToLoad[cursor];
         this->map.setBlock(idx, static_cast<MapTiles>(tile));
+
+        // Capture the exit location so we can show the 'cheat' arrow ..
+    
+        if (tile == MapTiles::DownStairs) {
+            this->eolXTile = px;
+            this->eolYTile = py;
+        }
+
         cursor++;
 
     }
@@ -65,14 +58,19 @@ void Game::loadMap(uint8_t level) {
             bool active = true;
 
             auto & object = objects.getSprite(i);
-            object.setSprite(px, py, h, static_cast<Object>(type), offsets[type], active);
+            object.setSprite(px, py, h, static_cast<Object>(type), active);
 
+            switch (type) {
 
-            // Capture the exit location so we can show the 'cheat' arrow ..
+                case Object::GreenSpell:
+                case Object::YellowSpell:
+                    object.setQuantity(random(3, 8));
+                    break;
 
-            if (type == MapTiles::DownStairs) {
-                this->eolXTile = px;
-                this->eolYTile = py;
+                default:
+                    object.setQuantity(1);
+                    break;
+                
             }
 
         }
@@ -361,8 +359,23 @@ printf("Player %i %i, EOL %i %i\n",playerX, playerY, levelEndX, levelEndY);
                                 uint8_t h = segmentToLoad[cursorTile++];
 
                                 if (option == randOption) {
+
                                     auto & object = objects.getSprite(objectCount);
-                                    object.setSprite((xSegment * RANDOM_TILE_SIZE * TILE_SIZE) + x, (ySegment * RANDOM_TILE_SIZE * TILE_SIZE) + y, h, static_cast<Object>(type), offsets[type], true);
+                                    object.setSprite((xSegment * RANDOM_TILE_SIZE * TILE_SIZE) + x, (ySegment * RANDOM_TILE_SIZE * TILE_SIZE) + y, h, static_cast<Object>(type), true);
+                                               
+                                    switch (type) {
+
+                                        case Object::GreenSpell:
+                                        case Object::YellowSpell:
+                                            object.setQuantity(random(3, 8));
+                                            break;
+
+                                        default:
+                                            object.setQuantity(1);
+                                            break;
+                                        
+                                    }
+
                                     objectCount++;
 
                                 }
