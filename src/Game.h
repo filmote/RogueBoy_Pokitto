@@ -103,7 +103,7 @@ class Game {
         uint16_t eolYTile;
         
         MapInformation map;
-        bool randomLevel = false;
+        bool randomLevel = true;
         uint8_t mapRandomLow = 0;
 
         uint8_t splashScreenCounter = 0;

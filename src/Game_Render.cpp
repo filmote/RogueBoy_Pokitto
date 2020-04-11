@@ -136,14 +136,14 @@ void Game::renderEnviroment(int8_t damageOffsetX, int8_t damageOffsetY) {
                 case MapTiles::NewStraightTorchTOP_F0:
                 case MapTiles::NewStraightTorchLHS_F0:
                 case MapTiles::NewStraightTorchRHS_F0:
-                    if (PC::frameCount % 24 < 12) { block = block + 4; }
+                    if (PC::frameCount % 16 < 8) { block = block + 4; }
                     break;
 
                 case MapTiles::NewStraightTorchBOT_F1:
                 case MapTiles::NewStraightTorchTOP_F1:
                 case MapTiles::NewStraightTorchLHS_F1:
                 case MapTiles::NewStraightTorchRHS_F1:
-                    if (PC::frameCount % 24 < 12) { block = block - 4; }
+                    if (PC::frameCount % 16 < 8) { block = block - 4; }
                     break;
 
                 case MapTiles::WormHole_F0:
