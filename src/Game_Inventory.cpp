@@ -12,18 +12,18 @@ void Game::showInventory() {
 
     // Update timer ..
 
-    // if (Pokitto::Core::frameCount % TIMER_STEP == 0) { this->map.decTimer();  }
-    // if (this->map.getTimer() == 0) { 
+    if (Pokitto::Core::frameCount % TIMER_STEP == 0) { this->map.decTimer();  }
+    if (this->map.getTimer() == 0) { 
         
-    //     player.setHealth(0); 
+        player.setHealth(0); 
      
-    //     if (player.getHealth() <= 0) {
-    //        //sound.tones(DeathNotes); 
-    //         gameState = GameState::Dead;
+        if (player.getHealth() <= 0) {
+           //sound.tones(DeathNotes); 
+            gameState = GameState::Dead;
 
-    //     }
+        }
         
-    // }
+    }
 
 
     this->renderEnviroment(0, 0);
@@ -303,7 +303,7 @@ void Game::showInventory() {
         }
         else if (this->player.getY() / TILE_SIZE < this->eolYTile) {
 
-            rot = Direction::Left;
+            rot = Direction::Down;
 
         }
 
@@ -328,7 +328,7 @@ void Game::showInventory() {
 
     }
 
-    PD::drawBitmap(93, 74, Images::Directions[static_cast<uint8_t>(rot)]);
+    PD::drawBitmap(92, 74, Images::Directions[static_cast<uint8_t>(rot)]);
        
 
     // Render Inventory ..

@@ -7,9 +7,12 @@ using PS = Pokitto::Sound;
 
 void Game::updateObjects() {
 
+    // Handle various counters ..
+
     this->player.decWeaponCount();
-    if (this->shake > 0) this->shake--;
-    if (this->shockwave > 0) this->shockwave--;
+    if (this->shake > 0)                this->shake--;
+    if (this->shockwave > 0)            this->shockwave--;
+    if (this->levelStartDelay > 0)      this->levelStartDelay--;
 
 
     // Update other objects ..
@@ -43,7 +46,7 @@ void Game::updateObjects() {
             }
 
 
-            if (update) { this->spriteAI(map, player, objectI); }
+            if (update && this->levelStartDelay == 0) { this->spriteAI(map, player, objectI); }
 
 
             // Has a collision between two objects occurred ?

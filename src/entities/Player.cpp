@@ -147,7 +147,7 @@ void Player::init(uint16_t x, uint16_t y) {
     this->direction = Direction::Down;
     this->coins = 0;
     this->kills = 0;
-    this->health = 100;
+    this->health = (this->health <= 0 ? 100 : this->health);
     this->moving = false;
     
 }

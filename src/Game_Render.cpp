@@ -15,8 +15,6 @@ void Game::renderObjects() {
 
 void Game::renderHud() {
 
-    #ifndef LARGE_SCREEN
-
     PD::drawBitmap(0, 72, Images::Scoreboard);
     
     
@@ -109,8 +107,6 @@ void Game::renderHud() {
     }
 
     PD::setColor(6, 0);
-
-    #endif
 
 }
 

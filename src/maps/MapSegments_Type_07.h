@@ -252,12 +252,12 @@ const uint8_t MAP_Segment_Type07_04[] = {
     3,
     0,Object::Bat,3,4,40,
     0,Object::Bat,3,5,40,
-    0,Object::Bread,5,5,40,
+    0,Object::Bread,5,4,40,
     1,Object::Bat,7,1,40,
-    1,Object::Bat,5,5,40,
+    1,Object::Bat,5,4,40,
     1,Object::Floater,5,4,40,
     2,Object::Bat,7,1,40,
-    2,Object::Skull,5,5,40,
+    2,Object::Skull,5,4,40,
     END_OF_OPTIONS,
 
     // Entrance / Exit Options -----------

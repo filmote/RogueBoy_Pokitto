@@ -115,6 +115,11 @@ void Game::nextLevelLoad() {
     uint16_t levelEndY = 0;
 
 
+    // Prevent enemies from attacking you when level starts ..
+
+    this->levelStartDelay = LEVEL_START_DELAY;
+
+
     // Clear any old maps away ..
 
     this->map.clearMap();
@@ -140,6 +145,9 @@ void Game::nextLevelLoad() {
             uint16_t cursor = 0;
             uint8_t xSegments = levelToLoad[cursor++];
             uint8_t ySegments = levelToLoad[cursor++];
+
+            printf("=========================================================================\n");
+            printf("Random Level: %i", randomLevel);
             printf("Size %i %i\n",xSegments, ySegments);
             
             map.setWidth(xSegments * RANDOM_TILE_SIZE);
