@@ -226,6 +226,7 @@ void Game::showInventory() {
                             case Object::GreenSpell:
                             case Object::YellowSpell:
                                 inventoryItem.quantity = 0;
+                                this->player.setWeapon(Object::FireBall);
                                 break;
 
                             default:
