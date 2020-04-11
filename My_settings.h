@@ -1,6 +1,6 @@
 #define PROJ_BUTTONS_POLLING_ONLY
 
-#define _LARGE_SCREEN
+#define LARGE_SCREEN
 
 #ifndef LARGE_SCREEN
     #define PROJ_SCREENMODE             2
@@ -48,6 +48,8 @@
 #define DAMAGE_ICESPELL     10
 #define DAMAGE_GREENSPELL   20
 #define DAMAGE_YELLOWSPELL  30
+
+#define TIMER_STEP          32
 
 /*
 Bit 7       Blank segment.

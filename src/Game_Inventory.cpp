@@ -9,6 +9,23 @@ using PS = Pokitto::Sound;
 
 void Game::showInventory() {
 
+
+    // Update timer ..
+
+    // if (Pokitto::Core::frameCount % TIMER_STEP == 0) { this->map.decTimer();  }
+    // if (this->map.getTimer() == 0) { 
+        
+    //     player.setHealth(0); 
+     
+    //     if (player.getHealth() <= 0) {
+    //        //sound.tones(DeathNotes); 
+    //         gameState = GameState::Dead;
+
+    //     }
+        
+    // }
+
+
     this->renderEnviroment(0, 0);
     this->renderHud();
 
@@ -94,6 +111,7 @@ void Game::showInventory() {
                         if (inventoryItem.type == this->player.getWeapon()) {
 
                             this->player.setWeapon(Object::FireBall);
+                            this->inventoryMenu.showActionMenu = false;
 
                         }
                         else {

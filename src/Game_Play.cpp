@@ -283,7 +283,7 @@ void Game::updateGame() {
     this->renderObjects();
     this->renderHud();
     
-    if (Pokitto::Core::frameCount % 15 == 0) { this->map.decTimer();  }
+    if (Pokitto::Core::frameCount % TIMER_STEP == 0) { this->map.decTimer();  }
     if (this->map.getTimer() == 0) { player.setHealth(0); }
 
     if (player.getHealth() <= 0) {
