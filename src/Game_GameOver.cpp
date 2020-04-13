@@ -46,7 +46,7 @@ void Game::endOfLevel() {
     int32_t killp = player.getKills() * 10;
     int32_t pts = padd + killp + (this->map.getTimer()/10);
 
-    this->renderEnviroment(0, 0);
+//    this->renderEnviroment(0, 0);
     this->renderHud();
 
     PD::setColor(15);

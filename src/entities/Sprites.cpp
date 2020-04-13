@@ -61,89 +61,104 @@ void Sprites::render(Player &player, bool showEnemies) {
             int8_t offset = object.getOffset();
             Direction direction = object.getDirection();
 
-            switch (object.getType()) {
-
-                case Object::Coin:
-                    PD::drawBitmap(x + offset, y + offset, Images::Coins[frame]);
-                    break;
-
-                case Object::Bat:
-                    if (showEnemies) {
-                        PD::drawBitmap(x + offset, y + offset, Images::Bats[frame]);
-                        if (object.getRenderHealthBar()) { this->renderHealthBar(x + 6, y - 6, 10 * object.getHealth() / object.getHealthOrig()); }
-                    }
-                    break;
-
-                case Object::Spider:
-                    if (showEnemies) {
-                        PD::drawBitmap(x + offset, y + offset, Images::Spiders[(static_cast<uint8_t>(direction) * 2) + frame]);
-                        if (object.getRenderHealthBar()) { this->renderHealthBar(x + 6, y - 6, 10 * object.getHealth() / object.getHealthOrig()); }
-                    }
-                    break;
-
-                case Object::BigSpider:
-                    if (showEnemies) {
-                        PD::drawBitmap(x + offset, y + offset, Images::BigSpiders[(static_cast<uint8_t>(direction) * 2) + frame]);
-                        if (object.getRenderHealthBar()) { this->renderHealthBar(x + 6, y - 6, 10 * object.getHealth() / object.getHealthOrig()); }
-                    }
-                    break;
-
-                case Object::Skull:
-                    if (showEnemies) {
-                        if (object.getRenderHealthBar()) { this->renderHealthBar(x + 6, y - 6, 10 * object.getHealth() / object.getHealthOrig()); }
-                        PD::drawBitmap(x + offset, y + offset, Images::Skull);
-                    }
-                    break;
-
-                case Object::SackOCash:
-                    PD::drawBitmap(x + offset, y + offset, Images::SackOCash);
-                    break;
-
-                case Object::Bread:
-                   PD::drawBitmap(x + offset, y + offset, Images::Bread);
-//                    PD::drawBitmap(x, y, Images::Bread);
-                    break;
-
-                case Object::Key:
-                    PD::drawBitmap(x + offset, y + offset, Images::Key);
-                    break;
-
-                case Object::Chicken:
-                    PD::drawBitmap(x + offset, y + offset, Images::Chicken);
-                    break;
-
-                case Object::Floater:
-                    if (object.getRenderHealthBar()) { this->renderHealthBar(x + 6, y - 6, 10 * object.getHealth() / object.getHealthOrig()); }
-                    PD::drawBitmap(x + offset, y + offset, Images::Floater);
-                    break;
-
-                case Object::Tools:
-                    PD::drawBitmap(x + offset, y + offset, Images::Tools);
-                    break;
-
-                case Object::Potion:
-                    PD::drawBitmap(x + offset, y + offset, Images::Potion);
-                    break;
-
-                case Object::IceSpell:
-                    PD::drawBitmap(x + offset, y + offset, Images::IceSpell[frame]);
-                    break;
-
-                case Object::GreenSpell:
-                    PD::drawBitmap(x + offset, y + offset, Images::GreenSpell);
-                    break;
-
-                case Object::YellowSpell:
-                    PD::drawBitmap(x + offset, y + offset, Images::YellowSpell);
-                    break;
-
-                case Object::MauveSpell:
-                    PD::drawBitmap(x + offset, y + offset, Images::MauveSpell);
-                    break;
-
-            }
+            this->renderSprite(object.getType(), x, y, offset, direction, frame, showEnemies, object.getRenderHealthBar(), 10 * object.getHealth() / object.getHealthOrig());
 
         }
+
+    }
+
+}
+
+void Sprites::renderSprite(Object type, int x, int y) {
+
+    int8_t offset = spriteOffsets[static_cast<uint8_t>(type)];
+
+    this->renderSprite(type, x, y, offset, Direction::Up, 0, false, false, 0);
+
+}
+
+
+void Sprites::renderSprite(Object type, int x, int y, int8_t offset, Direction direction, uint8_t frame, bool showEnemies, bool renderHealth, int healthValue ) {
+
+    switch (type) {
+
+        case Object::Coin:
+            PD::drawBitmap(x + offset, y + offset, Images::Coins[frame]);
+            break;
+
+        case Object::Bat:
+            if (showEnemies) {
+                PD::drawBitmap(x + offset, y + offset, Images::Bats[frame]);
+                if (renderHealth) { this->renderHealthBar(x + 6, y - 6, healthValue); }
+            }
+            break;
+
+        case Object::Spider:
+            if (showEnemies) {
+                PD::drawBitmap(x + offset, y + offset, Images::Spiders[(static_cast<uint8_t>(direction) * 2) + frame]);
+                if (renderHealth) { this->renderHealthBar(x + 6, y - 6, healthValue); }
+            }
+            break;
+
+        case Object::BigSpider:
+            if (showEnemies) {
+                PD::drawBitmap(x + offset, y + offset, Images::BigSpiders[(static_cast<uint8_t>(direction) * 2) + frame]);
+                if (renderHealth) { this->renderHealthBar(x + 6, y - 6, healthValue); }
+            }
+            break;
+
+        case Object::Skull:
+            if (showEnemies) {
+                if (renderHealth) { this->renderHealthBar(x + 6, y - 6, healthValue); }
+                PD::drawBitmap(x + offset, y + offset, Images::Skull);
+            }
+            break;
+
+        case Object::SackOCash:
+            PD::drawBitmap(x + offset, y + offset, Images::SackOCash);
+            break;
+
+        case Object::Bread:
+            PD::drawBitmap(x + offset, y + offset, Images::Bread);
+//                    PD::drawBitmap(x, y, Images::Bread);
+            break;
+
+        case Object::Key:
+            PD::drawBitmap(x + offset, y + offset, Images::Key);
+            break;
+
+        case Object::Chicken:
+            PD::drawBitmap(x + offset, y + offset, Images::Chicken);
+            break;
+
+        case Object::Floater:
+            if (renderHealth) { this->renderHealthBar(x + 6, y - 6, healthValue); }
+            PD::drawBitmap(x + offset, y + offset, Images::Floater);
+            break;
+
+        case Object::Tools:
+            PD::drawBitmap(x + offset, y + offset, Images::Tools);
+            break;
+
+        case Object::Tonic:
+            PD::drawBitmap(x + offset, y + offset, Images::Tonic);
+            break;
+
+        case Object::IceSpell:
+            PD::drawBitmap(x + offset, y + offset, Images::IceSpell[frame]);
+            break;
+
+        case Object::GreenSpell:
+            PD::drawBitmap(x + offset, y + offset, Images::GreenSpell);
+            break;
+
+        case Object::YellowSpell:
+            PD::drawBitmap(x + offset, y + offset, Images::YellowSpell);
+            break;
+
+        case Object::MauveSpell:
+            PD::drawBitmap(x + offset, y + offset, Images::MauveSpell);
+            break;
 
     }
 

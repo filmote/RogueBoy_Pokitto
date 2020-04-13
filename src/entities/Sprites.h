@@ -2,6 +2,7 @@
 
 #include "Pokitto.h"
 #include "Sprite.h"
+#include "Sprites_Consts.h"
 #include "Player.h"
 
 using PC = Pokitto::Core;
@@ -24,6 +25,8 @@ class Sprites {
         void render(Player &player, bool renderEnemies);
         void clearPreventImmediatePickup(Player &player);
         void renderHealthBar(uint32_t x, uint32_t y, uint8_t health);
+        void renderSprite(Object type, int x, int y);
+        void renderSprite(Object type, int x, int y, int8_t offset, Direction direction, uint8_t frame, bool showEnemies, bool renderHealth, int healthValue);
 
     private:
 

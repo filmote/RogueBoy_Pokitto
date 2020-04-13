@@ -22,6 +22,7 @@ class Player {
         Direction getDirection();
         int8_t getHealth();
         uint8_t getCoins();
+        uint8_t getCoinsOverall();
         uint8_t getKills();
         uint8_t getFrame();
         bool getMoving();
@@ -32,12 +33,14 @@ class Player {
         void setDirection(Direction direction);
         void setHealth(int8_t health);
         void setCoins(uint8_t coins);
+        void setCoinsOverall(uint8_t coins);
         void setKills(uint8_t kills);
         void setFrame(uint8_t frame);
         void setMoving(bool moving);
         void setWeapon(Object weapon);
 
         void incFrame();
+        void incCoins(uint8_t coins);
         void init(uint16_t x, uint16_t y);
         void decWeaponCount();
         uint8_t getWeaponFrame();
@@ -63,6 +66,7 @@ class Player {
         Direction direction;
         int8_t health;
         uint8_t coins;
+        uint8_t coinsOverall;
         uint8_t kills;
         bool moving;
         uint8_t frame;

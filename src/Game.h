@@ -5,6 +5,7 @@
 #include "utils/Structs.h"
 #include "images/Images.h"
 #include "entities/Entities.h"
+#include "entities/Sprites_Consts.h"
 
 #include "maps/MapSegments_Type_00.h"
 #include "maps/MapSegments_Type_01.h"
@@ -81,7 +82,7 @@ class Game {
 
         bool isBlockedByEnemy(Player player, uint16_t playerX, uint16_t playerY);
         bool isBlockedByPlayer(Player player, Sprite enemy, uint16_t enemyX, uint16_t enemyY);
-
+        void showShop();
 
         #ifdef DEBUG
         void clearCells();
@@ -103,7 +104,7 @@ class Game {
         uint16_t eolYTile;
         
         MapInformation map;
-        bool randomLevel = true;
+        bool randomLevel = false;
         uint8_t mapRandomLow = 0;
 
         uint8_t splashScreenCounter = 0;
@@ -112,8 +113,26 @@ class Game {
         uint8_t shockwave = 0;
         uint16_t levelStartDelay = 255;
 
+
+        uint8_t shopUpperIndex = 0;
+        uint8_t shopItemIndex = 0;
+        ShopMessage shopMessage = ShopMessage::None;
+
+
 //       const uint8_t * maps[18] = { MAP_1, MAP_2, MAP_3, MAP_4, MAP_5, MAP_6, MAP_7, MAP_9, MAP_10, MAP_11, MAP_12, MAP_13, MAP_14, MAP_15, MAP_16, MAP_17, MAP_18 };
 //        const uint8_t * maps[20] = { MAP_Test, MAP_1, MAP_2, MAP_3, MAP_4, MAP_5, MAP_Test, MAP_6, MAP_7, MAP_8, MAP_9, MAP_10, MAP_11, MAP_12, MAP_13, MAP_14, MAP_15, MAP_16, MAP_17, MAP_18,  };
+
+
+        ShopObject shopObjects[7] = {
+            { Object::Bread, 6, 2 },
+            { Object::Chicken, 10, 3 },
+            { Object::Tonic, 20, 3 },
+            { Object::IceSpell, 20, 2 },
+            { Object::GreenSpell, 25, 0 },
+            { Object::YellowSpell, 35, 2 },
+            { Object::MauveSpell, 50, 1 },            
+        };
+
 
         #ifdef DEBUG
 

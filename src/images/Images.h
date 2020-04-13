@@ -10,6 +10,7 @@
 #include "ppot/PPOT.h"
 #include "levelChange/LevelSplash.h"
 #include "shockwaves/Shockwaves.h"
+#include "shop/Shop.h"
 
 namespace Images {
 

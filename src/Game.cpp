@@ -52,6 +52,10 @@ void Game::loop(void) {
             win(); 
             break;
 
+        case GameState::Shop:  
+            showShop(); 
+            break;
+
         #ifdef DEBUG
             case GameState::MapDetails:  
                 mapDetails(); 
