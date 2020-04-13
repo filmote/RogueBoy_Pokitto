@@ -124,7 +124,7 @@ const uint8_t MAP_Segment_Type00_02[] = {
     0,MapTiles::Barrel,4,1,
     0,MapTiles::Barrel,4,2,
     0,MapTiles::Barrel,5,2,
-    0,MapTiles::NewSpearDoorLHS,8,4,
+    0,MapTiles::SpearDoorLHS,8,4,
     0,MapTiles::SwitchOff,1,1,
     1,MapTiles::Barrel,7,6,
     1,MapTiles::Barrel,5,7,

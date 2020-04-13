@@ -148,10 +148,10 @@ const uint8_t MAP_Segment_Type10_02[] = {
     0,MapTiles::Barrel,5,5,
     1,MapTiles::Barrel,3,3,
     1,MapTiles::Barrel,5,5,
-    2,MapTiles::NewEndTRL,4,3,
-    2,MapTiles::NewEndTBL,3,4,
-    2,MapTiles::NewEndRBL,4,5,
-    2,MapTiles::NewEndTRB,5,4,
+    2,MapTiles::EndTRL,4,3,
+    2,MapTiles::EndTBL,3,4,
+    2,MapTiles::EndRBL,4,5,
+    2,MapTiles::EndTRB,5,4,
     END_OF_OPTIONS,
 
     // Environment Options ---------------

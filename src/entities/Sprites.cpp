@@ -46,7 +46,7 @@ void Sprites::renderHealthBar(uint32_t x, uint32_t y, uint8_t health) {
 
 }
 
-void Sprites::render(Player &player) {
+void Sprites::render(Player &player, bool showEnemies) {
 
     for (uint8_t i = 0; i < this->oNum; i++) {
 
@@ -68,18 +68,31 @@ void Sprites::render(Player &player) {
                     break;
 
                 case Object::Bat:
-                    PD::drawBitmap(x + offset, y + offset, Images::Bats[frame]);
-                    if (object.getRenderHealthBar()) { this->renderHealthBar(x + 6, y - 6, 10 * object.getHealth() / object.getHealthOrig()); }
+                    if (showEnemies) {
+                        PD::drawBitmap(x + offset, y + offset, Images::Bats[frame]);
+                        if (object.getRenderHealthBar()) { this->renderHealthBar(x + 6, y - 6, 10 * object.getHealth() / object.getHealthOrig()); }
+                    }
                     break;
 
                 case Object::Spider:
-                    PD::drawBitmap(x + offset, y + offset, Images::Spiders[(static_cast<uint8_t>(direction) * 2) + frame]);
-                    if (object.getRenderHealthBar()) { this->renderHealthBar(x + 6, y - 6, 10 * object.getHealth() / object.getHealthOrig()); }
+                    if (showEnemies) {
+                        PD::drawBitmap(x + offset, y + offset, Images::Spiders[(static_cast<uint8_t>(direction) * 2) + frame]);
+                        if (object.getRenderHealthBar()) { this->renderHealthBar(x + 6, y - 6, 10 * object.getHealth() / object.getHealthOrig()); }
+                    }
                     break;
 
                 case Object::BigSpider:
-                    PD::drawBitmap(x + offset, y + offset, Images::BigSpiders[(static_cast<uint8_t>(direction) * 2) + frame]);
-                    if (object.getRenderHealthBar()) { this->renderHealthBar(x + 6, y - 6, 10 * object.getHealth() / object.getHealthOrig()); }
+                    if (showEnemies) {
+                        PD::drawBitmap(x + offset, y + offset, Images::BigSpiders[(static_cast<uint8_t>(direction) * 2) + frame]);
+                        if (object.getRenderHealthBar()) { this->renderHealthBar(x + 6, y - 6, 10 * object.getHealth() / object.getHealthOrig()); }
+                    }
+                    break;
+
+                case Object::Skull:
+                    if (showEnemies) {
+                        if (object.getRenderHealthBar()) { this->renderHealthBar(x + 6, y - 6, 10 * object.getHealth() / object.getHealthOrig()); }
+                        PD::drawBitmap(x + offset, y + offset, Images::Skull);
+                    }
                     break;
 
                 case Object::SackOCash:
@@ -102,11 +115,6 @@ void Sprites::render(Player &player) {
                 case Object::Floater:
                     if (object.getRenderHealthBar()) { this->renderHealthBar(x + 6, y - 6, 10 * object.getHealth() / object.getHealthOrig()); }
                     PD::drawBitmap(x + offset, y + offset, Images::Floater);
-                    break;
-
-                case Object::Skull:
-                    if (object.getRenderHealthBar()) { this->renderHealthBar(x + 6, y - 6, 10 * object.getHealth() / object.getHealthOrig()); }
-                    PD::drawBitmap(x + offset, y + offset, Images::Skull);
                     break;
 
                 case Object::Tools:

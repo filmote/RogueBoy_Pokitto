@@ -5741,6 +5741,30 @@
 		},
 		"\\src\\images\\shockwaves\\Pulse_TL_05.h": {
 			"sdcard": false
+		},
+		"\\src\\images\\background\\CornerFillLL.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\background\\CornerFillLL.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\background\\CornerFillLR.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\background\\CornerFillLR.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\background\\CornerFillTL.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\background\\CornerFillTL.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\background\\CornerFillTR.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\background\\CornerFillTR.png": {
+			"sdcard": false
 		}
 	},
 	"BUILDFlags": {

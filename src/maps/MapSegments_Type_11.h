@@ -47,15 +47,15 @@ const uint8_t MAP_Segment_Type11_00[] = {
     // Tilemap Options -------------------
     // Opt, Tile, x, y
 
-    1,MapTiles::NewCornerTR,3,8,
-    1,MapTiles::NewStraightRHS,2,7,
-    1,MapTiles::NewCornerLR,3,6,
+    1,MapTiles::CornerTR,3,8,
+    1,MapTiles::StraightRHS,2,7,
+    1,MapTiles::CornerLR,3,6,
     1,MapTiles::SwitchOn,3,7,
-    1,MapTiles::NewSpearDoorBOT,4,6,
+    1,MapTiles::SpearDoorBOT,4,6,
 
-    1,MapTiles::NewCornerLL,5,4,
-    1,MapTiles::NewStraightLHS,6,5,
-    1,MapTiles::NewCornerTL,5,6,
+    1,MapTiles::CornerLL,5,4,
+    1,MapTiles::StraightLHS,6,5,
+    1,MapTiles::CornerTL,5,6,
     1,MapTiles::SwitchOn,5,5,
     END_OF_OPTIONS,
 

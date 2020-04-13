@@ -44,15 +44,15 @@ const uint8_t MAP_Segment_Type04_00[] = {
    
     // Number of Options
     2,
-    1,MapTiles::NewCornerLL,5,1,
-    1,MapTiles::NewStraightLHS,6,2,
-    1,MapTiles::NewCornerTL,5,3,
-    1,MapTiles::NewCornerLR,3,5,
-    1,MapTiles::NewStraightRHS,2,6,
-    1,MapTiles::NewCornerTR,3,7,
+    1,MapTiles::CornerLL,5,1,
+    1,MapTiles::StraightLHS,6,2,
+    1,MapTiles::CornerTL,5,3,
+    1,MapTiles::CornerLR,3,5,
+    1,MapTiles::StraightRHS,2,6,
+    1,MapTiles::CornerTR,3,7,
     1,MapTiles::SwitchOn,5,2,
     1,MapTiles::SwitchOn,3,6,
-    1,MapTiles::NewSpearDoorBOT,4,4,
+    1,MapTiles::SpearDoorBOT,4,4,
     END_OF_OPTIONS,
 
     1,5,2,4,4,
@@ -134,11 +134,11 @@ const uint8_t MAP_Segment_Type04_02[] = {
     // Opt, Tile, x, y
     0,MapTiles::SwitchOn,1,1,
     0,MapTiles::SwitchOn,7,7,
-    0,MapTiles::NewStraightTOP,4,2,
-    0,MapTiles::NewEndRBL,4,3,
-    0,MapTiles::NewSpearDoorLHS,4,4,
-    0,MapTiles::NewEndTRL,4,5,
-    0,MapTiles::NewStraightTOP,4,6,
+    0,MapTiles::StraightTOP,4,2,
+    0,MapTiles::EndRBL,4,3,
+    0,MapTiles::SpearDoorLHS,4,4,
+    0,MapTiles::EndTRL,4,5,
+    0,MapTiles::StraightTOP,4,6,
     END_OF_OPTIONS,
 
     // Environment Options ---------------

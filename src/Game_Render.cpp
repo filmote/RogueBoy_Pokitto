@@ -8,7 +8,7 @@ using PS = Pokitto::Sound;
 
 void Game::renderObjects() {
 
-    objects.render(player);
+    objects.render(player, (this->levelStartDelay == 0 || this->levelStartDelay % 32 < 16) );
     bullets.render(player);
 
 }
@@ -128,17 +128,17 @@ void Game::renderEnviroment(int8_t damageOffsetX, int8_t damageOffsetY) {
 
             switch (block) {
 
-                case MapTiles::NewStraightTorchBOT_F0:
-                case MapTiles::NewStraightTorchTOP_F0:
-                case MapTiles::NewStraightTorchLHS_F0:
-                case MapTiles::NewStraightTorchRHS_F0:
+                case MapTiles::StraightTorchBOT_F0:
+                case MapTiles::StraightTorchTOP_F0:
+                case MapTiles::StraightTorchLHS_F0:
+                case MapTiles::StraightTorchRHS_F0:
                     if (PC::frameCount % 16 < 8) { block = block + 4; }
                     break;
 
-                case MapTiles::NewStraightTorchBOT_F1:
-                case MapTiles::NewStraightTorchTOP_F1:
-                case MapTiles::NewStraightTorchLHS_F1:
-                case MapTiles::NewStraightTorchRHS_F1:
+                case MapTiles::StraightTorchBOT_F1:
+                case MapTiles::StraightTorchTOP_F1:
+                case MapTiles::StraightTorchLHS_F1:
+                case MapTiles::StraightTorchRHS_F1:
                     if (PC::frameCount % 16 < 8) { block = block - 4; }
                     break;
 
@@ -146,187 +146,187 @@ void Game::renderEnviroment(int8_t damageOffsetX, int8_t damageOffsetY) {
                     block = block + (PC::frameCount % 20) / 5;
                     break;
 
-                case MapTiles::NewStraightTOP:
+                case MapTiles::StraightTOP:
                     this->renderEnviroment_Top_Left(tileX + i, tileY + j, drawX, drawY);
                     this->renderEnviroment_Top_Right(tileX + i, tileY + j, drawX, drawY);
                     break;
 
-                case MapTiles::NewStraightBOT:
+                case MapTiles::StraightBOT:
                     this->renderEnviroment_Bot_Left(tileX + i, tileY + j, drawX, drawY);
                     this->renderEnviroment_Bot_Right(tileX + i, tileY + j, drawX, drawY);
                     break;
 
-                case MapTiles::NewStraightTB:
+                case MapTiles::StraightTB:
                     this->renderEnviroment_Top_Left(tileX + i, tileY + j, drawX, drawY);
                     this->renderEnviroment_Top_Right(tileX + i, tileY + j, drawX, drawY);
                     this->renderEnviroment_Bot_Left(tileX + i, tileY + j, drawX, drawY);
                     this->renderEnviroment_Bot_Right(tileX + i, tileY + j, drawX, drawY);
                     break;
 
-                case MapTiles::NewStraightLHS:
+                case MapTiles::StraightLHS:
 
                     switch (this->map.getBlock(tileX + i - 1, tileY + j - 1)) {
 
-                        case MapTiles::NewCornerLL:
-                            PD::drawBitmap(drawX, drawY - 8, Images::NewCornerFillLL);
+                        case MapTiles::CornerLL:
+                            PD::drawBitmap(drawX, drawY - 8, Images::CornerFillLL);
                             break;
 
                     }                
 
                     switch (this->map.getBlock(tileX + i - 1, tileY + j + 1)) {
 
-                        case MapTiles::NewCornerTL:
-                            PD::drawBitmap(drawX, drawY + 16, Images::NewCornerFillTL);
+                        case MapTiles::CornerTL:
+                            PD::drawBitmap(drawX, drawY + 16, Images::CornerFillTL);
                             break;
 
                     }                
 
                     break;
 
-                case MapTiles::NewStraightRHS:
+                case MapTiles::StraightRHS:
 
                     switch (this->map.getBlock(tileX + i + 1, tileY + j - 1)) {
 
-                        case MapTiles::NewCornerLR:
-                            PD::drawBitmap(drawX + 8, drawY - 8, Images::NewCornerFillLR);
+                        case MapTiles::CornerLR:
+                            PD::drawBitmap(drawX + 8, drawY - 8, Images::CornerFillLR);
                             break;
 
                     }                
 
                     switch (this->map.getBlock(tileX + i + 1, tileY + j + 1)) {
 
-                        case MapTiles::NewCornerTR:
-                            PD::drawBitmap(drawX + 8, drawY + 16, Images::NewCornerFillTR);
+                        case MapTiles::CornerTR:
+                            PD::drawBitmap(drawX + 8, drawY + 16, Images::CornerFillTR);
                             break;
 
                     }                
 
                     break;
 
-                case MapTiles::NewEndTBL:
+                case MapTiles::EndTBL:
                     this->renderEnviroment_Top_Right(tileX + i, tileY + j, drawX, drawY);
                     this->renderEnviroment_Bot_Right(tileX + i, tileY + j, drawX, drawY);
                     break;
 
-                case MapTiles::NewEndTRB:
+                case MapTiles::EndTRB:
                     this->renderEnviroment_Top_Left(tileX + i, tileY + j, drawX, drawY);
                     this->renderEnviroment_Bot_Left(tileX + i, tileY + j, drawX, drawY);
                     break;
 
-                case MapTiles::NewEndTRL:
+                case MapTiles::EndTRL:
 
                     switch (this->map.getBlock(tileX + i - 1, tileY + j + 1)) {
 
-                        case MapTiles::NewStraightTOP:
-                        case MapTiles::NewStraightTB:
-                            PD::drawBitmap(drawX, drawY + 16, Images::NewCornerFillTL);
+                        case MapTiles::StraightTOP:
+                        case MapTiles::StraightTB:
+                            PD::drawBitmap(drawX, drawY + 16, Images::CornerFillTL);
                             break;
 
                     }
 
                     switch (this->map.getBlock(tileX + i + 1, tileY + j + 1)) {
 
-                        case MapTiles::NewStraightTOP:
-                        case MapTiles::NewStraightTB:
-                            PD::drawBitmap(drawX + 16, drawY + 16, Images::NewCornerFillTR);
+                        case MapTiles::StraightTOP:
+                        case MapTiles::StraightTB:
+                            PD::drawBitmap(drawX + 16, drawY + 16, Images::CornerFillTR);
                             break;
 
                     }
                     break;
 
-                case MapTiles::NewEndRBL:
+                case MapTiles::EndRBL:
 
                     switch (this->map.getBlock(tileX + i - 1, tileY + j - 1)) {
 
-                        case MapTiles::NewStraightBOT:
-                        case MapTiles::NewStraightTB:
-                            PD::drawBitmap(drawX, drawY - 8, Images::NewCornerFillLL);
+                        case MapTiles::StraightBOT:
+                        case MapTiles::StraightTB:
+                            PD::drawBitmap(drawX, drawY - 8, Images::CornerFillLL);
                             break;
 
                     }
 
                     switch (this->map.getBlock(tileX + i + 1, tileY + j - 1)) {
 
-                        case MapTiles::NewStraightBOT:
-                        case MapTiles::NewStraightTB:
-                            PD::drawBitmap(drawX + 16, drawY - 8, Images::NewCornerFillLR);
+                        case MapTiles::StraightBOT:
+                        case MapTiles::StraightTB:
+                            PD::drawBitmap(drawX + 16, drawY - 8, Images::CornerFillLR);
                             break;
 
                     }
                     break;
 
-                case MapTiles::NewCornerTL:
+                case MapTiles::CornerTL:
 
                     switch (this->map.getBlock(tileX + i - 1, tileY + j + 1)) {
 
-                        case MapTiles::NewStraightTOP:
-                        case MapTiles::NewStraightTB:
-                        case MapTiles::NewCornerTL:
-                        case MapTiles::NewEndTBL:
-                            PD::drawBitmap(drawX, drawY + 16, Images::NewCornerFillTL);
+                        case MapTiles::StraightTOP:
+                        case MapTiles::StraightTB:
+                        case MapTiles::CornerTL:
+                        case MapTiles::EndTBL:
+                            PD::drawBitmap(drawX, drawY + 16, Images::CornerFillTL);
                             break;
 
                     }
 
                     switch (this->map.getBlock(tileX + i, tileY + j + 1)) {
 
-                        case MapTiles::NewStraightRHS:
-                        case MapTiles::NewStraightLR:
-                        case MapTiles::NewCornerLR:
-                        case MapTiles::NewEndRBL:
-                            PD::drawBitmap(drawX + 8, drawY + 8, Images::NewCornerFillLR);
+                        case MapTiles::StraightRHS:
+                        case MapTiles::StraightLR:
+                        case MapTiles::CornerLR:
+                        case MapTiles::EndRBL:
+                            PD::drawBitmap(drawX + 8, drawY + 8, Images::CornerFillLR);
                             break;
 
                     }
                     break;
 
-                case MapTiles::NewCornerTR:
+                case MapTiles::CornerTR:
 
                     switch (this->map.getBlock(tileX + i + 1, tileY + j + 1)) {
 
-                        case MapTiles::NewStraightTOP:
-                        case MapTiles::NewStraightTB:
-                        case MapTiles::NewEndTBL:
-                            PD::drawBitmap(drawX + 8, drawY + 16, Images::NewCornerFillTR);
+                        case MapTiles::StraightTOP:
+                        case MapTiles::StraightTB:
+                        case MapTiles::EndTBL:
+                            PD::drawBitmap(drawX + 8, drawY + 16, Images::CornerFillTR);
                             break;
 
                     }
 
                     switch (this->map.getBlock(tileX + i, tileY + j + 1)) {
 
-                        case MapTiles::NewStraightLHS:
-                        case MapTiles::NewStraightLR:
-                        case MapTiles::NewCornerLL:
-                        case MapTiles::NewEndRBL:
-                            PD::drawBitmap(drawX, drawY + 8, Images::NewCornerFillLL);
+                        case MapTiles::StraightLHS:
+                        case MapTiles::StraightLR:
+                        case MapTiles::CornerLL:
+                        case MapTiles::EndRBL:
+                            PD::drawBitmap(drawX, drawY + 8, Images::CornerFillLL);
                             break;
 
                     }
                     break;
 
-                case MapTiles::NewCornerLL:
+                case MapTiles::CornerLL:
 
                     switch (this->map.getBlock(tileX + i + 1, tileY + j + 1)) {
 
-                        case MapTiles::NewStraightLHS:
-                        case MapTiles::NewStraightLR:
-                        case MapTiles::NewCornerLL:
-                        case MapTiles::NewEndRBL:
-                            PD::drawBitmap(drawX + 16, drawY + 8, Images::NewCornerFillLL);
+                        case MapTiles::StraightLHS:
+                        case MapTiles::StraightLR:
+                        case MapTiles::CornerLL:
+                        case MapTiles::EndRBL:
+                            PD::drawBitmap(drawX + 16, drawY + 8, Images::CornerFillLL);
                             break;
 
                     }
                     break;
 
-                case MapTiles::NewCornerLR:
+                case MapTiles::CornerLR:
 
                     switch (this->map.getBlock(tileX + i - 1, tileY + j + 1)) {
 
-                        case MapTiles::NewStraightRHS:
-                        case MapTiles::NewStraightLR:
-                        case MapTiles::NewCornerLR:
-                        case MapTiles::NewEndRBL:
-                            PD::drawBitmap(drawX - 8, drawY + 8, Images::NewCornerFillLR);
+                        case MapTiles::StraightRHS:
+                        case MapTiles::StraightLR:
+                        case MapTiles::CornerLR:
+                        case MapTiles::EndRBL:
+                            PD::drawBitmap(drawX - 8, drawY + 8, Images::CornerFillLR);
                             break;
 
                     }
@@ -355,7 +355,7 @@ void Game::renderPlayer(int8_t damageOffsetX, int8_t damageOffsetY) {
     }
     else {
 
-        if(Pokitto::Core::frameCount % 5 == 0) {
+        if(Pokitto::Core::frameCount % 8 == 0) {
             player.incFrame();
         }
 
@@ -366,13 +366,74 @@ void Game::renderPlayer(int8_t damageOffsetX, int8_t damageOffsetY) {
     if (this->shockwave > 0) {
 
         uint8_t offset = (this->shockwave == 1 ? 29 : 1 + ((9 - this->shockwave) * 4));
-printf("showave %i %i %i\n", this->shockwave, 9 - this->shockwave, offset);
+
         PD::drawBitmap(CENTERX - 2 - damageOffsetX - offset, CENTERY - 4 - damageOffsetY - offset, Images::Pulse_TL[8 - this->shockwave]);
         PD::drawBitmap(CENTERX + 2 - damageOffsetX, CENTERY - 4 - damageOffsetY - offset, Images::Pulse_TR[8 - this->shockwave]);
 
         PD::drawBitmap(CENTERX - 2 - damageOffsetX - offset, CENTERY + 4 - damageOffsetY, Images::Pulse_TL[8 - this->shockwave], 0, 2);
         PD::drawBitmap(CENTERX + 2 - damageOffsetX, CENTERY + 4 - damageOffsetY, Images::Pulse_TR[8 - this->shockwave], 0, 2);
        
+    }
+
+}
+
+
+
+void Game::renderEnviroment_Top_Left(int x, int y, int drawX, int drawY) {
+
+    switch (this->map.getBlock(x - 1, y - 1)) {
+
+        case MapTiles::StraightRHS:
+        case MapTiles::StraightLR:
+        case MapTiles::EndTRL:
+            PD::drawBitmap(drawX - 8, drawY, Images::CornerFillTR);
+            break;
+
+    }
+
+}
+
+void Game::renderEnviroment_Top_Right(int x, int y, int drawX, int drawY) {
+
+    switch (this->map.getBlock(x + 1, y - 1)) {
+
+        case MapTiles::StraightLHS:
+        case MapTiles::StraightLR:
+        case MapTiles::EndTRL:
+            PD::drawBitmap(drawX + 16, drawY, Images::CornerFillTL);
+            break;
+
+    }
+
+}
+
+void Game::renderEnviroment_Bot_Left(int x, int y, int drawX, int drawY) {
+
+    switch (this->map.getBlock(x - 1, y + 1)) {
+
+        case MapTiles::StraightRHS:
+        case MapTiles::StraightLR:
+        case MapTiles::EndRBL:
+        case MapTiles::CornerLR:
+            PD::drawBitmap(drawX - 8, drawY + 8, Images::CornerFillLR);
+            break;
+
+    }
+
+}
+
+
+void Game::renderEnviroment_Bot_Right(int x, int y, int drawX, int drawY) {
+
+    switch (this->map.getBlock(x + 1, y + 1)) {
+
+        case MapTiles::StraightLHS:
+        case MapTiles::StraightLR:
+        case MapTiles::EndRBL:
+        case MapTiles::CornerLL:
+            PD::drawBitmap(drawX + 16, drawY + 8, Images::CornerFillLL);
+            break;
+
     }
 
 }
