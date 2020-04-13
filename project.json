@@ -5765,6 +5765,63 @@
 		},
 		"\\src\\images\\background\\CornerFillTR.png": {
 			"sdcard": false
+		},
+		"\\src\\Game_Utils - Copy.cpp": {
+			"sdcard": false
+		},
+		"\\src\\Game_Shop.cpp": {
+			"sdcard": false
+		},
+		"\\src\\images\\background\\Tile_76 - Copy.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\background\\Tile_77.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\background\\Tile_77.h": {
+			"sdcard": false
+		},
+		"\\src\\entities\\Sprites_Consts.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\sprites\\Tonic.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\New folder": {
+			"sdcard": false
+		},
+		"\\src\\images\\shop": {
+			"sdcard": false
+		},
+		"\\src\\images\\shop\\SoldOut.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\shop\\Shop.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\shop\\SoldOut.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\levelChange\\LevelSplash_Full - Copy.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\levelChange\\LevelSplash_Full - Copy - Copy.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\levelChange\\LevelSplash_Full - Copy - Copy.png.~tmp": {
+			"sdcard": false
+		},
+		"\\src\\images\\LevelSplash_Full - Copy.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\shop\\LevelSplash_Full - Copy.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\shop\\MessagePanel.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\shop\\MessagePanel.h": {
+			"sdcard": false
 		}
 	},
 	"BUILDFlags": {

@@ -11,7 +11,7 @@ using PS = Pokitto::Sound;
 
 
 const uint8_t MAP_Test[] = {
-    /* Map Size */   6, 6,
+    /* Map Size */   6, 8,
     /* Player Pos */ 0, 5,
     /* Timer */     200,
 
@@ -19,13 +19,22 @@ const uint8_t MAP_Test[] = {
     0,35,0,0,0,0,
     0,0,0,0,0,0,
     0,0,0,0,0,0,
+    0,0,0,77,0,0,
+    0,0,0,0,0,0,
     0,0,0,0,0,0,
     0,0,0,0,0,0,
 
-    /* Object Count */ 3,
+    /* Object Count */ 10,
     Object::GreenSpell,3,5,0,
     Object::YellowSpell,4,5,0,
     Object::MauveSpell,5,5,0,
+    Object::Tonic,5,4,0,
+    Object::Coin,0,6,0,
+    Object::Coin,1,6,0,
+    Object::SackOCash,0,7,0,
+    Object::SackOCash,1,7,0,
+    Object::SackOCash,2,7,0,
+    Object::SackOCash,3,7,0,
     // Object::Spider, 0, 0, 20,
 
     /* Environment Count */ 0,
@@ -79,7 +88,7 @@ const uint8_t MAP_Test2[] = {
     Object::Chicken, 8, 18, 0,
     Object::SackOCash, 9, 18, 0,
     Object::Tools, 10, 18, 0,
-    Object::Potion, 11, 18, 0,
+    Object::Tonic, 11, 18, 0,
     Object::BigSpider, 9, 8, 100,
     /* Environment Count */ 2,
     12,15,13,18,

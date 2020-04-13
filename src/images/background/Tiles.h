@@ -79,6 +79,7 @@ namespace Images {
     #include "Tile_74.h"
     #include "Tile_75.h"
     #include "Tile_76.h"
+    #include "Tile_77.h"
     #include "CornerFillTL.h"
     #include "CornerFillTR.h"
     #include "CornerFillLL.h"
@@ -162,6 +163,7 @@ namespace Images {
     Tile_74,
     Tile_75,
     Tile_76,
+    Tile_77,
     };
 
 };

@@ -39,6 +39,10 @@ uint8_t Player::getCoins() {
     return this->coins; 
 }
 
+uint8_t Player::getCoinsOverall() { 
+    return this->coinsOverall; 
+}
+
 uint8_t Player::getKills() { 
     return this->kills; 
 }
@@ -76,12 +80,21 @@ void Player::setCoins(uint8_t coins) {
     this->coins = coins; 
 }
 
+void Player::setCoinsOverall(uint8_t coins) { 
+    this->coinsOverall = coins; 
+}
+
 void Player::setKills(uint8_t kills) { 
     this->kills = kills; 
 }
 
 void Player::setFrame(uint8_t frame) { 
     this->frame = frame;
+}
+
+void Player::incCoins(uint8_t coins) { 
+    this->coins = this->coins + coins; 
+    this->coinsOverall = this->coinsOverall + coins; 
 }
 
 void Player::setMoving(bool moving) { 
@@ -146,6 +159,7 @@ void Player::init(uint16_t x, uint16_t y) {
     this->y = y;
     this->direction = Direction::Down;
     this->coins = 0;
+    this->coinsOverall = 0;
     this->kills = 0;
     this->health = (this->health <= 0 ? 100 : this->health);
     this->moving = false;

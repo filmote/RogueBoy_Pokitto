@@ -7,6 +7,15 @@ using PC = Pokitto::Core;
 using PD = Pokitto::Display;
 using PS = Pokitto::Sound;
 
+
+struct ShopObject {
+
+    Object object;
+    uint16_t price;
+    uint8_t quantityLeft;
+
+};
+
 struct Cell {
 
     uint8_t segment;
@@ -21,7 +30,6 @@ struct Point {
     int16_t y;
 
 };
-
 
 struct Rect {
 

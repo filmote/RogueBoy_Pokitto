@@ -9,7 +9,7 @@ namespace Images {
     #include "SackOCash.h"
     #include "Skull.h"
     #include "Tools.h"
-    #include "Potion.h"
+    #include "Tonic.h"
     #include "IceSpell_F0.h"
     #include "IceSpell_F1.h"
     #include "GreenSpell.h"

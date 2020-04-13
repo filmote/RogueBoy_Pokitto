@@ -11,7 +11,7 @@ enum Object {
     Spider = 7, 
     Bat = 8,
     Tools = 9,
-    Potion = 10,
+    Tonic = 10,
     BigSpider = 11, 
     IceSpell = 12,
     GreenSpell = 13,
@@ -48,6 +48,7 @@ enum class GameState : uint8_t {
     WinState,
     Inventory,
     MapDetails,
+    Shop
     HighScore
 };
 
@@ -147,40 +148,12 @@ enum MapTiles {
     WormHole_F1 = 74,
     WormHole_F2 = 75,
     WormHole_F3 = 76,
+    Shop = 77,
 };
 
-const char object_Desc_00[] = "Coin";
-const char object_Desc_01[] = "Sack of Coins";
-const char object_Desc_02[] = "Bread";
-const char object_Desc_03[] = "Key";
-const char object_Desc_04[] = "Chicken";
-const char object_Desc_05[] = "Floater";
-const char object_Desc_06[] = "Skull";
-const char object_Desc_07[] = "Spider";
-const char object_Desc_08[] = "Bat";
-const char object_Desc_09[] = "Tools";
-const char object_Desc_10[] = "Potion";
-const char object_Desc_11[] = "Big Spider";
-const char object_Desc_12[] = "Ice Spell";
-const char object_Desc_13[] = "Green";
-const char object_Desc_14[] = "Yellow";
-const char object_Desc_15[] = "Mauve";
-
-const char * const object_Descs[] = { 
-    object_Desc_00,
-    object_Desc_01,
-    object_Desc_02,
-    object_Desc_03,
-    object_Desc_04,
-    object_Desc_05,
-    object_Desc_06,
-    object_Desc_07,
-    object_Desc_08,
-    object_Desc_09,
-    object_Desc_10,
-    object_Desc_11,
-    object_Desc_12,
-    object_Desc_13,
-    object_Desc_14,
-    object_Desc_15,
+enum class ShopMessage : uint8_t {
+    None,
+    NotEnoughGold,
+    OutOfStock,
+    InventoryFull
 };

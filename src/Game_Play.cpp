@@ -60,12 +60,12 @@ void Game::updateObjects() {
                 switch (type) {
 
                     case Object::Coin: 
-                        player.setCoins(player.getCoins() + 1); 
+                        player.incCoins(1); 
                         objectI.setActive(false); 
                         break;
 
                     case Object::SackOCash: 
-                        player.setCoins(player.getCoins() + 5); 
+                        player.incCoins(5); 
                         objectI.setActive(false); 
                         break;
 
@@ -73,7 +73,7 @@ void Game::updateObjects() {
                     case Object::Bread:
                     case Object::Chicken:
                     case Object::Tools:
-                    case Object::Potion:
+                    case Object::Tonic:
                     case Object::IceSpell:
                     case Object::MauveSpell:
                         {
@@ -563,6 +563,11 @@ printf("Kill\n");
 
             case MapTiles::WormHole_F0:
                 this->interactWithBlock(relx, rely, block);
+                break;
+
+            case MapTiles::Shop:
+printf("go shop\n");            
+                this->gameState = GameState::Shop;
                 break;
 
             default:

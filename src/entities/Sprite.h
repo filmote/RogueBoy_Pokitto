@@ -2,6 +2,7 @@
 
 #include "Pokitto.h"
 #include "../utils/Enums.h"
+#include "Sprites_Consts.h"
 
 using PC = Pokitto::Core;
 using PD = Pokitto::Display;
@@ -66,13 +67,13 @@ class Sprite {
 
             this->x = x;
             this->y = y;
-            this->width = this->widths[static_cast<uint8_t>(type)];
-            this->height = this->heights[static_cast<uint8_t>(type)];;
+            this->width = spriteWidths[static_cast<uint8_t>(type)];
+            this->height = spriteHeights[static_cast<uint8_t>(type)];;
             this->health = health;
             this->healthOrig = health;
             this->type = type;
             this->frame = 0;
-            this->offset = this->offsets[static_cast<uint8_t>(type)];;
+            this->offset = spriteOffsets[static_cast<uint8_t>(type)];;
             this->active = active;
 
         };
@@ -207,64 +208,6 @@ class Sprite {
         int8_t lastMoveY;
         bool preventImmediatePickup;
         uint8_t renderHealthBar;
-
-        const uint8_t widths[16] =  { 
-            8,  /* Coin */
-            8,  /* SackOfCash */
-            8,  /* Bread */
-            8,  /* Key */
-            8,  /* Chicken */
-            8,  /* Floater */
-            10, /* Skull */
-            8,  /* Spider */
-            8,  /* Bat */
-            12, /* Tools */
-            8,  /* Potion */
-            16, /* BigSpider */
-            13, /* IceSpell */
-            8,  /* GreenSpell */
-            8,  /* YellowSpell */
-            8,  /* MauveSpell */
-        };
-
-        const uint8_t heights[16] = { 
-            8,  /* Coin */
-            8,  /* SackOfCash */
-            8,  /* Bread */
-            8,  /* Key */
-            8,  /* Chicken */
-            8,  /* Floater */  
-            9,  /* Skull */
-            8,  /* Spider */
-            8,  /* Bat */
-            12, /* Tools */
-            8,  /* Potion */
-            16, /* BigSpider */
-            11, /* IceSpell */
-            8,  /* GreenSpell */
-            8,  /* YellowSpell */
-            8,  /* MauveSpell */
-        };
-
-                
-        const int8_t offsets[16] = { 
-            0,  /* Coin */
-            0,  /* SackOfCash */
-            0,  /* Bread */
-            0,  /* Key */
-            0,  /* Chicken */
-            0,  /* Floater */  
-            0,  /* Skull */
-            0,  /* Spider */
-            0,  /* Bat */
-            -3, /* Tools */
-            0,  /* Potion */
-            -4, /* BigSpider */
-            -2, /* IceSpell */
-            0,  /* GreenSpell */
-            0,  /* YellowSpell */
-            0,  /* MauveSpell */
-        };
 
 };
 

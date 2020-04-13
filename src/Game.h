@@ -5,6 +5,7 @@
 #include "utils/Structs.h"
 #include "images/Images.h"
 #include "entities/Entities.h"
+#include "entities/Sprites_Consts.h"
 
 #include "maps/MapSegments_Type_00.h"
 #include "maps/MapSegments_Type_01.h"
@@ -82,9 +83,9 @@ class Game {
 
         bool isBlockedByEnemy(Player player, uint16_t playerX, uint16_t playerY);
         bool isBlockedByPlayer(Player player, Sprite enemy, uint16_t enemyX, uint16_t enemyY);
+        void showShop();
         void highScore();
         uint32_t printLevelSummary(uint8_t yOffset);  // Returns points earnt in this level ..
-
 
         #ifdef DEBUG
         void clearCells();
@@ -106,7 +107,7 @@ class Game {
         uint16_t eolYTile;
         
         MapInformation map;
-        bool randomLevel = true;
+        bool randomLevel = false;
         uint8_t mapRandomLow = 0;
 
         uint8_t splashScreenCounter = 0;
@@ -115,11 +116,26 @@ class Game {
         uint8_t shockwave = 0;
         uint16_t levelStartDelay = 255;
 
+        uint8_t shopUpperIndex = 0;
+        uint8_t shopItemIndex = 0;
+        ShopMessage shopMessage = ShopMessage::None;
+
         uint8_t highScore_CharIdx = 2;
         uint8_t highScore_EntryIdx = 1;
 
 
         GameCookie *cookie;
+
+        ShopObject shopObjects[7] = {
+            { Object::Bread, 6, 2 },
+            { Object::Chicken, 10, 3 },
+            { Object::Tonic, 20, 3 },
+            { Object::IceSpell, 20, 2 },
+            { Object::GreenSpell, 25, 0 },
+            { Object::YellowSpell, 35, 2 },
+            { Object::MauveSpell, 50, 1 },            
+        };
+
 
         #ifdef DEBUG
 

@@ -137,7 +137,7 @@ void Game::showInventory() {
                 
                                     case Object::Key:
                                     case Object::Tools:
-                                    case Object::Potion:
+                                    case Object::Tonic:
                                         {
                                             // Try the surrounding blocks to see if it can be used ..
 

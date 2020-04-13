@@ -37,12 +37,6 @@ bool Game::intersect(uint16_t min0, uint16_t max0, uint16_t min1, uint16_t max1)
 
 }
 
-// bool Game::collision(uint16_t x, uint16_t y, uint16_t x1, uint16_t y1) {
-
-//     return (this->intersect(x, x + 8, x1, x1 + 8) && this->intersect(y, y + 8, y1, y1 + 8));
-
-// }
-
 
 bool Game::collision(Player &player, Sprite &enemy, bool touching) {
   
