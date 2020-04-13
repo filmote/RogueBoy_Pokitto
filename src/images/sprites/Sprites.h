@@ -8,7 +8,7 @@ namespace Images {
     #include "Key.h"
     #include "SackOCash.h"
     #include "Skull.h"
-    #include "Spanner.h"
+    #include "Tools.h"
     #include "Potion.h"
     #include "IceSpell_F0.h"
     #include "IceSpell_F1.h"

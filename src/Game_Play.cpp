@@ -72,7 +72,7 @@ void Game::updateObjects() {
                     case Object::Key:
                     case Object::Bread:
                     case Object::Chicken:
-                    case Object::Spanner:
+                    case Object::Tools:
                     case Object::Potion:
                     case Object::IceSpell:
                     case Object::MauveSpell:
@@ -116,7 +116,7 @@ void Game::updateObjects() {
                             this->shake = this->shake + 2;
                         }
 
-                        if (PC::frameCount % 5 == 0) { 
+                        if (PC::frameCount % 4 == 0) { 
 
                             switch (type) {
 
@@ -639,9 +639,9 @@ bool Game::interactWithBlock(int x, int y, MapTiles block) {
                 return false;
             }  
 
-        case MapTiles::NewDoorTOP: 
+        case MapTiles::DoorTOP: 
             if (this->player.getInventoryCount(Object::Key) > 0) {
-                this->map.setBlock(x, y, MapTiles::NewDoorTOPOpen); 
+                this->map.setBlock(x, y, MapTiles::DoorTOPOpen); 
                 this->player.decInventoryItem(Object::Key);
                 // sound unlock door
                 return true;
@@ -651,9 +651,9 @@ bool Game::interactWithBlock(int x, int y, MapTiles block) {
                 return false;
             }  
 
-        case MapTiles::NewDoorBOT: 
+        case MapTiles::DoorBOT: 
             if (this->player.getInventoryCount(Object::Key) > 0) {
-                this->map.setBlock(x, y, MapTiles::NewDoorBOTOpen); 
+                this->map.setBlock(x, y, MapTiles::DoorBOTOpen); 
                 this->player.decInventoryItem(Object::Key);
                 // sound unlock door
                 return true;
@@ -663,9 +663,9 @@ bool Game::interactWithBlock(int x, int y, MapTiles block) {
                 return false;
             }
 
-        case MapTiles::NewDoorLHS: 
+        case MapTiles::DoorLHS: 
             if (this->player.getInventoryCount(Object::Key) > 0) {
-                this->map.setBlock(x, y, MapTiles::NewDoorLHSOpen); 
+                this->map.setBlock(x, y, MapTiles::DoorLHSOpen); 
                 this->player.decInventoryItem(Object::Key);
                 // sound unlock door
                 return true;
@@ -675,9 +675,9 @@ bool Game::interactWithBlock(int x, int y, MapTiles block) {
                 return false;
             }  
 
-        case MapTiles::NewDoorRHS: 
+        case MapTiles::DoorRHS: 
             if (this->player.getInventoryCount(Object::Key) > 0) {
-                this->map.setBlock(x, y, MapTiles::NewDoorRHSOpen); 
+                this->map.setBlock(x, y, MapTiles::DoorRHSOpen); 
                 this->player.decInventoryItem(Object::Key);
                 // sound unlock door
                 return true;
@@ -699,9 +699,9 @@ bool Game::interactWithBlock(int x, int y, MapTiles block) {
             return true;
 
         case MapTiles::SwitchBroken: 
-            if (this->player.getInventoryCount(Object::Spanner) > 0) {
+            if (this->player.getInventoryCount(Object::Tools) > 0) {
                 this->map.setBlock(x, y, MapTiles::SwitchOff); 
-                this->player.decInventoryItem(Object::Spanner);
+                this->player.decInventoryItem(Object::Tools);
                 // sound fix
                 return true;
             } 
@@ -753,36 +753,36 @@ void Game::updateEnvironmentBlock(MapInformation map, uint8_t x, uint8_t y, Envi
                     this->map.setBlock(x1, y1, MapTiles::OpenDoor); 
                     break;
 
-                case MapTiles::NewSpearDoorLHS: 
-                    this->map.setBlock(x1, y1, MapTiles::NewSpearDoorLHSOpen); 
+                case MapTiles::SpearDoorLHS: 
+                    this->map.setBlock(x1, y1, MapTiles::SpearDoorLHSOpen); 
                     break;
 
-                case MapTiles::NewSpearDoorRHS: 
-                    this->map.setBlock(x1, y1, MapTiles::NewSpearDoorRHSOpen); 
+                case MapTiles::SpearDoorRHS: 
+                    this->map.setBlock(x1, y1, MapTiles::SpearDoorRHSOpen); 
                     break;
 
-                case MapTiles::NewSpearDoorTOP: 
-                    this->map.setBlock(x1, y1, MapTiles::NewSpearDoorTOPOpen); 
+                case MapTiles::SpearDoorTOP: 
+                    this->map.setBlock(x1, y1, MapTiles::SpearDoorTOPOpen); 
                     break;
 
-                case MapTiles::NewSpearDoorBOT: 
-                    this->map.setBlock(x1, y1, MapTiles::NewSpearDoorBOTOpen); 
+                case MapTiles::SpearDoorBOT: 
+                    this->map.setBlock(x1, y1, MapTiles::SpearDoorBOTOpen); 
                     break;
 
-                case MapTiles::NewSpearDoorLHSOpen: 
-                    this->map.setBlock(x1, y1, MapTiles::NewSpearDoorLHS); 
+                case MapTiles::SpearDoorLHSOpen: 
+                    this->map.setBlock(x1, y1, MapTiles::SpearDoorLHS); 
                     break;
 
-                case MapTiles::NewSpearDoorRHSOpen: 
-                    this->map.setBlock(x1, y1, MapTiles::NewSpearDoorRHS); 
+                case MapTiles::SpearDoorRHSOpen: 
+                    this->map.setBlock(x1, y1, MapTiles::SpearDoorRHS); 
                     break;
 
-                case MapTiles::NewSpearDoorTOPOpen: 
-                    this->map.setBlock(x1, y1, MapTiles::NewSpearDoorTOP); 
+                case MapTiles::SpearDoorTOPOpen: 
+                    this->map.setBlock(x1, y1, MapTiles::SpearDoorTOP); 
                     break;
 
-                case MapTiles::NewSpearDoorBOTOpen: 
-                    this->map.setBlock(x1, y1, MapTiles::NewSpearDoorBOT); 
+                case MapTiles::SpearDoorBOTOpen: 
+                    this->map.setBlock(x1, y1, MapTiles::SpearDoorBOT); 
                     break;
                 
                 case MapTiles::OpenDoor: 
@@ -802,8 +802,8 @@ void Game::updateEnvironmentBlock(MapInformation map, uint8_t x, uint8_t y, Envi
                     this->map.setBlock(x1, y1, MapTiles::Rubble); 
                     break;
 
-                case MapTiles::NewDoorLHSOpen: 
-                    this->map.setBlock(x1, y1, MapTiles::NewDoorLHS); 
+                case MapTiles::DoorLHSOpen: 
+                    this->map.setBlock(x1, y1, MapTiles::DoorLHS); 
                     break;
 
             }
@@ -894,7 +894,7 @@ void Game::spriteAI(MapInformation &map, Player &player, Sprite &sprite) {
 
         case Object::Coin: 
 
-            if (Pokitto::Core::frameCount % 5 == 0) { 
+            if (Pokitto::Core::frameCount % 4 == 0) { 
                 sprite.setFrame(sprite.getFrame() + 1); 
                 sprite.setFrame(sprite.getFrame() % 6);
             } 
@@ -922,7 +922,7 @@ void Game::spriteAI(MapInformation &map, Player &player, Sprite &sprite) {
 
         case Object::Spider:   
 
-            if (Pokitto::Core::frameCount % 5 == 0) { 
+            if (Pokitto::Core::frameCount % 4 == 0) { 
                 sprite.setFrame(sprite.getFrame() + 1); 
                 sprite.setFrame(sprite.getFrame() % 2);
             } 
@@ -949,7 +949,7 @@ void Game::spriteAI(MapInformation &map, Player &player, Sprite &sprite) {
 
         case Object::BigSpider:   
 
-            if (Pokitto::Core::frameCount % 5 == 0) { 
+            if (Pokitto::Core::frameCount % 4 == 0) { 
                 sprite.setFrame(sprite.getFrame() + 1); 
                 sprite.setFrame(sprite.getFrame() % 2);
             } 
@@ -994,7 +994,7 @@ void Game::spriteAI(MapInformation &map, Player &player, Sprite &sprite) {
 
             }
 
-            if (Pokitto::Core::frameCount % 5 == 0) { 
+            if (Pokitto::Core::frameCount % 4 == 0) { 
                 sprite.setFrame(sprite.getFrame() + 1); 
                 sprite.setFrame(sprite.getFrame() % 2);
             } 

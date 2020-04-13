@@ -30,10 +30,10 @@ const uint8_t MAP_Segment_Type08_00[] = {
     38,38,38,38,38,38,38,38,38,  // 0
     38,38,38,38,38,38,38,38,38,  // 1
     38,38,38,38,38,38,38,38,38,  // 2
-    24,24,24,24,24,24,24,24,24,  // 3
+    24,24,68,24,24,24,68,24,24,  // 3
      0, 0, 0, 0, 0, 0, 0, 0, 0,  // 4
     22,22,22,36, 0,37,22,22,22,  // 5
-    38,38,38,21, 0,32,38,38,38,  // 6
+    38,38,38,21, 0,23,38,38,38,  // 6
     38,38,38,21, 0,23,38,38,38,  // 7
     38,38,38,21, 0,23,38,38,38,  // 8
 
@@ -58,7 +58,7 @@ const uint8_t MAP_Segment_Type08_00[] = {
 const uint8_t MAP_Segment_Type08_01[] = {
   // 0, 1, 2, 3, 4, 5, 6, 7, 8
     38,38,38,38,38,38,38,38,38,  // 0
-    38,38,38,24,24,24,38,38,38,  // 1
+    38,38,38,24,68,24,38,38,38,  // 1
     38,38,25, 0, 0, 0,26,38,38,  // 2
     24,35, 0, 0, 0, 0, 0,34,24,  // 3
      0, 0, 0, 0, 0, 0, 0, 0, 0,  // 4
@@ -104,7 +104,7 @@ const uint8_t MAP_Segment_Type08_01[] = {
 
 const uint8_t MAP_Segment_Type08_02[] = {
   // 0, 1, 2, 3, 4, 5, 6, 7, 8
-     0,24,24,24,24,24,24,24, 0,  // 0
+     0,24,68,24,24,24,68,24, 0,  // 0
     21, 0, 0, 0, 0, 0, 0, 0,23,  // 1
     21, 0, 0, 0, 0, 0, 0, 0,23,  // 2
     35, 0, 0, 0, 0, 0, 0, 0,34,  // 3
@@ -128,20 +128,20 @@ const uint8_t MAP_Segment_Type08_02[] = {
     0,MapTiles::Barrel,4,2,
     0,MapTiles::Barrel,4,3,
     0,MapTiles::Barrel,5,2,
-    0,MapTiles::NewSpearDoorLHS,8,4,
+    0,MapTiles::SpearDoorLHS,8,4,
     0,MapTiles::SwitchOff,1,1,
     1,MapTiles::Barrel,7,6,
     1,MapTiles::Barrel,5,7,
     1,MapTiles::Barrel,6,7,
-    2,MapTiles::NewCornerTL,3,3,
-    2,MapTiles::NewStraightTOP,4,3,
-    2,MapTiles::NewCornerTR,5,3,
-    2,MapTiles::NewStraightLHS,3,4,
-    2,MapTiles::NewFill,4,4,
-    2,MapTiles::NewStraightRHS,5,4,
-    2,MapTiles::NewCornerLL,3,5,
-    2,MapTiles::NewStraightBOT,4,5,
-    2,MapTiles::NewCornerLR,5,5,
+    2,MapTiles::CornerTL,3,3,
+    2,MapTiles::StraightTOP,4,3,
+    2,MapTiles::CornerTR,5,3,
+    2,MapTiles::StraightLHS,3,4,
+    2,MapTiles::Fill,4,4,
+    2,MapTiles::StraightRHS,5,4,
+    2,MapTiles::CornerLL,3,5,
+    2,MapTiles::StraightBOT,4,5,
+    2,MapTiles::CornerLR,5,5,
     2,MapTiles::Barrel,3,1,
     2,MapTiles::Barrel,4,1,
     END_OF_OPTIONS,
@@ -180,7 +180,7 @@ const uint8_t MAP_Segment_Type08_02[] = {
 
 const uint8_t MAP_Segment_Type08_03[] = {
   // 0, 1, 2, 3, 4, 5, 6, 7, 8
-     0,24,24,24,24,24,24,24, 0,  // 0
+     0,24,68,24,24,24,68,24, 0,  // 0
     21, 0, 0, 0, 0, 0, 0, 0,23,  // 1
     21, 0, 0, 0, 0, 0, 0, 0,23,  // 2
     35, 0, 0,45, 0,45, 0, 0,34,  // 3
@@ -236,7 +236,7 @@ const uint8_t MAP_Segment_Type08_03[] = {
 
 const uint8_t MAP_Segment_Type08_04[] = {
   // 0, 1, 2, 3, 4, 5, 6, 7, 8
-    38,38, 0,24,24,24,24,24, 0,  // 0
+    38,38, 0,24,24,68,24,24, 0,  // 0
     38,38,21, 0, 0, 0, 0, 0,23,  // 1
     38,38,21, 0, 0, 0, 0, 0,23,  // 2
     24,24,21, 0, 0, 0,45, 0,34,  // 3

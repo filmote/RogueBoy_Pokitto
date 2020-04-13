@@ -218,7 +218,7 @@ class Sprite {
             10, /* Skull */
             8,  /* Spider */
             8,  /* Bat */
-            12, /* Spanner */
+            12, /* Tools */
             8,  /* Potion */
             16, /* BigSpider */
             13, /* IceSpell */
@@ -237,7 +237,7 @@ class Sprite {
             9,  /* Skull */
             8,  /* Spider */
             8,  /* Bat */
-            12, /* Spanner */
+            12, /* Tools */
             8,  /* Potion */
             16, /* BigSpider */
             11, /* IceSpell */
@@ -257,7 +257,7 @@ class Sprite {
             0,  /* Skull */
             0,  /* Spider */
             0,  /* Bat */
-            -3, /* Spanner */
+            -3, /* Tools */
             0,  /* Potion */
             -4, /* BigSpider */
             -2, /* IceSpell */
