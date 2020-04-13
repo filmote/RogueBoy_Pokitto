@@ -72,7 +72,7 @@ void Game::updateObjects() {
                     case Object::Key:
                     case Object::Bread:
                     case Object::Chicken:
-                    case Object::Spanner:
+                    case Object::Tools:
                     case Object::Potion:
                     case Object::IceSpell:
                     case Object::MauveSpell:
@@ -699,9 +699,9 @@ bool Game::interactWithBlock(int x, int y, MapTiles block) {
             return true;
 
         case MapTiles::SwitchBroken: 
-            if (this->player.getInventoryCount(Object::Spanner) > 0) {
+            if (this->player.getInventoryCount(Object::Tools) > 0) {
                 this->map.setBlock(x, y, MapTiles::SwitchOff); 
-                this->player.decInventoryItem(Object::Spanner);
+                this->player.decInventoryItem(Object::Tools);
                 // sound fix
                 return true;
             } 

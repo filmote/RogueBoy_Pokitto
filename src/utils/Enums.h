@@ -10,7 +10,7 @@ enum Object {
     Skull = 6,
     Spider = 7, 
     Bat = 8,
-    Spanner = 9,
+    Tools = 9,
     Potion = 10,
     BigSpider = 11, 
     IceSpell = 12,
@@ -157,7 +157,7 @@ const char object_Desc_05[] = "Floater";
 const char object_Desc_06[] = "Skull";
 const char object_Desc_07[] = "Spider";
 const char object_Desc_08[] = "Bat";
-const char object_Desc_09[] = "Spanner";
+const char object_Desc_09[] = "Tools";
 const char object_Desc_10[] = "Potion";
 const char object_Desc_11[] = "Big Spider";
 const char object_Desc_12[] = "Ice Spell";

@@ -78,7 +78,7 @@ const uint8_t MAP_Test2[] = {
     Object::Bread, 7, 18, 0,
     Object::Chicken, 8, 18, 0,
     Object::SackOCash, 9, 18, 0,
-    Object::Spanner, 10, 18, 0,
+    Object::Tools, 10, 18, 0,
     Object::Potion, 11, 18, 0,
     Object::BigSpider, 9, 8, 100,
     /* Environment Count */ 2,

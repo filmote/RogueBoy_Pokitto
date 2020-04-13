@@ -5357,6 +5357,390 @@
 		},
 		"/src/images/shockwaves/Shockwaves.h": {
 			"sdcard": false
+		},
+		"\\src\\images\\Dreamer2345_Base.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\Dreamer2345_Base.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\Dreamer2345_Eye.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\Dreamer2345_Eye.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\levelChange": {
+			"sdcard": false
+		},
+		"\\src\\images\\shockwaves": {
+			"sdcard": false
+		},
+		"\\src\\images\\background\\Tile_74.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\background\\Tile_74.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\background\\Tile_75.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\background\\Tile_75.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\background\\Tile_76.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\background\\Tile_76.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\bullets\\BulletIce_01.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\bullets\\BulletIce_00.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\bullets\\BulletIce_00.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\bullets\\BulletIce_02.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\bullets\\BulletIce_01.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\bullets\\BulletIce_03.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\bullets\\BulletIce_02.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\bullets\\BulletIce_03.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\bullets\\Bullet_Green_00.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\bullets\\Bullet_Green_00.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\bullets\\Bullet_Green_01.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\bullets\\Bullet_Green_01.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\bullets\\Bullet_Green_02.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\bullets\\Bullet_Green_03.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\bullets\\Bullet_Green_02.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\bullets\\Bullet_Yellow_00.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\bullets\\Bullet_Yellow_00.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\bullets\\Bullet_Green_03.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\bullets\\Bullet_Yellow_01.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\bullets\\Bullet_Yellow_01.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\bullets\\Bullet_Yellow_02.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\bullets\\Bullet_Yellow_02.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\bullets\\Bullet_Yellow_03.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\bullets\\Bullet_Yellow_03.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemies\\43d1c38dae394b8181120e06df46868eb75a20bc.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemies\\43d1c38dae394b8181120e06df46868eb75a20bc.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\levelChange\\Colon.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\levelChange\\Colon.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\levelChange\\LevelSplash.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\levelChange\\LevelSplash_Bottom.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\levelChange\\levelSplash_Bottom.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\levelChange\\LevelSplash_Full.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\levelChange\\LevelSplash_Full.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\levelChange\\LevelSplash_Left.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\levelChange\\LevelSplash_Left.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\levelChange\\LevelSplash_Right.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\levelChange\\levelSplash_Top.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\levelChange\\LevelSplash_Right.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\levelChange\\LevelSplash_Top.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\scoreboard\\GreenSpell_Scoreboard.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\scoreboard\\GreenSpell_Scoreboard.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\scoreboard\\IceSpell_Scoreboard_F0.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\scoreboard\\IceSpell_Scoreboard_F0.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\scoreboard\\IceSpell_Scoreboard_F1.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\scoreboard\\IceSpell_Scoreboard_F1.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\scoreboard\\IceSpell_Scoreboard_F11.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\scoreboard\\IceSpell_Scoreboard_F11.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\scoreboard\\IceSpell_Scoreboard_F10.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\scoreboard\\IceSpell_Scoreboard_F10.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\scoreboard\\IceSpell_Scoreboard_F2.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\scoreboard\\IceSpell_Scoreboard_F2.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\scoreboard\\IceSpell_Scoreboard_F4.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\scoreboard\\IceSpell_Scoreboard_F3.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\scoreboard\\IceSpell_Scoreboard_F3.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\scoreboard\\IceSpell_Scoreboard_F4.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\scoreboard\\IceSpell_Scoreboard_F5.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\scoreboard\\IceSpell_Scoreboard_F6.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\scoreboard\\IceSpell_Scoreboard_F5.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\scoreboard\\IceSpell_Scoreboard_F7.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\scoreboard\\IceSpell_Scoreboard_F6.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\scoreboard\\IceSpell_Scoreboard_F8.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\scoreboard\\IceSpell_Scoreboard_F7.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\scoreboard\\IceSpell_Scoreboard_F8.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\scoreboard\\IceSpell_Scoreboard_F9.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\scoreboard\\IceSpell_Scoreboard_F9.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\scoreboard\\MauveSpell_Scoreboard.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\scoreboard\\MauveSpell_Scoreboard.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\scoreboard\\YellowSpell_Scoreboard.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\scoreboard\\YellowSpell_Scoreboard.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\sprites\\Chicken.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\sprites\\Chicken.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\sprites\\GreenSpell.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\sprites\\GreenSpell.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\sprites\\IceSpell_F0.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\sprites\\IceSpell_F0.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\sprites\\IceSpell_F1.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\sprites\\IceSpell_F1.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\sprites\\MauveSpell.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\sprites\\MauveSpell.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\sprites\\Tools.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\sprites\\Tools.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\sprites\\YellowSpell.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\sprites\\YellowSpell.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\shockwaves\\Pulse_TL_00.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\shockwaves\\Pulse_TL_00.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\shockwaves\\Pulse_TL_01.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\shockwaves\\Pulse_TL_01.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\shockwaves\\Pulse_TL_02.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\shockwaves\\Pulse_TL_02.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\shockwaves\\Pulse_TL_03.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\shockwaves\\Pulse_TL_03.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\shockwaves\\Pulse_TL_04.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\shockwaves\\Pulse_TL_04.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\shockwaves\\Pulse_TL_06.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\shockwaves\\Pulse_TL_07.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\shockwaves\\Pulse_TL_05.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\shockwaves\\Pulse_TL_06.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\shockwaves\\Pulse_TL_07.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\shockwaves\\Pulse_TR_00.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\shockwaves\\Pulse_TR_00.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\shockwaves\\Pulse_TR_01.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\shockwaves\\Pulse_TR_01.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\shockwaves\\Pulse_TR_02.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\shockwaves\\Pulse_TR_03.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\shockwaves\\Pulse_TR_04.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\shockwaves\\Pulse_TR_02.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\shockwaves\\Pulse_TR_04.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\shockwaves\\Pulse_TR_03.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\shockwaves\\Pulse_TR_06.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\shockwaves\\Pulse_TR_05.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\shockwaves\\Pulse_TR_05.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\shockwaves\\Pulse_TR_06.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\shockwaves\\Pulse_TR_07.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\shockwaves\\Shockwaves.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\shockwaves\\Pulse_TR_07.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\shockwaves\\Pulse_TL_05.h": {
+			"sdcard": false
 		}
 	},
 	"BUILDFlags": {

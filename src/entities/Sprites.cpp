@@ -109,8 +109,8 @@ void Sprites::render(Player &player) {
                     PD::drawBitmap(x + offset, y + offset, Images::Skull);
                     break;
 
-                case Object::Spanner:
-                    PD::drawBitmap(x + offset, y + offset, Images::Spanner);
+                case Object::Tools:
+                    PD::drawBitmap(x + offset, y + offset, Images::Tools);
                     break;
 
                 case Object::Potion:
