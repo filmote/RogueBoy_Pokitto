@@ -26,13 +26,14 @@
 
 #include "maps/Maps.h"
 #include "maps/MapRandom.h"
+#include "utils/GameCookie.h"
 
 
 class Game {
     
     public:
 
-        void setup(/*GameCookie *cookie*/);
+        void setup(GameCookie *cookie);
         void loop();
 
     private:
@@ -83,6 +84,8 @@ class Game {
         bool isBlockedByEnemy(Player player, uint16_t playerX, uint16_t playerY);
         bool isBlockedByPlayer(Player player, Sprite enemy, uint16_t enemyX, uint16_t enemyY);
         void showShop();
+        void highScore();
+        uint32_t printLevelSummary(uint8_t yOffset);  // Returns points earnt in this level ..
 
         #ifdef DEBUG
         void clearCells();
@@ -113,15 +116,15 @@ class Game {
         uint8_t shockwave = 0;
         uint16_t levelStartDelay = 255;
 
-
         uint8_t shopUpperIndex = 0;
         uint8_t shopItemIndex = 0;
         ShopMessage shopMessage = ShopMessage::None;
 
+        uint8_t highScore_CharIdx = 2;
+        uint8_t highScore_EntryIdx = 1;
 
-//       const uint8_t * maps[18] = { MAP_1, MAP_2, MAP_3, MAP_4, MAP_5, MAP_6, MAP_7, MAP_9, MAP_10, MAP_11, MAP_12, MAP_13, MAP_14, MAP_15, MAP_16, MAP_17, MAP_18 };
-//        const uint8_t * maps[20] = { MAP_Test, MAP_1, MAP_2, MAP_3, MAP_4, MAP_5, MAP_Test, MAP_6, MAP_7, MAP_8, MAP_9, MAP_10, MAP_11, MAP_12, MAP_13, MAP_14, MAP_15, MAP_16, MAP_17, MAP_18,  };
 
+        GameCookie *cookie;
 
         ShopObject shopObjects[7] = {
             { Object::Bread, 6, 2 },

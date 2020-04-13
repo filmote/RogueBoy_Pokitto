@@ -6,9 +6,9 @@ using PD = Pokitto::Display;
 using PS = Pokitto::Sound;
 
 
-void Game::setup(/*GameCookie *cookie*/) { 
+void Game::setup(GameCookie *cookie) { 
     
-//    this->cookie = cookie;
+    this->cookie = cookie;
     map.setLevel(0);
     
 }
@@ -46,6 +46,10 @@ void Game::loop(void) {
 
         case GameState::Dead: 
             death(); 
+            break;
+
+        case GameState::HighScore: 
+            highScore(); 
             break;
 
         case GameState::WinState:  

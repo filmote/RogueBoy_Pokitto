@@ -7,110 +7,123 @@ using PS = Pokitto::Sound;
 
 void Game::death() {
 
-    PD::setCursor(0,0);
-    PD::print("Scored: ");
-    PD::print(this->points, 10);
-    PD::print("\nGot To Level: ");
-    PD::print(map.getLevel(), 10);
-
-    if (PC::buttons.pressed(BTN_A) || PC::buttons.pressed(BTN_B)) {
-        //sound.noTone(); 
-        gameState = GameState::MainMenu; 
-        map.setLevel(0); 
-        this->points = 0; 
-    }
-
-}
-
-void Game::win() {
-    
-    PD::setCursor(0,0);
-    PD::print("WellDone!\n");
-    PD::print("You Scored: ");
-    PD::print(this->points, 10);
-
-    if (PC::buttons.pressed(BTN_A) || PC::buttons.pressed(BTN_B)) { 
-        //sound.noTone(); 
-        gameState = GameState::MainMenu; 
-        map.setLevel(0); 
-        this->points = 0;
-    }
-
-}
-
-
-
-void Game::endOfLevel() {
-
-    int32_t padd = player.getCoins() * 5;    
-    int32_t killp = player.getKills() * 10;
-    int32_t pts = padd + killp + (this->map.getTimer()/10);
-
-//    this->renderEnviroment(0, 0);
+    this->renderEnviroment(0, 0);
     this->renderHud();
 
     PD::setColor(15);
-    PD::fillRectangle(10, 10, 90, 52);
-    PD::drawBitmap(0, 0, Images::LevelSplash_Left);
-    PD::drawBitmap(10, 0, Images::LevelSplash_Top);
-    PD::drawBitmap(100, 0, Images::LevelSplash_Right);
-    PD::drawBitmap(10, 62, Images::LevelSplash_Bottom);
+    PD::fillScreen(15);
+    PD::drawBitmap(0, 0, Images::LevelSplash_UpperLeft);
+    PD::drawBitmap(0, 16, Images::LevelSplash_Left);
+    PD::drawBitmap(10, 0, Images::GameOver);
+    PD::drawBitmap(100, 0, Images::LevelSplash_UpperRight);
+    PD::drawBitmap(100, 16, Images::LevelSplash_Right);
+    PD::drawBitmap(10, 78, Images::LevelSplash_Bottom);
     PD::setColor(4, 15);
+    PD::setCursor(14,26);
 
-    // PD::setCursor(9, 20);
-    // PD::print("Level: ");
-    // PD::print(map.getLevel(), 10);
-    
-    PD::setCursor(9, 20);
-    PD::print("Kills");
-    PD::drawBitmap(37, 21, Images::Colon);
-    PD::setCursor(44, 20);
-    this->printPaddedNumber(player.getKills(), 2);
-    PD::print("  =");
-    PD::setCursor(73, 20);
-    this->printPaddedNumber(killp, 4);
-    
-    PD::setCursor(9, 28);
-    PD::print("Coins");
-    PD::drawBitmap(37, 29, Images::Colon);
-    PD::setCursor(44, 28);
-    this->printPaddedNumber(player.getCoins(), 2);
-    PD::print("  =");
-    PD::setCursor(73, 28);
-    this->printPaddedNumber(padd, 4);
-    
-    PD::setCursor(9, 36);
-    PD::print("Time Bonus");
-    PD::drawBitmap(68, 37, Images::Colon);
-    PD::setCursor(73, 36);
-    this->printPaddedNumber(this->map.getTimer() / 10, 4);
-    
-    PD::setCursor(9, 44);
-    PD::print("Level Pts");
-    PD::drawBitmap(62, 45, Images::Colon);
-    PD::setCursor(73, 44);
-    this->printPaddedNumber(pts, 4);
-    PD::setCursor(9, 52);
-    PD::print("Total Pts");
-    PD::drawBitmap(63, 53, Images::Colon);
-    PD::setCursor(73, 52);
-    this->printPaddedNumber(this->points + pts, 4);
-    
-    if ((PC::frameCount % 800 == 0) || (PC::buttons.pressed(BTN_A))) {  
+    uint32_t pts = this->printLevelSummary(34);
 
-        if (this->randomLevel) { this->mapRandomLow++; }
-        gameState = GameState::LoadMap;
-        this->points += pts;
+
+    if (PC::buttons.pressed(BTN_A) || PC::buttons.pressed(BTN_B)) {
+
+
+        // Work out whether we ahve a high score or not?
+
+        uint8_t i = 0;
+        bool found = false;
+
+        for (i = 0; i < 5; i++) {
+
+            if (this->cookie->score[i] < this->points) {
+                
+                found = true;
+                break;
+
+            }
+
+        }
+
+        if (found) {
+
+            for (uint8_t j = 3; j > i; j--) {
+
+                this->cookie->score[j + 1] = this->cookie->score[j];
+                this->cookie->level[j + 1] = this->cookie->level[j];
+                this->cookie->score_Char[j + 1][0] = this->cookie->score_Char[j][0];
+                this->cookie->score_Char[j + 1][1] = this->cookie->score_Char[j][1];
+                this->cookie->score_Char[j + 1][2] = this->cookie->score_Char[j][2];
+
+            }
+
+            this->highScore_CharIdx = 0;
+            this->highScore_EntryIdx = i;
+
+            this->cookie->score_Char[i][0] = 'X';
+            this->cookie->score_Char[i][1] = 'X';
+            this->cookie->score_Char[i][2] = 'X';
+            this->cookie->score[i] = this->points;
+            this->cookie->level[i] = map.getLevel();
+
+        }
+        else {
+
+            this->highScore_EntryIdx = 255;
+
+        }
+
+
+        //sound.noTone(); 
+        gameState = GameState::HighScore; 
+        map.setLevel(0); 
+        this->points = 0; 
+
     }
 
 }
 
-void Game::printPaddedNumber(int32_t number, uint8_t places) {
+uint32_t Game::printLevelSummary(uint8_t yOffset) {
 
-    if (places >= 5 && number < 10000) PD::print("0");
-    if (places >= 4 && number < 1000) PD::print("0");
-    if (places >= 3 && number < 100) PD::print("0");
-    if (places >= 2 && number < 10) PD::print("0");
-    PD::print(number, 10);
+    uint32_t padd = player.getCoins() * 5;    
+    uint32_t killp = player.getKills() * 10;
+    uint32_t pts = padd + killp + (this->map.getTimer()/10);
+
+    PD::setCursor(9, yOffset);
+    PD::print("Kills");
+    PD::drawBitmap(37, yOffset + 1, Images::Colon);
+    PD::setCursor(44, yOffset);
+    this->printPaddedNumber(player.getKills(), 2);
+    PD::print("  =");
+    PD::setCursor(73, yOffset);
+    this->printPaddedNumber(killp, 4);
+    
+    PD::setCursor(9, yOffset + 8);
+    PD::print("Coins");
+    PD::drawBitmap(37, yOffset + 9, Images::Colon);
+    PD::setCursor(44, yOffset + 8);
+    this->printPaddedNumber(player.getCoins(), 2);
+    PD::print("  =");
+    PD::setCursor(73, yOffset + 8);
+    this->printPaddedNumber(padd, 4);
+    
+    PD::setCursor(9, yOffset + 16);
+    PD::print("Time Bonus");
+    PD::drawBitmap(68, yOffset + 17, Images::Colon);
+    PD::setCursor(73, yOffset + 16);
+    this->printPaddedNumber(this->map.getTimer() / 10, 4);
+    
+    PD::setCursor(9, yOffset + 24);
+    PD::print("Level Pts");
+    PD::drawBitmap(62, yOffset + 25, Images::Colon);
+    PD::setCursor(73, yOffset + 24);
+    this->printPaddedNumber(pts, 4);
+
+    PD::setCursor(9, yOffset + 32);
+    PD::print("Total Pts");
+    PD::drawBitmap(63, yOffset + 33, Images::Colon);
+    PD::setCursor(73, yOffset + 32);
+    this->printPaddedNumber(this->points + pts, 4);
+    printf("xxx\n");
+
+    return pts;
 
 }

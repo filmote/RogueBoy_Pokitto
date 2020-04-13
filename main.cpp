@@ -1,13 +1,21 @@
 #include "Pokitto.h"
 #include "src/Game.h"
+#include "src/utils/GameCookie.h"
 
 using PC = Pokitto::Core;
 using PD = Pokitto::Display;
 using PS = Pokitto::Sound;
 
 Game game;
+GameCookie cookie;
 
 int main() {
+
+
+    // Initialise pokitto ..
+
+    cookie.begin("Rogue", sizeof(cookie), (char*)&cookie);
+
 
     PC::begin();
     PD::loadRGBPalette(palettePico);   
@@ -17,11 +25,18 @@ int main() {
     PC::setFrameRate(30);
     PD::setFont(fontKoubit);
 
+printf("cookie > %i \n", cookie.initialised);
+    if (cookie.initialised != COOKIE_INITIALISED) {
+
+        cookie.initialise();
+
+    }
+
     // Kick off the random number generator ..
     
     srand(time(0));
 
-    game.setup();
+    game.setup(&cookie);
 
     while( PC::isRunning() ) {
 

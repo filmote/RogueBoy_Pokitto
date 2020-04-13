@@ -71,3 +71,13 @@ void Game::barrelBreak(MapInformation &map, uint8_t x, uint8_t y, Sprites &objec
     dropItem(x, y, false, this->objects);
     //sound.tone(NOTE_C3,50, NOTE_C2,50, NOTE_E3,150);
 }
+
+void Game::printPaddedNumber(int32_t number, uint8_t places) {
+
+    if (places >= 5 && number < 10000) PD::print("0");
+    if (places >= 4 && number < 1000) PD::print("0");
+    if (places >= 3 && number < 100) PD::print("0");
+    if (places >= 2 && number < 10) PD::print("0");
+    PD::print(number, 10);
+
+}
