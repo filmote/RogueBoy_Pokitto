@@ -10,7 +10,7 @@ const uint8_t charWidths[36] = { 4, 4, 4, 4, 4, 4, 5, 5, 1, 4, 5, 4, 6, 5, 4, 4,
 
 void Game::highScore() {
 
-    if (this->highScore_EntryIdx == 255) {
+    if (this->highScoreVariables.entryIdx == 255) {
 
         if (PC::buttons.pressed(BTN_A)) {
 
@@ -23,29 +23,29 @@ void Game::highScore() {
     }
     else {
 
-        if (PC::buttons.pressed(BTN_LEFT) && this->highScore_CharIdx > 0) {
-            this->highScore_CharIdx--;
+        if (PC::buttons.pressed(BTN_LEFT) && this->highScoreVariables.charIdx > 0) {
+            this->highScoreVariables.charIdx--;
         }
 
-        if (PC::buttons.pressed(BTN_RIGHT) && this->highScore_CharIdx < 2) {
-            this->highScore_CharIdx++;
+        if (PC::buttons.pressed(BTN_RIGHT) && this->highScoreVariables.charIdx < 2) {
+            this->highScoreVariables.charIdx++;
         }
             
         if (PC::buttons.pressed(BTN_UP) || (PC::buttons.repeat(BTN_UP, 1) && PC::frameCount % 4 == 0)) {
 
-            switch (this->cookie->score_Char[this->highScore_EntryIdx][this->highScore_CharIdx]) {
+            switch (this->cookie->score_Char[this->highScoreVariables.entryIdx][this->highScoreVariables.charIdx]) {
 
                 case 'A' ... 'Y':
                 case '0' ... '8':
-                    this->cookie->score_Char[this->highScore_EntryIdx][this->highScore_CharIdx] = this->cookie->score_Char[this->highScore_EntryIdx][this->highScore_CharIdx] + 1;
+                    this->cookie->score_Char[this->highScoreVariables.entryIdx][this->highScoreVariables.charIdx] = this->cookie->score_Char[this->highScoreVariables.entryIdx][this->highScoreVariables.charIdx] + 1;
                     break;
 
                 case 'Z':
-                    this->cookie->score_Char[this->highScore_EntryIdx][this->highScore_CharIdx] = '0';
+                    this->cookie->score_Char[this->highScoreVariables.entryIdx][this->highScoreVariables.charIdx] = '0';
                     break;
 
                 case '9':
-                    this->cookie->score_Char[this->highScore_EntryIdx][this->highScore_CharIdx] = 'A';
+                    this->cookie->score_Char[this->highScoreVariables.entryIdx][this->highScoreVariables.charIdx] = 'A';
                     break;
 
             }
@@ -54,19 +54,19 @@ void Game::highScore() {
 
         if (PC::buttons.pressed(BTN_DOWN) || (PC::buttons.repeat(BTN_DOWN, 1) && PC::frameCount % 4 == 0)) {
 
-            switch (this->cookie->score_Char[this->highScore_EntryIdx][this->highScore_CharIdx]) {
+            switch (this->cookie->score_Char[this->highScoreVariables.entryIdx][this->highScoreVariables.charIdx]) {
 
                 case 'B' ... 'Z':
                 case '1' ... '9':
-                    this->cookie->score_Char[this->highScore_EntryIdx][this->highScore_CharIdx] = this->cookie->score_Char[this->highScore_EntryIdx][this->highScore_CharIdx] - 1;
+                    this->cookie->score_Char[this->highScoreVariables.entryIdx][this->highScoreVariables.charIdx] = this->cookie->score_Char[this->highScoreVariables.entryIdx][this->highScoreVariables.charIdx] - 1;
                     break;
 
                 case 'A':
-                    this->cookie->score_Char[this->highScore_EntryIdx][this->highScore_CharIdx] = '9';
+                    this->cookie->score_Char[this->highScoreVariables.entryIdx][this->highScoreVariables.charIdx] = '9';
                     break;
 
                 case '0':
-                    this->cookie->score_Char[this->highScore_EntryIdx][this->highScore_CharIdx] = 'Z';
+                    this->cookie->score_Char[this->highScoreVariables.entryIdx][this->highScoreVariables.charIdx] = 'Z';
                     break;
 
             }
@@ -76,7 +76,7 @@ void Game::highScore() {
         if (PC::buttons.pressed(BTN_A)) {
 
             this->cookie->saveCookie();
-            this->highScore_EntryIdx = 255;
+            this->highScoreVariables.entryIdx = 255;
 
         }
 
@@ -125,12 +125,12 @@ void Game::highScore() {
 
             }
             
-            if (x != this->highScore_CharIdx || y != this->highScore_EntryIdx || PC::frameCount % 48 < 24) {
+            if (x != this->highScoreVariables.charIdx || y != this->highScoreVariables.entryIdx || PC::frameCount % 48 < 24) {
 
                 PD::setCursor(charPos, 31 + (y * 9));
                 PD::print(this->cookie->score_Char[y][x]);
 
-                if (x == this->highScore_CharIdx && y == this->highScore_EntryIdx) {
+                if (x == this->highScoreVariables.charIdx && y == this->highScoreVariables.entryIdx) {
 
                     PD::drawLine(charPos, 30 + (y * 9), charPos + charWidth, 30 + (y * 9));
                     PD::drawLine(charPos, 38 + (y * 9), charPos + charWidth, 38 + (y * 9));

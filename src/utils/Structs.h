@@ -16,6 +16,15 @@ struct ShopObject {
 
 };
 
+struct ShopVariables {
+
+    uint8_t upperIndex = 0;
+    uint8_t itemIndex = 0;
+    uint8_t counter = 0;
+    ShopMessage message = ShopMessage::None;
+
+};
+
 struct Cell {
 
     uint8_t segment;
@@ -40,11 +49,25 @@ struct Rect {
 
 };
 
-struct InventoryMenu {
+struct InventoryMenuVariables {
 
     uint8_t mainCursor = 0;
     uint8_t actionCursor = 0;
     bool showActionMenu = false;
+
+};
+
+struct HighScoreVariables {
+
+    uint8_t charIdx = 2;
+    uint8_t entryIdx = 1;
+
+};
+
+struct SplashScreenVariables {
+
+    uint8_t counter = 0;
+    SplashScreenMode mode = SplashScreenMode::PPOT;
 
 };
 

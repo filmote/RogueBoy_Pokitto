@@ -45,6 +45,7 @@
 #define TIMER_STEP          24
 #define LEVEL_START_DELAY   100
 #define COOKIE_INITIALISED  25
+#define SHOP_PURCHASE_DELAY 48
 
 
 /*

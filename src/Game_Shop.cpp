@@ -15,7 +15,7 @@ using PS = Pokitto::Sound;
 void Game::showShop() {
 
 
-    // Update timer ..
+    // Update timer, counters, etc ..
 
     if (Pokitto::Core::frameCount % TIMER_STEP == 0) { this->map.decTimer();  }
     if (this->map.getTimer() == 0) { 
@@ -30,20 +30,22 @@ void Game::showShop() {
         
     }
 
+    if (this->shopVariables.counter > 0) this->shopVariables.counter--;
+
     if (PC::buttons.pressed(BTN_A)) {
 
-        if (this->shopMessage == ShopMessage::None) {
+        if (this->shopVariables.message == ShopMessage::None) {
 
-            ShopObject &shopObject = this->shopObjects[this->shopUpperIndex + this->shopItemIndex];
+            ShopObject &shopObject = this->shopObjects[this->shopVariables.upperIndex + this->shopVariables.itemIndex];
 
             if (shopObject.quantityLeft == 0) {
 
-                this->shopMessage = ShopMessage::OutOfStock;
+                this->shopVariables.message = ShopMessage::OutOfStock;
 
             }
             else if (shopObject.price > this->player.getCoinsOverall()) {
 
-                this->shopMessage = ShopMessage::NotEnoughGold;
+                this->shopVariables.message = ShopMessage::NotEnoughGold;
 
             }
             else {
@@ -52,14 +54,14 @@ void Game::showShop() {
 
                 if (slot == NO_SLOT_FOUND) {
 
-                    this->shopMessage = ShopMessage::InventoryFull;
+                    this->shopVariables.message = ShopMessage::InventoryFull;
 
                 }
                 else {
-printf("paid %i i %i = ", this->player.getCoinsOverall(), shopObject.price);
+
                     this->player.setCoinsOverall(this->player.getCoinsOverall() - shopObject.price);
                     shopObject.quantityLeft = shopObject.quantityLeft - 1;
-printf("%i\n", this->player.getCoinsOverall());
+                    this->shopVariables.counter = SHOP_PURCHASE_DELAY;
                     
                 }
 
@@ -68,7 +70,7 @@ printf("%i\n", this->player.getCoinsOverall());
         }
         else {
 
-           this->shopMessage = ShopMessage::None;
+           this->shopVariables.message = ShopMessage::None;
 
         }
 
@@ -81,20 +83,20 @@ printf("%i\n", this->player.getCoinsOverall());
 
     if (PC::buttons.pressed(BTN_UP)) {
 
-        switch (this->shopUpperIndex) {
+        switch (this->shopVariables.upperIndex) {
 
             case 0:
-                if (this->shopItemIndex > 0) {
-                    this->shopItemIndex--;
+                if (this->shopVariables.itemIndex > 0) {
+                    this->shopVariables.itemIndex--;
                 }
                 break;
 
             default:
-                if (this->shopItemIndex > 2) {
-                    this->shopItemIndex--;
+                if (this->shopVariables.itemIndex > 2) {
+                    this->shopVariables.itemIndex--;
                 } 
                 else {
-                    this->shopUpperIndex--;
+                    this->shopVariables.upperIndex--;
                 }
                 break;
 
@@ -104,20 +106,20 @@ printf("%i\n", this->player.getCoinsOverall());
 
     if (PC::buttons.pressed(BTN_DOWN)) {
 
-        switch (this->shopUpperIndex) {
+        switch (this->shopVariables.upperIndex) {
 
             case 0 ... 1:
-                if (this->shopItemIndex < 2) {
-                    this->shopItemIndex++;
+                if (this->shopVariables.itemIndex < 2) {
+                    this->shopVariables.itemIndex++;
                 }
                 else {
-                    this->shopUpperIndex++;
+                    this->shopVariables.upperIndex++;
                 }
                 break;
 
             default:
-                if (this->shopItemIndex < 4) {
-                    this->shopItemIndex++;
+                if (this->shopVariables.itemIndex < 4) {
+                    this->shopVariables.itemIndex++;
                 }
                 break;
                 
@@ -135,7 +137,7 @@ printf("%i\n", this->player.getCoinsOverall());
     PD::setColor(6);
 
 
-    for (uint8_t i = this->shopUpperIndex, j = 0; i < this->shopUpperIndex + 5; i++, j++) {
+    for (uint8_t i = this->shopVariables.upperIndex, j = 0; i < this->shopVariables.upperIndex + 5; i++, j++) {
 
         ShopObject shopObject = this->shopObjects[i];
 
@@ -156,16 +158,16 @@ printf("%i\n", this->player.getCoinsOverall());
 
     }
 
-    PD::setColor(5);
-    PD::drawRect(SHOP_ITEMS_ICON_LEFT - 3, SHOP_ITEMS_TOP - 2 + (this->shopItemIndex * SHOP_ITEMS_SPACING), 98, 12 );
+    PD::setColor(this->shopVariables.counter > 0 && (this->shopVariables.counter % 24 < 12) ? 9: 5);    
+    PD::drawRect(SHOP_ITEMS_ICON_LEFT - 3, SHOP_ITEMS_TOP - 2 + (this->shopVariables.itemIndex * SHOP_ITEMS_SPACING), 98, 12 );
 
-    if (this->shopMessage != ShopMessage::None) { 
+    if (this->shopVariables.message != ShopMessage::None) { 
         
         PD::setColor(4, 15);
         PD::drawBitmap(15, 22, Images::MessagePanel); 
         PD::setFont(font3x5);
 
-        switch (this->shopMessage) {
+        switch (this->shopVariables.message) {
 
             case ShopMessage::NotEnoughGold:
                 PD::setCursor(27, 30);

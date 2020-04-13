@@ -55,8 +55,8 @@ void Game::death() {
 
             }
 
-            this->highScore_CharIdx = 0;
-            this->highScore_EntryIdx = i;
+            this->highScoreVariables.charIdx = 0;
+            this->highScoreVariables.entryIdx = i;
 
             this->cookie->score_Char[i][0] = 'X';
             this->cookie->score_Char[i][1] = 'X';
@@ -67,7 +67,7 @@ void Game::death() {
         }
         else {
 
-            this->highScore_EntryIdx = 255;
+            this->highScoreVariables.entryIdx = 255;
 
         }
 

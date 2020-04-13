@@ -130,9 +130,9 @@ void Game::nextLevelLoad() {
 
     if (map.getLevel() < MAXLEVEL) {
 
-        if (this->randomLevel) {
+        if (this->map.getRandomLevel()) {
 
-            uint8_t randomLevel = random(mapRandomLow, mapRandomLow + 4);
+            uint8_t randomLevel = random(this->map.getRandomLow(), this->map.getRandomLow() + 4);
 
             #ifdef DEBUG
                 this->level = randomLevel;

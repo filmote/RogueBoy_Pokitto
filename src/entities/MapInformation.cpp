@@ -17,6 +17,14 @@ uint16_t MapInformation::getTimer() {
     return this->timer;
 }
 
+bool MapInformation::getRandomLevel() {
+    return this->randomLevel;
+}
+
+uint8_t MapInformation::getRandomLow() {
+    return this->randomLow;
+}
+
 void MapInformation::setLevel(uint8_t level) {
     this->level = level;
 }
@@ -31,6 +39,14 @@ void MapInformation::setHeight(uint16_t height) {
 
 void MapInformation::setTimer(uint16_t timer) {
     this->timer = timer;
+}
+
+void MapInformation::setRandomLevel(bool randomLevel) {
+    this->randomLevel = randomLevel;
+}
+
+void MapInformation::setRandomLow(uint8_t randomLow) {
+    this->randomLow = randomLow;
 }
 
 void MapInformation::decTimer() {

@@ -5822,6 +5822,36 @@
 		},
 		"\\src\\images\\shop\\MessagePanel.h": {
 			"sdcard": false
+		},
+		"\\RogueBoy_Pokitto.eeprom": {
+			"sdcard": false
+		},
+		"\\src\\Game_HighScore.cpp": {
+			"sdcard": false
+		},
+		"\\src\\Game_LevelOver.cpp": {
+			"sdcard": false
+		},
+		"\\src\\utils\\GameCookie.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\levelChange\\GameOver.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\levelChange\\GameOver.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\levelChange\\LevelSplash_UpperRight.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\levelChange\\LevelSplash_UpperLeft.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\levelChange\\LevelSplash_UpperLeft.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\levelChange\\LevelSplash_UpperRight.png": {
+			"sdcard": false
 		}
 	},
 	"BUILDFlags": {

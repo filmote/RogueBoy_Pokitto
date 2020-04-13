@@ -18,9 +18,9 @@ void Game::splashScreen() {
 
     if (justPressed > 0) {
 
-        if (this->splashScreenMode == 0) {
+        if (this->splashScreenVariables.mode == SplashScreenMode::PPOT) {
 
-            this->splashScreenMode = 1;
+            this->splashScreenVariables.mode = SplashScreenMode::Dreamer;
             
         }
         else {
@@ -33,11 +33,11 @@ void Game::splashScreen() {
     
     if (PC::frameCount % 12 == 0) {
 
-        splashScreenCounter++;
+        splashScreenVariables.counter++;
         
-        if (splashScreenCounter == 4) {
+        if (splashScreenVariables.counter == 4) {
             
-            splashScreenCounter = 0;
+            splashScreenVariables.counter = 0;
             
         }
         
@@ -46,16 +46,16 @@ void Game::splashScreen() {
 
     //  Render the state ..
 
-    switch (this->splashScreenMode) {
+    switch (this->splashScreenVariables.mode) {
 
-        case 0:
+        case SplashScreenMode::PPOT:
             PD::drawBitmap(22, 27, Images::Ppot_Full);
-            PD::drawBitmap(32, 38, Images::Ppot[splashScreenCounter]);
+            PD::drawBitmap(32, 38, Images::Ppot[splashScreenVariables.counter]);
 
-            if (splashScreenCounter < 2) PD::drawBitmap(82, 36, Images::Ppot_Arrow);
+            if (splashScreenVariables.counter < 2) PD::drawBitmap(82, 36, Images::Ppot_Arrow);
             break;
 
-        case 1:
+        case SplashScreenMode::Dreamer:
             PD::drawBitmap(28, 17, Images::Dreamer2345_Base);
             if (PC::frameCount % 128 <= 1) {
                 PD::drawBitmap(43, 36, Images::Dreamer2345_Eye);

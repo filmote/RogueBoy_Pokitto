@@ -97,32 +97,23 @@ class Game {
         Bullets bullets;
         Sprites objects;
         Environments environments;
+        MapInformation map;
 
         GameState gameState = GameState::SplashScreen;
 
         uint8_t diff = 1;
         int points = 0;
-        InventoryMenu inventoryMenu;
         uint16_t eolXTile;
         uint16_t eolYTile;
-        
-        MapInformation map;
-        bool randomLevel = false;
-        uint8_t mapRandomLow = 0;
 
-        uint8_t splashScreenCounter = 0;
-        uint8_t splashScreenMode = 0;
         uint8_t shake = 0;
         uint8_t shockwave = 0;
         uint16_t levelStartDelay = 255;
 
-        uint8_t shopUpperIndex = 0;
-        uint8_t shopItemIndex = 0;
-        ShopMessage shopMessage = ShopMessage::None;
-
-        uint8_t highScore_CharIdx = 2;
-        uint8_t highScore_EntryIdx = 1;
-
+        ShopVariables shopVariables;
+        InventoryMenuVariables inventoryMenu;
+        HighScoreVariables highScoreVariables;
+        SplashScreenVariables splashScreenVariables;
 
         GameCookie *cookie;
 

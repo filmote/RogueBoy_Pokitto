@@ -48,10 +48,9 @@ enum class GameState : uint8_t {
     WinState,
     Inventory,
     MapDetails,
-    Shop
+    Shop,
     HighScore
 };
-
 
 enum class Direction : uint8_t {
     Up, 
@@ -157,3 +156,9 @@ enum class ShopMessage : uint8_t {
     OutOfStock,
     InventoryFull
 };
+
+enum class SplashScreenMode : uint8_t {
+    PPOT,
+    Dreamer
+};
+

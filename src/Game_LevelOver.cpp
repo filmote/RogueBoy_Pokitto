@@ -40,7 +40,7 @@ void Game::endOfLevel() {
     
     if ((PC::frameCount % 800 == 0) || (PC::buttons.pressed(BTN_A))) {  
 
-        if (this->randomLevel) { this->mapRandomLow++; }
+        if (this->map.getRandomLevel()) { this->map.setRandomLow(this->map.getRandomLow() + 1); }
         gameState = GameState::LoadMap;
         this->points += pts;
     }
