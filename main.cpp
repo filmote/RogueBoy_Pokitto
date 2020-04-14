@@ -25,7 +25,7 @@ int main() {
     PC::setFrameRate(30);
     PD::setFont(fontKoubit);
 
-printf("cookie > %i \n", cookie.initialised);
+
     if (cookie.initialised != COOKIE_INITIALISED) {
 
         cookie.initialise();

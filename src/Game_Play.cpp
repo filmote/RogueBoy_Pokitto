@@ -20,6 +20,7 @@ void Game::updateObjects() {
     for (uint8_t i = 0; i < this->objects.getObjectNum(); i++) {
 
         auto &objectI = this->objects.getSprite(i);
+        bool objectI_IsEnemy = objectI.isEnemy();
 
         if (objectI.getActive()) { 
 
@@ -42,7 +43,7 @@ void Game::updateObjects() {
 
                     // If the enemy has collided with another enemy then do not update the position ..
 
-                    if (i != j && objectI.isEnemy() && objectJ.isEnemy() && this->collision(objectI, objectJ)) {
+                    if (i != j && objectI_IsEnemy && objectJ.isEnemy() && this->collision(objectI, objectJ)) {
 
                         update = false;
 
@@ -51,7 +52,7 @@ void Game::updateObjects() {
 
                     // If an enemy has collided with an object then pick it up ..
 
-                    if (i != j && objectI.isEnemy() && !objectJ.isEnemy() && this->collision(objectI, objectJ)) {
+                    if (i != j && objectI_IsEnemy && !objectJ.isEnemy() && this->collision(objectI, objectJ)) {
 
                         if (objectI.getCarrying() == Object::None) {
 
@@ -67,7 +68,7 @@ void Game::updateObjects() {
             }
 
 
-            if (update && this->levelStartDelay == 0) { this->spriteAI(map, player, objectI); }
+            if (!objectI_IsEnemy || (objectI_IsEnemy && update && this->levelStartDelay == 0)) { this->spriteAI(map, player, objectI); }
 
 
             // Has a collision between the object and player occured ?
@@ -876,8 +877,7 @@ void Game::dropItem(Object droppedObject, uint16_t x, uint16_t y, bool enemyDrop
     auto &object = this->objects.getSprite(slotIndex);
 
     if (enemyDrop) {
-printf("drop %i at %i, %i\n", droppedObject, x, y);
-        // object.setSprite(((x / TILE_SIZE) * TILE_SIZE) + 8, ((x / TILE_SIZE) * TILE_SIZE) + 8, 1, static_cast<Object>(droppedObject), true, true);
+
         object.setSprite(x, y, 1, static_cast<Object>(droppedObject), true, true);
         
     }
