@@ -84,7 +84,7 @@ class Sprite {
             this->offset = spriteOffsets[static_cast<uint8_t>(type)];;
             this->active = active;
             this->carrying = Object::None;
-            this->puffIndex = (enablePuff ? 5 : 0);
+            this->puffIndex = (enablePuff ? 10 : 0);
 
         };
 

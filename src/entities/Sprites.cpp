@@ -68,8 +68,8 @@ void Sprites::render(Player &player, bool showEnemies) {
 
             uint8_t puffIndex = object.getPuffIndex();
             if (puffIndex > 0) {
-
-                PD::drawBitmap(x - 8, y - 8, Images::Puff[5 - puffIndex]);
+printf("puff %i\n", puffIndex);
+                PD::drawBitmap(x - 4, y - 4, Images::Puff[(10 - puffIndex) / 2]);
 
             }
 
