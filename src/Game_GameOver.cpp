@@ -122,7 +122,6 @@ uint32_t Game::printLevelSummary(uint8_t yOffset) {
     PD::drawBitmap(63, yOffset + 33, Images::Colon);
     PD::setCursor(73, yOffset + 32);
     this->printPaddedNumber(this->points + pts, 4);
-    printf("xxx\n");
 
     return pts;
 

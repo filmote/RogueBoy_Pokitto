@@ -58,7 +58,7 @@ void Game::loadMap(uint8_t level) {
             bool active = true;
 
             auto & object = objects.getSprite(i);
-            object.setSprite(px, py, h, static_cast<Object>(type), active);
+            object.setSprite(px, py, h, static_cast<Object>(type), active, false);
 
             switch (type) {
 
@@ -326,7 +326,7 @@ printf("Player %i %i, EOL %i %i\n",playerX, playerY, levelEndX, levelEndY);
                                 if (option == randOption) {
 
                                     auto & object = objects.getSprite(objectCount);
-                                    object.setSprite((xSegment * RANDOM_TILE_SIZE * TILE_SIZE) + x, (ySegment * RANDOM_TILE_SIZE * TILE_SIZE) + y, h, static_cast<Object>(type), true);
+                                    object.setSprite((xSegment * RANDOM_TILE_SIZE * TILE_SIZE) + x, (ySegment * RANDOM_TILE_SIZE * TILE_SIZE) + y, h, static_cast<Object>(type), true, false);
                                                
                                     switch (type) {
 

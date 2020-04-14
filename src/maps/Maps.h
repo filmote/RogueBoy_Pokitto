@@ -24,18 +24,24 @@ const uint8_t MAP_Test[] = {
     0,0,0,0,0,0,
     0,0,0,0,0,0,
 
-    /* Object Count */ 10,
+    /* Object Count */ 14,
     Object::GreenSpell,3,5,0,
     Object::YellowSpell,4,5,0,
     Object::MauveSpell,5,5,0,
     Object::Tonic,5,4,0,
+
     Object::Coin,0,6,0,
     Object::Coin,1,6,0,
     Object::SackOCash,0,7,0,
     Object::SackOCash,1,7,0,
+
     Object::SackOCash,2,7,0,
     Object::SackOCash,3,7,0,
-    // Object::Spider, 0, 0, 20,
+    Object::Spider, 0, 0, 20,
+    Object::Key, 0, 1, 0,
+
+    Object::Key, 1, 1, 0,
+    Object::Key, 1, 0, 0,
 
     /* Environment Count */ 0,
 

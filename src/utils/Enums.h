@@ -17,6 +17,7 @@ enum Object {
     GreenSpell = 13,
     YellowSpell = 14,
     MauveSpell = 15,
+    None = 254,
     FireBall = 255
 };
 

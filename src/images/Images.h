@@ -11,6 +11,7 @@
 #include "levelChange/LevelSplash.h"
 #include "shockwaves/Shockwaves.h"
 #include "shop/Shop.h"
+#include "puff/Puffs.h"
 
 namespace Images {
 
