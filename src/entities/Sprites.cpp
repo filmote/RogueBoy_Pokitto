@@ -63,6 +63,16 @@ void Sprites::render(Player &player, bool showEnemies) {
 
             this->renderSprite(object.getType(), x, y, offset, direction, frame, showEnemies, object.getRenderHealthBar(), 10 * object.getHealth() / object.getHealthOrig());
 
+
+            // Render puff ?
+
+            uint8_t puffIndex = object.getPuffIndex();
+            if (puffIndex > 0) {
+
+                PD::drawBitmap(x - 8, y - 8, Images::Puff[5 - puffIndex]);
+
+            }
+
         }
 
     }

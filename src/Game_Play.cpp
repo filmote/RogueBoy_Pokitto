@@ -26,7 +26,7 @@ void Game::updateObjects() {
 
             // Reduce the health bar visual indicator counter ..
 
-            objectI.decHealthBarCounter();
+            objectI.update();
 
 
             // Dow we need to update the object?
@@ -37,9 +37,30 @@ void Game::updateObjects() {
 
                 auto &objectJ = this->objects.getSprite(j);
 
-                if (j < i && objectJ.getActive() && this->collision(objectI, objectJ) && (objectJ.getType() >= 6)) {
+                if (objectJ.getActive()) {
 
-                    update = false;
+
+                    // If the enemy has collided with another enemy then do not update the position ..
+
+                    if (i != j && objectI.isEnemy() && objectJ.isEnemy() && this->collision(objectI, objectJ)) {
+
+                        update = false;
+
+                    }
+
+
+                    // If an enemy has collided with an object then pick it up ..
+
+                    if (i != j && objectI.isEnemy() && !objectJ.isEnemy() && this->collision(objectI, objectJ)) {
+
+                        if (objectI.getCarrying() == Object::None) {
+
+                            objectJ.setActive(false);
+                            objectI.setCarrying(objectJ.getType());
+                            
+                        }
+
+                    }
 
                 }
 
@@ -49,7 +70,7 @@ void Game::updateObjects() {
             if (update && this->levelStartDelay == 0) { this->spriteAI(map, player, objectI); }
 
 
-            // Has a collision between two objects occurred ?
+            // Has a collision between the object and player occured ?
 
             if (!objectI.getPreventImmediatePickup() && this->collision(player, objectI, true)) {
 
@@ -227,7 +248,7 @@ void Game::updateObjects() {
 
                 };
 
-                if (this->map.getBlock(this->map.getTileX(rx), this->map.getTileY(ry)) == 4) {
+                if (this->map.getBlock(this->map.getTileX(rx), this->map.getTileY(ry)) == MapTiles::Barrel) {
                     barrelBreak(map, this->map.getTileX(rx), this->map.getTileY(ry), this->objects);
                 } 
 
@@ -246,8 +267,13 @@ void Game::updateObjects() {
                         bullet.setActive(false);
 
                         if (!object.getActive()) {
+
                             player.setKills(player.getKills() + 1);
-                            dropItem(object.getX(), object.getY(), true, this->objects);
+
+                            if (object.getCarrying() != Object::None) {
+                                dropItem(object.getCarrying(), object.getX(), object.getY(), true, &object, this->objects);
+                            }
+
                         }
 
                     }
@@ -475,7 +501,6 @@ void Game::playerMovement() {
 
                     case Object::MauveSpell:
                         {
-                            printf("Shot Mauve\n");
                             int16_t xMin = this->player.getX() - 55;
                             int16_t xMax = this->player.getX() + 55;
                             int16_t yMin = this->player.getY() - 36;
@@ -484,14 +509,9 @@ void Game::playerMovement() {
                             for (uint8_t i = 0; i < this->objects.getObjectNum(); i++) {
 
                                 auto &object = this->objects.getSprite(i);
-if (object.getActive() && object.isEnemy()) {
-
-printf("x %i - %i, y %i - %i > %i,%i\n", xMin, xMax, yMin, yMax, object.getX(), object.getY());
-
-}
 
                                 if (object.getActive() && object.isEnemy() && object.getX() >= xMin && object.getX() <= xMax && object.getY() >= yMin & object.getY() <= yMax) {
-printf("Kill\n");
+
                                     object.damage(Object::MauveSpell);
 
                                 }
@@ -566,7 +586,6 @@ printf("Kill\n");
                 break;
 
             case MapTiles::Shop:
-printf("go shop\n");            
                 this->gameState = GameState::Shop;
                 break;
 
@@ -819,71 +838,53 @@ void Game::updateEnvironmentBlock(MapInformation map, uint8_t x, uint8_t y, Envi
 
 }
 
-void Game::dropItem(uint16_t x, uint16_t y, bool EnDrop, Sprites &objects) {
+void Game::dropItem(Object droppedObject, uint16_t x, uint16_t y, bool enemyDrop, Sprite *enemy, Sprites &objects) {
 
-    bool newSlot = true;
-    uint8_t found = 0;
+    bool slotFound = false;
+    uint8_t slotIndex = 0;
     
+
+    // Find the first empty slot ..
+
     for (uint8_t i = 0; i < objects.getObjectNum(); i++) {
 
         auto &obj = this->objects.getSprite(i);
         
         if (!(obj.getActive())) {
-            newSlot = false;
-            found = i;
+            slotFound = true;
+            slotIndex = i;
             break;
         }
 
     }
 
-    if (this->objects.getObjectNum() == MAXOBJECT && newSlot) return;
+    if (this->objects.getObjectNum() == MAXOBJECT && !slotFound) return;
 
-    if (newSlot) {
 
-        if (this->objects.getObjectNum() < MAXOBJECT) {
+    // If no disabled slot was found, then select the next available one in the collection ..
 
-            uint8_t oNum = this->objects.getObjectNum();
-            oNum++;
-            this->objects.setObjectNum(oNum);
-            
-        }
+    if (this->objects.getObjectNum() < MAXOBJECT) {
+
+        uint8_t slotIndex = this->objects.getObjectNum();
+        this->objects.setObjectNum(slotIndex + 1);
         
-        uint8_t id = random(1,5);
-        uint8_t offset = 0;
-        auto object = this->objects.getSprite(this->objects.getObjectNum());
+    }
+    
+
+    // Retrieve the sprite object and populate ..
+
+    auto &object = this->objects.getSprite(slotIndex);
+
+    if (enemyDrop) {
+printf("drop %i at %i, %i\n", droppedObject, x, y);
+        // object.setSprite(((x / TILE_SIZE) * TILE_SIZE) + 8, ((x / TILE_SIZE) * TILE_SIZE) + 8, 1, static_cast<Object>(droppedObject), true, true);
+        object.setSprite(x, y, 1, static_cast<Object>(droppedObject), true, true);
         
-        if ((id != 4) && (id != 2)) {
+    }
+    else{
 
-            if (!EnDrop) {
+        object.setSprite(x, y, 1, static_cast<Object>(droppedObject), true, false);
 
-                object.setSprite((x * TILE_SIZE) + 8, (y * TILE_SIZE) + 8, 1, static_cast<Object>(id), true);
-
-            }
-            else{
-
-                object.setSprite(x, y, 1, static_cast<Object>(id), true);
-
-            }
-            
-        }
-        
-    } 
-    else {
-
-        uint8_t id = random(1,5);
-        auto object = this->objects.getSprite(found);
-
-        if ((id != 4) && (id != 2)) {
-
-            if (!EnDrop) {
-                object.setSprite((x * TILE_SIZE) + 8, (y * TILE_SIZE) + 8, 1, static_cast<Object>(id), true);
-            }
-            else{
-                object.setSprite(x, y, 1, static_cast<Object>(id), true);
-            }
-            
-        }
-        
     }
     
 }
@@ -1087,5 +1088,7 @@ Direction Game::getNearestCardinalDirection(Direction direction, Axis axis) {
             break;
 
     }
+
+    return Direction::Up;
 
 }

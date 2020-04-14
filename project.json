@@ -5852,6 +5852,75 @@
 		},
 		"\\src\\images\\levelChange\\LevelSplash_UpperRight.png": {
 			"sdcard": false
+		},
+		"\\src\\images\\sprites\\Spell1.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\sprites\\Spell2.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\sprites\\Spell3.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\sprites\\Spell4.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\sprites\\IceSpell.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\sprites\\Spell3.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\sprites\\Spell2.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\sprites\\Spell4.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\sprites\\IceSpell.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\puff": {
+			"sdcard": false
+		},
+		"\\src\\images\\puff\\Untitled.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\puff\\Puff_00.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\puff\\Puff_01.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\puff\\Puff_02.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\puff\\Puff_03.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\puff\\Puff_04.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\puff\\Puffs.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\puff\\Untitled.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\puff\\Puff_00.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\puff\\Puff_01.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\puff\\Puff_02.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\puff\\Puff_03.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\puff\\Puff_04.h": {
+			"sdcard": false
 		}
 	},
 	"BUILDFlags": {

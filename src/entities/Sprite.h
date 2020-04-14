@@ -22,7 +22,9 @@ class Sprite {
         int8_t getOffset()                      { return this->offset; }
         uint8_t getFrame()                      { return this->frame; }
         uint8_t getQuantity()                   { return this->quantity; }
+        uint8_t getPuffIndex()                  { return this->puffIndex; }
         Object getType()                        { return this->type; }
+        Object getCarrying()                    { return this->carrying; }
         int16_t getHealth()                     { return this->health; }
         int16_t getHealthOrig()                 { return this->healthOrig; }
         bool getActive()                        { return this->active; }
@@ -34,8 +36,14 @@ class Sprite {
         void setX(uint16_t x)                   { this->x = x; }
         void setY(uint16_t y)                   { this->y = y; }
         void setType(Object type)               { this->type = type; }
+        void setCarrying(Object carrying)       { this->carrying = carrying; }
 
-        void decHealthBarCounter()              { if (this->renderHealthBar > 0) this->renderHealthBar--; }
+        void update() { 
+            
+            if (this->renderHealthBar > 0) this->renderHealthBar--; 
+            if (this->puffIndex > 0) this->puffIndex--; 
+            
+        }
 
         void setPosition(uint16_t x, uint16_t y) {
 
@@ -63,7 +71,7 @@ class Sprite {
 
         }
 
-        void setSprite(uint16_t x, uint16_t y, uint8_t health, Object type, bool active) {
+        void setSprite(uint16_t x, uint16_t y, uint8_t health, Object type, bool active, bool enablePuff) {
 
             this->x = x;
             this->y = y;
@@ -75,6 +83,8 @@ class Sprite {
             this->frame = 0;
             this->offset = spriteOffsets[static_cast<uint8_t>(type)];;
             this->active = active;
+            this->carrying = Object::None;
+            this->puffIndex = (enablePuff ? 5 : 0);
 
         };
 
@@ -200,6 +210,7 @@ class Sprite {
         int16_t health;
         int16_t healthOrig;
         Object type;
+        Object carrying = Object::None;
         uint8_t frame;
         bool active;
         uint8_t quantity;
@@ -208,6 +219,7 @@ class Sprite {
         int8_t lastMoveY;
         bool preventImmediatePickup;
         uint8_t renderHealthBar;
+        uint8_t puffIndex = 0;
 
 };
 

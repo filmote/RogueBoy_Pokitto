@@ -73,7 +73,7 @@ class Game {
         bool interactWithBlock(int x, int y, MapTiles block);
         void updateEnvironmentBlock(MapInformation map, uint8_t x, uint8_t y, Environments &Envi);
 
-        void dropItem(uint16_t x, uint16_t y, bool EnDrop, Sprites &Objects);
+        void dropItem(Object droppedObject, uint16_t x, uint16_t y, bool enemyDrop, Sprite *enemy, Sprites &objects);
         void spriteAI(MapInformation &map, Player &player, Sprite &sprite);
         void spriteAI_UpdateEnemy(Point &point, MapInformation &map, Player &player, Sprite &enemy);
         void barrelBreak(MapInformation &map, uint8_t x, uint8_t y, Sprites &objects);
