@@ -5,11 +5,11 @@ using PC = Pokitto::Core;
 using PD = Pokitto::Display;
 using PS = Pokitto::Sound;
 
-#define SHOP_ITEMS_TOP          10
+#define SHOP_ITEMS_TOP          6
 #define SHOP_ITEMS_SPACING      11
-#define SHOP_ITEMS_ICON_LEFT    10
-#define SHOP_ITEMS_DESC_LEFT    23
-#define SHOP_ITEMS_COST_LEFT    80
+#define SHOP_ITEMS_ICON_LEFT    8
+#define SHOP_ITEMS_DESC_LEFT    SHOP_ITEMS_ICON_LEFT + 14
+#define SHOP_ITEMS_COST_LEFT    SHOP_ITEMS_ICON_LEFT + 71
 
 
 void Game::showShop() {
@@ -152,14 +152,17 @@ void Game::showShop() {
         }
         else {
 
-            PD::drawBitmap(76, SHOP_ITEMS_TOP + 2 + (j * SHOP_ITEMS_SPACING), Images::SoldOut);
+            PD::drawBitmap(SHOP_ITEMS_COST_LEFT - 4, SHOP_ITEMS_TOP + 2 + (j * SHOP_ITEMS_SPACING), Images::SoldOut);
 
         }
 
     }
 
     PD::setColor(this->shopVariables.counter > 0 && (this->shopVariables.counter % 24 < 12) ? 9: 5);    
-    PD::drawRect(SHOP_ITEMS_ICON_LEFT - 3, SHOP_ITEMS_TOP - 2 + (this->shopVariables.itemIndex * SHOP_ITEMS_SPACING), 98, 12 );
+    PD::drawRect(SHOP_ITEMS_ICON_LEFT - 3, SHOP_ITEMS_TOP - 2 + (this->shopVariables.itemIndex * SHOP_ITEMS_SPACING), 99, 12 );
+    PD::setColor(5);
+    PD::drawLine(0, 71, 92, 71);
+    PD::drawBitmap(92, 53, Images::Seller);
 
     if (this->shopVariables.message != ShopMessage::None) { 
         

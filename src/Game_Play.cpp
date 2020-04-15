@@ -586,7 +586,7 @@ void Game::playerMovement() {
                 this->interactWithBlock(relx, rely, block);
                 break;
 
-            case MapTiles::Shop:
+            case MapTiles::Shop00 ... MapTiles::Shop05:
                 this->gameState = GameState::Shop;
                 break;
 

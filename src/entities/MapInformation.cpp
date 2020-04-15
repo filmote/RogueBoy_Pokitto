@@ -219,10 +219,37 @@ bool MapInformation::isWalkable(uint16_t x, uint16_t y, Direction direction, uin
         case MapTiles::SpearDoorTOPOpen:
         case MapTiles::SpearDoorBOTOpen:
         case MapTiles::WormHole_F0:
-        case MapTiles::Shop:
             walk = true;
             break;
 
+        case MapTiles::Shop03 ... MapTiles::Shop05:
+
+            switch (direction) {
+
+                case Direction::Up:
+                    yMod = (y - widthHalf) % 16;
+                    printf("Shop1 U %i %i\n", xMod, yMod);
+                    walk = (yMod == 0) || (yMod > 8);
+                    break;
+
+                case Direction::Left:
+                    xMod = (x - widthHalf) % 16;
+                    yMod = (y - widthHalf) % 16;
+                    printf("Shop1 L %i %i\n", xMod, yMod);
+                    walk = (xMod > 10 && yMod <= 8) || (yMod > 8);
+                    break;
+
+                case Direction::Right:
+                    xMod = (x + widthHalf) % 16;
+                    yMod = (y - widthHalf) % 16;
+                    printf("Shop1 R %i %i\n", xMod, yMod);
+                    walk = (xMod <= 6 && yMod <= 8) || (yMod > 8);
+                    break;
+
+            }
+
+            break;
+            
         case MapTiles::Barrel:
 
             switch (direction) {
@@ -620,7 +647,6 @@ bool MapInformation::isWalkable(uint16_t x, uint16_t y, Direction direction, uin
             case MapTiles::SpearDoorTOPOpen:
             case MapTiles::SpearDoorBOTOpen:
             case MapTiles::WormHole_F0:
-            case MapTiles::Shop:
                 walk = true;
                 break;
 
@@ -642,6 +668,34 @@ bool MapInformation::isWalkable(uint16_t x, uint16_t y, Direction direction, uin
                         walk = false;
                         break;
                     
+                }
+
+                break;
+
+            case MapTiles::Shop03 ... MapTiles::Shop05:
+
+                switch (direction) {
+
+                    case Direction::Up:
+                        yMod = (y - widthHalf) % 16;
+                        printf("Shop2 U %i %i\n", xMod, yMod);
+                        walk = (yMod == 0) || (yMod > 8);
+                        break;
+
+                    case Direction::Left:
+                        xMod = (x - widthHalf) % 16;
+                        yMod = (y + widthHalf) % 16;
+                        // printf("Shop2 L %i %i\n", xMod, yMod);
+                        walk = (xMod > 10 && yMod <= 8) || (yMod > 8);
+                        break;
+
+                    case Direction::Right:
+                        xMod = (x + widthHalf) % 16;
+                        yMod = (y + widthHalf) % 16;
+                        printf("Shop2 R %i %i\n", xMod, yMod);
+                        walk = (xMod <= 6 && yMod <= 8) || (yMod > 8);
+                        break;
+
                 }
 
                 break;

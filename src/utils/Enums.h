@@ -148,7 +148,16 @@ enum MapTiles {
     WormHole_F1 = 74,
     WormHole_F2 = 75,
     WormHole_F3 = 76,
-    Shop = 77,
+    Shop00 = 77,
+    Shop01 = 78,
+    Shop02 = 79,
+    Shop03 = 80,
+    Shop04 = 81,
+    Shop05 = 82,
+    SpiderWebTL = 83,
+    SpiderWebTR = 84,
+    SpiderWebLR = 85,
+    SpiderWebLL = 86,
 };
 
 enum class ShopMessage : uint8_t {

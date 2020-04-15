@@ -80,6 +80,15 @@ namespace Images {
     #include "Tile_75.h"
     #include "Tile_76.h"
     #include "Tile_77.h"
+    #include "Tile_78.h"
+    #include "Tile_79.h"
+    #include "Tile_80.h"
+    #include "Tile_81.h"
+    #include "Tile_82.h"
+    #include "Tile_83.h"
+    #include "Tile_84.h"
+    #include "Tile_85.h"
+    #include "Tile_86.h"
     #include "CornerFillTL.h"
     #include "CornerFillTR.h"
     #include "CornerFillLL.h"
@@ -164,6 +173,15 @@ namespace Images {
     Tile_75,
     Tile_76,
     Tile_77,
+    Tile_78,
+    Tile_79,
+    Tile_80,
+    Tile_81,
+    Tile_82,
+    Tile_83,
+    Tile_84,
+    Tile_85,
+    Tile_86,
     };
 
 };
