@@ -6131,6 +6131,108 @@
 		},
 		"\\src\\images\\background\\Tile_84.h": {
 			"sdcard": false
+		},
+		"\\RogueBoy_Pokitto.bin.2.gif": {
+			"sdcard": false
+		},
+		"\\RogueBoy_Pokitto.bin.3.gif": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemies\\Spider_00_F0 - Copy.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemies\\NewEnemy_00.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemies\\NewEnemy_00 - Copy.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemies\\NewEnemy_01.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemies\\NewEnemy_01 - Copy.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemies\\NewEnemy_02.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemies\\NewEnemy_00 - Copy (2).png": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemies\\NewEnemy_00 - Copy (3).png": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemies\\NewEnemy_04.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemies\\NewEnemy_06.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemies\\NewEnemy_02.png.~tmp": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemies\\NewEnemy_04.png.~tmp": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemies\\NewEnemy_06.png.~tmp": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemies\\NewEnemy_01 - Copy (2).png": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemies\\NewEnemy_01 - Copy (3).png": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemies\\NewEnemy_03.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemies\\NewEnemy_05.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemies\\NewEnemy_07.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemies\\NewEnemy_07.png.~tmp": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemies\\NewEnemy_00.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemies\\NewEnemy_01.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemies\\NewEnemy_02.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemies\\NewEnemy_04.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemies\\NewEnemy_06.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemies\\NewEnemy_03.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemies\\NewEnemy_05.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemies\\NewEnemy_07.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\sprites\\Spell1.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\sprites\\Spell2.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\sprites\\Spell3.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\sprites\\Spell 4.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\sprites\\Spell4.png": {
+			"sdcard": false
 		}
 	},
 	"BUILDFlags": {

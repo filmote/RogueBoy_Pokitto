@@ -16,11 +16,17 @@ class Bullets {
         Bullets() {}  
 
         Bullet & getBullet(uint8_t index);
+        Bullet & getPlayerBullet(uint8_t index);
+        Bullet & getEnemyBullet(uint8_t index);
+
+        uint8_t getInactivePlayerBullet();
+        uint8_t getInactiveEnemyBullet();
+
         void render(Player &player);
 
 
     private:
 
-        Bullet bullets[6];
+        Bullet bullets[PLAYER_BULLET_MAX + ENEMY_BULLET_MAX];
 
 };

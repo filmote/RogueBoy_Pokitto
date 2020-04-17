@@ -59,10 +59,12 @@ class Game {
 
         void init(uint16_t x, uint16_t y, bool resetObjects);
         bool intersect(uint16_t min0, uint16_t max0, uint16_t min1, uint16_t max1);
-        //bool collision(uint16_t x, uint16_t y, uint16_t x1, uint16_t y1);
+
         bool collision(Player &player, Sprite &enemy, bool touching);
+        bool collision(Player &player, Bullet &bullet);
         bool collision(Sprite &object1, Sprite &object2);
         bool collision(Sprite &object, Bullet &bullet);        
+
         void updateObjects();
         void renderObjects();
         void death();
@@ -75,7 +77,7 @@ class Game {
 
         void dropItem(Object droppedObject, uint16_t x, uint16_t y, bool enemyDrop, Sprite *enemy, Sprites &objects);
         void spriteAI(MapInformation &map, Player &player, Sprite &sprite);
-        void spriteAI_UpdateEnemy(Point &point, MapInformation &map, Player &player, Sprite &enemy);
+        Direction spriteAI_UpdateEnemy(Point &point, MapInformation &map, Player &player, Sprite &enemy);
         void barrelBreak(MapInformation &map, uint8_t x, uint8_t y, Sprites &objects);
         Direction getNearestCardinalDirection(Direction direction, Axis axis);
         const uint8_t * getSegment(uint8_t segmentType, uint8_t segmentIndex);
@@ -103,6 +105,7 @@ class Game {
 
         uint8_t diff = 1;
         int points = 0;
+        int enemyBulletDelay = 0;
         uint16_t eolXTile;
         uint16_t eolYTile;
 
@@ -117,9 +120,11 @@ class Game {
 
         GameCookie *cookie;
 
-        ShopObject shopObjects[7] = {
+        ShopObject shopObjects[9] = {
             { Object::Bread, 6, 2 },
             { Object::Chicken, 10, 3 },
+            { Object::Key, 15, 2 },            
+            { Object::Tools, 15, 1 },            
             { Object::Tonic, 20, 3 },
             { Object::IceSpell, 20, 2 },
             { Object::GreenSpell, 25, 0 },

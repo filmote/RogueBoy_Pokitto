@@ -12,7 +12,7 @@ void Game::init(uint16_t x, uint16_t y, bool resetObjects) {
 
     for (uint8_t i = 0; i < 6; i++) {
 
-        bullets.getBullet(i).kill();
+        bullets.getPlayerBullet(i).kill();
 
     }
 
@@ -37,13 +37,21 @@ bool Game::intersect(uint16_t min0, uint16_t max0, uint16_t min1, uint16_t max1)
 
 }
 
-
 bool Game::collision(Player &player, Sprite &enemy, bool touching) {
   
     Rect playerRect = { player.getX() - (player.getWidth() / 2), player.getY() - (player.getHeight() / 2), player.getWidth(), player.getHeight() };
     Rect enemyRect =  { enemy.getX() - (enemy.getWidth() / 2) - (touching ? 1 : 0), enemy.getY() - (enemy.getHeight() / 2) - (touching ? 1 : 0), enemy.getWidth() + (touching ? 2 : 0), enemy.getHeight() + (touching ? 2 : 0) };
 
     return collide(playerRect, enemyRect);
+
+}
+
+bool Game::collision(Player &player, Bullet &bullet) {
+  
+    Rect playerRect = { player.getX() - (player.getWidth() / 2), player.getY() - (player.getHeight() / 2), player.getWidth(), player.getHeight() };
+    Rect bulletRect =  { bullet.getX() - 2, bullet.getY() - 2, 4, 4 };
+
+    return collide(playerRect, bulletRect);
 
 }
 
@@ -79,5 +87,65 @@ void Game::printPaddedNumber(int32_t number, uint8_t places) {
     if (places >= 3 && number < 100) PD::print("0");
     if (places >= 2 && number < 10) PD::print("0");
     PD::print(number, 10);
+
+}
+
+Direction Game::getNearestCardinalDirection(Direction direction, Axis axis) {
+
+    switch (axis) {
+
+        case Axis::XAxis:
+
+            switch (direction) {
+
+                case Direction::UpLeft:
+                case Direction::Left:
+                case Direction::DownLeft:
+
+                    return Direction::Left;
+
+                case Direction::Up:
+                case Direction::Down:
+
+                    return Direction::None;
+
+                case Direction::UpRight:
+                case Direction::Right:
+                case Direction::DownRight:
+
+                    return Direction::Right;
+                
+            }
+
+            break;
+
+        case Axis::YAxis:
+
+            switch (direction) {
+
+                case Direction::UpLeft:
+                case Direction::Up:
+                case Direction::UpRight:
+
+                    return Direction::Up;
+
+                case Direction::Left:
+                case Direction::Right:
+
+                    return Direction::None;
+
+                case Direction::DownLeft:
+                case Direction::Down:
+                case Direction::DownRight:
+
+                    return Direction::Down;
+                
+            }
+
+            break;
+
+    }
+
+    return Direction::Up;
 
 }

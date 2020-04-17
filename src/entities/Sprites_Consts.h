@@ -9,7 +9,7 @@ using PD = Pokitto::Display;
 using PS = Pokitto::Sound;
 
 
-const uint8_t spriteWidths[16] =  { 
+const uint8_t spriteWidths[17] =  { 
     8,  /* Coin */
     8,  /* SackOfCash */
     8,  /* Bread */
@@ -26,9 +26,10 @@ const uint8_t spriteWidths[16] =  {
     8,  /* GreenSpell */
     8,  /* YellowSpell */
     8,  /* MauveSpell */
+    12, /* NewEnemy */
 };
 
-const uint8_t spriteHeights[16] = { 
+const uint8_t spriteHeights[17] = { 
     8,  /* Coin */
     8,  /* SackOfCash */
     8,  /* Bread */
@@ -45,10 +46,11 @@ const uint8_t spriteHeights[16] = {
     8,  /* GreenSpell */
     8,  /* YellowSpell */
     8,  /* MauveSpell */
+    12, /* NewEnemy */
 };
 
         
-const int8_t spriteOffsets[16] = { 
+const int8_t spriteOffsets[17] = { 
     0,  /* Coin */
     0,  /* SackOfCash */
     0,  /* Bread */
@@ -58,13 +60,14 @@ const int8_t spriteOffsets[16] = {
     0,  /* Skull */
     0,  /* Spider */
     0,  /* Bat */
-    -3, /* Tools */
+    -2, /* Tools */
     0,  /* Tonic */
     -4, /* BigSpider */
     -2, /* IceSpell */
     0,  /* GreenSpell */
     0,  /* YellowSpell */
     0,  /* MauveSpell */
+    -2, /* NewEnemy */
 };
 
 
@@ -84,6 +87,7 @@ const char object_Desc_12[] = "Ice Spell";
 const char object_Desc_13[] = "Green";
 const char object_Desc_14[] = "Yellow";
 const char object_Desc_15[] = "Mauve";
+const char object_Desc_16[] = "New Enemy";
 
 const char * const object_Descs[] = { 
     object_Desc_00,
@@ -102,4 +106,5 @@ const char * const object_Descs[] = {
     object_Desc_13,
     object_Desc_14,
     object_Desc_15,
+    object_Desc_16,
 };

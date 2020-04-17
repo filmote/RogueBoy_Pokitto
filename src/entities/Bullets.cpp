@@ -7,10 +7,58 @@ Bullet & Bullets::getBullet(uint8_t index) {
     
 }
 
+Bullet & Bullets::getPlayerBullet(uint8_t index) {
+
+    return this->bullets[index];
+    
+}
+
+Bullet & Bullets::getEnemyBullet(uint8_t index) {
+
+    return this->bullets[PLAYER_BULLET_MAX + index];
+    
+}
+
+
+uint8_t Bullets::getInactivePlayerBullet() {
+
+    for (uint8_t j = 0; j < PLAYER_BULLET_MAX; j++) {
+
+        auto bullet = this->bullets[j];
+
+        if (!bullet.getActive()) {
+
+            return j;
+
+        }
+
+    }
+
+    return NO_INACTIVE_BULLET_FOUND;
+
+}
+
+uint8_t Bullets::getInactiveEnemyBullet() {
+
+    for (uint8_t j = PLAYER_BULLET_MAX; j < PLAYER_BULLET_MAX + ENEMY_BULLET_MAX; j++) {
+
+        auto bullet = this->bullets[j];
+
+        if (!bullet.getActive()) {
+
+            return j - PLAYER_BULLET_MAX;
+
+        }
+
+    }
+
+    return NO_INACTIVE_BULLET_FOUND;
+
+}
 
 void Bullets::render(Player &player) {
 
-    for (uint8_t j=0;j<6;j++) {
+    for (uint8_t j = 0; j < PLAYER_BULLET_MAX + ENEMY_BULLET_MAX; j++) {
 
         auto bullet = this->bullets[j];
 

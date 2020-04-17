@@ -36,6 +36,14 @@ namespace Images {
     #include "Spider_16_06_F1.h"
     #include "Spider_16_07_F0.h"
     #include "Spider_16_07_F1.h"
+    #include "NewEnemy_00.h"
+    #include "NewEnemy_01.h"
+    #include "NewEnemy_02.h"
+    #include "NewEnemy_03.h"
+    #include "NewEnemy_04.h"
+    #include "NewEnemy_05.h"
+    #include "NewEnemy_06.h"
+    #include "NewEnemy_07.h"
     #include "HealthBar.h"
 
     const uint8_t * const Bats[] = { 
@@ -81,4 +89,14 @@ namespace Images {
         Spider_16_07_F1,
     };
 
+    const uint8_t * const NewEnemys[] = { 
+        NewEnemy_00,
+        NewEnemy_01,
+        NewEnemy_02,
+        NewEnemy_03,
+        NewEnemy_04,
+        NewEnemy_05,
+        NewEnemy_06,
+        NewEnemy_07,
+    };
 };

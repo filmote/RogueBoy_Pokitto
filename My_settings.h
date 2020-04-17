@@ -26,6 +26,7 @@
 
 #define NO_SLOT_FOUND       255
 #define NO_SPRITE_FOUND     255
+#define NO_INACTIVE_BULLET_FOUND     255
 #define MAX_INVENTORY_ITEMS 5                   // Number of item types the player can hold
 #define MAX_INVENTORY_COUNT 6                   // NUmber of items the player can hold, two of one type counts as two.
 #define RANDOM_TILE_SIZE    9
@@ -33,6 +34,7 @@
 
 #define HEALTH_INC_BREAD    10
 #define HEALTH_INC_CHICKEN  20
+#define HEALTH_DEC_SPIDERS_WEB 1                // Health decrement when running through a spider's web.
 #define END_OF_OPTIONS      255
 #define ICE_SPELL_DELAY     360
 #define ICE_SPELL_DELAY_INC 30
@@ -41,12 +43,18 @@
 #define DAMAGE_ICESPELL     10
 #define DAMAGE_GREENSPELL   20
 #define DAMAGE_YELLOWSPELL  30
+#define DAMAGE_BULLET       15
 
 #define TIMER_STEP          24
 #define LEVEL_START_DELAY   100
 #define COOKIE_INITIALISED  25
 #define SHOP_PURCHASE_DELAY 48
+#define WALK_SLOW_FRAME_COUNT 3
 
+#define PLAYER_BULLET_MAX   6
+#define ENEMY_BULLET_MAX    6
+#define ENEMY_BULLET_DELAY_MIN    5
+#define ENEMY_BULLET_DELAY_MAX    20
 
 /*
 Bit 7       Blank segment.

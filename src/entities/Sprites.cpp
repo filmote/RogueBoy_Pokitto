@@ -68,7 +68,7 @@ void Sprites::render(Player &player, bool showEnemies) {
 
             uint8_t puffIndex = object.getPuffIndex();
             if (puffIndex > 0) {
-printf("puff %i\n", puffIndex);
+// printf("puff %i\n", puffIndex);
                 PD::drawBitmap(x - 4, y - 4, Images::Puff[(10 - puffIndex) / 2]);
 
             }
@@ -121,6 +121,13 @@ void Sprites::renderSprite(Object type, int x, int y, int8_t offset, Direction d
             if (showEnemies) {
                 if (renderHealth) { this->renderHealthBar(x + 6, y - 6, healthValue); }
                 PD::drawBitmap(x + offset, y + offset, Images::Skull);
+            }
+            break;
+
+        case Object::NewEnemy:
+            if (showEnemies) {
+                PD::drawBitmap(x + offset, y + offset, Images::NewEnemys[(static_cast<uint8_t>(direction))]);
+                if (renderHealth) { this->renderHealthBar(x + 6, y - 6, healthValue); }
             }
             break;
 

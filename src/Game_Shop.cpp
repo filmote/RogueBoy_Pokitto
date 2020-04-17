@@ -92,7 +92,7 @@ void Game::showShop() {
                 break;
 
             default:
-                if (this->shopVariables.itemIndex > 2) {
+                if (this->shopVariables.itemIndex > 4) {
                     this->shopVariables.itemIndex--;
                 } 
                 else {
@@ -108,7 +108,7 @@ void Game::showShop() {
 
         switch (this->shopVariables.upperIndex) {
 
-            case 0 ... 1:
+            case 0 ... 3:
                 if (this->shopVariables.itemIndex < 2) {
                     this->shopVariables.itemIndex++;
                 }
@@ -141,7 +141,7 @@ void Game::showShop() {
 
         ShopObject shopObject = this->shopObjects[i];
 
-        this->objects.renderSprite(shopObject.object, SHOP_ITEMS_ICON_LEFT, SHOP_ITEMS_TOP + (j * SHOP_ITEMS_SPACING));
+        this->objects.renderSprite(shopObject.object, SHOP_ITEMS_ICON_LEFT, SHOP_ITEMS_TOP + (j * SHOP_ITEMS_SPACING) + 1);
         PD::setCursor(SHOP_ITEMS_DESC_LEFT, SHOP_ITEMS_TOP + 1 + (j * SHOP_ITEMS_SPACING));
         PD::print(object_Descs[static_cast<uint8_t>(shopObject.object)]);
 
@@ -159,7 +159,7 @@ void Game::showShop() {
     }
 
     PD::setColor(this->shopVariables.counter > 0 && (this->shopVariables.counter % 24 < 12) ? 9: 5);    
-    PD::drawRect(SHOP_ITEMS_ICON_LEFT - 3, SHOP_ITEMS_TOP - 2 + (this->shopVariables.itemIndex * SHOP_ITEMS_SPACING), 99, 12 );
+    PD::drawRect(SHOP_ITEMS_ICON_LEFT - 4, SHOP_ITEMS_TOP - 2 + (this->shopVariables.itemIndex * SHOP_ITEMS_SPACING), 101, 12 );
     PD::setColor(5);
     PD::drawLine(0, 71, 92, 71);
     PD::drawBitmap(92, 53, Images::Seller);

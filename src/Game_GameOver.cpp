@@ -87,6 +87,7 @@ uint32_t Game::printLevelSummary(uint8_t yOffset) {
     uint32_t killp = player.getKills() * 10;
     uint32_t pts = padd + killp + (this->map.getTimer()/10);
 
+    PD::setColor(4, 14);
     PD::setCursor(9, yOffset);
     PD::print("Kills");
     PD::drawBitmap(37, yOffset + 1, Images::Colon);

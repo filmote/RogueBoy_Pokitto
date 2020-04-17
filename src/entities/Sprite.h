@@ -190,6 +190,7 @@ class Sprite {
                 case Object::Skull:
                 case Object::Spider:
                 case Object::BigSpider:
+                case Object::NewEnemy:
 
                     return true;
 

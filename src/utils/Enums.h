@@ -1,5 +1,11 @@
 #pragma once
 
+enum WalkType : uint8_t {
+    Stop,
+    Normal,
+    Slow,
+};
+
 enum Object {
     Coin = 0,
     SackOCash = 1,
@@ -17,6 +23,7 @@ enum Object {
     GreenSpell = 13,
     YellowSpell = 14,
     MauveSpell = 15,
+    NewEnemy = 16,
     None = 254,
     FireBall = 255
 };
