@@ -43,6 +43,10 @@ class Player {
         void incCoins(uint8_t coins);
         void init(uint16_t x, uint16_t y);
         void decWeaponCount();
+
+        void incHealth(uint8_t amount);
+        void decHealth(uint8_t amount);
+        
         uint8_t getWeaponFrame();
         uint32_t getWeaponCount();
 

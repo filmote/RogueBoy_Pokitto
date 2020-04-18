@@ -44,15 +44,24 @@ namespace Images {
     #include "newenemy/NewEnemy_05.h"
     #include "newenemy/NewEnemy_06.h"
     #include "newenemy/NewEnemy_07.h"
-    #include "spike/Spike_00.h"
-    #include "spike/Spike_01.h"
-    #include "spike/Spike_02.h"
-    #include "spike/Spike_03.h"
-    #include "spike/Spike_04.h"
-    #include "spike/Spike_05.h"
-    #include "spike/Spike_06.h"
-    #include "spike/Spike_07.h"
-    #include "spike/Spike_08.h"
+    #include "spike/Spike_LHS_00.h"
+    #include "spike/Spike_LHS_01.h"
+    #include "spike/Spike_LHS_02.h"
+    #include "spike/Spike_LHS_03.h"
+    #include "spike/Spike_LHS_04.h"
+    #include "spike/Spike_LHS_05.h"
+    #include "spike/Spike_LHS_06.h"
+    #include "spike/Spike_LHS_07.h"
+    #include "spike/Spike_LHS_08.h"
+    #include "spike/Spike_RHS_00.h"
+    #include "spike/Spike_RHS_01.h"
+    #include "spike/Spike_RHS_02.h"
+    #include "spike/Spike_RHS_03.h"
+    #include "spike/Spike_RHS_04.h"
+    #include "spike/Spike_RHS_05.h"
+    #include "spike/Spike_RHS_06.h"
+    #include "spike/Spike_RHS_07.h"
+    #include "spike/Spike_RHS_08.h"
     #include "HealthBar.h"
 
     const uint8_t * const Bats[] = { 
@@ -109,16 +118,28 @@ namespace Images {
         NewEnemy_07,
     };
 
-    const uint8_t * const Spike[] = { 
-        Spike_00,
-        Spike_01,
-        Spike_02,
-        Spike_03,
-        Spike_04,
-        Spike_05,
-        Spike_06,
-        Spike_07,
-        Spike_08,
+    const uint8_t * const SpikeLHS[] = { 
+        Spike_LHS_00,
+        Spike_LHS_01,
+        Spike_LHS_02,
+        Spike_LHS_03,
+        Spike_LHS_04,
+        Spike_LHS_05,
+        Spike_LHS_06,
+        Spike_LHS_07,
+        Spike_LHS_08,
+    };
+
+    const uint8_t * const SpikeRHS[] = { 
+        Spike_RHS_00,
+        Spike_RHS_01,
+        Spike_RHS_02,
+        Spike_RHS_03,
+        Spike_RHS_04,
+        Spike_RHS_05,
+        Spike_RHS_06,
+        Spike_RHS_07,
+        Spike_RHS_08,
     };
 
 };

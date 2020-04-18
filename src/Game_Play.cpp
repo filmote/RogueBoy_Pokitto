@@ -136,6 +136,8 @@ void Game::updateObjects() {
                     case Object::BigSpider:
                     case Object::Bat:
                     case Object::NewEnemy:
+                    case Object::SpikeLHS:
+                    case Object::SpikeRHS:
 
                         if (this->shake < 3) {
                             this->shake = this->shake + 2;
@@ -147,32 +149,39 @@ void Game::updateObjects() {
 
                                 case Object::Floater:   
                                     //SJH 
-                                    player.setHealth(player.getHealth() - (10 * diff)); 
+                                    player.decHealth(10 * diff); 
                                     break;
 
                                 case Object::Skull: 
                                     //SJH 
-                                    player.setHealth(player.getHealth() - (5 * diff)); 
+                                    player.decHealth(5 * diff); 
                                     break;
 
                                 case Object::Spider:
                                     //SJH 
-                                    player.setHealth(player.getHealth() - (2 * diff)); 
+                                    player.decHealth(2 * diff); 
                                     break;
 
                                 case Object::BigSpider:
                                     //SJH 
-                                    player.setHealth(player.getHealth() - (6 * diff)); 
+                                    player.decHealth(6 * diff); 
                                     break;
 
                                 case Object::Bat: 
                                     //SJH 
-                                    player.setHealth(player.getHealth() - diff); 
+                                    player.decHealth(diff); 
                                     break;
 
                                 case Object::NewEnemy: 
                                     //SJH 
-                                    player.setHealth(player.getHealth() - (3 * diff)); 
+                                    player.decHealth(3 * diff); 
+                                    break;
+
+                                case Object::SpikeLHS: 
+                                case Object::SpikeRHS: 
+                                    //SJH 
+                                    // printf("spike\n");
+                                    player.decHealth(2 * diff); 
                                     break;
 
                             }
@@ -347,7 +356,7 @@ bool Game::isBlockedByEnemy(Player player, uint16_t playerX, uint16_t playerY) {
 
         if (object.getActive() && object.isEnemy()) {
             
-            Rect objectRect = { object.getX() - (object.getWidth() / 2),  object.getY() - (object.getHeight() / 2), object.getWidth(), object.getHeight() };
+            Rect objectRect = object.getRect();
 
             if (collide(playerRect, objectRect)) return true;
 
@@ -362,7 +371,7 @@ bool Game::isBlockedByEnemy(Player player, uint16_t playerX, uint16_t playerY) {
 bool Game::isBlockedByPlayer(Player player, Sprite enemy, uint16_t enemyX, uint16_t enemyY) {
    
     Rect playerRect = { this->player.getX() - (player.getWidth() / 2), this->player.getY() - (player.getHeight() / 2), player.getWidth(), player.getHeight() };
-    Rect enemyRect = { enemyX - (enemy.getWidth() / 2), enemyY - (enemy.getHeight() / 2), enemy.getWidth(), enemy.getHeight() };
+    Rect enemyRect = enemy.getRect();
 
     return collide(playerRect, enemyRect);
 
@@ -387,7 +396,7 @@ void Game::playerMovement() {
             moving = true;
 
             if (walk == WalkType::Slow) {
-                player.setHealth(player.getHealth() - HEALTH_DEC_SPIDERS_WEB); 
+                player.decHealth(HEALTH_DEC_SPIDERS_WEB); 
             }
 
         }
@@ -407,7 +416,7 @@ void Game::playerMovement() {
 
 
             if (walk == WalkType::Slow) {
-                player.setHealth(player.getHealth() - HEALTH_DEC_SPIDERS_WEB); 
+                player.decHealth(HEALTH_DEC_SPIDERS_WEB); 
             }
 
         }
@@ -426,7 +435,7 @@ void Game::playerMovement() {
             moving = true;
 
             if (walk == WalkType::Slow) {
-                player.setHealth(player.getHealth() - HEALTH_DEC_SPIDERS_WEB); 
+                player.decHealth(HEALTH_DEC_SPIDERS_WEB); 
             }
 
         }
@@ -459,7 +468,7 @@ void Game::playerMovement() {
             moving = true;
 
             if (walk == WalkType::Slow) {
-                player.setHealth(player.getHealth() - HEALTH_DEC_SPIDERS_WEB); 
+                player.decHealth(HEALTH_DEC_SPIDERS_WEB); 
             }
 
         }
@@ -1038,12 +1047,23 @@ void Game::spriteAI(MapInformation &map, Player &player, Sprite &sprite) {
 
             break;
 
-        case Object::Spike: 
+        case Object::SpikeLHS: 
+        case Object::SpikeRHS: 
 
-            // if (Pokitto::Core::frameCount % 2 == 0) { 
+            sprite.decCountdown();
+
+            if (sprite.getCountdown() <= 24) {
+
                 sprite.setFrame(sprite.getFrame() + 1); 
-                sprite.setFrame(sprite.getFrame() % 28);
-//            } 
+
+                if (sprite.getCountdown() == 0) {
+
+                    sprite.setCountdown(random(70, 120));
+                    sprite.setFrame(0);
+
+                }
+
+            }
 
             break;
 

@@ -9,7 +9,7 @@ using PD = Pokitto::Display;
 using PS = Pokitto::Sound;
 
 
-const uint8_t spriteWidths[18] =  { 
+const uint8_t spriteWidths[21] =  { 
     8,  /* Coin */
     8,  /* SackOfCash */
     8,  /* Bread */
@@ -26,11 +26,14 @@ const uint8_t spriteWidths[18] =  {
     12, /* GreenSpell */
     12,  /* RedSpell */
     8,  /* MauveSpell */
-    16, /* Spike */
     12, /* NewEnemy */
+    16, /* SpikeLHS */
+    16, /* SpikeRHS */
+    16, /* SpikeTOP */
+    16, /* SpikeBOT */
 };
 
-const uint8_t spriteHeights[18] = { 
+const uint8_t spriteHeights[21] = { 
     8,  /* Coin */
     8,  /* SackOfCash */
     8,  /* Bread */
@@ -47,12 +50,15 @@ const uint8_t spriteHeights[18] = {
     12,  /* GreenSpell */
     12,  /* RedSpell */
     8,  /* MauveSpell */
-    16, /* Spike */
     12, /* NewEnemy */
+    17, /* SpikeLHS */
+    17, /* SpikeRHS */
+    17, /* SpikeTOP */
+    17, /* SpikeBOT */
 };
 
         
-const int8_t spriteOffsets[18] = { 
+const int8_t spriteOffsets[21] = { 
     0,  /* Coin */
     0,  /* SackOfCash */
     0,  /* Bread */
@@ -69,8 +75,11 @@ const int8_t spriteOffsets[18] = {
     -2,  /* GreenSpell */
     -2,  /* RedSpell */
     0,  /* MauveSpell */
-    -4, /* Spike */
     -2, /* NewEnemy */
+    -4, /* SpikeLHS */
+    -4, /* SpikeRHS */
+    -4, /* SpikeTOP */
+    -4, /* SpikeBOT */
 };
 
 
@@ -91,7 +100,10 @@ const char object_Desc_13[] = "Green";
 const char object_Desc_14[] = "Red";
 const char object_Desc_15[] = "Mauve";
 const char object_Desc_16[] = "New Enemy";
-const char object_Desc_17[] = "Spike";
+const char object_Desc_17[] = "Spike LHS";
+const char object_Desc_18[] = "Spike RHS";
+const char object_Desc_19[] = "Spike TOP";
+const char object_Desc_20[] = "Spike BOT";
 
 const char * const object_Descs[] = { 
     object_Desc_00,
@@ -112,4 +124,10 @@ const char * const object_Descs[] = {
     object_Desc_15,
     object_Desc_16,
     object_Desc_17,
+    object_Desc_18,
+    object_Desc_19,
+    object_Desc_20,
 };
+
+                                // 0  1  2  3  4  5  6  7  8  9  0  1  2  3  4  5  6  7  8  9  0  1  2  3  4   
+const uint8_t spike_frameIdx[] =  {0, 2, 4, 6, 8, 8, 8, 8, 8, 8, 7, 7, 6, 6, 5, 5, 4, 4, 3, 3, 3, 2, 1, 1, 0 };

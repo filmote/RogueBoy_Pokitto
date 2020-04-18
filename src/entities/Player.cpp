@@ -76,6 +76,15 @@ void Player::setHealth(int8_t health) {
     if (this->health > 100) this->health = 100; 
 }
 
+void Player::incHealth(uint8_t amount) { 
+    this->health = this->health + amount; 
+    if (this->health > 100) this->health = 100; 
+}
+
+void Player::decHealth(uint8_t amount) { 
+    this->health = this->health - amount; 
+}
+
 void Player::setCoins(uint8_t coins) { 
     this->coins = coins; 
 }

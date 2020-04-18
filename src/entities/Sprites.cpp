@@ -177,14 +177,12 @@ void Sprites::renderSprite(Object type, int x, int y, int8_t offset, Direction d
             PD::drawBitmap(x + offset, y + offset, Images::MauveSpell);
             break;
 
-        case Object::Spike:
-            {
-                                          // 0  1  2  3  4  5  6  7  8  9  0  1  2  3  4  5  6  7  8  9  0  1  2  3  4  
-                const uint8_t frameIdx[] =  {0, 2, 4, 6, 8, 8, 8, 8, 8, 8, 7, 7, 6, 6, 5, 5, 4, 4, 3, 3, 3, 2, 1, 1, 0, 0, 0, 0, 0, 0, 0 };
-                printf("> %i %i", frame,frameIdx[frame] );
-                PD::drawBitmap(x + offset, y + offset, Images::Spike[frameIdx[frame]]);
+        case Object::SpikeLHS:
+            PD::drawBitmap(x + offset, y + offset, Images::SpikeLHS[spike_frameIdx[frame]]);
+            break;
 
-            }
+        case Object::SpikeRHS:
+            PD::drawBitmap(x + offset, y + offset, Images::SpikeRHS[spike_frameIdx[frame]]);
             break;
 
     }

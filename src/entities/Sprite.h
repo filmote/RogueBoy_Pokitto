@@ -29,6 +29,7 @@ class Sprite {
         int16_t getHealthOrig()                 { return this->healthOrig; }
         bool getActive()                        { return this->active; }
         bool getRenderHealthBar()               { return this->renderHealthBar > 0; }
+        uint8_t getCountdown()                  { return this->countdown; }
 
         void setActive(bool k)                  { this->active = k; }
         void setFrame(uint8_t frame)            { this->frame = frame;}
@@ -37,6 +38,26 @@ class Sprite {
         void setY(uint16_t y)                   { this->y = y; }
         void setType(Object type)               { this->type = type; }
         void setCarrying(Object carrying)       { this->carrying = carrying; }
+        void setCountdown(uint8_t countdown)    { this->countdown = countdown; }
+
+        void decCountdown()                     { this->countdown--; }
+
+        Rect getRect() {
+
+            switch (this->type) {
+
+                case Object::SpikeLHS:
+                    return Rect { this->getX() - (this->getWidth() / 2),  this->getY() - (this->getHeight() / 2), spike_frameIdx[frame] * 2, this->getHeight() };
+
+                case Object::SpikeRHS:
+                    return Rect { this->getX() - (this->getWidth() / 2) + this->getWidth() - (spike_frameIdx[frame] * 2), this->getY() - (this->getHeight() / 2), spike_frameIdx[frame] * 2, this->getHeight() };
+ 
+                default:
+                    return Rect { this->getX() - (this->getWidth() / 2),  this->getY() - (this->getHeight() / 2), this->getWidth(), this->getHeight() };
+
+            }
+
+        }
 
         void update() { 
             
@@ -206,13 +227,14 @@ class Sprite {
         int8_t offset;
         uint16_t x;
         uint16_t y;
-        uint16_t width;
-        uint16_t height;
+        uint8_t width;
+        uint8_t height;
         int16_t health;
         int16_t healthOrig;
         Object type;
         Object carrying = Object::None;
         uint8_t frame;
+        uint8_t countdown = 50;
         bool active;
         uint8_t quantity;
 

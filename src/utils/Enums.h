@@ -24,7 +24,10 @@ enum Object {
     RedSpell = 14,
     MauveSpell = 15,
     NewEnemy = 16,
-    Spike = 17,
+    SpikeLHS = 17,
+    SpikeRHS = 18,
+    SpikeTOP = 19,
+    SpikeBOT = 20,
     None = 254,
     FireBall = 255
 };
