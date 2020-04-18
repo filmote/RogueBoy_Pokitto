@@ -105,8 +105,8 @@ class Sprite {
                     this->health -= DAMAGE_GREENSPELL;
                     break;
 
-                case Object::YellowSpell:
-                    this->health -= DAMAGE_YELLOWSPELL;
+                case Object::RedSpell:
+                    this->health -= DAMAGE_REDSPELL;
                     break;
 
                 case Object::MauveSpell:

@@ -115,7 +115,7 @@ void Game::updateObjects() {
                         break;
 
                     case Object::GreenSpell:
-                    case Object::YellowSpell:
+                    case Object::RedSpell:
                         {
                             uint8_t slot = this->player.addInventoryItem(static_cast<Object>(type), objectI.getQuantity());
 
@@ -537,7 +537,7 @@ void Game::playerMovement() {
                 break;
 
             case Object::GreenSpell:
-            case Object::YellowSpell:
+            case Object::RedSpell:
                 {
                     uint8_t inactiveBulletIdx = this->bullets.getInactivePlayerBullet();
 
@@ -1035,6 +1035,15 @@ void Game::spriteAI(MapInformation &map, Player &player, Sprite &sprite) {
                 sprite.setFrame(sprite.getFrame() + 1); 
                 sprite.setFrame(sprite.getFrame() % 2);
             } 
+
+            break;
+
+        case Object::Spike: 
+
+            // if (Pokitto::Core::frameCount % 2 == 0) { 
+                sprite.setFrame(sprite.getFrame() + 1); 
+                sprite.setFrame(sprite.getFrame() % 28);
+//            } 
 
             break;
 

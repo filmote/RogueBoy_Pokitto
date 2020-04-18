@@ -128,7 +128,7 @@ class Game {
             { Object::Tonic, 20, 3 },
             { Object::IceSpell, 20, 2 },
             { Object::GreenSpell, 25, 0 },
-            { Object::YellowSpell, 35, 2 },
+            { Object::RedSpell, 35, 2 },
             { Object::MauveSpell, 50, 1 },            
         };
 

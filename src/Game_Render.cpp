@@ -80,11 +80,11 @@ void Game::renderHud() {
             }
             break;
 
-        case Object::YellowSpell:
+        case Object::RedSpell:
             {
-                PD::drawBitmap(94, 75, Images::YellowSpell_Scoreboard);
+                PD::drawBitmap(94, 75, Images::RedSpell_Scoreboard);
                 PD::setFont(font3x5);
-                uint8_t items = this->player.getInventoryCount(Object::YellowSpell);
+                uint8_t items = this->player.getInventoryCount(Object::RedSpell);
                 PD::setColor(6);
                 PD::setCursor(100,81);
                 this->printPaddedNumber(items, 2);

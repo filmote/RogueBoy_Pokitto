@@ -21,9 +21,10 @@ enum Object {
     BigSpider = 11, 
     IceSpell = 12,
     GreenSpell = 13,
-    YellowSpell = 14,
+    RedSpell = 14,
     MauveSpell = 15,
     NewEnemy = 16,
+    Spike = 17,
     None = 254,
     FireBall = 255
 };

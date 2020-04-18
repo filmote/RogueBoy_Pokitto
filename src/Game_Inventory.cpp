@@ -128,7 +128,7 @@ void Game::showInventory() {
                                         break;
                 
                                     case Object::GreenSpell:
-                                    case Object::YellowSpell:
+                                    case Object::RedSpell:
                                     case Object::MauveSpell:
 
                                         this->player.setWeapon(inventoryItem.type);
@@ -238,7 +238,7 @@ void Game::showInventory() {
                         switch (inventoryItem.type) {
 
                             case Object::GreenSpell:
-                            case Object::YellowSpell:
+                            case Object::RedSpell:
                                 inventoryItem.quantity = 0;
                                 this->player.setWeapon(Object::FireBall);
                                 break;

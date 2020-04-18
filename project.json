@@ -5145,13 +5145,13 @@
 		"/src/images/bullets/Bullet_Green_00.png": {
 			"sdcard": false
 		},
-		"/src/images/bullets/Bullet_Yellow_01.png": {
+		"/src/images/bullets/Bullet_Red_01.png": {
 			"sdcard": false
 		},
-		"/src/images/bullets/Bullet_Yellow_02.png": {
+		"/src/images/bullets/Bullet_Red_02.png": {
 			"sdcard": false
 		},
-		"/src/images/bullets/Bullet_Yellow_02.h": {
+		"/src/images/bullets/Bullet_Red_02.h": {
 			"sdcard": false
 		},
 		"/src/images/scoreboard/GreenSpell_Scoreboard.png": {
@@ -5178,16 +5178,16 @@
 		"/src/images/sprites/MauveSpell.png": {
 			"sdcard": false
 		},
-		"/src/images/sprites/YellowSpell - Copy - Copy.h": {
+		"/src/images/sprites/RedSpell - Copy - Copy.h": {
 			"sdcard": false
 		},
-		"/src/images/sprites/YellowSpell - Copy - Copy.png": {
+		"/src/images/sprites/RedSpell - Copy - Copy.png": {
 			"sdcard": false
 		},
-		"/src/images/sprites/YellowSpell.h": {
+		"/src/images/sprites/RedSpell.h": {
 			"sdcard": false
 		},
-		"/src/images/sprites/YellowSpell.png": {
+		"/src/images/sprites/RedSpell.png": {
 			"sdcard": false
 		},
 		"/src/images/bullets/BulletIce_01.h": {
@@ -5205,7 +5205,7 @@
 		"/src/images/bullets/BulletIce_00.h": {
 			"sdcard": false
 		},
-		"/src/images/bullets/Bullet_Yellow_01.h": {
+		"/src/images/bullets/Bullet_Red_01.h": {
 			"sdcard": false
 		},
 		"/src/images/scoreboard/GreenSpell_Scoreboard.h": {
@@ -5241,22 +5241,22 @@
 		"/src/images/bullets/Bullet_Green_03.png": {
 			"sdcard": false
 		},
-		"/src/images/bullets/Bullet_Yellow_00.h": {
+		"/src/images/bullets/Bullet_Red_00.h": {
 			"sdcard": false
 		},
-		"/src/images/bullets/Bullet_Yellow_00.png": {
+		"/src/images/bullets/Bullet_Red_00.png": {
 			"sdcard": false
 		},
-		"/src/images/bullets/Bullet_Yellow_03.h": {
+		"/src/images/bullets/Bullet_Red_03.h": {
 			"sdcard": false
 		},
-		"/src/images/bullets/Bullet_Yellow_03.png": {
+		"/src/images/bullets/Bullet_Red_03.png": {
 			"sdcard": false
 		},
-		"/src/images/scoreboard/YellowSpell_Scoreboard.h": {
+		"/src/images/scoreboard/RedSpell_Scoreboard.h": {
 			"sdcard": false
 		},
-		"/src/images/scoreboard/YellowSpell_Scoreboard.png": {
+		"/src/images/scoreboard/RedSpell_Scoreboard.png": {
 			"sdcard": false
 		},
 		"/src/images/shockwaves/Pulse_TL_00.h": {
@@ -5565,31 +5565,31 @@
 		"\\src\\images\\bullets\\Bullet_Green_02.png": {
 			"sdcard": false
 		},
-		"\\src\\images\\bullets\\Bullet_Yellow_00.h": {
+		"\\src\\images\\bullets\\Bullet_Red_00.h": {
 			"sdcard": false
 		},
 		"\\src\\images\\bullets\\Bullet_Green_03.png": {
 			"sdcard": false
 		},
-		"\\src\\images\\bullets\\Bullet_Yellow_00.png": {
+		"\\src\\images\\bullets\\Bullet_Red_00.png": {
 			"sdcard": false
 		},
-		"\\src\\images\\bullets\\Bullet_Yellow_01.h": {
+		"\\src\\images\\bullets\\Bullet_Red_01.h": {
 			"sdcard": false
 		},
-		"\\src\\images\\bullets\\Bullet_Yellow_01.png": {
+		"\\src\\images\\bullets\\Bullet_Red_01.png": {
 			"sdcard": false
 		},
-		"\\src\\images\\bullets\\Bullet_Yellow_02.h": {
+		"\\src\\images\\bullets\\Bullet_Red_02.h": {
 			"sdcard": false
 		},
-		"\\src\\images\\bullets\\Bullet_Yellow_02.png": {
+		"\\src\\images\\bullets\\Bullet_Red_02.png": {
 			"sdcard": false
 		},
-		"\\src\\images\\bullets\\Bullet_Yellow_03.png": {
+		"\\src\\images\\bullets\\Bullet_Red_03.png": {
 			"sdcard": false
 		},
-		"\\src\\images\\bullets\\Bullet_Yellow_03.h": {
+		"\\src\\images\\bullets\\Bullet_Red_03.h": {
 			"sdcard": false
 		},
 		"\\src\\images\\background\\CornerFillLL.png": {
@@ -5826,13 +5826,13 @@
 		"\\src\\images\\scoreboard\\MauveSpell_Scoreboard.png": {
 			"sdcard": false
 		},
-		"\\src\\images\\scoreboard\\YellowSpell_Scoreboard.h": {
+		"\\src\\images\\scoreboard\\RedSpell_Scoreboard.h": {
 			"sdcard": false
 		},
 		"\\src\\images\\shop\\MessagePanel.h": {
 			"sdcard": false
 		},
-		"\\src\\images\\scoreboard\\YellowSpell_Scoreboard.png": {
+		"\\src\\images\\scoreboard\\RedSpell_Scoreboard.png": {
 			"sdcard": false
 		},
 		"\\src\\images\\shop\\MessagePanel.png": {
@@ -5985,10 +5985,10 @@
 		"\\src\\images\\sprites\\Tools.png": {
 			"sdcard": false
 		},
-		"\\src\\images\\sprites\\YellowSpell.h": {
+		"\\src\\images\\sprites\\RedSpell.h": {
 			"sdcard": false
 		},
-		"\\src\\images\\sprites\\YellowSpell.png": {
+		"\\src\\images\\sprites\\RedSpell.png": {
 			"sdcard": false
 		},
 		"\\src\\images\\shop\\156ed6d868a1d50fbdfeaef2e4a532f8b0cd4d43.png": {
@@ -6232,6 +6232,393 @@
 			"sdcard": false
 		},
 		"\\src\\images\\sprites\\Spell4.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\sprites\\IceSpell.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\sprites\\Spell2.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\sprites\\Spell3.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\sprites\\Spell4.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\sprites\\IceSpell.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\scoreboard\\GreenSpell.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\scoreboard\\RedSpell.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\scoreboard\\HeartSpell_Scoreboard.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\scoreboard\\HeartSpell_Scoreboard.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\sprites\\YellowSpell.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\sprites\\YellowSpell.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemies\\Spike_99.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemies\\Spike_01.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemies\\Spike_02.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemies\\Spike_03.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemies\\Spike_04.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemies\\Spike_05.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemies\\Spike_06.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemies\\Spike_07.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemies\\Spike_08.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemies\\Spike_00.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemies\\New folder": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemies\\spider": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemies\\bigspider": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemies\\bat": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemies\\bat\\Bat_00.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemies\\bat\\Bat_00.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemies\\bat\\Bat_01.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemies\\bat\\Bat_01.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemies\\newenemy": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemies\\newenemy\\NewEnemy_00.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemies\\newenemy\\NewEnemy_00.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemies\\newenemy\\NewEnemy_01.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemies\\newenemy\\NewEnemy_01.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemies\\newenemy\\NewEnemy_02.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemies\\newenemy\\NewEnemy_03.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemies\\newenemy\\NewEnemy_05.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemies\\newenemy\\NewEnemy_05.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemies\\newenemy\\NewEnemy_04.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemies\\newenemy\\NewEnemy_06.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemies\\spider\\Spider_00_F0.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemies\\spider\\Spider_00_F1.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemies\\spider\\Spider_01_F0.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemies\\spider\\Spider_01_F0.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemies\\spider\\Spider_01_F1.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemies\\spider\\Spider_01_F1.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemies\\spider\\Spider_02_F0.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemies\\spider\\Spider_02_F0.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemies\\spider\\Spider_02_F1.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemies\\spider\\Spider_02_F1.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemies\\spider\\Spider_03_F0.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemies\\spider\\Spider_03_F0.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemies\\spider\\Spider_03_F1.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemies\\spider\\Spider_04_F0.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemies\\spider\\Spider_04_F0.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemies\\spider\\Spider_05_F1.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemies\\spider\\Spider_06_F0.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemies\\spider\\Spider_06_F0.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemies\\spider\\Spider_06_F1.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemies\\spider\\Spider_06_F1.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemies\\spider\\Spider_07_F0.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemies\\spider\\Spider_07_F0.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemies\\spider\\Spider_07_F1.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemies\\spider\\Spider_07_F1.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemies\\bigspider\\Spider_16_00_F0.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemies\\bigspider\\Spider_16_00_F0.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemies\\bigspider\\Spider_16_02_F1.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemies\\bigspider\\Spider_16_02_F0.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemies\\bigspider\\Spider_16_03_F1.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemies\\bigspider\\Spider_16_03_F0.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemies\\bigspider\\Spider_16_04_F0.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemies\\bigspider\\Spider_16_03_F1.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemies\\bigspider\\Spider_16_04_F1.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemies\\bigspider\\Spider_16_04_F1.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemies\\bigspider\\Spider_16_05_F0.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemies\\bigspider\\Spider_16_05_F0.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemies\\bigspider\\Spider_16_05_F1.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemies\\bigspider\\Spider_16_05_F1.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemies\\spike": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemies\\spike\\Spike_00.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemies\\spike\\Spike_01.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemies\\spike\\Spike_03.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemies\\spike\\Spike_02.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemies\\spike\\Spike_04.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemies\\spike\\Spike_05.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemies\\spike\\Spike_06.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemies\\spike\\Spike_07.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemies\\spike\\Spike_08.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemies\\bigspider\\Spider_16_00_F1.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemies\\bigspider\\Spider_16_00_F1.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemies\\bigspider\\Spider_16_01_F1.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemies\\bigspider\\Spider_16_01_F0.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemies\\bigspider\\Spider_16_01_F0.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemies\\bigspider\\Spider_16_02_F0.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemies\\bigspider\\Spider_16_01_F1.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemies\\bigspider\\Spider_16_02_F1.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemies\\bigspider\\Spider_16_03_F0.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemies\\bigspider\\Spider_16_04_F0.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemies\\bigspider\\Spider_16_06_F0.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemies\\bigspider\\Spider_16_06_F0.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemies\\bigspider\\Spider_16_06_F1.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemies\\bigspider\\Spider_16_07_F0.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemies\\bigspider\\Spider_16_06_F1.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemies\\bigspider\\Spider_16_07_F0.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemies\\bigspider\\Spider_16_07_F1.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemies\\bigspider\\Spider_16_07_F1.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemies\\newenemy\\NewEnemy_02.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemies\\newenemy\\NewEnemy_03.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemies\\newenemy\\NewEnemy_04.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemies\\newenemy\\NewEnemy_06.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemies\\newenemy\\NewEnemy_07.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemies\\newenemy\\NewEnemy_07.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemies\\spider\\Spider_00_F1.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemies\\spider\\Spider_00_F0.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemies\\spider\\Spider_03_F1.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemies\\spider\\Spider_04_F1.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemies\\spider\\Spider_04_F1.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemies\\spider\\Spider_05_F0.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemies\\spider\\Spider_05_F1.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemies\\spider\\Spider_05_F0.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemies\\spike\\Spike_00.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemies\\spike\\Spike_01.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemies\\spike\\Spike_03.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemies\\spike\\Spike_04.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemies\\spike\\Spike_02.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemies\\spike\\Spike_06.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemies\\spike\\Spike_07.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemies\\spike\\Spike_05.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemies\\spike\\Spike_08.h": {
 			"sdcard": false
 		}
 	},

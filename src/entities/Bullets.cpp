@@ -81,7 +81,7 @@ void Bullets::render(Player &player) {
                     PD::drawBitmap((CENTERX - 4) - x, (CENTERY - 4) - y, Images::Bullets[bullet.getFrame() + 8]);
                     break;
 
-                case Object::YellowSpell:
+                case Object::RedSpell:
                     PD::drawBitmap((CENTERX - 4) - x, (CENTERY - 4) - y, Images::Bullets[bullet.getFrame() + 12]);
                     break;
                     

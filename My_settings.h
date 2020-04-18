@@ -42,7 +42,7 @@
 #define DAMAGE_FIREBALL     10
 #define DAMAGE_ICESPELL     10
 #define DAMAGE_GREENSPELL   20
-#define DAMAGE_YELLOWSPELL  30
+#define DAMAGE_REDSPELL     30
 #define DAMAGE_BULLET       15
 
 #define TIMER_STEP          24

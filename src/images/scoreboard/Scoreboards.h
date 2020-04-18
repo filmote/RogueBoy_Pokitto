@@ -25,7 +25,7 @@ namespace Images {
     #include "IceSpell_Scoreboard_F10.h"
     #include "IceSpell_Scoreboard_F11.h"
     #include "GreenSpell_Scoreboard.h"
-    #include "YellowSpell_Scoreboard.h"
+    #include "RedSpell_Scoreboard.h"
     #include "MauveSpell_Scoreboard.h"
 
     const uint8_t * const Directions[] = { 

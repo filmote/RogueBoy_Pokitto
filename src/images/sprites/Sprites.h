@@ -10,15 +10,9 @@ namespace Images {
     #include "Skull.h"
     #include "Tools.h"
     #include "Tonic.h"
-    #include "IceSpell_F0.h"
-    #include "IceSpell_F1.h"
+    #include "IceSpell.h"
     #include "GreenSpell.h"
-    #include "YellowSpell.h"
+    #include "RedSpell.h"
     #include "MauveSpell.h"
-
-    const uint8_t * const IceSpell[] = { 
-        IceSpell_F0,
-        IceSpell_F1,
-    };
 
 };

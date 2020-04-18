@@ -2,48 +2,57 @@
 
 namespace Images {
 
-    #include "Bat_00.h"
-    #include "Bat_01.h"
-    #include "Spider_00_F0.h"
-    #include "Spider_00_F1.h"
-    #include "Spider_01_F0.h"
-    #include "Spider_01_F1.h"
-    #include "Spider_02_F0.h"
-    #include "Spider_02_F1.h"
-    #include "Spider_03_F0.h"
-    #include "Spider_03_F1.h"
-    #include "Spider_04_F0.h"
-    #include "Spider_04_F1.h"
-    #include "Spider_05_F0.h"
-    #include "Spider_05_F1.h"
-    #include "Spider_06_F0.h"
-    #include "Spider_06_F1.h"
-    #include "Spider_07_F0.h"
-    #include "Spider_07_F1.h"
-    #include "Spider_16_00_F0.h"
-    #include "Spider_16_00_F1.h"
-    #include "Spider_16_01_F0.h"
-    #include "Spider_16_01_F1.h"
-    #include "Spider_16_02_F0.h"
-    #include "Spider_16_02_F1.h"
-    #include "Spider_16_03_F0.h"
-    #include "Spider_16_03_F1.h"
-    #include "Spider_16_04_F0.h"
-    #include "Spider_16_04_F1.h"
-    #include "Spider_16_05_F0.h"
-    #include "Spider_16_05_F1.h"
-    #include "Spider_16_06_F0.h"
-    #include "Spider_16_06_F1.h"
-    #include "Spider_16_07_F0.h"
-    #include "Spider_16_07_F1.h"
-    #include "NewEnemy_00.h"
-    #include "NewEnemy_01.h"
-    #include "NewEnemy_02.h"
-    #include "NewEnemy_03.h"
-    #include "NewEnemy_04.h"
-    #include "NewEnemy_05.h"
-    #include "NewEnemy_06.h"
-    #include "NewEnemy_07.h"
+    #include "bat/Bat_00.h"
+    #include "bat/Bat_01.h"
+    #include "spider/Spider_00_F0.h"
+    #include "spider/Spider_00_F1.h"
+    #include "spider/Spider_01_F0.h"
+    #include "spider/Spider_01_F1.h"
+    #include "spider/Spider_02_F0.h"
+    #include "spider/Spider_02_F1.h"
+    #include "spider/Spider_03_F0.h"
+    #include "spider/Spider_03_F1.h"
+    #include "spider/Spider_04_F0.h"
+    #include "spider/Spider_04_F1.h"
+    #include "spider/Spider_05_F0.h"
+    #include "spider/Spider_05_F1.h"
+    #include "spider/Spider_06_F0.h"
+    #include "spider/Spider_06_F1.h"
+    #include "spider/Spider_07_F0.h"
+    #include "spider/Spider_07_F1.h"
+    #include "bigspider/Spider_16_00_F0.h"
+    #include "bigspider/Spider_16_00_F1.h"
+    #include "bigspider/Spider_16_01_F0.h"
+    #include "bigspider/Spider_16_01_F1.h"
+    #include "bigspider/Spider_16_02_F0.h"
+    #include "bigspider/Spider_16_02_F1.h"
+    #include "bigspider/Spider_16_03_F0.h"
+    #include "bigspider/Spider_16_03_F1.h"
+    #include "bigspider/Spider_16_04_F0.h"
+    #include "bigspider/Spider_16_04_F1.h"
+    #include "bigspider/Spider_16_05_F0.h"
+    #include "bigspider/Spider_16_05_F1.h"
+    #include "bigspider/Spider_16_06_F0.h"
+    #include "bigspider/Spider_16_06_F1.h"
+    #include "bigspider/Spider_16_07_F0.h"
+    #include "bigspider/Spider_16_07_F1.h"
+    #include "newenemy/NewEnemy_00.h"
+    #include "newenemy/NewEnemy_01.h"
+    #include "newenemy/NewEnemy_02.h"
+    #include "newenemy/NewEnemy_03.h"
+    #include "newenemy/NewEnemy_04.h"
+    #include "newenemy/NewEnemy_05.h"
+    #include "newenemy/NewEnemy_06.h"
+    #include "newenemy/NewEnemy_07.h"
+    #include "spike/Spike_00.h"
+    #include "spike/Spike_01.h"
+    #include "spike/Spike_02.h"
+    #include "spike/Spike_03.h"
+    #include "spike/Spike_04.h"
+    #include "spike/Spike_05.h"
+    #include "spike/Spike_06.h"
+    #include "spike/Spike_07.h"
+    #include "spike/Spike_08.h"
     #include "HealthBar.h"
 
     const uint8_t * const Bats[] = { 
@@ -99,4 +108,17 @@ namespace Images {
         NewEnemy_06,
         NewEnemy_07,
     };
+
+    const uint8_t * const Spike[] = { 
+        Spike_00,
+        Spike_01,
+        Spike_02,
+        Spike_03,
+        Spike_04,
+        Spike_05,
+        Spike_06,
+        Spike_07,
+        Spike_08,
+    };
+
 };

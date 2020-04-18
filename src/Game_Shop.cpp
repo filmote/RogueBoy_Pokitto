@@ -5,8 +5,8 @@ using PC = Pokitto::Core;
 using PD = Pokitto::Display;
 using PS = Pokitto::Sound;
 
-#define SHOP_ITEMS_TOP          6
-#define SHOP_ITEMS_SPACING      11
+#define SHOP_ITEMS_TOP          2
+#define SHOP_ITEMS_SPACING      13
 #define SHOP_ITEMS_ICON_LEFT    8
 #define SHOP_ITEMS_DESC_LEFT    SHOP_ITEMS_ICON_LEFT + 14
 #define SHOP_ITEMS_COST_LEFT    SHOP_ITEMS_ICON_LEFT + 71

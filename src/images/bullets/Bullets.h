@@ -14,10 +14,10 @@ namespace Images {
     #include "Bullet_Green_01.h"
     #include "Bullet_Green_02.h"
     #include "Bullet_Green_03.h"
-    #include "Bullet_Yellow_00.h"
-    #include "Bullet_Yellow_01.h"
-    #include "Bullet_Yellow_02.h"
-    #include "Bullet_Yellow_03.h"
+    #include "Bullet_Red_00.h"
+    #include "Bullet_Red_01.h"
+    #include "Bullet_Red_02.h"
+    #include "Bullet_Red_03.h"
 
     const uint8_t * const Bullets[] = { 
         Bullet_00,
@@ -32,10 +32,10 @@ namespace Images {
         Bullet_Green_01,
         Bullet_Green_02,
         Bullet_Green_03,
-        Bullet_Yellow_00,
-        Bullet_Yellow_01,
-        Bullet_Yellow_02,
-        Bullet_Yellow_03,
+        Bullet_Red_00,
+        Bullet_Red_01,
+        Bullet_Red_02,
+        Bullet_Red_03,
     };
 
 };

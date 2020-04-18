@@ -63,7 +63,7 @@ void Game::loadMap(uint8_t level) {
             switch (type) {
 
                 case Object::GreenSpell:
-                case Object::YellowSpell:
+                case Object::RedSpell:
                     object.setQuantity(random(3, 8));
                     break;
 
@@ -331,7 +331,7 @@ printf("Player %i %i, EOL %i %i\n",playerX, playerY, levelEndX, levelEndY);
                                     switch (type) {
 
                                         case Object::GreenSpell:
-                                        case Object::YellowSpell:
+                                        case Object::RedSpell:
                                             object.setQuantity(random(3, 8));
                                             break;
 
