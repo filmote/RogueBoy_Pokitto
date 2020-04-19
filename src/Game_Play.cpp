@@ -745,18 +745,31 @@ bool Game::interactWithBlock(int x, int y, MapTiles block) {
 
         case MapTiles::ClosedChest: 
             {
-                uint8_t slot = this->player.addInventoryItem(Object::Key, 1);
+                this->map.setBlock(x, y, MapTiles::OpenChest); 
+                // sound open chest
 
-                if (slot != NO_SLOT_FOUND) {
 
-                    this->map.setBlock(x, y, MapTiles::OpenChest); 
-                    // sound open chest
-                    return true;
+                // Find a matching Object in the sprites collecion that is disabled, otherwise add one ..
 
-                }
-                
+                uint8_t spriteIdx = this->objects.getFirstInactiveSpriteIndex(Object::Key);
+
+                if (spriteIdx == NO_SPRITE_FOUND) {
+
+                    this->objects.setObjectNum(this->objects.getObjectNum() + 1);
+                    spriteIdx = this->objects.getObjectNum() - 1;
+
+                }   
+
+                Sprite &sprite = this->objects.getSprite(spriteIdx);
+
+                sprite.setType(Object::Key);
+                sprite.setActive(true);
+                sprite.setX((x * TILE_SIZE) + 8);
+                sprite.setY((y * TILE_SIZE) + 8);
+                sprite.setPreventImmediatePickup(true);
+
             }
-            return false;
+            return true;
 
         case MapTiles::LockedDoor: 
 
@@ -950,6 +963,11 @@ void Game::spriteAI(MapInformation &map, Player &player, Sprite &sprite) {
     location.y = sprite.getY();
         
     switch(sprite.getType()) {
+
+        case Object::Key: 
+
+            spriteAI_UpdateFrame(sprite, 8, 10);
+            break;
 
         case Object::Coin: 
 

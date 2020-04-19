@@ -7214,6 +7214,57 @@
 		},
 		"/src/images/enemies/fire/Fire_03.h": {
 			"sdcard": false
+		},
+		"/src/images/sprites/Key copy.png": {
+			"sdcard": false
+		},
+		"/src/images/sprites/Key_00.png": {
+			"sdcard": false
+		},
+		"/src/images/sprites/Key_00 copy.png": {
+			"sdcard": false
+		},
+		"/src/images/sprites/Key_01.png": {
+			"sdcard": false
+		},
+		"/src/images/sprites/Key_01 copy.png": {
+			"sdcard": false
+		},
+		"/src/images/sprites/Key_02.png": {
+			"sdcard": false
+		},
+		"/src/images/sprites/Key_0.png": {
+			"sdcard": false
+		},
+		"/src/images/sprites/Key_03.png": {
+			"sdcard": false
+		},
+		"/src/images/sprites/Key_04.png": {
+			"sdcard": false
+		},
+		"/src/images/sprites/Key_05.png": {
+			"sdcard": false
+		},
+		"/src/images/sprites/Key_04 copy.png": {
+			"sdcard": false
+		},
+		"/src/images/sprites/Key_00.h": {
+			"sdcard": false
+		},
+		"/src/images/sprites/Key_03.h": {
+			"sdcard": false
+		},
+		"/src/images/sprites/Key_02.h": {
+			"sdcard": false
+		},
+		"/src/images/sprites/Key_04.h": {
+			"sdcard": false
+		},
+		"/src/images/sprites/Key_05.h": {
+			"sdcard": false
+		},
+		"/src/images/sprites/Key_01.h": {
+			"sdcard": false
 		}
 	},
 	"BUILDFlags": {

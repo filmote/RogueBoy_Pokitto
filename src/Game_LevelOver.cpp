@@ -45,4 +45,6 @@ void Game::endOfLevel() {
         this->points += pts;
     }
 
+    PD::setColor(0, 0);
+
 }

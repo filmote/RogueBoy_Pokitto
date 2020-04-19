@@ -13,7 +13,7 @@ const uint8_t spriteWidths[22] =  {
     8,  /* Coin */
     8,  /* SackOfCash */
     8,  /* Bread */
-    8,  /* Key */
+    10, /* Key */
     8,  /* Chicken */
     8,  /* Floater */
     10, /* Skull */
@@ -61,28 +61,28 @@ const uint8_t spriteHeights[22] = {
 
         
 const int8_t spriteOffsets[44] = { 
-    0, 0,   /* Coin */
-    0, 0,   /* SackOfCash */
-    0, 0,   /* Bread */
-    0, 0,   /* Key */
-    0, 0,   /* Chicken */
-    0, 0,   /* Floater */  
-    0, 0,   /* Skull */
-    0, 0,   /* Spider */
-    0, 0,   /* Bat */
-    -2, -2, /* Tools */
-    0, 0,   /* Tonic */
-    -4, -4, /* BigSpider */
-    -2, -2, /* IceSpell */
-    -2, -2, /* GreenSpell */
-    -2, -2, /* RedSpell */
-    0, 0,   /* MauveSpell */
-    -2, -2, /* NewEnemy */
-    -3, -3, /* SpikeLHS */
-    -3, -3, /* SpikeRHS */
-    -4, -2, /* FireTOP */
-    -4, -2, /* FireBOT */
-    -2, -2, /* Snake */
+    -3, -3,  /* Coin */
+    -3, -3,  /* SackOfCash */
+    -3, -3,  /* Bread */
+    -6, -3,  /* Key */
+    -3, -3,  /* Chicken */
+    -3, -3,  /* Floater */  
+    -3, -3,  /* Skull */
+    -4, -4,  /* Spider */
+    -4, -4,  /* Bat */
+    -5, -5,  /* Tools */
+    -4, -4,  /* Tonic */
+    -8, -8,  /* BigSpider */
+    -5, -4,  /* IceSpell */
+    -5, -4,  /* GreenSpell */
+    -5, -4,  /* RedSpell */
+    -4, -4,  /* MauveSpell */
+    -6, -6,  /* NewEnemy */
+    -8, -8,  /* SpikeLHS */
+    -8, -8,  /* SpikeRHS */
+    -8, -8,  /* FireTOP */
+    -8, -8,  /* FireBOT */
+    -4, -6,  /* Snake */
 };
 
 const char object_Desc_00[] = "Coin";

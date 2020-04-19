@@ -54,8 +54,10 @@ void Sprites::render(Player &player, bool showEnemies) {
 
         if (object.getActive()) {
 
-            int x = (CENTERX - PLAYER_WIDTH_HALF) - (player.getX() - object.getX());
-            int y = (CENTERY - PLAYER_HEIGHT_HALF) - (player.getY() - object.getY());
+            // int x = (CENTERX - PLAYER_WIDTH_HALF) - (player.getX() - object.getX());
+            // int y = (CENTERY - PLAYER_HEIGHT_HALF) - (player.getY() - object.getY());
+            int x = CENTERX - (player.getX() - object.getX());
+            int y = CENTERY - (player.getY() - object.getY());
             
             uint8_t frame = object.getFrame();
             int8_t xOffset = object.getXOffset();
@@ -153,7 +155,7 @@ void Sprites::renderSprite(Object type, int x, int y, int8_t xOffset, int8_t yOf
             break;
 
         case Object::Key:
-            PD::drawBitmap(x + xOffset, y + yOffset, Images::Key);
+            PD::drawBitmap(x + xOffset, y + yOffset, Images::Keys[frame]);
             break;
 
         case Object::Chicken:

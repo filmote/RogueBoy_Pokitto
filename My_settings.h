@@ -11,15 +11,15 @@
 #define TILE_HEIGHT         16
 #define TILE_SIZE           16
 
-#define PLAYER_WIDTH        10
-#define PLAYER_WIDTH_HALF   5
+#define PLAYER_WIDTH        12
+#define PLAYER_WIDTH_HALF   6
 #define PLAYER_HEIGHT       12
 #define PLAYER_HEIGHT_HALF  6
 
 
 #define MAXLEVEL            18
 #define MAXOBJECT           200
-#define MAXENVIROMENT       100
+#define MAXENVIROMENT       150
 
 #define MAP_SIZE_X          45
 #define MAP_SIZE_Y          45
@@ -55,7 +55,7 @@
 #define WALK_SLOW_FRAME_COUNT 3
 
 #define PLAYER_BULLET_MAX   6
-#define ENEMY_BULLET_MAX    1
+#define ENEMY_BULLET_MAX    6
 #define ENEMY_BULLET_DELAY_MIN    5
 #define ENEMY_BULLET_DELAY_MAX    20
 #define BULLET_WEB_FRAMES         40       // Number of frames to travel

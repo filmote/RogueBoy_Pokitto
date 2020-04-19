@@ -141,7 +141,7 @@ void Game::showShop() {
 
         ShopObject shopObject = this->shopObjects[i];
 
-        this->objects.renderSprite(shopObject.object, SHOP_ITEMS_ICON_LEFT, SHOP_ITEMS_TOP + (j * SHOP_ITEMS_SPACING) + 1);
+        this->objects.renderSprite(shopObject.object, SHOP_ITEMS_ICON_LEFT + 4, SHOP_ITEMS_TOP + (j * SHOP_ITEMS_SPACING) + 4);
         PD::setCursor(SHOP_ITEMS_DESC_LEFT, SHOP_ITEMS_TOP + 1 + (j * SHOP_ITEMS_SPACING));
         PD::print(object_Descs[static_cast<uint8_t>(shopObject.object)]);
 

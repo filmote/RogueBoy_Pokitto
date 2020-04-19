@@ -24,6 +24,8 @@ void Game::loadMap(uint8_t level) {
 
     map.setTimer(levelToLoad[cursor++]);
 
+    // out of bounds
+    cursor++;
 
     // Read map data ..
 

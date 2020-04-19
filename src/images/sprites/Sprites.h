@@ -5,7 +5,6 @@ namespace Images {
     #include "Bread.h"
     #include "Floater.h"
     #include "Chicken.h"
-    #include "Key.h"
     #include "SackOCash.h"
     #include "Skull.h"
     #include "Tools.h"
@@ -14,5 +13,26 @@ namespace Images {
     #include "GreenSpell.h"
     #include "RedSpell.h"
     #include "MauveSpell.h"
+
+    #include "Key_00.h"
+    #include "Key_01.h"
+    #include "Key_02.h"
+    #include "Key_03.h"
+    #include "Key_04.h"
+    #include "Key_05.h"
+
+
+    const uint8_t * const Keys[] = { 
+        Key_00,
+        Key_01,
+        Key_02,
+        Key_03,
+        Key_04,
+        Key_05,
+        Key_04,
+        Key_03,
+        Key_02,
+        Key_01,
+    };
 
 };
