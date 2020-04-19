@@ -137,7 +137,6 @@ void Game::showInventory() {
                 
                                     case Object::Key:
                                     case Object::Tools:
-                                    case Object::Tonic:
                                         {
                                             // Try the surrounding blocks to see if it can be used ..
 
@@ -163,6 +162,18 @@ void Game::showInventory() {
 
                                             }
 
+                                        }
+                                        break;
+                
+                                    case Object::Tonic:
+                                        if (player.getHealth() < 100) {
+                                            player.incHealth(HEALTH_INC_TONIC); 
+                                            inventoryItem.quantity--;  
+                                            itemUsed = true;
+                                            //sound health going up
+                                        }
+                                        else {
+                                            //sound cannot use
                                         }
                                         break;
                 

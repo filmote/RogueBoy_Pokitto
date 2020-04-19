@@ -19,7 +19,8 @@ class Sprite {
         uint16_t getY()                         { return this->y; }
         uint8_t getWidth()                      { return this->width; }
         uint8_t getHeight()                     { return this->height; }
-        int8_t getOffset()                      { return this->offset; }
+        int8_t getXOffset()                     { return this->xOffset; }
+        int8_t getYOffset()                     { return this->yOffset; }
         uint8_t getFrame()                      { return this->frame; }
         uint8_t getQuantity()                   { return this->quantity; }
         uint8_t getPuffIndex()                  { return this->puffIndex; }
@@ -51,6 +52,32 @@ class Sprite {
 
                 case Object::SpikeRHS:
                     return Rect { this->getX() - (this->getWidth() / 2) + this->getWidth() - (spike_frameIdx[frame] * 2), this->getY() - (this->getHeight() / 2), spike_frameIdx[frame] * 2, this->getHeight() };
+
+                case Object::FireTOP:
+
+                    if (frame == 0) {
+
+                        return Rect { this->getX() - (this->getWidth() / 2),  this->getY() - (this->getHeight() / 2), 2 };
+
+                    }
+                    else {
+
+                        return Rect { this->getX() - (this->getWidth() / 2),  this->getY() - (this->getHeight() / 2), this->getWidth(), this->getHeight() };
+
+                    }
+
+                case Object::FireBOT:
+                
+                    if (frame == 0) {
+
+                        return Rect { this->getX() - (this->getWidth() / 2),  this->getY() + (this->getHeight() / 2) - 2, this->getWidth(), 2 };
+
+                    }
+                    else {
+
+                        return Rect { this->getX() - (this->getWidth() / 2),  this->getY() - (this->getHeight() / 2), this->getWidth(), this->getHeight() };
+
+                    }
  
                 default:
                     return Rect { this->getX() - (this->getWidth() / 2),  this->getY() - (this->getHeight() / 2), this->getWidth(), this->getHeight() };
@@ -97,12 +124,13 @@ class Sprite {
             this->x = x;
             this->y = y;
             this->width = spriteWidths[static_cast<uint8_t>(type)];
-            this->height = spriteHeights[static_cast<uint8_t>(type)];;
+            this->height = spriteHeights[static_cast<uint8_t>(type)];
             this->health = health;
             this->healthOrig = health;
             this->type = type;
             this->frame = 0;
-            this->offset = spriteOffsets[static_cast<uint8_t>(type)];;
+            this->xOffset = spriteOffsets[static_cast<uint8_t>(type) * 2];
+            this->yOffset = spriteOffsets[(static_cast<uint8_t>(type) * 2) + 1];
             this->active = active;
             this->carrying = Object::None;
             this->puffIndex = (enablePuff ? 10 : 0);
@@ -212,6 +240,7 @@ class Sprite {
                 case Object::Spider:
                 case Object::BigSpider:
                 case Object::NewEnemy:
+                case Object::Snake:
 
                     return true;
 
@@ -224,7 +253,8 @@ class Sprite {
 
     private:
 
-        int8_t offset;
+        int8_t xOffset;
+        int8_t yOffset;
         uint16_t x;
         uint16_t y;
         uint8_t width;

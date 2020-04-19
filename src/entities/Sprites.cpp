@@ -54,14 +54,15 @@ void Sprites::render(Player &player, bool showEnemies) {
 
         if (object.getActive()) {
 
-            int x = (CENTERX - PLAYER_SIZE_HALF) - (player.getX() - object.getX());
-            int y = (CENTERY - PLAYER_SIZE_HALF) - (player.getY() - object.getY());
+            int x = (CENTERX - PLAYER_WIDTH_HALF) - (player.getX() - object.getX());
+            int y = (CENTERY - PLAYER_HEIGHT_HALF) - (player.getY() - object.getY());
             
             uint8_t frame = object.getFrame();
-            int8_t offset = object.getOffset();
+            int8_t xOffset = object.getXOffset();
+            int8_t yOffset = object.getYOffset();
             Direction direction = object.getDirection();
 
-            this->renderSprite(object.getType(), x, y, offset, direction, frame, showEnemies, object.getRenderHealthBar(), 10 * object.getHealth() / object.getHealthOrig());
+            this->renderSprite(object.getType(), x, y, xOffset, yOffset, direction, frame, showEnemies, object.getRenderHealthBar(), 10 * object.getHealth() / object.getHealthOrig());
 
 
             // Render puff ?
@@ -81,38 +82,43 @@ void Sprites::render(Player &player, bool showEnemies) {
 
 void Sprites::renderSprite(Object type, int x, int y) {
 
-    int8_t offset = spriteOffsets[static_cast<uint8_t>(type)];
+    int8_t xOffset = spriteOffsets[static_cast<uint8_t>(type) * 2];
+    int8_t yOffset = spriteOffsets[static_cast<uint8_t>(type) * 2];
 
-    this->renderSprite(type, x, y, offset, Direction::Up, 0, false, false, 0);
+    this->renderSprite(type, x, y, xOffset, yOffset, Direction::Up, 0, false, false, 0);
 
 }
 
 
-void Sprites::renderSprite(Object type, int x, int y, int8_t offset, Direction direction, uint8_t frame, bool showEnemies, bool renderHealth, int healthValue ) {
+void Sprites::renderSprite(Object type, int x, int y, int8_t xOffset, int8_t yOffset, Direction direction, uint8_t frame, bool showEnemies, bool renderHealth, int healthValue ) {
 
+
+// PD::drawLine(x, y - 20, x, y + 20);
+// PD::drawLine(x - 20, y, x + 20, y);
+// printf("offset : %i\n", offset);
     switch (type) {
 
         case Object::Coin:
-            PD::drawBitmap(x + offset, y + offset, Images::Coins[frame]);
+            PD::drawBitmap(x + xOffset, y + yOffset, Images::Coins[frame]);
             break;
 
         case Object::Bat:
             if (showEnemies) {
-                PD::drawBitmap(x + offset, y + offset, Images::Bats[frame]);
+                PD::drawBitmap(x + xOffset, y + yOffset, Images::Bats[frame]);
                 if (renderHealth) { this->renderHealthBar(x + 6, y - 6, healthValue); }
             }
             break;
 
         case Object::Spider:
             if (showEnemies) {
-                PD::drawBitmap(x + offset, y + offset, Images::Spiders[(static_cast<uint8_t>(direction) * 2) + frame]);
+                PD::drawBitmap(x + xOffset, y + yOffset, Images::Spiders[(static_cast<uint8_t>(direction) * 2) + frame]);
                 if (renderHealth) { this->renderHealthBar(x + 6, y - 6, healthValue); }
             }
             break;
 
         case Object::BigSpider:
             if (showEnemies) {
-                PD::drawBitmap(x + offset, y + offset, Images::BigSpiders[(static_cast<uint8_t>(direction) * 2) + frame]);
+                PD::drawBitmap(x + xOffset, y + yOffset, Images::BigSpiders[(static_cast<uint8_t>(direction) * 2) + frame]);
                 if (renderHealth) { this->renderHealthBar(x + 6, y - 6, healthValue); }
             }
             break;
@@ -120,69 +126,83 @@ void Sprites::renderSprite(Object type, int x, int y, int8_t offset, Direction d
         case Object::Skull:
             if (showEnemies) {
                 if (renderHealth) { this->renderHealthBar(x + 6, y - 6, healthValue); }
-                PD::drawBitmap(x + offset, y + offset, Images::Skull);
+                PD::drawBitmap(x + xOffset, y + yOffset, Images::Skull);
             }
             break;
 
         case Object::NewEnemy:
             if (showEnemies) {
-                PD::drawBitmap(x + offset, y + offset, Images::NewEnemys[(static_cast<uint8_t>(direction))]);
+                PD::drawBitmap(x + xOffset, y + yOffset, Images::NewEnemys[(static_cast<uint8_t>(direction))]);
+                if (renderHealth) { this->renderHealthBar(x + 6, y - 6, healthValue); }
+            }
+            break;
+
+        case Object::Snake:
+            if (showEnemies) {
+                PD::drawBitmap(x + xOffset, y + yOffset, Images::Snakes[(static_cast<uint8_t>(direction) * 2) + frame]);
                 if (renderHealth) { this->renderHealthBar(x + 6, y - 6, healthValue); }
             }
             break;
 
         case Object::SackOCash:
-            PD::drawBitmap(x + offset, y + offset, Images::SackOCash);
+            PD::drawBitmap(x + xOffset, y + yOffset, Images::SackOCash);
             break;
 
         case Object::Bread:
-            PD::drawBitmap(x + offset, y + offset, Images::Bread);
-//                    PD::drawBitmap(x, y, Images::Bread);
+            PD::drawBitmap(x + xOffset, y + yOffset, Images::Bread);
             break;
 
         case Object::Key:
-            PD::drawBitmap(x + offset, y + offset, Images::Key);
+            PD::drawBitmap(x + xOffset, y + yOffset, Images::Key);
             break;
 
         case Object::Chicken:
-            PD::drawBitmap(x + offset, y + offset, Images::Chicken);
+            PD::drawBitmap(x + xOffset, y + yOffset, Images::Chicken);
             break;
 
         case Object::Floater:
             if (renderHealth) { this->renderHealthBar(x + 6, y - 6, healthValue); }
-            PD::drawBitmap(x + offset, y + offset, Images::Floater);
+            PD::drawBitmap(x + xOffset, y + yOffset, Images::Floater);
             break;
 
         case Object::Tools:
-            PD::drawBitmap(x + offset, y + offset, Images::Tools);
+            PD::drawBitmap(x + xOffset, y + yOffset, Images::Tools);
             break;
 
         case Object::Tonic:
-            PD::drawBitmap(x + offset, y + offset, Images::Tonic);
+            PD::drawBitmap(x + xOffset, y + yOffset, Images::Tonic);
             break;
 
         case Object::IceSpell:
-            PD::drawBitmap(x + offset, y + offset, Images::IceSpell);
+            PD::drawBitmap(x + xOffset, y + yOffset, Images::IceSpell);
             break;
 
         case Object::GreenSpell:
-            PD::drawBitmap(x + offset, y + offset, Images::GreenSpell);
+            PD::drawBitmap(x + xOffset, y + yOffset, Images::GreenSpell);
             break;
 
         case Object::RedSpell:
-            PD::drawBitmap(x + offset, y + offset, Images::RedSpell);
+            PD::drawBitmap(x + xOffset, y + yOffset, Images::RedSpell);
             break;
 
         case Object::MauveSpell:
-            PD::drawBitmap(x + offset, y + offset, Images::MauveSpell);
+            PD::drawBitmap(x + xOffset, y + yOffset, Images::MauveSpell);
             break;
 
         case Object::SpikeLHS:
-            PD::drawBitmap(x + offset, y + offset, Images::SpikeLHS[spike_frameIdx[frame]]);
+            PD::drawBitmap(x + xOffset, y + yOffset, Images::SpikeLHS[spike_frameIdx[frame]]);
             break;
 
         case Object::SpikeRHS:
-            PD::drawBitmap(x + offset, y + offset, Images::SpikeRHS[spike_frameIdx[frame]]);
+            PD::drawBitmapXFlipped(x + xOffset, y + yOffset, Images::SpikeLHS[spike_frameIdx[frame]]);
+            break;
+
+        case Object::FireTOP:
+            PD::drawBitmap(x + xOffset, y + yOffset, Images::Fires[fire_frameIdx[frame]]);
+            break;
+
+        case Object::FireBOT:
+            PD::drawBitmapYFlipped(x + xOffset, y + yOffset, Images::Fires[fire_frameIdx[frame]]);
             break;
 
     }

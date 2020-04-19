@@ -166,8 +166,13 @@ void Game::showShop() {
 
     if (this->shopVariables.message != ShopMessage::None) { 
         
+        PD::setColor(15);
+        PD::fillRect(21, 27, 70, 24);
+        PD::drawBitmap(15, 22, Images::MessagePanelTOP); 
+        PD::drawBitmap(15, 29, Images::MessagePanelLHS); 
+        PD::drawBitmap(88, 29, Images::MessagePanelRHS); 
+        PD::drawBitmap(15, 50, Images::MessagePanelBOT); 
         PD::setColor(4, 15);
-        PD::drawBitmap(15, 22, Images::MessagePanel); 
         PD::setFont(font3x5);
 
         switch (this->shopVariables.message) {
@@ -182,11 +187,11 @@ void Game::showShop() {
                 break;
 
             case ShopMessage::OutOfStock:
-                PD::setCursor(25, 30);
+                PD::setCursor(24, 30);
                 PD::print("We are currently");
-                PD::setCursor(27, 37);
+                PD::setCursor(26, 37);
                 PD::print("out of stock of");
-                PD::setCursor(38, 44);
+                PD::setCursor(37, 44);
                 PD::print("that item!");
                 break;
 

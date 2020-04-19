@@ -49,6 +49,7 @@ class Player {
         
         uint8_t getWeaponFrame();
         uint32_t getWeaponCount();
+        Rect getRect();
 
 
         // Inventory methods

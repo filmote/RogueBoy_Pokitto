@@ -60,7 +60,7 @@ class Game {
         void init(uint16_t x, uint16_t y, bool resetObjects);
         bool intersect(uint16_t min0, uint16_t max0, uint16_t min1, uint16_t max1);
 
-        bool collision(Player &player, Sprite &enemy, bool touching);
+        bool collision(Player &player, Sprite &object);
         bool collision(Player &player, Bullet &bullet);
         bool collision(Sprite &object1, Sprite &object2);
         bool collision(Sprite &object, Bullet &bullet);        
@@ -77,6 +77,8 @@ class Game {
 
         void dropItem(Object droppedObject, uint16_t x, uint16_t y, bool enemyDrop, Sprite *enemy, Sprites &objects);
         void spriteAI(MapInformation &map, Player &player, Sprite &sprite);
+        void spriteAI_UpdateFrame(Sprite &sprite, uint8_t frameMultiple, uint8_t frameMax);
+        Direction spriteAI_CheckForMove(MapInformation &map, Player &player, Sprite &sprite, Point &location, uint8_t dist);
         Direction spriteAI_UpdateEnemy(Point &point, MapInformation &map, Player &player, Sprite &enemy);
         void barrelBreak(MapInformation &map, uint8_t x, uint8_t y, Sprites &objects);
         Direction getNearestCardinalDirection(Direction direction, Axis axis);

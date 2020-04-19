@@ -20,7 +20,7 @@ uint16_t Player::getY() {
 }
 
 const uint8_t Player::getWidth() { 
-    return 8; 
+    return 10; 
 }
 
 const uint8_t Player::getHeight() { 
@@ -57,6 +57,10 @@ bool Player::getMoving() {
 
 Object Player::getWeapon() { 
     return this->weapon; 
+}
+
+Rect Player::getRect() {
+    return Rect { this->getX() - (this->getWidth() / 2), this->getY() - (this->getHeight() / 2), this->getWidth(), this->getHeight() };
 }
 
 void Player::setX(uint16_t x) { 

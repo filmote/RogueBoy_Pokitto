@@ -9,7 +9,7 @@ using PD = Pokitto::Display;
 using PS = Pokitto::Sound;
 
 
-const uint8_t spriteWidths[21] =  { 
+const uint8_t spriteWidths[22] =  { 
     8,  /* Coin */
     8,  /* SackOfCash */
     8,  /* Bread */
@@ -24,16 +24,17 @@ const uint8_t spriteWidths[21] =  {
     16, /* BigSpider */
     12, /* IceSpell */
     12, /* GreenSpell */
-    12,  /* RedSpell */
+    12, /* RedSpell */
     8,  /* MauveSpell */
     12, /* NewEnemy */
     16, /* SpikeLHS */
     16, /* SpikeRHS */
-    16, /* SpikeTOP */
-    16, /* SpikeBOT */
+    16, /* FireTOP */
+    16, /* FireBOT */
+    12, /* Snake */
 };
 
-const uint8_t spriteHeights[21] = { 
+const uint8_t spriteHeights[22] = { 
     8,  /* Coin */
     8,  /* SackOfCash */
     8,  /* Bread */
@@ -51,37 +52,38 @@ const uint8_t spriteHeights[21] = {
     12,  /* RedSpell */
     8,  /* MauveSpell */
     12, /* NewEnemy */
-    17, /* SpikeLHS */
-    17, /* SpikeRHS */
-    17, /* SpikeTOP */
-    17, /* SpikeBOT */
+    16, /* SpikeLHS note its actually 17 */
+    16, /* SpikeRHS */
+    16, /* FireTOP */
+    16, /* FireBOT */
+    12, /* Snake */
 };
 
         
-const int8_t spriteOffsets[21] = { 
-    0,  /* Coin */
-    0,  /* SackOfCash */
-    0,  /* Bread */
-    0,  /* Key */
-    0,  /* Chicken */
-    0,  /* Floater */  
-    0,  /* Skull */
-    0,  /* Spider */
-    0,  /* Bat */
-    -2, /* Tools */
-    0,  /* Tonic */
-    -4, /* BigSpider */
-    -2, /* IceSpell */
-    -2,  /* GreenSpell */
-    -2,  /* RedSpell */
-    0,  /* MauveSpell */
-    -2, /* NewEnemy */
-    -4, /* SpikeLHS */
-    -4, /* SpikeRHS */
-    -4, /* SpikeTOP */
-    -4, /* SpikeBOT */
+const int8_t spriteOffsets[44] = { 
+    0, 0,   /* Coin */
+    0, 0,   /* SackOfCash */
+    0, 0,   /* Bread */
+    0, 0,   /* Key */
+    0, 0,   /* Chicken */
+    0, 0,   /* Floater */  
+    0, 0,   /* Skull */
+    0, 0,   /* Spider */
+    0, 0,   /* Bat */
+    -2, -2, /* Tools */
+    0, 0,   /* Tonic */
+    -4, -4, /* BigSpider */
+    -2, -2, /* IceSpell */
+    -2, -2, /* GreenSpell */
+    -2, -2, /* RedSpell */
+    0, 0,   /* MauveSpell */
+    -2, -2, /* NewEnemy */
+    -3, -3, /* SpikeLHS */
+    -3, -3, /* SpikeRHS */
+    -4, -2, /* FireTOP */
+    -4, -2, /* FireBOT */
+    -2, -2, /* Snake */
 };
-
 
 const char object_Desc_00[] = "Coin";
 const char object_Desc_01[] = "Sack of Coins";
@@ -102,8 +104,9 @@ const char object_Desc_15[] = "Mauve";
 const char object_Desc_16[] = "New Enemy";
 const char object_Desc_17[] = "Spike LHS";
 const char object_Desc_18[] = "Spike RHS";
-const char object_Desc_19[] = "Spike TOP";
-const char object_Desc_20[] = "Spike BOT";
+const char object_Desc_19[] = "Flame TOP";
+const char object_Desc_20[] = "Flame BOT";
+const char object_Desc_21[] = "Snake";
 
 const char * const object_Descs[] = { 
     object_Desc_00,
@@ -127,7 +130,9 @@ const char * const object_Descs[] = {
     object_Desc_18,
     object_Desc_19,
     object_Desc_20,
+    object_Desc_21,
 };
 
                                 // 0  1  2  3  4  5  6  7  8  9  0  1  2  3  4  5  6  7  8  9  0  1  2  3  4   
 const uint8_t spike_frameIdx[] =  {0, 2, 4, 6, 8, 8, 8, 8, 8, 8, 7, 7, 6, 6, 5, 5, 4, 4, 3, 3, 3, 2, 1, 1, 0 };
+const uint8_t fire_frameIdx[] =   {0, 1, 1, 1, 1, 2, 2, 2, 2, 3, 3, 3, 3, 2, 2, 2, 2 };

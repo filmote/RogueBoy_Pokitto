@@ -26,10 +26,12 @@ enum Object {
     NewEnemy = 16,
     SpikeLHS = 17,
     SpikeRHS = 18,
-    SpikeTOP = 19,
-    SpikeBOT = 20,
-    None = 254,
-    FireBall = 255
+    FireTOP = 19,
+    FireBOT = 20,
+    Snake = 21,
+    SpiderWeb = 253,
+    FireBall = 254,
+    None = 255,
 };
 
 enum class SpriteType : uint8_t {

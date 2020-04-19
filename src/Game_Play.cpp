@@ -28,7 +28,7 @@ void Game::updateObjects() {
 
 
             // Reduce the health bar visual indicator counter ..
-
+// printf("a\n");
             objectI.update();
 
 
@@ -68,6 +68,7 @@ void Game::updateObjects() {
                 }
 
             }
+// printf("b\n");
 
 
             if (!objectI_IsEnemy || (objectI_IsEnemy && update && this->levelStartDelay == 0)) { this->spriteAI(map, player, objectI); }
@@ -75,7 +76,7 @@ void Game::updateObjects() {
 
             // Has a collision between the object and player occured ?
 
-            if (!objectI.getPreventImmediatePickup() && this->collision(player, objectI, true)) {
+            if (!objectI.getPreventImmediatePickup() && this->collision(player, objectI)) {
 
                 uint16_t note = 0;
                 uint16_t duration = 0;
@@ -138,6 +139,9 @@ void Game::updateObjects() {
                     case Object::NewEnemy:
                     case Object::SpikeLHS:
                     case Object::SpikeRHS:
+                    case Object::FireTOP:
+                    case Object::FireBOT:
+                    case Object::Snake:
 
                         if (this->shake < 3) {
                             this->shake = this->shake + 2;
@@ -177,10 +181,16 @@ void Game::updateObjects() {
                                     player.decHealth(3 * diff); 
                                     break;
 
+                                case Object::Snake: 
+                                    //SJH 
+                                    player.decHealth(3 * diff); 
+                                    break;
+
                                 case Object::SpikeLHS: 
                                 case Object::SpikeRHS: 
+                                case Object::FireTOP: 
+                                case Object::FireBOT: 
                                     //SJH 
-                                    // printf("spike\n");
                                     player.decHealth(2 * diff); 
                                     break;
 
@@ -197,6 +207,7 @@ void Game::updateObjects() {
         }
 
     }
+// printf("c\n");
 
 
     // Have the bullets hit anything ?
@@ -204,9 +215,12 @@ void Game::updateObjects() {
     for (uint8_t bulletIdx = 0; bulletIdx < PLAYER_BULLET_MAX + ENEMY_BULLET_MAX; bulletIdx++) {
 
         auto &bullet = bullets.getBullet(bulletIdx);
-
+        
         if (bullet.getActive()) {
 
+            uint8_t width = bullet.getWidth();
+            uint8_t height = bullet.getHeight();
+// printf("c1\n");
             Direction xDirection = this->getNearestCardinalDirection(bullet.getDirection(), Axis::XAxis);
             Direction yDirection = this->getNearestCardinalDirection(bullet.getDirection(), Axis::YAxis);
 
@@ -217,16 +231,32 @@ void Game::updateObjects() {
 
 
             // If the bullet has hit a wall or other fixed object ..
+// printf("c2\n");
+            if (xDirection != Direction::None && this->map.isWalkable(bullet.getX(), ry, xDirection, width, height) == WalkType::Stop) {
 
-            if (xDirection != Direction::None && this->map.isWalkable(bullet.getX(), ry, xDirection, 4, 4) == WalkType::Stop) {
-                bullet.setActive(false);
+                if (bullet.getWeapon() == Object::SpiderWeb) {
+                    bullet.setX(rx);
+                    bullet.setDirection(Direction::None);
+                }
+                else {
+                    bullet.setActive(false);
+                }
+
+            }
+// printf("c3\n");
+            if (yDirection != Direction::None && bullet.getActive() && this->map.isWalkable(rx, bullet.getY(), yDirection, width, height) == WalkType::Stop) {
+
+                if (bullet.getWeapon() == Object::SpiderWeb) {
+                    bullet.setY(ry);
+                    bullet.setDirection(Direction::None);
+                }
+                else {
+                    bullet.setActive(false);
+                }
+
             }
 
-            if (yDirection != Direction::None && bullet.getActive() && this->map.isWalkable(rx, bullet.getY(), yDirection, 4, 4) == WalkType::Stop) {
-                bullet.setActive(false);
-            }
-
-
+// printf("c4\n");
             const int8_t bullet_XMovement[8] = { 0, 5, 5, 5, 0, -5, -5, -5 };
             const int8_t bullet_YMovement[8] = { -5, -5, 0, 5, 5, 5, 0, -5 };
 
@@ -234,7 +264,7 @@ void Game::updateObjects() {
             // Did we just break a barrel ?
 
             if (!bullet.getActive()) {
-
+// printf("c5a\n");
                 uint8_t direction = static_cast<uint8_t>(bullet.getDirection());
                 rx = rx + bullet_XMovement[direction];
                 ry = ry + bullet_YMovement[direction];
@@ -245,6 +275,7 @@ void Game::updateObjects() {
 
             }
             else {
+// printf("c5b\n");
 
                 switch (bulletIdx) {
                     
@@ -252,7 +283,7 @@ void Game::updateObjects() {
                     // Did we bullet an enemy?  Test only id it is a player bullet ..
 
                     case 0 ... PLAYER_BULLET_MAX - 1:
-
+// printf("c5b1\n");
                         for (uint8_t i = 0; i < this->objects.getObjectNum(); i++) {
 
                             auto &object = this->objects.getSprite(i);
@@ -284,30 +315,37 @@ void Game::updateObjects() {
 
                     // Did the bullet hit the player?  Test only if it is an enemy bullet ..
 
-                    case PLAYER_BULLET_MAX ... ENEMY_BULLET_MAX:
-                            
+                    case PLAYER_BULLET_MAX ... PLAYER_BULLET_MAX + ENEMY_BULLET_MAX:
+    //  printf("c5c\n");                
                         if (this->collision(this->player, bullet)) {
-
+    //  printf("c5c1\n"); 
                             //sound shot, ouch!
 
                             if (this->shake < 3) {
                                 this->shake = this->shake + 2;
                             }
+    //  printf("c5c2\n"); 
 
                             this->player.setHealth(this->player.getHealth() - DAMAGE_BULLET);
+    //  printf("c5c3\n"); 
                             bullet.setActive(false);
+    //  printf("c5c4\n"); 
 
                         }
-
+// printf("c5d\n");
                         break;
 
                 }
+// printf("c5e\n");
 
             }
 
         }
 
     }
+
+    // printf("d\n");
+
 
 }
 
@@ -320,8 +358,12 @@ void Game::updateGame() {
     const uint8_t offX[4] = { 1, 0,};
     const uint8_t offY[4] = { 0, 1 };
 
+// printf("1\n");
+
     this->playerMovement();
+// printf("2\n");
     this->updateObjects();
+// printf("3\n");
 
     if (this->shake > 0) {
         this->renderEnviroment(offX[(this->shake - 1) % 2], offY[(this->shake - 1) % 2]);
@@ -331,8 +373,10 @@ void Game::updateGame() {
         this->renderEnviroment(0, 0);
         this->renderPlayer(0, 0);
     }
+// printf("4\n");
 
     this->renderObjects();
+// printf("5\n");
     this->renderHud();
     
     if (Pokitto::Core::frameCount % TIMER_STEP == 0) { this->map.decTimer();  }
@@ -370,10 +414,8 @@ bool Game::isBlockedByEnemy(Player player, uint16_t playerX, uint16_t playerY) {
 
 bool Game::isBlockedByPlayer(Player player, Sprite enemy, uint16_t enemyX, uint16_t enemyY) {
    
-    Rect playerRect = { this->player.getX() - (player.getWidth() / 2), this->player.getY() - (player.getHeight() / 2), player.getWidth(), player.getHeight() };
-    Rect enemyRect = enemy.getRect();
-
-    return collide(playerRect, enemyRect);
+    Rect enemyRect = { enemyX - (enemy.getWidth() / 2), enemyY - (enemy.getHeight() / 2), enemy.getWidth(), enemy.getHeight() };
+    return collide(player.getRect(), enemyRect);
 
 }
 
@@ -521,8 +563,6 @@ void Game::playerMovement() {
     // Shoot a bullet ?
 
     if (PC::buttons.pressed(BTN_B)) {
-
-// printf("shoot bullet %i\n", i);
 
         const int32_t xOffsets[8] = { 0, 2, 2, 2, 0, -2, -2, -2 };
         const int32_t yOffsets[8] = { -6, -6, 0, 6, 6, 6, 0, -2 };
@@ -913,137 +953,85 @@ void Game::spriteAI(MapInformation &map, Player &player, Sprite &sprite) {
 
         case Object::Coin: 
 
-            if (Pokitto::Core::frameCount % 4 == 0) { 
-                sprite.setFrame(sprite.getFrame() + 1); 
-                sprite.setFrame(sprite.getFrame() % 6);
-            } 
-
+            spriteAI_UpdateFrame(sprite, 4, 6);
             break;
 
         case Object::Floater:            
         case Object::Skull:     
 
-            switch (this->player.getWeapon()) {
+            spriteAI_CheckForMove(map, player, sprite, location, 7);
+            break;
 
-                case Object::IceSpell:
-                    if (this->player.getWeaponCount() % 2 == 0) {
-                        this->spriteAI_UpdateEnemy(location, map, player, sprite);
-                    }
-                    break;
+        case Object::Snake:
+        case Object::BigSpider:   
+        case Object::Bat: 
 
-                default:
-                    this->spriteAI_UpdateEnemy(location, map, player, sprite);
-                    break;
-
-            }
-
+            spriteAI_UpdateFrame(sprite ,4, 2);
+            spriteAI_CheckForMove(map, player, sprite, location, 7);
             break;
 
         case Object::Spider:   
-        case Object::BigSpider:   
+            {
+                spriteAI_UpdateFrame(sprite, 4, 2);
+                Direction direction = spriteAI_CheckForMove(map, player, sprite, location, 7);
 
-            if (Pokitto::Core::frameCount % 4 == 0) { 
-                sprite.setFrame(sprite.getFrame() + 1); 
-                sprite.setFrame(sprite.getFrame() % 2);
-            } 
+                if (direction != Direction::None) {
 
-            if (this->map.getDistance(location.x, location.y, player.getX(), player.getY()) <= 7) {
 
-                switch (this->player.getWeapon()) {
+                    // Should the enemy shoot a bullet?
 
-                    case Object::IceSpell:
-                        if (this->player.getWeaponCount() % 2 == 0) {
-                            this->spriteAI_UpdateEnemy(location, map, player, sprite);
+                    if (this->enemyBulletDelay == 0 && random(0, 4) == 0 && direction != Direction::None) {
+
+                        const int32_t xOffsets[8] = { 0, 4, 4, 4, 0, -4, -4, -4 };
+                        const int32_t yOffsets[8] = { -4, -4, 0, 4, 4, 4, 0, -4 };
+
+                        uint8_t inactiveBulletIdx = this->bullets.getInactiveEnemyBullet();
+
+                        if (inactiveBulletIdx != NO_INACTIVE_BULLET_FOUND) {
+    // printf("fire web x: %i, y: %i, d: %i\n", sprite.getX(), sprite.getY(), static_cast<uint8_t>(direction));
+                            Bullet &bullet = this->bullets.getEnemyBullet(inactiveBulletIdx);
+                            bullet.setBullet(sprite.getX() + xOffsets[static_cast<uint8_t>(direction)], sprite.getY() + yOffsets[static_cast<uint8_t>(direction)], direction, Object::SpiderWeb);
+                            this->enemyBulletDelay = random(ENEMY_BULLET_DELAY_MIN, ENEMY_BULLET_DELAY_MAX);
+
                         }
-                        break;
-
-                    default:
-                        this->spriteAI_UpdateEnemy(location, map, player, sprite);
-                        break;
-
-                }
-                
-            }
-
-            break;
-
-        case Object::NewEnemy:   
-
-            if (this->map.getDistance(location.x, location.y, player.getX(), player.getY()) <= 7) {
-
-                Direction direction = Direction::None;
-
-                switch (this->player.getWeapon()) {
-
-                    case Object::IceSpell:
-                        if (this->player.getWeaponCount() % 2 == 0) {
-                            direction = this->spriteAI_UpdateEnemy(location, map, player, sprite);
-                        }
-                        break;
-
-                    default:
-                        direction = this->spriteAI_UpdateEnemy(location, map, player, sprite);
-                        break;
-
-                }
-
-
-                // Should the enemy shoot a bullet?
-
-                if (this->enemyBulletDelay == 0 && random(0, 4) == 0 && direction != Direction::None) {
-
-                    const int32_t xOffsets[8] = { 0, 6, 6, 6, 0, -6, -6, -6 };
-                    const int32_t yOffsets[8] = { -6, -6, 0, 6, 6, 6, 0, -6 };
-
-                    uint8_t inactiveBulletIdx = this->bullets.getInactiveEnemyBullet();
-
-                    if (inactiveBulletIdx != NO_INACTIVE_BULLET_FOUND) {
-
-                        Bullet &bullet = this->bullets.getEnemyBullet(inactiveBulletIdx);
-                        bullet.setBullet(sprite.getX() + xOffsets[static_cast<uint8_t>(direction)], sprite.getY() + yOffsets[static_cast<uint8_t>(direction)], direction, Object::FireBall);
-                        this->enemyBulletDelay = random(ENEMY_BULLET_DELAY_MIN, ENEMY_BULLET_DELAY_MAX);
 
                     }
 
                 }
-                
-            }
 
+            }
+            
             break;
 
-        case Object::Bat: 
+        case Object::NewEnemy:   
+            {
+                Direction direction = spriteAI_CheckForMove(map, player, sprite, location, 7);
 
-            if (this->map.getDistance(location.x, location.y, player.getX(), player.getY()) < 7) {
+                if (direction != Direction::None) {
 
-                switch (this->player.getWeapon()) {
 
-                    case Object::FireBall:
-                        this->spriteAI_UpdateEnemy(location, map, player, sprite);
-                        break;
+                    // Should the enemy shoot a bullet?
 
-                    case Object::IceSpell:
-                        if (this->player.getWeaponCount() % 2 == 0) {
-                            this->spriteAI_UpdateEnemy(location, map, player, sprite);
+                    if (this->enemyBulletDelay == 0 && random(0, 4) == 0 && direction != Direction::None) {
+
+                        const int32_t xOffsets[8] = { 0, 6, 6, 6, 0, -6, -6, -6 };
+                        const int32_t yOffsets[8] = { -6, -6, 0, 6, 6, 6, 0, -6 };
+
+                        uint8_t inactiveBulletIdx = this->bullets.getInactiveEnemyBullet();
+
+                        if (inactiveBulletIdx != NO_INACTIVE_BULLET_FOUND) {
+
+                            Bullet &bullet = this->bullets.getEnemyBullet(inactiveBulletIdx);
+                            bullet.setBullet(sprite.getX() + xOffsets[static_cast<uint8_t>(direction)], sprite.getY() + yOffsets[static_cast<uint8_t>(direction)], direction, Object::FireBall);
+                            this->enemyBulletDelay = random(ENEMY_BULLET_DELAY_MIN, ENEMY_BULLET_DELAY_MAX);
+
                         }
-                        break;
 
+                    }
+                    
                 }
 
             }
-
-            if (Pokitto::Core::frameCount % 4 == 0) { 
-                sprite.setFrame(sprite.getFrame() + 1); 
-                sprite.setFrame(sprite.getFrame() % 2);
-            } 
-
-            break;
-
-        case Object::IceSpell: 
-
-            if (Pokitto::Core::frameCount % 16 == 0) { 
-                sprite.setFrame(sprite.getFrame() + 1); 
-                sprite.setFrame(sprite.getFrame() % 2);
-            } 
 
             break;
 
@@ -1067,9 +1055,65 @@ void Game::spriteAI(MapInformation &map, Player &player, Sprite &sprite) {
 
             break;
 
+        case Object::FireTOP: 
+        case Object::FireBOT: 
+
+            sprite.decCountdown();
+
+            if (sprite.getCountdown() <= 16) {
+
+                sprite.setFrame(sprite.getFrame() + 1); 
+
+                if (sprite.getCountdown() == 0) {
+
+                    sprite.setCountdown(random(40, 75));
+                    sprite.setFrame(0);
+
+                }
+
+            }
+
+            break;
+
     }
 
     sprite.setPosition(location.x, location.y);
+
+}
+
+void Game::spriteAI_UpdateFrame(Sprite &sprite, uint8_t frameMultiple, uint8_t frameMax) {
+
+    if (Pokitto::Core::frameCount % frameMultiple == 0) { 
+        sprite.setFrame(sprite.getFrame() + 1); 
+        sprite.setFrame(sprite.getFrame() % frameMax);
+    } 
+
+}
+
+
+Direction Game::spriteAI_CheckForMove(MapInformation &map, Player &player, Sprite &sprite, Point &location, uint8_t dist) {
+
+    Direction direction = Direction::None;
+
+    if (this->map.getDistance(location.x, location.y, player.getX(), player.getY()) <= dist) {
+
+        switch (this->player.getWeapon()) {
+
+            case Object::IceSpell:
+                if (this->player.getWeaponCount() % 2 == 0) {
+                    direction = this->spriteAI_UpdateEnemy(location, map, player, sprite);
+                }
+                break;
+
+            default:
+                direction = this->spriteAI_UpdateEnemy(location, map, player, sprite);
+                break;
+
+        }
+
+    }
+
+    return direction;
 
 }
 

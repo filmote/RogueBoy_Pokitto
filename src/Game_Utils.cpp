@@ -37,22 +37,33 @@ bool Game::intersect(uint16_t min0, uint16_t max0, uint16_t min1, uint16_t max1)
 
 }
 
-bool Game::collision(Player &player, Sprite &enemy, bool touching) {
-  
-    Rect playerRect = { player.getX() - (player.getWidth() / 2), player.getY() - (player.getHeight() / 2), player.getWidth(), player.getHeight() };
-    Rect enemyRect = enemy.getRect();
+bool Game::collision(Player &player, Sprite &object) {
+    
+    Rect objectRect = object.getRect();
 
-    //printf("{ %i,%i,%i,%i }  { %i,%i,%i,%i }  = %i %i \n", playerRect.x, playerRect.y, playerRect.width, playerRect.height, enemyRect.x, enemyRect.y, enemyRect.width, enemyRect.height, collide(playerRect, enemyRect), enemy.getCountdown());
-    return collide(playerRect, enemyRect);
+    if (object.isEnemy()) {
+
+        objectRect.x = objectRect.x - 1;
+        objectRect.y = objectRect.y - 1;
+        objectRect.width = objectRect.width + 2;
+        objectRect.height = objectRect.height + 2;
+        
+    }
+
+Rect playerRect = player.getRect();
+    // printf("PO %i { %i,%i,%i,%i }  { %i,%i,%i,%i }  = %i %i \n", object.getType(), playerRect.x, playerRect.y, playerRect.width, playerRect.height, objectRect.x, objectRect.y, objectRect.width, objectRect.height, collide(playerRect, objectRect), object.getCountdown());
+    return collide(player.getRect(), objectRect);
 
 }
 
 bool Game::collision(Player &player, Bullet &bullet) {
-  
-    Rect playerRect = { player.getX() - (player.getWidth() / 2), player.getY() - (player.getHeight() / 2), player.getWidth(), player.getHeight() };
-    Rect bulletRect =  { bullet.getX() - 2, bullet.getY() - 2, 4, 4 };
 
-    return collide(playerRect, bulletRect);
+Rect playerRect = player.getRect();
+Rect objectRect = bullet.getRect();
+
+    printf("PB { %i,%i,%i,%i }  { %i,%i,%i,%i }  = %i \n", playerRect.x, playerRect.y, playerRect.width, playerRect.height, objectRect.x, objectRect.y, objectRect.width, objectRect.height, collide(playerRect, objectRect));
+
+    return collide(player.getRect(), bullet.getRect());
 
 }
 
@@ -63,10 +74,8 @@ bool Game::collision(Sprite &object1, Sprite &object2) {
 }
 
 bool Game::collision(Sprite &object, Bullet &bullet) {
-  
-    Rect bulletRect =  { bullet.getX() - 2, bullet.getY() - 2, 4, 4 };
 
-    return collide(object.getRect(), bulletRect);
+    return collide(object.getRect(), bullet.getRect());
 
 }
 

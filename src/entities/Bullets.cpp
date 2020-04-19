@@ -66,25 +66,46 @@ void Bullets::render(Player &player) {
 
             int x = (player.getX() - bullet.getX());
             int y = (player.getY() - bullet.getY());
+            uint8_t frame = bullet.getFrame();
 
             switch (bullet.getWeapon()) {
 
                 case Object::FireBall:
-                    PD::drawBitmap((CENTERX - 4) - x, (CENTERY - 4) - y, Images::Bullets[bullet.getFrame()]);
+                    PD::drawBitmap((CENTERX - 2) - x, (CENTERY - 2) - y, Images::Bullets[frame]);
                     break;
 
                 case Object::IceSpell:
-                    PD::drawBitmap((CENTERX - 4) - x, (CENTERY - 4) - y, Images::Bullets[bullet.getFrame() + 4]);
+                    PD::drawBitmap((CENTERX - 2) - x, (CENTERY - 2) - y, Images::Bullets[frame + 4]);
                     break;
 
                 case Object::GreenSpell:
-                    PD::drawBitmap((CENTERX - 4) - x, (CENTERY - 4) - y, Images::Bullets[bullet.getFrame() + 8]);
+                    PD::drawBitmap((CENTERX - 2) - x, (CENTERY - 2) - y, Images::Bullets[frame + 8]);
                     break;
 
                 case Object::RedSpell:
-                    PD::drawBitmap((CENTERX - 4) - x, (CENTERY - 4) - y, Images::Bullets[bullet.getFrame() + 12]);
+                    PD::drawBitmap((CENTERX - 2) - x, (CENTERY - 2) - y, Images::Bullets[frame + 12]);
                     break;
+
+                case Object::SpiderWeb:
+printf("render bullet x: %i, y: %i, f: %i\n", x, y, frame);
+                    switch (frame) {
+
+                        case 0:
+                            PD::drawBitmapXFlipped((CENTERX - 3) - x, (CENTERY - 3) - y, Images::SpiderWeb[frame]);
+                            break;
+
+                        case 1:
+                            PD::drawBitmapXFlipped((CENTERX - 4) - x, (CENTERY - 4) - y, Images::SpiderWeb[frame]);
+                            break;
+
+                        case 2 ... 5:
+                            PD::drawBitmapXFlipped((CENTERX - 8) - x, (CENTERY - 8) - y, Images::SpiderWeb[frame]);
+                            break;
+
+                    }
                     
+                    break;
+
             }
 
         }

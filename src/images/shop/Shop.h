@@ -4,6 +4,9 @@ namespace Images {
 
     #include "Seller.h"
     #include "SoldOut.h"
-    #include "MessagePanel.h"
+    #include "MessagePanelLHS.h"
+    #include "MessagePanelRHS.h"
+    #include "MessagePanelTOP.h"
+    #include "MessagePanelBOT.h"
 
 };

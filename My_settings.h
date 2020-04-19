@@ -11,8 +11,10 @@
 #define TILE_HEIGHT         16
 #define TILE_SIZE           16
 
-#define PLAYER_SIZE         8
-#define PLAYER_SIZE_HALF    4
+#define PLAYER_WIDTH        10
+#define PLAYER_WIDTH_HALF   5
+#define PLAYER_HEIGHT       12
+#define PLAYER_HEIGHT_HALF  6
 
 
 #define MAXLEVEL            18
@@ -34,6 +36,7 @@
 
 #define HEALTH_INC_BREAD    10
 #define HEALTH_INC_CHICKEN  20
+#define HEALTH_INC_TONIC    30
 #define HEALTH_DEC_SPIDERS_WEB 1                // Health decrement when running through a spider's web.
 #define END_OF_OPTIONS      255
 #define ICE_SPELL_DELAY     360
@@ -52,9 +55,15 @@
 #define WALK_SLOW_FRAME_COUNT 3
 
 #define PLAYER_BULLET_MAX   6
-#define ENEMY_BULLET_MAX    6
+#define ENEMY_BULLET_MAX    1
 #define ENEMY_BULLET_DELAY_MIN    5
 #define ENEMY_BULLET_DELAY_MAX    20
+#define BULLET_WEB_FRAMES         40       // Number of frames to travel
+#define BULLET_WEB_FRAMES_DIV1     BULLET_WEB_FRAMES - 6 
+#define BULLET_WEB_FRAMES_DIV2     BULLET_WEB_FRAMES_DIV1 - 6 
+#define BULLET_WEB_FRAMES_DIV3     9
+#define BULLET_WEB_FRAMES_DIV4     6
+#define BULLET_WEB_FRAMES_DIV5     3
 
 /*
 Bit 7       Blank segment.
