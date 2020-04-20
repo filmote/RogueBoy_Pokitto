@@ -82,7 +82,7 @@ bool Game::collision(Sprite &object, Bullet &bullet) {
 void Game::barrelBreak(MapInformation &map, uint8_t x, uint8_t y, Sprites &objects) {
     
     this->map.setBlock(x, y, MapTiles::Rubble);
-    dropItem(Object::Key, x, y, false, nullptr, this->objects);
+//    dropItem(Object::Key, x, y, false, nullptr, this->objects);
     //sound.tone(NOTE_C3,50, NOTE_C2,50, NOTE_E3,150);
 }
 
