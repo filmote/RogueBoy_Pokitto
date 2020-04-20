@@ -92,7 +92,7 @@ enum MapTiles {
     OpenChest = 5,
     OpenDoor = 6,
     FullBlockWall = 7,
-    ClosedChest = 8,
+    ClosedChest_Key = 8,
     UpStairs = 9,
     SwitchOn = 10,
     SwitchOff = 11,
@@ -171,6 +171,8 @@ enum MapTiles {
     SpiderWebTR = 84,
     SpiderWebLR = 85,
     SpiderWebLL = 86,
+    ClosedChest_Random = 87,
+
 };
 
 enum class ShopMessage : uint8_t {

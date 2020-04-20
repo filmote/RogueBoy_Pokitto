@@ -83,9 +83,10 @@ void Sprites::render(Player &player, bool showEnemies) {
 }
 
 void Sprites::renderSprite(Object type, int x, int y) {
-
+// PD::drawLine(x - 15, y - 15, x + 15, y + 15);
+// PD::drawLine(x + 15, y - 15, x - 15, y + 15);
     int8_t xOffset = spriteOffsets[static_cast<uint8_t>(type) * 2];
-    int8_t yOffset = spriteOffsets[static_cast<uint8_t>(type) * 2];
+    int8_t yOffset = spriteOffsets[(static_cast<uint8_t>(type) * 2) + 1];
 
     this->renderSprite(type, x, y, xOffset, yOffset, Direction::Up, 0, false, false, 0);
 

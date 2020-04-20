@@ -87,7 +87,7 @@ void Bullets::render(Player &player) {
                     break;
 
                 case Object::SpiderWeb:
-printf("render bullet x: %i, y: %i, f: %i\n", x, y, frame);
+
                     switch (frame) {
 
                         case 0:

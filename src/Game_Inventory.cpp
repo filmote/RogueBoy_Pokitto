@@ -236,15 +236,18 @@ void Game::showInventory() {
                         }   
 
                         Sprite &sprite = this->objects.getSprite(spriteIdx);
-                        uint8_t x = this->map.getTileX(this->player.getX());
-                        uint8_t y = this->map.getTileY(this->player.getY());
+                        sprite.setSprite(this->map.getTileX(this->player.getX()), this->map.getTileY(this->player.getY()), 0, inventoryItem.type, true, false);
 
-                        sprite.setType(inventoryItem.type);
-                        sprite.setActive(true);
-                        sprite.setX((x * TILE_SIZE) + 4);
-                        sprite.setY((y * TILE_SIZE) + 4);
+                        // uint8_t x = this->map.getTileX(this->player.getX());
+                        // uint8_t y = this->map.getTileY(this->player.getY());
+
+                        // sprite.setType(inventoryItem.type);
+                        // sprite.setActive(true);
+                        // sprite.setX((x * TILE_SIZE) + 4);
+                        // sprite.setY((y * TILE_SIZE) + 4);
                         sprite.setPreventImmediatePickup(true);
                         sprite.setQuantity(inventoryItem.quantity);
+                        // sprite.setCarrying(Object::None);
 
                         switch (inventoryItem.type) {
 

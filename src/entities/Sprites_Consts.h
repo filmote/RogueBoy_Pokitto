@@ -10,22 +10,22 @@ using PS = Pokitto::Sound;
 
 
 const uint8_t spriteWidths[22] =  { 
-    8,  /* Coin */
-    8,  /* SackOfCash */
-    8,  /* Bread */
+    10, /* Coin */
+    10, /* SackOfCash */
+    10, /* Bread */
     10, /* Key */
-    8,  /* Chicken */
+    10, /* Chicken */
     8,  /* Floater */
     10, /* Skull */
     8,  /* Spider */
     8,  /* Bat */
     12, /* Tools */
-    8,  /* Tonic */
+    10,  /* Tonic */
     16, /* BigSpider */
-    12, /* IceSpell */
-    12, /* GreenSpell */
-    12, /* RedSpell */
-    8,  /* MauveSpell */
+    14, /* IceSpell */
+    14, /* GreenSpell */
+    14, /* RedSpell */
+    14, /* MauveSpell */
     12, /* NewEnemy */
     16, /* SpikeLHS */
     16, /* SpikeRHS */
@@ -35,22 +35,22 @@ const uint8_t spriteWidths[22] =  {
 };
 
 const uint8_t spriteHeights[22] = { 
-    8,  /* Coin */
-    8,  /* SackOfCash */
-    8,  /* Bread */
-    8,  /* Key */
+    10, /* Coin */
+    10, /* SackOfCash */
+    10, /* Bread */
+    10, /* Key */
     8,  /* Chicken */
     8,  /* Floater */  
     9,  /* Skull */
     8,  /* Spider */
     8,  /* Bat */
     12, /* Tools */
-    8,  /* Tonic */
+    10,  /* Tonic */
     16, /* BigSpider */
-    12, /* IceSpell */
-    12,  /* GreenSpell */
-    12,  /* RedSpell */
-    8,  /* MauveSpell */
+    14, /* IceSpell */
+    14,  /* GreenSpell */
+    14,  /* RedSpell */
+    14, /* MauveSpell */
     12, /* NewEnemy */
     16, /* SpikeLHS note its actually 17 */
     16, /* SpikeRHS */
@@ -61,22 +61,22 @@ const uint8_t spriteHeights[22] = {
 
         
 const int8_t spriteOffsets[44] = { 
-    -3, -3,  /* Coin */
-    -3, -3,  /* SackOfCash */
-    -3, -3,  /* Bread */
-    -6, -3,  /* Key */
-    -3, -3,  /* Chicken */
+    -5, -5,  /* Coin */
+    -5, -5,  /* SackOfCash */
+    -5, -5,  /* Bread */
+    -5, -4,  /* Key */
+    -5, -5,  /* Chicken */
     -3, -3,  /* Floater */  
     -3, -3,  /* Skull */
     -4, -4,  /* Spider */
     -4, -4,  /* Bat */
     -5, -5,  /* Tools */
-    -4, -4,  /* Tonic */
+    -5, -5,  /* Tonic */
     -8, -8,  /* BigSpider */
-    -5, -4,  /* IceSpell */
-    -5, -4,  /* GreenSpell */
-    -5, -4,  /* RedSpell */
-    -4, -4,  /* MauveSpell */
+    -7, -6,  /* IceSpell */
+    -7, -6,  /* GreenSpell */
+    -7, -6,  /* RedSpell */
+    -7, -6,  /* MauveSpell */
     -6, -6,  /* NewEnemy */
     -8, -8,  /* SpikeLHS */
     -8, -8,  /* SpikeRHS */

@@ -7,6 +7,7 @@ using PS = Pokitto::Sound;
 
 void Game::updateObjects() {
 
+printf("obj %i\n", this->objects.getObjectNum());
 //printf("%i\n", this->enemyBulletDelay);
     // Handle various counters ..
 
@@ -57,7 +58,7 @@ void Game::updateObjects() {
                     if (i != j && objectI_IsEnemy && !objectJ.isEnemy() && this->collision(objectI, objectJ)) {
 
                         if (objectI.getCarrying() == Object::None) {
-
+printf("enemy pickup %i %i \n", j, objectJ.getType());
                             objectJ.setActive(false);
                             objectI.setCarrying(objectJ.getType());
                             
@@ -292,7 +293,7 @@ void Game::updateObjects() {
                             // Did we hit an enemy?
                             
                             if (object.getActive() && object.isEnemy() && this->collision(object, bullet)) {
-
+printf("player shot enemy\n");
                                 object.damage(bullet.getWeapon());
                                 bullet.setActive(false);
 
@@ -301,6 +302,7 @@ void Game::updateObjects() {
                                     player.setKills(this->player.getKills() + 1);
 
                                     if (object.getCarrying() != Object::None) {
+printf("drop item %i\n", object.getCarrying());                                        
                                         dropItem(object.getCarrying(), object.getX(), object.getY(), true, &object, this->objects);
                                     }
 
@@ -316,6 +318,7 @@ void Game::updateObjects() {
                     // Did the bullet hit the player?  Test only if it is an enemy bullet ..
 
                     case PLAYER_BULLET_MAX ... PLAYER_BULLET_MAX + ENEMY_BULLET_MAX:
+printf("enemy shot enemy\n");
     //  printf("c5c\n");                
                         if (this->collision(this->player, bullet)) {
     //  printf("c5c1\n"); 
@@ -585,6 +588,23 @@ void Game::playerMovement() {
                 }
                 break;
 
+            case Object::IceSpell:
+                {
+                    uint8_t inactiveBulletIdx = this->bullets.getInactivePlayerBullet();
+
+                    if (inactiveBulletIdx != NO_INACTIVE_BULLET_FOUND) {
+
+                        Bullet &bullet = this->bullets.getPlayerBullet(inactiveBulletIdx);
+                        bullet.setBullet(x + xOffsets[static_cast<uint8_t>(direction)], y + yOffsets[static_cast<uint8_t>(direction)], direction, this->player.getWeapon());
+
+                        uint8_t slot = this->player.getInventorySlot(this->player.getWeapon());
+                        InventoryItem &inventoryItem = this->player.getInventoryItem(slot);
+
+                    }
+
+                }
+                break;
+
             case Object::GreenSpell:
             case Object::RedSpell:
                 {
@@ -631,7 +651,7 @@ void Game::playerMovement() {
                     uint8_t slot = this->player.getInventorySlot(this->player.getWeapon());
                     InventoryItem &inventoryItem = this->player.getInventoryItem(slot);
 
-                    //SJH inventoryItem.quantity--;
+                    inventoryItem.quantity--;
                     this->shockwave = 9;
 
                     if (inventoryItem.quantity == 0) {
@@ -743,8 +763,9 @@ bool Game::interactWithBlock(int x, int y, MapTiles block) {
             // sound move switch 
             return true;
 
-        case MapTiles::ClosedChest: 
+        case MapTiles::ClosedChest_Key: 
             {
+printf("ClosedChest_Key objNum: %i, ", this->objects.getObjectNum());                
                 this->map.setBlock(x, y, MapTiles::OpenChest); 
                 // sound open chest
 
@@ -761,12 +782,77 @@ bool Game::interactWithBlock(int x, int y, MapTiles block) {
                 }   
 
                 Sprite &sprite = this->objects.getSprite(spriteIdx);
+printf("spriteIdx: %i, objNum (After) %i\n", spriteIdx,  this->objects.getObjectNum());                
+                sprite.setSprite((x * TILE_SIZE) + 8, (y * TILE_SIZE) + 8, 0, Object::Key, true, false);
 
-                sprite.setType(Object::Key);
-                sprite.setActive(true);
-                sprite.setX((x * TILE_SIZE) + 8);
-                sprite.setY((y * TILE_SIZE) + 8);
-                sprite.setPreventImmediatePickup(true);
+                // sprite.setType(Object::Key);
+                // sprite.setActive(true);
+                // sprite.setX((x * TILE_SIZE) + 8);
+                // sprite.setY((y * TILE_SIZE) + 8);
+                // sprite.setPreventImmediatePickup(true);
+
+            }
+            return true;
+
+        case MapTiles::ClosedChest_Random: 
+            {
+                this->map.setBlock(x, y, MapTiles::OpenChest); 
+                // sound open chest
+
+                // random
+
+                #define RANDOM_COIN     70
+                #define RANDOM_SACK     RANDOM_COIN + 10
+                #define RANDOM_BREAD    RANDOM_SACK + 10
+                #define RANDOM_CHICKEN  RANDOM_SACK + 10
+                #define RANDOM_TOOLS  RANDOM_CHICKEN + 10
+                #define RANDOM_TONIC  RANDOM_TOOLS + 10
+                #define RANDOM_KEY  RANDOM_TONIC + 10
+                #define RANDOM_ICE   RANDOM_TONIC + 5
+                #define RANDOM_GREEN   RANDOM_ICE + 5
+                #define RANDOM_RED   RANDOM_GREEN + 5
+                #define RANDOM_MAUVE   RANDOM_RED + 5
+                #define RANDOM_END  RANDOM_MAUVE
+
+                const uint8_t randomLimit[12] = { RANDOM_COIN,        RANDOM_SACK, RANDOM_BREAD,  RANDOM_CHICKEN,  RANDOM_TOOLS,  RANDOM_TONIC,  RANDOM_KEY,       RANDOM_ICE,       RANDOM_GREEN,       RANDOM_RED,       RANDOM_MAUVE, RANDOM_END }; 
+                const uint8_t randomItems[11] = { Object::Coin, Object::SackOCash, Object::Bread, Object::Chicken, Object::Tools, Object::Tonic, Object::Key, Object::IceSpell, Object::GreenSpell, Object::RedSpell, Object::MauveSpell, };
+
+
+                uint8_t randObject = random(0, RANDOM_END);
+                uint8_t object = 0;
+
+                for (uint8_t x = 0; x < 12; x++) {
+
+                    if  (randObject <= randomLimit[x]) {
+
+                        object = randomItems[x];
+                        break;
+
+                    }
+
+                }
+
+
+                // Find a matching Object in the sprites collecion that is disabled, otherwise add one ..
+
+                uint8_t spriteIdx = this->objects.getFirstInactiveSpriteIndex(static_cast<Object>(object));
+
+                if (spriteIdx == NO_SPRITE_FOUND) {
+
+                    this->objects.setObjectNum(this->objects.getObjectNum() + 1);
+                    spriteIdx = this->objects.getObjectNum() - 1;
+
+                }   
+printf("ClosedChest_Random \n");                
+
+                Sprite &sprite = this->objects.getSprite(spriteIdx);
+                sprite.setSprite((x * TILE_SIZE) + 8, (y * TILE_SIZE) + 8, 0, static_cast<Object>(object), true, false);
+//                 sprite.setType(static_cast<Object>(object));
+//                 sprite.setActive(true);
+// printf("%i, %i\n", (x * TILE_SIZE) + 8,(y * TILE_SIZE) + 8);                
+//                 sprite.setX((x * TILE_SIZE) + 8);
+//                 sprite.setY((y * TILE_SIZE) + 8);
+//                 sprite.setPreventImmediatePickup(true);
 
             }
             return true;
