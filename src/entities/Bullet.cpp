@@ -64,7 +64,7 @@ uint8_t Bullet::getHeight() {
 
 
 void Bullet::setBullet(uint16_t x, uint16_t y, Direction direction, Object weapon) { 
-// printf("setBullet x: %i, y: %i, d: %i\n",x, y, static_cast<uint8_t>(direction));
+
     this->x = x; 
     this->y = y; 
     this->direction = direction; 

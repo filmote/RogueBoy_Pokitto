@@ -119,6 +119,7 @@ class Game {
         InventoryMenuVariables inventoryMenu;
         HighScoreVariables highScoreVariables;
         SplashScreenVariables splashScreenVariables;
+        TitleScreenVars titleScreenVars;
 
         GameCookie *cookie;
 

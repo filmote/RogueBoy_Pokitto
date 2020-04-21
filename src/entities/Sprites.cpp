@@ -71,7 +71,7 @@ void Sprites::render(Player &player, bool showEnemies) {
 
             uint8_t puffIndex = object.getPuffIndex();
             if (puffIndex > 0) {
-// printf("puff %i\n", puffIndex);
+
                 PD::drawBitmap(x - 4, y - 4, Images::Puff[(10 - puffIndex) / 2]);
 
             }
@@ -83,8 +83,10 @@ void Sprites::render(Player &player, bool showEnemies) {
 }
 
 void Sprites::renderSprite(Object type, int x, int y) {
+
 // PD::drawLine(x - 15, y - 15, x + 15, y + 15);
 // PD::drawLine(x + 15, y - 15, x - 15, y + 15);
+
     int8_t xOffset = spriteOffsets[static_cast<uint8_t>(type) * 2];
     int8_t yOffset = spriteOffsets[(static_cast<uint8_t>(type) * 2) + 1];
 
@@ -95,10 +97,9 @@ void Sprites::renderSprite(Object type, int x, int y) {
 
 void Sprites::renderSprite(Object type, int x, int y, int8_t xOffset, int8_t yOffset, Direction direction, uint8_t frame, bool showEnemies, bool renderHealth, int healthValue ) {
 
-
 // PD::drawLine(x, y - 20, x, y + 20);
 // PD::drawLine(x - 20, y, x + 20, y);
-// printf("offset : %i\n", offset);
+
     switch (type) {
 
         case Object::Coin:

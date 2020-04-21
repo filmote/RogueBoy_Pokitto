@@ -71,6 +71,14 @@ struct SplashScreenVariables {
 
 };
 
+struct TitleScreenVars {
+
+    int8_t arrowCounter = 0;
+    uint8_t orbCounter = 0;
+    TitleScreenMode mode = TitleScreenMode::Start;
+
+};
+
 struct InventoryItem {
 
     uint8_t index;      // Ordinal index in collection.

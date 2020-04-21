@@ -28,6 +28,7 @@
 
 #define NO_SLOT_FOUND       255
 #define NO_SPRITE_FOUND     255
+#define NO_HIGH_SCORE_EDIT  255
 #define NO_INACTIVE_BULLET_FOUND     255
 #define MAX_INVENTORY_ITEMS 5                   // Number of item types the player can hold
 #define MAX_INVENTORY_COUNT 6                   // NUmber of items the player can hold, two of one type counts as two.

@@ -10,7 +10,7 @@ const uint8_t charWidths[36] = { 4, 4, 4, 4, 4, 4, 5, 5, 1, 4, 5, 4, 6, 5, 4, 4,
 
 void Game::highScore() {
 
-    if (this->highScoreVariables.entryIdx == 255) {
+    if (this->highScoreVariables.entryIdx == NO_HIGH_SCORE_EDIT) {
 
         if (PC::buttons.pressed(BTN_A)) {
 
@@ -76,7 +76,7 @@ void Game::highScore() {
         if (PC::buttons.pressed(BTN_A)) {
 
             this->cookie->saveCookie();
-            this->highScoreVariables.entryIdx = 255;
+            this->highScoreVariables.entryIdx = NO_HIGH_SCORE_EDIT;
 
         }
 

@@ -7823,6 +7823,102 @@
 		},
 		"\\ezgif-6-798f65cbc39e.gif": {
 			"sdcard": false
+		},
+		"\\src\\images\\title": {
+			"sdcard": false
+		},
+		"\\src\\images\\title\\ArrowDown.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\title\\ArrowUp.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\title\\BorderBOT.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\title\\DarkRitual.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\title\\BorderTOP.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\title\\Game_Play.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\title\\Eyes.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\title\\PlayerTOP.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\title\\Orb.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\title\\PlayerBOT.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\title\\Score.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\title\\Start.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\title\\Title.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\title\\ArrowDown.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\title\\ArrowUp.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\title\\DarkRitual.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\title\\BorderBOT.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\title\\BorderTOP.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\title\\Game_Play.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\title\\Eyes.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\title\\PlayerTOP.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\title\\Orb.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\title\\PlayerBOT.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\title\\Score.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\title\\Start.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\title\\Eyes_Open.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\title\\Eyes_Closed.gif": {
+			"sdcard": false
+		},
+		"\\src\\images\\title\\Eyes_Open.h": {
+			"sdcard": false
+		},
+		"\\Eyes_Closed.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\title\\Eyes_Closed.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\title\\Eyes_Closed.h": {
+			"sdcard": false
 		}
 	},
 	"BUILDFlags": {

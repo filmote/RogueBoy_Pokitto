@@ -148,9 +148,11 @@ void Game::nextLevelLoad() {
             uint8_t xSegments = levelToLoad[cursor++];
             uint8_t ySegments = levelToLoad[cursor++];
 
-            printf("=========================================================================\n");
-            printf("Random Level: %i", randomLevel);
-            printf("Size %i %i\n",xSegments, ySegments);
+            #ifdef DEBUG
+                /* DEBUG */ printf("=========================================================================\n");
+                /* DEBUG */ printf("Random Level: %i", randomLevel);
+                /* DEBUG */ printf("Size %i %i\n",xSegments, ySegments);
+            #endif
             
             map.setWidth(xSegments * RANDOM_TILE_SIZE);
             map.setHeight(ySegments * RANDOM_TILE_SIZE);
@@ -185,8 +187,9 @@ void Game::nextLevelLoad() {
 
             }
 
-printf("Player %i %i, EOL %i %i\n",playerX, playerY, levelEndX, levelEndY);
-
+            #ifdef DEBUG
+                /* DEBUG */ printf("Player %i %i, EOL %i %i\n",playerX, playerY, levelEndX, levelEndY);
+            #endif
 
             // Load segments ..
 
@@ -198,7 +201,9 @@ printf("Player %i %i, EOL %i %i\n",playerX, playerY, levelEndX, levelEndY);
                     uint8_t cursorTile = 0;
                     const uint8_t * segmentToLoad = nullptr; // = this->mapsSegments[tileIdx];
 
-                    printf("segmentDetails >  %i, & 128 > %i, & 64 > %i, &32 > %i\n", segmentDetails, segmentDetails & 128, segmentDetails & 64, segmentDetails & 32);
+                    #ifdef DEBUG
+                        /* DEBUG */ printf("segmentDetails >  %i, & 128 > %i, & 64 > %i, &32 > %i\n", segmentDetails, segmentDetails & 128, segmentDetails & 64, segmentDetails & 32);
+                    #endif
 
                     // Determine which segement to load ..
 
@@ -260,7 +265,7 @@ printf("Player %i %i, EOL %i %i\n",playerX, playerY, levelEndX, levelEndY);
                         uint8_t randOption = random(0, options);
 
                         if (options > 0) {
-                            //printf("maptiles rand %i of %i options\n", randOption, options);
+
                             while (true) {
 
                                 uint8_t option = segmentToLoad[cursorTile++];
@@ -313,7 +318,7 @@ printf("Player %i %i, EOL %i %i\n",playerX, playerY, levelEndX, levelEndY);
                         randOption = random(0, options);
 
                         if (options > 0) {
-                            // printf("objects rand %i of %i options\n", randOption, options);
+
                             while (true) {
 
                                 uint8_t option = segmentToLoad[cursorTile++];
@@ -483,53 +488,56 @@ void Game::clearCells() {
 
 void Game::printMap() {
 
-    printf("-----------------------------\n");
-    printf("W: %i", map.getWidth());
-    printf("H: %i",map.getHeight());
-    printf("\n-----------------------------\n");
+    /* DEBUG */ printf("-----------------------------\n");
+    /* DEBUG */ printf("W: %i", map.getWidth());
+    /* DEBUG */ printf("H: %i",map.getHeight());
+    /* DEBUG */ printf("\n-----------------------------\n");
 
 
     for (int y=0; y<map.getHeight()/9; y++) {
         for (int x=0; x<map.getWidth()/9; x++) {
             if (this->cells[y][x].isBlank) {
-                printf("Blank, ");
+                /* DEBUG */ printf("Blank, ");
             }
             else {
-                printf("S%i R%i, ", this->cells[y][x].segment, this->cells[y][x].variation);
+                /* DEBUG */ printf("S%i R%i, ", this->cells[y][x].segment, this->cells[y][x].variation);
             }
         }
-        printf("\n");
+        /* DEBUG */ printf("\n");
     }
 
 
     uint8_t i = 0;
     for (int y=0; y<map.getHeight(); y++) {
-        if (y % 9 == 0) printf("----------------------------------------------------------------------------------------------------------------------------\n");
+        if (y % 9 == 0) 
+            /* DEBUG */ printf("----------------------------------------------------------------------------------------------------------------------------\n");
         for (int x=0; x<map.getWidth(); x++) {
-            if (x % 9 == 0) printf(" | ");
-            if (this->map.getBlock(x, y) < 10) printf("0");
-            printf("%i ", this->map.getBlock(x, y));
+            if (x % 9 == 0) 
+                /* DEBUG */ printf(" | ");
+            if (this->map.getBlock(x, y) < 10) 
+                /* DEBUG */ printf("0");
+           /* DEBUG */  printf("%i ", this->map.getBlock(x, y));
             i++;
         }
-    printf("\n");
+    /* DEBUG */ printf("\n");
     }
 
-    printf("Obj: %i", this->objects.getObjectNum());
-    printf(", Env: %i\n", this->environments.getEnvironmentNum());
+    /* DEBUG */ printf("Obj: %i", this->objects.getObjectNum());
+    /* DEBUG */ printf(", Env: %i\n", this->environments.getEnvironmentNum());
 
     for (int i=0; i<MAXOBJECT; i++) {
 
         if (objects.getSprite(i).getActive()) {
-            printf("obj[%i] x: %i, y: %i, type: %i, health %i \n", i, objects.getSprite(i).getX(), objects.getSprite(i).getY(), objects.getSprite(i).getType(), objects.getSprite(i).getHealth());
+            /* DEBUG */ printf("obj[%i] x: %i, y: %i, type: %i, health %i \n", i, objects.getSprite(i).getX(), objects.getSprite(i).getY(), objects.getSprite(i).getType(), objects.getSprite(i).getHealth());
         }
 
     }
 
-    printf("\n");
+    /* DEBUG */ printf("\n");
     for (int i=0; i<MAXENVIROMENT; i++) {
 
         if (this->environments.getEnvironment(i).getActive()) {
-        printf("env[%i] x1: %i, y1: %i, x2 %i, y2 %i\n", i, this->environments.getEnvironment(i).getX(), this->environments.getEnvironment(i).getY(), this->environments.getEnvironment(i).getFinishX(), this->environments.getEnvironment(i).getFinishY());
+        /* DEBUG */ printf("env[%i] x1: %i, y1: %i, x2 %i, y2 %i\n", i, this->environments.getEnvironment(i).getX(), this->environments.getEnvironment(i).getY(), this->environments.getEnvironment(i).getFinishX(), this->environments.getEnvironment(i).getFinishY());
         }
 
     }

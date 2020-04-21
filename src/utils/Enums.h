@@ -6,6 +6,11 @@ enum WalkType : uint8_t {
     Slow,
 };
 
+enum TitleScreenMode : uint8_t {
+    Start,
+    HighScore,
+};
+
 enum Object {
     Coin = 0,
     SackOCash = 1,

@@ -12,10 +12,10 @@
 #include "shockwaves/Shockwaves.h"
 #include "shop/Shop.h"
 #include "puff/Puffs.h"
+#include "title/Title.h"
 
 namespace Images {
 
-    #include "Logo.h"
     #include "Arrow.h"
     #include "Arrow_Dark.h"
     #include "Dreamer2345_Base.h"

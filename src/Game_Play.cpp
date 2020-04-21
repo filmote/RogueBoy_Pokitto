@@ -7,8 +7,7 @@ using PS = Pokitto::Sound;
 
 void Game::updateObjects() {
 
-printf("obj %i\n", this->objects.getObjectNum());
-//printf("%i\n", this->enemyBulletDelay);
+
     // Handle various counters ..
 
     this->player.decWeaponCount();
@@ -29,7 +28,7 @@ printf("obj %i\n", this->objects.getObjectNum());
 
 
             // Reduce the health bar visual indicator counter ..
-// printf("a\n");
+
             objectI.update();
 
 
@@ -58,7 +57,7 @@ printf("obj %i\n", this->objects.getObjectNum());
                     if (i != j && objectI_IsEnemy && !objectJ.isEnemy() && this->collision(objectI, objectJ)) {
 
                         if (objectI.getCarrying() == Object::None) {
-printf("enemy pickup %i %i \n", j, objectJ.getType());
+
                             objectJ.setActive(false);
                             objectI.setCarrying(objectJ.getType());
                             
@@ -69,7 +68,6 @@ printf("enemy pickup %i %i \n", j, objectJ.getType());
                 }
 
             }
-// printf("b\n");
 
 
             if (!objectI_IsEnemy || (objectI_IsEnemy && update && this->levelStartDelay == 0)) { this->spriteAI(map, player, objectI); }
@@ -208,7 +206,6 @@ printf("enemy pickup %i %i \n", j, objectJ.getType());
         }
 
     }
-// printf("c\n");
 
 
     // Have the bullets hit anything ?
@@ -221,7 +218,7 @@ printf("enemy pickup %i %i \n", j, objectJ.getType());
 
             uint8_t width = bullet.getWidth();
             uint8_t height = bullet.getHeight();
-// printf("c1\n");
+
             Direction xDirection = this->getNearestCardinalDirection(bullet.getDirection(), Axis::XAxis);
             Direction yDirection = this->getNearestCardinalDirection(bullet.getDirection(), Axis::YAxis);
 
@@ -232,7 +229,7 @@ printf("enemy pickup %i %i \n", j, objectJ.getType());
 
 
             // If the bullet has hit a wall or other fixed object ..
-// printf("c2\n");
+
             if (xDirection != Direction::None && this->map.isWalkable(bullet.getX(), ry, xDirection, width, height) == WalkType::Stop) {
 
                 if (bullet.getWeapon() == Object::SpiderWeb) {
@@ -244,7 +241,7 @@ printf("enemy pickup %i %i \n", j, objectJ.getType());
                 }
 
             }
-// printf("c3\n");
+
             if (yDirection != Direction::None && bullet.getActive() && this->map.isWalkable(rx, bullet.getY(), yDirection, width, height) == WalkType::Stop) {
 
                 if (bullet.getWeapon() == Object::SpiderWeb) {
@@ -257,7 +254,6 @@ printf("enemy pickup %i %i \n", j, objectJ.getType());
 
             }
 
-// printf("c4\n");
             const int8_t bullet_XMovement[8] = { 0, 5, 5, 5, 0, -5, -5, -5 };
             const int8_t bullet_YMovement[8] = { -5, -5, 0, 5, 5, 5, 0, -5 };
 
@@ -265,7 +261,7 @@ printf("enemy pickup %i %i \n", j, objectJ.getType());
             // Did we just break a barrel ?
 
             if (!bullet.getActive()) {
-// printf("c5a\n");
+
                 uint8_t direction = static_cast<uint8_t>(bullet.getDirection());
                 rx = rx + bullet_XMovement[direction];
                 ry = ry + bullet_YMovement[direction];
@@ -276,7 +272,6 @@ printf("enemy pickup %i %i \n", j, objectJ.getType());
 
             }
             else {
-// printf("c5b\n");
 
                 switch (bulletIdx) {
                     
@@ -284,7 +279,7 @@ printf("enemy pickup %i %i \n", j, objectJ.getType());
                     // Did we bullet an enemy?  Test only id it is a player bullet ..
 
                     case 0 ... PLAYER_BULLET_MAX - 1:
-// printf("c5b1\n");
+
                         for (uint8_t i = 0; i < this->objects.getObjectNum(); i++) {
 
                             auto &object = this->objects.getSprite(i);
@@ -293,7 +288,7 @@ printf("enemy pickup %i %i \n", j, objectJ.getType());
                             // Did we hit an enemy?
                             
                             if (object.getActive() && object.isEnemy() && this->collision(object, bullet)) {
-printf("player shot enemy\n");
+
                                 object.damage(bullet.getWeapon());
                                 bullet.setActive(false);
 
@@ -302,7 +297,6 @@ printf("player shot enemy\n");
                                     player.setKills(this->player.getKills() + 1);
 
                                     if (object.getCarrying() != Object::None) {
-printf("drop item %i\n", object.getCarrying());                                        
                                         dropItem(object.getCarrying(), object.getX(), object.getY(), true, &object, this->objects);
                                     }
 
@@ -318,37 +312,29 @@ printf("drop item %i\n", object.getCarrying());
                     // Did the bullet hit the player?  Test only if it is an enemy bullet ..
 
                     case PLAYER_BULLET_MAX ... PLAYER_BULLET_MAX + ENEMY_BULLET_MAX:
-printf("enemy shot enemy\n");
-    //  printf("c5c\n");                
+
                         if (this->collision(this->player, bullet)) {
-    //  printf("c5c1\n"); 
+
                             //sound shot, ouch!
 
                             if (this->shake < 3) {
                                 this->shake = this->shake + 2;
                             }
-    //  printf("c5c2\n"); 
 
                             this->player.setHealth(this->player.getHealth() - DAMAGE_BULLET);
-    //  printf("c5c3\n"); 
                             bullet.setActive(false);
-    //  printf("c5c4\n"); 
 
                         }
-// printf("c5d\n");
+
                         break;
 
                 }
-// printf("c5e\n");
 
             }
 
         }
 
     }
-
-    // printf("d\n");
-
 
 }
 
@@ -361,12 +347,8 @@ void Game::updateGame() {
     const uint8_t offX[4] = { 1, 0,};
     const uint8_t offY[4] = { 0, 1 };
 
-// printf("1\n");
-
     this->playerMovement();
-// printf("2\n");
     this->updateObjects();
-// printf("3\n");
 
     if (this->shake > 0) {
         this->renderEnviroment(offX[(this->shake - 1) % 2], offY[(this->shake - 1) % 2]);
@@ -376,10 +358,8 @@ void Game::updateGame() {
         this->renderEnviroment(0, 0);
         this->renderPlayer(0, 0);
     }
-// printf("4\n");
 
     this->renderObjects();
-// printf("5\n");
     this->renderHud();
     
     if (Pokitto::Core::frameCount % TIMER_STEP == 0) { this->map.decTimer();  }
@@ -765,7 +745,6 @@ bool Game::interactWithBlock(int x, int y, MapTiles block) {
 
         case MapTiles::ClosedChest_Key: 
             {
-printf("ClosedChest_Key objNum: %i, ", this->objects.getObjectNum());                
                 this->map.setBlock(x, y, MapTiles::OpenChest); 
                 // sound open chest
 
@@ -782,14 +761,7 @@ printf("ClosedChest_Key objNum: %i, ", this->objects.getObjectNum());
                 }   
 
                 Sprite &sprite = this->objects.getSprite(spriteIdx);
-printf("spriteIdx: %i, objNum (After) %i\n", spriteIdx,  this->objects.getObjectNum());                
                 sprite.setSprite((x * TILE_SIZE) + 8, (y * TILE_SIZE) + 8, 0, Object::Key, true, false);
-
-                // sprite.setType(Object::Key);
-                // sprite.setActive(true);
-                // sprite.setX((x * TILE_SIZE) + 8);
-                // sprite.setY((y * TILE_SIZE) + 8);
-                // sprite.setPreventImmediatePickup(true);
 
             }
             return true;
@@ -843,16 +815,9 @@ printf("spriteIdx: %i, objNum (After) %i\n", spriteIdx,  this->objects.getObject
                     spriteIdx = this->objects.getObjectNum() - 1;
 
                 }   
-printf("ClosedChest_Random \n");                
 
                 Sprite &sprite = this->objects.getSprite(spriteIdx);
                 sprite.setSprite((x * TILE_SIZE) + 8, (y * TILE_SIZE) + 8, 0, static_cast<Object>(object), true, false);
-//                 sprite.setType(static_cast<Object>(object));
-//                 sprite.setActive(true);
-// printf("%i, %i\n", (x * TILE_SIZE) + 8,(y * TILE_SIZE) + 8);                
-//                 sprite.setX((x * TILE_SIZE) + 8);
-//                 sprite.setY((y * TILE_SIZE) + 8);
-//                 sprite.setPreventImmediatePickup(true);
 
             }
             return true;
@@ -873,7 +838,6 @@ printf("ClosedChest_Random \n");
         case MapTiles::DoorLHS ... MapTiles::DoorBOT:
 
             if (this->player.getInventoryCount(Object::Key) > 0) {
-//                this->map.setBlock(x, y, static_cast<MapTiles>((static_cast<uint8_t>(block) + (static_cast<uint8_t>(MapTiles::DoorLHSOpen) - static_cast<uint8_t>(MapTiles::DoorLHS))))); 
                 this->map.setBlock(x, y, static_cast<MapTiles>(block + MapTiles::DoorLHSOpen - MapTiles::DoorLHS)); 
                 this->player.decInventoryItem(Object::Key);
                 // sound unlock door
@@ -1092,7 +1056,7 @@ void Game::spriteAI(MapInformation &map, Player &player, Sprite &sprite) {
                         uint8_t inactiveBulletIdx = this->bullets.getInactiveEnemyBullet();
 
                         if (inactiveBulletIdx != NO_INACTIVE_BULLET_FOUND) {
-    // printf("fire web x: %i, y: %i, d: %i\n", sprite.getX(), sprite.getY(), static_cast<uint8_t>(direction));
+
                             Bullet &bullet = this->bullets.getEnemyBullet(inactiveBulletIdx);
                             bullet.setBullet(sprite.getX() + xOffsets[static_cast<uint8_t>(direction)], sprite.getY() + yOffsets[static_cast<uint8_t>(direction)], direction, Object::SpiderWeb);
                             this->enemyBulletDelay = random(ENEMY_BULLET_DELAY_MIN, ENEMY_BULLET_DELAY_MAX);
