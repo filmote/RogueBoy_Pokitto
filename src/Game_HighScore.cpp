@@ -97,10 +97,6 @@ void Game::highScore() {
     PD::drawBitmap(100, 16, Images::LevelSplash_Right);
     PD::drawBitmap(10, 78, Images::LevelSplash_Bottom);
     PD::setColor(4, 15);
-
-    // PD::setCursor(9, 20);
-    // PD::print("Level: ");
-    // PD::print(map.getLevel(), 10);
     
     PD::setCursor(24, 21);
     PD::print("High Scores");

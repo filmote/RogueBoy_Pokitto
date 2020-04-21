@@ -152,37 +152,37 @@ void Game::updateObjects() {
 
                                 case Object::Floater:   
                                     //SJH 
-                                    player.decHealth(10 * diff); 
+                                    player.decHealth(HEALTH_DEC_FLOATER); 
                                     break;
 
                                 case Object::Skull: 
                                     //SJH 
-                                    player.decHealth(5 * diff); 
+                                    player.decHealth(HEALTH_DEC_SKULL); 
                                     break;
 
                                 case Object::Spider:
                                     //SJH 
-                                    player.decHealth(2 * diff); 
+                                    player.decHealth(HEALTH_DEC_SPIDER); 
                                     break;
 
                                 case Object::BigSpider:
                                     //SJH 
-                                    player.decHealth(6 * diff); 
+                                    player.decHealth(HEALTH_DEC_BIGSPIDER); 
                                     break;
 
                                 case Object::Bat: 
                                     //SJH 
-                                    player.decHealth(diff); 
+                                    player.decHealth(HEALTH_DEC_BAT); 
                                     break;
 
                                 case Object::NewEnemy: 
                                     //SJH 
-                                    player.decHealth(3 * diff); 
+                                    player.decHealth(HEALTH_DEC_NEWENEMY); 
                                     break;
 
                                 case Object::Snake: 
                                     //SJH 
-                                    player.decHealth(3 * diff); 
+                                    player.decHealth(HEALTH_DEC_SNAKE); 
                                     break;
 
                                 case Object::SpikeLHS: 
@@ -190,8 +190,14 @@ void Game::updateObjects() {
                                 case Object::FireTOP: 
                                 case Object::FireBOT: 
                                     //SJH 
-                                    player.decHealth(2 * diff); 
+                                    player.decHealth(HEALTH_DEC_SPIKE_FIRE); 
                                     break;
+
+                                case Object::Chest:   
+                                    //SJH 
+                                    player.decHealth(HEALTH_DEC_CHEST); 
+                                    break;
+
 
                             }
 
@@ -751,7 +757,7 @@ bool Game::interactWithBlock(int x, int y, MapTiles block) {
 
                 // Find a matching Object in the sprites collecion that is disabled, otherwise add one ..
 
-                uint8_t spriteIdx = this->objects.getFirstInactiveSpriteIndex(Object::Key);
+                uint8_t spriteIdx = this->objects.getFirstInactiveSpriteIndex((block == MapTiles::ClosedChest_Key ? Object::Key : Object::Chest));
 
                 if (spriteIdx == NO_SPRITE_FOUND) {
 
@@ -761,7 +767,33 @@ bool Game::interactWithBlock(int x, int y, MapTiles block) {
                 }   
 
                 Sprite &sprite = this->objects.getSprite(spriteIdx);
-                sprite.setSprite((x * TILE_SIZE) + 8, (y * TILE_SIZE) + 8, 0, Object::Key, true, false);
+                sprite.setSprite((x * TILE_SIZE) + 8, (y * TILE_SIZE) + 8, 0, (block == MapTiles::ClosedChest_Key ? Object::Key : Object::Chest), true, false);
+
+            }
+            return true;
+
+        case MapTiles::ClosedChest_Killer: 
+            {
+                this->map.setBlock(x, y, MapTiles::OpenChest); 
+                // sound open chest
+
+
+                // Find a matching Object in the sprites collecion that is disabled, otherwise add one ..
+
+                uint8_t spriteIdx = this->objects.getFirstInactiveSpriteIndex((block == MapTiles::ClosedChest_Key ? Object::Key : Object::Chest));
+
+                if (spriteIdx == NO_SPRITE_FOUND) {
+
+                    this->objects.setObjectNum(this->objects.getObjectNum() + 1);
+                    spriteIdx = this->objects.getObjectNum() - 1;
+
+                }   
+
+                Sprite &sprite = this->objects.getSprite(spriteIdx);
+                sprite.setSprite((x * TILE_SIZE) + 8, (y * TILE_SIZE) + 8, ENEMY_CHEST_HEALTH, (block == MapTiles::ClosedChest_Key ? Object::Key : Object::Chest), true, false);
+                sprite.setCountdown(0);
+                sprite.setDirection(Direction::Down);
+                this->map.setBlock(x, y, MapTiles::Empty); 
 
             }
             return true;
@@ -1033,6 +1065,7 @@ void Game::spriteAI(MapInformation &map, Player &player, Sprite &sprite) {
         case Object::Snake:
         case Object::BigSpider:   
         case Object::Bat: 
+        case Object::Chest: 
 
             spriteAI_UpdateFrame(sprite ,4, 2);
             spriteAI_CheckForMove(map, player, sprite, location, 7);
@@ -1102,7 +1135,7 @@ void Game::spriteAI(MapInformation &map, Player &player, Sprite &sprite) {
             }
 
             break;
-
+            
         case Object::SpikeLHS: 
         case Object::SpikeRHS: 
 

@@ -183,6 +183,7 @@ namespace Images {
     Tile_85,
     Tile_86,
     Tile_08, //87 is chest random same as 08.
+    Tile_08, //88 is chest random same as 08.
     };
 
 };

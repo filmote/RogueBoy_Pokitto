@@ -9,7 +9,7 @@ using PD = Pokitto::Display;
 using PS = Pokitto::Sound;
 
 
-const uint8_t spriteWidths[22] =  { 
+const uint8_t spriteWidths[23] =  { 
     10, /* Coin */
     10, /* SackOfCash */
     10, /* Bread */
@@ -32,9 +32,10 @@ const uint8_t spriteWidths[22] =  {
     16, /* FireTOP */
     16, /* FireBOT */
     12, /* Snake */
+    16, /* Chest */
 };
 
-const uint8_t spriteHeights[22] = { 
+const uint8_t spriteHeights[23] = { 
     10, /* Coin */
     10, /* SackOfCash */
     10, /* Bread */
@@ -57,10 +58,11 @@ const uint8_t spriteHeights[22] = {
     16, /* FireTOP */
     16, /* FireBOT */
     12, /* Snake */
+    16, /* Chest */
 };
 
         
-const int8_t spriteOffsets[44] = { 
+const int8_t spriteOffsets[46] = { 
     -5, -5,  /* Coin */
     -5, -5,  /* SackOfCash */
     -5, -5,  /* Bread */
@@ -83,6 +85,7 @@ const int8_t spriteOffsets[44] = {
     -8, -8,  /* FireTOP */
     -8, -8,  /* FireBOT */
     -4, -6,  /* Snake */
+    -8, -8,  /* Chest */
 };
 
 const char object_Desc_00[] = "Coin";
@@ -107,6 +110,7 @@ const char object_Desc_18[] = "Spike RHS";
 const char object_Desc_19[] = "Flame TOP";
 const char object_Desc_20[] = "Flame BOT";
 const char object_Desc_21[] = "Snake";
+const char object_Desc_22[] = "Chest";
 
 const char * const object_Descs[] = { 
     object_Desc_00,
@@ -131,6 +135,7 @@ const char * const object_Descs[] = {
     object_Desc_19,
     object_Desc_20,
     object_Desc_21,
+    object_Desc_22,
 };
 
                                 // 0  1  2  3  4  5  6  7  8  9  0  1  2  3  4  5  6  7  8  9  0  1  2  3  4   

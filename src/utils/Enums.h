@@ -34,6 +34,7 @@ enum Object {
     FireTOP = 19,
     FireBOT = 20,
     Snake = 21,
+    Chest = 22,
     SpiderWeb = 253,
     FireBall = 254,
     None = 255,
@@ -177,6 +178,7 @@ enum MapTiles {
     SpiderWebLR = 85,
     SpiderWebLL = 86,
     ClosedChest_Random = 87,
+    ClosedChest_Killer = 88,
 
 };
 

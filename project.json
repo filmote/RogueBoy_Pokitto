@@ -7919,6 +7919,69 @@
 		},
 		"\\src\\images\\title\\Eyes_Closed.h": {
 			"sdcard": false
+		},
+		"\\src\\images\\enemies\\New folder": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemies\\chest": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemies\\chest\\Chest_04_F0.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemies\\chest\\Chest_04_F1.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemies\\chest\\Chest_00_F0.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemies\\chest\\Chest_00_F1.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemies\\chest\\Chest_06_F0.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemies\\chest\\Chest_06_F1.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemies\\chest\\Chest_06_F1 - Copy.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemies\\chest\\Chest_06_F0 - Copy.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemies\\chest\\Chest_02_F1.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemies\\chest\\Chest_02_F0.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemies\\chest\\Chest_04_F0.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemies\\chest\\Chest_04_F1.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemies\\chest\\Chest_00_F0.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemies\\chest\\Chest_00_F1.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemies\\chest\\Chest_06_F0.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemies\\chest\\Chest_06_F1.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemies\\chest\\Chest_02_F1.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemies\\chest\\Chest_02_F0.h": {
+			"sdcard": false
+		},
+		"\\src\\entities\\Sprite.cpp": {
+			"sdcard": false
 		}
 	},
 	"BUILDFlags": {

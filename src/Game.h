@@ -105,7 +105,6 @@ class Game {
 
         GameState gameState = GameState::SplashScreen;
 
-        uint8_t diff = 1;
         int points = 0;
         int enemyBulletDelay = 0;
         uint16_t eolXTile;

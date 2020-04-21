@@ -71,6 +71,14 @@ namespace Images {
     #include "fire/Fire_01.h"
     #include "fire/Fire_02.h"
     #include "fire/Fire_03.h"
+    #include "chest/Chest_00_F0.h"
+    #include "chest/Chest_00_F1.h"
+    #include "chest/Chest_02_F0.h"
+    #include "chest/Chest_02_F1.h"
+    #include "chest/Chest_04_F0.h"
+    #include "chest/Chest_04_F1.h"
+    #include "chest/Chest_06_F0.h"
+    #include "chest/Chest_06_F1.h"
     #include "HealthBar.h"
 
     const uint8_t * const Bats[] = { 
@@ -174,4 +182,22 @@ namespace Images {
         Fire_03,
     };
 
+    const uint8_t * const Chests[] = { 
+        Chest_00_F0,
+        Chest_00_F1,
+        Chest_02_F0,
+        Chest_02_F1,
+        Chest_02_F0,
+        Chest_02_F1,
+        Chest_02_F0,
+        Chest_02_F1,
+        Chest_04_F0,
+        Chest_04_F1,
+        Chest_06_F0,
+        Chest_06_F1,
+        Chest_06_F0,
+        Chest_06_F1,
+        Chest_06_F0,
+        Chest_06_F1,
+    };
 };

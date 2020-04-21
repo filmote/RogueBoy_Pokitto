@@ -1,72 +1,103 @@
 #define PROJ_BUTTONS_POLLING_ONLY
 
-
-#define PROJ_SCREENMODE             2
-#define CENTERX 55
-#define CENTERY 36
-
 #define DEBUG
 
-#define TILE_WIDTH          16
-#define TILE_HEIGHT         16
-#define TILE_SIZE           16
+//--------------------------------------------
+// Confgurable Settings
+//--------------------------------------------
 
-#define PLAYER_WIDTH        12
-#define PLAYER_WIDTH_HALF   6
-#define PLAYER_HEIGHT       12
-#define PLAYER_HEIGHT_HALF  6
+// Inventory ..
+
+#define MAX_INVENTORY_COUNT       6                   // NUmber of items the player can hold, two of one type counts as two.
+
+// Health ..
+
+#define HEALTH_INC_BREAD          10
+#define HEALTH_INC_CHICKEN        20
+#define HEALTH_INC_TONIC          30
+#define HEALTH_DEC_SPIDERS_WEB    1                // Health decrement when running through a spider's web.
+#define HEALTH_DEC_FLOATER        10
+#define HEALTH_DEC_SKULL          5
+#define HEALTH_DEC_SPIDER         2
+#define HEALTH_DEC_BIGSPIDER      6
+#define HEALTH_DEC_BAT            1
+#define HEALTH_DEC_NEWENEMY       3
+#define HEALTH_DEC_SNAKE          3
+#define HEALTH_DEC_SPIKE_FIRE     2
+#define HEALTH_DEC_CHEST          5
+
+// Enemy damage ..
+
+#define DAMAGE_FIREBALL           10
+#define DAMAGE_ICESPELL           10
+#define DAMAGE_GREENSPELL         20
+#define DAMAGE_REDSPELL           30
+#define DAMAGE_BULLET             15
+
+// Other settings ..
+
+#define ICE_SPELL_DELAY           360
+#define ICE_SPELL_DELAY_INC       30
+#define WALK_SLOW_FRAME_COUNT     3
+
+#define PLAYER_BULLET_MAX         6
+#define ENEMY_BULLET_MAX          6
+#define ENEMY_CHEST_HEALTH        30
 
 
-#define MAXLEVEL            18
-#define MAXOBJECT           200
-#define MAXENVIROMENT       150
+//--------------------------------------------
+// Do not touch!
+//--------------------------------------------
 
-#define MAP_SIZE_X          45
-#define MAP_SIZE_Y          45
-#define MAP_SIZE            (MAP_SIZE_X * MAP_SIZE_Y)
+#define PROJ_SCREENMODE           2
+#define CENTERX                   55
+#define CENTERY                   36
 
+#define TILE_WIDTH                16
+#define TILE_HEIGHT               16
+#define TILE_SIZE                 16
 
-#define NO_SLOT_FOUND       255
-#define NO_SPRITE_FOUND     255
-#define NO_HIGH_SCORE_EDIT  255
-#define NO_INACTIVE_BULLET_FOUND     255
-#define MAX_INVENTORY_ITEMS 5                   // Number of item types the player can hold
-#define MAX_INVENTORY_COUNT 6                   // NUmber of items the player can hold, two of one type counts as two.
-#define RANDOM_TILE_SIZE    9
-#define HEALTH_BAR_DELAY    8
+#define PLAYER_WIDTH              12
+#define PLAYER_WIDTH_HALF         6
+#define PLAYER_HEIGHT             12
+#define PLAYER_HEIGHT_HALF        6
 
-#define HEALTH_INC_BREAD    10
-#define HEALTH_INC_CHICKEN  20
-#define HEALTH_INC_TONIC    30
-#define HEALTH_DEC_SPIDERS_WEB 1                // Health decrement when running through a spider's web.
-#define END_OF_OPTIONS      255
-#define ICE_SPELL_DELAY     360
-#define ICE_SPELL_DELAY_INC 30
+#define MAXLEVEL                  18
+#define MAXOBJECT                 200
+#define MAXENVIROMENT             150
 
-#define DAMAGE_FIREBALL     10
-#define DAMAGE_ICESPELL     10
-#define DAMAGE_GREENSPELL   20
-#define DAMAGE_REDSPELL     30
-#define DAMAGE_BULLET       15
+#define MAP_SIZE_X                45
+#define MAP_SIZE_Y                45
+#define MAP_SIZE                  (MAP_SIZE_X * MAP_SIZE_Y)
 
-#define TIMER_STEP          24
-#define LEVEL_START_DELAY   100
-#define COOKIE_INITIALISED  25
-#define SHOP_PURCHASE_DELAY 48
-#define WALK_SLOW_FRAME_COUNT 3
+#define NO_SLOT_FOUND             255
+#define NO_SPRITE_FOUND           255
+#define NO_HIGH_SCORE_EDIT        255
+#define NO_INACTIVE_BULLET_FOUND  255
+#define MAX_INVENTORY_ITEMS       5                   // Number of item types the player can hold
+#define RANDOM_TILE_SIZE          9
+#define HEALTH_BAR_DELAY          8
+#define END_OF_OPTIONS            255
 
-#define PLAYER_BULLET_MAX   6
-#define ENEMY_BULLET_MAX    6
+#define TIMER_STEP                24
+#define LEVEL_START_DELAY         100
+#define COOKIE_INITIALISED        25
+#define SHOP_PURCHASE_DELAY       48
+
 #define ENEMY_BULLET_DELAY_MIN    5
 #define ENEMY_BULLET_DELAY_MAX    20
-#define BULLET_WEB_FRAMES         40       // Number of frames to travel
-#define BULLET_WEB_FRAMES_DIV1     BULLET_WEB_FRAMES - 6 
-#define BULLET_WEB_FRAMES_DIV2     BULLET_WEB_FRAMES_DIV1 - 6 
-#define BULLET_WEB_FRAMES_DIV3     9
-#define BULLET_WEB_FRAMES_DIV4     6
-#define BULLET_WEB_FRAMES_DIV5     3
 
-/*
+// Web bullet travel details ..
+
+#define BULLET_WEB_FRAMES         40       // Number of frames to travel
+#define BULLET_WEB_FRAMES_DIV1    BULLET_WEB_FRAMES - 6 
+#define BULLET_WEB_FRAMES_DIV2    BULLET_WEB_FRAMES_DIV1 - 6 
+#define BULLET_WEB_FRAMES_DIV3    9
+#define BULLET_WEB_FRAMES_DIV4    6
+#define BULLET_WEB_FRAMES_DIV5    3
+
+
+/* -------------------------------------------------------------------------------
 Bit 7       Blank segment.
 Bit 6       Any Segment from the nominated Type.
 Bit 5       Specify a specific segment (over two bytes, sgement type, index)
