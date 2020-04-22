@@ -327,7 +327,7 @@ void Game::updateObjects() {
                                 this->shake = this->shake + 2;
                             }
 
-                            this->player.setHealth(this->player.getHealth() - DAMAGE_BULLET);
+                            this->player.decHealth(DAMAGE_BULLET);
                             bullet.setActive(false);
 
                         }
@@ -535,8 +535,8 @@ void Game::playerMovement() {
         uint8_t ofy = this->map.getTileYOffset(y);
         uint8_t block = this->map.getBlock(relx, rely);
 
-        if (this->map. between(3, 3, 11, 11, ofx, ofy) && block == MapTiles::PressPlate) {
-            this->map.setBlock(relx,rely,MapTiles::Rubble);
+        if (this->map. between(3, 3, 11, 11, ofx, ofy) && block == MapTiles::PressPlate_Up) {
+            this->map.setBlock(relx,rely,MapTiles::PressPlate_Down);
             updateEnvironmentBlock(map, relx, rely, this->environments);
             //sound.tone(NOTE_D2,150,NOTE_E2,50);
         }
@@ -809,14 +809,14 @@ bool Game::interactWithBlock(int x, int y, MapTiles block) {
                 #define RANDOM_SACK     RANDOM_COIN + 10
                 #define RANDOM_BREAD    RANDOM_SACK + 10
                 #define RANDOM_CHICKEN  RANDOM_SACK + 10
-                #define RANDOM_TOOLS  RANDOM_CHICKEN + 10
-                #define RANDOM_TONIC  RANDOM_TOOLS + 10
-                #define RANDOM_KEY  RANDOM_TONIC + 10
-                #define RANDOM_ICE   RANDOM_TONIC + 5
-                #define RANDOM_GREEN   RANDOM_ICE + 5
-                #define RANDOM_RED   RANDOM_GREEN + 5
-                #define RANDOM_MAUVE   RANDOM_RED + 5
-                #define RANDOM_END  RANDOM_MAUVE
+                #define RANDOM_TOOLS    RANDOM_CHICKEN + 10
+                #define RANDOM_TONIC    RANDOM_TOOLS + 10
+                #define RANDOM_KEY      RANDOM_TONIC + 10
+                #define RANDOM_ICE      RANDOM_TONIC + 5
+                #define RANDOM_GREEN    RANDOM_ICE + 5
+                #define RANDOM_RED      RANDOM_GREEN + 5
+                #define RANDOM_MAUVE    RANDOM_RED + 5
+                #define RANDOM_END      RANDOM_MAUVE
 
                 const uint8_t randomLimit[12] = { RANDOM_COIN,        RANDOM_SACK, RANDOM_BREAD,  RANDOM_CHICKEN,  RANDOM_TOOLS,  RANDOM_TONIC,  RANDOM_KEY,       RANDOM_ICE,       RANDOM_GREEN,       RANDOM_RED,       RANDOM_MAUVE, RANDOM_END }; 
                 const uint8_t randomItems[11] = { Object::Coin, Object::SackOCash, Object::Bread, Object::Chicken, Object::Tools, Object::Tonic, Object::Key, Object::IceSpell, Object::GreenSpell, Object::RedSpell, Object::MauveSpell, };

@@ -86,7 +86,7 @@ void Player::incHealth(uint8_t amount) {
 }
 
 void Player::decHealth(uint8_t amount) { 
-    this->health = this->health - amount; 
+//    this->health = this->health - amount; 
 }
 
 void Player::setCoins(uint8_t coins) { 

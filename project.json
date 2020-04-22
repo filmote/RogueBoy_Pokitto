@@ -7982,6 +7982,24 @@
 		},
 		"\\src\\entities\\Sprite.cpp": {
 			"sdcard": false
+		},
+		"\\src\\images\\background\\Tile_14 - Copy.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\background\\Tile_99.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\background\\Tile_87.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\background\\Tile_87.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\background\\Tile_89.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\background\\Tile_89.h": {
+			"sdcard": false
 		}
 	},
 	"BUILDFlags": {

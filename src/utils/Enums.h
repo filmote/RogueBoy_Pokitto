@@ -104,7 +104,7 @@ enum MapTiles {
     SwitchOff = 11,
     TorchWall = 12,
     WindowWall = 13,
-    PressPlate = 14,
+    PressPlate_Up = 14,
     SpearDoor = 15,
     ExplosiveBarrel = 16,
     LockedStairs = 17,
@@ -179,6 +179,7 @@ enum MapTiles {
     SpiderWebLL = 86,
     ClosedChest_Random = 87,
     ClosedChest_Killer = 88,
+    PressPlate_Down = 89,
 
 };
 
