@@ -215,10 +215,10 @@ bool Sprite::isEnemy() {
 
         case Object::Bat:
         case Object::Floater:
-        case Object::Skull:
+        case Object::Eye:
         case Object::Spider:
         case Object::BigSpider:
-        case Object::NewEnemy:
+        case Object::Skeleton:
         case Object::Snake:
         case Object::Chest:
 
@@ -230,6 +230,31 @@ bool Sprite::isEnemy() {
     }
     
 }
+
+bool Sprite::isCarryable() {
+    
+    switch (this->type) {
+
+        case Object::Coin:
+        case Object::SackOCash:
+        case Object::Bread:
+        case Object::Key:
+        case Object::Chicken:
+        case Object::Tools:
+        case Object::Tonic:
+        case Object::IceSpell:
+        case Object::GreenSpell:
+        case Object::RedSpell:
+        case Object::MauveSpell:
+            return true;
+
+        default:
+            return false;
+        
+    }
+    
+}
+
 
 // Get direction is calculated based on last lastMoveX, lastMoveY ..
 

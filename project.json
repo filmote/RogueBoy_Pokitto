@@ -8000,6 +8000,165 @@
 		},
 		"\\src\\images\\background\\Tile_89.h": {
 			"sdcard": false
+		},
+		"\\src\\images\\background\\Altar.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemies\\eye": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemies\\skeleton": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemies\\eye\\Eye_00_F0.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemies\\eye\\Eye_00_F1.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemies\\eye\\Eye_04_F0.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemies\\eye\\Eye_04_F1.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemies\\eye\\Eye_06_F0.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemies\\eye\\Eye_06_F1.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemies\\skeleton\\Skeleton_00_F0.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemies\\skeleton\\Skeleton_00_F1.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemies\\skeleton\\Skeleton_02_F1.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemies\\skeleton\\Skeleton_04_F1.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemies\\skeleton\\Skeleton_04_F0.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemies\\skeleton\\Skeleton_02_F0.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemies\\skeleton\\Skeleton_06_F0.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemies\\skeleton\\Skeleton_06_F1.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\background\\Altar.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemies\\eye\\Eye_00_F0.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemies\\eye\\Eye_00_F1.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemies\\eye\\Eye_04_F0.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemies\\eye\\Eye_04_F1.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemies\\eye\\Eye_06_F0.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemies\\eye\\Eye_06_F1.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemies\\skeleton\\Skeleton_00_F0.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemies\\skeleton\\Skeleton_00_F1.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemies\\skeleton\\Skeleton_02_F1.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemies\\skeleton\\Skeleton_04_F1.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemies\\skeleton\\Skeleton_04_F0.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemies\\skeleton\\Skeleton_02_F0.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemies\\skeleton\\Skeleton_06_F1.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemies\\skeleton\\Skeleton_06_F0.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemies\\eye\\Eye_06_F0 - Copy.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemies\\eye\\Eye_06_F1 - Copy.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemies\\eye\\Eye_02_F0.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemies\\eye\\Eye_02_F1.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemies\\eye\\Eye_02_F1.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemies\\eye\\Eye_02_F0.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\background\\Altar - Copy.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\background\\Tile_80 (2).png": {
+			"sdcard": false
+		},
+		"\\src\\images\\background\\Tile_90.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\background\\Tile_90 - Copy.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\background\\Tile_91.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\background\\Tile_92.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\background\\Tile_93.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\background\\Tile_95.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\background\\Tile_94.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\background\\Tile_91.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\background\\Tile_90.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\background\\Tile_92.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\background\\Tile_93.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\background\\Tile_95.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\background\\Tile_94.h": {
+			"sdcard": false
 		}
 	},
 	"BUILDFlags": {

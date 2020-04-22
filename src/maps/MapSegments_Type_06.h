@@ -1,6 +1,7 @@
 #pragma once
 
 #include "Pokitto.h"
+#include "../utils/Enums.h"
 
 using PC = Pokitto::Core;
 using PD = Pokitto::Display;
@@ -47,7 +48,14 @@ const uint8_t MAP_Segment_Type06_00[] = {
 
     // Enemy Options ---------------------
     // Opt , Object, x, y, Health 
-    0,
+    4,
+    0,Object::FireTOP,1,4,HEALTH_NONE,
+    0,Object::FireBOT,2,4,HEALTH_NONE,
+    1,Object::FireTOP,6,4,HEALTH_NONE,
+    1,Object::FireBOT,7,4,HEALTH_NONE,
+    2,Object::SpikeLHS,4,1,HEALTH_NONE,
+    2,Object::SpikeRHS,4,2,HEALTH_NONE,
+    END_OF_OPTIONS,
 
     // Entrance / Exit Options -----------
     1,
@@ -93,8 +101,8 @@ const uint8_t MAP_Segment_Type06_01[] = {
     // Enemy Options ---------------------
     // Opt , Object, x, y, Health 
     2,
-    0,Object::Bat, 2, 5, 20,
-    0,Object::Spider, 3, 6, 40,
+    0,Object::Bat, 2, 5, HEALTH_BAT,
+    0,Object::Spider, 3, 6, HEALTH_SPIDER,
     END_OF_OPTIONS,
 
     // Entrance / Exit Options -----------
@@ -105,7 +113,7 @@ const uint8_t MAP_Segment_Type06_01[] = {
 const uint8_t MAP_Segment_Type06_02[] = {
   // 0, 1, 2, 3, 4, 5, 6, 7, 8
      0,24,24,35, 0,34,24,24, 0,  // 0
-    21, 0, 0, 0, 0, 0, 0, 0,23,  // 1
+    21,83, 0, 0, 0, 0, 0, 0,23,  // 1
     21, 0, 0, 0, 0, 0, 0, 0,23,  // 2
     35, 0, 0, 0, 0, 0, 0, 0,34,  // 3
      0, 0, 0, 0, 0, 0, 0, 0, 0,  // 4
@@ -141,13 +149,15 @@ const uint8_t MAP_Segment_Type06_02[] = {
 
     // Enemy Options ---------------------
     // Opt , Object, x, y, Health 
-    1,
-    0,Object::Bat, 1, 2, 20,
-    0,Object::Spider, 2, 2, 40,
-    1,Object::Bat, 4, 3, 20,
-    1,Object::Bat, 4, 5, 20,
-    1,Object::Bat, 3, 4, 20,
-    1,Object::Bat, 5, 4, 20,
+    3,
+    0,Object::Bat, 1, 2, HEALTH_BAT,
+    0,Object::Spider, 2, 2, HEALTH_SPIDER,
+    1,Object::Bat, 4, 3, HEALTH_BAT,
+    1,Object::Bat, 4, 5, HEALTH_BAT,
+    1,Object::Bat, 3, 4, HEALTH_BAT,
+    1,Object::Bat, 5, 4, HEALTH_BAT,
+    2,Object::Skeleton, 1, 2, HEALTH_SKELETON,
+    2,Object::Snake, 2, 2, HEALTH_SNAKE,
     END_OF_OPTIONS,
 
     // Entrance / Exit Options -----------
@@ -193,16 +203,19 @@ const uint8_t MAP_Segment_Type06_03[] = {
 
     // Enemy Options ---------------------
     // Opt , Object, x, y, Health 
-    3,
-    0,Object::Bat,7,6,40,
-    0,Object::Bat,1,6,40,
-    0,Object::Bread,4,7,40,
-    1,Object::Bat,4,7,40,
-    1,Object::Bat,1,6,40,
-    1,Object::Floater,7,6,40,
-    2,Object::Bat,4,7,40,
-    2,Object::Skull,1,6,40,
-    2,Object::Chicken,7,6,0,
+    4,
+    0,Object::Bat,7,6,HEALTH_BAT,
+    0,Object::Bat,1,6,HEALTH_BAT,
+    0,Object::Bread,4,7,HEALTH_NONE,
+    1,Object::Bat,4,7,HEALTH_BAT,
+    1,Object::Skeleton,1,6,HEALTH_SKELETON,
+    1,Object::Floater,7,6,HEALTH_FLOATER,
+    2,Object::Bat,4,7,HEALTH_BAT,
+    2,Object::Eye,1,6,HEALTH_EYE,
+    2,Object::Chicken,7,6,HEALTH_NONE,
+    3,Object::Snake,4,7,HEALTH_SNAKE,
+    3,Object::Eye,1,6,HEALTH_EYE,
+    3,Object::Chicken,7,6,HEALTH_NONE,
     END_OF_OPTIONS,
 
     // Entrance / Exit Options -----------
@@ -252,15 +265,15 @@ const uint8_t MAP_Segment_Type06_04[] = {
     // Enemy Options ---------------------
     // Opt , Object, x, y, Health 
     3,
-    0,Object::Bat,2,2,40,
-    0,Object::Bat,3,7,40,
-    0,Object::Bread,5,7,40,
-    1,Object::Bat,5,7,40,
-    1,Object::Bat,3,7,40,
-    1,Object::Floater,2,2,40,
-    2,Object::Bat,3,7,40,
-    2,Object::Skull,2,2,40,
-    2,Object::Chicken,5,7,0,
+    0,Object::Bat,2,2,HEALTH_BAT,
+    0,Object::Bat,3,7,HEALTH_BAT,
+    0,Object::Bread,5,7,HEALTH_NONE,
+    1,Object::Bat,5,7,HEALTH_BAT,
+    1,Object::Snake,3,7,HEALTH_SNAKE,
+    1,Object::Floater,2,2,HEALTH_FLOATER,
+    2,Object::Bat,3,7,HEALTH_BAT,
+    2,Object::Eye,2,2,HEALTH_EYE,
+    2,Object::Chicken,5,7,HEALTH_NONE,
     END_OF_OPTIONS,
 
     // Entrance / Exit Options -----------
@@ -307,16 +320,16 @@ const uint8_t MAP_Segment_Type06_05[] = {
     // Enemy Options ---------------------
     // Opt , Object, x, y, Health 
     3,
-    0,Object::Bat,3,6,40,
-    0,Object::Bat,5,6,40,
-    0,Object::Coin,3,3,0,
-    0,Object::Coin,5,3,0,
-    1,Object::Floater,3,6,40,
-    1,Object::Floater,5,6,40,
-    1,Object::SackOCash,3,3,0,
-    1,Object::Bread,5,3,0,
-    2,Object::Skull,3,6,40,
-    2,Object::Skull,5,6,40,
+    0,Object::Bat,3,6,HEALTH_BAT,
+    0,Object::Bat,5,6,HEALTH_BAT,
+    0,Object::Coin,3,3,HEALTH_NONE,
+    0,Object::Coin,5,3,HEALTH_NONE,
+    1,Object::Skeleton,3,6,HEALTH_SKELETON,
+    1,Object::Floater,5,6,HEALTH_FLOATER,
+    1,Object::SackOCash,3,3,HEALTH_NONE,
+    1,Object::Bread,5,3,HEALTH_NONE,
+    2,Object::Eye,3,6,HEALTH_EYE,
+    2,Object::Snake,5,6,HEALTH_SNAKE,
     END_OF_OPTIONS,
 
     // Entrance / Exit Options -----------

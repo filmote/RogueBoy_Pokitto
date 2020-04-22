@@ -18,7 +18,7 @@ enum Object {
     Key = 3,
     Chicken = 4, 
     Floater = 5,
-    Skull = 6,
+    Eye = 6,
     Spider = 7, 
     Bat = 8,
     Tools = 9,
@@ -28,7 +28,7 @@ enum Object {
     GreenSpell = 13,
     RedSpell = 14,
     MauveSpell = 15,
-    NewEnemy = 16,
+    Skeleton = 16,
     SpikeLHS = 17,
     SpikeRHS = 18,
     FireTOP = 19,
@@ -180,6 +180,12 @@ enum MapTiles {
     ClosedChest_Random = 87,
     ClosedChest_Killer = 88,
     PressPlate_Down = 89,
+    Altar00 = 90,
+    Altar01 = 91,
+    Altar02 = 92,
+    Altar03 = 93,
+    Altar04 = 94,
+    Altar05 = 95,
 
 };
 

@@ -1,6 +1,7 @@
 #pragma once
 
 #include "Pokitto.h"
+#include "../utils/Enums.h"
 
 using PC = Pokitto::Core;
 using PD = Pokitto::Display;
@@ -46,7 +47,14 @@ const uint8_t MAP_Segment_Type07_00[] = {
 
     // Enemy Options ---------------------
     // Opt , Object, x, y, Health 
-    0,
+    4,
+    0,Object::FireTOP,6,4,HEALTH_NONE,
+    0,Object::FireBOT,7,4,HEALTH_NONE,
+    1,Object::SpikeLHS,4,1,HEALTH_NONE,
+    1,Object::SpikeRHS,4,2,HEALTH_NONE,
+    2,Object::SpikeLHS,4,6,HEALTH_NONE,
+    2,Object::SpikeRHS,4,7,HEALTH_NONE,
+    END_OF_OPTIONS,
 
     // Entrance / Exit Options -----------
     1,
@@ -91,13 +99,17 @@ const uint8_t MAP_Segment_Type07_01[] = {
 
     // Enemy Options ---------------------
     // Opt , Object, x, y, Health 
-    2,
-    0,Object::Bat, 2, 5, 20,
-    0,Object::Spider, 3, 6, 40,
-    1,Object::Bat, 2, 3, 20,
-    1,Object::Bat, 2, 4, 20,
-    1,Object::Bat, 2, 5, 20,
-    1,Object::Spider, 3, 6, 40,
+    4,
+    0,Object::Bat, 2, 5, HEALTH_NONE,
+    0,Object::Spider, 3, 6, HEALTH_SPIDER,
+    1,Object::Bat, 2, 3, HEALTH_NONE,
+    1,Object::Bat, 2, 4, HEALTH_NONE,
+    1,Object::Bat, 2, 5, HEALTH_NONE,
+    1,Object::Spider, 3, 6, HEALTH_SPIDER,
+    1,Object::Eye, 2, 5, HEALTH_EYE,
+    1,Object::Spider, 3, 6, HEALTH_SPIDER,
+    1,Object::Eye, 2, 5, HEALTH_EYE,
+    1,Object::Skeleton, 3, 6, HEALTH_SKELETON,
     END_OF_OPTIONS,
 
     // Entrance / Exit Options -----------
@@ -109,7 +121,7 @@ const uint8_t MAP_Segment_Type07_01[] = {
 const uint8_t MAP_Segment_Type07_02[] = {
   // 0, 1, 2, 3, 4, 5, 6, 7, 8
      0,24,24,35, 0,34,24,24, 0,  // 0
-    21, 0, 0, 0, 0, 0, 0, 0,23,  // 1
+    21,83, 0, 0, 0, 0, 0, 0,23,  // 1
     66, 0, 0, 0, 0, 0, 0, 0,23,  // 2
     21, 0, 0, 0, 0, 0, 0, 0,34,  // 3
     21, 0, 0, 0, 0, 0, 0, 0, 0,  // 4
@@ -145,9 +157,13 @@ const uint8_t MAP_Segment_Type07_02[] = {
 
     // Enemy Options ---------------------
     // Opt , Object, x, y, Health 
-    1,
-    0,Object::Bat, 1, 2, 20,
-    0,Object::Spider, 2, 2, 40,
+    3,
+    0,Object::Bat, 1, 2, HEALTH_BAT,
+    0,Object::Spider, 2, 2, HEALTH_SPIDER,
+    1,Object::Skeleton, 1, 2, HEALTH_SKELETON,
+    1,Object::Spider, 2, 2, HEALTH_SPIDER,
+    2,Object::Snake, 1, 2, HEALTH_SNAKE,
+    2,Object::Spider, 2, 2, HEALTH_SPIDER,
     END_OF_OPTIONS,
 
     // Entrance / Exit Options -----------
@@ -194,15 +210,18 @@ const uint8_t MAP_Segment_Type07_03[] = {
 
     // Enemy Options ---------------------
     // Opt , Object, x, y, Health 
-    3,
-    0,Object::Bat,1,2,40,
-    0,Object::Bat,2,4,40,
-    1,Object::Bat,2,6,40,
-    1,Object::Bat,2,4,40,
-    1,Object::Floater,1,4,40,
-    2,Object::Bat,2,3,40,
-    2,Object::Skull,2,6,40,
-    2,Object::Chicken,4,2,0,
+    4,
+    0,Object::Bat,1,2,HEALTH_BAT,
+    0,Object::Bat,2,4,HEALTH_BAT,
+    1,Object::Bat,2,6,HEALTH_BAT,
+    1,Object::Bat,2,4,HEALTH_BAT,
+    1,Object::Floater,1,4,HEALTH_FLOATER,
+    2,Object::Bat,2,3,HEALTH_BAT,
+    2,Object::Eye,2,6,HEALTH_BAT,
+    2,Object::Chicken,4,2,HEALTH_NONE,
+    2,Object::Snake,2,3,HEALTH_SNAKE,
+    2,Object::Eye,2,6,HEALTH_BAT,
+    2,Object::Bread,4,2,HEALTH_NONE,
     END_OF_OPTIONS,
 
     // Entrance / Exit Options -----------
@@ -250,14 +269,14 @@ const uint8_t MAP_Segment_Type07_04[] = {
     // Enemy Options ---------------------
     // Opt , Object, x, y, Health 
     3,
-    0,Object::Bat,3,4,40,
-    0,Object::Bat,3,5,40,
-    0,Object::Bread,5,4,40,
-    1,Object::Bat,7,1,40,
-    1,Object::Bat,5,4,40,
-    1,Object::Floater,5,4,40,
-    2,Object::Bat,7,1,40,
-    2,Object::Skull,5,4,40,
+    0,Object::Bat,3,4,HEALTH_BAT,
+    0,Object::Bat,3,5,HEALTH_BAT,
+    0,Object::Bread,5,4,HEALTH_NONE,
+    1,Object::Bat,7,1,HEALTH_BAT,
+    1,Object::Eye,5,4,HEALTH_EYE,
+    1,Object::Floater,5,4,HEALTH_FLOATER,
+    2,Object::Bat,7,1,HEALTH_BAT,
+    2,Object::Eye,5,4,HEALTH_EYE,
     END_OF_OPTIONS,
 
     // Entrance / Exit Options -----------
@@ -303,16 +322,16 @@ const uint8_t MAP_Segment_Type07_05[] = {
     // Enemy Options ---------------------
     // Opt , Object, x, y, Health 
     3,
-    0,Object::Bat,2,3,40,
-    0,Object::Bat,2,5,40,
-    0,Object::Coin,5,3,0,
-    0,Object::Coin,5,5,0,
-    1,Object::Floater,2,3,40,
-    1,Object::Floater,2,5,40,
-    1,Object::SackOCash,5,3,0,
-    1,Object::Bread,5,5,0,
-    2,Object::Skull,2,3,40,
-    2,Object::Skull,2,5,40,
+    0,Object::Bat,2,3,HEALTH_BAT,
+    0,Object::Bat,2,5,HEALTH_BAT,
+    0,Object::Coin,5,3,HEALTH_NONE,
+    0,Object::Coin,5,5,HEALTH_NONE,
+    1,Object::Floater,2,3,HEALTH_FLOATER,
+    1,Object::Skeleton,2,5,HEALTH_SKELETON,
+    1,Object::SackOCash,5,3,HEALTH_NONE,
+    1,Object::Bread,5,5,HEALTH_NONE,
+    2,Object::Eye,2,3,HEALTH_EYE,
+    2,Object::Snake,2,5,HEALTH_SNAKE,
     END_OF_OPTIONS,
 
     // Entrance / Exit Options -----------

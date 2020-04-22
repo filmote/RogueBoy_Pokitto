@@ -51,7 +51,9 @@ class Sprite {
         void setSprite(uint16_t x, uint16_t y, uint8_t health, Object type, bool active, bool enablePuff);
         void damage(Object weapon);
         Direction getDirection();
+
         bool isEnemy();
+        bool isCarryable();
 
     private:
 

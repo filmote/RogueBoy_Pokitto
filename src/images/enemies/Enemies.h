@@ -36,14 +36,6 @@ namespace Images {
     #include "bigspider/Spider_16_06_F1.h"
     #include "bigspider/Spider_16_07_F0.h"
     #include "bigspider/Spider_16_07_F1.h"
-    #include "newenemy/NewEnemy_00.h"
-    #include "newenemy/NewEnemy_01.h"
-    #include "newenemy/NewEnemy_02.h"
-    #include "newenemy/NewEnemy_03.h"
-    #include "newenemy/NewEnemy_04.h"
-    #include "newenemy/NewEnemy_05.h"
-    #include "newenemy/NewEnemy_06.h"
-    #include "newenemy/NewEnemy_07.h"
     #include "spike/Spike_LHS_00.h"
     #include "spike/Spike_LHS_01.h"
     #include "spike/Spike_LHS_02.h"
@@ -79,6 +71,22 @@ namespace Images {
     #include "chest/Chest_04_F1.h"
     #include "chest/Chest_06_F0.h"
     #include "chest/Chest_06_F1.h"
+    #include "skeleton/Skeleton_00_F0.h"
+    #include "skeleton/Skeleton_00_F1.h"
+    #include "skeleton/Skeleton_02_F0.h"
+    #include "skeleton/Skeleton_02_F1.h"
+    #include "skeleton/Skeleton_04_F0.h"
+    #include "skeleton/Skeleton_04_F1.h"
+    #include "skeleton/Skeleton_06_F0.h"
+    #include "skeleton/Skeleton_06_F1.h"
+    #include "eye/Eye_00_F0.h"
+    #include "eye/Eye_00_F1.h"
+    #include "eye/Eye_02_F0.h"
+    #include "eye/Eye_02_F1.h"
+    #include "eye/Eye_04_F0.h"
+    #include "eye/Eye_04_F1.h"
+    #include "eye/Eye_06_F0.h"
+    #include "eye/Eye_06_F1.h"
     #include "HealthBar.h"
 
     const uint8_t * const Bats[] = { 
@@ -124,15 +132,23 @@ namespace Images {
         Spider_16_07_F1,
     };
 
-    const uint8_t * const NewEnemys[] = { 
-        NewEnemy_00,
-        NewEnemy_01,
-        NewEnemy_02,
-        NewEnemy_03,
-        NewEnemy_04,
-        NewEnemy_05,
-        NewEnemy_06,
-        NewEnemy_07,
+    const uint8_t * const Skeletons[] = { 
+        Skeleton_00_F0,
+        Skeleton_00_F1,
+        Skeleton_02_F0,
+        Skeleton_02_F1,
+        Skeleton_02_F0,
+        Skeleton_02_F1,
+        Skeleton_02_F0,
+        Skeleton_02_F1,
+        Skeleton_04_F0,
+        Skeleton_04_F1,
+        Skeleton_06_F0,
+        Skeleton_06_F1,
+        Skeleton_06_F0,
+        Skeleton_06_F1,
+        Skeleton_06_F0,
+        Skeleton_06_F1,
     };
 
     const uint8_t * const SpikeLHS[] = { 
@@ -199,5 +215,24 @@ namespace Images {
         Chest_06_F1,
         Chest_06_F0,
         Chest_06_F1,
+    };
+
+    const uint8_t * const Eyes[] = { 
+        Eye_00_F0,
+        Eye_00_F1,
+        Eye_02_F0,
+        Eye_02_F1,
+        Eye_02_F0,
+        Eye_02_F1,
+        Eye_02_F0,
+        Eye_02_F1,
+        Eye_04_F0,
+        Eye_04_F1,
+        Eye_06_F0,
+        Eye_06_F1,
+        Eye_06_F0,
+        Eye_06_F1,
+        Eye_06_F0,
+        Eye_06_F1,
     };
 };

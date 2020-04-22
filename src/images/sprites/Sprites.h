@@ -6,7 +6,6 @@ namespace Images {
     #include "Floater.h"
     #include "Chicken.h"
     #include "SackOCash.h"
-    #include "Skull.h"
     #include "Tools.h"
     #include "Tonic.h"
     #include "IceSpell.h"

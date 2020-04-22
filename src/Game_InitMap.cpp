@@ -130,7 +130,7 @@ void Game::nextLevelLoad() {
         this->clearCells();
     #endif
 
-    if (map.getLevel() < MAXLEVEL) {
+    if (map.getLevel() < (numberOfMaps * 2) - 1) {
 
         if (this->map.getRandomLevel()) {
 
@@ -434,6 +434,7 @@ void Game::nextLevelLoad() {
         }
         
         gameState = GameState::Game;
+        this->map.setRandomLevel(!this->map.getRandomLevel());
 
     } 
     else {

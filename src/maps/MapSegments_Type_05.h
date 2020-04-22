@@ -1,6 +1,7 @@
 #pragma once
 
 #include "Pokitto.h"
+#include "../utils/Enums.h"
 
 using PC = Pokitto::Core;
 using PD = Pokitto::Display;
@@ -61,8 +62,8 @@ const uint8_t MAP_Segment_Type05_00[] = {
 
     // Enemy Options ---------------------
     2,
-    0,Object::Coin,0,4,0,
-    1,Object::Coin,8,4,0,
+    0,Object::Coin,0,4,HEALTH_NONE,
+    1,Object::Coin,8,4,HEALTH_NONE,
     END_OF_OPTIONS,
 
     // Entrance / Exit Options -----------
@@ -92,18 +93,22 @@ const uint8_t MAP_Segment_Type05_01[] = {
     0,
 
     // Enemy Options ---------------------
-    3,
-    0,Object::Coin,2,2,0,
-    0,Object::Coin,3,2,0,
-    0,Object::Coin,2,3,0,
-    0,Object::Spider,6,5,40,
-    0,Object::Spider,5,6,40,
-    1,Object::Chicken,6,6,0,
-    1,Object::Spider,2,2,60,
-    1,Object::Bat,3,2,40,
-    1,Object::Bat,2,3,40,
-    2,Object::SackOCash,5,2,0,
-    2,Object::Spider,2,6,60,
+    4,
+    0,Object::Coin,2,2,HEALTH_NONE,
+    0,Object::Coin,3,2,HEALTH_NONE,
+    0,Object::Coin,2,3,HEALTH_NONE,
+    0,Object::Spider,6,5,HEALTH_SPIDER,
+    0,Object::Spider,5,6,HEALTH_SPIDER,
+    1,Object::Chicken,6,6,HEALTH_NONE,
+    1,Object::Spider,2,2,HEALTH_SPIDER,
+    1,Object::Bat,3,2,HEALTH_BAT,
+    1,Object::Bat,2,3,HEALTH_BAT,
+    2,Object::SackOCash,5,2,HEALTH_NONE,
+    2,Object::Spider,2,6,HEALTH_SPIDER,
+    3,Object::Chicken,6,6,HEALTH_NONE,
+    3,Object::Spider,2,2,HEALTH_SPIDER,
+    3,Object::Skeleton,3,2,HEALTH_SKELETON,
+    3,Object::Eye,2,3,HEALTH_EYE,
     END_OF_OPTIONS,
 
     // Entrance / Exit Options -----------
@@ -171,14 +176,17 @@ const uint8_t MAP_Segment_Type05_02[] = {
 
     // Enemy Options ---------------------
     // Opt , Object, x, y, Health 
-    2,
-    0,Object::Bat,3,2,40,
-    0,Object::Bat,5,6,40,
-    0,Object::Coin,3,1,0,
-    1,Object::Spider,3,2,40,
-    1,Object::Bat,5,6,40,
-    1,Object::Coin,3,1,0,
-    1,Object::Coin,5,7,0,
+    3,
+    0,Object::Bat,3,2,HEALTH_BAT,
+    0,Object::Bat,5,6,HEALTH_BAT,
+    0,Object::Coin,3,1,HEALTH_NONE,
+    1,Object::Spider,3,2,HEALTH_SPIDER,
+    1,Object::Bat,5,6,HEALTH_BAT,
+    1,Object::Coin,3,1,HEALTH_NONE,
+    1,Object::Coin,5,7,HEALTH_NONE,
+    2,Object::Snake,3,2,HEALTH_SNAKE,
+    2,Object::Snake,5,6,HEALTH_SNAKE,
+    2,Object::SackOCash,3,1,HEALTH_NONE,
     END_OF_OPTIONS,
 
     // Entrance / Exit Options -----------

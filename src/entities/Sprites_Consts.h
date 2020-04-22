@@ -16,7 +16,7 @@ const uint8_t spriteWidths[23] =  {
     10, /* Key */
     10, /* Chicken */
     8,  /* Floater */
-    10, /* Skull */
+    12, /* Eye */
     8,  /* Spider */
     8,  /* Bat */
     12, /* Tools */
@@ -26,7 +26,7 @@ const uint8_t spriteWidths[23] =  {
     14, /* GreenSpell */
     14, /* RedSpell */
     14, /* MauveSpell */
-    12, /* NewEnemy */
+    12, /* Skeleton */
     16, /* SpikeLHS */
     16, /* SpikeRHS */
     16, /* FireTOP */
@@ -42,7 +42,7 @@ const uint8_t spriteHeights[23] = {
     10, /* Key */
     8,  /* Chicken */
     8,  /* Floater */  
-    9,  /* Skull */
+    12,  /* Eye */
     8,  /* Spider */
     8,  /* Bat */
     12, /* Tools */
@@ -52,7 +52,7 @@ const uint8_t spriteHeights[23] = {
     14,  /* GreenSpell */
     14,  /* RedSpell */
     14, /* MauveSpell */
-    12, /* NewEnemy */
+    12, /* Skeleton */
     16, /* SpikeLHS note its actually 17 */
     16, /* SpikeRHS */
     16, /* FireTOP */
@@ -69,7 +69,7 @@ const int8_t spriteOffsets[46] = {
     -5, -4,  /* Key */
     -5, -5,  /* Chicken */
     -3, -3,  /* Floater */  
-    -3, -3,  /* Skull */
+    -6, -6,  /* Eye */
     -4, -4,  /* Spider */
     -4, -4,  /* Bat */
     -5, -5,  /* Tools */
@@ -79,7 +79,7 @@ const int8_t spriteOffsets[46] = {
     -7, -6,  /* GreenSpell */
     -7, -6,  /* RedSpell */
     -7, -6,  /* MauveSpell */
-    -6, -6,  /* NewEnemy */
+    -6, -6,  /* Skeleton */
     -8, -8,  /* SpikeLHS */
     -8, -8,  /* SpikeRHS */
     -8, -8,  /* FireTOP */
@@ -94,7 +94,7 @@ const char object_Desc_02[] = "Bread";
 const char object_Desc_03[] = "Key";
 const char object_Desc_04[] = "Chicken";
 const char object_Desc_05[] = "Floater";
-const char object_Desc_06[] = "Skull";
+const char object_Desc_06[] = "Eye";
 const char object_Desc_07[] = "Spider";
 const char object_Desc_08[] = "Bat";
 const char object_Desc_09[] = "Tools";
@@ -104,7 +104,7 @@ const char object_Desc_12[] = "Ice Spell";
 const char object_Desc_13[] = "Green";
 const char object_Desc_14[] = "Red";
 const char object_Desc_15[] = "Mauve";
-const char object_Desc_16[] = "New Enemy";
+const char object_Desc_16[] = "Skeleton";
 const char object_Desc_17[] = "Spike LHS";
 const char object_Desc_18[] = "Spike RHS";
 const char object_Desc_19[] = "Flame TOP";

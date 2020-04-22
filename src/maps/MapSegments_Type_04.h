@@ -1,6 +1,7 @@
 #pragma once
 
 #include "Pokitto.h"
+#include "../utils/Enums.h"
 
 using PC = Pokitto::Core;
 using PD = Pokitto::Display;
@@ -43,7 +44,7 @@ const uint8_t MAP_Segment_Type04_00[] = {
     // -----------------------------------
    
     // Number of Options
-    2,
+    1,
     1,MapTiles::CornerLL,5,1,
     1,MapTiles::StraightLHS,6,2,
     1,MapTiles::CornerTL,5,3,
@@ -60,9 +61,11 @@ const uint8_t MAP_Segment_Type04_00[] = {
     END_OF_OPTIONS,
 
     // Enemy Options ---------------------
-    2,
-    0,Object::Coin,4,0,0,
-    0,Object::Coin,4,8,0,
+    3,
+    0,Object::Coin,4,0,HEALTH_NONE,
+    0,Object::Coin,4,8,HEALTH_NONE,
+    1,Object::SpikeLHS,4,0,HEALTH_NONE,
+    1,Object::SpikeRHS,4,8,HEALTH_NONE,
     END_OF_OPTIONS,
 
     // Entrance / Exit Options -----------
@@ -92,18 +95,24 @@ const uint8_t MAP_Segment_Type04_01[] = {
     0,
 
     // Enemy Options ---------------------
-    3,
-    0,Object::Coin,2,2,0,
-    0,Object::Coin,3,2,0,
-    0,Object::Coin,2,3,0,
-    0,Object::Spider,6,5,40,
-    0,Object::Spider,5,6,40,
-    1,Object::Chicken,6,6,0,
-    1,Object::Spider,2,2,60,
-    1,Object::Bat,3,2,40,
-    1,Object::Bat,2,3,40,
-    2,Object::SackOCash,5,2,0,
-    2,Object::Spider,2,6,60,
+    4,
+    0,Object::Coin,2,2,HEALTH_NONE,
+    0,Object::Coin,3,2,HEALTH_NONE,
+    0,Object::Coin,2,3,HEALTH_NONE,
+    0,Object::Spider,6,5,HEALTH_SPIDER,
+    0,Object::Spider,5,6,HEALTH_SPIDER,
+    1,Object::Chicken,6,6,HEALTH_NONE,
+    1,Object::Spider,2,2,HEALTH_SPIDER,
+    1,Object::Bat,3,2,HEALTH_BAT,
+    1,Object::Bat,2,3,HEALTH_BAT,
+    1,Object::SpikeLHS,4,8,HEALTH_NONE,
+    1,Object::SpikeRHS,4,0,HEALTH_NONE,
+    2,Object::SackOCash,5,2,HEALTH_NONE,
+    2,Object::Spider,2,6,HEALTH_SPIDER,
+    3,Object::Coin,2,2,HEALTH_NONE,
+    3,Object::Coin,3,2,HEALTH_NONE,
+    3,Object::Spider,6,5,HEALTH_SPIDER,
+    3,Object::Snake,5,6,HEALTH_SNAKE,
     END_OF_OPTIONS,
 
     // Entrance / Exit Options -----------
@@ -150,7 +159,14 @@ const uint8_t MAP_Segment_Type04_02[] = {
 
     // Enemy Options ---------------------
     // Opt , Object, x, y, Health 
-    0,
+    3,
+    0,Object::SpikeLHS,1,7,HEALTH_NONE,
+    0,Object::SpikeRHS,7,2,HEALTH_NONE,
+    1,Object::FireTOP,5,1,HEALTH_NONE,
+    1,Object::FireTOP,6,1,HEALTH_NONE,
+    1,Object::FireBOT,2,7,HEALTH_NONE,
+    1,Object::FireBOT,3,7,HEALTH_NONE,
+    END_OF_OPTIONS,
 
     // Entrance / Exit Options -----------
     4,

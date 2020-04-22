@@ -54,7 +54,7 @@ void Game::updateObjects() {
 
                     // If an enemy has collided with an object then pick it up ..
 
-                    if (i != j && objectI_IsEnemy && !objectJ.isEnemy() && this->collision(objectI, objectJ)) {
+                    if (i != j && objectI_IsEnemy && objectJ.isCarryable() && this->collision(objectI, objectJ)) {
 
                         if (objectI.getCarrying() == Object::None) {
 
@@ -131,11 +131,11 @@ void Game::updateObjects() {
                         break;
 
                     case Object::Floater:
-                    case Object::Skull:
+                    case Object::Eye:
                     case Object::Spider:
                     case Object::BigSpider:
                     case Object::Bat:
-                    case Object::NewEnemy:
+                    case Object::Skeleton:
                     case Object::SpikeLHS:
                     case Object::SpikeRHS:
                     case Object::FireTOP:
@@ -155,9 +155,9 @@ void Game::updateObjects() {
                                     player.decHealth(HEALTH_DEC_FLOATER); 
                                     break;
 
-                                case Object::Skull: 
+                                case Object::Eye: 
                                     //SJH 
-                                    player.decHealth(HEALTH_DEC_SKULL); 
+                                    player.decHealth(HEALTH_DEC_EYES); 
                                     break;
 
                                 case Object::Spider:
@@ -175,9 +175,9 @@ void Game::updateObjects() {
                                     player.decHealth(HEALTH_DEC_BAT); 
                                     break;
 
-                                case Object::NewEnemy: 
+                                case Object::Skeleton: 
                                     //SJH 
-                                    player.decHealth(HEALTH_DEC_NEWENEMY); 
+                                    player.decHealth(HEALTH_DEC_SKELETON); 
                                     break;
 
                                 case Object::Snake: 
@@ -1052,13 +1052,17 @@ void Game::spriteAI(MapInformation &map, Player &player, Sprite &sprite) {
             break;
 
         case Object::Coin: 
-
             spriteAI_UpdateFrame(sprite, 4, 6);
             break;
 
         case Object::Floater:            
-        case Object::Skull:     
 
+            spriteAI_CheckForMove(map, player, sprite, location, 7);
+            break;
+
+        case Object::Eye:     
+
+            spriteAI_UpdateFrame(sprite, 4, 2);
             spriteAI_CheckForMove(map, player, sprite, location, 7);
             break;
 
@@ -1067,7 +1071,7 @@ void Game::spriteAI(MapInformation &map, Player &player, Sprite &sprite) {
         case Object::Bat: 
         case Object::Chest: 
 
-            spriteAI_UpdateFrame(sprite ,4, 2);
+            spriteAI_UpdateFrame(sprite, 4, 2);
             spriteAI_CheckForMove(map, player, sprite, location, 7);
             break;
 
@@ -1104,8 +1108,9 @@ void Game::spriteAI(MapInformation &map, Player &player, Sprite &sprite) {
             
             break;
 
-        case Object::NewEnemy:   
+        case Object::Skeleton:   
             {
+                spriteAI_UpdateFrame(sprite ,4, 2);
                 Direction direction = spriteAI_CheckForMove(map, player, sprite, location, 7);
 
                 if (direction != Direction::None) {

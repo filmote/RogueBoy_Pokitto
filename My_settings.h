@@ -17,14 +17,25 @@
 #define HEALTH_INC_TONIC          30
 #define HEALTH_DEC_SPIDERS_WEB    1                // Health decrement when running through a spider's web.
 #define HEALTH_DEC_FLOATER        10
-#define HEALTH_DEC_SKULL          5
+#define HEALTH_DEC_EYES           5
 #define HEALTH_DEC_SPIDER         2
 #define HEALTH_DEC_BIGSPIDER      6
 #define HEALTH_DEC_BAT            1
-#define HEALTH_DEC_NEWENEMY       3
+#define HEALTH_DEC_SKELETON       3
 #define HEALTH_DEC_SNAKE          3
 #define HEALTH_DEC_SPIKE_FIRE     2
 #define HEALTH_DEC_CHEST          5
+
+// Enemy Starting Health ..
+
+#define HEALTH_NONE               0
+#define HEALTH_BAT                20
+#define HEALTH_EYE                40
+#define HEALTH_SKELETON           40
+#define HEALTH_SNAKE              20
+#define HEALTH_FLOATER            30
+#define HEALTH_SPIDER             30
+#define HEALTH_LARGESPIDER        50
 
 // Enemy damage ..
 
@@ -62,7 +73,6 @@
 #define PLAYER_HEIGHT             12
 #define PLAYER_HEIGHT_HALF        6
 
-#define MAXLEVEL                  18
 #define MAXOBJECT                 200
 #define MAXENVIROMENT             150
 
