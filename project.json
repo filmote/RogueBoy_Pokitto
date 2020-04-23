@@ -7409,6 +7409,177 @@
 		},
 		"/src/images/players/Tombstone.png": {
 			"sdcard": false
+		},
+		"/src/images/title": {
+			"sdcard": false
+		},
+		"/src/images/background/Tile_90.h": {
+			"sdcard": false
+		},
+		"/src/images/background/Tile_90.png": {
+			"sdcard": false
+		},
+		"/src/images/background/Tile_91.h": {
+			"sdcard": false
+		},
+		"/src/images/background/Tile_91.png": {
+			"sdcard": false
+		},
+		"/src/images/background/Tile_92.h": {
+			"sdcard": false
+		},
+		"/src/images/background/Tile_92.png": {
+			"sdcard": false
+		},
+		"/src/images/background/Tile_93.h": {
+			"sdcard": false
+		},
+		"/src/images/background/Tile_93.png": {
+			"sdcard": false
+		},
+		"/src/images/background/Tile_94.h": {
+			"sdcard": false
+		},
+		"/src/images/background/Tile_94.png": {
+			"sdcard": false
+		},
+		"/src/images/background/Tile_95.h": {
+			"sdcard": false
+		},
+		"/src/images/background/Tile_95.png": {
+			"sdcard": false
+		},
+		"/src/images/enemies/chest": {
+			"sdcard": false
+		},
+		"/src/images/title/ArrowDown.png": {
+			"sdcard": false
+		},
+		"/src/images/title/ArrowDown.h": {
+			"sdcard": false
+		},
+		"/src/images/title/ArrowUp.png": {
+			"sdcard": false
+		},
+		"/src/images/title/ArrowUp.h": {
+			"sdcard": false
+		},
+		"/src/images/title/BorderBOT.png": {
+			"sdcard": false
+		},
+		"/src/images/title/BorderBOT.h": {
+			"sdcard": false
+		},
+		"/src/images/title/BorderTOP.h": {
+			"sdcard": false
+		},
+		"/src/images/title/DarkRitual.h": {
+			"sdcard": false
+		},
+		"/src/images/title/BorderTop.png": {
+			"sdcard": false
+		},
+		"/src/images/title/DarkRitual.png": {
+			"sdcard": false
+		},
+		"/src/images/title/Eyes_Closed.png": {
+			"sdcard": false
+		},
+		"/src/images/title/Eyes_Closed.h": {
+			"sdcard": false
+		},
+		"/src/images/title/Eyes_Open.h": {
+			"sdcard": false
+		},
+		"/src/images/title/Eyes_Open.png": {
+			"sdcard": false
+		},
+		"/src/images/title/Game_Play.h": {
+			"sdcard": false
+		},
+		"/src/images/title/Game_Play.png": {
+			"sdcard": false
+		},
+		"/src/images/title/Orb.h": {
+			"sdcard": false
+		},
+		"/src/images/title/Orb.png": {
+			"sdcard": false
+		},
+		"/src/images/title/PlayerBOT.h": {
+			"sdcard": false
+		},
+		"/src/images/title/PlayerBot.png": {
+			"sdcard": false
+		},
+		"/src/images/title/PlayerTOP.h": {
+			"sdcard": false
+		},
+		"/src/images/title/PlayerTop.png": {
+			"sdcard": false
+		},
+		"/src/images/title/Score.h": {
+			"sdcard": false
+		},
+		"/src/images/title/Score.png": {
+			"sdcard": false
+		},
+		"/src/images/title/Start.h": {
+			"sdcard": false
+		},
+		"/src/images/title/Start.png": {
+			"sdcard": false
+		},
+		"/src/images/title/Title.h": {
+			"sdcard": false
+		},
+		"/src/images/enemies/chest/Chest_00_F0.h": {
+			"sdcard": false
+		},
+		"/src/images/enemies/chest/Chest_00_F0.png": {
+			"sdcard": false
+		},
+		"/src/images/enemies/chest/Chest_00_F1.h": {
+			"sdcard": false
+		},
+		"/src/images/enemies/chest/Chest_00_F1.png": {
+			"sdcard": false
+		},
+		"/src/images/enemies/chest/Chest_02_F0.h": {
+			"sdcard": false
+		},
+		"/src/images/enemies/chest/Chest_02_F0.png": {
+			"sdcard": false
+		},
+		"/src/images/enemies/chest/Chest_02_F1.h": {
+			"sdcard": false
+		},
+		"/src/images/enemies/chest/Chest_02_F1.png": {
+			"sdcard": false
+		},
+		"/src/images/enemies/chest/Chest_04_F0.h": {
+			"sdcard": false
+		},
+		"/src/images/enemies/chest/Chest_04_F0.png": {
+			"sdcard": false
+		},
+		"/src/images/enemies/chest/Chest_04_F1.h": {
+			"sdcard": false
+		},
+		"/src/images/enemies/chest/Chest_06_F0.h": {
+			"sdcard": false
+		},
+		"/src/images/enemies/chest/Chest_04_F1.png": {
+			"sdcard": false
+		},
+		"/src/images/enemies/chest/Chest_06_F0.png": {
+			"sdcard": false
+		},
+		"/src/images/enemies/chest/Chest_06_F1.h": {
+			"sdcard": false
+		},
+		"/src/images/enemies/chest/Chest_06_F1.png": {
+			"sdcard": false
 		}
 	},
 	"BUILDFlags": {

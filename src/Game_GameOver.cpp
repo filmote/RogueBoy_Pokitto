@@ -58,9 +58,9 @@ void Game::death() {
             this->highScoreVariables.charIdx = 0;
             this->highScoreVariables.entryIdx = i;
 
-            this->cookie->score_Char[i][0] = 'X';
-            this->cookie->score_Char[i][1] = 'X';
-            this->cookie->score_Char[i][2] = 'X';
+            this->cookie->score_Char[i][0] = 'A';
+            this->cookie->score_Char[i][1] = 'A';
+            this->cookie->score_Char[i][2] = 'A';
             this->cookie->score[i] = this->points + pts;
             this->cookie->level[i] = map.getLevel();
 
