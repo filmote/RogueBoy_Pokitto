@@ -5,8 +5,8 @@ using PC = Pokitto::Core;
 using PD = Pokitto::Display;
 using PS = Pokitto::Sound;
 
-void Game::updateObjects() {
-
+void Game::updateObjects(bool ignorePlayerDamage) {
+printf("sss\n");
 
     // Handle various counters ..
 
@@ -41,7 +41,7 @@ void Game::updateObjects() {
                 auto &objectJ = this->objects.getSprite(j);
 
                 if (objectJ.getActive()) {
-
+printf("bbb\n");
 
                     // If the enemy has collided with another enemy then do not update the position ..
 
@@ -75,6 +75,7 @@ void Game::updateObjects() {
 
             // Has a collision between the object and player occured ?
 
+printf("coll %i %i\n", objectI.getPreventImmediatePickup(), this->collision(player, objectI));
             if (!objectI.getPreventImmediatePickup() && this->collision(player, objectI)) {
 
                 uint16_t note = 0;
@@ -142,62 +143,66 @@ void Game::updateObjects() {
                     case Object::FireBOT:
                     case Object::Snake:
 
-                        if (this->shake < 3) {
-                            this->shake = this->shake + 2;
-                        }
+                        if (!ignorePlayerDamage) {
+                                
+                            if (this->shake < 3) {
+                                this->shake = this->shake + 2;
+                            }
 
-                        if (PC::frameCount % 4 == 0) { 
+                            if (PC::frameCount % 4 == 0) { 
 
-                            switch (type) {
+                                switch (type) {
 
-                                case Object::Floater:   
-                                    //SJH 
-                                    player.decHealth(HEALTH_DEC_FLOATER); 
-                                    break;
+                                    case Object::Floater:   
+                                        //SJH 
+                                        player.decHealth(HEALTH_DEC_FLOATER); 
+                                        break;
 
-                                case Object::Eye: 
-                                    //SJH 
-                                    player.decHealth(HEALTH_DEC_EYES); 
-                                    break;
+                                    case Object::Eye: 
+                                        //SJH 
+                                        player.decHealth(HEALTH_DEC_EYES); 
+                                        break;
 
-                                case Object::Spider:
-                                    //SJH 
-                                    player.decHealth(HEALTH_DEC_SPIDER); 
-                                    break;
+                                    case Object::Spider:
+                                        //SJH 
+                                        player.decHealth(HEALTH_DEC_SPIDER); 
+                                        break;
 
-                                case Object::BigSpider:
-                                    //SJH 
-                                    player.decHealth(HEALTH_DEC_BIGSPIDER); 
-                                    break;
+                                    case Object::BigSpider:
+                                        //SJH 
+                                        player.decHealth(HEALTH_DEC_BIGSPIDER); 
+                                        break;
 
-                                case Object::Bat: 
-                                    //SJH 
-                                    player.decHealth(HEALTH_DEC_BAT); 
-                                    break;
+                                    case Object::Bat: 
+                                        //SJH 
+                                        player.decHealth(HEALTH_DEC_BAT); 
+                                        break;
 
-                                case Object::Skeleton: 
-                                    //SJH 
-                                    player.decHealth(HEALTH_DEC_SKELETON); 
-                                    break;
+                                    case Object::Skeleton: 
+                                        //SJH 
+                                        player.decHealth(HEALTH_DEC_SKELETON); 
+                                        break;
 
-                                case Object::Snake: 
-                                    //SJH 
-                                    player.decHealth(HEALTH_DEC_SNAKE); 
-                                    break;
+                                    case Object::Snake: 
+                                        //SJH 
+                                        player.decHealth(HEALTH_DEC_SNAKE); 
+                                        break;
 
-                                case Object::SpikeLHS: 
-                                case Object::SpikeRHS: 
-                                case Object::FireTOP: 
-                                case Object::FireBOT: 
-                                    //SJH 
-                                    player.decHealth(HEALTH_DEC_SPIKE_FIRE); 
-                                    break;
+                                    case Object::SpikeLHS: 
+                                    case Object::SpikeRHS: 
+                                    case Object::FireTOP: 
+                                    case Object::FireBOT: 
+                                        //SJH 
+                                        player.decHealth(HEALTH_DEC_SPIKE_FIRE); 
+                                        break;
 
-                                case Object::Chest:   
-                                    //SJH 
-                                    player.decHealth(HEALTH_DEC_CHEST); 
-                                    break;
+                                    case Object::Chest:   
+                                        //SJH 
+                                        player.decHealth(HEALTH_DEC_CHEST); 
+                                        break;
 
+
+                                }
 
                             }
 
@@ -273,7 +278,45 @@ void Game::updateObjects() {
                 ry = ry + bullet_YMovement[direction];
 
                 if (this->map.getBlock(this->map.getTileX(rx), this->map.getTileY(ry)) == MapTiles::Barrel) {
+
                     barrelBreak(map, this->map.getTileX(rx), this->map.getTileY(ry), this->objects);
+
+                    const uint8_t randomLimit[12] = { BARREL_RANDOM_NOTHING, BARREL_RANDOM_COIN, BARREL_RANDOM_SACK, BARREL_RANDOM_BREAD, BARREL_RANDOM_CHICKEN, }; 
+                    const uint8_t randomItems[11] = { Object::None,                Object::Coin,  Object::SackOCash,       Object::Bread,       Object::Chicken, };
+
+                    uint8_t randObject = random(0, BARREL_RANDOM_CHICKEN);
+                    uint8_t object = 0;
+
+                    for (uint8_t x = 0; x < 12; x++) {
+
+                        if  (randObject <= randomLimit[x]) {
+
+                            object = randomItems[x];
+                            break;
+
+                        }
+
+                    }
+
+
+                    // Find a matching Object in the sprites collecion that is disabled, otherwise add one ..
+
+                    if (object != Object::None) {
+
+                        uint8_t spriteIdx = this->objects.getFirstInactiveSpriteIndex(static_cast<Object>(object));
+
+                        if (spriteIdx == NO_SPRITE_FOUND) {
+
+                            this->objects.setObjectNum(this->objects.getObjectNum() + 1);
+                            spriteIdx = this->objects.getObjectNum() - 1;
+
+                        }   
+
+                        Sprite &sprite = this->objects.getSprite(spriteIdx);
+                        sprite.setSprite((this->map.getTileX(rx) * TILE_SIZE) + 8, (this->map.getTileY(ry) * TILE_SIZE) + 8, 0, static_cast<Object>(object), true, true);
+
+                    }
+
                 } 
 
             }
@@ -346,15 +389,19 @@ void Game::updateObjects() {
 
 void Game::updateGame() {
     
-    // const uint8_t offX[4] = { 0, 1, 0, -1 };
-    // const uint8_t offY[4] = { 1, 0, -1, 0 };
-    // const uint8_t offX[4] = { 1, -1,};
-    // const uint8_t offY[4] = { -1, 1 };
     const uint8_t offX[4] = { 1, 0,};
     const uint8_t offY[4] = { 0, 1 };
+printf("player h:%i, p%i\n", player.getHealth(), this->player.getPuffIndex());
+    if (player.getHealth() > 0) {
 
-    this->playerMovement();
-    this->updateObjects();
+        if (Pokitto::Core::frameCount % TIMER_STEP == 0) { this->map.decTimer();  }
+        if (this->map.getTimer() == 0) { player.setHealth(0); }
+        this->playerMovement();
+
+    }
+
+
+    this->updateObjects(player.getHealth() <= 0);
 
     if (this->shake > 0) {
         this->renderEnviroment(offX[(this->shake - 1) % 2], offY[(this->shake - 1) % 2]);
@@ -367,13 +414,16 @@ void Game::updateGame() {
 
     this->renderObjects();
     this->renderHud();
-    
-    if (Pokitto::Core::frameCount % TIMER_STEP == 0) { this->map.decTimer();  }
-    if (this->map.getTimer() == 0) { player.setHealth(0); }
 
     if (player.getHealth() <= 0) {
-        //sound.tones(DeathNotes); 
-        gameState = GameState::Dead;
+
+        this->player.decPuffIndex();
+
+        if (this->player.getPuffIndex() == PLAYER_DEAD_DELAY || PC::buttons.pressed(BTN_A)) {
+    
+            gameState = GameState::Dead;
+
+        }
 
     }
 
@@ -805,24 +855,11 @@ bool Game::interactWithBlock(int x, int y, MapTiles block) {
 
                 // random
 
-                #define RANDOM_COIN     70
-                #define RANDOM_SACK     RANDOM_COIN + 10
-                #define RANDOM_BREAD    RANDOM_SACK + 10
-                #define RANDOM_CHICKEN  RANDOM_SACK + 10
-                #define RANDOM_TOOLS    RANDOM_CHICKEN + 10
-                #define RANDOM_TONIC    RANDOM_TOOLS + 10
-                #define RANDOM_KEY      RANDOM_TONIC + 10
-                #define RANDOM_ICE      RANDOM_TONIC + 5
-                #define RANDOM_GREEN    RANDOM_ICE + 5
-                #define RANDOM_RED      RANDOM_GREEN + 5
-                #define RANDOM_MAUVE    RANDOM_RED + 5
-                #define RANDOM_END      RANDOM_MAUVE
-
-                const uint8_t randomLimit[12] = { RANDOM_COIN,        RANDOM_SACK, RANDOM_BREAD,  RANDOM_CHICKEN,  RANDOM_TOOLS,  RANDOM_TONIC,  RANDOM_KEY,       RANDOM_ICE,       RANDOM_GREEN,       RANDOM_RED,       RANDOM_MAUVE, RANDOM_END }; 
-                const uint8_t randomItems[11] = { Object::Coin, Object::SackOCash, Object::Bread, Object::Chicken, Object::Tools, Object::Tonic, Object::Key, Object::IceSpell, Object::GreenSpell, Object::RedSpell, Object::MauveSpell, };
+                const uint8_t randomLimit[12] = { CHEST_RANDOM_COIN, CHEST_RANDOM_SACK, CHEST_RANDOM_BREAD, CHEST_RANDOM_CHICKEN, CHEST_RANDOM_TOOLS, CHEST_RANDOM_TONIC, CHEST_RANDOM_KEY, CHEST_RANDOM_ICE, CHEST_RANDOM_GREEN, CHEST_RANDOM_RED, CHEST_RANDOM_MAUVE, CHEST_RANDOM_END }; 
+                const uint8_t randomItems[11] = {      Object::Coin, Object::SackOCash,      Object::Bread,      Object::Chicken,      Object::Tools,      Object::Tonic,      Object::Key, Object::IceSpell, Object::GreenSpell, Object::RedSpell, Object::MauveSpell, };
 
 
-                uint8_t randObject = random(0, RANDOM_END);
+                uint8_t randObject = random(0, CHEST_RANDOM_END);
                 uint8_t object = 0;
 
                 for (uint8_t x = 0; x < 12; x++) {
@@ -849,7 +886,7 @@ bool Game::interactWithBlock(int x, int y, MapTiles block) {
                 }   
 
                 Sprite &sprite = this->objects.getSprite(spriteIdx);
-                sprite.setSprite((x * TILE_SIZE) + 8, (y * TILE_SIZE) + 8, 0, static_cast<Object>(object), true, false);
+                sprite.setSprite((x * TILE_SIZE) + 8, (y * TILE_SIZE) + 8, 0, static_cast<Object>(object), true, true);
 
             }
             return true;

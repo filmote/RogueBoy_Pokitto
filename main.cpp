@@ -14,7 +14,7 @@ int main() {
 
     // Initialise pokitto ..
 
-    cookie.begin("Rogue", sizeof(cookie), (char*)&cookie);
+    cookie.begin("DarkRit", sizeof(cookie), (char*)&cookie);
 
 
     PC::begin();

@@ -1,8 +1,23 @@
 #include "MapInformation.h"
 #include "../utils/Enums.h"
 
+void MapInformation::reset() {
+
+    this->width = 15;
+    this->height = 15;
+    this->timer = 255;
+    this->level = 0;
+    this->definedMapLevel = 0;
+    this->randomLevel = false;
+    this->randomLow = 0;
+}
+
 uint8_t MapInformation::getLevel() {
     return this->level;
+}
+
+uint8_t MapInformation::getDefinedMapLevel() {
+    return this->definedMapLevel;
 }
 
 uint16_t MapInformation::getWidth() {
@@ -27,6 +42,10 @@ uint8_t MapInformation::getRandomLow() {
 
 void MapInformation::setLevel(uint8_t level) {
     this->level = level;
+}
+
+void MapInformation::setDefinedMapLevel(uint8_t definedMapLevel) {
+    this->definedMapLevel = definedMapLevel;
 }
 
 void MapInformation::setWidth(uint16_t width) {

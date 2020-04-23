@@ -13,6 +13,7 @@ class MapInformation {
 
         MapTiles getBlock(int16_t x, int16_t y);
         uint8_t getLevel();
+        uint8_t getDefinedMapLevel();
         uint16_t getWidth();
         uint16_t getHeight();
         uint16_t getTimer();
@@ -26,6 +27,7 @@ class MapInformation {
         uint8_t getRandomLow();
 
         void setLevel(uint8_t level);
+        void setDefinedMapLevel(uint8_t definedMapLevel);
         void setWidth(uint16_t width);
         void setHeight(uint16_t height);
         void setTimer(uint16_t timer);
@@ -40,6 +42,7 @@ class MapInformation {
 
         void decTimer();
         void clearMap();
+        void reset();
 
 
     private:       
@@ -52,6 +55,7 @@ class MapInformation {
         uint16_t height = 15;
         uint16_t timer = 255;
         uint8_t level = 0;
+        uint8_t definedMapLevel = 0;
         uint8_t mapData[MAP_SIZE];
         bool randomLevel = false;
         uint8_t randomLow = 0;

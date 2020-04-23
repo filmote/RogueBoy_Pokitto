@@ -10,6 +10,9 @@ const uint8_t charWidths[36] = { 4, 4, 4, 4, 4, 4, 5, 5, 1, 4, 5, 4, 6, 5, 4, 4,
 
 void Game::highScore() {
 
+
+    // Handle player actions ..
+
     if (this->highScoreVariables.entryIdx == NO_HIGH_SCORE_EDIT) {
 
         if (PC::buttons.pressed(BTN_A)) {
@@ -83,7 +86,7 @@ void Game::highScore() {
     }
 
 
-
+    // Rnder screen ..
 
     this->renderEnviroment(0, 0);
     this->renderHud();
@@ -121,17 +124,15 @@ void Game::highScore() {
 
             }
             
-            if (x != this->highScoreVariables.charIdx || y != this->highScoreVariables.entryIdx || PC::frameCount % 48 < 24) {
+            PD::setCursor(charPos, 31 + (y * 9));
+            PD::print(this->cookie->score_Char[y][x]);
 
-                PD::setCursor(charPos, 31 + (y * 9));
-                PD::print(this->cookie->score_Char[y][x]);
+            if (x == this->highScoreVariables.charIdx && y == this->highScoreVariables.entryIdx && PC::frameCount % 48 < 24) {
 
-                if (x == this->highScoreVariables.charIdx && y == this->highScoreVariables.entryIdx) {
-
-                    PD::drawLine(charPos, 30 + (y * 9), charPos + charWidth, 30 + (y * 9));
-                    PD::drawLine(charPos, 38 + (y * 9), charPos + charWidth, 38 + (y * 9));
-
-                }
+                PD::setColor(9);
+                PD::drawLine(charPos, 30 + (y * 9), charPos + charWidth, 30 + (y * 9));
+                PD::drawLine(charPos, 38 + (y * 9), charPos + charWidth, 38 + (y * 9));
+                PD::setColor(4, 15);
 
             }
 

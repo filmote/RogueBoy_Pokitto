@@ -65,7 +65,7 @@ class Game {
         bool collision(Sprite &object1, Sprite &object2);
         bool collision(Sprite &object, Bullet &bullet);        
 
-        void updateObjects();
+        void updateObjects(bool ignorePlayerDamage);
         void renderObjects();
         void death();
         void win();

@@ -1,6 +1,7 @@
 #define PROJ_BUTTONS_POLLING_ONLY
 
 #define DEBUG
+#define _DEBUG_IDE
 
 //--------------------------------------------
 // Confgurable Settings
@@ -56,6 +57,28 @@
 #define ENEMY_CHEST_HEALTH        30
 
 
+// Random offerings ..
+
+#define BARREL_RANDOM_NOTHING     120
+#define BARREL_RANDOM_COIN        BARREL_RANDOM_NOTHING + 30
+#define BARREL_RANDOM_SACK        BARREL_RANDOM_COIN + 5
+#define BARREL_RANDOM_BREAD       BARREL_RANDOM_SACK + 5
+#define BARREL_RANDOM_CHICKEN     BARREL_RANDOM_BREAD + 5
+
+#define CHEST_RANDOM_COIN         70
+#define CHEST_RANDOM_SACK         CHEST_RANDOM_COIN + 10
+#define CHEST_RANDOM_BREAD        CHEST_RANDOM_SACK + 10
+#define CHEST_RANDOM_CHICKEN      CHEST_RANDOM_SACK + 10
+#define CHEST_RANDOM_TOOLS        CHEST_RANDOM_CHICKEN + 10
+#define CHEST_RANDOM_TONIC        CHEST_RANDOM_TOOLS + 10
+#define CHEST_RANDOM_KEY          CHEST_RANDOM_TONIC + 10
+#define CHEST_RANDOM_ICE          CHEST_RANDOM_TONIC + 5
+#define CHEST_RANDOM_GREEN        CHEST_RANDOM_ICE + 5
+#define CHEST_RANDOM_RED          CHEST_RANDOM_GREEN + 5
+#define CHEST_RANDOM_MAUVE        CHEST_RANDOM_RED + 5
+#define CHEST_RANDOM_END          CHEST_RANDOM_MAUVE
+
+
 //--------------------------------------------
 // Do not touch!
 //--------------------------------------------
@@ -72,6 +95,7 @@
 #define PLAYER_WIDTH_HALF         6
 #define PLAYER_HEIGHT             12
 #define PLAYER_HEIGHT_HALF        6
+#define PLAYER_DEAD_DELAY         -100
 
 #define MAXOBJECT                 200
 #define MAXENVIROMENT             150
@@ -94,8 +118,8 @@
 #define COOKIE_INITIALISED        25
 #define SHOP_PURCHASE_DELAY       48
 
-#define ENEMY_BULLET_DELAY_MIN    5
-#define ENEMY_BULLET_DELAY_MAX    20
+#define ENEMY_BULLET_DELAY_MIN    20
+#define ENEMY_BULLET_DELAY_MAX    40
 
 // Web bullet travel details ..
 

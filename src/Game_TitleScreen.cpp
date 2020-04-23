@@ -5,6 +5,13 @@ void Game::updateMainMenu() {
 
     const uint8_t orbOffset[] = { 0, 1, 2, 1 };
 
+
+    // Reset game details ..
+
+    this->map.reset();
+    this->player.reset();
+    
+
     if (PC::frameCount % 24 == 0) {
 
         this->titleScreenVars.orbCounter++;

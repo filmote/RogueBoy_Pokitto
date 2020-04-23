@@ -12,6 +12,8 @@ void Game::showInventory() {
 
     // Update timer ..
 
+    /* Remove timer decrease,
+    
     if (Pokitto::Core::frameCount % TIMER_STEP == 0) { this->map.decTimer();  }
     if (this->map.getTimer() == 0) { 
         
@@ -24,6 +26,7 @@ void Game::showInventory() {
         }
         
     }
+    */
 
 
     this->renderEnviroment(0, 0);

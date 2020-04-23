@@ -53,7 +53,9 @@ void Game::renderHud() {
     // Health ..
 
     PD::setColor(8);
-    PD::drawLine(8, 85, 8 + player.getHealth() / 2 + (player.getHealth() > 50 ? 1 : 0), 85);
+    if (this->player.getHealth() > 0) {
+        PD::drawLine(8, 85, 8 + player.getHealth() / 2 + (player.getHealth() > 50 ? 1 : 0), 85);
+    }
 
 
     // Weapon ..
@@ -348,31 +350,46 @@ void Game::renderEnviroment(int8_t damageOffsetX, int8_t damageOffsetY) {
 
 void Game::renderPlayer(int8_t damageOffsetX, int8_t damageOffsetY) {	
     
-    if (!player.getMoving()) {
+    if (this->player.getHealth() > 0 || this->player.getPuffIndex() > 3) {
+            
+        if (!player.getMoving()) {
 
-        PD::drawBitmap(CENTERX - 6 - damageOffsetX, CENTERY - 6 - damageOffsetY, Images::Players[static_cast<uint8_t>(player.getDirection()) * 2 + player.getFrame()]);
+            PD::drawBitmap(CENTERX - 6 - damageOffsetX, CENTERY - 6 - damageOffsetY, Images::Players[static_cast<uint8_t>(player.getDirection()) * 2 + player.getFrame()]);
+
+        }
+        else {
+
+            if(Pokitto::Core::frameCount % 8 == 0) {
+                player.incFrame();
+            }
+
+            PD::drawBitmap(CENTERX - 6 - damageOffsetX, CENTERY - 6 - damageOffsetY, Images::Players[static_cast<uint8_t>(player.getDirection()) * 2 + player.getFrame()]);
+
+        }
+
+        if (this->shockwave > 0) {
+
+            uint8_t offset = (this->shockwave == 1 ? 29 : 1 + ((9 - this->shockwave) * 4));
+
+            PD::drawBitmap(CENTERX - 2 - damageOffsetX - offset, CENTERY - 4 - damageOffsetY - offset, Images::Pulse_TL[8 - this->shockwave]);
+            PD::drawBitmap(CENTERX + 2 - damageOffsetX, CENTERY - 4 - damageOffsetY - offset, Images::Pulse_TR[8 - this->shockwave]);
+
+            PD::drawBitmap(CENTERX - 2 - damageOffsetX - offset, CENTERY + 4 - damageOffsetY, Images::Pulse_TL[8 - this->shockwave], 0, 2);
+            PD::drawBitmap(CENTERX + 2 - damageOffsetX, CENTERY + 4 - damageOffsetY, Images::Pulse_TR[8 - this->shockwave], 0, 2);
+        
+        }
 
     }
     else {
 
-        if(Pokitto::Core::frameCount % 8 == 0) {
-            player.incFrame();
-        }
-
-        PD::drawBitmap(CENTERX - 6 - damageOffsetX, CENTERY - 6 - damageOffsetY, Images::Players[static_cast<uint8_t>(player.getDirection()) * 2 + player.getFrame()]);
+        PD::drawBitmap(CENTERX - damageOffsetX - 6, CENTERY - damageOffsetY - 6, Images::Tombstone);
 
     }
 
-    if (this->shockwave > 0) {
+    if (this->player.getPuffIndex() >= 0) {
 
-        uint8_t offset = (this->shockwave == 1 ? 29 : 1 + ((9 - this->shockwave) * 4));
+        PD::drawBitmap(CENTERX - damageOffsetX - 8, CENTERY - damageOffsetY - 8, Images::Puff[(10 - this->player.getPuffIndex()) / 2]);
 
-        PD::drawBitmap(CENTERX - 2 - damageOffsetX - offset, CENTERY - 4 - damageOffsetY - offset, Images::Pulse_TL[8 - this->shockwave]);
-        PD::drawBitmap(CENTERX + 2 - damageOffsetX, CENTERY - 4 - damageOffsetY - offset, Images::Pulse_TR[8 - this->shockwave]);
-
-        PD::drawBitmap(CENTERX - 2 - damageOffsetX - offset, CENTERY + 4 - damageOffsetY, Images::Pulse_TL[8 - this->shockwave], 0, 2);
-        PD::drawBitmap(CENTERX + 2 - damageOffsetX, CENTERY + 4 - damageOffsetY, Images::Pulse_TR[8 - this->shockwave], 0, 2);
-       
     }
 
 }

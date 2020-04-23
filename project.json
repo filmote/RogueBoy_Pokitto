@@ -8159,6 +8159,27 @@
 		},
 		"\\src\\images\\background\\Tile_94.h": {
 			"sdcard": false
+		},
+		"\\src\\images\\players\\Tombstone.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\players\\Tombstone.h": {
+			"sdcard": false
+		},
+		"\\RogueBoy_Pokitto.bin.2 - Copy.png": {
+			"sdcard": false
+		},
+		"\\RogueBoy_Pokitto.bin.1 - Copy.gif": {
+			"sdcard": false
+		},
+		"\\RogueBoy_Pokitto.bin.1 - Copy.h": {
+			"sdcard": false
+		},
+		"\\RogueBoy_Pokitto.bin.1 - Copy.png": {
+			"sdcard": false
+		},
+		"\\RogueBoy_Pokitto.bin.2 - Copy.gif": {
+			"sdcard": false
 		}
 	},
 	"BUILDFlags": {

@@ -51,7 +51,7 @@ bool Game::collision(Player &player, Sprite &object) {
     }
 
 Rect playerRect = player.getRect();
-    // printf("PO %i { %i,%i,%i,%i }  { %i,%i,%i,%i }  = %i %i \n", object.getType(), playerRect.x, playerRect.y, playerRect.width, playerRect.height, objectRect.x, objectRect.y, objectRect.width, objectRect.height, collide(playerRect, objectRect), object.getCountdown());
+    printf("PO %i { %i,%i,%i,%i }  { %i,%i,%i,%i }  = %i %i \n", object.getType(), playerRect.x, playerRect.y, playerRect.width, playerRect.height, objectRect.x, objectRect.y, objectRect.width, objectRect.height, collide(playerRect, objectRect), object.getCountdown());
     return collide(player.getRect(), objectRect);
 
 }

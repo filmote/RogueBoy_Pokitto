@@ -27,6 +27,7 @@ class Player {
         uint8_t getFrame();
         bool getMoving();
         Object getWeapon();
+        int8_t getPuffIndex();
 
         void setX(uint16_t x);
         void setY(uint16_t y);
@@ -43,6 +44,7 @@ class Player {
         void incCoins(uint8_t coins);
         void init(uint16_t x, uint16_t y);
         void decWeaponCount();
+        void decPuffIndex();
 
         void incHealth(uint8_t amount);
         void decHealth(uint8_t amount);
@@ -50,6 +52,7 @@ class Player {
         uint8_t getWeaponFrame();
         uint32_t getWeaponCount();
         Rect getRect();
+        void reset();
 
 
         // Inventory methods
@@ -77,6 +80,7 @@ class Player {
         uint8_t frame;
         Object weapon = Object::FireBall;
         uint32_t weaponCount;
+        int8_t puffIndex = 0;
 
         InventoryItem inventoryItems[MAX_INVENTORY_ITEMS];
 

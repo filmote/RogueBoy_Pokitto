@@ -11,6 +11,28 @@ Player::Player() {
 
 }
 
+void Player::reset() { 
+
+    this->x = 0;
+    this->y = 0;
+    this->direction = Direction::Up;;
+    this->health = 0;
+    this->coins = 0;
+    this->coinsOverall = 0;
+    this->kills = 0;
+    this->moving = false;
+    this->frame = 0;
+    this->weapon = Object::FireBall;
+    this->weaponCount = 0;
+    this->puffIndex = 0;
+
+    for (uint8_t x = 0; x < MAX_INVENTORY_ITEMS; x++) {
+        inventoryItems[x].type = Object::None;
+        inventoryItems[x].quantity = 0;
+    }
+
+}
+
 uint16_t Player::getX() { 
     return this->x; 
 }
@@ -63,6 +85,10 @@ Rect Player::getRect() {
     return Rect { this->getX() - (this->getWidth() / 2), this->getY() - (this->getHeight() / 2), this->getWidth(), this->getHeight() };
 }
 
+int8_t Player::getPuffIndex() { 
+    return this->puffIndex; 
+}
+
 void Player::setX(uint16_t x) { 
     this->x = x; 
 }
@@ -87,6 +113,7 @@ void Player::incHealth(uint8_t amount) {
 
 void Player::decHealth(uint8_t amount) { 
     this->health = this->health - amount; 
+    if (this->health < 0) this->puffIndex = 10;
 }
 
 void Player::setCoins(uint8_t coins) { 
@@ -144,6 +171,12 @@ void Player::decWeaponCount() {
         }
 
     }
+
+}
+
+void Player::decPuffIndex() {
+
+    if (this->puffIndex > PLAYER_DEAD_DELAY) this->puffIndex--;
 
 }
 

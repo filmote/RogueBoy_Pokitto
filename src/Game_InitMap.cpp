@@ -102,7 +102,7 @@ void Game::loadMap(uint8_t level) {
 
     }
 
-    #ifdef DEBUG
+    #ifdef DEBUG_IDE
     this->printMap();
     #endif
 
@@ -139,6 +139,7 @@ void Game::nextLevelLoad() {
             #ifdef DEBUG
                 this->level = randomLevel;
             #endif
+            
             uint8_t environmentCount = 0;
             uint8_t objectCount = 0;
 
@@ -148,7 +149,7 @@ void Game::nextLevelLoad() {
             uint8_t xSegments = levelToLoad[cursor++];
             uint8_t ySegments = levelToLoad[cursor++];
 
-            #ifdef DEBUG
+            #ifdef DEBUG_IDE
                 /* DEBUG */ printf("=========================================================================\n");
                 /* DEBUG */ printf("Random Level: %i", randomLevel);
                 /* DEBUG */ printf("Size %i %i\n",xSegments, ySegments);
@@ -187,7 +188,7 @@ void Game::nextLevelLoad() {
 
             }
 
-            #ifdef DEBUG
+            #ifdef DEBUG_IDE
                 /* DEBUG */ printf("Player %i %i, EOL %i %i\n",playerX, playerY, levelEndX, levelEndY);
             #endif
 
@@ -201,7 +202,7 @@ void Game::nextLevelLoad() {
                     uint8_t cursorTile = 0;
                     const uint8_t * segmentToLoad = nullptr; // = this->mapsSegments[tileIdx];
 
-                    #ifdef DEBUG
+                    #ifdef DEBUG_IDE
                         /* DEBUG */ printf("segmentDetails >  %i, & 128 > %i, & 64 > %i, &32 > %i\n", segmentDetails, segmentDetails & 128, segmentDetails & 64, segmentDetails & 32);
                     #endif
 
@@ -209,7 +210,7 @@ void Game::nextLevelLoad() {
 
                     if ((segmentDetails & BLANK_SEG) > 0) {
 
-                        #ifdef DEBUG
+                        #ifdef DEBUG_IDE
                             this->cells[ySegment][xSegment].isBlank = true;
                         #endif
 
@@ -235,7 +236,7 @@ void Game::nextLevelLoad() {
                         uint8_t segmentType = segmentDetails & 0x1F;
                         uint8_t segmentId = levelToLoad[cursor++];
 
-                        #ifdef DEBUG
+                        #ifdef DEBUG_IDE
                             this->cells[ySegment][xSegment].segment = segmentType;
                             this->cells[ySegment][xSegment].variation = segmentId;
                             this->cells[ySegment][xSegment].isBlank = false;
@@ -419,21 +420,21 @@ void Game::nextLevelLoad() {
             this->environments.setEnvironmentNum(environmentCount);
             this->objects.setObjectNum(objectCount);
 
-            #ifdef DEBUG
+            #ifdef DEBUG_IDE
             this->printMap();
-
             #endif
 
 
         }
         else {
         
-            this->loadMap(map.getLevel());
-            this->map.setLevel(map.getLevel() + 1); 
+            this->loadMap(map.getDefinedMapLevel());
+            this->map.setDefinedMapLevel(map.getDefinedMapLevel() + 1); 
 
         }
         
         gameState = GameState::Game;
+        this->map.setLevel(map.getLevel() + 1); 
         this->map.setRandomLevel(!this->map.getRandomLevel());
 
     } 

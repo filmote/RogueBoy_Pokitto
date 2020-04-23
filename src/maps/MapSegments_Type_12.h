@@ -114,9 +114,12 @@ const uint8_t MAP_Segment_Type12_01[] = {
 
     // Enemy Options ---------------------
     // Opt , Object, x, y, Health 
-    2,
-    0,Object::Bat, 3, 2, 20,
-    1,Object::Spider, 3, 2, 40,
+    5,
+    0,Object::Bat, 3, 2, HEALTH_BAT,
+    1,Object::Spider, 3, 2, HEALTH_SPIDER,
+    1,Object::Floater, 3, 2, HEALTH_FLOATER,
+    1,Object::Snake, 3, 2, HEALTH_SNAKE,
+    1,Object::Skeleton, 3, 2, HEALTH_SKELETON,
     END_OF_OPTIONS,
 
     // Entrance / Exit Options -----------
@@ -146,10 +149,15 @@ const uint8_t MAP_Segment_Type12_02[] = {
 
     // Enemy Options ---------------------
     // Opt , Object, x, y, Health 
-    2,
-    0,Object::Bat,1,3,20,
-    0,Object::Bat,1,5,20,
-    1,Object::Spider,1,4,40,
+    4,
+    0,Object::Bat,1,3,HEALTH_BAT,
+    0,Object::Bat,1,5,HEALTH_BAT,
+    1,Object::Spider,1,4,HEALTH_SPIDER,
+    1,Object::Bat,1,5,HEALTH_BAT,
+    2,Object::Skeleton,1,4,HEALTH_SKELETON,
+    2,Object::Snake,1,5,HEALTH_SNAKE,
+    3,Object::Spider,1,4,HEALTH_SPIDER,
+    3,Object::Snake,1,5,HEALTH_SNAKE,
     END_OF_OPTIONS,
 
     // Entrance / Exit Options -----------
