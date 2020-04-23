@@ -21,20 +21,20 @@ void Game::death() {
     PD::setColor(4, 15);
     PD::setCursor(14,26);
 
-    uint32_t pts = this->printLevelSummary(34);
+    uint32_t pts = this->printLevelSummary(34, 0);
 
 
     if (PC::buttons.pressed(BTN_A) || PC::buttons.pressed(BTN_B)) {
 
 
-        // Work out whether we ahve a high score or not?
+        // Work out whether we have a high score or not?
 
         uint8_t i = 0;
         bool found = false;
 
         for (i = 0; i < 5; i++) {
 
-            if (this->cookie->score[i] < this->points) {
+            if (this->cookie->score[i] < this->points + pts) {
                 
                 found = true;
                 break;
@@ -61,7 +61,7 @@ void Game::death() {
             this->cookie->score_Char[i][0] = 'X';
             this->cookie->score_Char[i][1] = 'X';
             this->cookie->score_Char[i][2] = 'X';
-            this->cookie->score[i] = this->points;
+            this->cookie->score[i] = this->points + pts;
             this->cookie->level[i] = map.getLevel();
 
         }
@@ -81,11 +81,11 @@ void Game::death() {
 
 }
 
-uint32_t Game::printLevelSummary(uint8_t yOffset) {
+uint32_t Game::printLevelSummary(uint8_t yOffset, uint16_t timer) {
 
     uint32_t padd = player.getCoins() * 5;    
     uint32_t killp = player.getKills() * 10;
-    uint32_t pts = padd + killp + (this->map.getTimer()/10);
+    uint32_t pts = padd + killp + timer;
 
     PD::setColor(4, 14);
     PD::setCursor(9, yOffset);
@@ -110,7 +110,7 @@ uint32_t Game::printLevelSummary(uint8_t yOffset) {
     PD::print("Time Bonus");
     PD::drawBitmap(68, yOffset + 17, Images::Colon);
     PD::setCursor(73, yOffset + 16);
-    this->printPaddedNumber(this->map.getTimer() / 10, 4);
+    this->printPaddedNumber(timer, 4);
     
     PD::setCursor(9, yOffset + 24);
     PD::print("Level Pts");

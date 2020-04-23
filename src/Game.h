@@ -89,7 +89,7 @@ class Game {
         bool isBlockedByPlayer(Player player, Sprite enemy, uint16_t enemyX, uint16_t enemyY);
         void showShop();
         void highScore();
-        uint32_t printLevelSummary(uint8_t yOffset);  // Returns points earnt in this level ..
+        uint32_t printLevelSummary(uint8_t yOffset, uint16_t time);  // Returns points earnt in this level ..
 
         #ifdef DEBUG
         void clearCells();

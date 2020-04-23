@@ -129,7 +129,7 @@ void Game::highScore() {
 
             if (x == this->highScoreVariables.charIdx && y == this->highScoreVariables.entryIdx && PC::frameCount % 48 < 24) {
 
-                PD::setColor(9);
+                PD::setColor(2);//9);
                 PD::drawLine(charPos, 30 + (y * 9), charPos + charWidth, 30 + (y * 9));
                 PD::drawLine(charPos, 38 + (y * 9), charPos + charWidth, 38 + (y * 9));
                 PD::setColor(4, 15);

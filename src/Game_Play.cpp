@@ -6,7 +6,7 @@ using PD = Pokitto::Display;
 using PS = Pokitto::Sound;
 
 void Game::updateObjects(bool ignorePlayerDamage) {
-printf("sss\n");
+
 
     // Handle various counters ..
 
@@ -41,7 +41,7 @@ printf("sss\n");
                 auto &objectJ = this->objects.getSprite(j);
 
                 if (objectJ.getActive()) {
-printf("bbb\n");
+
 
                     // If the enemy has collided with another enemy then do not update the position ..
 
@@ -75,7 +75,6 @@ printf("bbb\n");
 
             // Has a collision between the object and player occured ?
 
-printf("coll %i %i\n", objectI.getPreventImmediatePickup(), this->collision(player, objectI));
             if (!objectI.getPreventImmediatePickup() && this->collision(player, objectI)) {
 
                 uint16_t note = 0;
@@ -391,7 +390,7 @@ void Game::updateGame() {
     
     const uint8_t offX[4] = { 1, 0,};
     const uint8_t offY[4] = { 0, 1 };
-printf("player h:%i, p%i\n", player.getHealth(), this->player.getPuffIndex());
+
     if (player.getHealth() > 0) {
 
         if (Pokitto::Core::frameCount % TIMER_STEP == 0) { this->map.decTimer();  }
@@ -399,7 +398,6 @@ printf("player h:%i, p%i\n", player.getHealth(), this->player.getPuffIndex());
         this->playerMovement();
 
     }
-
 
     this->updateObjects(player.getHealth() <= 0);
 

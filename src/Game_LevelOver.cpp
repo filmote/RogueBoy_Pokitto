@@ -36,7 +36,7 @@ void Game::endOfLevel() {
     PD::drawBitmap(10, 62, Images::LevelSplash_Bottom);
     PD::setColor(4, 15);
 
-    uint32_t pts = this->printLevelSummary(20);
+    uint32_t pts = this->printLevelSummary(20, this->map.getTimer()/10);
     
     if ((PC::frameCount % 800 == 0) || (PC::buttons.pressed(BTN_A))) {  
 
