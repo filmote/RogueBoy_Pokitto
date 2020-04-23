@@ -114,7 +114,7 @@
 #define END_OF_OPTIONS            255
 
 #define TIMER_STEP                24
-#define LEVEL_START_DELAY         100
+#define LEVEL_START_DELAY         60
 #define COOKIE_INITIALISED        25
 #define SHOP_PURCHASE_DELAY       48
 

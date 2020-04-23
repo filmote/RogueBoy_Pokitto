@@ -43,15 +43,15 @@ bool Game::collision(Player &player, Sprite &object) {
 
     if (object.isEnemy()) {
 
-        objectRect.x = objectRect.x - 1;
-        objectRect.y = objectRect.y - 1;
-        objectRect.width = objectRect.width + 2;
-        objectRect.height = objectRect.height + 2;
+        objectRect.x = objectRect.x - (this->levelStartDelay > 0 ? 2 : 1);
+        objectRect.y = objectRect.y - (this->levelStartDelay > 0 ? 2 : 1);
+        objectRect.width = objectRect.width + (this->levelStartDelay > 0 ? 4 : 2);
+        objectRect.height = objectRect.height + (this->levelStartDelay > 0 ? 4 : 2);
         
     }
 
-Rect playerRect = player.getRect();
-    printf("PO %i { %i,%i,%i,%i }  { %i,%i,%i,%i }  = %i %i \n", object.getType(), playerRect.x, playerRect.y, playerRect.width, playerRect.height, objectRect.x, objectRect.y, objectRect.width, objectRect.height, collide(playerRect, objectRect), object.getCountdown());
+//Rect playerRect = player.getRect();
+    // printf("PO %i { %i,%i,%i,%i }  { %i,%i,%i,%i }  = %i %i \n", object.getType(), playerRect.x, playerRect.y, playerRect.width, playerRect.height, objectRect.x, objectRect.y, objectRect.width, objectRect.height, collide(playerRect, objectRect), object.getCountdown());
     return collide(player.getRect(), objectRect);
 
 }
@@ -66,6 +66,8 @@ bool Game::collision(Player &player, Bullet &bullet) {
     return collide(player.getRect(), bullet.getRect());
 
 }
+
+
 
 bool Game::collision(Sprite &object1, Sprite &object2) {
 
@@ -82,7 +84,6 @@ bool Game::collision(Sprite &object, Bullet &bullet) {
 void Game::barrelBreak(MapInformation &map, uint8_t x, uint8_t y, Sprites &objects) {
     
     this->map.setBlock(x, y, MapTiles::Rubble);
-//    dropItem(Object::Key, x, y, false, nullptr, this->objects);
     //sound.tone(NOTE_C3,50, NOTE_C2,50, NOTE_E3,150);
 }
 

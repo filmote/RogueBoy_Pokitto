@@ -113,7 +113,7 @@ void Player::incHealth(uint8_t amount) {
 
 void Player::decHealth(uint8_t amount) { 
     this->health = this->health - amount; 
-    if (this->health < 0) this->puffIndex = 10;
+    if (this->health <= 0) this->puffIndex = 10;
 }
 
 void Player::setCoins(uint8_t coins) { 
