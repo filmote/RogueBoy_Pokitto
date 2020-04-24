@@ -135,9 +135,18 @@ void Sprites::renderSprite(Object type, int x, int y, int8_t xOffset, int8_t yOf
             break;
 
         case Object::Skeleton:
-            if (showEnemies) {
-                PD::drawBitmap(x + xOffset, y + yOffset, Images::Skeletons[(static_cast<uint8_t>(direction) * 2) + frame + 5]); // 5 offset due to rising frames.
-                if (renderHealth) { this->renderHealthBar(x + 6, y - 6, healthValue); }
+            if (frame < 0) {
+                if (showEnemies) {
+                    
+                    PD::drawBitmap(x + xOffset, y + yOffset, Images::Skeletons[(frame / 8) + 5]);                              // Offset due to rising frames.
+                    if (renderHealth) { this->renderHealthBar(x + 6, y - 6, healthValue); }
+                }
+            }
+            else {
+                if (showEnemies) {
+                    PD::drawBitmap(x + xOffset, y + yOffset, Images::Skeletons[(static_cast<uint8_t>(direction) * 2) + frame + 5]);
+                    if (renderHealth) { this->renderHealthBar(x + 6, y - 6, healthValue); }
+                }
             }
             break;
 
@@ -156,9 +165,13 @@ void Sprites::renderSprite(Object type, int x, int y, int8_t xOffset, int8_t yOf
             break;
 
         case Object::Necromancer:
-            if (frame < 0) { // SUmmoning skeleton
+            if (frame < 0) { // Summoning skeleton
                 if (showEnemies) {
-                    PD::drawBitmap(x + xOffset, y + yOffset, Images::Necromancer[(static_cast<uint8_t>(direction) * 2) + (frame / 10) + 3]); // 3 offset due to summons frames.
+                    PD::drawBitmap(x + xOffset, y + yOffset, Images::Necromancer[(frame / 20) + 2]); // 3 offset due to summons frames.
+                    if (frame >= -2) {
+                        PD::drawBitmap(x - 8, y - 8, Images::Necromancer_Spell[frame + 2]); // 3 offset due to rising frames.
+                    }
+                    
                     if (renderHealth) { this->renderHealthBar(x + 6, y - 6, healthValue); }
                 }
 

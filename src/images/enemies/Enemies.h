@@ -84,6 +84,7 @@ namespace Images {
     #include "skeleton/Skeleton_Rising_F2.h"
     #include "skeleton/Skeleton_Rising_F3.h"
     #include "skeleton/Skeleton_Rising_F4.h"
+    #include "skeleton/Skeleton_Rising_F5.h"
     #include "eye/Eye_00_F0.h"
     #include "eye/Eye_00_F1.h"
     #include "eye/Eye_02_F0.h"
@@ -101,6 +102,8 @@ namespace Images {
     #include "necromancer/Necromancer_02_F1.h"
     #include "necromancer/Necromancer_06_F0.h"
     #include "necromancer/Necromancer_06_F1.h"
+    #include "necromancer/Necromancer_Spell_00.h"
+    #include "necromancer/Necromancer_Spell_01.h"
     #include "HealthBar.h"
 
     const uint8_t * const Bats[] = { 
@@ -150,23 +153,31 @@ namespace Images {
         Skeleton_Rising_F0,
         Skeleton_Rising_F1,
         Skeleton_Rising_F2,
+        
         Skeleton_Rising_F3,
         Skeleton_Rising_F4,
+        Skeleton_Rising_F5,
+
         Skeleton_00_F0,
         Skeleton_00_F1,
         Skeleton_02_F0,
+
         Skeleton_02_F1,
         Skeleton_02_F0,
         Skeleton_02_F1,
+
         Skeleton_02_F0,
         Skeleton_02_F1,
         Skeleton_04_F0,
+
         Skeleton_04_F1,
         Skeleton_06_F0,
         Skeleton_06_F1,
+
         Skeleton_06_F0,
         Skeleton_06_F1,
         Skeleton_06_F0,
+        
         Skeleton_06_F1,
     };
 
@@ -192,6 +203,11 @@ namespace Images {
         Necromancer_06_F1,
         Necromancer_06_F0,
         Necromancer_06_F1,
+    };
+
+    const uint8_t * const Necromancer_Spell[] = { 
+        Necromancer_Spell_00,
+        Necromancer_Spell_01,
     };
 
     const uint8_t * const SpikeLHS[] = { 

@@ -131,11 +131,17 @@ void Sprite::setSprite(uint16_t x, uint16_t y, uint8_t health, Object type, bool
     this->active = active;
     this->carrying = Object::None;
     this->puffIndex = (enablePuff ? 10 : 0);
+    this->renderHealthBar = 0;
+    this->countdown = 0;
+    this->quantity = 0;
+    this->lastMoveX = 0;
+    this->lastMoveY = 0;
+    this->preventImmediatePickup = 0;
 
 };
 
 
-void Sprite::damage(Object weapon) {
+void Sprite::decHealth(Object weapon) {
 
     switch (weapon) {
 

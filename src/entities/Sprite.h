@@ -49,7 +49,7 @@ class Sprite {
         void update();
         void setPosition(uint16_t x, uint16_t y);
         void setSprite(uint16_t x, uint16_t y, uint8_t health, Object type, bool active, bool enablePuff);
-        void damage(Object weapon);
+        void decHealth(Object weapon);
         Direction getDirection();
 
         void incFrame();

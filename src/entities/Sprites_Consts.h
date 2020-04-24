@@ -26,14 +26,14 @@ const uint8_t spriteWidths[24] =  {
     14, /* GreenSpell */
     14, /* RedSpell */
     14, /* MauveSpell */
-    12, /* Skeleton */
+     8, /* Skeleton */
     16, /* SpikeLHS */
     16, /* SpikeRHS */
     16, /* FireTOP */
     16, /* FireBOT */
     12, /* Snake */
     16, /* Chest */
-    12, /* Necromancer */
+    10, /* Necromancer */
 };
 
 const uint8_t spriteHeights[24] = { 

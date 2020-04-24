@@ -39,6 +39,7 @@
 #define HEALTH_SPIDER             30
 #define HEALTH_LARGESPIDER        50
 #define HEALTH_NECROMANCER        60
+#define HEALTH_CHEST              30
 
 // Enemy damage ..
 
@@ -56,7 +57,6 @@
 
 #define PLAYER_BULLET_MAX         6
 #define ENEMY_BULLET_MAX          6
-#define ENEMY_CHEST_HEALTH        30
 
 
 // Random offerings ..
@@ -123,8 +123,8 @@
 #define ENEMY_BULLET_DELAY_MIN    20
 #define ENEMY_BULLET_DELAY_MAX    40
 
-#define LAUNCH_SKELETON_DELAY_MIN 100
-#define LAUNCH_SKELETON_DELAY_MAX 200
+#define LAUNCH_SKELETON_DELAY_MIN 60
+#define LAUNCH_SKELETON_DELAY_MAX 100
 
 
 // Web bullet travel details ..
