@@ -21,7 +21,7 @@ class Sprite {
         uint8_t getHeight();
         int8_t getXOffset();
         int8_t getYOffset();
-        uint8_t getFrame();
+        int8_t getFrame();
         uint8_t getQuantity();
         uint8_t getPuffIndex();
         Object getType();
@@ -34,7 +34,7 @@ class Sprite {
         bool getPreventImmediatePickup();
 
         void setActive(bool k);
-        void setFrame(uint8_t frame);
+        void setFrame(int8_t frame);
         void setQuantity(uint8_t quantity);
         void setX(uint16_t x);
         void setY(uint16_t y);
@@ -67,7 +67,7 @@ class Sprite {
         int16_t healthOrig;
         Object type;
         Object carrying = Object::None;
-        uint8_t frame;
+        int8_t frame;
         uint8_t countdown = 50;
         bool active;
         uint8_t quantity;

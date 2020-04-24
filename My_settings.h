@@ -24,6 +24,7 @@
 #define HEALTH_DEC_BAT            1
 #define HEALTH_DEC_SKELETON       3
 #define HEALTH_DEC_SNAKE          3
+#define HEALTH_DEC_NECROMANCER    3
 #define HEALTH_DEC_SPIKE_FIRE     2
 #define HEALTH_DEC_CHEST          5
 
@@ -37,6 +38,7 @@
 #define HEALTH_FLOATER            30
 #define HEALTH_SPIDER             30
 #define HEALTH_LARGESPIDER        50
+#define HEALTH_NECROMANCER        60
 
 // Enemy damage ..
 

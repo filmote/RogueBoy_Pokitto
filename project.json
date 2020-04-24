@@ -7266,319 +7266,1048 @@
 		"/src/images/sprites/Key_01.h": {
 			"sdcard": false
 		},
-		"/ezgif-6-798f65cbc39e.gif": {
+		"\\src\\images\\bullets\\Bullet_Red_00.h": {
 			"sdcard": false
 		},
-		"/ezgif-6-dc201764d87e.gif": {
+		"\\src\\images\\bullets\\Bullet_Red_01.h": {
 			"sdcard": false
 		},
-		"/src/images/sprites/Tonic.png": {
+		"\\src\\images\\bullets\\Bullet_Red_01.png": {
 			"sdcard": false
 		},
-		"/src/images/sprites/title": {
+		"\\src\\images\\bullets\\Bullet_Red_00.png": {
 			"sdcard": false
 		},
-		"/src/images/Title": {
+		"\\src\\images\\bullets\\Bullet_Red_02.h": {
 			"sdcard": false
 		},
-		"/src/images/Title/Game_Play.png": {
+		"\\src\\images\\bullets\\Bullet_Red_02.png": {
 			"sdcard": false
 		},
-		"/RogueBoy_Pokitto.bin.3.h": {
+		"\\src\\images\\bullets\\Bullet_Red_03.h": {
 			"sdcard": false
 		},
-		"/src/images/background/Altar.h": {
+		"\\src\\images\\bullets\\Bullet_Red_03.png": {
 			"sdcard": false
 		},
-		"/src/images/background/Altar.png": {
+		"\\src\\images\\enemies\\bat": {
 			"sdcard": false
 		},
-		"/src/images/background/Tile_89.h": {
+		"\\src\\images\\enemies\\bigspider": {
 			"sdcard": false
 		},
-		"/src/images/background/Tile_89.png": {
+		"\\src\\images\\enemies\\fire": {
 			"sdcard": false
 		},
-		"/src/entities/Sprite.cpp": {
+		"\\src\\images\\enemies\\newenemy": {
 			"sdcard": false
 		},
-		"/src/images/enemies/eye": {
+		"\\src\\images\\enemies\\snake": {
 			"sdcard": false
 		},
-		"/src/images/enemies/skeleton": {
+		"\\src\\images\\enemies\\spider": {
 			"sdcard": false
 		},
-		"/src/images/enemies/eye/Eye_00_F0.h": {
+		"\\src\\images\\enemies\\spike": {
 			"sdcard": false
 		},
-		"/src/images/enemies/eye/Eye_00_F0.png": {
+		"\\src\\images\\scoreboard\\RedSpell_Scoreboard.h": {
 			"sdcard": false
 		},
-		"/src/images/enemies/eye/Eye_00_F1.h": {
+		"\\src\\images\\scoreboard\\RedSpell_Scoreboard.png": {
 			"sdcard": false
 		},
-		"/src/images/enemies/eye/Eye_00_F1.png": {
+		"\\src\\images\\sprites\\IceSpell.h": {
 			"sdcard": false
 		},
-		"/src/images/enemies/eye/Eye_02_F0.h": {
+		"\\src\\images\\sprites\\IceSpell.png": {
 			"sdcard": false
 		},
-		"/src/images/enemies/eye/Eye_02_F0.png": {
+		"\\src\\images\\sprites\\Key_00.h": {
 			"sdcard": false
 		},
-		"/src/images/enemies/eye/Eye_02_F1.h": {
+		"\\src\\images\\sprites\\Key_00.png": {
 			"sdcard": false
 		},
-		"/src/images/enemies/eye/Eye_02_F1.png": {
+		"\\src\\images\\sprites\\Key_01.h": {
 			"sdcard": false
 		},
-		"/src/images/enemies/eye/Eye_04_F0.h": {
+		"\\src\\images\\sprites\\Key_02.h": {
 			"sdcard": false
 		},
-		"/src/images/enemies/eye/Eye_04_F0.png": {
+		"\\src\\images\\sprites\\Key_02.png": {
 			"sdcard": false
 		},
-		"/src/images/enemies/eye/Eye_04_F1.h": {
+		"\\src\\images\\sprites\\Key_03.h": {
 			"sdcard": false
 		},
-		"/src/images/enemies/eye/Eye_04_F1.png": {
+		"\\src\\images\\sprites\\Key_01.png": {
 			"sdcard": false
 		},
-		"/src/images/enemies/eye/Eye_06_F0.h": {
+		"\\src\\images\\sprites\\Key_03.png": {
 			"sdcard": false
 		},
-		"/src/images/enemies/eye/Eye_06_F0.png": {
+		"\\src\\images\\sprites\\Key_04.h": {
 			"sdcard": false
 		},
-		"/src/images/enemies/eye/Eye_06_F1.h": {
+		"\\src\\images\\sprites\\Key_04.png": {
 			"sdcard": false
 		},
-		"/src/images/enemies/eye/Eye_06_F1.png": {
+		"\\src\\images\\sprites\\Key_05.h": {
 			"sdcard": false
 		},
-		"/src/images/enemies/skeleton/Skeleton_00_F0.h": {
+		"\\src\\images\\sprites\\Key_05.png": {
 			"sdcard": false
 		},
-		"/src/images/enemies/skeleton/Skeleton_00_F0.png": {
+		"\\src\\images\\sprites\\RedSpell.h": {
 			"sdcard": false
 		},
-		"/src/images/enemies/skeleton/Skeleton_00_F1.h": {
+		"\\src\\images\\sprites\\RedSpell.png": {
 			"sdcard": false
 		},
-		"/src/images/enemies/skeleton/Skeleton_00_F1.png": {
+		"\\src\\images\\sprites\\Spell2.h": {
 			"sdcard": false
 		},
-		"/src/images/enemies/skeleton/Skeleton_02_F0.h": {
+		"\\src\\images\\shop\\MessagePanelBOT.h": {
 			"sdcard": false
 		},
-		"/src/images/enemies/skeleton/Skeleton_02_F0.png": {
+		"\\src\\images\\shop\\MessagePanelBOT.png": {
 			"sdcard": false
 		},
-		"/src/images/enemies/skeleton/Skeleton_02_F1.h": {
+		"\\src\\images\\shop\\MessagePanelLHS.h": {
 			"sdcard": false
 		},
-		"/src/images/enemies/skeleton/Skeleton_02_F1.png": {
+		"\\src\\images\\shop\\MessagePanelLHS.png": {
 			"sdcard": false
 		},
-		"/src/images/enemies/skeleton/Skeleton_04_F0.h": {
+		"\\src\\images\\shop\\MessagePanelRHS.h": {
 			"sdcard": false
 		},
-		"/src/images/enemies/skeleton/Skeleton_04_F0.png": {
+		"\\src\\images\\shop\\MessagePanelRHS.png": {
 			"sdcard": false
 		},
-		"/src/images/enemies/skeleton/Skeleton_04_F1.h": {
+		"\\src\\images\\shop\\MessagePanelTOP.png": {
 			"sdcard": false
 		},
-		"/src/images/enemies/skeleton/Skeleton_04_F1.png": {
+		"\\src\\images\\shop\\MessagePanelTOP.h": {
 			"sdcard": false
 		},
-		"/src/images/enemies/skeleton/Skeleton_06_F0.h": {
+		"\\src\\images\\enemies\\bat\\Bat_00.h": {
 			"sdcard": false
 		},
-		"/src/images/enemies/skeleton/Skeleton_06_F0.png": {
+		"\\src\\images\\enemies\\bat\\Bat_00.png": {
 			"sdcard": false
 		},
-		"/src/images/enemies/skeleton/Skeleton_06_F1.h": {
+		"\\src\\images\\enemies\\bat\\Bat_01.h": {
 			"sdcard": false
 		},
-		"/src/images/enemies/skeleton/Skeleton_06_F1.png": {
+		"\\src\\images\\enemies\\bat\\Bat_01.png": {
 			"sdcard": false
 		},
-		"/src/images/players/Tombstone.h": {
+		"\\src\\images\\enemies\\bigspider\\Spider_16_00_F0.h": {
 			"sdcard": false
 		},
-		"/src/images/players/Tombstone.png": {
+		"\\src\\images\\enemies\\bigspider\\Spider_16_01_F0.h": {
 			"sdcard": false
 		},
-		"/src/images/title": {
+		"\\src\\images\\enemies\\bigspider\\Spider_16_00_F1.h": {
 			"sdcard": false
 		},
-		"/src/images/background/Tile_90.h": {
+		"\\src\\images\\enemies\\bigspider\\Spider_16_00_F0.png": {
 			"sdcard": false
 		},
-		"/src/images/background/Tile_90.png": {
+		"\\src\\images\\enemies\\bigspider\\Spider_16_00_F1.png": {
 			"sdcard": false
 		},
-		"/src/images/background/Tile_91.h": {
+		"\\src\\images\\enemies\\bigspider\\Spider_16_01_F0.png": {
 			"sdcard": false
 		},
-		"/src/images/background/Tile_91.png": {
+		"\\src\\images\\enemies\\bigspider\\Spider_16_01_F1.png": {
 			"sdcard": false
 		},
-		"/src/images/background/Tile_92.h": {
+		"\\src\\images\\enemies\\bigspider\\Spider_16_02_F0.h": {
 			"sdcard": false
 		},
-		"/src/images/background/Tile_92.png": {
+		"\\src\\images\\enemies\\bigspider\\Spider_16_02_F0.png": {
 			"sdcard": false
 		},
-		"/src/images/background/Tile_93.h": {
+		"\\src\\images\\enemies\\bigspider\\Spider_16_01_F1.h": {
 			"sdcard": false
 		},
-		"/src/images/background/Tile_93.png": {
+		"\\src\\images\\enemies\\bigspider\\Spider_16_02_F1.h": {
 			"sdcard": false
 		},
-		"/src/images/background/Tile_94.h": {
+		"\\src\\images\\enemies\\bigspider\\Spider_16_02_F1.png": {
 			"sdcard": false
 		},
-		"/src/images/background/Tile_94.png": {
+		"\\src\\images\\enemies\\bigspider\\Spider_16_03_F0.h": {
 			"sdcard": false
 		},
-		"/src/images/background/Tile_95.h": {
+		"\\src\\images\\enemies\\bigspider\\Spider_16_03_F1.h": {
 			"sdcard": false
 		},
-		"/src/images/background/Tile_95.png": {
+		"\\src\\images\\enemies\\bigspider\\Spider_16_04_F0.h": {
 			"sdcard": false
 		},
-		"/src/images/enemies/chest": {
+		"\\src\\images\\enemies\\bigspider\\Spider_16_03_F1.png": {
 			"sdcard": false
 		},
-		"/src/images/title/ArrowDown.png": {
+		"\\src\\images\\enemies\\bigspider\\Spider_16_04_F0.png": {
 			"sdcard": false
 		},
-		"/src/images/title/ArrowDown.h": {
+		"\\src\\images\\enemies\\bigspider\\Spider_16_03_F0.png": {
 			"sdcard": false
 		},
-		"/src/images/title/ArrowUp.png": {
+		"\\src\\images\\enemies\\bigspider\\Spider_16_04_F1.h": {
 			"sdcard": false
 		},
-		"/src/images/title/ArrowUp.h": {
+		"\\src\\images\\enemies\\bigspider\\Spider_16_05_F0.h": {
 			"sdcard": false
 		},
-		"/src/images/title/BorderBOT.png": {
+		"\\src\\images\\enemies\\bigspider\\Spider_16_04_F1.png": {
 			"sdcard": false
 		},
-		"/src/images/title/BorderBOT.h": {
+		"\\src\\images\\enemies\\bigspider\\Spider_16_05_F1.h": {
 			"sdcard": false
 		},
-		"/src/images/title/BorderTOP.h": {
+		"\\src\\images\\enemies\\bigspider\\Spider_16_05_F0.png": {
 			"sdcard": false
 		},
-		"/src/images/title/DarkRitual.h": {
+		"\\src\\images\\enemies\\bigspider\\Spider_16_05_F1.png": {
 			"sdcard": false
 		},
-		"/src/images/title/BorderTop.png": {
+		"\\src\\images\\enemies\\bigspider\\Spider_16_06_F0.png": {
 			"sdcard": false
 		},
-		"/src/images/title/DarkRitual.png": {
+		"\\src\\images\\enemies\\bigspider\\Spider_16_06_F0.h": {
 			"sdcard": false
 		},
-		"/src/images/title/Eyes_Closed.png": {
+		"\\src\\images\\enemies\\bigspider\\Spider_16_06_F1.png": {
 			"sdcard": false
 		},
-		"/src/images/title/Eyes_Closed.h": {
+		"\\src\\images\\enemies\\bigspider\\Spider_16_06_F1.h": {
 			"sdcard": false
 		},
-		"/src/images/title/Eyes_Open.h": {
+		"\\src\\images\\enemies\\bigspider\\Spider_16_07_F0.h": {
 			"sdcard": false
 		},
-		"/src/images/title/Eyes_Open.png": {
+		"\\src\\images\\enemies\\bigspider\\Spider_16_07_F1.h": {
 			"sdcard": false
 		},
-		"/src/images/title/Game_Play.h": {
+		"\\src\\images\\enemies\\bigspider\\Spider_16_07_F0.png": {
 			"sdcard": false
 		},
-		"/src/images/title/Game_Play.png": {
+		"\\src\\images\\enemies\\bigspider\\Spider_16_07_F1.png": {
 			"sdcard": false
 		},
-		"/src/images/title/Orb.h": {
+		"\\src\\images\\enemies\\fire\\Fire_00.h": {
 			"sdcard": false
 		},
-		"/src/images/title/Orb.png": {
+		"\\src\\images\\enemies\\fire\\Fire_00.png": {
 			"sdcard": false
 		},
-		"/src/images/title/PlayerBOT.h": {
+		"\\src\\images\\enemies\\fire\\Fire_01.png": {
 			"sdcard": false
 		},
-		"/src/images/title/PlayerBot.png": {
+		"\\src\\images\\enemies\\fire\\Fire_01.h": {
 			"sdcard": false
 		},
-		"/src/images/title/PlayerTOP.h": {
+		"\\src\\images\\enemies\\fire\\Fire_02.h": {
 			"sdcard": false
 		},
-		"/src/images/title/PlayerTop.png": {
+		"\\src\\images\\enemies\\fire\\Fire_02.png": {
 			"sdcard": false
 		},
-		"/src/images/title/Score.h": {
+		"\\src\\images\\enemies\\fire\\Fire_03.png": {
 			"sdcard": false
 		},
-		"/src/images/title/Score.png": {
+		"\\src\\images\\enemies\\newenemy\\NewEnemy_00.h": {
 			"sdcard": false
 		},
-		"/src/images/title/Start.h": {
+		"\\src\\images\\enemies\\fire\\Fire_03.h": {
 			"sdcard": false
 		},
-		"/src/images/title/Start.png": {
+		"\\src\\images\\enemies\\newenemy\\NewEnemy_00.png": {
 			"sdcard": false
 		},
-		"/src/images/title/Title.h": {
+		"\\src\\images\\enemies\\newenemy\\NewEnemy_01.h": {
 			"sdcard": false
 		},
-		"/src/images/enemies/chest/Chest_00_F0.h": {
+		"\\src\\images\\enemies\\newenemy\\NewEnemy_01.png": {
 			"sdcard": false
 		},
-		"/src/images/enemies/chest/Chest_00_F0.png": {
+		"\\src\\images\\enemies\\newenemy\\NewEnemy_03.h": {
 			"sdcard": false
 		},
-		"/src/images/enemies/chest/Chest_00_F1.h": {
+		"\\src\\images\\enemies\\newenemy\\NewEnemy_02.h": {
 			"sdcard": false
 		},
-		"/src/images/enemies/chest/Chest_00_F1.png": {
+		"\\src\\images\\enemies\\newenemy\\NewEnemy_02.png": {
 			"sdcard": false
 		},
-		"/src/images/enemies/chest/Chest_02_F0.h": {
+		"\\src\\images\\enemies\\newenemy\\NewEnemy_03.png": {
 			"sdcard": false
 		},
-		"/src/images/enemies/chest/Chest_02_F0.png": {
+		"\\src\\images\\enemies\\newenemy\\NewEnemy_04.h": {
 			"sdcard": false
 		},
-		"/src/images/enemies/chest/Chest_02_F1.h": {
+		"\\src\\images\\enemies\\newenemy\\NewEnemy_05.png": {
 			"sdcard": false
 		},
-		"/src/images/enemies/chest/Chest_02_F1.png": {
+		"\\src\\images\\enemies\\newenemy\\NewEnemy_04.png": {
 			"sdcard": false
 		},
-		"/src/images/enemies/chest/Chest_04_F0.h": {
+		"\\src\\images\\enemies\\newenemy\\NewEnemy_05.h": {
 			"sdcard": false
 		},
-		"/src/images/enemies/chest/Chest_04_F0.png": {
+		"\\src\\images\\enemies\\newenemy\\NewEnemy_06.h": {
 			"sdcard": false
 		},
-		"/src/images/enemies/chest/Chest_04_F1.h": {
+		"\\src\\images\\enemies\\newenemy\\NewEnemy_06.png": {
 			"sdcard": false
 		},
-		"/src/images/enemies/chest/Chest_06_F0.h": {
+		"\\src\\images\\enemies\\newenemy\\NewEnemy_07.h": {
 			"sdcard": false
 		},
-		"/src/images/enemies/chest/Chest_04_F1.png": {
+		"\\src\\images\\enemies\\newenemy\\NewEnemy_07.png": {
 			"sdcard": false
 		},
-		"/src/images/enemies/chest/Chest_06_F0.png": {
+		"\\src\\images\\enemies\\snake\\Snake_00_F0.h": {
 			"sdcard": false
 		},
-		"/src/images/enemies/chest/Chest_06_F1.h": {
+		"\\src\\images\\enemies\\snake\\Snake_00_F1.h": {
 			"sdcard": false
 		},
-		"/src/images/enemies/chest/Chest_06_F1.png": {
+		"\\src\\images\\enemies\\snake\\Snake_00_F0.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemies\\snake\\Snake_00_F1.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemies\\snake\\Snake_02_F0.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemies\\snake\\Snake_02_F0.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemies\\snake\\Snake_02_F1.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemies\\snake\\Snake_04_F0.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemies\\snake\\Snake_02_F1.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemies\\snake\\Snake_04_F1.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemies\\snake\\Snake_06_F0.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemies\\snake\\Snake_04_F1.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemies\\snake\\Snake_04_F0.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemies\\snake\\Snake_06_F0.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemies\\snake\\Snake_06_F1.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemies\\spider\\SpiderWeb_00.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemies\\spider\\SpiderWeb_00.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemies\\snake\\Snake_06_F1.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemies\\spider\\SpiderWeb_01.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemies\\spider\\SpiderWeb_01.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemies\\spider\\SpiderWeb_02.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemies\\spider\\SpiderWeb_02.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemies\\spider\\SpiderWeb_03.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemies\\spider\\SpiderWeb_03.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemies\\spider\\SpiderWeb_04.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemies\\spider\\SpiderWeb_04.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemies\\spider\\SpiderWeb_05.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemies\\spider\\Spider_00_F0.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemies\\spider\\SpiderWeb_05.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemies\\spider\\Spider_00_F0.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemies\\spider\\Spider_00_F1.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemies\\spider\\Spider_00_F1.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemies\\spider\\Spider_01_F0.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemies\\spider\\Spider_01_F0.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemies\\spider\\Spider_01_F1.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemies\\spider\\Spider_02_F0.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemies\\spider\\Spider_02_F0.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemies\\spider\\Spider_01_F1.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemies\\spider\\Spider_02_F1.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemies\\spider\\Spider_02_F1.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemies\\spider\\Spider_03_F0.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemies\\spider\\Spider_03_F1.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemies\\spider\\Spider_03_F0.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemies\\spider\\Spider_03_F1.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemies\\spider\\Spider_04_F0.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemies\\spider\\Spider_04_F0.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemies\\spider\\Spider_04_F1.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemies\\spider\\Spider_05_F0.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemies\\spider\\Spider_04_F1.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemies\\spider\\Spider_05_F0.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemies\\spider\\Spider_05_F1.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemies\\spider\\Spider_05_F1.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemies\\spider\\Spider_06_F0.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemies\\spider\\Spider_06_F0.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemies\\spider\\Spider_06_F1.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemies\\spider\\Spider_06_F1.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemies\\spider\\Spider_07_F0.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemies\\spider\\Spider_07_F1.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemies\\spider\\Spider_07_F1.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemies\\spider\\Spider_07_F0.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemies\\spike\\Spike_LHS_00.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemies\\spike\\Spike_LHS_00.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemies\\spike\\Spike_LHS_01.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemies\\spike\\Spike_LHS_01.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemies\\spike\\Spike_LHS_02.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemies\\spike\\Spike_LHS_02.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemies\\spike\\Spike_LHS_03.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemies\\spike\\Spike_LHS_04.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemies\\spike\\Spike_LHS_04.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemies\\spike\\Spike_LHS_05.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemies\\spike\\Spike_LHS_03.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemies\\spike\\Spike_LHS_05.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemies\\spike\\Spike_LHS_06.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemies\\spike\\Spike_LHS_06.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemies\\spike\\Spike_LHS_07.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemies\\spike\\Spike_LHS_07.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemies\\spike\\Spike_LHS_08.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemies\\spike\\Spike_LHS_08.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\sprites\\Potion - Copy.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\sprites\\Tonic.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\sprites\\RedSpell - Copy.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\scoreboard\\MauveSpell.png": {
+			"sdcard": false
+		},
+		"\\ezgif-6-dc201764d87e.gif": {
+			"sdcard": false
+		},
+		"\\ezgif-6-798f65cbc39e.gif": {
+			"sdcard": false
+		},
+		"\\src\\images\\title": {
+			"sdcard": false
+		},
+		"\\src\\images\\title\\ArrowDown.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\title\\ArrowUp.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\title\\BorderBOT.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\title\\DarkRitual.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\title\\BorderTOP.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\title\\Game_Play.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\title\\Eyes.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\title\\PlayerTOP.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\title\\Orb.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\title\\PlayerBOT.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\title\\Score.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\title\\Start.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\title\\Title.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\title\\ArrowDown.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\title\\ArrowUp.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\title\\DarkRitual.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\title\\BorderBOT.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\title\\BorderTOP.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\title\\Game_Play.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\title\\Eyes.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\title\\PlayerTOP.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\title\\Orb.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\title\\PlayerBOT.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\title\\Score.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\title\\Start.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\title\\Eyes_Open.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\title\\Eyes_Closed.gif": {
+			"sdcard": false
+		},
+		"\\src\\images\\title\\Eyes_Open.h": {
+			"sdcard": false
+		},
+		"\\Eyes_Closed.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\title\\Eyes_Closed.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\title\\Eyes_Closed.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemies\\New folder": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemies\\chest": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemies\\chest\\Chest_04_F0.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemies\\chest\\Chest_04_F1.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemies\\chest\\Chest_00_F0.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemies\\chest\\Chest_00_F1.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemies\\chest\\Chest_06_F0.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemies\\chest\\Chest_06_F1.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemies\\chest\\Chest_06_F1 - Copy.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemies\\chest\\Chest_06_F0 - Copy.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemies\\chest\\Chest_02_F1.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemies\\chest\\Chest_02_F0.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemies\\chest\\Chest_04_F0.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemies\\chest\\Chest_04_F1.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemies\\chest\\Chest_00_F0.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemies\\chest\\Chest_00_F1.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemies\\chest\\Chest_06_F0.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemies\\chest\\Chest_06_F1.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemies\\chest\\Chest_02_F1.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemies\\chest\\Chest_02_F0.h": {
+			"sdcard": false
+		},
+		"\\src\\entities\\Sprite.cpp": {
+			"sdcard": false
+		},
+		"\\src\\images\\background\\Tile_14 - Copy.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\background\\Tile_99.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\background\\Tile_87.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\background\\Tile_87.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\background\\Tile_89.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\background\\Tile_89.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\background\\Altar.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemies\\eye": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemies\\skeleton": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemies\\eye\\Eye_00_F0.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemies\\eye\\Eye_00_F1.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemies\\eye\\Eye_04_F0.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemies\\eye\\Eye_04_F1.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemies\\eye\\Eye_06_F0.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemies\\eye\\Eye_06_F1.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemies\\skeleton\\Skeleton_00_F0.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemies\\skeleton\\Skeleton_00_F1.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemies\\skeleton\\Skeleton_02_F1.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemies\\skeleton\\Skeleton_04_F1.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemies\\skeleton\\Skeleton_04_F0.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemies\\skeleton\\Skeleton_02_F0.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemies\\skeleton\\Skeleton_06_F0.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemies\\skeleton\\Skeleton_06_F1.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\background\\Altar.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemies\\eye\\Eye_00_F0.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemies\\eye\\Eye_00_F1.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemies\\eye\\Eye_04_F0.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemies\\eye\\Eye_04_F1.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemies\\eye\\Eye_06_F0.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemies\\eye\\Eye_06_F1.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemies\\skeleton\\Skeleton_00_F0.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemies\\skeleton\\Skeleton_00_F1.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemies\\skeleton\\Skeleton_02_F1.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemies\\skeleton\\Skeleton_04_F1.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemies\\skeleton\\Skeleton_04_F0.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemies\\skeleton\\Skeleton_02_F0.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemies\\skeleton\\Skeleton_06_F1.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemies\\skeleton\\Skeleton_06_F0.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemies\\eye\\Eye_06_F0 - Copy.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemies\\eye\\Eye_06_F1 - Copy.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemies\\eye\\Eye_02_F0.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemies\\eye\\Eye_02_F1.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemies\\eye\\Eye_02_F1.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemies\\eye\\Eye_02_F0.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\background\\Altar - Copy.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\background\\Tile_80 (2).png": {
+			"sdcard": false
+		},
+		"\\src\\images\\background\\Tile_90.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\background\\Tile_90 - Copy.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\background\\Tile_91.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\background\\Tile_92.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\background\\Tile_93.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\background\\Tile_95.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\background\\Tile_94.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\background\\Tile_91.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\background\\Tile_90.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\background\\Tile_92.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\background\\Tile_93.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\background\\Tile_95.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\background\\Tile_94.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\players\\Tombstone.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\players\\Tombstone.h": {
+			"sdcard": false
+		},
+		"\\RogueBoy_Pokitto.bin.2 - Copy.png": {
+			"sdcard": false
+		},
+		"\\RogueBoy_Pokitto.bin.1 - Copy.gif": {
+			"sdcard": false
+		},
+		"\\RogueBoy_Pokitto.bin.1 - Copy.h": {
+			"sdcard": false
+		},
+		"\\RogueBoy_Pokitto.bin.1 - Copy.png": {
+			"sdcard": false
+		},
+		"\\RogueBoy_Pokitto.bin.2 - Copy.gif": {
+			"sdcard": false
+		},
+		"\\src\\images\\title\\BorderTop.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemies\\necromancer": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemies\\necromancer\\Necromancer_02_F0.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemies\\necromancer\\Necromancer_02_F0 - Copy.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemies\\necromancer\\Necromancer_02_F1.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemies\\necromancer\\Necromancer_00_F0.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemies\\necromancer\\Necromancer_Summons_F0.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemies\\skeleton\\Skeleton_Rising_F0.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemies\\necromancer\\Necromancer_02_F1 - Copy.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemies\\necromancer\\Necromancer_00_F1.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemies\\necromancer\\Necromancer_Summons_F0 - Copy.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemies\\necromancer\\Necromancer_Summons_F1.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemies\\necromancer\\Necromancer_Summons_F1 - Copy.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemies\\necromancer\\Necromancer_Summons_F2.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemies\\skeleton\\Skeleton_Rising_F0 - Copy.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemies\\skeleton\\Skeleton_Rising_F0 - Copy (2).png": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemies\\skeleton\\Skeleton_Rising_F0 - Copy (3).png": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemies\\skeleton\\Skeleton_Rising_F0 - Copy (4).png": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemies\\skeleton\\Skeleton_Rising_F1.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemies\\skeleton\\Skeleton_Rising_F2.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemies\\skeleton\\Skeleton_Rising_F3.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemies\\skeleton\\Skeleton_Rising_F4.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemies\\necromancer\\Necromancer_06_F0 (1).png": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemies\\necromancer\\Necromancer_06_F0 (2).png": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemies\\necromancer\\Necromancer_06_F0.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemies\\necromancer\\Necromancer_06_F1.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemies\\necromancer\\Necromancer_06_F2.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemies\\necromancer\\Necromancer_02_F0.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemies\\necromancer\\Necromancer_02_F1.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemies\\necromancer\\Necromancer_Summons_F0.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemies\\necromancer\\Necromancer_00_F0.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemies\\skeleton\\Skeleton_Rising_F0.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemies\\necromancer\\Necromancer_00_F1.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemies\\necromancer\\Necromancer_Summons_F1.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemies\\necromancer\\Necromancer_Summons_F2.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemies\\skeleton\\Skeleton_Rising_F2.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemies\\skeleton\\Skeleton_Rising_F1.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemies\\skeleton\\Skeleton_Rising_F3.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemies\\skeleton\\Skeleton_Rising_F4.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemies\\necromancer\\Necromancer_06_F1.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemies\\necromancer\\Necromancer_06_F0.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\title\\PlayerBOT.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\title\\PlayerTOP.png": {
 			"sdcard": false
 		}
 	},

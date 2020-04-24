@@ -6,7 +6,7 @@ uint8_t Sprite::getWidth()                          { return this->width; }
 uint8_t Sprite::getHeight()                         { return this->height; }
 int8_t Sprite::getXOffset()                         { return this->xOffset; }
 int8_t Sprite::getYOffset()                         { return this->yOffset; }
-uint8_t Sprite::getFrame()                          { return this->frame; }
+int8_t Sprite::getFrame()                           { return this->frame; }
 uint8_t Sprite::getQuantity()                       { return this->quantity; }
 uint8_t Sprite::getPuffIndex()                      { return this->puffIndex; }
 Object Sprite::getType()                            { return this->type; }
@@ -19,7 +19,7 @@ bool Sprite::getRenderHealthBar()                   { return this->renderHealthB
 bool Sprite::getPreventImmediatePickup()            { return this->preventImmediatePickup; }
 
 void Sprite::setActive(bool k)                      { this->active = k; }
-void Sprite::setFrame(uint8_t frame)                { this->frame = frame;}
+void Sprite::setFrame(int8_t frame)                 { this->frame = frame;}
 void Sprite::setQuantity(uint8_t quantity)          { this->quantity = quantity;}
 void Sprite::setX(uint16_t x)                       { this->x = x; }
 void Sprite::setY(uint16_t y)                       { this->y = y; }
@@ -221,6 +221,7 @@ bool Sprite::isEnemy() {
         case Object::Skeleton:
         case Object::Snake:
         case Object::Chest:
+        case Object::Necromancer:
 
             return true;
 

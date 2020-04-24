@@ -95,7 +95,7 @@ void Sprites::renderSprite(Object type, int x, int y) {
 }
 
 
-void Sprites::renderSprite(Object type, int x, int y, int8_t xOffset, int8_t yOffset, Direction direction, uint8_t frame, bool showEnemies, bool renderHealth, int healthValue ) {
+void Sprites::renderSprite(Object type, int x, int y, int8_t xOffset, int8_t yOffset, Direction direction, int8_t frame, bool showEnemies, bool renderHealth, int healthValue ) {
 
 // PD::drawLine(x, y - 20, x, y + 20);
 // PD::drawLine(x - 20, y, x + 20, y);
@@ -136,7 +136,7 @@ void Sprites::renderSprite(Object type, int x, int y, int8_t xOffset, int8_t yOf
 
         case Object::Skeleton:
             if (showEnemies) {
-                PD::drawBitmap(x + xOffset, y + yOffset, Images::Skeletons[(static_cast<uint8_t>(direction) * 2) + frame]);
+                PD::drawBitmap(x + xOffset, y + yOffset, Images::Skeletons[(static_cast<uint8_t>(direction) * 2) + frame + 5]); // 5 offset due to rising frames.
                 if (renderHealth) { this->renderHealthBar(x + 6, y - 6, healthValue); }
             }
             break;
@@ -151,6 +151,13 @@ void Sprites::renderSprite(Object type, int x, int y, int8_t xOffset, int8_t yOf
         case Object::Chest:
             if (showEnemies) {
                 PD::drawBitmap(x + xOffset, y + yOffset, Images::Chests[(static_cast<uint8_t>(direction) * 2) + frame]);
+                if (renderHealth) { this->renderHealthBar(x + 6, y - 6, healthValue); }
+            }
+            break;
+
+        case Object::Necromancer:
+            if (showEnemies) {
+                PD::drawBitmap(x + xOffset, y + yOffset, Images::Skeletons[(static_cast<uint8_t>(direction) * 2) + frame + 3]); // 3 offset due to summons frames.
                 if (renderHealth) { this->renderHealthBar(x + 6, y - 6, healthValue); }
             }
             break;

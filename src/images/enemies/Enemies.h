@@ -79,6 +79,11 @@ namespace Images {
     #include "skeleton/Skeleton_04_F1.h"
     #include "skeleton/Skeleton_06_F0.h"
     #include "skeleton/Skeleton_06_F1.h"
+    #include "skeleton/Skeleton_Rising_F0.h"
+    #include "skeleton/Skeleton_Rising_F1.h"
+    #include "skeleton/Skeleton_Rising_F2.h"
+    #include "skeleton/Skeleton_Rising_F3.h"
+    #include "skeleton/Skeleton_Rising_F4.h"
     #include "eye/Eye_00_F0.h"
     #include "eye/Eye_00_F1.h"
     #include "eye/Eye_02_F0.h"
@@ -87,6 +92,15 @@ namespace Images {
     #include "eye/Eye_04_F1.h"
     #include "eye/Eye_06_F0.h"
     #include "eye/Eye_06_F1.h"
+    #include "necromancer/Necromancer_Summons_F0.h"
+    #include "necromancer/Necromancer_Summons_F1.h"
+    #include "necromancer/Necromancer_Summons_F2.h"
+    #include "necromancer/Necromancer_00_F0.h"
+    #include "necromancer/Necromancer_00_F1.h"
+    #include "necromancer/Necromancer_02_F0.h"
+    #include "necromancer/Necromancer_02_F1.h"
+    #include "necromancer/Necromancer_06_F0.h"
+    #include "necromancer/Necromancer_06_F1.h"
     #include "HealthBar.h"
 
     const uint8_t * const Bats[] = { 
@@ -133,6 +147,11 @@ namespace Images {
     };
 
     const uint8_t * const Skeletons[] = { 
+        Skeleton_Rising_F0,
+        Skeleton_Rising_F1,
+        Skeleton_Rising_F2,
+        Skeleton_Rising_F3,
+        Skeleton_Rising_F4,
         Skeleton_00_F0,
         Skeleton_00_F1,
         Skeleton_02_F0,
@@ -149,6 +168,30 @@ namespace Images {
         Skeleton_06_F1,
         Skeleton_06_F0,
         Skeleton_06_F1,
+    };
+
+    const uint8_t * const Necromancer[] = { 
+        Necromancer_Summons_F0,
+        Necromancer_Summons_F1,
+        Necromancer_Summons_F2,
+        Necromancer_00_F0,
+        Necromancer_00_F1,
+        Necromancer_02_F0,
+        Necromancer_02_F1,
+        Necromancer_02_F0,
+        Necromancer_02_F1,
+        Necromancer_02_F0,
+        Necromancer_02_F1,
+        Necromancer_02_F0,
+        Necromancer_02_F1,
+        Necromancer_06_F0,
+        Necromancer_06_F1,
+        Necromancer_06_F0,
+        Necromancer_06_F1,
+        Necromancer_06_F0,
+        Necromancer_06_F1,
+        Necromancer_06_F0,
+        Necromancer_06_F1,
     };
 
     const uint8_t * const SpikeLHS[] = { 

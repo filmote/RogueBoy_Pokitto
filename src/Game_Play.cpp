@@ -141,6 +141,7 @@ void Game::updateObjects(bool ignorePlayerDamage) {
                     case Object::FireTOP:
                     case Object::FireBOT:
                     case Object::Snake:
+                    case Object::Necromancer:
 
                         if (!ignorePlayerDamage) {
                                 
@@ -153,37 +154,30 @@ void Game::updateObjects(bool ignorePlayerDamage) {
                                 switch (type) {
 
                                     case Object::Floater:   
-                                        //SJH 
                                         player.decHealth(HEALTH_DEC_FLOATER); 
                                         break;
 
                                     case Object::Eye: 
-                                        //SJH 
                                         player.decHealth(HEALTH_DEC_EYES); 
                                         break;
 
                                     case Object::Spider:
-                                        //SJH 
                                         player.decHealth(HEALTH_DEC_SPIDER); 
                                         break;
 
                                     case Object::BigSpider:
-                                        //SJH 
                                         player.decHealth(HEALTH_DEC_BIGSPIDER); 
                                         break;
 
                                     case Object::Bat: 
-                                        //SJH 
                                         player.decHealth(HEALTH_DEC_BAT); 
                                         break;
 
                                     case Object::Skeleton: 
-                                        //SJH 
                                         player.decHealth(HEALTH_DEC_SKELETON); 
                                         break;
 
                                     case Object::Snake: 
-                                        //SJH 
                                         player.decHealth(HEALTH_DEC_SNAKE); 
                                         break;
 
@@ -191,13 +185,15 @@ void Game::updateObjects(bool ignorePlayerDamage) {
                                     case Object::SpikeRHS: 
                                     case Object::FireTOP: 
                                     case Object::FireBOT: 
-                                        //SJH 
                                         player.decHealth(HEALTH_DEC_SPIKE_FIRE); 
                                         break;
 
                                     case Object::Chest:   
-                                        //SJH 
                                         player.decHealth(HEALTH_DEC_CHEST); 
+                                        break;
+
+                                    case Object::Necromancer:   
+                                        player.decHealth(HEALTH_DEC_NECROMANCER); 
                                         break;
 
 
@@ -1110,6 +1106,15 @@ void Game::spriteAI(MapInformation &map, Player &player, Sprite &sprite) {
             spriteAI_CheckForMove(map, player, sprite, location, 7);
             break;
 
+        case Object::Necromancer: 
+            if (sprite.getFrame() < 0) {
+            }
+            else {
+                spriteAI_UpdateFrame(sprite, 4, 2);
+            }
+            spriteAI_CheckForMove(map, player, sprite, location, 7);
+            break;
+
         case Object::Spider:   
             {
                 spriteAI_UpdateFrame(sprite, 4, 2);
@@ -1241,13 +1246,42 @@ Direction Game::spriteAI_CheckForMove(MapInformation &map, Player &player, Sprit
         switch (this->player.getWeapon()) {
 
             case Object::IceSpell:
+
                 if (this->player.getWeaponCount() % 2 == 0) {
-                    direction = this->spriteAI_UpdateEnemy(location, map, player, sprite);
+
+                    switch (sprite.getType()) {
+
+                        case Object::Necromancer:
+                            if (PC::frameCount % 4 == 0) {
+                                direction = this->spriteAI_UpdateEnemy(location, map, player, sprite);
+                            }
+                            break;
+
+                        default:
+                            direction = this->spriteAI_UpdateEnemy(location, map, player, sprite);
+                            break;
+
+                    }
+
                 }
                 break;
 
             default:
-                direction = this->spriteAI_UpdateEnemy(location, map, player, sprite);
+
+                switch (sprite.getType()) {
+
+                    case Object::Necromancer: 
+                        if (PC::frameCount % 2 == 0) {
+                            direction = this->spriteAI_UpdateEnemy(location, map, player, sprite);
+                        }
+                        break;
+
+                    default:
+                        direction = this->spriteAI_UpdateEnemy(location, map, player, sprite);
+                        break;
+
+                }
+
                 break;
 
         }

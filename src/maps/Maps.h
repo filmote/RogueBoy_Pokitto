@@ -2,6 +2,34 @@
 
 #include <stdint.h>
 
+constexpr const uint8_t Map_Test[] = 
+{
+	15, /*Width*/
+	15, /*Height*/
+	7, /*Player Start X*/
+	10, /*Player Start Y*/
+	200, /*Timer*/
+	1, /*Out of Bounds Tile ID*/
+	0, 24, 24, 24, 24, 24, 24, 24, 24, 24, 24, 24, 24, 24, 0,
+	21, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 23,
+	21, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 23,
+	21, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 23,
+	21, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 23,
+	21, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 23,
+	21, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 23,
+	21, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 23,
+	21, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 23,
+	21, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 23,
+	21, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 23,
+	21, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 23,
+	21, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 23,
+	21, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 23,
+	0, 22, 22, 22, 22, 22, 22, 22, 22, 22, 22, 22, 22, 22, 0,
+	1, 
+	22, 7, 2, 60,
+	0,
+};
+
 constexpr const uint8_t Map_Training[] = 
 {
 	30, /*Width*/
@@ -937,6 +965,6 @@ constexpr const uint8_t Altar[] =
 	0,
 };
 
-constexpr const uint8_t numberOfMaps = 25;
+constexpr const uint8_t numberOfMaps = 26;
 
-constexpr const uint8_t* maps[numberOfMaps] = { Map_Training,MAP_1,MAP_2,MAP_3,MAP_4,MAP_5,Map_Shop,MAP_6,MAP_7,MAP_8,MAP_9,MAP_10,Map_Shop2,MAP_11,MAP_12,MAP_13,MAP_14,MAP_15,Map_Shop3,MAP_16,MAP_17,MAP_18,Map133,Map22,Altar, };
+constexpr const uint8_t* maps[numberOfMaps] = { Map_Test,Map_Training,MAP_1,MAP_2,MAP_3,MAP_4,MAP_5,Map_Shop,MAP_6,MAP_7,MAP_8,MAP_9,MAP_10,Map_Shop2,MAP_11,MAP_12,MAP_13,MAP_14,MAP_15,Map_Shop3,MAP_16,MAP_17,MAP_18,Map133,Map22,Altar, };
