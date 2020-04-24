@@ -8303,12 +8303,6 @@
 		},
 		"\\src\\images\\enemies\\necromancer\\Necromancer_06_F0.h": {
 			"sdcard": false
-		},
-		"\\src\\images\\title\\PlayerBOT.png": {
-			"sdcard": false
-		},
-		"\\src\\images\\title\\PlayerTOP.png": {
-			"sdcard": false
 		}
 	},
 	"BUILDFlags": {

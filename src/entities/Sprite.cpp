@@ -34,6 +34,12 @@ void Sprite::decCountdown() {
 
 }
 
+void Sprite::incFrame() { 
+
+    this->frame++; 
+
+}
+
 Rect Sprite::getRect() {
 
     switch (this->type) {

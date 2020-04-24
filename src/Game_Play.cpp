@@ -15,6 +15,7 @@ void Game::updateObjects(bool ignorePlayerDamage) {
     if (this->shockwave > 0)            this->shockwave--;
     if (this->levelStartDelay > 0)      this->levelStartDelay--;
     if (this->enemyBulletDelay > 0)     this->enemyBulletDelay--;
+    if (this->launchSkeletonDelay > 0)  this->launchSkeletonDelay--;
 
 
     // Update other objects ..
@@ -1107,12 +1108,58 @@ void Game::spriteAI(MapInformation &map, Player &player, Sprite &sprite) {
             break;
 
         case Object::Necromancer: 
-            if (sprite.getFrame() < 0) {
+            {
+printf("lsd %i\n",this->launchSkeletonDelay);
+                switch (sprite.getFrame()) {
+
+                    case -100 ... -2:
+                        sprite.incFrame();
+                        break;
+
+                    case -1:    // launch a Skeleton
+                        {
+                            sprite.incFrame();
+
+
+                            // Find a matching Object in the sprites collecion that is disabled, otherwise add one ..
+                            uint8_t spriteIdx = this->objects.getFirstInactiveSpriteIndex(Object::Skeleton);
+
+                            if (spriteIdx == NO_SPRITE_FOUND) {
+
+                                this->objects.setObjectNum(this->objects.getObjectNum() + 1);
+                                spriteIdx = this->objects.getObjectNum() - 1;
+
+                            }   
+
+                            Sprite &sprite = this->objects.getSprite(spriteIdx);
+                            sprite.setSprite(location.x, location.y, ENEMY_CHEST_HEALTH, Object::Skeleton, true, false);
+                            sprite.setCountdown(0);
+                            sprite.setDirection(Direction::Down);
+
+                        }
+                        break;
+
+                    case 0 ... 100:
+                        {
+                            spriteAI_UpdateFrame(sprite, 4, 2);
+                            Direction direction = spriteAI_CheckForMove(map, player, sprite, location, 7);
+
+                            if (direction != Direction::None) {
+
+
+                                // Should the enemy summons a skeleton ?
+
+                                sprite.setFrame(-30);
+                                this->launchSkeletonDelay = random(LAUNCH_SKELETON_DELAY_MIN, LAUNCH_SKELETON_DELAY_MAX);
+
+                            }
+
+                        }
+                        break;
+
+                }
+
             }
-            else {
-                spriteAI_UpdateFrame(sprite, 4, 2);
-            }
-            spriteAI_CheckForMove(map, player, sprite, location, 7);
             break;
 
         case Object::Spider:   
@@ -1125,7 +1172,7 @@ void Game::spriteAI(MapInformation &map, Player &player, Sprite &sprite) {
 
                     // Should the enemy shoot a bullet?
 
-                    if (this->enemyBulletDelay == 0 && random(0, 4) == 0 && direction != Direction::None) {
+                    if (this->enemyBulletDelay == 0 && random(0, 4) == 0) {
 
                         const int32_t xOffsets[8] = { 0, 4, 4, 4, 0, -4, -4, -4 };
                         const int32_t yOffsets[8] = { -4, -4, 0, 4, 4, 4, 0, -4 };

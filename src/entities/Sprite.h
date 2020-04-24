@@ -52,6 +52,7 @@ class Sprite {
         void damage(Object weapon);
         Direction getDirection();
 
+        void incFrame();
         bool isEnemy();
         bool isCarryable();
 

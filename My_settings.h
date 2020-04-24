@@ -123,6 +123,10 @@
 #define ENEMY_BULLET_DELAY_MIN    20
 #define ENEMY_BULLET_DELAY_MAX    40
 
+#define LAUNCH_SKELETON_DELAY_MIN 100
+#define LAUNCH_SKELETON_DELAY_MAX 200
+
+
 // Web bullet travel details ..
 
 #define BULLET_WEB_FRAMES         40       // Number of frames to travel

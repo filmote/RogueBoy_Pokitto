@@ -107,6 +107,7 @@ class Game {
 
         int points = 0;
         int enemyBulletDelay = 0;
+        int launchSkeletonDelay = 0;
         uint16_t eolXTile;
         uint16_t eolYTile;
 
