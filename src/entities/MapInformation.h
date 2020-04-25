@@ -12,6 +12,7 @@ class MapInformation {
     public:
 
         MapTiles getBlock(int16_t x, int16_t y);
+        MapTiles getBlock(int16_t idx);
         uint8_t getLevel();
         uint8_t getDefinedMapLevel();
         uint16_t getWidth();

@@ -432,6 +432,8 @@ void Game::nextLevelLoad() {
             this->map.setDefinedMapLevel(map.getDefinedMapLevel() + 1); 
 
         }
+
+        this->mixAltartPieces();
         
         gameState = GameState::Game;
         this->map.setLevel(map.getLevel() + 1); 
@@ -440,6 +442,68 @@ void Game::nextLevelLoad() {
     } 
     else {
         gameState = GameState::WinState;
+    }
+
+}
+
+void Game::mixAltartPieces() {
+
+    bool hasAltar = false;
+    uint16_t altarIdx = 0;
+
+    // Do we have an altar piece?
+
+    for (uint16_t idx = 0; idx < map.getWidth() * map.getHeight(); idx++) {
+
+        if (map.getBlock(idx) == MapTiles::ClosedChest_Altar) {
+
+            hasAltar = true;
+            altarIdx = idx;
+
+        }
+
+    }
+
+    if (hasAltar) {
+
+        uint8_t otherChestCount = 0;
+
+        for (uint16_t idx = 0; idx < map.getWidth() * map.getHeight(); idx++) {
+
+            if (map.getBlock(idx) == MapTiles::ClosedChest_Random) {
+
+                otherChestCount++;
+
+            }
+
+        }
+
+        uint8_t r = random(0, otherChestCount + 1);
+
+        if (r < otherChestCount) {
+
+            otherChestCount = 0;
+
+            for (uint16_t idx = 0; idx < map.getWidth() * map.getHeight(); idx++) {
+
+                if (map.getBlock(idx) == MapTiles::ClosedChest_Random) {
+
+                    if (otherChestCount == r) {
+
+                        this->map.setBlock(idx, MapTiles::ClosedChest_Altar);
+                        this->map.setBlock(altarIdx, MapTiles::ClosedChest_Random);
+                        break;
+
+                    }
+                    
+                    otherChestCount++;
+
+                }
+
+            }
+
+        }
+
     }
 
 }

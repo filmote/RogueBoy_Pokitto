@@ -46,6 +46,12 @@ void Game::showInventory() {
                 
             if (!inventoryMenu.showActionMenu) {
 
+                if (PC::buttons.pressed(BTN_B)) {
+
+                    gameState = GameState::Game;
+
+                }
+
                 if (PC::buttons.pressed(BTN_C)) {
             
                     this->inventoryMenu.mode = InventoryMenuMode::AltarPieces;
@@ -81,7 +87,7 @@ void Game::showInventory() {
             }
             else {
 
-                if (PC::buttons.pressed(BTN_C)) {
+                if (PC::buttons.pressed(BTN_B) || PC::buttons.pressed(BTN_C)) {
 
                     this->inventoryMenu.showActionMenu = false;
 
@@ -291,7 +297,7 @@ void Game::showInventory() {
 
         case InventoryMenuMode::AltarPieces:
 
-            if (PC::buttons.pressed(BTN_C)) {
+            if (PC::buttons.pressed(BTN_A) || PC::buttons.pressed(BTN_B) || PC::buttons.pressed(BTN_C)) {
         
                 this->gameState = GameState::Game;
                 

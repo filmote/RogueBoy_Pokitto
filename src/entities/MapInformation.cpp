@@ -75,7 +75,6 @@ void MapInformation::decTimer() {
 
 MapTiles MapInformation::getBlock(int16_t x, int16_t y) {
 
-
     if ((x < 0) || (x >= this->width) || (y< 0) || (y >= this->height)) {
         return MapTiles::Fill;
     } 
@@ -83,6 +82,13 @@ MapTiles MapInformation::getBlock(int16_t x, int16_t y) {
         MapTiles Block = static_cast<MapTiles>(this->mapData[(x + (y * this->width))]);
         return Block;
     }
+
+}
+
+MapTiles MapInformation::getBlock(int16_t idx) {
+
+    MapTiles Block = static_cast<MapTiles>(this->mapData[idx]);
+    return Block;
 
 }
 

@@ -18,6 +18,7 @@ void Game::showShop() {
     // Update timer, counters, etc ..
 
     if (Pokitto::Core::frameCount % TIMER_STEP == 0) { this->map.decTimer();  }
+    
     if (this->map.getTimer() == 0) { 
         
         player.setHealth(0); 
@@ -77,7 +78,7 @@ void Game::showShop() {
     }
 
 
-    if (PC::buttons.pressed(BTN_C)) {
+    if (PC::buttons.pressed(BTN_B) || PC::buttons.pressed(BTN_C)) {
         gameState = GameState::Game;
     }
 

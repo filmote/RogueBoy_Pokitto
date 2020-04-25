@@ -91,7 +91,7 @@ class Game {
         void highScore();
         uint32_t printLevelSummary(uint8_t yOffset, uint16_t time);  // Returns points earnt in this level ..
         void showAltarPieceMessage();
-
+        void mixAltartPieces();
 
         #ifdef DEBUG
         void clearCells();
