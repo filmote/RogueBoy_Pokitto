@@ -60,6 +60,10 @@ void Game::loop(void) {
             showShop(); 
             break;
 
+        case GameState::AltarPieceAchieved:  
+            showAltarPieceMessage();
+            break;
+
         #ifdef DEBUG
             case GameState::MapDetails:  
                 mapDetails(); 

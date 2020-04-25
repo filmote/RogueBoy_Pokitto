@@ -33,6 +33,10 @@ void Player::reset() {
 
 }
 
+void Player::incAltarPieces() {
+    if (this->altarPieces < 7) this->altarPieces++;
+}
+
 uint16_t Player::getX() { 
     return this->x; 
 }
@@ -67,6 +71,10 @@ uint8_t Player::getCoinsOverall() {
 
 uint8_t Player::getKills() { 
     return this->kills; 
+}
+
+uint8_t Player::getAltarPieces() { 
+    return this->altarPieces; 
 }
 
 uint8_t Player::getFrame() { 
@@ -209,6 +217,7 @@ void Player::init(uint16_t x, uint16_t y) {
     this->kills = 0;
     this->health = (this->health <= 0 ? 100 : this->health);
     this->moving = false;
+    this->altarPieces = 0;
     
 }
 

@@ -51,6 +51,7 @@ struct Rect {
 
 struct InventoryMenuVariables {
 
+    InventoryMenuMode mode;
     uint8_t mainCursor = 0;
     uint8_t actionCursor = 0;
     bool showActionMenu = false;

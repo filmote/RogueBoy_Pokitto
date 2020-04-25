@@ -70,7 +70,8 @@ enum class GameState : uint8_t {
     Inventory,
     MapDetails,
     Shop,
-    HighScore
+    HighScore,
+    AltarPieceAchieved
 };
 
 enum class Direction : uint8_t {
@@ -187,6 +188,7 @@ enum MapTiles {
     Altar03 = 93,
     Altar04 = 94,
     Altar05 = 95,
+    ClosedChest_Altar = 96,
 
 };
 
@@ -201,4 +203,10 @@ enum class SplashScreenMode : uint8_t {
     PPOT,
     Dreamer
 };
+
+enum class InventoryMenuMode : uint8_t {
+    Inventory,
+    AltarPieces
+};
+
 

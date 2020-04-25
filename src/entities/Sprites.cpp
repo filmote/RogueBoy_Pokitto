@@ -167,7 +167,7 @@ void Sprites::renderSprite(Object type, int x, int y, int8_t xOffset, int8_t yOf
         case Object::Necromancer:
             if (frame < 0) { // Summoning skeleton
                 if (showEnemies) {
-                    PD::drawBitmap(x + xOffset, y + yOffset, Images::Necromancer[(frame / 20) + 2]); // 3 offset due to summons frames.
+                    PD::drawBitmap(x + xOffset, y + yOffset, Images::Necromancer[((frame / 5)  % 3) + 2]); // 3 offset due to summons frames.
                     if (frame >= -2) {
                         PD::drawBitmap(x - 8, y - 8, Images::Necromancer_Spell[frame + 2]); // 3 offset due to rising frames.
                     }

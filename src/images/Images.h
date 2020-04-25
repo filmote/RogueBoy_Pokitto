@@ -13,6 +13,7 @@
 #include "shop/Shop.h"
 #include "puff/Puffs.h"
 #include "title/Title.h"
+#include "altar/AltarPieces.h"
 
 namespace Images {
 

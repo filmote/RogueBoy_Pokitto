@@ -704,6 +704,7 @@ void Game::playerMovement() {
     if (PC::buttons.pressed(BTN_C)) {
 
         this->gameState = GameState::Inventory;
+        this->inventoryMenu.mode = InventoryMenuMode::Inventory;
         this->inventoryMenu.mainCursor = 0;
   
     }
@@ -882,6 +883,18 @@ bool Game::interactWithBlock(int x, int y, MapTiles block) {
 
                 Sprite &sprite = this->objects.getSprite(spriteIdx);
                 sprite.setSprite((x * TILE_SIZE) + 8, (y * TILE_SIZE) + 8, 0, static_cast<Object>(object), true, true);
+
+            }
+            return true;
+
+        case MapTiles::ClosedChest_Altar: 
+            {
+                this->map.setBlock(x, y, MapTiles::OpenChest); 
+                // sound open chest
+
+                // random
+                this->player.incAltarPieces();
+                this->gameState = GameState::AltarPieceAchieved;
 
             }
             return true;
@@ -1175,7 +1188,7 @@ void Game::spriteAI(MapInformation &map, Player &player, Sprite &sprite) {
 
                                 // Should the enemy summons a skeleton ?
 // printf("adasdas\n");
-                                sprite.setFrame(-59);
+                                sprite.setFrame(-39);
                                 this->launchSkeletonDirection = direction;
                                 this->launchSkeletonDelay = random(LAUNCH_SKELETON_DELAY_MIN, LAUNCH_SKELETON_DELAY_MAX);
 
