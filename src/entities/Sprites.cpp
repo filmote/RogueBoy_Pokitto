@@ -116,9 +116,11 @@ void Sprites::renderSprite(Object type, int x, int y, int8_t xOffset, int8_t yOf
         case Object::Spider:
             if (showEnemies) {
                 if (frame < 0) {
-                printf("%i %i\n",frame, 4 - (frame / -4));
-                    PD::drawBitmap(x + xOffset, y + yOffset, Images::Spiders[(static_cast<uint8_t>(direction) * 2)]);
-                    PD::drawBitmap(x - 8, y - 8, Images::Puff[4 - (frame / -4)]);
+                    uint8_t puffFrame = 4 - (frame / -4);
+                    if (puffFrame >= 2) {
+                        PD::drawBitmap(x + xOffset, y + yOffset, Images::Spiders[(static_cast<uint8_t>(direction) * 2)]);
+                    }
+                    PD::drawBitmap(x - 8, y - 8, Images::Puff[puffFrame]);
                 }
                 else {
                     PD::drawBitmap(x + xOffset, y + yOffset, Images::Spiders[(static_cast<uint8_t>(direction) * 2) + frame]);

@@ -1163,11 +1163,11 @@ void Game::spriteAI(MapInformation &map, Player &player, Sprite &sprite) {
 
                         if (map.isWalkable(launchX, launchY, direction, width, height) && !collision(this->player, sprite)) {
 
-                            sprite.setFrame(-25);
+                            sprite.setFrame(-20);
                             sprite.setCountdown(0);
                             sprite.setDirection(direction);
                             sprite.setActive(true);
-printf("launch spider\n");                            
+
                             break;
 
                         }
@@ -1177,7 +1177,7 @@ printf("launch spider\n");
 
 
                     // Should the enemy create a new spider ?
-// printf("adasdas\n");                                
+
                     this->launchSpiderDelay = random(LAUNCH_SPIDER_DELAY_MIN, LAUNCH_SPIDER_DELAY_MAX);
 
                 }
