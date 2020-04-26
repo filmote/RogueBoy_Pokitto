@@ -125,6 +125,8 @@
 
 #define LAUNCH_SKELETON_DELAY_MIN 60
 #define LAUNCH_SKELETON_DELAY_MAX 100
+#define LAUNCH_SPIDER_DELAY_MIN   60
+#define LAUNCH_SPIDER_DELAY_MAX   100
 
 
 // Web bullet travel details ..

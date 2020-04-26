@@ -11,11 +11,12 @@ void Game::updateObjects(bool ignorePlayerDamage) {
     // Handle various counters ..
 
     this->player.decWeaponCount();
-    if (this->shake > 0)                this->shake--;
-    if (this->shockwave > 0)            this->shockwave--;
-    if (this->levelStartDelay > 0)      this->levelStartDelay--;
-    if (this->enemyBulletDelay > 0)     this->enemyBulletDelay--;
-    if (this->launchSkeletonDelay > 0)  this->launchSkeletonDelay--;
+    if (this->shake > 0)                    this->shake--;
+    if (this->shockwave > 0)                this->shockwave--;
+    if (this->levelStartDelay > 0)          this->levelStartDelay--;
+    if (this->enemyBulletDelay > 0)         this->enemyBulletDelay--;
+    if (this->launchSkeletonDelay > 0)      this->launchSkeletonDelay--;
+    if (this->launchSpiderDelay > 0)        this->launchSpiderDelay--;
 
 
     // Update other objects ..
@@ -1112,7 +1113,6 @@ void Game::spriteAI(MapInformation &map, Player &player, Sprite &sprite) {
             break;
 
         case Object::Snake:
-        case Object::BigSpider:   
         case Object::Bat: 
         case Object::Chest: 
 
@@ -1120,9 +1120,73 @@ void Game::spriteAI(MapInformation &map, Player &player, Sprite &sprite) {
             spriteAI_CheckForMove(map, player, sprite, location, 7);
             break;
 
+
+        case Object::BigSpider: 
+            {
+    
+                spriteAI_UpdateFrame(sprite, 4, 2);
+                Direction direction = spriteAI_CheckForMove(map, player, sprite, location, 7);
+
+                if (direction != Direction::None && this->launchSpiderDelay == 0) {
+
+
+                    // Launch a new spider ..
+
+                    // Find a matching Object in the sprites collecion that is disabled, otherwise add one ..
+
+                    uint8_t spriteIdx = this->objects.getFirstInactiveSpriteIndex(Object::Spider);
+
+                    if (spriteIdx == NO_SPRITE_FOUND) {
+
+                        this->objects.setObjectNum(this->objects.getObjectNum() + 1);
+                        spriteIdx = this->objects.getObjectNum() - 1;
+
+                    }   
+
+                    Sprite &sprite = this->objects.getSprite(spriteIdx);
+
+
+                    // Make sure we can launch the skeleton in a clear spot and not on top of the player ..
+
+                    const int8_t launchSpider_X[] = { 0, 18, 18, 18, 18, -18, -18, -18 };
+                    const int8_t launchSpider_Y[] = { -18, -18, 0, 18, 18, 18, 0, -18 };
+                    const int8_t directions[] = { 8, 9, 7, 10, 6, 11, 5, 4 };
+
+                    for (uint8_t d = 0; d < 7; d++) {
+
+                        int launchX = location.x + launchSpider_X[(static_cast<uint8_t>(direction) + directions[d]) % 8];
+                        int launchY = location.y + launchSpider_Y[(static_cast<uint8_t>(direction) + directions[d]) % 8];
+
+                        uint8_t width = spriteWidths[static_cast<uint8_t>(Object::Spider)];
+                        uint8_t height = spriteHeights[static_cast<uint8_t>(Object::Spider)];
+                        sprite.setSprite(launchX, launchY, HEALTH_SPIDER, Object::Spider, false, false);
+
+                        if (map.isWalkable(launchX, launchY, direction, width, height) && !collision(this->player, sprite)) {
+
+                            sprite.setFrame(-25);
+                            sprite.setCountdown(0);
+                            sprite.setDirection(direction);
+                            sprite.setActive(true);
+printf("launch spider\n");                            
+                            break;
+
+                        }
+
+                    }
+
+
+
+                    // Should the enemy create a new spider ?
+// printf("adasdas\n");                                
+                    this->launchSpiderDelay = random(LAUNCH_SPIDER_DELAY_MIN, LAUNCH_SPIDER_DELAY_MAX);
+
+                }
+
+            }
+            break;
+
         case Object::Necromancer: 
             {
-// printf("lsd %i, frame %i\n",this->launchSkeletonDelay, sprite.getFrame());
                 switch (sprite.getFrame()) {
 
                     case -100 ... -2:
@@ -1159,8 +1223,8 @@ void Game::spriteAI(MapInformation &map, Player &player, Sprite &sprite) {
                                 int launchX = location.x + launchSkeleton_X[(static_cast<uint8_t>(this->launchSkeletonDirection) + directions[d]) % 8];
                                 int launchY = location.y + launchSkeleton_Y[(static_cast<uint8_t>(this->launchSkeletonDirection) + directions[d]) % 8];
 
-                                uint8_t width = spriteWidths[static_cast<uint8_t>(this->launchSkeletonDirection)];
-                                uint8_t height = spriteHeights[static_cast<uint8_t>(this->launchSkeletonDirection)];
+                                uint8_t width = spriteWidths[static_cast<uint8_t>(Object::Skeleton)];
+                                uint8_t height = spriteHeights[static_cast<uint8_t>(Object::Skeleton)];
                                 sprite.setSprite(launchX, launchY, HEALTH_SKELETON, Object::Skeleton, false, false);
 
                                 if (map.isWalkable(launchX, launchY, this->launchSkeletonDirection, width, height) && !collision(this->player, sprite)) {
@@ -1204,26 +1268,35 @@ void Game::spriteAI(MapInformation &map, Player &player, Sprite &sprite) {
 
         case Object::Spider:   
             {
-                spriteAI_UpdateFrame(sprite, 4, 2);
-                Direction direction = spriteAI_CheckForMove(map, player, sprite, location, 7);
+                if (sprite.getFrame() < 0) {
 
-                if (direction != Direction::None) {
+                    sprite.incFrame();
+
+                }
+                else {
+
+                    spriteAI_UpdateFrame(sprite, 4, 2);
+                    Direction direction = spriteAI_CheckForMove(map, player, sprite, location, 7);
+
+                    if (direction != Direction::None) {
 
 
-                    // Should the enemy shoot a bullet?
+                        // Should the enemy shoot a bullet?
 
-                    if (this->enemyBulletDelay == 0 && random(0, 4) == 0) {
+                        if (this->enemyBulletDelay == 0 && random(0, 4) == 0) {
 
-                        const int32_t xOffsets[8] = { 0, 4, 4, 4, 0, -4, -4, -4 };
-                        const int32_t yOffsets[8] = { -4, -4, 0, 4, 4, 4, 0, -4 };
+                            const int32_t xOffsets[8] = { 0, 4, 4, 4, 0, -4, -4, -4 };
+                            const int32_t yOffsets[8] = { -4, -4, 0, 4, 4, 4, 0, -4 };
 
-                        uint8_t inactiveBulletIdx = this->bullets.getInactiveEnemyBullet();
+                            uint8_t inactiveBulletIdx = this->bullets.getInactiveEnemyBullet();
 
-                        if (inactiveBulletIdx != NO_INACTIVE_BULLET_FOUND) {
+                            if (inactiveBulletIdx != NO_INACTIVE_BULLET_FOUND) {
 
-                            Bullet &bullet = this->bullets.getEnemyBullet(inactiveBulletIdx);
-                            bullet.setBullet(sprite.getX() + xOffsets[static_cast<uint8_t>(direction)], sprite.getY() + yOffsets[static_cast<uint8_t>(direction)], direction, Object::SpiderWeb);
-                            this->enemyBulletDelay = random(ENEMY_BULLET_DELAY_MIN, ENEMY_BULLET_DELAY_MAX);
+                                Bullet &bullet = this->bullets.getEnemyBullet(inactiveBulletIdx);
+                                bullet.setBullet(sprite.getX() + xOffsets[static_cast<uint8_t>(direction)], sprite.getY() + yOffsets[static_cast<uint8_t>(direction)], direction, Object::SpiderWeb);
+                                this->enemyBulletDelay = random(ENEMY_BULLET_DELAY_MIN, ENEMY_BULLET_DELAY_MAX);
+
+                            }
 
                         }
 
@@ -1348,6 +1421,7 @@ Direction Game::spriteAI_CheckForMove(MapInformation &map, Player &player, Sprit
                     switch (sprite.getType()) {
 
                         case Object::Necromancer:
+                        case Object::BigSpider:
                             if (PC::frameCount % 8 == 0) {
                                 direction = this->spriteAI_UpdateEnemy(location, map, player, sprite);
                             }
@@ -1367,6 +1441,7 @@ Direction Game::spriteAI_CheckForMove(MapInformation &map, Player &player, Sprit
                 switch (sprite.getType()) {
 
                     case Object::Necromancer: 
+                    case Object::BigSpider:
                         if (PC::frameCount % 4 == 0) {
                             direction = this->spriteAI_UpdateEnemy(location, map, player, sprite);
                         }
