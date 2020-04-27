@@ -483,21 +483,23 @@ void Game::showInventory() {
 
         case InventoryMenuMode::AltarPieces:
 
-            PD::fillScreen(0);
-            PD::setColor(15);
-            PD::fillRect(22, 16, 70, 60);
-            
-            PD::drawBitmap(16, 10, Images::AltarTOP);
-            PD::drawBitmap(16, 16, Images::AltarLHS);
-            PD::drawBitmap(88, 16, Images::AltarRHS);
-            PD::drawBitmap(16, 72, Images::AltarBOT);
+            this->renderEnviroment(0, 0);
+            this->renderHud();
 
-            PD::drawBitmap(33, 23, this->player.getAltarPieces() >= 1 ? Images::Rune_Red_00 : Images::Rune_Grey_00);
-            PD::drawBitmap(50, 23, this->player.getAltarPieces() >= 2 ? Images::Rune_Red_01 : Images::Rune_Grey_01);
-            PD::drawBitmap(67, 23, this->player.getAltarPieces() >= 3 ? Images::Rune_Red_02 : Images::Rune_Grey_02);
-            PD::drawBitmap(33, 51, this->player.getAltarPieces() >= 4 ? Images::Rune_Red_03 : Images::Rune_Grey_03);
-            PD::drawBitmap(50, 51, this->player.getAltarPieces() >= 5 ? Images::Rune_Red_04 : Images::Rune_Grey_04);
-            PD::drawBitmap(67, 51, this->player.getAltarPieces() >= 6 ? Images::Rune_Red_05 : Images::Rune_Grey_05);
+            PD::setColor(15);
+            PD::fillRect(22, 8, 70, 60);
+
+            PD::drawBitmap(16, 2, Images::AltarTOP);
+            PD::drawBitmap(16, 8, Images::AltarLHS);
+            PD::drawBitmap(88, 8, Images::AltarRHS);
+            PD::drawBitmap(16, 64, Images::AltarBOT);
+
+            PD::drawBitmap(33, 15, this->player.getAltarPieces() >= 1 ? Images::Rune_Red_00 : Images::Rune_Grey_00);
+            PD::drawBitmap(50, 15, this->player.getAltarPieces() >= 2 ? Images::Rune_Red_01 : Images::Rune_Grey_01);
+            PD::drawBitmap(67, 15, this->player.getAltarPieces() >= 3 ? Images::Rune_Red_02 : Images::Rune_Grey_02);
+            PD::drawBitmap(33, 43, this->player.getAltarPieces() >= 4 ? Images::Rune_Red_03 : Images::Rune_Grey_03);
+            PD::drawBitmap(50, 43, this->player.getAltarPieces() >= 5 ? Images::Rune_Red_04 : Images::Rune_Grey_04);
+            PD::drawBitmap(67, 43, this->player.getAltarPieces() >= 6 ? Images::Rune_Red_05 : Images::Rune_Grey_05);
 
             break;
 
