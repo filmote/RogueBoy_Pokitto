@@ -9,7 +9,7 @@ using PD = Pokitto::Display;
 using PS = Pokitto::Sound;
 
 
-const uint8_t spriteWidths[24] =  { 
+const uint8_t spriteWidths[25] =  { 
     10, /* Coin */
     10, /* SackOfCash */
     10, /* Bread */
@@ -34,9 +34,10 @@ const uint8_t spriteWidths[24] =  {
     12, /* Snake */
     16, /* Chest */
     10, /* Necromancer */
+    10, /* Hobgoblin */
 };
 
-const uint8_t spriteHeights[24] = { 
+const uint8_t spriteHeights[25] = { 
     10, /* Coin */
     10, /* SackOfCash */
     10, /* Bread */
@@ -61,10 +62,11 @@ const uint8_t spriteHeights[24] = {
     12, /* Snake */
     16, /* Chest */
     12, /* Necromancer */
+    12, /* Hobgoblin */
 };
 
         
-const int8_t spriteOffsets[48] = { 
+const int8_t spriteOffsets[50] = { 
     -5, -5,  /* Coin */
     -5, -5,  /* SackOfCash */
     -5, -5,  /* Bread */
@@ -89,6 +91,36 @@ const int8_t spriteOffsets[48] = {
     -4, -6,  /* Snake */
     -8, -8,  /* Chest */
     -6, -6,  /* Necromancer */
+    -6, -6,  /* Hobgoblin */
+};
+
+const uint8_t object_DamamgeOnPlayer[] = {
+    0,                      /* Coin */
+    0,                      /* SackOfCash */
+    0,                      /* Bread */
+    0,                      /* Key */
+    0,                      /* Chicken */
+    HEALTH_DEC_FLOATER,     /* Floater */  
+    HEALTH_DEC_EYES,        /* Eye */
+    HEALTH_DEC_SPIDER,      /* Spider */
+    HEALTH_DEC_BAT,         /* Bat */
+    0,                      /* Tools */
+    0,                      /* Tonic */
+    HEALTH_DEC_BIGSPIDER,   /* BigSpider */
+    0,                      /* IceSpell */
+    0,                      /* GreenSpell */
+    0,                      /* RedSpell */
+    0,                      /* MauveSpell */
+    HEALTH_DEC_SKELETON,    /* Skeleton */
+    HEALTH_DEC_SPIKE_FIRE,  /* SpikeLHS */
+    HEALTH_DEC_SPIKE_FIRE,  /* SpikeRHS */
+    HEALTH_DEC_SPIKE_FIRE,  /* FireTOP */
+    HEALTH_DEC_SPIKE_FIRE,  /* FireBOT */
+    HEALTH_DEC_SNAKE,       /* Snake */
+    0,                      /* Chest */
+    HEALTH_DEC_NECROMANCER, /* Necromancer */
+    HEALTH_DEC_HOBGOBLIN,   /* Hobgoblin */
+ 
 };
 
 const char object_Desc_00[] = "Coin";
@@ -115,6 +147,7 @@ const char object_Desc_20[] = "Flame BOT";
 const char object_Desc_21[] = "Snake";
 const char object_Desc_22[] = "Chest";
 const char object_Desc_23[] = "Necromancer";
+const char object_Desc_24[] = "Hobgoblin";
 
 const char * const object_Descs[] = { 
     object_Desc_00,
@@ -141,6 +174,7 @@ const char * const object_Descs[] = {
     object_Desc_21,
     object_Desc_22,
     object_Desc_23,
+    object_Desc_24,
 };
 
                                 // 0  1  2  3  4  5  6  7  8  9  0  1  2  3  4  5  6  7  8  9  0  1  2  3  4   

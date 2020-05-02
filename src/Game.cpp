@@ -29,11 +29,11 @@ void Game::loop(void) {
             break;
 
         case GameState::Game: 
-            updateGame(); 
+            updateGame(this->gameMode); 
             break;
 
         case GameState::LoadMap: 
-            nextLevelLoad(); 
+            nextLevelLoad(this->gameMode); 
             break;
 
         case GameState::EndOfLevel: 
@@ -62,6 +62,10 @@ void Game::loop(void) {
 
         case GameState::AltarPieceAchieved:  
             showAltarPieceMessage();
+            break;
+
+        case GameState::Guide:  
+            showGuide();
             break;
 
         #ifdef DEBUG

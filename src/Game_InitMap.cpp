@@ -7,9 +7,8 @@ using PS = Pokitto::Sound;
 
 
 
-void Game::loadMap(uint8_t level) {
+void Game::loadMap(const uint8_t * levelToLoad) {
 
-    const uint8_t * levelToLoad = maps[level];
     uint16_t cursor = 0;
 
     map.setWidth(levelToLoad[cursor++]);
@@ -109,7 +108,7 @@ void Game::loadMap(uint8_t level) {
 }
 
 
-void Game::nextLevelLoad() {
+void Game::nextLevelLoad(GameMode gameMode) {
 
     uint16_t playerX = 0;
     uint16_t playerY = 0;
@@ -428,8 +427,19 @@ void Game::nextLevelLoad() {
         }
         else {
         
-            this->loadMap(map.getDefinedMapLevel());
-            this->map.setDefinedMapLevel(map.getDefinedMapLevel() + 1); 
+            if (gameMode == GameMode::Normal) {
+
+                const uint8_t * levelToLoad = maps[level];
+                this->loadMap(levelToLoad);
+                this->map.setDefinedMapLevel(map.getDefinedMapLevel() + 1); 
+
+            }
+            else {
+
+                this->loadMap(Map_Help);
+                this->map.setDefinedMapLevel(map.getDefinedMapLevel() + 1); 
+
+            }
 
         }
 

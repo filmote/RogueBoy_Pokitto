@@ -489,8 +489,8 @@ void Game::showInventory() {
             PD::setColor(15);
             PD::fillRect(22, 8, 70, 60);
 
-            PD::drawBitmap(16, 2, Images::AltarTOP);
-            PD::drawBitmap(16, 8, Images::AltarLHS);
+            PD::drawBitmap(15, 1, Images::AltarTOP);
+            PD::drawBitmap(14, 8, Images::AltarLHS);
             PD::drawBitmap(88, 8, Images::AltarRHS);
             PD::drawBitmap(16, 64, Images::AltarBOT);
 

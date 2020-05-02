@@ -35,16 +35,16 @@ void Game::updateMainMenu() {
 
     // Handle player actions ..
 
-    if (PC::buttons.pressed(BTN_UP) && this->titleScreenVars.mode == TitleScreenMode::HighScore) {
+    if (PC::buttons.pressed(BTN_UP) && this->titleScreenVars.mode > TitleScreenMode::Start) {
 
-        this->titleScreenVars.mode = TitleScreenMode::Start;
+        this->titleScreenVars.mode--;
         this->titleScreenVars.arrowCounter = -3;
 
     }
 
-    if (PC::buttons.pressed(BTN_DOWN) && this->titleScreenVars.mode == TitleScreenMode::Start) {
+    if (PC::buttons.pressed(BTN_DOWN) && this->titleScreenVars.mode < TitleScreenMode::Help) {
 
-        this->titleScreenVars.mode = TitleScreenMode::HighScore;
+        this->titleScreenVars.mode++;
         this->titleScreenVars.arrowCounter = 3;
 
     }
@@ -55,12 +55,23 @@ void Game::updateMainMenu() {
 
     if (PC::buttons.pressed(BTN_A)) {
 
-        if (this->titleScreenVars.mode == TitleScreenMode::Start) {
-            gameState = GameState::LoadMap;
-        }
-        else {
-            this->highScoreVariables.entryIdx = NO_HIGH_SCORE_EDIT;
-            gameState = GameState::HighScore;
+        switch (this->titleScreenVars.mode) {
+
+            case TitleScreenMode::Start:
+                this->gameState = GameState::LoadMap;
+                this->gameMode = GameMode::Normal;
+                break;
+
+            case TitleScreenMode::HighScore:
+                this->highScoreVariables.entryIdx = NO_HIGH_SCORE_EDIT;
+                gameState = GameState::HighScore;
+                break;
+
+            case TitleScreenMode::Help:
+                this->gameState = GameState::LoadMap;
+                this->gameMode = GameMode::Help;
+                break;
+
         }
 
     }
@@ -91,13 +102,7 @@ void Game::updateMainMenu() {
         PD::drawBitmap(22, 32, Images::Eyes_Open);
     }
 
-    if (this->titleScreenVars.mode == TitleScreenMode::Start) {
-        PD::drawBitmap(74, 74, Images::Start);
-    }
-    else {
-        PD::drawBitmap(74, 74, Images::Score);
-    }
-
+    PD::drawBitmap(74, 74, Images::Title_Modes[static_cast<uint8_t>(this->titleScreenVars.mode)]);
     PD::drawBitmap(22, 56 + orbOffset[this->titleScreenVars.orbCounter], Images::Orb);
 
 }

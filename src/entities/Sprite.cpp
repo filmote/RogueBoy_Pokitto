@@ -234,6 +234,7 @@ bool Sprite::isEnemy() {
         case Object::Snake:
         case Object::Chest:
         case Object::Necromancer:
+        case Object::Hobgoblin:
 
             return true;
 

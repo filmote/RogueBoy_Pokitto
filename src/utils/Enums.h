@@ -1,15 +1,43 @@
 #pragma once
 
-enum WalkType : uint8_t {
+enum class GameMode : uint8_t {
+    Normal,
+    Help,
+};
+
+enum class WalkType : uint8_t {
     Stop,
     Normal,
     Slow,
 };
 
-enum TitleScreenMode : uint8_t {
+enum class TitleScreenMode : uint8_t {
     Start,
     HighScore,
+    Help
 };
+
+inline TitleScreenMode &operator++(TitleScreenMode &c ) {
+    c = static_cast<TitleScreenMode>( static_cast<uint8_t>(c) + 1 );
+    return c;
+}
+
+inline TitleScreenMode operator++(TitleScreenMode &c, int ) {
+    TitleScreenMode result = c;
+    ++c;
+    return result;
+}
+
+inline TitleScreenMode &operator--(TitleScreenMode &c ) {
+    c = static_cast<TitleScreenMode>( static_cast<uint8_t>(c) - 1 );
+    return c;
+}
+
+inline TitleScreenMode operator--(TitleScreenMode &c, int ) {
+    TitleScreenMode result = c;
+    --c;
+    return result;
+}
 
 enum Object {
     Coin = 0,
@@ -36,6 +64,7 @@ enum Object {
     Snake = 21,
     Chest = 22,
     Necromancer = 23,
+    Hobgoblin = 24,
     SpiderWeb = 253,
     FireBall = 254,
     None = 255,
@@ -71,7 +100,8 @@ enum class GameState : uint8_t {
     MapDetails,
     Shop,
     HighScore,
-    AltarPieceAchieved
+    AltarPieceAchieved,
+    Guide
 };
 
 enum class Direction : uint8_t {
@@ -189,6 +219,13 @@ enum MapTiles {
     Altar04 = 94,
     Altar05 = 95,
     ClosedChest_Altar = 96,
+    Guide1 = 97,
+    Guide2 = 98,
+    Guide3 = 99,
+    Guide4 = 100,
+    Guide5 = 101,
+    Guide6 = 102,
+    Guide7 = 103,
 
 };
 

@@ -104,6 +104,12 @@ namespace Images {
     #include "necromancer/Necromancer_06_F1.h"
     #include "necromancer/Necromancer_Spell_00.h"
     #include "necromancer/Necromancer_Spell_01.h"
+    #include "hobgoblin/Hobgoblin_00_F0.h"
+    #include "hobgoblin/Hobgoblin_00_F1.h"
+    #include "hobgoblin/Hobgoblin_02_F0.h"
+    #include "hobgoblin/Hobgoblin_02_F1.h"
+    #include "hobgoblin/Hobgoblin_06_F0.h"
+    #include "hobgoblin/Hobgoblin_06_F1.h"
     #include "HealthBar.h"
 
     const uint8_t * const Bats[] = { 
@@ -201,8 +207,25 @@ namespace Images {
         Necromancer_06_F1,
         Necromancer_06_F0,
         Necromancer_06_F1,
-        Necromancer_06_F0,
-        Necromancer_06_F1,
+    };
+
+    const uint8_t * const Hobgoblin[] = { 
+        Hobgoblin_00_F0,
+        Hobgoblin_00_F1,
+        Hobgoblin_02_F0,
+        Hobgoblin_02_F1,
+        Hobgoblin_02_F0,
+        Hobgoblin_02_F1,
+        Hobgoblin_02_F0,
+        Hobgoblin_02_F1,
+        Hobgoblin_02_F0,
+        Hobgoblin_02_F1,
+        Hobgoblin_06_F0,
+        Hobgoblin_06_F1,
+        Hobgoblin_06_F0,
+        Hobgoblin_06_F1,
+        Hobgoblin_06_F0,
+        Hobgoblin_06_F1,
     };
 
     const uint8_t * const Necromancer_Spell[] = { 

@@ -14,5 +14,12 @@ namespace Images {
     #include "PlayerBOT.h"
     #include "Score.h"
     #include "Start.h"
+    #include "Help.h"
+
+    const uint8_t * const Title_Modes[] = { 
+        Start,
+        Score,
+        Help,
+    };
 
 };

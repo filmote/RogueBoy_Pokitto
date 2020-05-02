@@ -25,6 +25,7 @@
 #include "maps/MapSegments_Type_15.h"
 
 #include "maps/Maps.h"
+#include "maps/Maps_Help.h"
 #include "maps/MapRandom.h"
 #include "utils/GameCookie.h"
 
@@ -49,8 +50,8 @@ class Game {
         void renderPlayer(int8_t damageOffsetX, int8_t damageOffsetY);
 
         void updateMainMenu();
-        void loadMap(uint8_t level);
-        void nextLevelLoad();
+        void loadMap(const uint8_t * levelToLoad);
+        void nextLevelLoad(GameMode gameMode);
 
         void showInventory();
         void mapDetails();
@@ -70,10 +71,12 @@ class Game {
         void death();
         void win();
         void endOfLevel();
-        void updateGame();
-        void playerMovement();
+        void updateGame(GameMode gameMode);
+        void playerMovement(GameMode gameMode);
         bool interactWithBlock(int x, int y, MapTiles block);
         void updateEnvironmentBlock(MapInformation map, uint8_t x, uint8_t y, Environments &Envi);
+        void showGuide();
+        void showGuide_renderLine(uint8_t line, const char message[]);
 
         void dropItem(Object droppedObject, uint16_t x, uint16_t y, bool enemyDrop, Sprite *enemy, Sprites &objects);
         void spriteAI(MapInformation &map, Player &player, Sprite &sprite);
@@ -106,6 +109,7 @@ class Game {
         MapInformation map;
 
         GameState gameState = GameState::SplashScreen;
+        GameMode gameMode = GameMode::Normal;
 
         int points = 0;
         int enemyBulletDelay = 0;
@@ -120,6 +124,8 @@ class Game {
         uint8_t shake = 0;
         uint8_t shockwave = 0;
         uint16_t levelStartDelay = 255;
+        uint8_t guideNumber = 0;
+        uint8_t guideTop = 0;
 
         ShopVariables shopVariables;
         InventoryMenuVariables inventoryMenu;

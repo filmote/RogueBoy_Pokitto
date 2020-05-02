@@ -144,6 +144,7 @@ void Game::updateObjects(bool ignorePlayerDamage) {
                     case Object::FireBOT:
                     case Object::Snake:
                     case Object::Necromancer:
+                    case Object::Hobgoblin:
 
                         if (!ignorePlayerDamage) {
                                 
@@ -153,53 +154,7 @@ void Game::updateObjects(bool ignorePlayerDamage) {
 
                             if (PC::frameCount % 4 == 0) { 
 
-                                switch (type) {
-
-                                    case Object::Floater:   
-                                        player.decHealth(HEALTH_DEC_FLOATER); 
-                                        break;
-
-                                    case Object::Eye: 
-                                        player.decHealth(HEALTH_DEC_EYES); 
-                                        break;
-
-                                    case Object::Spider:
-                                        player.decHealth(HEALTH_DEC_SPIDER); 
-                                        break;
-
-                                    case Object::BigSpider:
-                                        player.decHealth(HEALTH_DEC_BIGSPIDER); 
-                                        break;
-
-                                    case Object::Bat: 
-                                        player.decHealth(HEALTH_DEC_BAT); 
-                                        break;
-
-                                    case Object::Skeleton: 
-                                        player.decHealth(HEALTH_DEC_SKELETON); 
-                                        break;
-
-                                    case Object::Snake: 
-                                        player.decHealth(HEALTH_DEC_SNAKE); 
-                                        break;
-
-                                    case Object::SpikeLHS: 
-                                    case Object::SpikeRHS: 
-                                    case Object::FireTOP: 
-                                    case Object::FireBOT: 
-                                        player.decHealth(HEALTH_DEC_SPIKE_FIRE); 
-                                        break;
-
-                                    case Object::Chest:   
-                                        player.decHealth(HEALTH_DEC_CHEST); 
-                                        break;
-
-                                    case Object::Necromancer:   
-                                        player.decHealth(HEALTH_DEC_NECROMANCER); 
-                                        break;
-
-
-                                }
+                                player.decHealth(object_DamamgeOnPlayer[static_cast<uint8_t>(type)]);
 
                             }
 
@@ -384,7 +339,7 @@ void Game::updateObjects(bool ignorePlayerDamage) {
 
 }
 
-void Game::updateGame() {
+void Game::updateGame(GameMode gameMode) {
     
     const uint8_t offX[4] = { 1, 0,};
     const uint8_t offY[4] = { 0, 1 };
@@ -393,7 +348,7 @@ void Game::updateGame() {
 
         if (Pokitto::Core::frameCount % TIMER_STEP == 0) { this->map.decTimer();  }
         if (this->map.getTimer() == 0) { player.setHealth(0); }
-        this->playerMovement();
+        this->playerMovement(gameMode);
 
     }
 
@@ -454,7 +409,7 @@ bool Game::isBlockedByPlayer(Player player, Sprite enemy, uint16_t enemyX, uint1
 
 }
 
-void Game::playerMovement() {
+void Game::playerMovement(GameMode gameMode) {
 
     uint16_t x = player.getX();
     uint16_t y = player.getY();
@@ -735,8 +690,14 @@ void Game::playerMovement() {
         switch (block) {
 
             case MapTiles::DownStairs:
-                //sound.tone(NOTE_C3,100,NOTE_E3,100,NOTE_G3,100);
-                gameState = GameState::EndOfLevel;
+
+                if (gameMode == GameMode::Normal) {
+                    //sound.tone(NOTE_C3,100,NOTE_E3,100,NOTE_G3,100);
+                    gameState = GameState::EndOfLevel;
+                }
+                else {
+                    gameState = GameState::MainMenu;
+                }
                 break;
 
             case MapTiles::WormHole_F0:
@@ -970,6 +931,13 @@ bool Game::interactWithBlock(int x, int y, MapTiles block) {
             }
             return false;
 
+        case MapTiles::Guide1 ... MapTiles::Guide7: 
+
+            this->guideNumber = static_cast<uint8_t>(block) - static_cast<uint8_t>(MapTiles::Guide1);
+            this->guideTop = 0;
+            this->gameState = GameState::Guide;
+            return false; 
+
     }
 
     return false;
@@ -1115,6 +1083,7 @@ void Game::spriteAI(MapInformation &map, Player &player, Sprite &sprite) {
         case Object::Snake:
         case Object::Bat: 
         case Object::Chest: 
+        case Object::Skeleton: 
 
             spriteAI_UpdateFrame(sprite, 4, 2);
             spriteAI_CheckForMove(map, player, sprite, location, 7);
@@ -1161,7 +1130,7 @@ void Game::spriteAI(MapInformation &map, Player &player, Sprite &sprite) {
                         uint8_t height = spriteHeights[static_cast<uint8_t>(Object::Spider)];
                         sprite.setSprite(launchX, launchY, HEALTH_SPIDER, Object::Spider, false, false);
 
-                        if (map.isWalkable(launchX, launchY, direction, width, height) && !collision(this->player, sprite)) {
+                        if (map.isWalkable(launchX, launchY, direction, width, height) != WalkType::Stop && !collision(this->player, sprite)) {
 
                             sprite.setFrame(-20);
                             sprite.setCountdown(0);
@@ -1227,7 +1196,7 @@ void Game::spriteAI(MapInformation &map, Player &player, Sprite &sprite) {
                                 uint8_t height = spriteHeights[static_cast<uint8_t>(Object::Skeleton)];
                                 sprite.setSprite(launchX, launchY, HEALTH_SKELETON, Object::Skeleton, false, false);
 
-                                if (map.isWalkable(launchX, launchY, this->launchSkeletonDirection, width, height) && !collision(this->player, sprite)) {
+                                if (map.isWalkable(launchX, launchY, this->launchSkeletonDirection, width, height) != WalkType::Stop && !collision(this->player, sprite)) {
 
                                     sprite.setFrame(-47);
                                     sprite.setCountdown(0);
@@ -1308,7 +1277,7 @@ void Game::spriteAI(MapInformation &map, Player &player, Sprite &sprite) {
             
             break;
 
-        case Object::Skeleton:   
+        case Object::Hobgoblin:   
             {
                 if (sprite.getFrame() < 0) {
 
@@ -1349,7 +1318,7 @@ void Game::spriteAI(MapInformation &map, Player &player, Sprite &sprite) {
             }
 
             break;
-            
+
         case Object::SpikeLHS: 
         case Object::SpikeRHS: 
 
@@ -1427,6 +1396,12 @@ Direction Game::spriteAI_CheckForMove(MapInformation &map, Player &player, Sprit
                             }
                             break;
 
+                        case Object::Hobgoblin:
+                            if (PC::frameCount % 4 == 0) {
+                                direction = this->spriteAI_UpdateEnemy(location, map, player, sprite);
+                            }
+                            break;
+
                         default:
                             direction = this->spriteAI_UpdateEnemy(location, map, player, sprite);
                             break;
@@ -1443,6 +1418,12 @@ Direction Game::spriteAI_CheckForMove(MapInformation &map, Player &player, Sprit
                     case Object::Necromancer: 
                     case Object::BigSpider:
                         if (PC::frameCount % 4 == 0) {
+                            direction = this->spriteAI_UpdateEnemy(location, map, player, sprite);
+                        }
+                        break;
+
+                    case Object::Hobgoblin:
+                        if (PC::frameCount % 2 == 0) {
                             direction = this->spriteAI_UpdateEnemy(location, map, player, sprite);
                         }
                         break;
@@ -1469,17 +1450,17 @@ Direction Game::spriteAI_UpdateEnemy(Point &point, MapInformation &map, Player &
 
     if (map.getDistance(point.x, point.y, player.getX(), player.getY()) <= 5) {
     
-        if (point.x < player.getX() && map.isWalkable(point.x + 1, point.y, Direction::Right, enemy.getWidth(), enemy.getHeight()) && !isBlockedByPlayer(player, enemy, point.x + 1, point.y) != WalkType::Stop) { 
+        if (point.x < player.getX() && map.isWalkable(point.x + 1, point.y, Direction::Right, enemy.getWidth(), enemy.getHeight()) != WalkType::Stop && !isBlockedByPlayer(player, enemy, point.x + 1, point.y)) { 
             direction = Direction::Right;
             point.x++; 
         }
 
-        if (point.x > player.getX() && map.isWalkable(point.x - 1, point.y, Direction::Left, enemy.getWidth(), enemy.getHeight()) && !isBlockedByPlayer(player, enemy, point.x - 1, point.y) != WalkType::Stop) { 
+        if (point.x > player.getX() && map.isWalkable(point.x - 1, point.y, Direction::Left, enemy.getWidth(), enemy.getHeight()) != WalkType::Stop && !isBlockedByPlayer(player, enemy, point.x - 1, point.y)) { 
             point.x--; 
             direction = Direction::Left;
         }
 
-        if (point.y < player.getY() && map.isWalkable(point.x, point.y + 1, Direction::Down, enemy.getWidth(), enemy.getHeight()) && !isBlockedByPlayer(player, enemy, point.x, point.y + 1) != WalkType::Stop) { 
+        if (point.y < player.getY() && map.isWalkable(point.x, point.y + 1, Direction::Down, enemy.getWidth(), enemy.getHeight()) != WalkType::Stop && !isBlockedByPlayer(player, enemy, point.x, point.y + 1)) { 
 
             point.y++; 
 
@@ -1501,7 +1482,7 @@ Direction Game::spriteAI_UpdateEnemy(Point &point, MapInformation &map, Player &
 
         }
 
-        if (point.y > player.getY() && map.isWalkable(point.x, point.y - 1, Direction::Up, enemy.getWidth(), enemy.getHeight()) && !isBlockedByPlayer(player, enemy, point.x, point.y - 1) != WalkType::Stop) { 
+        if (point.y > player.getY() && map.isWalkable(point.x, point.y - 1, Direction::Up, enemy.getWidth(), enemy.getHeight()) != WalkType::Stop && !isBlockedByPlayer(player, enemy, point.x, point.y - 1)) { 
 
             point.y--; 
 

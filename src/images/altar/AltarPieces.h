@@ -3,7 +3,9 @@
 namespace Images {
 
     #include "AltarTOP.h"
+    #include "AltarTOP_Wide.h"
     #include "AltarBOT.h"
+    #include "AltarBOT_Wide.h"
     #include "AltarLHS.h"
     #include "AltarRHS.h"
     #include "Rune_Grey_00.h"
@@ -18,5 +20,9 @@ namespace Images {
     #include "Rune_Red_03.h"
     #include "Rune_Red_04.h"
     #include "Rune_Red_05.h"
+    #include "ArrowUpEnabled.h"
+    #include "ArrowUpDisabled.h"
+    #include "ArrowDownEnabled.h"
+    #include "ArrowDownDisabled.h"
 
 };
