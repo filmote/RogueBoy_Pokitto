@@ -25,17 +25,17 @@ int main() {
     PC::setFrameRate(30);
     PD::setFont(fontKoubit);
 
-    // #if POK_HIGH_RAM == HIGH_RAM_MUSIC
-    // memset(buffers[0], 128, BUFFER_SIZE);
-    // memset(buffers[1], 128, BUFFER_SIZE);
-    // memset(buffers[2], 128, BUFFER_SIZE);
-    // memset(buffers[3], 128, BUFFER_SIZE);
-    // #else
-    // memset(&(buffers[0]), 128, BUFFER_SIZE);
-    // memset(&(buffers[1]), 128, BUFFER_SIZE);
-    // memset(&(buffers[2]), 128, BUFFER_SIZE);
-    // memset(&(buffers[3]), 128, BUFFER_SIZE);
-    // #endif
+    #if POK_HIGH_RAM == HIGH_RAM_MUSIC
+    memset(buffers[0], 128, BUFFER_SIZE);
+    memset(buffers[1], 128, BUFFER_SIZE);
+    memset(buffers[2], 128, BUFFER_SIZE);
+    memset(buffers[3], 128, BUFFER_SIZE);
+    #else
+    memset(&(buffers[0]), 128, BUFFER_SIZE);
+    memset(&(buffers[1]), 128, BUFFER_SIZE);
+    memset(&(buffers[2]), 128, BUFFER_SIZE);
+    memset(&(buffers[3]), 128, BUFFER_SIZE);
+    #endif
 
     if (cookie.initialised != COOKIE_INITIALISED) {
 
@@ -53,7 +53,7 @@ int main() {
 
         if (!PC::update()) continue;
 
-        // PC::sound.updateStream();
+        PC::sound.updateStream();
         game.loop();
 
     }
