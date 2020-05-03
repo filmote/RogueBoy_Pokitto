@@ -429,7 +429,7 @@ void Game::nextLevelLoad(GameMode gameMode) {
         
             if (gameMode == GameMode::Normal) {
 
-                const uint8_t * levelToLoad = maps[level];
+                const uint8_t * levelToLoad = maps[map.getDefinedMapLevel()];
                 this->loadMap(levelToLoad);
                 this->map.setDefinedMapLevel(map.getDefinedMapLevel() + 1); 
 

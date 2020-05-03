@@ -10,6 +10,8 @@ void Game::setup(GameCookie *cookie) {
     
     this->cookie = cookie;
     map.setLevel(0);
+
+    //PS::playMusicStream("music/darkrit1.raw", 0);
     
 }
 

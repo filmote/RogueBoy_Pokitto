@@ -143,6 +143,7 @@ void Player::setFrame(uint8_t frame) {
 void Player::incCoins(uint8_t coins) { 
     this->coins = this->coins + coins; 
     this->coinsOverall = this->coinsOverall + coins; 
+    if (this->coinsOverall > 99) this->coins = 99;
 }
 
 void Player::setMoving(bool moving) { 
@@ -213,7 +214,6 @@ void Player::init(uint16_t x, uint16_t y) {
     this->y = y;
     this->direction = Direction::Down;
     this->coins = 0;
-    this->coinsOverall = 0;
     this->kills = 0;
     this->health = (this->health <= 0 ? 100 : this->health);
     this->moving = false;

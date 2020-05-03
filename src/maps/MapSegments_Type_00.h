@@ -140,7 +140,7 @@ const uint8_t MAP_Segment_Type00_02[] = {
     1,MapTiles::Barrel,7,6,
     1,MapTiles::Barrel,5,7,
     1,MapTiles::Barrel,6,7,
-    1,MapTiles::SpiderWebTL,6,7,
+    1,MapTiles::SpiderWebLR,7,7,
     END_OF_OPTIONS,
 
     // Environment Options ---------------

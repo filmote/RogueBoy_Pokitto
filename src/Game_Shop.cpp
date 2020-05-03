@@ -24,7 +24,7 @@ void Game::showShop() {
         player.setHealth(0); 
      
         if (player.getHealth() <= 0) {
-           //sound.tones(DeathNotes); 
+            //PS::playSFX(Sounds::sfx_Death5, Sounds::sfx_Death5_length); 
             gameState = GameState::Dead;
 
         }

@@ -88,11 +88,13 @@ void Game::updateObjects(bool ignorePlayerDamage) {
                     case Object::Coin: 
                         player.incCoins(1); 
                         objectI.setActive(false); 
+                        PS::playSFX(Sounds::sfx_PickUpCoin, Sounds::sfx_PickUpCoin_length);
                         break;
 
                     case Object::SackOCash: 
                         player.incCoins(5); 
                         objectI.setActive(false); 
+                        PS::playSFX(Sounds::sfx_PickUpCoin, Sounds::sfx_PickUpCoin_length);
                         break;
 
                     case Object::Key:
@@ -107,10 +109,10 @@ void Game::updateObjects(bool ignorePlayerDamage) {
 
                             if (slot != NO_SLOT_FOUND) {
                                 objectI.setActive(false);
-                                // sound picked up item
+                                PS::playSFX(Sounds::sfx_PickUpCoin, Sounds::sfx_PickUpCoin_length);
                             }
                             else {
-                                // sound could not pick up
+                                PS::playSFX(Sounds::sfx_CannotPickUp, Sounds::sfx_CannotPickUp_length);
                             }
 
                         }
@@ -123,10 +125,10 @@ void Game::updateObjects(bool ignorePlayerDamage) {
 
                             if (slot != NO_SLOT_FOUND) {
                                 objectI.setActive(false);
-                                // sound picked up item
+                                PS::playSFX(Sounds::sfx_PickUpCoin, Sounds::sfx_PickUpCoin_length);
                             }
                             else {
-                                // sound could not pick up
+                                PS::playSFX(Sounds::sfx_CannotPickUp, Sounds::sfx_CannotPickUp_length);
                             }
 
                         }
@@ -371,7 +373,8 @@ void Game::updateGame(GameMode gameMode) {
         this->player.decPuffIndex();
 
         if (this->player.getPuffIndex() == PLAYER_DEAD_DELAY || PC::buttons.pressed(BTN_A)) {
-    
+
+            //PS::playSFX(Sounds::sfx_Death5, Sounds::sfx_Death5_length); 
             gameState = GameState::Dead;
 
         }
@@ -747,20 +750,21 @@ bool Game::interactWithBlock(int x, int y, MapTiles block) {
 
             this->map.setBlock(x, y, MapTiles::SwitchOff); 
             updateEnvironmentBlock(map, x, y, this->environments); 
-            // sound move switch 
+            PS::playSFX(Sounds::sfx_LeverPull, Sounds::sfx_LeverPull_length);
             return true;
 
         case MapTiles::SwitchOff: 
 
             this->map.setBlock(x, y, MapTiles::SwitchOn); 
             updateEnvironmentBlock(map, x, y, this->environments); 
-            // sound move switch 
+            PS::playSFX(Sounds::sfx_LeverPull, Sounds::sfx_LeverPull_length);
             return true;
 
         case MapTiles::ClosedChest_Key: 
             {
                 this->map.setBlock(x, y, MapTiles::OpenChest); 
-                // sound open chest
+                PS::playSFX(Sounds::sfx_OpenChest, Sounds::sfx_OpenChest_length);
+
 
 
                 // Find a matching Object in the sprites collecion that is disabled, otherwise add one ..
@@ -783,7 +787,7 @@ bool Game::interactWithBlock(int x, int y, MapTiles block) {
         case MapTiles::ClosedChest_Killer: 
             {
                 this->map.setBlock(x, y, MapTiles::OpenChest); 
-                // sound open chest
+                PS::playSFX(Sounds::sfx_OpenChest, Sounds::sfx_OpenChest_length);
 
 
                 // Find a matching Object in the sprites collecion that is disabled, otherwise add one ..
@@ -809,7 +813,7 @@ bool Game::interactWithBlock(int x, int y, MapTiles block) {
         case MapTiles::ClosedChest_Random: 
             {
                 this->map.setBlock(x, y, MapTiles::OpenChest); 
-                // sound open chest
+                PS::playSFX(Sounds::sfx_OpenChest, Sounds::sfx_OpenChest_length);
 
                 // random
 
@@ -852,7 +856,7 @@ bool Game::interactWithBlock(int x, int y, MapTiles block) {
         case MapTiles::ClosedChest_Altar: 
             {
                 this->map.setBlock(x, y, MapTiles::OpenChest); 
-                // sound open chest
+                PS::playSFX(Sounds::sfx_OpenChest, Sounds::sfx_OpenChest_length);
 
                 // random
                 this->player.incAltarPieces();
@@ -866,11 +870,11 @@ bool Game::interactWithBlock(int x, int y, MapTiles block) {
             if (this->player.getInventoryCount(Object::Key) > 0) {
                 this->map.setBlock(x, y, MapTiles::OpenDoor); 
                 this->player.decInventoryItem(Object::Key);
-                // sound unlock door
+                PS::playSFX(Sounds::sfx_OpenChest, Sounds::sfx_OpenChest_length);
                 return true;
             } 
             else {
-                // sound missing keys
+                PS::playSFX(Sounds::sfx_CannotPickUp, Sounds::sfx_CannotPickUp_length);
                 return false;
             }  
 
@@ -879,11 +883,11 @@ bool Game::interactWithBlock(int x, int y, MapTiles block) {
             if (this->player.getInventoryCount(Object::Key) > 0) {
                 this->map.setBlock(x, y, static_cast<MapTiles>(block + MapTiles::DoorLHSOpen - MapTiles::DoorLHS)); 
                 this->player.decInventoryItem(Object::Key);
-                // sound unlock door
+                PS::playSFX(Sounds::sfx_OpenChest, Sounds::sfx_OpenChest_length);
                 return true;
             } 
             else {
-                // sound missing keys
+                PS::playSFX(Sounds::sfx_CannotPickUp, Sounds::sfx_CannotPickUp_length);
                 return false;
             }  
 
@@ -892,10 +896,10 @@ bool Game::interactWithBlock(int x, int y, MapTiles block) {
             if (this->player.getInventoryCount(Object::Key) > 0) {
                 this->map.setBlock(x, y, MapTiles::DownStairs); 
                 this->player.decInventoryItem(Object::Key);
-                // sound unlock door
+                PS::playSFX(Sounds::sfx_OpenChest, Sounds::sfx_OpenChest_length);
             } 
             else {
-                // sound missing keys
+                PS::playSFX(Sounds::sfx_CannotPickUp, Sounds::sfx_CannotPickUp_length);
             } 
             return true;
 
@@ -908,7 +912,7 @@ bool Game::interactWithBlock(int x, int y, MapTiles block) {
                 return true;
             } 
             else {
-                // sound missing keys / spanner
+                PS::playSFX(Sounds::sfx_CannotPickUp, Sounds::sfx_CannotPickUp_length);
                 return false;
             } 
 

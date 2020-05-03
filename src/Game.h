@@ -28,6 +28,7 @@
 #include "maps/Maps_Help.h"
 #include "maps/MapRandom.h"
 #include "utils/GameCookie.h"
+#include "sounds/Sounds.h"
 
 
 class Game {

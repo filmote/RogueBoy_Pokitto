@@ -228,7 +228,7 @@ const uint8_t MAP_Segment_Type08_03[] = {
     // Enemy Options ---------------------
     // Opt , Object, x, y, Health 
     4,
-    0,Object::Bat,2,1,HEALTH_BAT,
+    0,Object::Bat,3,1,HEALTH_BAT,
     0,Object::Bat,2,4,HEALTH_BAT,
     0,Object::Bread,6,4,HEALTH_NONE,
     1,Object::Bat,6,1,HEALTH_BAT,
@@ -236,10 +236,10 @@ const uint8_t MAP_Segment_Type08_03[] = {
     1,Object::Spider,1,3,HEALTH_SPIDER,
     2,Object::Bat,4,6,HEALTH_BAT,
     2,Object::Eye,7,3,HEALTH_EYE,
-    2,Object::Chicken,2,1,HEALTH_NONE,
+    2,Object::Chicken,3,1,HEALTH_NONE,
     3,Object::Skeleton,4,6,HEALTH_BAT,
     3,Object::Eye,7,3,HEALTH_EYE,
-    3,Object::Coin,2,1,HEALTH_NONE,
+    3,Object::Coin,3,1,HEALTH_NONE,
     END_OF_OPTIONS,
 
     // Entrance / Exit Options -----------

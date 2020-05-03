@@ -45,7 +45,7 @@ void Game::death() {
 
         if (found) {
 
-            for (uint8_t j = 3; j > i; j--) {
+            for (int8_t j = 3; j >= i; j--) {
 
                 this->cookie->score[j + 1] = this->cookie->score[j];
                 this->cookie->level[j + 1] = this->cookie->level[j];
@@ -61,8 +61,8 @@ void Game::death() {
             this->cookie->score_Char[i][0] = 'A';
             this->cookie->score_Char[i][1] = 'A';
             this->cookie->score_Char[i][2] = 'A';
-            this->cookie->score[i] = this->points + pts;
-            this->cookie->level[i] = map.getLevel();
+            this->cookie->score[i] = static_cast<uint16_t>(this->points + pts);
+            this->cookie->level[i] = static_cast<uint8_t>(map.getLevel());
 
         }
         else {
@@ -72,10 +72,12 @@ void Game::death() {
         }
 
 
+
+for(uint8_t y=0;y<5;y++){for(uint8_t x=0;x<3;x++){    printf("%i", this->cookie->score_Char[y][x]);}printf(" %i %i\n", this->cookie->level[y], this->cookie->score[y]);}
+
+
         //sound.noTone(); 
         gameState = GameState::HighScore; 
-        map.setLevel(0); 
-        this->points = 0; 
 
     }
 

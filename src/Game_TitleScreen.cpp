@@ -10,6 +10,7 @@ void Game::updateMainMenu() {
 
     this->map.reset();
     this->player.reset();
+    this->points = 0;
     
 
     if (PC::frameCount % 24 == 0) {
