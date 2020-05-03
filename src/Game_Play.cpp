@@ -164,6 +164,14 @@ void Game::updateObjects(bool ignorePlayerDamage) {
 
                         break;
 
+                    case Object::Guide01 ... Object::Guide15:
+                        this->guideNumber = static_cast<uint8_t>(type) - static_cast<uint8_t>(Object::Guide01);
+                        this->guideTop = 0;
+                        this->gameState = GameState::Guide;
+                        objectI.setGuideText(false);
+                        objectI.setPreventImmediatePickup(true);
+                        break;
+                        
                 }
 
             }
@@ -405,6 +413,28 @@ bool Game::isBlockedByEnemy(Player player, uint16_t playerX, uint16_t playerY) {
 
 }
 
+bool Game::isBlockedBySolidSprite(Player player, uint16_t playerX, uint16_t playerY) {
+
+    Rect playerRect = { playerX - (player.getWidth() / 2) + 2, playerY - (player.getHeight() / 2) + 2, player.getWidth() - 4, player.getHeight() - 4 };
+
+    for (uint8_t i = 0; i < this->objects.getObjectNum(); i++) {
+
+        auto &object = this->objects.getSprite(i);
+
+        if (object.getActive() && object.isSolidSprite()) {
+            
+            Rect objectRect = object.getRect();
+
+            if (collide(playerRect, objectRect)) return true;
+
+        }
+
+    }
+
+    return false;
+
+}
+
 bool Game::isBlockedByPlayer(Player player, Sprite enemy, uint16_t enemyX, uint16_t enemyY) {
    
     Rect enemyRect = { enemyX - (enemy.getWidth() / 2), enemyY - (enemy.getHeight() / 2), enemy.getWidth(), enemy.getHeight() };
@@ -425,7 +455,7 @@ void Game::playerMovement(GameMode gameMode) {
 
         WalkType walk = this->map.isWalkable(x, y - 2, Direction::Up, this->player.getWidth(), this->player.getHeight());
 
-        if ((walk == WalkType::Normal || (walk == WalkType::Slow && PC::frameCount % WALK_SLOW_FRAME_COUNT == 0)) && !isBlockedByEnemy(this->player, x, y - 2)) {
+        if ((walk == WalkType::Normal || (walk == WalkType::Slow && PC::frameCount % WALK_SLOW_FRAME_COUNT == 0)) && !isBlockedByEnemy(this->player, x, y - 2) && !isBlockedBySolidSprite(this->player, x, y - 2)) {
             
             y-=2;
             moving = true;
@@ -444,7 +474,7 @@ void Game::playerMovement(GameMode gameMode) {
 
         WalkType walk = this->map.isWalkable(x, y + 2, Direction::Down, this->player.getWidth(), this->player.getHeight());
 
-        if ((walk == WalkType::Normal || (walk == WalkType::Slow && PC::frameCount % WALK_SLOW_FRAME_COUNT == 0)) && !isBlockedByEnemy(this->player, x, y + 2)) {
+        if ((walk == WalkType::Normal || (walk == WalkType::Slow && PC::frameCount % WALK_SLOW_FRAME_COUNT == 0)) && !isBlockedByEnemy(this->player, x, y + 2) && !isBlockedBySolidSprite(this->player, x, y + 2)) {
 
             y+=2;
             moving = true;
@@ -464,7 +494,7 @@ void Game::playerMovement(GameMode gameMode) {
 
         WalkType walk = this->map.isWalkable(x + 2, y, Direction::Right, this->player.getWidth(), this->player.getHeight());
 
-        if ((walk == WalkType::Normal || (walk == WalkType::Slow && PC::frameCount % WALK_SLOW_FRAME_COUNT == 0)) && !isBlockedByEnemy(this->player, x + 2, y)) {
+        if ((walk == WalkType::Normal || (walk == WalkType::Slow && PC::frameCount % WALK_SLOW_FRAME_COUNT == 0)) && !isBlockedByEnemy(this->player, x + 2, y) && !isBlockedBySolidSprite(this->player, x + 2, y)) {
 
             x+=2;
             moving = true;
@@ -497,7 +527,7 @@ void Game::playerMovement(GameMode gameMode) {
 
         WalkType walk = this->map.isWalkable(x - 2, y, Direction::Left, this->player.getWidth(), this->player.getHeight());
 
-        if ((walk == WalkType::Normal || (walk == WalkType::Slow && PC::frameCount % WALK_SLOW_FRAME_COUNT == 0)) && !isBlockedByEnemy(this->player, x - 2, y)) {
+        if ((walk == WalkType::Normal || (walk == WalkType::Slow && PC::frameCount % WALK_SLOW_FRAME_COUNT == 0)) && !isBlockedByEnemy(this->player, x - 2, y) && !isBlockedBySolidSprite(this->player, x - 2, y)) {
 
             x-=2;
             moving = true;
@@ -695,8 +725,14 @@ void Game::playerMovement(GameMode gameMode) {
             case MapTiles::DownStairs:
 
                 if (gameMode == GameMode::Normal) {
-                    //sound.tone(NOTE_C3,100,NOTE_E3,100,NOTE_G3,100);
-                    gameState = GameState::EndOfLevel;
+
+                    if (this->map.getHasRune()) {
+                        gameState = GameState::NeedRune;
+                    }
+                    else {
+                        //sound.tone(NOTE_C3,100,NOTE_E3,100,NOTE_G3,100);
+                        gameState = GameState::EndOfLevel;
+                    }
                 }
                 else {
                     gameState = GameState::MainMenu;
@@ -855,6 +891,7 @@ bool Game::interactWithBlock(int x, int y, MapTiles block) {
 
         case MapTiles::ClosedChest_Altar: 
             {
+                this->map.setHasRune(false);
                 this->map.setBlock(x, y, MapTiles::OpenChest); 
                 PS::playSFX(Sounds::sfx_OpenChest, Sounds::sfx_OpenChest_length);
 
@@ -934,13 +971,6 @@ bool Game::interactWithBlock(int x, int y, MapTiles block) {
 
             }
             return false;
-
-        case MapTiles::Guide1 ... MapTiles::Guide7: 
-
-            this->guideNumber = static_cast<uint8_t>(block) - static_cast<uint8_t>(MapTiles::Guide1);
-            this->guideTop = 0;
-            this->gameState = GameState::Guide;
-            return false; 
 
     }
 
@@ -1361,6 +1391,10 @@ void Game::spriteAI(MapInformation &map, Player &player, Sprite &sprite) {
 
             }
 
+            break;
+
+        case Object::Guide01 ... Object::Guide08:
+            spriteAI_UpdateFrame(sprite, 2, 96);
             break;
 
     }

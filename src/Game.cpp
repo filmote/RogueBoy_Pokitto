@@ -70,6 +70,10 @@ void Game::loop(void) {
             showGuide();
             break;
 
+        case GameState::NeedRune:  
+            showNeedRuneMessage();
+            break;
+
         #ifdef DEBUG
             case GameState::MapDetails:  
                 mapDetails(); 

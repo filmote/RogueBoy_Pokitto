@@ -28,6 +28,7 @@ class Sprite {
         Object getCarrying();
         int16_t getHealth();
         int16_t getHealthOrig();
+        bool getGuideText();
         bool getActive();
         bool getRenderHealthBar();
         uint8_t getCountdown();
@@ -43,6 +44,7 @@ class Sprite {
         void setCountdown(uint8_t countdown);
         void setPreventImmediatePickup(bool value);
         void setDirection(Direction direction);
+        void setGuideText(bool guideText);
 
         void decCountdown();
         Rect getRect();
@@ -54,6 +56,7 @@ class Sprite {
 
         void incFrame();
         bool isEnemy();
+        bool isSolidSprite();
         bool isCarryable();
 
     private:
@@ -71,6 +74,7 @@ class Sprite {
         int8_t frame;
         uint8_t countdown = 50;
         bool active;
+        bool guideText;
         uint8_t quantity;
 
         int8_t lastMoveX;

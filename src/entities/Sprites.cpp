@@ -62,9 +62,10 @@ void Sprites::render(Player &player, bool showEnemies) {
             uint8_t frame = object.getFrame();
             int8_t xOffset = object.getXOffset();
             int8_t yOffset = object.getYOffset();
+            bool showGuideText = object.getGuideText();
             Direction direction = object.getDirection();
 
-            this->renderSprite(object.getType(), x, y, xOffset, yOffset, direction, frame, showEnemies, object.getRenderHealthBar(), 10 * object.getHealth() / object.getHealthOrig());
+            this->renderSprite(object.getType(), x, y, xOffset, yOffset, direction, frame, showEnemies, showGuideText, object.getRenderHealthBar(), 10 * object.getHealth() / object.getHealthOrig());
 
 
             // Render puff ?
@@ -90,12 +91,12 @@ void Sprites::renderSprite(Object type, int x, int y) {
     int8_t xOffset = spriteOffsets[static_cast<uint8_t>(type) * 2];
     int8_t yOffset = spriteOffsets[(static_cast<uint8_t>(type) * 2) + 1];
 
-    this->renderSprite(type, x, y, xOffset, yOffset, Direction::Up, 0, false, false, 0);
+    this->renderSprite(type, x, y, xOffset, yOffset, Direction::Up, 0, false, false, 0, false);
 
 }
 
 
-void Sprites::renderSprite(Object type, int x, int y, int8_t xOffset, int8_t yOffset, Direction direction, int8_t frame, bool showEnemies, bool renderHealth, int healthValue ) {
+void Sprites::renderSprite(Object type, int x, int y, int8_t xOffset, int8_t yOffset, Direction direction, int8_t frame, bool showEnemies, bool showGuideText, bool renderHealth, int healthValue) {
 
 // PD::drawLine(x, y - 20, x, y + 20);
 // PD::drawLine(x - 20, y, x + 20, y);
@@ -259,6 +260,32 @@ void Sprites::renderSprite(Object type, int x, int y, int8_t xOffset, int8_t yOf
 
         case Object::FireBOT:
             PD::drawBitmapYFlipped(x + xOffset, y + yOffset, Images::Fires[fire_frameIdx[frame]]);
+            break;
+
+        case Object::Guide01 ... Object::Guide07:
+            
+            PD::drawBitmap(x + xOffset, y + yOffset, Images::Guide);
+            break;
+
+        case Object::Guide08 ... Object::Guide15:
+            
+            PD::drawBitmap(x + xOffset, y + yOffset, Images::Guide);
+
+            if (showGuideText) {
+
+                switch (frame) {
+    
+                    case 0 ... 16:
+                        PD::drawBitmap(x - 17, y + yOffset - 10, Images::GuideCaption[(frame / 2) % 4]);
+                        break;
+    
+                    case 48 ... 64:
+                        PD::drawBitmap(x - 17, y + yOffset - 10, Images::GuideCaption[(((frame - 48) / 2) % 4) + 4]);
+                        break;
+    
+                }
+                
+            }
             break;
 
     }

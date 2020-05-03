@@ -40,6 +40,10 @@ uint8_t MapInformation::getRandomLow() {
     return this->randomLow;
 }
 
+bool MapInformation::getHasRune() {
+    return this->hasRune;
+}
+
 void MapInformation::setLevel(uint8_t level) {
     this->level = level;
 }
@@ -66,6 +70,10 @@ void MapInformation::setRandomLevel(bool randomLevel) {
 
 void MapInformation::setRandomLow(uint8_t randomLow) {
     this->randomLow = randomLow;
+}
+
+void MapInformation::setHasRune(bool hasRune) {
+    this->hasRune = hasRune;
 }
 
 void MapInformation::decTimer() {

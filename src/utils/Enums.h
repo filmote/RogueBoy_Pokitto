@@ -65,6 +65,21 @@ enum Object {
     Chest = 22,
     Necromancer = 23,
     Hobgoblin = 24,
+    Guide01 = 25,
+    Guide02 = 26,
+    Guide03 = 27,
+    Guide04 = 28,
+    Guide05 = 29,
+    Guide06 = 30,
+    Guide07 = 31,
+    Guide08 = 32,
+    Guide09 = 33,
+    Guide10 = 34,
+    Guide11 = 35,
+    Guide12 = 36,
+    Guide13 = 37,
+    Guide14 = 38,
+    Guide15 = 39,
     SpiderWeb = 253,
     FireBall = 254,
     None = 255,
@@ -101,7 +116,8 @@ enum class GameState : uint8_t {
     Shop,
     HighScore,
     AltarPieceAchieved,
-    Guide
+    Guide,
+    NeedRune
 };
 
 enum class Direction : uint8_t {
@@ -219,14 +235,6 @@ enum MapTiles {
     Altar04 = 94,
     Altar05 = 95,
     ClosedChest_Altar = 96,
-    Guide1 = 97,
-    Guide2 = 98,
-    Guide3 = 99,
-    Guide4 = 100,
-    Guide5 = 101,
-    Guide6 = 102,
-    Guide7 = 103,
-
 };
 
 enum class ShopMessage : uint8_t {

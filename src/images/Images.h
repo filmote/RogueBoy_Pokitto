@@ -14,6 +14,7 @@
 #include "puff/Puffs.h"
 #include "title/Title.h"
 #include "altar/AltarPieces.h"
+#include "guide/Guides.h"
 
 namespace Images {
 

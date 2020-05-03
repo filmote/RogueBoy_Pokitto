@@ -24,8 +24,9 @@ class MapInformation {
         uint8_t getTileYOffset(uint16_t y);
         uint16_t getDistance(int x,int y,int x1,int y1);
         uint8_t getOffset(uint8_t x, uint8_t y);
-        bool getRandomLevel();
         uint8_t getRandomLow();
+        bool getRandomLevel();
+        bool getHasRune();
 
         void setLevel(uint8_t level);
         void setDefinedMapLevel(uint8_t definedMapLevel);
@@ -36,7 +37,7 @@ class MapInformation {
         void setBlock(uint16_t index, MapTiles block);
         void setRandomLevel(bool randomLevel);
         void setRandomLow(uint8_t randomLow);
-
+        void setHasRune(bool hasRune);
 
         bool between(uint8_t x, uint8_t y, uint8_t x1, uint8_t y1, uint8_t x2, uint8_t y2);
         WalkType isWalkable(uint16_t x, uint16_t y, Direction direction, uint8_t width, uint8_t height);
@@ -58,6 +59,7 @@ class MapInformation {
         uint8_t level = 0;
         uint8_t definedMapLevel = 0;
         uint8_t mapData[MAP_SIZE];
-        bool randomLevel = false;
         uint8_t randomLow = 0;
+        bool randomLevel = false;
+        bool hasRune = false;
 };

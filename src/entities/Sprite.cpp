@@ -14,6 +14,7 @@ Object Sprite::getCarrying()                        { return this->carrying; }
 int16_t Sprite::getHealth()                         { return this->health; }
 int16_t Sprite::getHealthOrig()                     { return this->healthOrig; }
 uint8_t Sprite::getCountdown()                      { return this->countdown; }
+bool Sprite::getGuideText()                         { return this->guideText; }
 bool Sprite::getActive()                            { return this->active; }
 bool Sprite::getRenderHealthBar()                   { return this->renderHealthBar > 0; }
 bool Sprite::getPreventImmediatePickup()            { return this->preventImmediatePickup; }
@@ -27,6 +28,7 @@ void Sprite::setType(Object type)                   { this->type = type; }
 void Sprite::setCarrying(Object carrying)           { this->carrying = carrying; }
 void Sprite::setCountdown(uint8_t countdown)        { this->countdown = countdown; }
 void Sprite::setPreventImmediatePickup(bool value)  { this->preventImmediatePickup = value; }
+void Sprite::setGuideText(bool value)               { this->guideText = value; }
 
 void Sprite::decCountdown() { 
 
@@ -137,6 +139,7 @@ void Sprite::setSprite(uint16_t x, uint16_t y, uint8_t health, Object type, bool
     this->lastMoveX = 0;
     this->lastMoveY = 0;
     this->preventImmediatePickup = 0;
+    this->guideText = true;
 
 };
 
@@ -235,7 +238,20 @@ bool Sprite::isEnemy() {
         case Object::Chest:
         case Object::Necromancer:
         case Object::Hobgoblin:
+            return true;
 
+        default:
+            return false;
+        
+    }
+    
+}
+
+bool Sprite::isSolidSprite() {
+    
+    switch (this->type) {
+
+        case Object::Guide01 ... Object::Guide15:
             return true;
 
         default:

@@ -82,20 +82,24 @@ class Game {
         void dropItem(Object droppedObject, uint16_t x, uint16_t y, bool enemyDrop, Sprite *enemy, Sprites &objects);
         void spriteAI(MapInformation &map, Player &player, Sprite &sprite);
         void spriteAI_UpdateFrame(Sprite &sprite, uint8_t frameMultiple, uint8_t frameMax);
-        Direction spriteAI_CheckForMove(MapInformation &map, Player &player, Sprite &sprite, Point &location, uint8_t dist);
-        Direction spriteAI_UpdateEnemy(Point &point, MapInformation &map, Player &player, Sprite &enemy);
         void barrelBreak(MapInformation &map, uint8_t x, uint8_t y, Sprites &objects);
-        Direction getNearestCardinalDirection(Direction direction, Axis axis);
-        const uint8_t * getSegment(uint8_t segmentType, uint8_t segmentIndex);
         void printPaddedNumber(int32_t number, uint8_t places);
 
+        Direction spriteAI_CheckForMove(MapInformation &map, Player &player, Sprite &sprite, Point &location, uint8_t dist);
+        Direction spriteAI_UpdateEnemy(Point &point, MapInformation &map, Player &player, Sprite &enemy);
+        Direction getNearestCardinalDirection(Direction direction, Axis axis);
+
         bool isBlockedByEnemy(Player player, uint16_t playerX, uint16_t playerY);
+        bool isBlockedBySolidSprite(Player player, uint16_t playerX, uint16_t playerY);
         bool isBlockedByPlayer(Player player, Sprite enemy, uint16_t enemyX, uint16_t enemyY);
         void showShop();
         void highScore();
-        uint32_t printLevelSummary(uint8_t yOffset, uint16_t time);  // Returns points earnt in this level ..
         void showAltarPieceMessage();
+        void showNeedRuneMessage();
         void mixAltartPieces();
+
+        const uint8_t * getSegment(uint8_t segmentType, uint8_t segmentIndex);
+        uint32_t printLevelSummary(uint8_t yOffset, uint16_t time);  // Returns points earnt in this level ..
 
         #ifdef DEBUG
         void clearCells();

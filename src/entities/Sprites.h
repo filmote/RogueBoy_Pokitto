@@ -26,7 +26,7 @@ class Sprites {
         void clearPreventImmediatePickup(Player &player);
         void renderHealthBar(uint32_t x, uint32_t y, uint8_t health);
         void renderSprite(Object type, int x, int y);
-        void renderSprite(Object type, int x, int y, int8_t xOffset, int8_t yOffset, Direction direction, int8_t frame, bool showEnemies, bool renderHealth, int healthValue);
+        void renderSprite(Object type, int x, int y, int8_t xOffset, int8_t yOffset, Direction direction, int8_t frame, bool showEnemies, bool showGuideText, bool renderHealth, int healthValue);
 
     private:
 

@@ -10,7 +10,7 @@ using PS = Pokitto::Sound;
 void Game::loadMap(const uint8_t * levelToLoad) {
 
     uint16_t cursor = 0;
-
+    
     map.setWidth(levelToLoad[cursor++]);
     map.setHeight(levelToLoad[cursor++]);
 
@@ -39,7 +39,11 @@ void Game::loadMap(const uint8_t * levelToLoad) {
             this->eolXTile = px;
             this->eolYTile = py;
         }
-
+    
+        if (tile == MapTiles::ClosedChest_Altar) {
+            map.setHasRune(true);
+        }
+    
         cursor++;
 
     }
@@ -124,6 +128,7 @@ void Game::nextLevelLoad(GameMode gameMode) {
     // Clear any old maps away ..
 
     this->map.clearMap();
+    this->map.setHasRune(false);
 
     #ifdef DEBUG
         this->clearCells();

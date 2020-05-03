@@ -141,7 +141,9 @@ constexpr const char message07_10[] = "you explore.";
 constexpr const char message07_11[] = "";
 constexpr const char message07_12[] = "Good luck!";
 
-const uint8_t messageLengths[] = { 37, 16, 12, 17, 18, 17, 12 };
+constexpr const char message08_01[] = "sdfsdfsd!";
+
+const uint8_t messageLengths[] = { 37, 16, 12, 17, 18, 17, 12, 1 };
 
 constexpr const char * const messages01[] = { 
 message01_01,
@@ -293,6 +295,10 @@ message07_11,
 message07_12,
 };
 
+constexpr const char * const messages08[] = { 
+message08_01,
+};
+
 void Game::showGuide() {
 
 
@@ -390,6 +396,13 @@ void Game::showGuide() {
                 }
                 break;
 
+            case 7:
+                {
+                    const char * message = messages08[x];
+                    showGuide_renderLine(x - this->guideTop, message);
+                }
+                break;
+
         }
 
     }
@@ -400,7 +413,7 @@ void Game::showGuide() {
     PD::setColor(9);
     PD::drawRect(91, 13, 4, 43);
 
-//    if (messageLengths[this->guideNumber] > 6) {
+    if (messageLengths[this->guideNumber] > 6) {
 
         uint16_t length = 410 / messageLengths[this->guideNumber];
 
@@ -420,13 +433,13 @@ void Game::showGuide() {
             PD::drawBitmap(91, 58, Images::ArrowDownEnabled);
         }
         
-    // }
-    // else {
+    }
+    else {
 
-    //     PD::drawBitmap(91, 8, Images::ArrowUpDisabled);
-    //     PD::drawBitmap(91, 58, Images::ArrowDownDisabled);
+        PD::drawBitmap(91, 8, Images::ArrowUpDisabled);
+        PD::drawBitmap(91, 58, Images::ArrowDownDisabled);
 
-    // }
+    }
 
     PD::setFont(fontKoubit);
 
