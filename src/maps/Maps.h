@@ -1031,6 +1031,28 @@ constexpr const uint8_t Map_Training[] =
 	8, 5, 10, 25,
 };
 
-constexpr const uint8_t numberOfMaps = 25;
+constexpr const uint8_t Map_Test1[] = 
+{
+	11, /*Width*/
+	9, /*Height*/
+	3, /*Player Start X*/
+	3, /*Player Start Y*/
+	200, /*Timer*/
+	-1, /*Out of Bounds Tile ID*/
+	0, 24, 24, 24, 24, 24, 0, 0, 0, 0, 0,
+	21, 0, 0, 0, 0, 0, 23, 24, 24, 24, 0,
+	21, 0, 0, 0, 0, 0, 46, 0, 0, 0, 23,
+	21, 10, 0, 0, 0, 0, 57, 0, 97, 0, 23,
+	21, 0, 0, 0, 0, 0, 45, 0, 0, 0, 23,
+	21, 0, 0, 0, 0, 0, 23, 22, 22, 22, 0,
+	0, 22, 36, 0, 37, 22, 0, 0, 0, 0, 0,
+	0, 0, 21, 3, 23, 0, 0, 0, 0, 0, 0,
+	0, 0, 0, 22, 0, 0, 0, 0, 0, 0, 0,
+	0, 
+	1,
+	1, 3, 6, 3,
+};
 
-constexpr const uint8_t* maps[numberOfMaps] = { MAP_02,MAP_03,MAP_04,MAP_05,Map_06_Shop,MAP_07,MAP_08,MAP_09,MAP_10,MAP_11,Map_12_Shop,Map_13,MAP_14,MAP_15,MAP_16,MAP_17,Map_18_Shop,Map_19,MAP_20,MAP_21,Map_22,Map_23,Map_24,Map_25_Altar,Map_Training, };
+constexpr const uint8_t numberOfMaps = 26;
+
+constexpr const uint8_t* maps[numberOfMaps] = { MAP_02,MAP_03,MAP_04,MAP_05,Map_06_Shop,MAP_07,MAP_08,MAP_09,MAP_10,MAP_11,Map_12_Shop,Map_13,MAP_14,MAP_15,MAP_16,MAP_17,Map_18_Shop,Map_19,MAP_20,MAP_21,Map_22,Map_23,Map_24,Map_25_Altar,Map_Training,Map_Test1, };
