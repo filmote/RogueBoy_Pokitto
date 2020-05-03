@@ -72,10 +72,6 @@ void Game::death() {
         }
 
 
-
-for(uint8_t y=0;y<5;y++){for(uint8_t x=0;x<3;x++){    printf("%i", this->cookie->score_Char[y][x]);}printf(" %i %i\n", this->cookie->level[y], this->cookie->score[y]);}
-
-
         //sound.noTone(); 
         gameState = GameState::HighScore; 
 
