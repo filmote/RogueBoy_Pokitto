@@ -9,8 +9,11 @@ using PS = Pokitto::Sound;
 void Game::setup(GameCookie *cookie) { 
     
     this->cookie = cookie;
+    this->splashScreenVariables.buttonCounter = 64;
     map.setLevel(0);
 
+
+    printf("start music\n");
     PS::playMusicStream("music/galaxy1.raw", 0);
     
 }

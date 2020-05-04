@@ -33,7 +33,6 @@ void Game::updateMainMenu() {
     }
 
 
-
     // Handle player actions ..
 
     if (PC::buttons.pressed(BTN_UP) && this->titleScreenVars.mode > TitleScreenMode::Start) {

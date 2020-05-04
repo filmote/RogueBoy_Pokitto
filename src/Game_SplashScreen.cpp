@@ -11,10 +11,11 @@ using PS = Pokitto::Sound;
 //
 void Game::splashScreen() { 
 
-    //if (PC::buttons.pressed(BTN_A))  { this->gameState = GameState::MainMenu; }
+    // Decrease button counter that prevents you skipping straight over PPOt splash ..
 
+    if (this->splashScreenVariables.buttonCounter > 0) this->splashScreenVariables.buttonCounter--;
 
-    auto justPressed = PC::buttons.pressed(BTN_A) || PC::buttons.pressed(BTN_B) || PC::buttons.pressed(BTN_C);
+    bool justPressed = (this->splashScreenVariables.buttonCounter > 0 ? false : PC::buttons.pressed(BTN_A) || PC::buttons.pressed(BTN_B) || PC::buttons.pressed(BTN_C));
 
     if (justPressed > 0) {
 
