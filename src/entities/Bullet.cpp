@@ -79,14 +79,6 @@ Rect Bullet::getRect() {
 
     switch (this->weapon) {
 
-        case Object::FireBall:
-        case Object::IceSpell:
-        case Object::GreenSpell:
-        case Object::RedSpell:
-        case Object::MauveSpell:
-
-            return Rect { this->getX() - 2, this->getY() - 2, 4, 4 };
-
         case Object::SpiderWeb:
 
             switch (this->frame) {
@@ -112,6 +104,11 @@ Rect Bullet::getRect() {
             }
 
             return Rect { this->getX() - (this->getWidth() / 2), this->getY() - (this->getHeight() / 2), this->getWidth(), this->getHeight() };
+
+
+        default:
+
+            return Rect { this->getX() - 2, this->getY() - 2, 4, 4 };
 
     }
 

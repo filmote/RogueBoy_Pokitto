@@ -157,6 +157,8 @@ void Game::updateObjects(bool ignorePlayerDamage) {
                             if (PC::frameCount % 4 == 0) { 
 
                                 player.decHealth(object_DamamgeOnPlayer[static_cast<uint8_t>(type)]);
+                                PS::playSFX(Sounds::sfx_Death1, Sounds::sfx_Death1_length);
+        printf("hurt player\n");
 
                             }
 
@@ -333,6 +335,7 @@ void Game::updateObjects(bool ignorePlayerDamage) {
                             }
 
                             this->player.decHealth(DAMAGE_BULLET);
+                            PS::playSFX(Sounds::sfx_Death1, Sounds::sfx_Death1_length);
                             bullet.setActive(false);
 
                         }

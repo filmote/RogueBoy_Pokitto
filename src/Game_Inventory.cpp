@@ -308,65 +308,63 @@ void Game::showInventory() {
     }
     
 
-    // Work out arrow direction ..
+    // // Work out arrow direction ..
 
-    Direction rot = Direction::Up;
+    // Direction rot = Direction::Up;
 
-    if (this->player.getX() / TILE_SIZE > this->eolXTile) { // Left
+    // if (this->player.getX() / TILE_SIZE > this->eolXTile) { // Left
 
-        if (this->player.getY() / TILE_SIZE > this->eolYTile) {
+    //     if (this->player.getY() / TILE_SIZE > this->eolYTile) {
 
-            rot = Direction::UpLeft;
+    //         rot = Direction::UpLeft;
 
-        }
-        else if (this->player.getY() / TILE_SIZE == this->eolYTile) {
+    //     }
+    //     else if (this->player.getY() / TILE_SIZE == this->eolYTile) {
 
-            rot = Direction::Left;
+    //         rot = Direction::Left;
 
-        }
-        else if (this->player.getY() / TILE_SIZE < this->eolYTile) {
+    //     }
+    //     else if (this->player.getY() / TILE_SIZE < this->eolYTile) {
 
-            rot = Direction::DownLeft;
+    //         rot = Direction::DownLeft;
 
-        }
+    //     }
 
-    }
-    else if (this->player.getX() / TILE_SIZE == this->eolXTile) { // Up / down
+    // }
+    // else if (this->player.getX() / TILE_SIZE == this->eolXTile) { // Up / down
 
-        if (this->player.getY() / TILE_SIZE > this->eolYTile) {
+    //     if (this->player.getY() / TILE_SIZE > this->eolYTile) {
 
-            rot = Direction::Up;
+    //         rot = Direction::Up;
 
-        }
-        else if (this->player.getY() / TILE_SIZE < this->eolYTile) {
+    //     }
+    //     else if (this->player.getY() / TILE_SIZE < this->eolYTile) {
 
-            rot = Direction::Down;
+    //         rot = Direction::Down;
 
-        }
+    //     }
 
-    }
-    else if (this->player.getX() / TILE_SIZE < this->eolXTile) { // Right
+    // }
+    // else if (this->player.getX() / TILE_SIZE < this->eolXTile) { // Right
 
-        if (this->player.getY() / TILE_SIZE > this->eolYTile) {
+    //     if (this->player.getY() / TILE_SIZE > this->eolYTile) {
 
-            rot = Direction::UpRight;
+    //         rot = Direction::UpRight;
 
-        }
-        else if (this->player.getY() / TILE_SIZE == this->eolYTile) {
+    //     }
+    //     else if (this->player.getY() / TILE_SIZE == this->eolYTile) {
 
-            rot = Direction::Right;
+    //         rot = Direction::Right;
 
-        }
-        else if (this->player.getY() / TILE_SIZE < this->eolYTile) {
+    //     }
+    //     else if (this->player.getY() / TILE_SIZE < this->eolYTile) {
 
-            rot = Direction::DownRight;
+    //         rot = Direction::DownRight;
 
-        }
+    //     }
 
-    }
+    // }
 
-    PD::drawBitmap(92, 74, Images::Directions[static_cast<uint8_t>(rot)]);
-       
 
     // Render screen ..
 
@@ -376,6 +374,7 @@ void Game::showInventory() {
             {    
                 this->renderEnviroment(0, 0);
                 this->renderHud();
+                // PD::drawBitmap(92, 74, Images::Directions[static_cast<uint8_t>(rot)]);
                 PD::setColor(0);
                 PD::fillRectangle(0, 0, 88, 73);
                 PD::setColor(9);
@@ -485,6 +484,7 @@ void Game::showInventory() {
 
             this->renderEnviroment(0, 0);
             this->renderHud();
+            // PD::drawBitmap(92, 74, Images::Directions[static_cast<uint8_t>(rot)]);
 
             PD::setColor(15);
             PD::fillRect(22, 8, 70, 60);

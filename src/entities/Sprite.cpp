@@ -1,4 +1,5 @@
 #include "Sprite.h"
+#include "../sounds/Sounds.h"
 
 uint16_t Sprite::getX()                             { return this->x; }
 uint16_t Sprite::getY()                             { return this->y; }
@@ -172,7 +173,7 @@ void Sprite::decHealth(Object weapon) {
 
     if (this->health <= 0) {
         this->active = false; 
-        //sound.tone(NOTE_E5,50);
+        PS::playSFX(Sounds::sfx_Death3, Sounds::sfx_Death3_length);
     }
 
     this->renderHealthBar = HEALTH_BAR_DELAY;

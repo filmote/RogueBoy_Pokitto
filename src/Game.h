@@ -123,8 +123,8 @@ class Game {
         int launchSkeletonDelay = 0;
         Direction launchSkeletonDirection;
 
-        uint16_t eolXTile;
-        uint16_t eolYTile;
+        // uint16_t eolXTile;
+        // uint16_t eolYTile;
 
         uint8_t shake = 0;
         uint8_t shockwave = 0;

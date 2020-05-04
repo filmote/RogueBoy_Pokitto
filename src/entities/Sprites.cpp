@@ -276,11 +276,11 @@ void Sprites::renderSprite(Object type, int x, int y, int8_t xOffset, int8_t yOf
                 switch (frame) {
     
                     case 0 ... 16:
-                        PD::drawBitmap(x - 17, y + yOffset - 10, Images::GuideCaption[(frame / 2) % 4]);
+                        PD::drawBitmap(x - 18, y + yOffset - 11, Images::GuideCaption[(frame / 2) % 4]);
                         break;
     
                     case 48 ... 64:
-                        PD::drawBitmap(x - 17, y + yOffset - 10, Images::GuideCaption[(((frame - 48) / 2) % 4) + 4]);
+                        PD::drawBitmap(x - 18, y + yOffset - 11, Images::GuideCaption[(((frame - 48) / 2) % 4) + 4]);
                         break;
     
                 }

@@ -33,12 +33,13 @@ void Game::loadMap(const uint8_t * levelToLoad) {
         uint8_t tile = levelToLoad[cursor];
         this->map.setBlock(idx, static_cast<MapTiles>(tile));
 
+
         // Capture the exit location so we can show the 'cheat' arrow ..
     
-        if (tile == MapTiles::DownStairs) {
-            this->eolXTile = px;
-            this->eolYTile = py;
-        }
+        // if (tile == MapTiles::DownStairs || tile == MapTiles::LockedStairs) {
+        //     this->eolXTile = px;
+        //     this->eolYTile = py;
+        // }
     
         if (tile == MapTiles::ClosedChest_Altar) {
             map.setHasRune(true);
@@ -408,8 +409,8 @@ void Game::nextLevelLoad(GameMode gameMode) {
                             }
 
                             this->map.setBlock((xSegment * RANDOM_TILE_SIZE) + levelEndX, (ySegment * RANDOM_TILE_SIZE) + levelEndY, static_cast<MapTiles>(MapTiles::DownStairs));
-                            this->eolXTile = (xSegment * RANDOM_TILE_SIZE) + levelEndX;
-                            this->eolYTile = (ySegment * RANDOM_TILE_SIZE) + levelEndY;
+                            // this->eolXTile = (xSegment * RANDOM_TILE_SIZE) + levelEndX;
+                            // this->eolYTile = (ySegment * RANDOM_TILE_SIZE) + levelEndY;
                             levelEndX = 0;
                             levelEndY = 0;
 
