@@ -110,7 +110,14 @@ namespace Images {
     #include "hobgoblin/Hobgoblin_02_F1.h"
     #include "hobgoblin/Hobgoblin_06_F0.h"
     #include "hobgoblin/Hobgoblin_06_F1.h"
+
     #include "HealthBar.h"
+
+    #include "Pico8_41.h"
+    #include "Pico8_42.h"
+    #include "Pico8_43.h"
+    #include "Pico8_44.h"
+    #include "Pico8_45.h"
 
     const uint8_t * const Bats[] = { 
         Bat_00,

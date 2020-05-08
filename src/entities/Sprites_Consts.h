@@ -50,6 +50,11 @@ const uint8_t spriteWidths[] =  {
     10, /* Guide13 */
     10, /* Guide14 */
     10, /* Guide15 */
+    24, /* Boss01 */
+    24, /* Boss02 */
+    24, /* Boss03 */
+    24, /* Boss04 */
+    24, /* Boss05 */
 };
 
 const uint8_t spriteHeights[] = { 
@@ -93,6 +98,11 @@ const uint8_t spriteHeights[] = {
     12, /* Guide13 */
     12, /* Guide14 */
     12, /* Guide15 */
+    24, /* Boss01 */
+    24, /* Boss02 */
+    24, /* Boss03 */
+    24, /* Boss04 */
+    24, /* Boss05 */
 };
 
         
@@ -137,6 +147,11 @@ const int8_t spriteOffsets[] = {
     -5, -6,  /* Guide13 */
     -5, -6,  /* Guide14 */
     -5, -6,  /* Guide15 */
+    -12, -12,  /* Boss1 */
+    -12, -12,  /* Boss2 */
+    -12, -12,  /* Boss3 */
+    -12, -12,  /* Boss4 */
+    -12, -12,  /* Boss5 */
 };
 
 const uint8_t object_DamamgeOnPlayer[] = {
@@ -180,6 +195,11 @@ const uint8_t object_DamamgeOnPlayer[] = {
     0,                      /* Guide13 */ 
     0,                      /* Guide14 */ 
     0,                      /* Guide15 */ 
+    HEALTH_DEC_BOSS,        /* Boss01 */ 
+    HEALTH_DEC_BOSS,        /* Boss02 */ 
+    HEALTH_DEC_BOSS,        /* Boss03 */ 
+    HEALTH_DEC_BOSS,        /* Boss04 */ 
+    HEALTH_DEC_BOSS,        /* Boss05 */ 
 };
 
 const char object_Desc_00[] = "Coin";
@@ -222,6 +242,11 @@ const char object_Desc_36[] = "Guide 12";
 const char object_Desc_37[] = "Guide 13";
 const char object_Desc_38[] = "Guide 14";
 const char object_Desc_39[] = "Guide 15";
+const char object_Desc_40[] = "Boss 01";
+const char object_Desc_41[] = "Boss 02";
+const char object_Desc_42[] = "Boss 03";
+const char object_Desc_43[] = "Boss 04";
+const char object_Desc_44[] = "Boss 05";
 
 const char * const object_Descs[] = { 
     object_Desc_00,
@@ -264,6 +289,11 @@ const char * const object_Descs[] = {
     object_Desc_37,
     object_Desc_38,
     object_Desc_39,
+    object_Desc_40,
+    object_Desc_41,
+    object_Desc_42,
+    object_Desc_43,
+    object_Desc_44,
 };
 
                                 // 0  1  2  3  4  5  6  7  8  9  0  1  2  3  4  5  6  7  8  9  0  1  2  3  4   

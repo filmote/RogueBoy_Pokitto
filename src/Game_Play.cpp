@@ -147,6 +147,7 @@ void Game::updateObjects(bool ignorePlayerDamage) {
                     case Object::Snake:
                     case Object::Necromancer:
                     case Object::Hobgoblin:
+                    case Object::Boss01 ... Object::Boss05:
 
                         if (!ignorePlayerDamage) {
                                 
@@ -158,7 +159,6 @@ void Game::updateObjects(bool ignorePlayerDamage) {
 
                                 player.decHealth(object_DamamgeOnPlayer[static_cast<uint8_t>(type)]);
                                 PS::playSFX(Sounds::sfx_Death1, Sounds::sfx_Death1_length);
-        printf("hurt player\n");
 
                             }
 
@@ -1356,6 +1356,48 @@ void Game::spriteAI(MapInformation &map, Player &player, Sprite &sprite) {
 
             break;
 
+        case Object::Boss01 ... Object::Boss05:   
+            {
+                if (sprite.getFrame() < 0) {
+
+                    sprite.incFrame();
+
+                }
+                else {
+
+                    spriteAI_UpdateFrame(sprite, 4, 2);
+                    Direction direction = spriteAI_CheckForMove(map, player, sprite, location, 7);
+
+                    if (direction != Direction::None) {
+
+
+                        // Should the enemy shoot a bullet?
+
+                        if (this->enemyBulletDelay == 0 && random(0, 4) == 0 && direction != Direction::None) {
+
+                            const int32_t xOffsets[8] = { 0, 12, 12, 12, 0, -12, -12, -12 };
+                            const int32_t yOffsets[8] = { -12, -12, 0, 12, 12, 12, 0, -12 };
+
+                            uint8_t inactiveBulletIdx = this->bullets.getInactiveEnemyBullet();
+
+                            if (inactiveBulletIdx != NO_INACTIVE_BULLET_FOUND) {
+
+                                Bullet &bullet = this->bullets.getEnemyBullet(inactiveBulletIdx);
+                                bullet.setBullet(sprite.getX() + xOffsets[static_cast<uint8_t>(direction)], sprite.getY() + yOffsets[static_cast<uint8_t>(direction)], direction, Object::FireBall);
+                                this->enemyBulletDelay = random(ENEMY_BULLET_DELAY_MIN, ENEMY_BULLET_DELAY_MAX);
+
+                            }
+
+                        }
+                        
+                    }
+
+                }
+
+            }
+
+            break;
+
         case Object::SpikeLHS: 
         case Object::SpikeRHS: 
 
@@ -1430,6 +1472,12 @@ Direction Game::spriteAI_CheckForMove(MapInformation &map, Player &player, Sprit
 
                     switch (sprite.getType()) {
 
+                        case Object::Boss01 ... Object::Boss05:
+                            if (PC::frameCount % 8 == 0) {
+                                direction = this->spriteAI_UpdateEnemy(location, map, player, sprite);
+                            }
+                            break;
+
                         case Object::Necromancer:
                         case Object::BigSpider:
                             if (PC::frameCount % 8 == 0) {
@@ -1455,6 +1503,12 @@ Direction Game::spriteAI_CheckForMove(MapInformation &map, Player &player, Sprit
             default:
 
                 switch (sprite.getType()) {
+
+                    case Object::Boss01 ... Object::Boss05:
+                        if (PC::frameCount % 4 == 0) {
+                            direction = this->spriteAI_UpdateEnemy(location, map, player, sprite);
+                        }
+                        break;
 
                     case Object::Necromancer: 
                     case Object::BigSpider:
