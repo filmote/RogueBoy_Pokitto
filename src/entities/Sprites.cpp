@@ -201,6 +201,41 @@ void Sprites::renderSprite(Object type, int x, int y, int8_t xOffset, int8_t yOf
             }
             break;
 
+        case Object::Boss01:
+            if (showEnemies) {
+                PD::drawBitmap(x + xOffset, y + yOffset, Images::Pico8_41); 
+                if (renderHealth) { this->renderHealthBar(x + 6, y - 6, healthValue); }
+            }
+            break;
+
+        case Object::Boss02:
+            if (showEnemies) {
+                PD::drawBitmap(x + xOffset, y + yOffset, Images::Pico8_42); 
+                if (renderHealth) { this->renderHealthBar(x + 6, y - 6, healthValue); }
+            }
+            break;
+
+        case Object::Boss03:
+            if (showEnemies) {
+                PD::drawBitmap(x + xOffset, y + yOffset, Images::Pico8_43); 
+                if (renderHealth) { this->renderHealthBar(x + 6, y - 6, healthValue); }
+            }
+            break;
+
+        case Object::Boss04:
+            if (showEnemies) {
+                PD::drawBitmap(x + xOffset, y + yOffset, Images::Pico8_44); 
+                if (renderHealth) { this->renderHealthBar(x + 6, y - 6, healthValue); }
+            }
+            break;
+
+        case Object::Boss05:
+            if (showEnemies) {
+                PD::drawBitmap(x + xOffset, y + yOffset, Images::Pico8_45); 
+                if (renderHealth) { this->renderHealthBar(x + 6, y - 6, healthValue); }
+            }
+            break;
+
         case Object::SackOCash:
             PD::drawBitmap(x + xOffset, y + yOffset, Images::SackOCash);
             break;

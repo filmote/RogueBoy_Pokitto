@@ -39,6 +39,7 @@
 #define HEALTH_DEC_SPIKE_FIRE     2
 #define HEALTH_DEC_CHEST          5
 #define HEALTH_DEC_FLOATER        15
+#define HEALTH_DEC_BOSS           10
 
 // Enemy Starting Health ..
 
@@ -53,6 +54,7 @@
 #define HEALTH_NECROMANCER        60
 #define HEALTH_HOBGOBLIN          50
 #define HEALTH_CHEST              30
+#define HEALTH_BOSS               120
 
 // Enemy damage ..
 
