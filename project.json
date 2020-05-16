@@ -9676,6 +9676,132 @@
 		},
 		"\\src\\images\\enemies\\Pico8_44 - Copy - Copy.png": {
 			"sdcard": false
+		},
+		"\\src\\images\\enemies\\Backup": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemies\\Backup\\Pico8_41.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemies\\Backup\\Pico8_42.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemies\\Backup\\Pico8_43.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemies\\Backup\\Pico8_44.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemies\\Backup\\Pico8_45.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemies\\Backup\\Pico8_41.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemies\\Backup\\Pico8_42.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemies\\Backup\\Pico8_43.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemies\\Backup\\Pico8_44.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemies\\Backup\\Pico8_45.h": {
+			"sdcard": false
+		},
+		"\\RogueBoy_Pokitto.bin.4.png": {
+			"sdcard": false
+		},
+		"\\RogueBoy_Pokitto.bin.5.png": {
+			"sdcard": false
+		},
+		"\\RogueBoy_Pokitto.bin.6.png": {
+			"sdcard": false
+		},
+		"\\RogueBoy_Pokitto.bin.7.png": {
+			"sdcard": false
+		},
+		"\\RogueBoy_Pokitto.bin.8.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemies\\cyclop": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemies\\cyclop\\Cyclop_00_F0.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemies\\cyclop\\Cyclop_00_F1.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemies\\cyclop\\Cyclop_04_F1.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemies\\cyclop\\Cyclop_Hitting_00.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemies\\cyclop\\Cyclop_04_F0.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemies\\cyclop\\Cyclop_Hitting_01.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemies\\cyclop\\Cyclop_Hitting_02.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemies\\cyclop\\Cyclop_Idle_00.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemies\\cyclop\\Cyclop_Idle_01.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemies\\cyclop\\Cyclop_Idle_03.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemies\\cyclop\\Cyclop_Idle_02.png": {
+			"sdcard": false
+		},
+		"\\RogueBoy_Pokitto.bin.7.h": {
+			"sdcard": false
+		},
+		"\\RogueBoy_Pokitto.bin.5.h": {
+			"sdcard": false
+		},
+		"\\RogueBoy_Pokitto.bin.6.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemies\\cyclop\\Cyclop_Hitting_01.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemies\\cyclop\\Cyclop_Hitting_00.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemies\\cyclop\\Cyclop_Idle_00.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemies\\cyclop\\Cyclop_Hitting_02.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemies\\cyclop\\Cyclop_Idle_03.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemies\\cyclop\\Cyclop_Idle_01.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemies\\cyclop\\Cyclop_Idle_02.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemies\\cyclop\\Cyclop_00_F1.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemies\\cyclop\\Cyclop_00_F0.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemies\\cyclop\\Cyclop_04_F0.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemies\\cyclop\\Cyclop_04_F1.h": {
+			"sdcard": false
 		}
 	},
 	"BUILDFlags": {

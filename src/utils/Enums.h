@@ -82,7 +82,7 @@ enum Object {
     Guide15 = 39,
     Boss01 = 40,
     Boss02 = 41,
-    Boss03 = 42,
+    Cyclop = 42,
     Boss04 = 43,
     Boss05 = 44,
     SpiderWeb = 253,

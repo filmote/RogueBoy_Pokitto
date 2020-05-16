@@ -220,11 +220,15 @@ WalkType MapInformation::isWalkable(uint16_t x, uint16_t y, Direction direction,
             break;
 
         case Direction::Down:
-            // printf("Down (%i,%i) %i,%i > %i,%i > %i,%i .. ", x, y, this->getTileX(x), this->getTileY(y), this->getTileX(x - widthHalf), this->getTileY(y + heightHalf - 1), this->getTileX(x - widthHalf+ 16), this->getTileY(y + heightHalf - 1));        
-            // printf("y=%i %% 16 = %i .. ", y, ((x - widthHalf) % 16) + width);        
+if (width == 24) {        
+            printf("Down (%i,%i) %i,%i > %i,%i > %i,%i .. ", x, y, this->getTileX(x), this->getTileY(y), this->getTileX(x - widthHalf), this->getTileY(y + heightHalf - 1), this->getTileX(x - widthHalf+ 16), this->getTileY(y + heightHalf - 1));        
+            printf("y=%i %% 16 = %i .. ", y, ((x - widthHalf) % 16) + width);        
+}
             tile1 = this->getBlock(this->getTileX(x - widthHalf), this->getTileY(y + heightHalf - 1));
             if (((x - widthHalf) % 16) + width > 16) tile2 = this->getBlock(this->getTileX(x - widthHalf + 16), this->getTileY(y + heightHalf - 1));
-            // printf("%i %i ", tile1, tile2);
+if (width == 24) {        
+            printf("%i %i \n", tile1, tile2);
+}
             break;
 
         case Direction::Left:

@@ -111,11 +111,23 @@ namespace Images {
     #include "hobgoblin/Hobgoblin_06_F0.h"
     #include "hobgoblin/Hobgoblin_06_F1.h"
 
+    #include "cyclop/Cyclop_00_F0.h"
+    #include "cyclop/Cyclop_00_F1.h"
+    #include "cyclop/Cyclop_04_F0.h"
+    #include "cyclop/Cyclop_04_F1.h"
+    #include "cyclop/Cyclop_Hitting_00.h"
+    #include "cyclop/Cyclop_Hitting_01.h"
+    #include "cyclop/Cyclop_Hitting_02.h"
+    #include "cyclop/Cyclop_Idle_00.h"
+    #include "cyclop/Cyclop_Idle_01.h"
+    #include "cyclop/Cyclop_Idle_02.h"
+    #include "cyclop/Cyclop_Idle_03.h"
+
+
     #include "HealthBar.h"
 
     #include "Pico8_41.h"
     #include "Pico8_42.h"
-    #include "Pico8_43.h"
     #include "Pico8_44.h"
     #include "Pico8_45.h"
 
@@ -233,6 +245,33 @@ namespace Images {
         Hobgoblin_06_F1,
         Hobgoblin_06_F0,
         Hobgoblin_06_F1,
+    };
+
+
+    const uint8_t * const Cyclop[] = { 
+        Cyclop_00_F0,
+        Cyclop_00_F1,
+        Cyclop_00_F0,
+        Cyclop_00_F1,
+        Cyclop_04_F0,
+        Cyclop_04_F1,
+        Cyclop_04_F0,
+        Cyclop_04_F1,
+        Cyclop_04_F0,
+        Cyclop_04_F1,
+        Cyclop_04_F0,
+        Cyclop_04_F1,
+        Cyclop_04_F0,
+        Cyclop_04_F1,
+        Cyclop_00_F0,
+        Cyclop_00_F1,
+        Cyclop_Hitting_00,
+        Cyclop_Hitting_01,
+        Cyclop_Hitting_02,
+        Cyclop_Idle_00,
+        Cyclop_Idle_01,
+        Cyclop_Idle_02,
+        Cyclop_Idle_03,
     };
 
     const uint8_t * const Necromancer_Spell[] = { 

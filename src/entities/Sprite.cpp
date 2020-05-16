@@ -239,7 +239,9 @@ bool Sprite::isEnemy() {
         case Object::Chest:
         case Object::Necromancer:
         case Object::Hobgoblin:
-        case Object::Boss01 ... Object::Boss05:
+        case Object::Cyclop:
+        case Object::Boss01 ... Object::Boss02:
+        case Object::Boss04 ... Object::Boss05:
             return true;
 
         default:
