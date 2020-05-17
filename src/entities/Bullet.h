@@ -20,6 +20,7 @@ class Bullet {
         uint8_t getWidth();
         uint8_t getHeight();
         uint8_t getFrame();
+        uint8_t getCountdown();
         Object getWeapon();
         Direction getDirection();
 
@@ -29,7 +30,7 @@ class Bullet {
         void setWeapon(Object weapon);
         void setDirection(Direction direction);
 
-        void setBullet(uint16_t x, uint16_t y, Direction direction, Object weapon);
+        void setBullet(uint16_t x, uint16_t y, Direction direction, Object weapon, uint8_t lifeCountdown);
 
         void update();
         void kill();

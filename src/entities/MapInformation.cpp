@@ -203,7 +203,8 @@ WalkType MapInformation::isWalkable(uint16_t x, uint16_t y, Direction direction,
             // printf("Up (%i,%i) %i,%i > %i,%i > %i,%i .. ", x, y, this->getTileX(x), this->getTileY(y), this->getTileX(x - widthHalf), this->getTileY(y - heightHalf), this->getTileX(x - widthHalf+ 16), this->getTileY(y - heightHalf));        
             // printf("x=%i %% 16 = %i .. ", x, ((x - widthHalf) % 16) + width);        
             tile1 = this->getBlock(this->getTileX(x - widthHalf), this->getTileY(y - heightHalf));
-            if (((x - widthHalf) % 16) + width > 16) tile2 = this->getBlock(this->getTileX(x - widthHalf + 16), this->getTileY(y - heightHalf));
+//            if (((x - widthHalf) % 16) + width > 16) tile2 = this->getBlock(this->getTileX(x - widthHalf + 16), this->getTileY(y - heightHalf));
+            if (((x - widthHalf) % 16) + width > 16) tile2 = this->getBlock(this->getTileX(x + widthHalf), this->getTileY(y - heightHalf));
             // printf("%i %i ", tile1, tile2);
             break;
 
@@ -213,22 +214,24 @@ WalkType MapInformation::isWalkable(uint16_t x, uint16_t y, Direction direction,
 // printf("y=%i %% 16 = %i .. ", y, ((y - heightHalf) % 16) + height);        
 // }
             tile1 = this->getBlock(this->getTileX(x + widthHalf - 1), this->getTileY(y - heightHalf));
-            if (((y - heightHalf) % 16) + height > 16) tile2 = this->getBlock(this->getTileX(x + widthHalf - 1), this->getTileY(y - heightHalf + 16)); 
+//            if (((y - heightHalf) % 16) + height > 16) tile2 = this->getBlock(this->getTileX(x + widthHalf - 1), this->getTileY(y - heightHalf + 16)); 
+            if (((y - heightHalf) % 16) + height > 16) tile2 = this->getBlock(this->getTileX(x + widthHalf - 1), this->getTileY(y + heightHalf)); 
 // if (width == 4) {
 // printf("%i %i \n", tile1, tile2);
 // }
             break;
 
         case Direction::Down:
-if (width == 24) {        
-            printf("Down (%i,%i) %i,%i > %i,%i > %i,%i .. ", x, y, this->getTileX(x), this->getTileY(y), this->getTileX(x - widthHalf), this->getTileY(y + heightHalf - 1), this->getTileX(x - widthHalf+ 16), this->getTileY(y + heightHalf - 1));        
-            printf("y=%i %% 16 = %i .. ", y, ((x - widthHalf) % 16) + width);        
-}
+// if (width == 24) {        
+//             printf("Down (%i,%i) %i,%i > %i,%i > %i,%i .. ", x, y, this->getTileX(x), this->getTileY(y), this->getTileX(x - widthHalf), this->getTileY(y + heightHalf - 1), this->getTileX(x - widthHalf+ 16), this->getTileY(y + heightHalf - 1));        
+//             printf("y=%i %% 16 = %i .. ", y, ((x - widthHalf) % 16) + width);        
+// }
             tile1 = this->getBlock(this->getTileX(x - widthHalf), this->getTileY(y + heightHalf - 1));
-            if (((x - widthHalf) % 16) + width > 16) tile2 = this->getBlock(this->getTileX(x - widthHalf + 16), this->getTileY(y + heightHalf - 1));
-if (width == 24) {        
-            printf("%i %i \n", tile1, tile2);
-}
+//            if (((x - widthHalf) % 16) + width > 16) tile2 = this->getBlock(this->getTileX(x - widthHalf + 16), this->getTileY(y + heightHalf - 1));
+            if (((x - widthHalf) % 16) + width > 16) tile2 = this->getBlock(this->getTileX(x + widthHalf), this->getTileY(y + heightHalf - 1));
+// if (width == 24) {        
+//             printf("%i %i \n", tile1, tile2);
+// }
             break;
 
         case Direction::Left:
@@ -237,7 +240,8 @@ if (width == 24) {
 // printf("y=%i %% 16 = %i .. ", y, ((y - heightHalf) % 16) + height);        
 // }
             tile1 = this->getBlock(this->getTileX(x - widthHalf), this->getTileY(y - heightHalf));
-            if (((y - heightHalf) % 16) + height > 16) tile2 = this->getBlock(this->getTileX(x - widthHalf), this->getTileY(y - heightHalf + 16));
+//            if (((y - heightHalf) % 16) + height > 16) tile2 = this->getBlock(this->getTileX(x - widthHalf), this->getTileY(y - heightHalf + 16));
+            if (((y - heightHalf) % 16) + height > 16) tile2 = this->getBlock(this->getTileX(x - widthHalf), this->getTileY(y + heightHalf));
 // if (width == 4) {
 // printf("%i %i \n", tile1, tile2);
 // }

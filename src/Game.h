@@ -121,7 +121,10 @@ class Game {
         
         int launchSpiderDelay = 0;
         int launchSkeletonDelay = 0;
+        int launchCyclopsDelay = 0;
         Direction launchSkeletonDirection;
+        Direction launchCyclopsDirection;
+      
 
         // uint16_t eolXTile;
         // uint16_t eolYTile;

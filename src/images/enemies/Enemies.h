@@ -113,15 +113,24 @@ namespace Images {
 
     #include "cyclop/Cyclop_00_F0.h"
     #include "cyclop/Cyclop_00_F1.h"
+    #include "cyclop/Cyclop_02_F0.h"
+    #include "cyclop/Cyclop_02_F1.h"
     #include "cyclop/Cyclop_04_F0.h"
     #include "cyclop/Cyclop_04_F1.h"
-    #include "cyclop/Cyclop_Hitting_00.h"
-    #include "cyclop/Cyclop_Hitting_01.h"
-    #include "cyclop/Cyclop_Hitting_02.h"
-    #include "cyclop/Cyclop_Idle_00.h"
-    #include "cyclop/Cyclop_Idle_01.h"
-    #include "cyclop/Cyclop_Idle_02.h"
-    #include "cyclop/Cyclop_Idle_03.h"
+    #include "cyclop/Cyclop_06_F0.h"
+    #include "cyclop/Cyclop_06_F1.h"
+    #include "cyclop/Cyclop_Hitting_00_F0.h"
+    #include "cyclop/Cyclop_Hitting_00_F1.h"
+    #include "cyclop/Cyclop_Hitting_00_F2.h"
+    #include "cyclop/Cyclop_Hitting_02_F0.h"
+    #include "cyclop/Cyclop_Hitting_02_F1.h"
+    #include "cyclop/Cyclop_Hitting_02_F2.h"
+    #include "cyclop/Cyclop_Hitting_04_F0.h"
+    #include "cyclop/Cyclop_Hitting_04_F1.h"
+    #include "cyclop/Cyclop_Hitting_04_F2.h"
+    #include "cyclop/Cyclop_Hitting_06_F0.h"
+    #include "cyclop/Cyclop_Hitting_06_F1.h"
+    #include "cyclop/Cyclop_Hitting_06_F2.h"
 
 
     #include "HealthBar.h"
@@ -251,27 +260,44 @@ namespace Images {
     const uint8_t * const Cyclop[] = { 
         Cyclop_00_F0,
         Cyclop_00_F1,
-        Cyclop_00_F0,
-        Cyclop_00_F1,
+        Cyclop_02_F0,
+        Cyclop_02_F1,
+        Cyclop_02_F0,
+        Cyclop_02_F1,
+        Cyclop_02_F0,
+        Cyclop_02_F1,
         Cyclop_04_F0,
         Cyclop_04_F1,
-        Cyclop_04_F0,
-        Cyclop_04_F1,
-        Cyclop_04_F0,
-        Cyclop_04_F1,
-        Cyclop_04_F0,
-        Cyclop_04_F1,
-        Cyclop_04_F0,
-        Cyclop_04_F1,
-        Cyclop_00_F0,
-        Cyclop_00_F1,
-        Cyclop_Hitting_00,
-        Cyclop_Hitting_01,
-        Cyclop_Hitting_02,
-        Cyclop_Idle_00,
-        Cyclop_Idle_01,
-        Cyclop_Idle_02,
-        Cyclop_Idle_03,
+        Cyclop_06_F0,
+        Cyclop_06_F1,
+        Cyclop_06_F0,
+        Cyclop_06_F1,
+        Cyclop_06_F0,
+        Cyclop_06_F1,
+        Cyclop_Hitting_00_F0,
+        Cyclop_Hitting_00_F1,
+        Cyclop_Hitting_00_F2,
+        Cyclop_Hitting_02_F0,
+        Cyclop_Hitting_02_F1,
+        Cyclop_Hitting_02_F2,
+        Cyclop_Hitting_02_F0,
+        Cyclop_Hitting_02_F1,
+        Cyclop_Hitting_02_F2,
+        Cyclop_Hitting_02_F0,
+        Cyclop_Hitting_02_F1,
+        Cyclop_Hitting_02_F2,
+        Cyclop_Hitting_04_F0,
+        Cyclop_Hitting_04_F1,
+        Cyclop_Hitting_04_F2,
+        Cyclop_Hitting_06_F0,
+        Cyclop_Hitting_06_F1,
+        Cyclop_Hitting_06_F2,
+        Cyclop_Hitting_06_F0,
+        Cyclop_Hitting_06_F1,
+        Cyclop_Hitting_06_F2,
+        Cyclop_Hitting_06_F0,
+        Cyclop_Hitting_06_F1,
+        Cyclop_Hitting_06_F2,
     };
 
     const uint8_t * const Necromancer_Spell[] = { 

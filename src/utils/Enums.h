@@ -85,6 +85,7 @@ enum Object {
     Cyclop = 42,
     Boss04 = 43,
     Boss05 = 44,
+    Sparks = 252,
     SpiderWeb = 253,
     FireBall = 254,
     None = 255,

@@ -58,7 +58,7 @@ uint8_t Bullets::getInactiveEnemyBullet() {
 
 void Bullets::render(Player &player) {
 
-    for (uint8_t j = 0; j < PLAYER_BULLET_MAX + ENEMY_BULLET_MAX; j++) {
+    for (uint8_t j = 0; j < PLAYER_BULLET_MAX + ENEMY_BULLET_MAX + 8; j++) {
 
         auto bullet = this->bullets[j];
 
@@ -84,6 +84,26 @@ void Bullets::render(Player &player) {
 
                 case Object::RedSpell:
                     PD::drawBitmap((CENTERX - 2) - x, (CENTERY - 2) - y, Images::Bullets[frame + 12]);
+                    break;
+
+                case Object::Sparks:
+
+                    switch (bullet.getCountdown()) {
+
+                        case 0 ... 2:
+                            PD::drawBitmap((CENTERX - 1) - x, (CENTERY - 1) - y, Images::Bullets[frame + 16 + (4 * 2)]);
+                            break;
+
+                        case 3 ... 4:
+                            PD::drawBitmap((CENTERX - 1) - x, (CENTERY - 1) - y, Images::Bullets[frame + 16 + (4 * 1)]);
+                            break;
+
+                        case 5 ... 255:
+                            PD::drawBitmap((CENTERX - 1) - x, (CENTERY - 1) - y, Images::Bullets[frame + 16]);
+                            break;
+
+                    }
+
                     break;
 
                 case Object::SpiderWeb:

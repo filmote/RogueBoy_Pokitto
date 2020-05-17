@@ -9802,6 +9802,384 @@
 		},
 		"\\src\\images\\enemies\\cyclop\\Cyclop_04_F1.h": {
 			"sdcard": false
+		},
+		"/RogueBoy_Pokitto.bin.6.h": {
+			"sdcard": false
+		},
+		"/RogueBoy_Pokitto.bin.6.png": {
+			"sdcard": false
+		},
+		"/RogueBoy_Pokitto.bin.7.png": {
+			"sdcard": false
+		},
+		"/RogueBoy_Pokitto.bin.7.h": {
+			"sdcard": false
+		},
+		"/src/images/enemies/Backup": {
+			"sdcard": false
+		},
+		"/src/images/enemies/Pico8_41 - Copy.h": {
+			"sdcard": false
+		},
+		"/src/images/enemies/Pico8_41.h": {
+			"sdcard": false
+		},
+		"/src/images/enemies/Pico8_42 - Copy.h": {
+			"sdcard": false
+		},
+		"/src/images/enemies/Pico8_42.h": {
+			"sdcard": false
+		},
+		"/src/images/enemies/Pico8_41.png": {
+			"sdcard": false
+		},
+		"/src/images/enemies/Pico8_42.png": {
+			"sdcard": false
+		},
+		"/src/images/enemies/Pico8_43 - Copy.h": {
+			"sdcard": false
+		},
+		"/src/images/enemies/Pico8_44 - Copy.h": {
+			"sdcard": false
+		},
+		"/src/images/enemies/Pico8_44.h": {
+			"sdcard": false
+		},
+		"/src/images/enemies/Pico8_45 - Copy.h": {
+			"sdcard": false
+		},
+		"/src/images/enemies/Pico8_44.png": {
+			"sdcard": false
+		},
+		"/src/images/enemies/Pico8_45.h": {
+			"sdcard": false
+		},
+		"/src/images/enemies/Pico8_45.png": {
+			"sdcard": false
+		},
+		"/src/images/enemies/cyclop": {
+			"sdcard": false
+		},
+		"/src/images/enemies/Backup/Pico8_41.h": {
+			"sdcard": false
+		},
+		"/src/images/enemies/Backup/Pico8_41.png": {
+			"sdcard": false
+		},
+		"/src/images/enemies/Backup/Pico8_42.png": {
+			"sdcard": false
+		},
+		"/src/images/enemies/Backup/Pico8_43.h": {
+			"sdcard": false
+		},
+		"/src/images/enemies/Backup/Pico8_43.png": {
+			"sdcard": false
+		},
+		"/src/images/enemies/Backup/Pico8_44.h": {
+			"sdcard": false
+		},
+		"/src/images/enemies/Backup/Pico8_42.h": {
+			"sdcard": false
+		},
+		"/src/images/enemies/Backup/Pico8_45.h": {
+			"sdcard": false
+		},
+		"/src/images/enemies/Backup/Pico8_44.png": {
+			"sdcard": false
+		},
+		"/src/images/enemies/Backup/Pico8_45.png": {
+			"sdcard": false
+		},
+		"/src/images/enemies/cyclop/Cyclop_00_F0.h": {
+			"sdcard": false
+		},
+		"/src/images/enemies/cyclop/Cyclop_00_F0.png": {
+			"sdcard": false
+		},
+		"/src/images/enemies/cyclop/Cyclop_00_F1.png": {
+			"sdcard": false
+		},
+		"/src/images/enemies/cyclop/Cyclop_04_F0.h": {
+			"sdcard": false
+		},
+		"/src/images/enemies/cyclop/Cyclop_04_F0.png": {
+			"sdcard": false
+		},
+		"/src/images/enemies/cyclop/Cyclop_00_F1.h": {
+			"sdcard": false
+		},
+		"/src/images/enemies/cyclop/Cyclop_04_F1.h": {
+			"sdcard": false
+		},
+		"/src/images/enemies/cyclop/Cyclop_04_F1.png": {
+			"sdcard": false
+		},
+		"/src/images/enemies/cyclop/Cyclop_Hitting_00.png": {
+			"sdcard": false
+		},
+		"/src/images/enemies/cyclop/Cyclop_Hitting_01.h": {
+			"sdcard": false
+		},
+		"/src/images/enemies/cyclop/Cyclop_Hitting_02.h": {
+			"sdcard": false
+		},
+		"/src/images/enemies/cyclop/Cyclop_Hitting_01.png": {
+			"sdcard": false
+		},
+		"/src/images/enemies/cyclop/Cyclop_Hitting_02.png": {
+			"sdcard": false
+		},
+		"/src/images/enemies/cyclop/Cyclop_Hitting_00.h": {
+			"sdcard": false
+		},
+		"/src/images/enemies/cyclop/Cyclop_Idle_00.h": {
+			"sdcard": false
+		},
+		"/src/images/enemies/cyclop/Cyclop_Idle_00.png": {
+			"sdcard": false
+		},
+		"/src/images/enemies/cyclop/Cyclop_Idle_01.h": {
+			"sdcard": false
+		},
+		"/src/images/enemies/cyclop/Cyclop_Idle_01.png": {
+			"sdcard": false
+		},
+		"/src/images/enemies/cyclop/Cyclop_Idle_02.png": {
+			"sdcard": false
+		},
+		"/src/images/enemies/cyclop/Cyclop_Idle_02.h": {
+			"sdcard": false
+		},
+		"/src/images/enemies/cyclop/Cyclop_Idle_03.png": {
+			"sdcard": false
+		},
+		"/src/images/enemies/cyclop/Cyclop_Idle_03.h": {
+			"sdcard": false
+		},
+		"/src/images/bullets/BulletIce_03 copy.png": {
+			"sdcard": false
+		},
+		"/src/images/bullets/Spark.png": {
+			"sdcard": false
+		},
+		"/src/images/bullets/Spark_01 copy.png": {
+			"sdcard": false
+		},
+		"/src/images/bullets/Spark_01 copy 2.png": {
+			"sdcard": false
+		},
+		"/src/images/bullets/Spark_02.png": {
+			"sdcard": false
+		},
+		"/src/images/bullets/Spark_03.png": {
+			"sdcard": false
+		},
+		"/src/images/bullets/Spark_00.h": {
+			"sdcard": false
+		},
+		"/src/images/bullets/Spark_01.h": {
+			"sdcard": false
+		},
+		"/src/images/bullets/Spark_02.h": {
+			"sdcard": false
+		},
+		"/src/images/bullets/Spark_03.h": {
+			"sdcard": false
+		},
+		"/src/images/enemies/cyclop/Cyclop_00_F0 copy.png": {
+			"sdcard": false
+		},
+		"/src/images/enemies/cyclop/Cyclop_Hitting_00_F0 copy.png": {
+			"sdcard": false
+		},
+		"/src/images/enemies/cyclop/Cyclop_Hitting_00_F0.png": {
+			"sdcard": false
+		},
+		"/src/images/enemies/cyclop/Cyclop_Hitting_04_F0.png": {
+			"sdcard": false
+		},
+		"/src/images/enemies/cyclop/Cyclop_Hitting_04_F1.png": {
+			"sdcard": false
+		},
+		"/src/images/enemies/cyclop/Cyclop_Hitting_04_F3.png": {
+			"sdcard": false
+		},
+		"/src/images/enemies/cyclop/Cyclop_Hitting_00_F1.png": {
+			"sdcard": false
+		},
+		"/src/images/enemies/cyclop/Cyclop_Hitting_00_F2.png": {
+			"sdcard": false
+		},
+		"/src/images/enemies/cyclop/Cyclop_02_F0.png": {
+			"sdcard": false
+		},
+		"/src/images/enemies/cyclop/Cyclop_02_F1.png": {
+			"sdcard": false
+		},
+		"/src/images/enemies/cyclop/Cyclop_Hitting_02_F1.png": {
+			"sdcard": false
+		},
+		"/src/images/enemies/cyclop/Cyclop_02_F1 copy.png": {
+			"sdcard": false
+		},
+		"/src/images/enemies/cyclop/Cyclop_02_F0 copy.png": {
+			"sdcard": false
+		},
+		"/src/images/enemies/cyclop/Cyclop_Hitting_02_F2.png": {
+			"sdcard": false
+		},
+		"/src/images/enemies/cyclop/Cyclop_Hitting_02_F0.png": {
+			"sdcard": false
+		},
+		"/src/images/enemies/cyclop/Cyclop_06_F0.png": {
+			"sdcard": false
+		},
+		"/src/images/enemies/cyclop/Cyclop_06_F1.png": {
+			"sdcard": false
+		},
+		"/src/images/enemies/cyclop/Cyclop_Hitting_02_F0 copy.png": {
+			"sdcard": false
+		},
+		"/src/images/enemies/cyclop/Cyclop_Hitting_02_F1 copy.png": {
+			"sdcard": false
+		},
+		"/src/images/enemies/cyclop/Cyclop_Hitting_02_F2 copy.png": {
+			"sdcard": false
+		},
+		"/src/images/enemies/cyclop/Cyclop_Hitting_06_F0.png": {
+			"sdcard": false
+		},
+		"/src/images/enemies/cyclop/Cyclop_Hitting_06_F1.png": {
+			"sdcard": false
+		},
+		"/src/images/enemies/cyclop/Cyclop_Hitting_06_F2.png": {
+			"sdcard": false
+		},
+		"/src/images/enemies/cyclop/Cyclop_Hitting_00_F0.h": {
+			"sdcard": false
+		},
+		"/src/images/enemies/cyclop/Cyclop_Hitting_04_F0.h": {
+			"sdcard": false
+		},
+		"/src/images/enemies/cyclop/Cyclop_Hitting_04_F1.h": {
+			"sdcard": false
+		},
+		"/src/images/enemies/cyclop/Cyclop_Hitting_04_F3.h": {
+			"sdcard": false
+		},
+		"/src/images/enemies/cyclop/Cyclop_Hitting_00_F2.h": {
+			"sdcard": false
+		},
+		"/src/images/enemies/cyclop/Cyclop_Hitting_00_F1.h": {
+			"sdcard": false
+		},
+		"/src/images/enemies/cyclop/Cyclop_Hitting_02_F2.h": {
+			"sdcard": false
+		},
+		"/src/images/enemies/cyclop/Cyclop_Hitting_02_F0.h": {
+			"sdcard": false
+		},
+		"/src/images/enemies/cyclop/Cyclop_06_F0.h": {
+			"sdcard": false
+		},
+		"/src/images/enemies/cyclop/Cyclop_02_F0.h": {
+			"sdcard": false
+		},
+		"/src/images/enemies/cyclop/Cyclop_06_F1.h": {
+			"sdcard": false
+		},
+		"/src/images/enemies/cyclop/Cyclop_Hitting_06_F0.h": {
+			"sdcard": false
+		},
+		"/src/images/enemies/cyclop/Cyclop_Hitting_06_F1.h": {
+			"sdcard": false
+		},
+		"/src/images/enemies/cyclop/Cyclop_Hitting_04_F2.png": {
+			"sdcard": false
+		},
+		"/src/images/enemies/cyclop/Cyclop_Hitting_04_F2.h": {
+			"sdcard": false
+		},
+		"/src/images/enemies/cyclop/Cyclop_02_F1.h": {
+			"sdcard": false
+		},
+		"/src/images/enemies/cyclop/Cyclop_Hitting_02_F1.h": {
+			"sdcard": false
+		},
+		"/src/images/enemies/cyclop/Cyclop_Hitting_06_F2.h": {
+			"sdcard": false
+		},
+		"/src/images/bullets/Spark_00 copy.png": {
+			"sdcard": false
+		},
+		"/src/images/bullets/Spark_02 copy.png": {
+			"sdcard": false
+		},
+		"/src/images/bullets/Spark_03 copy.png": {
+			"sdcard": false
+		},
+		"/src/images/bullets/Spark_04.png": {
+			"sdcard": false
+		},
+		"/src/images/bullets/Spark_05.png": {
+			"sdcard": false
+		},
+		"/src/images/bullets/Spark_06.png": {
+			"sdcard": false
+		},
+		"/src/images/bullets/Spark_07.png": {
+			"sdcard": false
+		},
+		"/src/images/bullets/Spark_07 copy.png": {
+			"sdcard": false
+		},
+		"/src/images/bullets/Spark_04 copy.png": {
+			"sdcard": false
+		},
+		"/src/images/bullets/Spark_05 copy.png": {
+			"sdcard": false
+		},
+		"/src/images/bullets/Spark_06 copy.png": {
+			"sdcard": false
+		},
+		"/src/images/bullets/Spark_08.png": {
+			"sdcard": false
+		},
+		"/src/images/bullets/Spark_09.png": {
+			"sdcard": false
+		},
+		"/src/images/bullets/Spark_010.png": {
+			"sdcard": false
+		},
+		"/src/images/bullets/Spark_10.png": {
+			"sdcard": false
+		},
+		"/src/images/bullets/Spark_11.png": {
+			"sdcard": false
+		},
+		"/src/images/bullets/Spark_05.h": {
+			"sdcard": false
+		},
+		"/src/images/bullets/Spark_07.h": {
+			"sdcard": false
+		},
+		"/src/images/bullets/Spark_08.h": {
+			"sdcard": false
+		},
+		"/src/images/bullets/Spark_09.h": {
+			"sdcard": false
+		},
+		"/src/images/bullets/Spark_10.h": {
+			"sdcard": false
+		},
+		"/src/images/bullets/Spark_11.h": {
+			"sdcard": false
+		},
+		"/src/images/bullets/Spark_04.h": {
+			"sdcard": false
+		},
+		"/src/images/bullets/Spark_06.h": {
+			"sdcard": false
 		}
 	},
 	"BUILDFlags": {

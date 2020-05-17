@@ -143,6 +143,8 @@
 #define LAUNCH_SKELETON_DELAY_MAX 100
 #define LAUNCH_SPIDER_DELAY_MIN   60
 #define LAUNCH_SPIDER_DELAY_MAX   100
+#define LAUNCH_CYCLOPS_DELAY_MIN  100
+#define LAUNCH_CYCLOPS_DELAY_MAX  150
 
 
 // Web bullet travel details ..
@@ -153,6 +155,8 @@
 #define BULLET_WEB_FRAMES_DIV3    9
 #define BULLET_WEB_FRAMES_DIV4    6
 #define BULLET_WEB_FRAMES_DIV5    3
+
+#define CYCLOP_SPARK_FRAMES       15       // Number of frames to travel
 
 
 /* -------------------------------------------------------------------------------

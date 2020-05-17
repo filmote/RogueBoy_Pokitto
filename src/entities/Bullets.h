@@ -27,6 +27,6 @@ class Bullets {
 
     private:
 
-        Bullet bullets[PLAYER_BULLET_MAX + ENEMY_BULLET_MAX];
+        Bullet bullets[PLAYER_BULLET_MAX + ENEMY_BULLET_MAX + 8];
 
 };

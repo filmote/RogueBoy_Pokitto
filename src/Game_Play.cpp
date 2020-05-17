@@ -17,6 +17,7 @@ void Game::updateObjects(bool ignorePlayerDamage) {
     if (this->enemyBulletDelay > 0)         this->enemyBulletDelay--;
     if (this->launchSkeletonDelay > 0)      this->launchSkeletonDelay--;
     if (this->launchSpiderDelay > 0)        this->launchSpiderDelay--;
+    if (this->launchCyclopsDelay > 0)       this->launchCyclopsDelay--;
 
 
     // Update other objects ..
@@ -187,7 +188,7 @@ void Game::updateObjects(bool ignorePlayerDamage) {
 
     // Have the bullets hit anything ?
 
-    for (uint8_t bulletIdx = 0; bulletIdx < PLAYER_BULLET_MAX + ENEMY_BULLET_MAX; bulletIdx++) {
+    for (uint8_t bulletIdx = 0; bulletIdx < PLAYER_BULLET_MAX + ENEMY_BULLET_MAX + 8; bulletIdx++) {
 
         auto &bullet = bullets.getBullet(bulletIdx);
         
@@ -326,7 +327,7 @@ void Game::updateObjects(bool ignorePlayerDamage) {
 
                     // Did the bullet hit the player?  Test only if it is an enemy bullet ..
 
-                    case PLAYER_BULLET_MAX ... PLAYER_BULLET_MAX + ENEMY_BULLET_MAX:
+                    case PLAYER_BULLET_MAX ... PLAYER_BULLET_MAX + ENEMY_BULLET_MAX + 8:
 
                         if (this->collision(this->player, bullet)) {
 
@@ -607,7 +608,7 @@ void Game::playerMovement(GameMode gameMode) {
                     if (inactiveBulletIdx != NO_INACTIVE_BULLET_FOUND) {
 
                         Bullet &bullet = this->bullets.getPlayerBullet(inactiveBulletIdx);
-                        bullet.setBullet(x + xOffsets[static_cast<uint8_t>(direction)], y + yOffsets[static_cast<uint8_t>(direction)], direction, this->player.getWeapon());
+                        bullet.setBullet(x + xOffsets[static_cast<uint8_t>(direction)], y + yOffsets[static_cast<uint8_t>(direction)], direction, this->player.getWeapon(), 0);
 
                     }
                 }
@@ -620,7 +621,7 @@ void Game::playerMovement(GameMode gameMode) {
                     if (inactiveBulletIdx != NO_INACTIVE_BULLET_FOUND) {
 
                         Bullet &bullet = this->bullets.getPlayerBullet(inactiveBulletIdx);
-                        bullet.setBullet(x + xOffsets[static_cast<uint8_t>(direction)], y + yOffsets[static_cast<uint8_t>(direction)], direction, this->player.getWeapon());
+                        bullet.setBullet(x + xOffsets[static_cast<uint8_t>(direction)], y + yOffsets[static_cast<uint8_t>(direction)], direction, this->player.getWeapon(), 0);
 
                         uint8_t slot = this->player.getInventorySlot(this->player.getWeapon());
                         InventoryItem &inventoryItem = this->player.getInventoryItem(slot);
@@ -638,7 +639,7 @@ void Game::playerMovement(GameMode gameMode) {
                     if (inactiveBulletIdx != NO_INACTIVE_BULLET_FOUND) {
 
                         Bullet &bullet = this->bullets.getPlayerBullet(inactiveBulletIdx);
-                        bullet.setBullet(x + xOffsets[static_cast<uint8_t>(direction)], y + yOffsets[static_cast<uint8_t>(direction)], direction, this->player.getWeapon());
+                        bullet.setBullet(x + xOffsets[static_cast<uint8_t>(direction)], y + yOffsets[static_cast<uint8_t>(direction)], direction, this->player.getWeapon(), 0);
 
                         uint8_t slot = this->player.getInventorySlot(this->player.getWeapon());
                         InventoryItem &inventoryItem = this->player.getInventoryItem(slot);
@@ -1301,7 +1302,7 @@ void Game::spriteAI(MapInformation &map, Player &player, Sprite &sprite) {
                             if (inactiveBulletIdx != NO_INACTIVE_BULLET_FOUND) {
 
                                 Bullet &bullet = this->bullets.getEnemyBullet(inactiveBulletIdx);
-                                bullet.setBullet(sprite.getX() + xOffsets[static_cast<uint8_t>(direction)], sprite.getY() + yOffsets[static_cast<uint8_t>(direction)], direction, Object::SpiderWeb);
+                                bullet.setBullet(sprite.getX() + xOffsets[static_cast<uint8_t>(direction)], sprite.getY() + yOffsets[static_cast<uint8_t>(direction)], direction, Object::SpiderWeb, BULLET_WEB_FRAMES);
                                 this->enemyBulletDelay = random(ENEMY_BULLET_DELAY_MIN, ENEMY_BULLET_DELAY_MAX);
 
                             }
@@ -1343,7 +1344,7 @@ void Game::spriteAI(MapInformation &map, Player &player, Sprite &sprite) {
                             if (inactiveBulletIdx != NO_INACTIVE_BULLET_FOUND) {
 
                                 Bullet &bullet = this->bullets.getEnemyBullet(inactiveBulletIdx);
-                                bullet.setBullet(sprite.getX() + xOffsets[static_cast<uint8_t>(direction)], sprite.getY() + yOffsets[static_cast<uint8_t>(direction)], direction, Object::FireBall);
+                                bullet.setBullet(sprite.getX() + xOffsets[static_cast<uint8_t>(direction)], sprite.getY() + yOffsets[static_cast<uint8_t>(direction)], direction, Object::FireBall, 0);
                                 this->enemyBulletDelay = random(ENEMY_BULLET_DELAY_MIN, ENEMY_BULLET_DELAY_MAX);
 
                             }
@@ -1360,44 +1361,51 @@ void Game::spriteAI(MapInformation &map, Player &player, Sprite &sprite) {
 
         case Object::Cyclop:   
             {
-                if (sprite.getFrame() < 0) {
+                switch (sprite.getFrame()) {
 
-                    sprite.incFrame();
+                    case -100 ... -15:
+                    case -13 ... -1:
+                        sprite.incFrame();
+                        break;
 
-                }
-                else {
+                    case -14:    // launch sparks
+                        {
+                            sprite.incFrame();
 
-                    spriteAI_UpdateFrame(sprite, 4, 2);
-                    Direction direction = spriteAI_CheckForMove(map, player, sprite, location, 7);
+                            const int32_t xOffsets[8] = { 10, 10, 10, 10, -10, -10, -10, -10 };
 
-                    if (direction != Direction::None) {
+                            for (uint8_t x = 0; x < 8; x++) {
+
+                                Bullet &bullet = this->bullets.getEnemyBullet(ENEMY_BULLET_MAX + x);
+                                bullet.setBullet(sprite.getX() + xOffsets[static_cast<uint8_t>(this->launchCyclopsDirection)], sprite.getY() + 10, static_cast<Direction>(x), Object::Sparks, CYCLOP_SPARK_FRAMES);
+
+                            }
+                            
+                        }
+                        break;
+
+                    case 0 ... 100:
+                        {
+                            spriteAI_UpdateFrame(sprite, 4, 2);
+                            Direction direction = spriteAI_CheckForMove(map, player, sprite, location, 7);
+
+                            if (direction != Direction::None && this->launchCyclopsDelay == 0) {
 
 
-                        // Should the enemy shoot a bullet?
-
-                        if (this->enemyBulletDelay == 0 && random(0, 4) == 0 && direction != Direction::None) {
-
-                            const int32_t xOffsets[8] = { 0, 12, 12, 12, 0, -12, -12, -12 };
-                            const int32_t yOffsets[8] = { -12, -12, 0, 12, 12, 12, 0, -12 };
-
-                            uint8_t inactiveBulletIdx = this->bullets.getInactiveEnemyBullet();
-
-                            if (inactiveBulletIdx != NO_INACTIVE_BULLET_FOUND) {
-
-                                Bullet &bullet = this->bullets.getEnemyBullet(inactiveBulletIdx);
-                                bullet.setBullet(sprite.getX() + xOffsets[static_cast<uint8_t>(direction)], sprite.getY() + yOffsets[static_cast<uint8_t>(direction)], direction, Object::FireBall);
-                                this->enemyBulletDelay = random(ENEMY_BULLET_DELAY_MIN, ENEMY_BULLET_DELAY_MAX);
+                                // Should the enemy summons a skeleton ?
+// printf("adasdas\n");
+                                sprite.setFrame(-28);
+                                this->launchCyclopsDelay = random(LAUNCH_CYCLOPS_DELAY_MIN, LAUNCH_CYCLOPS_DELAY_MAX);
+                                this->launchCyclopsDirection = direction;
 
                             }
 
                         }
-                        
-                    }
+                        break;
 
                 }
 
             }
-
             break;
 
         case Object::Boss01 ... Object::Boss02:   
@@ -1428,7 +1436,7 @@ void Game::spriteAI(MapInformation &map, Player &player, Sprite &sprite) {
                             if (inactiveBulletIdx != NO_INACTIVE_BULLET_FOUND) {
 
                                 Bullet &bullet = this->bullets.getEnemyBullet(inactiveBulletIdx);
-                                bullet.setBullet(sprite.getX() + xOffsets[static_cast<uint8_t>(direction)], sprite.getY() + yOffsets[static_cast<uint8_t>(direction)], direction, Object::FireBall);
+                                bullet.setBullet(sprite.getX() + xOffsets[static_cast<uint8_t>(direction)], sprite.getY() + yOffsets[static_cast<uint8_t>(direction)], direction, Object::FireBall, 0);
                                 this->enemyBulletDelay = random(ENEMY_BULLET_DELAY_MIN, ENEMY_BULLET_DELAY_MAX);
 
                             }
