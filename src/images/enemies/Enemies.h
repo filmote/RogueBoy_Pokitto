@@ -132,10 +132,41 @@ namespace Images {
     #include "cyclop/Cyclop_Hitting_06_F1.h"
     #include "cyclop/Cyclop_Hitting_06_F2.h"
 
+    #include "bull/Bull_00_F0.h"
+    #include "bull/Bull_00_F1.h"
+    #include "bull/Bull_02_F0.h"
+    #include "bull/Bull_02_F1.h"
+    #include "bull/Bull_04_F0.h"
+    #include "bull/Bull_04_F1.h"
+    #include "bull/Bull_06_F0.h"
+    #include "bull/Bull_06_F1.h"
+    #include "bull/Bull_Stamping_00_F0.h"
+    #include "bull/Bull_Stamping_00_F1.h"
+    #include "bull/Bull_Stamping_02_F0.h"
+    #include "bull/Bull_Stamping_02_F1.h"
+    #include "bull/Bull_Stamping_04_F0.h"
+    #include "bull/Bull_Stamping_04_F1.h"
+    #include "bull/Bull_Stamping_06_F0.h"
+    #include "bull/Bull_Stamping_06_F1.h"
+    #include "bull/Bull_Dust_00_F0.h"
+    #include "bull/Bull_Dust_00_F1.h"
+    #include "bull/Bull_Dust_01_F0.h"
+    #include "bull/Bull_Dust_01_F1.h"
+    #include "bull/Bull_Dust_02_F0.h"
+    #include "bull/Bull_Dust_02_F1.h"
+    #include "bull/Bull_Dust_03_F0.h"
+    #include "bull/Bull_Dust_03_F1.h"
+    #include "bull/Bull_Dust_04_F0.h"
+    #include "bull/Bull_Dust_04_F1.h"
+    #include "bull/Bull_Dust_05_F0.h"
+    #include "bull/Bull_Dust_05_F1.h"
+    #include "bull/Bull_Dust_06_F0.h"
+    #include "bull/Bull_Dust_06_F1.h"
+    #include "bull/Bull_Dust_07_F0.h"
+    #include "bull/Bull_Dust_07_F1.h"
 
     #include "HealthBar.h"
 
-    #include "Pico8_41.h"
     #include "Pico8_42.h"
     #include "Pico8_44.h"
     #include "Pico8_45.h"
@@ -256,20 +287,19 @@ namespace Images {
         Hobgoblin_06_F1,
     };
 
-
     const uint8_t * const Cyclop[] = { 
+        Cyclop_00_F0,
+        Cyclop_00_F1,
         Cyclop_00_F0,
         Cyclop_00_F1,
         Cyclop_02_F0,
         Cyclop_02_F1,
         Cyclop_02_F0,
         Cyclop_02_F1,
-        Cyclop_02_F0,
-        Cyclop_02_F1,
         Cyclop_04_F0,
         Cyclop_04_F1,
-        Cyclop_06_F0,
-        Cyclop_06_F1,
+        Cyclop_04_F0,
+        Cyclop_04_F1,
         Cyclop_06_F0,
         Cyclop_06_F1,
         Cyclop_06_F0,
@@ -298,6 +328,60 @@ namespace Images {
         Cyclop_Hitting_06_F0,
         Cyclop_Hitting_06_F1,
         Cyclop_Hitting_06_F2,
+    };
+
+    const uint8_t * const Bull[] = { 
+        Bull_00_F0,
+        Bull_00_F1,
+        Bull_00_F0,
+        Bull_00_F1,
+        Bull_02_F0,
+        Bull_02_F1,
+        Bull_02_F0,
+        Bull_02_F1,
+        Bull_04_F0,
+        Bull_04_F1,
+        Bull_04_F0,
+        Bull_04_F1,
+        Bull_06_F0,
+        Bull_06_F1,
+        Bull_06_F0,
+        Bull_06_F1,
+        Bull_Stamping_00_F0,
+        Bull_Stamping_00_F1,
+        Bull_Stamping_00_F0,
+        Bull_Stamping_00_F1,
+        Bull_Stamping_02_F0,
+        Bull_Stamping_02_F1,
+        Bull_Stamping_02_F0,
+        Bull_Stamping_02_F1,
+        Bull_Stamping_04_F0,
+        Bull_Stamping_04_F1,
+        Bull_Stamping_04_F0,
+        Bull_Stamping_04_F1,
+        Bull_Stamping_06_F0,
+        Bull_Stamping_06_F1,
+        Bull_Stamping_06_F0,
+        Bull_Stamping_06_F1,
+    };
+
+    const uint8_t * const Bull_Dust[] = {         
+        Bull_Dust_00_F0,
+        Bull_Dust_00_F1,
+        Bull_Dust_01_F0,
+        Bull_Dust_01_F1,
+        Bull_Dust_02_F0,
+        Bull_Dust_02_F1,
+        Bull_Dust_03_F0,
+        Bull_Dust_03_F1,
+        Bull_Dust_04_F0,
+        Bull_Dust_04_F1,
+        Bull_Dust_05_F0,
+        Bull_Dust_05_F1,
+        Bull_Dust_06_F0,
+        Bull_Dust_06_F1,
+        Bull_Dust_07_F0,
+        Bull_Dust_07_F1,
     };
 
     const uint8_t * const Necromancer_Spell[] = { 

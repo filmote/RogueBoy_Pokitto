@@ -33,7 +33,7 @@ void Sprite::setGuideText(bool value)               { this->guideText = value; }
 
 void Sprite::decCountdown() { 
 
-    this->countdown--; 
+    if (this->countdown > 0) this->countdown--; 
 
 }
 
@@ -240,7 +240,8 @@ bool Sprite::isEnemy() {
         case Object::Necromancer:
         case Object::Hobgoblin:
         case Object::Cyclop:
-        case Object::Boss01 ... Object::Boss02:
+        case Object::Bull:
+        case Object::Boss02:
         case Object::Boss04 ... Object::Boss05:
             return true;
 

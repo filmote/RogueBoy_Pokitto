@@ -9803,382 +9803,331 @@
 		"\\src\\images\\enemies\\cyclop\\Cyclop_04_F1.h": {
 			"sdcard": false
 		},
-		"/RogueBoy_Pokitto.bin.6.h": {
+		"\\src\\maps\\xxx.h": {
 			"sdcard": false
 		},
-		"/RogueBoy_Pokitto.bin.6.png": {
+		"\\src\\images\\bullets\\Spark_10.h": {
 			"sdcard": false
 		},
-		"/RogueBoy_Pokitto.bin.7.png": {
+		"\\src\\images\\bullets\\Spark_10.png": {
 			"sdcard": false
 		},
-		"/RogueBoy_Pokitto.bin.7.h": {
+		"\\src\\images\\bullets\\Spark_11.h": {
 			"sdcard": false
 		},
-		"/src/images/enemies/Backup": {
+		"\\src\\images\\bullets\\Spark_11.png": {
 			"sdcard": false
 		},
-		"/src/images/enemies/Pico8_41 - Copy.h": {
+		"\\src\\images\\enemies\\New folder": {
 			"sdcard": false
 		},
-		"/src/images/enemies/Pico8_41.h": {
+		"\\src\\images\\enemies\\bull": {
 			"sdcard": false
 		},
-		"/src/images/enemies/Pico8_42 - Copy.h": {
+		"\\src\\images\\enemies\\bull\\Pico8_41.png": {
 			"sdcard": false
 		},
-		"/src/images/enemies/Pico8_42.h": {
+		"\\src\\images\\enemies\\bull\\Bull_04_F0.png": {
 			"sdcard": false
 		},
-		"/src/images/enemies/Pico8_41.png": {
+		"\\src\\images\\enemies\\bull\\Bull_04_F0 - Copy.png": {
 			"sdcard": false
 		},
-		"/src/images/enemies/Pico8_42.png": {
+		"\\src\\images\\enemies\\bull\\Bull_04_F1.png": {
 			"sdcard": false
 		},
-		"/src/images/enemies/Pico8_43 - Copy.h": {
+		"\\src\\images\\enemies\\bull\\Bull_00_F0.png": {
 			"sdcard": false
 		},
-		"/src/images/enemies/Pico8_44 - Copy.h": {
+		"\\src\\images\\enemies\\bull\\Bull_00_F0 - Copy.png": {
 			"sdcard": false
 		},
-		"/src/images/enemies/Pico8_44.h": {
+		"\\src\\images\\enemies\\bull\\Bull_02_F0.png": {
 			"sdcard": false
 		},
-		"/src/images/enemies/Pico8_45 - Copy.h": {
+		"\\src\\images\\enemies\\cyclop\\Bull_Stamping_02_F0.png": {
 			"sdcard": false
 		},
-		"/src/images/enemies/Pico8_44.png": {
+		"\\src\\images\\enemies\\cyclop\\Bull_Stamping_02_F1.png": {
 			"sdcard": false
 		},
-		"/src/images/enemies/Pico8_45.h": {
+		"\\src\\images\\enemies\\cyclop\\Bull_Stamping_04_F0.png": {
 			"sdcard": false
 		},
-		"/src/images/enemies/Pico8_45.png": {
+		"\\src\\images\\enemies\\cyclop\\Bull_Stamping_04_F1.png": {
 			"sdcard": false
 		},
-		"/src/images/enemies/cyclop": {
+		"\\src\\images\\enemies\\bull\\Bull_Stamping_04_F1.png": {
 			"sdcard": false
 		},
-		"/src/images/enemies/Backup/Pico8_41.h": {
+		"\\src\\images\\enemies\\bull\\Bull_Stamping_02_F0.png": {
 			"sdcard": false
 		},
-		"/src/images/enemies/Backup/Pico8_41.png": {
+		"\\src\\images\\enemies\\bull\\Bull_Stamping_02_F1.png": {
 			"sdcard": false
 		},
-		"/src/images/enemies/Backup/Pico8_42.png": {
+		"\\src\\images\\enemies\\bull\\Bull_Stamping_04_F0.png": {
 			"sdcard": false
 		},
-		"/src/images/enemies/Backup/Pico8_43.h": {
+		"\\src\\images\\enemies\\bull\\Bull_Stamping_00_F0.png": {
 			"sdcard": false
 		},
-		"/src/images/enemies/Backup/Pico8_43.png": {
+		"\\src\\images\\enemies\\bull\\Bull_Stamping_00_F1.png": {
 			"sdcard": false
 		},
-		"/src/images/enemies/Backup/Pico8_44.h": {
+		"\\src\\images\\enemies\\bull\\Bull_Stamping_00_F3.png": {
 			"sdcard": false
 		},
-		"/src/images/enemies/Backup/Pico8_42.h": {
+		"\\src\\images\\enemies\\bull\\Bull_Stamping_02_F3.png": {
 			"sdcard": false
 		},
-		"/src/images/enemies/Backup/Pico8_45.h": {
+		"\\src\\images\\enemies\\bull\\Bull_Stamping_04_F3.png": {
 			"sdcard": false
 		},
-		"/src/images/enemies/Backup/Pico8_44.png": {
+		"\\src\\images\\enemies\\bull\\Bull_00_F1.png": {
 			"sdcard": false
 		},
-		"/src/images/enemies/Backup/Pico8_45.png": {
+		"\\src\\images\\enemies\\bull\\Bull_02_F0 - Copy.png": {
 			"sdcard": false
 		},
-		"/src/images/enemies/cyclop/Cyclop_00_F0.h": {
+		"\\src\\images\\enemies\\bull\\Bull_02_F1.png": {
 			"sdcard": false
 		},
-		"/src/images/enemies/cyclop/Cyclop_00_F0.png": {
+		"\\src\\images\\enemies\\bull\\Bull_02_F1 - Copy.png": {
 			"sdcard": false
 		},
-		"/src/images/enemies/cyclop/Cyclop_00_F1.png": {
+		"\\src\\images\\enemies\\bull\\Bull_06_F0.png": {
 			"sdcard": false
 		},
-		"/src/images/enemies/cyclop/Cyclop_04_F0.h": {
+		"\\src\\images\\enemies\\bull\\Bull_06_F1.png": {
 			"sdcard": false
 		},
-		"/src/images/enemies/cyclop/Cyclop_04_F0.png": {
+		"\\src\\images\\enemies\\bull\\Bull_Stamping_02_F1 - Copy.png": {
 			"sdcard": false
 		},
-		"/src/images/enemies/cyclop/Cyclop_00_F1.h": {
+		"\\src\\images\\enemies\\bull\\Bull_Stamping_02_F0 - Copy.png": {
 			"sdcard": false
 		},
-		"/src/images/enemies/cyclop/Cyclop_04_F1.h": {
+		"\\src\\images\\enemies\\bull\\Bull_Stamping_06_F0.png": {
 			"sdcard": false
 		},
-		"/src/images/enemies/cyclop/Cyclop_04_F1.png": {
+		"\\src\\images\\enemies\\bull\\Bull_Stamping_06_F1.png": {
 			"sdcard": false
 		},
-		"/src/images/enemies/cyclop/Cyclop_Hitting_00.png": {
+		"\\src\\images\\enemies\\bull\\Bull_04_F0.h": {
 			"sdcard": false
 		},
-		"/src/images/enemies/cyclop/Cyclop_Hitting_01.h": {
+		"\\src\\images\\enemies\\bull\\Bull_04_F1.h": {
 			"sdcard": false
 		},
-		"/src/images/enemies/cyclop/Cyclop_Hitting_02.h": {
+		"\\src\\images\\enemies\\bull\\Bull_00_F0.h": {
 			"sdcard": false
 		},
-		"/src/images/enemies/cyclop/Cyclop_Hitting_01.png": {
+		"\\src\\images\\enemies\\bull\\Bull_02_F0.h": {
 			"sdcard": false
 		},
-		"/src/images/enemies/cyclop/Cyclop_Hitting_02.png": {
+		"\\src\\images\\enemies\\bull\\Bull_Stamping_00_F0.h": {
 			"sdcard": false
 		},
-		"/src/images/enemies/cyclop/Cyclop_Hitting_00.h": {
+		"\\src\\images\\enemies\\bull\\Bull_Stamping_00_F1.h": {
 			"sdcard": false
 		},
-		"/src/images/enemies/cyclop/Cyclop_Idle_00.h": {
+		"\\src\\images\\enemies\\bull\\Bull_Stamping_02_F1.h": {
 			"sdcard": false
 		},
-		"/src/images/enemies/cyclop/Cyclop_Idle_00.png": {
+		"\\src\\images\\enemies\\bull\\Bull_Stamping_02_F0.h": {
 			"sdcard": false
 		},
-		"/src/images/enemies/cyclop/Cyclop_Idle_01.h": {
+		"\\src\\images\\enemies\\bull\\Bull_Stamping_04_F0.h": {
 			"sdcard": false
 		},
-		"/src/images/enemies/cyclop/Cyclop_Idle_01.png": {
+		"\\src\\images\\enemies\\bull\\Bull_Stamping_04_F1.h": {
 			"sdcard": false
 		},
-		"/src/images/enemies/cyclop/Cyclop_Idle_02.png": {
+		"\\src\\images\\enemies\\bull\\Bull_00_F1.h": {
 			"sdcard": false
 		},
-		"/src/images/enemies/cyclop/Cyclop_Idle_02.h": {
+		"\\src\\images\\enemies\\bull\\Bull_02_F1.h": {
 			"sdcard": false
 		},
-		"/src/images/enemies/cyclop/Cyclop_Idle_03.png": {
+		"\\src\\images\\enemies\\bull\\Bull_06_F0.h": {
 			"sdcard": false
 		},
-		"/src/images/enemies/cyclop/Cyclop_Idle_03.h": {
+		"\\src\\images\\enemies\\bull\\Bull_06_F1.h": {
 			"sdcard": false
 		},
-		"/src/images/bullets/BulletIce_03 copy.png": {
+		"\\src\\images\\enemies\\bull\\Bull_Stamping_06_F0.h": {
 			"sdcard": false
 		},
-		"/src/images/bullets/Spark.png": {
+		"\\src\\images\\enemies\\bull\\Bull_Stamping_06_F1.h": {
 			"sdcard": false
 		},
-		"/src/images/bullets/Spark_01 copy.png": {
+		"\\src\\images\\enemies\\bull\\Bull_Dust_F0.png": {
 			"sdcard": false
 		},
-		"/src/images/bullets/Spark_01 copy 2.png": {
+		"\\src\\images\\enemies\\bull\\Bull_Dust_F1.png": {
 			"sdcard": false
 		},
-		"/src/images/bullets/Spark_02.png": {
+		"\\src\\images\\enemies\\bull\\Bull_Dust_F1 - Copy.png": {
 			"sdcard": false
 		},
-		"/src/images/bullets/Spark_03.png": {
+		"\\src\\images\\enemies\\bull\\Bull_Dust_F0 - Copy.png": {
 			"sdcard": false
 		},
-		"/src/images/bullets/Spark_00.h": {
+		"\\src\\images\\enemies\\bull\\Bull_Dust_Vert_F0.png": {
 			"sdcard": false
 		},
-		"/src/images/bullets/Spark_01.h": {
+		"\\src\\images\\enemies\\bull\\Bull_Dust_Vert_F1.png": {
 			"sdcard": false
 		},
-		"/src/images/bullets/Spark_02.h": {
+		"\\src\\images\\enemies\\bull\\Bull_Dust_Horiz_F0.png": {
 			"sdcard": false
 		},
-		"/src/images/bullets/Spark_03.h": {
+		"\\src\\images\\enemies\\bull\\Bull_Dust_Horiz_F1.png": {
 			"sdcard": false
 		},
-		"/src/images/enemies/cyclop/Cyclop_00_F0 copy.png": {
+		"\\src\\images\\enemies\\bull\\Bull_Dust_Horiz_F0 - Copy.png": {
 			"sdcard": false
 		},
-		"/src/images/enemies/cyclop/Cyclop_Hitting_00_F0 copy.png": {
+		"\\src\\images\\enemies\\bull\\Bull_Dust_01_F0.png": {
 			"sdcard": false
 		},
-		"/src/images/enemies/cyclop/Cyclop_Hitting_00_F0.png": {
+		"\\src\\images\\enemies\\bull\\Bull_Dust_01_F1.png": {
 			"sdcard": false
 		},
-		"/src/images/enemies/cyclop/Cyclop_Hitting_04_F0.png": {
+		"\\src\\images\\enemies\\bull\\Bull_04_F0 - Copy.h": {
 			"sdcard": false
 		},
-		"/src/images/enemies/cyclop/Cyclop_Hitting_04_F1.png": {
+		"\\src\\images\\enemies\\bull\\Bull_00_F0 - Copy.h": {
 			"sdcard": false
 		},
-		"/src/images/enemies/cyclop/Cyclop_Hitting_04_F3.png": {
+		"\\src\\images\\enemies\\bull\\Bull_00_F1 - Copy.h": {
 			"sdcard": false
 		},
-		"/src/images/enemies/cyclop/Cyclop_Hitting_00_F1.png": {
+		"\\src\\images\\enemies\\bull\\Bull_02_F0 - Copy.h": {
 			"sdcard": false
 		},
-		"/src/images/enemies/cyclop/Cyclop_Hitting_00_F2.png": {
+		"\\src\\images\\enemies\\bull\\Bull_Dust_02_F0.png": {
 			"sdcard": false
 		},
-		"/src/images/enemies/cyclop/Cyclop_02_F0.png": {
+		"\\src\\images\\enemies\\bull\\Bull_Dust_02_F0 (2).png": {
 			"sdcard": false
 		},
-		"/src/images/enemies/cyclop/Cyclop_02_F1.png": {
+		"\\src\\images\\enemies\\bull\\Bull_Dust_02_F1.png": {
 			"sdcard": false
 		},
-		"/src/images/enemies/cyclop/Cyclop_Hitting_02_F1.png": {
+		"\\src\\images\\enemies\\bull\\Bull_Dust_04_F0.png": {
 			"sdcard": false
 		},
-		"/src/images/enemies/cyclop/Cyclop_02_F1 copy.png": {
+		"\\src\\images\\enemies\\bull\\Bull_Dust_04_F1.png": {
 			"sdcard": false
 		},
-		"/src/images/enemies/cyclop/Cyclop_02_F0 copy.png": {
+		"\\src\\images\\enemies\\bull\\Bull_Dust_04_F0 - Copy.png": {
 			"sdcard": false
 		},
-		"/src/images/enemies/cyclop/Cyclop_Hitting_02_F2.png": {
+		"\\src\\images\\enemies\\bull\\Bull_Dust_04_F1 - Copy.png": {
 			"sdcard": false
 		},
-		"/src/images/enemies/cyclop/Cyclop_Hitting_02_F0.png": {
+		"\\src\\images\\enemies\\bull\\Bull_Dust_00_F0.png": {
 			"sdcard": false
 		},
-		"/src/images/enemies/cyclop/Cyclop_06_F0.png": {
+		"\\src\\images\\enemies\\bull\\Bull_Dust_00_F1.png": {
 			"sdcard": false
 		},
-		"/src/images/enemies/cyclop/Cyclop_06_F1.png": {
+		"\\src\\images\\enemies\\bull\\Bull_Dust_01_F0 - Copy.png": {
 			"sdcard": false
 		},
-		"/src/images/enemies/cyclop/Cyclop_Hitting_02_F0 copy.png": {
+		"\\src\\images\\enemies\\bull\\Bull_Dust_01_F1 - Copy.png": {
 			"sdcard": false
 		},
-		"/src/images/enemies/cyclop/Cyclop_Hitting_02_F1 copy.png": {
+		"\\src\\images\\enemies\\bull\\Bull_Dust_03_F0 (1).png": {
 			"sdcard": false
 		},
-		"/src/images/enemies/cyclop/Cyclop_Hitting_02_F2 copy.png": {
+		"\\src\\images\\enemies\\bull\\Bull_Dust_03_F0 (2).png": {
 			"sdcard": false
 		},
-		"/src/images/enemies/cyclop/Cyclop_Hitting_06_F0.png": {
+		"\\src\\images\\enemies\\bull\\Bull_Dust_03_F0.png": {
 			"sdcard": false
 		},
-		"/src/images/enemies/cyclop/Cyclop_Hitting_06_F1.png": {
+		"\\src\\images\\enemies\\bull\\Bull_Dust_03_F1.png": {
 			"sdcard": false
 		},
-		"/src/images/enemies/cyclop/Cyclop_Hitting_06_F2.png": {
+		"\\src\\images\\enemies\\bull\\Bull_Dust_03_F1 - Copy.png": {
 			"sdcard": false
 		},
-		"/src/images/enemies/cyclop/Cyclop_Hitting_00_F0.h": {
+		"\\src\\images\\enemies\\bull\\Bull_Dust_03_F0 - Copy.png": {
 			"sdcard": false
 		},
-		"/src/images/enemies/cyclop/Cyclop_Hitting_04_F0.h": {
+		"\\src\\images\\enemies\\bull\\Bull_Dust_05_F1.png": {
 			"sdcard": false
 		},
-		"/src/images/enemies/cyclop/Cyclop_Hitting_04_F1.h": {
+		"\\src\\images\\enemies\\bull\\Bull_Dust_05_F0.png": {
 			"sdcard": false
 		},
-		"/src/images/enemies/cyclop/Cyclop_Hitting_04_F3.h": {
+		"\\src\\images\\enemies\\bull\\Bull_Dust_07_F1.png": {
 			"sdcard": false
 		},
-		"/src/images/enemies/cyclop/Cyclop_Hitting_00_F2.h": {
+		"\\src\\images\\enemies\\bull\\Bull_Dust_07_F0.png": {
 			"sdcard": false
 		},
-		"/src/images/enemies/cyclop/Cyclop_Hitting_00_F1.h": {
+		"\\src\\images\\enemies\\bull\\Bull_Dust_02_F1 - Copy.png": {
 			"sdcard": false
 		},
-		"/src/images/enemies/cyclop/Cyclop_Hitting_02_F2.h": {
+		"\\src\\images\\enemies\\bull\\Bull_Dust_02_F0 - Copy.png": {
 			"sdcard": false
 		},
-		"/src/images/enemies/cyclop/Cyclop_Hitting_02_F0.h": {
+		"\\src\\images\\enemies\\bull\\Bull_Dust_06_F1.png": {
 			"sdcard": false
 		},
-		"/src/images/enemies/cyclop/Cyclop_06_F0.h": {
+		"\\src\\images\\enemies\\bull\\Bull_Dust_06_F0.png": {
 			"sdcard": false
 		},
-		"/src/images/enemies/cyclop/Cyclop_02_F0.h": {
+		"\\src\\images\\enemies\\bull\\Bull_Dust_01_F0.h": {
 			"sdcard": false
 		},
-		"/src/images/enemies/cyclop/Cyclop_06_F1.h": {
+		"\\src\\images\\enemies\\bull\\Bull_Dust_01_F1.h": {
 			"sdcard": false
 		},
-		"/src/images/enemies/cyclop/Cyclop_Hitting_06_F0.h": {
+		"\\src\\images\\enemies\\bull\\Bull_Dust_02_F0.h": {
 			"sdcard": false
 		},
-		"/src/images/enemies/cyclop/Cyclop_Hitting_06_F1.h": {
+		"\\src\\images\\enemies\\bull\\Bull_Dust_02_F1.h": {
 			"sdcard": false
 		},
-		"/src/images/enemies/cyclop/Cyclop_Hitting_04_F2.png": {
+		"\\src\\images\\enemies\\bull\\Bull_Dust_04_F0.h": {
 			"sdcard": false
 		},
-		"/src/images/enemies/cyclop/Cyclop_Hitting_04_F2.h": {
+		"\\src\\images\\enemies\\bull\\Bull_Dust_04_F1.h": {
 			"sdcard": false
 		},
-		"/src/images/enemies/cyclop/Cyclop_02_F1.h": {
+		"\\src\\images\\enemies\\bull\\Bull_Dust_00_F0.h": {
 			"sdcard": false
 		},
-		"/src/images/enemies/cyclop/Cyclop_Hitting_02_F1.h": {
+		"\\src\\images\\enemies\\bull\\Bull_Dust_00_F1.h": {
 			"sdcard": false
 		},
-		"/src/images/enemies/cyclop/Cyclop_Hitting_06_F2.h": {
+		"\\src\\images\\enemies\\bull\\Bull_Dust_03_F0.h": {
 			"sdcard": false
 		},
-		"/src/images/bullets/Spark_00 copy.png": {
+		"\\src\\images\\enemies\\bull\\Bull_Dust_03_F1.h": {
 			"sdcard": false
 		},
-		"/src/images/bullets/Spark_02 copy.png": {
+		"\\src\\images\\enemies\\bull\\Bull_Dust_05_F1.h": {
 			"sdcard": false
 		},
-		"/src/images/bullets/Spark_03 copy.png": {
+		"\\src\\images\\enemies\\bull\\Bull_Dust_05_F0.h": {
 			"sdcard": false
 		},
-		"/src/images/bullets/Spark_04.png": {
+		"\\src\\images\\enemies\\bull\\Bull_Dust_07_F1.h": {
 			"sdcard": false
 		},
-		"/src/images/bullets/Spark_05.png": {
+		"\\src\\images\\enemies\\bull\\Bull_Dust_07_F0.h": {
 			"sdcard": false
 		},
-		"/src/images/bullets/Spark_06.png": {
+		"\\src\\images\\enemies\\bull\\Bull_Dust_06_F1.h": {
 			"sdcard": false
 		},
-		"/src/images/bullets/Spark_07.png": {
-			"sdcard": false
-		},
-		"/src/images/bullets/Spark_07 copy.png": {
-			"sdcard": false
-		},
-		"/src/images/bullets/Spark_04 copy.png": {
-			"sdcard": false
-		},
-		"/src/images/bullets/Spark_05 copy.png": {
-			"sdcard": false
-		},
-		"/src/images/bullets/Spark_06 copy.png": {
-			"sdcard": false
-		},
-		"/src/images/bullets/Spark_08.png": {
-			"sdcard": false
-		},
-		"/src/images/bullets/Spark_09.png": {
-			"sdcard": false
-		},
-		"/src/images/bullets/Spark_010.png": {
-			"sdcard": false
-		},
-		"/src/images/bullets/Spark_10.png": {
-			"sdcard": false
-		},
-		"/src/images/bullets/Spark_11.png": {
-			"sdcard": false
-		},
-		"/src/images/bullets/Spark_05.h": {
-			"sdcard": false
-		},
-		"/src/images/bullets/Spark_07.h": {
-			"sdcard": false
-		},
-		"/src/images/bullets/Spark_08.h": {
-			"sdcard": false
-		},
-		"/src/images/bullets/Spark_09.h": {
-			"sdcard": false
-		},
-		"/src/images/bullets/Spark_10.h": {
-			"sdcard": false
-		},
-		"/src/images/bullets/Spark_11.h": {
-			"sdcard": false
-		},
-		"/src/images/bullets/Spark_04.h": {
-			"sdcard": false
-		},
-		"/src/images/bullets/Spark_06.h": {
+		"\\src\\images\\enemies\\bull\\Bull_Dust_06_F0.h": {
 			"sdcard": false
 		}
 	},

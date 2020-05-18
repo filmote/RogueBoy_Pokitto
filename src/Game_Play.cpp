@@ -149,7 +149,8 @@ void Game::updateObjects(bool ignorePlayerDamage) {
                     case Object::Necromancer:
                     case Object::Hobgoblin:
                     case Object::Cyclop:
-                    case Object::Boss01 ... Object::Boss02:
+                    case Object::Bull:
+                    case Object::Boss02:
                     case Object::Boss04 ... Object::Boss05:
 
                         if (!ignorePlayerDamage) {
@@ -1260,7 +1261,7 @@ void Game::spriteAI(MapInformation &map, Player &player, Sprite &sprite) {
 
 
                                 // Should the enemy summons a skeleton ?
-// printf("adasdas\n");
+
                                 sprite.setFrame(-39);
                                 this->launchSkeletonDirection = direction;
                                 this->launchSkeletonDelay = random(LAUNCH_SKELETON_DELAY_MIN, LAUNCH_SKELETON_DELAY_MAX);
@@ -1392,8 +1393,8 @@ void Game::spriteAI(MapInformation &map, Player &player, Sprite &sprite) {
                             if (direction != Direction::None && this->launchCyclopsDelay == 0) {
 
 
-                                // Should the enemy summons a skeleton ?
-// printf("adasdas\n");
+                                // Should the cyclops strike his club ?
+
                                 sprite.setFrame(-28);
                                 this->launchCyclopsDelay = random(LAUNCH_CYCLOPS_DELAY_MIN, LAUNCH_CYCLOPS_DELAY_MAX);
                                 this->launchCyclopsDirection = direction;
@@ -1408,7 +1409,50 @@ void Game::spriteAI(MapInformation &map, Player &player, Sprite &sprite) {
             }
             break;
 
-        case Object::Boss01 ... Object::Boss02:   
+        case Object::Bull:   
+            {
+                sprite.decCountdown();
+
+                switch (sprite.getFrame()) {
+
+                    case -100 ... -2:
+                        sprite.incFrame();
+                        break;
+
+                    case -1:    // launch sparks
+                        {
+                            sprite.incFrame();
+                            sprite.setCountdown(LAUNCH_BULL_COUNTDOWN);
+                            
+                        }
+                        break;
+
+                    case 0 ... 100:
+                        {
+                            spriteAI_UpdateFrame(sprite, 4, 2);
+                            Direction direction = spriteAI_CheckForMove(map, player, sprite, location, 7);
+
+                            if (direction != Direction::None && this->launchCyclopsDelay == 0) {
+
+
+                                // Should the bull run ?
+// printf("adasdas\n");
+                                sprite.setFrame(-28);
+                                this->launchCyclopsDelay = random(LAUNCH_BULL_DELAY_MIN, LAUNCH_BULL_DELAY_MAX);
+                                this->launchCyclopsDirection = direction;
+
+                            }
+
+                        }
+                        break;
+
+                }
+
+            }
+
+            break;
+
+        case Object::Boss02:   
         case Object::Boss04 ... Object::Boss05:   
             {
                 if (sprite.getFrame() < 0) {
@@ -1531,7 +1575,25 @@ Direction Game::spriteAI_CheckForMove(MapInformation &map, Player &player, Sprit
                             }
                             break;
 
-                        case Object::Boss01 ... Object::Boss02:
+                        case Object::Bull:
+
+                            switch (sprite.getCountdown()) {
+
+                                case 0: // Normal
+                                    if (PC::frameCount % 6 == 0) {
+                                        direction = this->spriteAI_UpdateEnemy(location, map, player, sprite);
+                                    }
+                                    break;
+
+                                default:
+                                    direction = this->spriteAI_UpdateEnemy(location, map, player, sprite);
+                                    break;
+
+                            }
+
+                            break;
+
+                        case Object::Boss02:
                         case Object::Boss04 ... Object::Boss05:
                             if (PC::frameCount % 8 == 0) {
                                 direction = this->spriteAI_UpdateEnemy(location, map, player, sprite);
@@ -1570,7 +1632,25 @@ Direction Game::spriteAI_CheckForMove(MapInformation &map, Player &player, Sprit
                         }
                         break;
 
-                    case Object::Boss01 ... Object::Boss02:
+                    case Object::Bull:
+
+                        switch (sprite.getCountdown()) {
+
+                            case 0: // Normal
+                                if (PC::frameCount % 3 == 0) {
+                                    direction = this->spriteAI_UpdateEnemy(location, map, player, sprite);
+                                }
+                                break;
+
+                            default:
+                                direction = this->spriteAI_UpdateEnemy(location, map, player, sprite);
+                                break;
+
+                        }
+
+                        break;
+
+                    case Object::Boss02:
                     case Object::Boss04 ... Object::Boss05:
                         if (PC::frameCount % 4 == 0) {
                             direction = this->spriteAI_UpdateEnemy(location, map, player, sprite);

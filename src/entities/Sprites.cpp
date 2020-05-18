@@ -65,7 +65,7 @@ void Sprites::render(Player &player, bool showEnemies) {
             bool showGuideText = object.getGuideText();
             Direction direction = object.getDirection();
 
-            this->renderSprite(object.getType(), x, y, xOffset, yOffset, direction, frame, showEnemies, showGuideText, object.getRenderHealthBar(), 10 * object.getHealth() / object.getHealthOrig());
+            this->renderSprite(object.getType(), x, y, xOffset, yOffset, direction, frame, object.getCountdown(), showEnemies, showGuideText, object.getRenderHealthBar(), 10 * object.getHealth() / object.getHealthOrig());
 
 
             // Render puff ?
@@ -91,12 +91,12 @@ void Sprites::renderSprite(Object type, int x, int y) {
     int8_t xOffset = spriteOffsets[static_cast<uint8_t>(type) * 2];
     int8_t yOffset = spriteOffsets[(static_cast<uint8_t>(type) * 2) + 1];
 
-    this->renderSprite(type, x, y, xOffset, yOffset, Direction::Up, 0, false, false, 0, false);
+    this->renderSprite(type, x, y, xOffset, yOffset, Direction::Up, 0, 0, false, false, 0, false);
 
 }
 
 
-void Sprites::renderSprite(Object type, int x, int y, int8_t xOffset, int8_t yOffset, Direction direction, int8_t frame, bool showEnemies, bool showGuideText, bool renderHealth, int healthValue) {
+void Sprites::renderSprite(Object type, int x, int y, int8_t xOffset, int8_t yOffset, Direction direction, int8_t frame, uint8_t countdown, bool showEnemies, bool showGuideText, bool renderHealth, int healthValue) {
 
 // PD::drawLine(x, y - 20, x, y + 20);
 // PD::drawLine(x - 20, y, x + 20, y);
@@ -201,10 +201,47 @@ void Sprites::renderSprite(Object type, int x, int y, int8_t xOffset, int8_t yOf
             }
             break;
 
-        case Object::Boss01:
-            if (showEnemies) {
-                PD::drawBitmap(x + xOffset, y + yOffset, Images::Pico8_41); 
-                if (renderHealth) { this->renderHealthBar(x + 6, y - 6, healthValue); }
+        case Object::Bull:
+
+            if (frame < 0) { 
+
+                if (showEnemies) {
+
+                    switch (frame) {
+
+                        case -28 ... -22:
+                        case -14 ... -8:
+                            PD::drawBitmap(x + xOffset, y + yOffset, Images::Bull[16 + (static_cast<uint8_t>(direction) * 2)]);
+                            break;
+
+                        case -21 ... -15:
+                        case -7 ... -1:
+                            PD::drawBitmap(x + xOffset, y + yOffset, Images::Bull[17 + (static_cast<uint8_t>(direction) * 2)]);
+                            break;
+                    }
+
+                    if (renderHealth) { this->renderHealthBar(x + 6, y - 6, healthValue); }
+
+                }
+
+            }
+            else {
+
+                if (showEnemies) {
+
+                    PD::drawBitmap(x + xOffset, y + yOffset, Images::Bull[(static_cast<uint8_t>(direction) * 2) + frame]); 
+
+                    if (countdown > 0) {
+
+                        const int8_t xOffsets[] = { 6, -24, -18, -24, 6, 24, 18, 24 };
+                        const int8_t yOffsets[] = { 24,  24,  12, -24, -24, -24, 12, 24 };
+
+                        PD::drawBitmap(x + xOffset + xOffsets[static_cast<uint8_t>(direction)], y + yOffset + yOffsets[static_cast<uint8_t>(direction)], Images::Bull_Dust[(static_cast<uint8_t>(direction) * 2) + frame]); 
+
+                    }
+
+                    if (renderHealth) { this->renderHealthBar(x + 6, y - 6, healthValue); }
+                }
             }
             break;
 

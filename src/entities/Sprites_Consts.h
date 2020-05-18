@@ -50,7 +50,7 @@ const uint8_t spriteWidths[] =  {
     10, /* Guide13 */
     10, /* Guide14 */
     10, /* Guide15 */
-    24, /* Boss01 */
+    24, /* Bull */
     24, /* Boss02 */
     24, /* Cyclop */
     24, /* Boss04 */
@@ -98,7 +98,7 @@ const uint8_t spriteHeights[] = {
     12, /* Guide13 */
     12, /* Guide14 */
     12, /* Guide15 */
-    24, /* Boss01 */
+    24, /* Bull */
     24, /* Boss02 */
     24, /* Cyclop */
     24, /* Boss04 */
@@ -195,7 +195,7 @@ const uint8_t object_DamamgeOnPlayer[] = {
     0,                      /* Guide13 */ 
     0,                      /* Guide14 */ 
     0,                      /* Guide15 */ 
-    HEALTH_DEC_BOSS,        /* Boss01 */ 
+    HEALTH_DEC_BULL,        /* Boss01 */ 
     HEALTH_DEC_BOSS,        /* Boss02 */ 
     HEALTH_DEC_CYCLOP,      /* Cyclop */ 
     HEALTH_DEC_BOSS,        /* Boss04 */ 

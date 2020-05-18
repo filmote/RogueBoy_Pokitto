@@ -39,6 +39,7 @@
 #define HEALTH_DEC_SPIKE_FIRE     2
 #define HEALTH_DEC_CHEST          5
 #define HEALTH_DEC_FLOATER        15
+#define HEALTH_DEC_BULL           10
 #define HEALTH_DEC_BOSS           10
 #define HEALTH_DEC_CYCLOP         10
 
@@ -145,6 +146,9 @@
 #define LAUNCH_SPIDER_DELAY_MAX   100
 #define LAUNCH_CYCLOPS_DELAY_MIN  100
 #define LAUNCH_CYCLOPS_DELAY_MAX  150
+#define LAUNCH_BULL_DELAY_MIN     200
+#define LAUNCH_BULL_DELAY_MAX     370
+#define LAUNCH_BULL_COUNTDOWN     500
 
 
 // Web bullet travel details ..
