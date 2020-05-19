@@ -319,6 +319,19 @@ void Game::updateObjects(bool ignorePlayerDamage) {
                                         dropItem(object.getCarrying(), object.getX(), object.getY(), true, &object, this->objects);
                                     }
 
+
+                                    // Did we kill a boss ?
+
+                                    switch (object.getType()) {
+
+                                        case Object::Bull:
+                                        case Object::Cyclop:
+                                            this->player.incAltarPieces();
+                                            this->gameState = GameState::AltarPieceAchieved;
+                                            break;
+                                            
+                                    }
+
                                 }
 
                             }
@@ -904,7 +917,6 @@ bool Game::interactWithBlock(int x, int y, MapTiles block) {
                 this->map.setBlock(x, y, MapTiles::OpenChest); 
                 PS::playSFX(Sounds::sfx_OpenChest, Sounds::sfx_OpenChest_length);
 
-                // random
                 this->player.incAltarPieces();
                 this->gameState = GameState::AltarPieceAchieved;
 
@@ -1459,6 +1471,8 @@ void Game::spriteAI(MapInformation &map, Player &player, Sprite &sprite) {
                                     Bullet &bullet = this->bullets.getBossBullet(inactiveBulletIdx);
                                     bullet.setBullet(sprite.getX() + xOffsets[static_cast<uint8_t>(direction)], sprite.getY() + yOffsets[static_cast<uint8_t>(direction)], direction, Object::Dung, BULL_DUNG_FRAMES);
                                     this->launchBullDungDelay = random(LAUNCH_BULL_DUNG_DELAY_MIN, LAUNCH_BULL_DUNG_DELAY_MAX);
+
+                                    sprite.setX(1000);
 
                                 }
 

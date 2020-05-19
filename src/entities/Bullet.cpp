@@ -74,7 +74,7 @@ uint8_t Bullet::getHeight() {
 
 
 void Bullet::setBullet(uint16_t x, uint16_t y, Direction direction, Object weapon, uint8_t lifeCountdown) { 
-printf("weapon %i, lc %i\n", (uint8_t)weapon, lifeCountdown);
+
     this->x = x; 
     this->y = y; 
     this->direction = direction; 
