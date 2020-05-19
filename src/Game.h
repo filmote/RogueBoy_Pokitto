@@ -123,6 +123,8 @@ class Game {
         int launchSpiderDelay = 0;
         int launchSkeletonDelay = 0;
         int launchCyclopsDelay = 0;
+        int launchBullChargeDelay = 0;
+        int launchBullDungDelay = 0;
         Direction launchSkeletonDirection;
         Direction launchCyclopsDirection;
       

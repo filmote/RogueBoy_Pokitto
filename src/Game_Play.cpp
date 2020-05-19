@@ -18,6 +18,8 @@ void Game::updateObjects(bool ignorePlayerDamage) {
     if (this->launchSkeletonDelay > 0)      this->launchSkeletonDelay--;
     if (this->launchSpiderDelay > 0)        this->launchSpiderDelay--;
     if (this->launchCyclopsDelay > 0)       this->launchCyclopsDelay--;
+    if (this->launchBullChargeDelay > 0)    this->launchBullChargeDelay--;
+    if (this->launchBullDungDelay > 0)      this->launchBullDungDelay--;
 
 
     // Update other objects ..
@@ -189,7 +191,7 @@ void Game::updateObjects(bool ignorePlayerDamage) {
 
     // Have the bullets hit anything ?
 
-    for (uint8_t bulletIdx = 0; bulletIdx < PLAYER_BULLET_MAX + ENEMY_BULLET_MAX + 8; bulletIdx++) {
+    for (uint8_t bulletIdx = 0; bulletIdx < PLAYER_BULLET_MAX + ENEMY_BULLET_MAX + BOSS_BULLET_MAX; bulletIdx++) {
 
         auto &bullet = bullets.getBullet(bulletIdx);
         
@@ -328,7 +330,7 @@ void Game::updateObjects(bool ignorePlayerDamage) {
 
                     // Did the bullet hit the player?  Test only if it is an enemy bullet ..
 
-                    case PLAYER_BULLET_MAX ... PLAYER_BULLET_MAX + ENEMY_BULLET_MAX + 8:
+                    case PLAYER_BULLET_MAX ... PLAYER_BULLET_MAX + ENEMY_BULLET_MAX + BOSS_BULLET_MAX:
 
                         if (this->collision(this->player, bullet)) {
 
@@ -1432,14 +1434,33 @@ void Game::spriteAI(MapInformation &map, Player &player, Sprite &sprite) {
                             spriteAI_UpdateFrame(sprite, 4, 2);
                             Direction direction = spriteAI_CheckForMove(map, player, sprite, location, 7);
 
-                            if (direction != Direction::None && this->launchCyclopsDelay == 0) {
 
+                            // Should the bull run ?
 
-                                // Should the bull run ?
-// printf("adasdas\n");
+                            if (direction != Direction::None && this->launchBullChargeDelay == 0) {
+
                                 sprite.setFrame(-28);
-                                this->launchCyclopsDelay = random(LAUNCH_BULL_DELAY_MIN, LAUNCH_BULL_DELAY_MAX);
-                                this->launchCyclopsDirection = direction;
+                                this->launchBullChargeDelay = random(LAUNCH_BULL_CHARGE_DELAY_MIN, LAUNCH_BULL_CHARGE_DELAY_MAX);
+
+                            }
+
+
+                            // Should the bull shit ?
+
+                            if (direction != Direction::None && this->launchBullDungDelay == 0) {
+
+                                const int8_t xOffsets[] = { 0, -8, -8, -8, 0, 8, 8, 8 };
+                                const int8_t yOffsets[] = { 8,  8,  0, -8, -8, -8, 0, 8 };
+
+                                uint8_t inactiveBulletIdx = this->bullets.getInactiveBossBullet();
+
+                                if (inactiveBulletIdx != NO_INACTIVE_BULLET_FOUND) {
+
+                                    Bullet &bullet = this->bullets.getBossBullet(inactiveBulletIdx);
+                                    bullet.setBullet(sprite.getX() + xOffsets[static_cast<uint8_t>(direction)], sprite.getY() + yOffsets[static_cast<uint8_t>(direction)], direction, Object::Dung, BULL_DUNG_FRAMES);
+                                    this->launchBullDungDelay = random(LAUNCH_BULL_DUNG_DELAY_MIN, LAUNCH_BULL_DUNG_DELAY_MAX);
+
+                                }
 
                             }
 
@@ -1645,7 +1666,6 @@ Direction Game::spriteAI_CheckForMove(MapInformation &map, Player &player, Sprit
                             default:
                                 {
                                     const uint8_t movement[] = { 4, 5, 6, 7, 8, 8, 9, 9, 10, 10, 10, 10, 5, 5, };
-                                    printf("Move %i\n", movement[sprite.getCountdown() / 10]);
                                     direction = this->spriteAI_UpdateEnemy(location, map, player, sprite, movement[sprite.getCountdown() / 10]);
                                 }
                                 break;

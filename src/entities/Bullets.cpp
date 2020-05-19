@@ -19,6 +19,11 @@ Bullet & Bullets::getEnemyBullet(uint8_t index) {
     
 }
 
+Bullet & Bullets::getBossBullet(uint8_t index) {
+
+    return this->bullets[PLAYER_BULLET_MAX + ENEMY_BULLET_MAX + index];
+    
+}
 
 uint8_t Bullets::getInactivePlayerBullet() {
 
@@ -56,12 +61,31 @@ uint8_t Bullets::getInactiveEnemyBullet() {
 
 }
 
-void Bullets::render(Player &player) {
+uint8_t Bullets::getInactiveBossBullet() {
 
-    for (uint8_t j = 0; j < PLAYER_BULLET_MAX + ENEMY_BULLET_MAX + 8; j++) {
+    for (uint8_t j = PLAYER_BULLET_MAX + ENEMY_BULLET_MAX; j < PLAYER_BULLET_MAX + ENEMY_BULLET_MAX + BOSS_BULLET_MAX; j++) {
 
         auto bullet = this->bullets[j];
 
+        if (!bullet.getActive()) {
+
+printf("Inactive Boss Bullet %i \n", j - PLAYER_BULLET_MAX - ENEMY_BULLET_MAX);
+            return j - PLAYER_BULLET_MAX - ENEMY_BULLET_MAX;
+
+        }
+
+    }
+
+    return NO_INACTIVE_BULLET_FOUND;
+
+}
+
+void Bullets::render(Player &player) {
+
+    for (uint8_t j = 0; j < PLAYER_BULLET_MAX + ENEMY_BULLET_MAX + BOSS_BULLET_MAX; j++) {
+
+        auto bullet = this->bullets[j];
+if (j>=PLAYER_BULLET_MAX + ENEMY_BULLET_MAX && bullet.getActive()) printf("B %i is %i \n ", j,bullet.getActive() );
         if (bullet.getActive()) {
 
             int x = (player.getX() - bullet.getX());
@@ -84,6 +108,26 @@ void Bullets::render(Player &player) {
 
                 case Object::RedSpell:
                     PD::drawBitmap((CENTERX - 2) - x, (CENTERY - 2) - y, Images::Bullets[frame + 12]);
+                    break;
+
+                case Object::Dung:
+
+                    switch (bullet.getCountdown()) {
+
+                        case 11 ... 255:
+                            PD::drawBitmap((CENTERX - 4) - x, (CENTERY - 4) - y, Images::Bull_Dung[frame / 3]);
+                            break;
+
+                        case 6 ... 10:
+                            PD::drawBitmap((CENTERX - 4) - x, (CENTERY - 4) - y, Images::Bull_Dung[4]);
+                            break;
+
+                        case 0 ... 5:
+                            PD::drawBitmap((CENTERX - 4) - x, (CENTERY - 4) - y, Images::Bull_Dung[5]);
+                            break;
+
+                    }
+
                     break;
 
                 case Object::Sparks:
@@ -131,5 +175,7 @@ void Bullets::render(Player &player) {
         }
 
     }
+
+//if (j>=PLAYER_BULLET_MAX + ENEMY_BULLET_MAX && bullet.getActive())     printf("\n");
 
 }

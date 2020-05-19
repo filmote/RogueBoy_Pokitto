@@ -165,6 +165,13 @@ namespace Images {
     #include "bull/Bull_Dust_07_F0.h"
     #include "bull/Bull_Dust_07_F1.h"
 
+    #include "bull/Bull_Dung_F0.h"
+    #include "bull/Bull_Dung_F1.h"
+    #include "bull/Bull_Dung_F2.h"
+    #include "bull/Bull_Dung_F3.h"
+    #include "bull/Bull_Dung_F4.h"
+    #include "bull/Bull_Dung_F5.h"
+
     #include "HealthBar.h"
 
     #include "Pico8_42.h"
@@ -382,6 +389,15 @@ namespace Images {
         Bull_Dust_06_F1,
         Bull_Dust_07_F0,
         Bull_Dust_07_F1,
+    };
+
+    const uint8_t * const Bull_Dung[] = {         
+        Bull_Dung_F0,
+        Bull_Dung_F1,
+        Bull_Dung_F2,
+        Bull_Dung_F3,
+        Bull_Dung_F4,
+        Bull_Dung_F5,
     };
 
     const uint8_t * const Necromancer_Spell[] = { 
