@@ -87,6 +87,7 @@ class Game {
 
         Direction spriteAI_CheckForMove(MapInformation &map, Player &player, Sprite &sprite, Point &location, uint8_t dist);
         Direction spriteAI_UpdateEnemy(Point &point, MapInformation &map, Player &player, Sprite &enemy);
+        Direction spriteAI_UpdateEnemy(Point &point, MapInformation &map, Player &player, Sprite &enemy, uint8_t movement);
         Direction getNearestCardinalDirection(Direction direction, Axis axis);
 
         bool isBlockedByEnemy(Player player, uint16_t playerX, uint16_t playerY);

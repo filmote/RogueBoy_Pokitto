@@ -1586,7 +1586,7 @@ Direction Game::spriteAI_CheckForMove(MapInformation &map, Player &player, Sprit
                                     break;
 
                                 default:
-                                    direction = this->spriteAI_UpdateEnemy(location, map, player, sprite);
+                                    direction = this->spriteAI_UpdateEnemy(location, map, player, sprite, 2);
                                     break;
 
                             }
@@ -1643,7 +1643,11 @@ Direction Game::spriteAI_CheckForMove(MapInformation &map, Player &player, Sprit
                                 break;
 
                             default:
-                                direction = this->spriteAI_UpdateEnemy(location, map, player, sprite);
+                                {
+                                    const uint8_t movement[] = { 4, 5, 6, 7, 8, 8, 9, 9, 10, 10, 10, 10, 5, 5, };
+                                    printf("Move %i\n", movement[sprite.getCountdown() / 10]);
+                                    direction = this->spriteAI_UpdateEnemy(location, map, player, sprite, movement[sprite.getCountdown() / 10]);
+                                }
                                 break;
 
                         }
@@ -1688,21 +1692,27 @@ Direction Game::spriteAI_CheckForMove(MapInformation &map, Player &player, Sprit
 
 Direction Game::spriteAI_UpdateEnemy(Point &point, MapInformation &map, Player &player, Sprite &enemy) {
 
+    return spriteAI_UpdateEnemy(point, map, player, enemy, 1);
+
+}
+
+Direction Game::spriteAI_UpdateEnemy(Point &point, MapInformation &map, Player &player, Sprite &enemy, uint8_t movement) {
+
     Direction direction = Direction::None;
 
     if (map.getDistance(point.x, point.y, player.getX(), player.getY()) <= 5) {
     
-        if (point.x < player.getX() && map.isWalkable(point.x + 1, point.y, Direction::Right, enemy.getWidth(), enemy.getHeight()) != WalkType::Stop && !isBlockedByPlayer(player, enemy, point.x + 1, point.y)) { 
+        if (point.x < player.getX() && map.isWalkable(point.x + movement, point.y, Direction::Right, enemy.getWidth(), enemy.getHeight()) != WalkType::Stop && !isBlockedByPlayer(player, enemy, point.x + movement, point.y)) { 
             direction = Direction::Right;
             point.x++; 
         }
 
-        if (point.x > player.getX() && map.isWalkable(point.x - 1, point.y, Direction::Left, enemy.getWidth(), enemy.getHeight()) != WalkType::Stop && !isBlockedByPlayer(player, enemy, point.x - 1, point.y)) { 
+        if (point.x > player.getX() && map.isWalkable(point.x - movement, point.y, Direction::Left, enemy.getWidth(), enemy.getHeight()) != WalkType::Stop && !isBlockedByPlayer(player, enemy, point.x - movement, point.y)) { 
             point.x--; 
             direction = Direction::Left;
         }
 
-        if (point.y < player.getY() && map.isWalkable(point.x, point.y + 1, Direction::Down, enemy.getWidth(), enemy.getHeight()) != WalkType::Stop && !isBlockedByPlayer(player, enemy, point.x, point.y + 1)) { 
+        if (point.y < player.getY() && map.isWalkable(point.x, point.y + movement, Direction::Down, enemy.getWidth(), enemy.getHeight()) != WalkType::Stop && !isBlockedByPlayer(player, enemy, point.x, point.y + movement)) { 
 
             point.y++; 
 
@@ -1724,7 +1734,7 @@ Direction Game::spriteAI_UpdateEnemy(Point &point, MapInformation &map, Player &
 
         }
 
-        if (point.y > player.getY() && map.isWalkable(point.x, point.y - 1, Direction::Up, enemy.getWidth(), enemy.getHeight()) != WalkType::Stop && !isBlockedByPlayer(player, enemy, point.x, point.y - 1)) { 
+        if (point.y > player.getY() && map.isWalkable(point.x, point.y - movement, Direction::Up, enemy.getWidth(), enemy.getHeight()) != WalkType::Stop && !isBlockedByPlayer(player, enemy, point.x, point.y - movement)) { 
 
             point.y--; 
 
