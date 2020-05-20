@@ -136,12 +136,14 @@ void Game::nextLevelLoad(GameMode gameMode) {
     #endif
 
     if (map.getLevel() > 0) {
-        printf("save player\n");
+        printf("save nextLevelLoad\n");
+            printf("items %i\n", this->player.getInventoryCount());
+
         this->cookie->updateStatus(map.getLevel(), map.getDefinedMapLevel(), this->player);
     }
 
     if (map.getLevel() < (numberOfMaps * 2) - 1) {
-printf("random level %i \n", this->map.getRandomLevel());
+//printf("random level %i \n", this->map.getRandomLevel());
         if (this->map.getRandomLevel()) {
 
             uint8_t randomLevel = random(this->map.getRandomLow(), this->map.getRandomLow() + 4);
@@ -437,40 +439,48 @@ printf("random level %i \n", this->map.getRandomLevel());
 
         }
         else {
-        printf("gameMode %i\n", static_cast<uint8_t>(gameMode));
+//        printf("gameMode %i\n", static_cast<uint8_t>(gameMode));
             switch (gameMode) {
 
                 case GameMode::Help:
-                    printf("GameMode::Help\n");
+//                    printf("GameMode::Help\n");
 
                     this->loadMap(Map_Help);
                     this->map.setDefinedMapLevel(map.getDefinedMapLevel() + 1); 
-                    gameState = GameState::Game;
-                    this->map.setLevel(map.getLevel() + 1); 
-                    this->map.setRandomLevel(!this->map.getRandomLevel());
+                    // gameState = GameState::Game;
+                    // this->map.setLevel(map.getLevel() + 1); 
+                    // this->map.setRandomLevel(!this->map.getRandomLevel());
                     break;
 
                 case GameMode::Normal:
                     {
-                        printf("GameMode::Normal %i %i %i\n",map.getLevel(), map.getDefinedMapLevel(),this->map.getRandomLevel() );
+//                        printf("GameMode::Normal %i %i %i\n",map.getLevel(), map.getDefinedMapLevel(),this->map.getRandomLevel() );
                         const uint8_t * levelToLoad = maps[map.getDefinedMapLevel()];
                         this->loadMap(levelToLoad);
                         this->map.setDefinedMapLevel(map.getDefinedMapLevel() + 1); 
-                        gameState = GameState::Game;
-                        this->map.setLevel(map.getLevel() + 1); 
-                        this->map.setRandomLevel(!this->map.getRandomLevel());
-                        printf("GameMode::Normal %i %i %i\n",map.getLevel(), map.getDefinedMapLevel(),this->map.getRandomLevel() );
+                        // gameState = GameState::Game;
+                        // this->map.setLevel(map.getLevel() + 1); 
+                        // this->map.setRandomLevel(!this->map.getRandomLevel());
+//                        printf("GameMode::Normal %i %i %i\n",map.getLevel(), map.getDefinedMapLevel(),this->map.getRandomLevel() );
                     }
                     break;
 
-                case GameMode::Restart:
+                case GameMode::Resume:
                     {
+                        this->map.setLevel(this->cookie->getLevel()); 
+                        this->map.setRandomLevel(false);
                         const uint8_t * levelToLoad = maps[this->cookie->getDefinedMapLevel()];
                         this->loadMap(levelToLoad);
                         this->map.setDefinedMapLevel(map.getDefinedMapLevel() + 1); 
-                        gameState = GameState::Game;
-                        this->map.setLevel(this->cookie->getLevel()); 
-                        this->map.setRandomLevel(false);
+
+
+
+//printf("Pos x: %i, y:%i \n",this->cookie->getPlayerStatus().x, this->cookie->getPlayerStatus().y);
+
+                        this->player.setPlayerStatus(this->cookie->getPlayerStatus());
+                        // gameState = GameState::Game;
+                        // this->map.setLevel(this->cookie->getLevel()); 
+                        // this->map.setRandomLevel(false);
                     }
                     break;
 
@@ -479,6 +489,10 @@ printf("random level %i \n", this->map.getRandomLevel());
         }
 
         this->mixAltarPieces();
+
+        gameState = GameState::Game;
+        this->map.setLevel(map.getLevel() + 1); 
+        this->map.setRandomLevel(!this->map.getRandomLevel());
 
     } 
     else {

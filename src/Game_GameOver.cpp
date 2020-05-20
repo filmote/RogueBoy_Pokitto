@@ -68,8 +68,8 @@ void Game::death() {
         else {
 
             this->highScoreVariables.entryIdx = 255;
-            this->cookie->levelNo = 255;
-            this->cookie->saveCookie();
+            // this->cookie->levelNo = 255;
+            // this->cookie->saveCookie();
 
         }
 

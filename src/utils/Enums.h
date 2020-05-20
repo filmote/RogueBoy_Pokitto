@@ -3,7 +3,7 @@
 enum class GameMode : uint8_t {
     Normal,
     Help,
-    Restart,
+    Resume,
 };
 
 enum class WalkType : uint8_t {
@@ -13,6 +13,7 @@ enum class WalkType : uint8_t {
 };
 
 enum class TitleScreenMode : uint8_t {
+    Resume,
     Start,
     HighScore,
     Help

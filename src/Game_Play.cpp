@@ -769,7 +769,7 @@ void Game::playerMovement(GameMode gameMode) {
                 break;
 
             case MapTiles::SavePost:
-printf("SavePost\n");
+printf("SavePost Activated\n");
                 this->cookie->saveCookie();
                 break;
 
@@ -995,6 +995,12 @@ bool Game::interactWithBlock(int x, int y, MapTiles block) {
                 }
 
             }
+            return false;
+
+        case MapTiles::SavePost:
+            printf("saveCookie\n");
+            printf("items %i\n", this->player.getInventoryCount());
+            this->cookie->saveCookie();
             return false;
 
     }

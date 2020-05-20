@@ -41,6 +41,7 @@ class Player {
         void setFrame(uint8_t frame);
         void setMoving(bool moving);
         void setWeapon(Object weapon);
+        void setPlayerStatus(PlayerStatus playerStatus);
 
         void incFrame();
         void incCoins(uint8_t coins);
@@ -71,7 +72,8 @@ class Player {
         uint8_t getActiveSlotCount();
 
     private:
-
+        uint16_t x;
+        uint16_t y;
         PlayerStatus playerStatus;
 
 };

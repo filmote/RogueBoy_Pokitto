@@ -13,8 +13,8 @@ Player::Player() {
 
 void Player::reset() { 
 
-    this->playerStatus.x = 0;
-    this->playerStatus.y = 0;
+    this->x = 0;
+    this->y = 0;
     this->playerStatus.direction = Direction::Up;;
     this->playerStatus.health = 0;
     this->playerStatus.coins = 0;
@@ -38,11 +38,11 @@ void Player::incAltarPieces() {
 }
 
 uint16_t Player::getX() { 
-    return this->playerStatus.x; 
+    return this->x; 
 }
 
 uint16_t Player::getY() { 
-    return this->playerStatus.y; 
+    return this->y; 
 }
 
 const uint8_t Player::getWidth() { 
@@ -102,11 +102,11 @@ PlayerStatus Player::getPlayerStatus() {
 }
 
 void Player::setX(uint16_t x) { 
-    this->playerStatus.x = x; 
+    this->x = x; 
 }
 
 void Player::setY(uint16_t y) { 
-    this->playerStatus.y = y; 
+    this->y = y; 
 }
 
 void Player::setDirection(Direction direction) { 
@@ -152,6 +152,10 @@ void Player::incCoins(uint8_t coins) {
 
 void Player::setMoving(bool moving) { 
     this->playerStatus.moving = moving; 
+}
+
+void Player::setPlayerStatus(PlayerStatus playerStatus) { 
+    this->playerStatus = playerStatus; 
 }
 
 void Player::setWeapon(Object weapon) { 
@@ -214,8 +218,8 @@ void Player::incFrame() {
 
 void Player::init(uint16_t x, uint16_t y) {
 
-    this->playerStatus.x = x;
-    this->playerStatus.y = y;
+    this->x = x;
+    this->y = y;
     this->playerStatus.direction = Direction::Down;
     this->playerStatus.coins = 0;
     this->playerStatus.kills = 0;
