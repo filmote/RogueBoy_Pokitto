@@ -69,7 +69,6 @@ uint8_t Bullets::getInactiveBossBullet() {
 
         if (!bullet.getActive()) {
 
-printf("Inactive Boss Bullet %i \n", j - PLAYER_BULLET_MAX - ENEMY_BULLET_MAX);
             return j - PLAYER_BULLET_MAX - ENEMY_BULLET_MAX;
 
         }
@@ -85,7 +84,7 @@ void Bullets::render(Player &player) {
     for (uint8_t j = 0; j < PLAYER_BULLET_MAX + ENEMY_BULLET_MAX + BOSS_BULLET_MAX; j++) {
 
         auto bullet = this->bullets[j];
-if (j>=PLAYER_BULLET_MAX + ENEMY_BULLET_MAX && bullet.getActive()) printf("B %i is %i \n ", j,bullet.getActive() );
+
         if (bullet.getActive()) {
 
             int x = (player.getX() - bullet.getX());
@@ -175,7 +174,5 @@ if (j>=PLAYER_BULLET_MAX + ENEMY_BULLET_MAX && bullet.getActive()) printf("B %i 
         }
 
     }
-
-//if (j>=PLAYER_BULLET_MAX + ENEMY_BULLET_MAX && bullet.getActive())     printf("\n");
 
 }
