@@ -4,7 +4,7 @@ Player::Player() {
 
    for (uint8_t index = 0; index < MAX_INVENTORY_ITEMS; index++) {
 
-        auto & inventoryHolding = this->inventoryItems[index];
+        auto & inventoryHolding = this->playerStatus.inventoryItems[index];
         inventoryHolding.index = index;
 
    }
@@ -13,36 +13,36 @@ Player::Player() {
 
 void Player::reset() { 
 
-    this->x = 0;
-    this->y = 0;
-    this->direction = Direction::Up;;
-    this->health = 0;
-    this->coins = 0;
-    this->coinsOverall = 0;
-    this->kills = 0;
-    this->moving = false;
-    this->frame = 0;
-    this->weapon = Object::FireBall;
-    this->weaponCount = 0;
-    this->puffIndex = 0;
+    this->playerStatus.x = 0;
+    this->playerStatus.y = 0;
+    this->playerStatus.direction = Direction::Up;;
+    this->playerStatus.health = 0;
+    this->playerStatus.coins = 0;
+    this->playerStatus.coinsOverall = 0;
+    this->playerStatus.kills = 0;
+    this->playerStatus.moving = false;
+    this->playerStatus.frame = 0;
+    this->playerStatus.weapon = Object::FireBall;
+    this->playerStatus.weaponCount = 0;
+    this->playerStatus.puffIndex = 0;
 
     for (uint8_t x = 0; x < MAX_INVENTORY_ITEMS; x++) {
-        inventoryItems[x].type = Object::None;
-        inventoryItems[x].quantity = 0;
+        this->playerStatus.inventoryItems[x].type = Object::None;
+        this->playerStatus.inventoryItems[x].quantity = 0;
     }
 
 }
 
 void Player::incAltarPieces() {
-    if (this->altarPieces < 7) this->altarPieces++;
+    if (this->playerStatus.altarPieces < 7) this->playerStatus.altarPieces++;
 }
 
 uint16_t Player::getX() { 
-    return this->x; 
+    return this->playerStatus.x; 
 }
 
 uint16_t Player::getY() { 
-    return this->y; 
+    return this->playerStatus.y; 
 }
 
 const uint8_t Player::getWidth() { 
@@ -54,39 +54,39 @@ const uint8_t Player::getHeight() {
 }
 
 Direction Player::getDirection() { 
-    return this->direction; 
+    return this->playerStatus.direction; 
 }
 
 int8_t Player::getHealth() { 
-    return this->health; 
+    return this->playerStatus.health; 
 }
 
 uint8_t Player::getCoins() { 
-    return this->coins; 
+    return this->playerStatus.coins; 
 }
 
 uint8_t Player::getCoinsOverall() { 
-    return this->coinsOverall; 
+    return this->playerStatus.coinsOverall; 
 }
 
 uint8_t Player::getKills() { 
-    return this->kills; 
+    return this->playerStatus.kills; 
 }
 
 uint8_t Player::getAltarPieces() { 
-    return this->altarPieces; 
+    return this->playerStatus.altarPieces; 
 }
 
 uint8_t Player::getFrame() { 
-    return this->frame; 
+    return this->playerStatus.frame; 
 }
 
 bool Player::getMoving() { 
-    return this->moving; 
+    return this->playerStatus.moving; 
 }
 
 Object Player::getWeapon() { 
-    return this->weapon; 
+    return this->playerStatus.weapon; 
 }
 
 Rect Player::getRect() {
@@ -94,70 +94,74 @@ Rect Player::getRect() {
 }
 
 int8_t Player::getPuffIndex() { 
-    return this->puffIndex; 
+    return this->playerStatus.puffIndex; 
+}
+
+PlayerStatus Player::getPlayerStatus() { 
+    return this->playerStatus; 
 }
 
 void Player::setX(uint16_t x) { 
-    this->x = x; 
+    this->playerStatus.x = x; 
 }
 
 void Player::setY(uint16_t y) { 
-    this->y = y; 
+    this->playerStatus.y = y; 
 }
 
 void Player::setDirection(Direction direction) { 
-    this->direction = direction; 
+    this->playerStatus.direction = direction; 
 }
 
 void Player::setHealth(int8_t health) { 
-    this->health = health; 
-    if (this->health > 100) this->health = 100; 
+    this->playerStatus.health = health; 
+    if (this->playerStatus.health > 100) this->playerStatus.health = 100; 
 }
 
 void Player::incHealth(uint8_t amount) { 
-    this->health = this->health + amount; 
-    if (this->health > 100) this->health = 100; 
+    this->playerStatus.health = this->playerStatus.health + amount; 
+    if (this->playerStatus.health > 100) this->playerStatus.health = 100; 
 }
 
 void Player::decHealth(uint8_t amount) { 
-    this->health = this->health - amount; 
-    if (this->health <= 0) this->puffIndex = 10;
+    this->playerStatus.health = this->playerStatus.health - amount; 
+    if (this->playerStatus.health <= 0) this->playerStatus.puffIndex = 10;
 }
 
 void Player::setCoins(uint8_t coins) { 
-    this->coins = coins; 
+    this->playerStatus.coins = coins; 
 }
 
 void Player::setCoinsOverall(uint8_t coins) { 
-    this->coinsOverall = coins; 
+    this->playerStatus.coinsOverall = coins; 
 }
 
 void Player::setKills(uint8_t kills) { 
-    this->kills = kills; 
+    this->playerStatus.kills = kills; 
 }
 
 void Player::setFrame(uint8_t frame) { 
-    this->frame = frame;
+    this->playerStatus.frame = frame;
 }
 
 void Player::incCoins(uint8_t coins) { 
-    this->coins = this->coins + coins; 
-    this->coinsOverall = this->coinsOverall + coins; 
-    if (this->coinsOverall > 99) this->coins = 99;
+    this->playerStatus.coins = this->playerStatus.coins + coins; 
+    this->playerStatus.coinsOverall = this->playerStatus.coinsOverall + coins; 
+    if (this->playerStatus.coinsOverall > 99) this->playerStatus.coins = 99;
 }
 
 void Player::setMoving(bool moving) { 
-    this->moving = moving; 
+    this->playerStatus.moving = moving; 
 }
 
 void Player::setWeapon(Object weapon) { 
     
-    this->weapon = weapon; 
+    this->playerStatus.weapon = weapon; 
 
     switch (weapon) {
 
         case Object::IceSpell:
-            this->weaponCount = ICE_SPELL_DELAY;
+            this->playerStatus.weaponCount = ICE_SPELL_DELAY;
             break;
 
         default: 
@@ -169,13 +173,13 @@ void Player::setWeapon(Object weapon) {
 
 void Player::decWeaponCount() {
 
-    if (this->weaponCount > 0) {
+    if (this->playerStatus.weaponCount > 0) {
 
-        this->weaponCount--;
+        this->playerStatus.weaponCount--;
 
-        if (this->weaponCount == 0) {
+        if (this->playerStatus.weaponCount == 0) {
 
-            this->weapon = Object::FireBall;
+            this->playerStatus.weapon = Object::FireBall;
 
         }
 
@@ -185,47 +189,47 @@ void Player::decWeaponCount() {
 
 void Player::decPuffIndex() {
 
-    if (this->puffIndex > PLAYER_DEAD_DELAY) this->puffIndex--;
+    if (this->playerStatus.puffIndex > PLAYER_DEAD_DELAY) this->playerStatus.puffIndex--;
 
 }
 
 uint8_t Player::getWeaponFrame() {
 
-    return this->weaponCount / ICE_SPELL_DELAY_INC;
+    return this->playerStatus.weaponCount / ICE_SPELL_DELAY_INC;
     
 }
 
 uint32_t Player::getWeaponCount() {
 
-    return this->weaponCount;
+    return this->playerStatus.weaponCount;
     
 }
 
 void Player::incFrame() {
     
-    this->frame++;
-    this->frame %= 2;
+    this->playerStatus.frame++;
+    this->playerStatus.frame %= 2;
 
 }
 
 void Player::init(uint16_t x, uint16_t y) {
 
-    this->x = x;
-    this->y = y;
-    this->direction = Direction::Down;
-    this->coins = 0;
-    this->kills = 0;
-    this->health = (this->health <= 0 ? 100 : this->health);
-    this->moving = false;
-    this->altarPieces = 0;
+    this->playerStatus.x = x;
+    this->playerStatus.y = y;
+    this->playerStatus.direction = Direction::Down;
+    this->playerStatus.coins = 0;
+    this->playerStatus.kills = 0;
+    this->playerStatus.health = (this->playerStatus.health <= 0 ? 100 : this->playerStatus.health);
+    this->playerStatus.moving = false;
+    this->playerStatus.altarPieces = 0;
     
 }
 
 
 InventoryItem & Player::getInventoryItem(uint8_t index) {
 
-    auto & inventoryHolding = this->inventoryItems[index];
-    return this->inventoryItems[index];
+    auto & inventoryHolding = this->playerStatus.inventoryItems[index];
+    return this->playerStatus.inventoryItems[index];
 
 }
 
@@ -235,13 +239,13 @@ InventoryItem & Player::getActiveInventoryItem(uint8_t index) {
 
     for (uint8_t i = 0; i < MAX_INVENTORY_ITEMS; i++) {
 
-        auto & inventoryHolding = this->inventoryItems[i];
+        auto & inventoryHolding = this->playerStatus.inventoryItems[i];
 
         if (inventoryHolding.quantity > 0) {
 
             if (count == index) {
 
-                return this->inventoryItems[i];
+                return this->playerStatus.inventoryItems[i];
 
             } 
 
@@ -251,7 +255,7 @@ InventoryItem & Player::getActiveInventoryItem(uint8_t index) {
 
     }
 
-    return this->inventoryItems[0]; // Default.
+    return this->playerStatus.inventoryItems[0]; // Default.
 
 }
 
@@ -277,7 +281,7 @@ uint8_t Player::addInventoryItem(Object type, uint8_t qty) {
 
     if (slot != NO_SLOT_FOUND) {
 
-        InventoryItem & inventoryHolding = this->inventoryItems[slot];
+        InventoryItem & inventoryHolding = this->playerStatus.inventoryItems[slot];
         inventoryHolding.quantity = inventoryHolding.quantity + qty;
         return slot;
 
@@ -290,7 +294,7 @@ uint8_t Player::addInventoryItem(Object type, uint8_t qty) {
 
     if (slot != NO_SLOT_FOUND) {
 
-        InventoryItem & inventoryHolding = this->inventoryItems[slot];
+        InventoryItem & inventoryHolding = this->playerStatus.inventoryItems[slot];
         inventoryHolding.type = type;
         inventoryHolding.quantity = qty;
         return slot;
@@ -311,7 +315,7 @@ uint8_t Player::decInventoryItem(Object type) {
 
     if (slot != NO_SLOT_FOUND) {
 
-        InventoryItem & inventoryHolding = this->inventoryItems[slot];
+        InventoryItem & inventoryHolding = this->playerStatus.inventoryItems[slot];
         inventoryHolding.quantity--;
         return slot;
 
@@ -330,7 +334,7 @@ uint8_t Player::getInventorySlot(Object type) {
 
     for (index = 0; index < MAX_INVENTORY_ITEMS; index++) {
 
-        auto & inventoryHolding = this->inventoryItems[index];
+        auto & inventoryHolding = this->playerStatus.inventoryItems[index];
 
         if (inventoryHolding.type == type) {
 
@@ -354,7 +358,7 @@ uint8_t Player::getEmptySlot() {
 
     for (index = 0; index < MAX_INVENTORY_ITEMS; index++) {
 
-        auto & inventoryHolding = this->inventoryItems[index];
+        auto & inventoryHolding = this->playerStatus.inventoryItems[index];
 
         if (inventoryHolding.quantity == 0) {
 
@@ -378,7 +382,7 @@ uint8_t Player::getInventoryCount() {
 
     for (uint8_t index = 0; index < MAX_INVENTORY_ITEMS; index++) {
 
-        auto & inventoryHolding = this->inventoryItems[index];
+        auto & inventoryHolding = this->playerStatus.inventoryItems[index];
 
         if (inventoryHolding.quantity > 0) {
 
@@ -411,7 +415,7 @@ uint8_t Player::getInventoryCount(Object type) {
 
     for (uint8_t index = 0; index < MAX_INVENTORY_ITEMS; index++) {
 
-        auto & inventoryHolding = this->inventoryItems[index];
+        auto & inventoryHolding = this->playerStatus.inventoryItems[index];
 
         if (inventoryHolding.type == type && inventoryHolding.quantity > 0) {
 
@@ -434,7 +438,7 @@ uint8_t Player::getActiveSlotCount() {
 
     for (uint8_t index = 0; index < MAX_INVENTORY_ITEMS; index++) {
 
-        auto & inventoryHolding = this->inventoryItems[index];
+        auto & inventoryHolding = this->playerStatus.inventoryItems[index];
 
         if (inventoryHolding.quantity > 0) {
 

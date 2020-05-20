@@ -501,7 +501,6 @@ void Game::playerMovement(GameMode gameMode) {
             y+=2;
             moving = true;
 
-
             if (walk == WalkType::Slow) {
                 player.decHealth(HEALTH_DEC_SPIDERS_WEB); 
             }
@@ -767,6 +766,11 @@ void Game::playerMovement(GameMode gameMode) {
 
             case MapTiles::Shop00 ... MapTiles::Shop05:
                 this->gameState = GameState::Shop;
+                break;
+
+            case MapTiles::SavePost:
+printf("SavePost\n");
+                this->cookie->saveCookie();
                 break;
 
             default:

@@ -97,7 +97,7 @@ class Game {
         void highScore();
         void showAltarPieceMessage();
         void showNeedRuneMessage();
-        void mixAltartPieces();
+        void mixAltarPieces();
 
         const uint8_t * getSegment(uint8_t segmentType, uint8_t segmentIndex);
         uint32_t printLevelSummary(uint8_t yOffset, uint16_t time);  // Returns points earnt in this level ..

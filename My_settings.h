@@ -12,7 +12,7 @@
 
 
 #define DEBUG
-#define _DEBUG_IDE
+#define DEBUG_IDE
 
 //--------------------------------------------
 // Confgurable Settings

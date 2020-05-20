@@ -3,6 +3,7 @@
 enum class GameMode : uint8_t {
     Normal,
     Help,
+    Restart,
 };
 
 enum class WalkType : uint8_t {
@@ -242,6 +243,7 @@ enum MapTiles {
     Altar04 = 94,
     Altar05 = 95,
     ClosedChest_Altar = 96,
+    SavePost = 97,
 };
 
 enum class ShopMessage : uint8_t {
