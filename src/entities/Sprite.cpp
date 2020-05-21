@@ -241,7 +241,7 @@ bool Sprite::isEnemy() {
         case Object::Hobgoblin:
         case Object::Cyclop:
         case Object::Bull:
-        case Object::Boss02:
+        case Object::Beholder:
         case Object::Boss04 ... Object::Boss05:
             return true;
 

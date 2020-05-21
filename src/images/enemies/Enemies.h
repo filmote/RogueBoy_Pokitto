@@ -174,7 +174,15 @@ namespace Images {
 
     #include "HealthBar.h"
 
-    #include "Pico8_42.h"
+    #include "beholder/Beholder_00_F0.h"
+    #include "beholder/Beholder_00_F1.h"
+    #include "beholder/Beholder_02_F0.h"
+    #include "beholder/Beholder_02_F1.h"
+    #include "beholder/Beholder_04_F0.h"
+    #include "beholder/Beholder_04_F1.h"
+    #include "beholder/Beholder_06_F0.h"
+    #include "beholder/Beholder_06_F1.h"
+
     #include "Pico8_44.h"
     #include "Pico8_45.h"
 
@@ -398,6 +406,25 @@ namespace Images {
         Bull_Dung_F3,
         Bull_Dung_F4,
         Bull_Dung_F5,
+    };
+
+    const uint8_t * const Beholder[] = { 
+        Beholder_00_F0,
+        Beholder_00_F1,
+        Beholder_00_F0,
+        Beholder_00_F1,
+        Beholder_02_F0,
+        Beholder_02_F1,
+        Beholder_02_F0,
+        Beholder_02_F1,
+        Beholder_04_F0,
+        Beholder_04_F1,
+        Beholder_04_F0,
+        Beholder_04_F1,
+        Beholder_06_F0,
+        Beholder_06_F1,
+        Beholder_06_F0,
+        Beholder_06_F1,
     };
 
     const uint8_t * const Necromancer_Spell[] = { 

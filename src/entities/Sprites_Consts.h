@@ -51,7 +51,7 @@ const uint8_t spriteWidths[] =  {
     10, /* Guide14 */
     10, /* Guide15 */
     24, /* Bull */
-    24, /* Boss02 */
+    24, /* Beholder */
     24, /* Cyclop */
     24, /* Boss04 */
     24, /* Boss05 */
@@ -99,7 +99,7 @@ const uint8_t spriteHeights[] = {
     12, /* Guide14 */
     12, /* Guide15 */
     24, /* Bull */
-    24, /* Boss02 */
+    24, /* Beholder */
     24, /* Cyclop */
     24, /* Boss04 */
     24, /* Boss05 */
@@ -147,8 +147,8 @@ const int8_t spriteOffsets[] = {
     -5, -6,  /* Guide13 */
     -5, -6,  /* Guide14 */
     -5, -6,  /* Guide15 */
-    -12, -12,  /* Boss1 */
-    -12, -12,  /* Boss2 */
+    -12, -12,  /* Bull */
+    -12, -12,  /* Beholder */
     -12, -12,  /* Cyclop */
     -12, -12,  /* Boss4 */
     -12, -12,  /* Boss5 */
@@ -195,8 +195,8 @@ const uint8_t object_DamamgeOnPlayer[] = {
     0,                      /* Guide13 */ 
     0,                      /* Guide14 */ 
     0,                      /* Guide15 */ 
-    HEALTH_DEC_BULL,        /* Boss01 */ 
-    HEALTH_DEC_BOSS,        /* Boss02 */ 
+    HEALTH_DEC_BULL,        /* Bull */ 
+    HEALTH_DEC_BOSS,        /* Beholder */ 
     HEALTH_DEC_CYCLOP,      /* Cyclop */ 
     HEALTH_DEC_BOSS,        /* Boss04 */ 
     HEALTH_DEC_BOSS,        /* Boss05 */ 
@@ -242,8 +242,8 @@ const char object_Desc_36[] = "Guide 12";
 const char object_Desc_37[] = "Guide 13";
 const char object_Desc_38[] = "Guide 14";
 const char object_Desc_39[] = "Guide 15";
-const char object_Desc_40[] = "Boss 01";
-const char object_Desc_41[] = "Boss 02";
+const char object_Desc_40[] = "Bull";
+const char object_Desc_41[] = "Beholder";
 const char object_Desc_42[] = "Cyclop";
 const char object_Desc_43[] = "Boss 04";
 const char object_Desc_44[] = "Boss 05";

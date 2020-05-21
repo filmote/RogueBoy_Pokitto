@@ -152,7 +152,7 @@ void Game::updateObjects(bool ignorePlayerDamage) {
                     case Object::Hobgoblin:
                     case Object::Cyclop:
                     case Object::Bull:
-                    case Object::Boss02:
+                    case Object::Beholder:
                     case Object::Boss04 ... Object::Boss05:
 
                         if (!ignorePlayerDamage) {
@@ -1497,7 +1497,7 @@ void Game::spriteAI(MapInformation &map, Player &player, Sprite &sprite) {
 
             break;
 
-        case Object::Boss02:   
+        case Object::Beholder:   
         case Object::Boss04 ... Object::Boss05:   
             {
                 if (sprite.getFrame() < 0) {
@@ -1638,7 +1638,7 @@ Direction Game::spriteAI_CheckForMove(MapInformation &map, Player &player, Sprit
 
                             break;
 
-                        case Object::Boss02:
+                        case Object::Beholder:
                         case Object::Boss04 ... Object::Boss05:
                             if (PC::frameCount % 8 == 0) {
                                 direction = this->spriteAI_UpdateEnemy(location, map, player, sprite);
@@ -1698,7 +1698,7 @@ Direction Game::spriteAI_CheckForMove(MapInformation &map, Player &player, Sprit
 
                         break;
 
-                    case Object::Boss02:
+                    case Object::Beholder:
                     case Object::Boss04 ... Object::Boss05:
                         if (PC::frameCount % 4 == 0) {
                             direction = this->spriteAI_UpdateEnemy(location, map, player, sprite);

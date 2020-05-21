@@ -245,9 +245,9 @@ void Sprites::renderSprite(Object type, int x, int y, int8_t xOffset, int8_t yOf
             }
             break;
 
-        case Object::Boss02:
+        case Object::Beholder:
             if (showEnemies) {
-                PD::drawBitmap(x + xOffset, y + yOffset, Images::Pico8_42); 
+                PD::drawBitmap(x + xOffset, y + yOffset, Images::Beholder[(static_cast<uint8_t>(direction) * 2) + frame]);  
                 if (renderHealth) { this->renderHealthBar(x + 6, y - 6, healthValue); }
             }
             break;

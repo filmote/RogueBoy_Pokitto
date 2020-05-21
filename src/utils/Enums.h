@@ -83,7 +83,7 @@ enum Object {
     Guide14 = 38,
     Guide15 = 39,
     Bull = 40,
-    Boss02 = 41,
+    Beholder = 41,
     Cyclop = 42,
     Boss04 = 43,
     Boss05 = 44,
