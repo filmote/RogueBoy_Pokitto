@@ -501,7 +501,6 @@ void Game::playerMovement(GameMode gameMode) {
             y+=2;
             moving = true;
 
-
             if (walk == WalkType::Slow) {
                 player.decHealth(HEALTH_DEC_SPIDERS_WEB); 
             }
@@ -769,6 +768,11 @@ void Game::playerMovement(GameMode gameMode) {
                 this->gameState = GameState::Shop;
                 break;
 
+            case MapTiles::SavePost:
+printf("SavePost Activated\n");
+                this->cookie->saveCookie();
+                break;
+
             default:
 
                 switch(direction) {
@@ -991,6 +995,12 @@ bool Game::interactWithBlock(int x, int y, MapTiles block) {
                 }
 
             }
+            return false;
+
+        case MapTiles::SavePost:
+            printf("saveCookie\n");
+            printf("items %i\n", this->player.getInventoryCount());
+            this->cookie->saveCookie();
             return false;
 
     }

@@ -15,8 +15,10 @@ namespace Images {
     #include "Score.h"
     #include "Start.h"
     #include "Help.h"
+    #include "Resume.h"
 
     const uint8_t * const Title_Modes[] = { 
+        Resume,
         Start,
         Score,
         Help,

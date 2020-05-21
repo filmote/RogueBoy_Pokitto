@@ -2,6 +2,7 @@
 
 #include "Pokitto.h"
 #include "PokittoCookie.h"
+#include "Structs.h"
 #include "Enums.h"
 
 class GameCookie : public Pokitto::Cookie {
@@ -12,6 +13,10 @@ class GameCookie : public Pokitto::Cookie {
         uint16_t score[5];
         uint8_t level[5];
 		char score_Char[5][3];
+
+        PlayerStatus playerStatus;
+        uint8_t levelNo = 0;
+        uint8_t definedMapLevel = 0;
 
 	public:
 
@@ -40,5 +45,31 @@ class GameCookie : public Pokitto::Cookie {
 			this->saveCookie();
 
 		}
+
+        void updateStatus(uint8_t level, uint8_t definedMapLevel, Player player) {
+
+            this->levelNo = level;
+            this->definedMapLevel = definedMapLevel;
+            this->playerStatus = player.getPlayerStatus();
+
+        }
+
+        uint8_t getLevel() {
+
+            return this->levelNo;
+            
+        }
+
+        uint8_t getDefinedMapLevel() {
+
+            return this->definedMapLevel;
+            
+        }
+
+        PlayerStatus getPlayerStatus() {
+
+            return this->playerStatus;
+            
+        }
 
 };
