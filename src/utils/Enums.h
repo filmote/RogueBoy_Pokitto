@@ -3,6 +3,7 @@
 enum class GameMode : uint8_t {
     Normal,
     Help,
+    Resume,
 };
 
 enum class WalkType : uint8_t {
@@ -12,6 +13,7 @@ enum class WalkType : uint8_t {
 };
 
 enum class TitleScreenMode : uint8_t {
+    Resume,
     Start,
     HighScore,
     Help
@@ -242,6 +244,7 @@ enum MapTiles {
     Altar04 = 94,
     Altar05 = 95,
     ClosedChest_Altar = 96,
+    SavePost = 97,
 };
 
 enum class ShopMessage : uint8_t {

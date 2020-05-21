@@ -10639,6 +10639,27 @@
 		},
 		"/ezgif-6-bc0faa5aa888.gif": {
 			"sdcard": false
+		},
+		"/src/images/enemies/bull/Bull_Dung_F4.h": {
+			"sdcard": false
+		},
+		"/src/images/enemies/bull/Bull_Dung_F4.png": {
+			"sdcard": false
+		},
+		"/src/images/enemies/bull/Bull_Dung_F5.h": {
+			"sdcard": false
+		},
+		"/src/images/enemies/bull/Bull_Dung_F5.png": {
+			"sdcard": false
+		},
+		"/src/images/title/Score copy.png": {
+			"sdcard": false
+		},
+		"/src/images/title/Resume.png": {
+			"sdcard": false
+		},
+		"/src/images/title/Resume.h": {
+			"sdcard": false
 		}
 	},
 	"BUILDFlags": {

@@ -96,6 +96,7 @@ namespace Images {
     #include "Tile_93.h"
     #include "Tile_94.h"
     #include "Tile_95.h"
+    #include "Tile_97.h"
     #include "CornerFillTL.h"
     #include "CornerFillTR.h"
     #include "CornerFillLL.h"
@@ -199,6 +200,7 @@ namespace Images {
     Tile_94,
     Tile_95,
     Tile_08, //96 is chest random same as 08.
+    Tile_97,
     };
 
 };

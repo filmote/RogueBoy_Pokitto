@@ -7,7 +7,6 @@ using PC = Pokitto::Core;
 using PD = Pokitto::Display;
 using PS = Pokitto::Sound;
 
-
 struct ShopObject {
 
     Object object;
@@ -111,3 +110,24 @@ static inline bool collide(Rect rect1, Rect rect2) {
                 rect2.y                >= rect1.y + rect1.height ||
                 rect2.y + rect2.height <= rect1.y);
 }
+
+
+struct PlayerStatus {
+
+    // uint16_t x;
+    // uint16_t y;
+    Direction direction;
+    int8_t health;
+    uint8_t coins;
+    uint8_t coinsOverall;
+    uint8_t kills;
+    bool moving;
+    uint8_t frame;
+    Object weapon = Object::FireBall;
+    uint32_t weaponCount;
+    int8_t puffIndex = 0;
+    uint8_t altarPieces = 0;
+
+    InventoryItem inventoryItems[MAX_INVENTORY_ITEMS];
+
+};

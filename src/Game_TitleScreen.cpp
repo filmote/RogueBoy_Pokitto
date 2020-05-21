@@ -35,7 +35,7 @@ void Game::updateMainMenu() {
 
     // Handle player actions ..
 
-    if (PC::buttons.pressed(BTN_UP) && this->titleScreenVars.mode > TitleScreenMode::Start) {
+    if (PC::buttons.pressed(BTN_UP) && (this->titleScreenVars.mode > TitleScreenMode::Start || (this->cookie->getLevel() != 255 && this->titleScreenVars.mode > TitleScreenMode::Resume))) {
 
         this->titleScreenVars.mode--;
         this->titleScreenVars.arrowCounter = -3;
@@ -56,6 +56,11 @@ void Game::updateMainMenu() {
     if (PC::buttons.pressed(BTN_A)) {
 
         switch (this->titleScreenVars.mode) {
+
+            case TitleScreenMode::Resume:
+                this->gameState = GameState::LoadMap;
+                this->gameMode = GameMode::Resume;
+                break;
 
             case TitleScreenMode::Start:
                 this->gameState = GameState::LoadMap;
@@ -102,7 +107,7 @@ void Game::updateMainMenu() {
         PD::drawBitmap(22, 32, Images::Eyes_Open);
     }
 
-    PD::drawBitmap(74, 74, Images::Title_Modes[static_cast<uint8_t>(this->titleScreenVars.mode)]);
+    PD::drawBitmap(70 + (static_cast<uint8_t>(this->titleScreenVars.mode) > 0 ? 4 : 0), 74, Images::Title_Modes[static_cast<uint8_t>(this->titleScreenVars.mode)]);
     PD::drawBitmap(22, 56 + orbOffset[this->titleScreenVars.orbCounter], Images::Orb);
 
 }

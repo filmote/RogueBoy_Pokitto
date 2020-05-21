@@ -29,6 +29,7 @@ class Player {
         Object getWeapon();
         int8_t getPuffIndex();
         uint8_t getAltarPieces();
+        PlayerStatus getPlayerStatus();
 
         void setX(uint16_t x);
         void setY(uint16_t y);
@@ -40,6 +41,7 @@ class Player {
         void setFrame(uint8_t frame);
         void setMoving(bool moving);
         void setWeapon(Object weapon);
+        void setPlayerStatus(PlayerStatus playerStatus);
 
         void incFrame();
         void incCoins(uint8_t coins);
@@ -70,21 +72,8 @@ class Player {
         uint8_t getActiveSlotCount();
 
     private:
-
         uint16_t x;
         uint16_t y;
-        Direction direction;
-        int8_t health;
-        uint8_t coins;
-        uint8_t coinsOverall;
-        uint8_t kills;
-        bool moving;
-        uint8_t frame;
-        Object weapon = Object::FireBall;
-        uint32_t weaponCount;
-        int8_t puffIndex = 0;
-        uint8_t altarPieces = 0;
-
-        InventoryItem inventoryItems[MAX_INVENTORY_ITEMS];
+        PlayerStatus playerStatus;
 
 };
