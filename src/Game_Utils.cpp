@@ -182,24 +182,21 @@ void Game::playSoundEffect(SoundEffect soundEffect) {
 
         case SoundEffect::CannotPickUp:
             {
-                auto &music = Audio::play<1>(Sounds::sfx_CannotPickUp);
-                //music.setLoop(false);
+                Audio::play<1>(Sounds::sfx_CannotPickUp);
             }
 
             break;
 
         case SoundEffect::PickUpCoin:
             {
-                auto &music = Audio::play<1>(Sounds::sfx_PickUpCoin);
-                //music.setLoop(false);
+                Audio::play<1>(Sounds::sfx_PickUpCoin);
             }
 
             break;
 
         case SoundEffect::Death1:
             {
-                auto &music = Audio::play<1>(Sounds::sfx_Death1);
-                //music.setLoop(false);
+                Audio::play<1>(Sounds::sfx_Death1);
             }
 
             break;

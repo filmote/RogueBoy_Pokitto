@@ -11,11 +11,11 @@ void Game::setup(GameCookie *cookie) {
     this->cookie = cookie;
     this->splashScreenVariables.buttonCounter = 16;
     map.setLevel(0);
-printf("setup\n");
-    if (mainThemeFile.openRO("music/darkrit1.raw")){
+
+    if (mainThemeFile.openRO("music/darkrit1.raw")) {
         auto& music = Audio::play<2>(mainThemeFile);
         music.setLoop(true);
-    } 
+    }
 
 }
 

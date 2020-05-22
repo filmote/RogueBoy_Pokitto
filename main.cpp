@@ -9,6 +9,7 @@ using PD = Pokitto::Display;
 
 Game game;
 GameCookie cookie;
+File mainThemeFile;
 
 Audio::Sink<4, PROJ_AUD_FREQ> audio;
 
@@ -37,6 +38,12 @@ void init() {
     srand(time(0));
 
     game.setup(&cookie);
+
+
+    // if (mainThemeFile.openRO("music/darkrit1.raw")) {
+    //     auto& music = Audio::play<2>(mainThemeFile);
+    //     music.setLoop(true);
+    // } 
 
 }
 
