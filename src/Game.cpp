@@ -3,15 +3,18 @@
 
 using PC = Pokitto::Core;
 using PD = Pokitto::Display;
-using PS = Pokitto::Sound;
 
 
-void Game::setup(GameCookie *cookie) { 
+
+void Game::setup(GameCookie *cookie/*, Audio::Sink<4, PROJ_AUD_FREQ> *audio*/) { 
     
     this->cookie = cookie;
+//    this->audio = audio;
     this->splashScreenVariables.buttonCounter = 16;
     map.setLevel(0);
-    PS::playMusicStream("music/darkrit1.raw", 0);
+
+    auto music = Audio::play<0>("music/darkrit1.raw"); 
+    if (music) music->setLoop(true);
     
 }
 

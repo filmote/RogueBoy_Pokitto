@@ -3,7 +3,7 @@
 
 using PC = Pokitto::Core;
 using PD = Pokitto::Display;
-using PS = Pokitto::Sound;
+
 
 #define SHOP_ITEMS_TOP          2
 #define SHOP_ITEMS_SPACING      13
@@ -24,7 +24,7 @@ void Game::showShop() {
         player.setHealth(0); 
      
         if (player.getHealth() <= 0) {
-            //PS::playSFX(Sounds::sfx_Death5, Sounds::sfx_Death5_length); 
+            ////aPS::playSFX(Sounds::sfx_Death5, Sounds::sfx_Death5_length); 
             gameState = GameState::Dead;
 
         }

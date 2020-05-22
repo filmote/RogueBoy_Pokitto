@@ -4,7 +4,7 @@
 
 using PC = Pokitto::Core;
 using PD = Pokitto::Display;
-using PS = Pokitto::Sound;
+
 
 
 void Game::showInventory() {
@@ -20,7 +20,7 @@ void Game::showInventory() {
         player.setHealth(0); 
      
         if (player.getHealth() <= 0) {
-            //PS::playSFX(Sounds::sfx_Death5, Sounds::sfx_Death5_length); 
+            ////aPS::playSFX(Sounds::sfx_Death5, Sounds::sfx_Death5_length); 
             gameState = GameState::Dead;
 
         }
@@ -182,7 +182,7 @@ void Game::showInventory() {
                                                     //sound health going up
                                                 }
                                                 else {
-                                                    PS::playSFX(Sounds::sfx_CannotPickUp, Sounds::sfx_CannotPickUp_length);
+                                                    Audio::play<1>(Sounds::sfx_CannotPickUp);
                                                 }
                                                 break;
                         
@@ -194,7 +194,7 @@ void Game::showInventory() {
                                                     //sound health going up
                                                 }
                                                 else {
-                                                    PS::playSFX(Sounds::sfx_CannotPickUp, Sounds::sfx_CannotPickUp_length);
+                                                    Audio::play<1>(Sounds::sfx_CannotPickUp);
                                                 }
                                                 break;
                         
@@ -206,7 +206,7 @@ void Game::showInventory() {
                                                     //sound health going up
                                                 }
                                                 else {
-                                                    PS::playSFX(Sounds::sfx_CannotPickUp, Sounds::sfx_CannotPickUp_length);
+                                                    Audio::play<1>(Sounds::sfx_CannotPickUp);
                                                 }
                                                 break;
                         

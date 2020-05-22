@@ -1,12 +1,13 @@
 #pragma once
 
 #include "Pokitto.h"
+#include <LibAudio>
 #include "../utils/Enums.h"
 #include "Sprites_Consts.h"
 
 using PC = Pokitto::Core;
 using PD = Pokitto::Display;
-using PS = Pokitto::Sound;
+
 
 
 class Sprite {

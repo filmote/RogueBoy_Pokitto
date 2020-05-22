@@ -10918,6 +10918,9 @@
 		},
 		"/src/images/puzzle/Puzzle_Cursor.png": {
 			"sdcard": false
+		},
+		"/src/sounds/OpenChest0.raw": {
+			"sdcard": false
 		}
 	},
 	"BUILDFlags": {

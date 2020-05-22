@@ -3,7 +3,7 @@
 
 using PC = Pokitto::Core;
 using PD = Pokitto::Display;
-using PS = Pokitto::Sound;
+
 
 #define NOTHING                      0
 #define CONNECTOR_HORIZONTAL_LR           1

@@ -173,7 +173,7 @@ void Sprite::decHealth(Object weapon) {
 
     if (this->health <= 0) {
         this->active = false; 
-        PS::playSFX(Sounds::sfx_Death3, Sounds::sfx_Death3_length);
+        Audio::play<1>(Sounds::sfx_Death3);
     }
 
     this->renderHealthBar = HEALTH_BAR_DELAY;

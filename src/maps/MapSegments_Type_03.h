@@ -5,7 +5,7 @@
 
 using PC = Pokitto::Core;
 using PD = Pokitto::Display;
-using PS = Pokitto::Sound;
+
 
 
 /* -------------------------------------------------------------------------------------
@@ -62,7 +62,7 @@ const uint8_t MAP_Segment_Type03_00[] = {
 
     // Entrance / Exit Options -----------
     2,
-    2,4,
+    4,4,
     4,4,
 
 };

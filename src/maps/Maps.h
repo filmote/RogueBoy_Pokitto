@@ -1130,4 +1130,4 @@ constexpr const uint8_t Map_Training[] =
 
 constexpr const uint8_t numberOfMaps = 28;
 
-constexpr const uint8_t* maps[numberOfMaps] = { Junk,Bosses,MAP_01,MAP_02,MAP_03,MAP_04,MAP_05,Map_06_Shop,MAP_07,MAP_08,MAP_09,MAP_10,MAP_11,Map_12_Shop,Map_13,MAP_14,MAP_15,MAP_16,MAP_17,Map_18_Shop,Map_19,MAP_20,MAP_21,Map_22,Map_23,Map_24,Map_25_Altar,Map_Training, };
+constexpr const uint8_t* maps[numberOfMaps] = { MAP_01,MAP_02,MAP_03,MAP_04,MAP_05,Map_06_Shop,MAP_07,MAP_08,MAP_09,MAP_10,MAP_11,Map_12_Shop,Map_13,MAP_14,MAP_15,MAP_16,MAP_17,Map_18_Shop,Map_19,MAP_20,MAP_21,Map_22,Map_23,Map_24,Map_25_Altar,Map_Training,Junk,Bosses, };

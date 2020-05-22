@@ -1,6 +1,8 @@
 #pragma once
 
 #include "Pokitto.h"
+#include <LibAudio>
+
 #include "utils/Enums.h"
 #include "utils/Structs.h"
 #include "images/Images.h"
@@ -36,6 +38,7 @@ class Game {
     
     public:
 
+//        void setup(GameCookie *cookie, Audio::Sink<4, PROJ_AUD_FREQ> *audio);
         void setup(GameCookie *cookie);
         void loop();
 
@@ -174,6 +177,7 @@ class Game {
         TitleScreenVars titleScreenVars;
 
         GameCookie *cookie;
+//        Audio::Sink<4, PROJ_AUD_FREQ> *audio;
 
         ShopObject shopObjects[9] = {
             { Object::Bread, 6, 2 },

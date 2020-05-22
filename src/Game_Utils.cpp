@@ -3,7 +3,7 @@
 
 using PC = Pokitto::Core;
 using PD = Pokitto::Display;
-using PS = Pokitto::Sound;
+
 
 void Game::init(uint16_t x, uint16_t y, bool resetObjects) {
 

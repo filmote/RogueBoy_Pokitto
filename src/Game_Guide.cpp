@@ -3,7 +3,7 @@
 
 using PC = Pokitto::Core;
 using PD = Pokitto::Display;
-using PS = Pokitto::Sound;
+
 
 constexpr const char message01_01[] = "Dark Ritual";
 constexpr const char message01_02[] = "";
