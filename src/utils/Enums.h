@@ -1,5 +1,13 @@
 #pragma once
 
+enum class SoundEffect : uint8_t {
+    LeverPull,
+    OpenChest,
+    CannotPickUp,
+    PickUpCoin,
+    Death1
+};
+
 enum class GameMode : uint8_t {
     Normal,
     Help,

@@ -19,25 +19,12 @@ void init() {
 
     cookie.begin("DarkRit", sizeof(cookie), (char*)&cookie);
 
-    PC::begin();
     PD::loadRGBPalette(palettePico);   
     PD::persistence = true;
     PD::setColor(5);
     PD::setInvisibleColor(14);
     PC::setFrameRate(30);
     PD::setFont(fontKoubit);
-
-    // #if POK_HIGH_RAM == HIGH_RAM_MUSIC
-    // memset(buffers[0], 128, BUFFER_SIZE);
-    // memset(buffers[1], 128, BUFFER_SIZE);
-    // memset(buffers[2], 128, BUFFER_SIZE);
-    // memset(buffers[3], 128, BUFFER_SIZE);
-    // #else
-    // memset(&(buffers[0]), 128, BUFFER_SIZE);
-    // memset(&(buffers[1]), 128, BUFFER_SIZE);
-    // memset(&(buffers[2]), 128, BUFFER_SIZE);
-    // memset(&(buffers[3]), 128, BUFFER_SIZE);
-    // #endif
 
     if (cookie.initialised != COOKIE_INITIALISED) {
 
@@ -49,7 +36,6 @@ void init() {
     
     srand(time(0));
 
-//    game.setup(&cookie, &audio);
     game.setup(&cookie);
 
 }
@@ -57,8 +43,12 @@ void init() {
 
 void update() {
 
-//    PC::sound.updateStream();
     game.loop();
 
 }
 //https://felipemanga.github.io/PokittoEmu/?url=https://github.com/filmote/RogueBoy_Pokitto/raw/master/RogueBoy_Pokitto.bin
+/*
+2 LeverPull.raw
+3 OpenChest.raw
+4 PickUpCoin.raw
+*/

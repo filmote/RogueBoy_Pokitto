@@ -10921,6 +10921,36 @@
 		},
 		"/src/sounds/OpenChest0.raw": {
 			"sdcard": false
+		},
+		"/aaa.bin": {
+			"sdcard": false
+		},
+		"/music/OpenChest.wav": {
+			"sdcard": false
+		},
+		"/music/LeverPull.wav": {
+			"sdcard": false
+		},
+		"/music/PickUpCoin.wav": {
+			"sdcard": false
+		},
+		"/music/LeverPull.raw": {
+			"sdcard": false
+		},
+		"/music/OpenChest.raw": {
+			"sdcard": false
+		},
+		"/music/PickUpCoin.raw": {
+			"sdcard": false
+		},
+		"/music/darkrit2.raw": {
+			"sdcard": true
+		},
+		"/music/darkrit3.raw": {
+			"sdcard": true
+		},
+		"/music/darkrit4.raw": {
+			"sdcard": true
 		}
 	},
 	"BUILDFlags": {

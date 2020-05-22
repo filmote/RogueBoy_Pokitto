@@ -156,3 +156,56 @@ Direction Game::getNearestCardinalDirection(Direction direction, Axis axis) {
     return Direction::Up;
 
 }
+
+
+void Game::playSoundEffect(SoundEffect soundEffect) {
+
+    switch (soundEffect) {
+
+        case SoundEffect::LeverPull:
+            
+            if (soundEffectFile.openRO("music/darkrit2.raw")){
+                auto &music = Audio::play<2>(soundEffectFile);
+                music.setLoop(false);
+            } 
+            
+            break;
+
+        case SoundEffect::OpenChest:
+            
+            if (soundEffectFile.openRO("music/darkrit3.raw")){
+                auto &music = Audio::play<2>(soundEffectFile);
+                music.setLoop(false);
+            } 
+            
+            break;
+
+        case SoundEffect::CannotPickUp:
+            {
+                auto &music = Audio::play<1>(Sounds::sfx_CannotPickUp);
+                //music.setLoop(false);
+            }
+
+            break;
+
+        case SoundEffect::PickUpCoin:
+            {
+                auto &music = Audio::play<1>(Sounds::sfx_PickUpCoin);
+                //music.setLoop(false);
+            }
+
+            break;
+
+        case SoundEffect::Death1:
+            {
+                auto &music = Audio::play<1>(Sounds::sfx_Death1);
+                //music.setLoop(false);
+            }
+
+            break;
+
+
+    }
+
+}
+

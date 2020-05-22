@@ -6,16 +6,17 @@ using PD = Pokitto::Display;
 
 
 
-void Game::setup(GameCookie *cookie/*, Audio::Sink<4, PROJ_AUD_FREQ> *audio*/) { 
+void Game::setup(GameCookie *cookie) { 
     
     this->cookie = cookie;
-//    this->audio = audio;
     this->splashScreenVariables.buttonCounter = 16;
     map.setLevel(0);
+printf("setup\n");
+    if (mainThemeFile.openRO("music/darkrit1.raw")){
+        auto& music = Audio::play<2>(mainThemeFile);
+        music.setLoop(true);
+    } 
 
-    auto music = Audio::play<0>("music/darkrit1.raw"); 
-    if (music) music->setLoop(true);
-    
 }
 
 void Game::loop(void) {

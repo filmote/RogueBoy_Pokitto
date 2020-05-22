@@ -38,7 +38,6 @@ class Game {
     
     public:
 
-//        void setup(GameCookie *cookie, Audio::Sink<4, PROJ_AUD_FREQ> *audio);
         void setup(GameCookie *cookie);
         void loop();
 
@@ -103,6 +102,7 @@ class Game {
         void showNeedRuneMessage();
         void mixAltarPieces();
         void highScoreOrNot(uint8_t pts);
+        void playSoundEffect(SoundEffect soundEffect);
 
         const uint8_t * getSegment(uint8_t segmentType, uint8_t segmentIndex);
         uint32_t printLevelSummary(uint8_t yOffset, uint16_t time);  // Returns points earnt in this level ..
@@ -177,7 +177,9 @@ class Game {
         TitleScreenVars titleScreenVars;
 
         GameCookie *cookie;
-//        Audio::Sink<4, PROJ_AUD_FREQ> *audio;
+
+        File mainThemeFile;
+        File soundEffectFile;
 
         ShopObject shopObjects[9] = {
             { Object::Bread, 6, 2 },

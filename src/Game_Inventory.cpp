@@ -182,7 +182,7 @@ void Game::showInventory() {
                                                     //sound health going up
                                                 }
                                                 else {
-                                                    Audio::play<1>(Sounds::sfx_CannotPickUp);
+                                                    playSoundEffect(SoundEffect::CannotPickUp);
                                                 }
                                                 break;
                         
@@ -194,7 +194,7 @@ void Game::showInventory() {
                                                     //sound health going up
                                                 }
                                                 else {
-                                                    Audio::play<1>(Sounds::sfx_CannotPickUp);
+                                                    playSoundEffect(SoundEffect::CannotPickUp);
                                                 }
                                                 break;
                         
@@ -206,7 +206,7 @@ void Game::showInventory() {
                                                     //sound health going up
                                                 }
                                                 else {
-                                                    Audio::play<1>(Sounds::sfx_CannotPickUp);
+                                                    playSoundEffect(SoundEffect::CannotPickUp);
                                                 }
                                                 break;
                         
