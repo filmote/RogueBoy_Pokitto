@@ -116,7 +116,7 @@ enum class GameState : uint8_t {
     Settings, 
     Game, 
     LoadMap,
-    GameOver, 
+//  GameOver, 
     EndOfLevel, 
     Dead, 
     WinState,
@@ -126,7 +126,11 @@ enum class GameState : uint8_t {
     HighScore,
     AltarPieceAchieved,
     Guide,
-    NeedRune
+    NeedRune,
+    Puzzle_Init_Game,
+    Puzzle_No_Selection,
+    Puzzle_Node_Selected,
+    Puzzle_Game_Over,
 };
 
 enum class Direction : uint8_t {

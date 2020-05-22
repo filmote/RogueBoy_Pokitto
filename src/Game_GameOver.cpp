@@ -26,54 +26,7 @@ void Game::death() {
 
     if (PC::buttons.pressed(BTN_A) || PC::buttons.pressed(BTN_B)) {
 
-
-        // Work out whether we have a high score or not?
-
-        uint8_t i = 0;
-        bool found = false;
-
-        for (i = 0; i < 5; i++) {
-
-            if (this->cookie->score[i] < this->points + pts) {
-                
-                found = true;
-                break;
-
-            }
-
-        }
-
-        if (found) {
-
-            for (int8_t j = 3; j >= i; j--) {
-
-                this->cookie->score[j + 1] = this->cookie->score[j];
-                this->cookie->level[j + 1] = this->cookie->level[j];
-                this->cookie->score_Char[j + 1][0] = this->cookie->score_Char[j][0];
-                this->cookie->score_Char[j + 1][1] = this->cookie->score_Char[j][1];
-                this->cookie->score_Char[j + 1][2] = this->cookie->score_Char[j][2];
-
-            }
-
-            this->highScoreVariables.charIdx = 0;
-            this->highScoreVariables.entryIdx = i;
-
-            this->cookie->score_Char[i][0] = 'A';
-            this->cookie->score_Char[i][1] = 'A';
-            this->cookie->score_Char[i][2] = 'A';
-            this->cookie->score[i] = static_cast<uint16_t>(this->points + pts);
-            this->cookie->level[i] = static_cast<uint8_t>(map.getLevel());
-
-        }
-        else {
-
-            this->highScoreVariables.entryIdx = 255;
-            // this->cookie->levelNo = 255;
-            // this->cookie->saveCookie();
-
-        }
-
-
+        this->highScoreOrNot(pts);
         //sound.noTone(); 
         gameState = GameState::HighScore; 
 
@@ -125,5 +78,55 @@ uint32_t Game::printLevelSummary(uint8_t yOffset, uint16_t timer) {
     this->printPaddedNumber(this->points + pts, 4);
 
     return pts;
+
+}
+
+void Game::highScoreOrNot(uint8_t pts) {
+
+    // Work out whether we have a high score or not?
+
+    uint8_t i = 0;
+    bool found = false;
+
+    for (i = 0; i < 5; i++) {
+
+        if (this->cookie->score[i] < this->points + pts) {
+            
+            found = true;
+            break;
+
+        }
+
+    }
+
+    if (found) {
+
+        for (int8_t j = 3; j >= i; j--) {
+
+            this->cookie->score[j + 1] = this->cookie->score[j];
+            this->cookie->level[j + 1] = this->cookie->level[j];
+            this->cookie->score_Char[j + 1][0] = this->cookie->score_Char[j][0];
+            this->cookie->score_Char[j + 1][1] = this->cookie->score_Char[j][1];
+            this->cookie->score_Char[j + 1][2] = this->cookie->score_Char[j][2];
+
+        }
+
+        this->highScoreVariables.charIdx = 0;
+        this->highScoreVariables.entryIdx = i;
+
+        this->cookie->score_Char[i][0] = 'A';
+        this->cookie->score_Char[i][1] = 'A';
+        this->cookie->score_Char[i][2] = 'A';
+        this->cookie->score[i] = static_cast<uint16_t>(this->points + pts);
+        this->cookie->level[i] = static_cast<uint8_t>(map.getLevel());
+
+    }
+    else {
+
+        this->highScoreVariables.entryIdx = 255;
+        // this->cookie->levelNo = 255;
+        // this->cookie->saveCookie();
+
+    }
 
 }

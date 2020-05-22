@@ -768,6 +768,11 @@ void Game::playerMovement(GameMode gameMode) {
                 this->gameState = GameState::Shop;
                 break;
 
+            case MapTiles::Altar00 ... MapTiles::Altar05:
+printf("Altar Activated 1 not used\n");            
+                this->gameState = GameState::Puzzle_Init_Game;
+                break;
+
             case MapTiles::SavePost:
 printf("SavePost Activated\n");
                 this->cookie->saveCookie();
@@ -825,7 +830,7 @@ bool Game::interactWithBlock(int x, int y, MapTiles block) {
         case MapTiles::ClosedChest_Key: 
             {
                 this->map.setBlock(x, y, MapTiles::OpenChest); 
-                PS::playSFX(Sounds::sfx_OpenChest, Sounds::sfx_OpenChest_length);
+                //PS::playSFX(Sounds::sfx_OpenChest, Sounds::sfx_OpenChest_length);
 
 
 
@@ -849,7 +854,7 @@ bool Game::interactWithBlock(int x, int y, MapTiles block) {
         case MapTiles::ClosedChest_Killer: 
             {
                 this->map.setBlock(x, y, MapTiles::OpenChest); 
-                PS::playSFX(Sounds::sfx_OpenChest, Sounds::sfx_OpenChest_length);
+                //PS::playSFX(Sounds::sfx_OpenChest, Sounds::sfx_OpenChest_length);
 
 
                 // Find a matching Object in the sprites collecion that is disabled, otherwise add one ..
@@ -875,7 +880,7 @@ bool Game::interactWithBlock(int x, int y, MapTiles block) {
         case MapTiles::ClosedChest_Random: 
             {
                 this->map.setBlock(x, y, MapTiles::OpenChest); 
-                PS::playSFX(Sounds::sfx_OpenChest, Sounds::sfx_OpenChest_length);
+                //PS::playSFX(Sounds::sfx_OpenChest, Sounds::sfx_OpenChest_length);
 
                 // random
 
@@ -919,7 +924,7 @@ bool Game::interactWithBlock(int x, int y, MapTiles block) {
             {
                 this->map.setHasRune(false);
                 this->map.setBlock(x, y, MapTiles::OpenChest); 
-                PS::playSFX(Sounds::sfx_OpenChest, Sounds::sfx_OpenChest_length);
+                //PS::playSFX(Sounds::sfx_OpenChest, Sounds::sfx_OpenChest_length);
 
                 this->player.incAltarPieces();
                 this->gameState = GameState::AltarPieceAchieved;
@@ -932,7 +937,7 @@ bool Game::interactWithBlock(int x, int y, MapTiles block) {
             if (this->player.getInventoryCount(Object::Key) > 0) {
                 this->map.setBlock(x, y, MapTiles::OpenDoor); 
                 this->player.decInventoryItem(Object::Key);
-                PS::playSFX(Sounds::sfx_OpenChest, Sounds::sfx_OpenChest_length);
+                //PS::playSFX(Sounds::sfx_OpenChest, Sounds::sfx_OpenChest_length);
                 return true;
             } 
             else {
@@ -945,7 +950,7 @@ bool Game::interactWithBlock(int x, int y, MapTiles block) {
             if (this->player.getInventoryCount(Object::Key) > 0) {
                 this->map.setBlock(x, y, static_cast<MapTiles>(block + MapTiles::DoorLHSOpen - MapTiles::DoorLHS)); 
                 this->player.decInventoryItem(Object::Key);
-                PS::playSFX(Sounds::sfx_OpenChest, Sounds::sfx_OpenChest_length);
+                //PS::playSFX(Sounds::sfx_OpenChest, Sounds::sfx_OpenChest_length);
                 return true;
             } 
             else {
@@ -958,7 +963,7 @@ bool Game::interactWithBlock(int x, int y, MapTiles block) {
             if (this->player.getInventoryCount(Object::Key) > 0) {
                 this->map.setBlock(x, y, MapTiles::DownStairs); 
                 this->player.decInventoryItem(Object::Key);
-                PS::playSFX(Sounds::sfx_OpenChest, Sounds::sfx_OpenChest_length);
+                //PS::playSFX(Sounds::sfx_OpenChest, Sounds::sfx_OpenChest_length);
             } 
             else {
                 PS::playSFX(Sounds::sfx_CannotPickUp, Sounds::sfx_CannotPickUp_length);
@@ -1002,6 +1007,11 @@ bool Game::interactWithBlock(int x, int y, MapTiles block) {
             printf("items %i\n", this->player.getInventoryCount());
             this->cookie->saveCookie();
             return false;
+
+        case MapTiles::Altar00 ... MapTiles::Altar05:
+        printf("Altar Activated 2\n");            
+            this->gameState = GameState::Puzzle_Init_Game;
+            break;
 
     }
 

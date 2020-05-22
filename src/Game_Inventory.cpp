@@ -501,6 +501,13 @@ void Game::showInventory() {
             PD::drawBitmap(50, 43, this->player.getAltarPieces() >= 5 ? Images::Rune_Red_04 : Images::Rune_Grey_04);
             PD::drawBitmap(67, 43, this->player.getAltarPieces() >= 6 ? Images::Rune_Red_05 : Images::Rune_Grey_05);
 
+            // PD::drawBitmap(25 + (this->player.getAltarPieces() < 1 ? 8 : 0), 7 + (this->player.getAltarPieces() < 1 ? 8 : 0), this->player.getAltarPieces() >= 1 ? Images::Rune_Red_00 : Images::Rune_Grey_00);
+            // PD::drawBitmap(42 + (this->player.getAltarPieces() < 2 ? 8 : 0), 7 + (this->player.getAltarPieces() < 2 ? 8 : 0), this->player.getAltarPieces() >= 2 ? Images::Rune_Red_01 : Images::Rune_Grey_01);
+            // PD::drawBitmap(59 + (this->player.getAltarPieces() < 3 ? 8 : 0), 7 + (this->player.getAltarPieces() < 3 ? 8 : 0), this->player.getAltarPieces() >= 3 ? Images::Rune_Red_02 : Images::Rune_Grey_02);
+            // PD::drawBitmap(25 + (this->player.getAltarPieces() < 4 ? 8 : 0), 35 + (this->player.getAltarPieces() < 4 ? 8 : 0), this->player.getAltarPieces() >= 4 ? Images::Rune_Red_03 : Images::Rune_Grey_03);
+            // PD::drawBitmap(42 + (this->player.getAltarPieces() < 5 ? 8 : 0), 35 + (this->player.getAltarPieces() < 5 ? 8 : 0), this->player.getAltarPieces() >= 5 ? Images::Rune_Red_04 : Images::Rune_Grey_04);
+            // PD::drawBitmap(59 + (this->player.getAltarPieces() < 6 ? 8 : 0), 35 + (this->player.getAltarPieces() < 6 ? 8 : 0), this->player.getAltarPieces() >= 6 ? Images::Rune_Red_05 : Images::Rune_Grey_05);
+
             break;
 
 

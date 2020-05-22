@@ -143,7 +143,7 @@ void Game::nextLevelLoad(GameMode gameMode) {
     }
 
     if (map.getLevel() < (numberOfMaps * 2) - 1) {
-//printf("random level %i \n", this->map.getRandomLevel());
+
         if (this->map.getRandomLevel()) {
 
             uint8_t randomLevel = random(this->map.getRandomLow(), this->map.getRandomLow() + 4);

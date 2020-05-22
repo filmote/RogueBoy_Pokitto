@@ -74,6 +74,22 @@ void Game::loop(void) {
             showNeedRuneMessage();
             break;
 
+        case GameState::Puzzle_Init_Game:
+            play_InitGame();
+            break;
+
+        case GameState::Puzzle_No_Selection:
+            play_NoSelection();
+            break;
+
+        case GameState::Puzzle_Node_Selected:
+            play_NodeSelected();
+            break;
+
+        case GameState::Puzzle_Game_Over:
+            puzzleGameOver();
+            break;
+
         #ifdef DEBUG
             case GameState::MapDetails:  
                 mapDetails(); 

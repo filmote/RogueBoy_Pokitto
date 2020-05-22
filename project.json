@@ -10915,6 +10915,255 @@
 		},
 		"\\src\\images\\enemies\\beholder\\Beholder_04_F1.h": {
 			"sdcard": false
+		},
+		"\\src\\Game_AltarPiecePuzzle.cpp": {
+			"sdcard": false
+		},
+		"\\src\\images\\connectors": {
+			"sdcard": false
+		},
+		"\\src\\images\\connectors\\Connectors.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\connectors\\Connector_Corner_BL.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\connectors\\Connector_Corner_BL.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\connectors\\Connector_Corner_BR.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\connectors\\Connector_Corner_TL.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\connectors\\Connector_Corner_BR.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\connectors\\Connector_Corner_TL.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\connectors\\Connector_Corner_TR.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\connectors\\Connector_Corner_TR.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\connectors\\Connector_Horizontal.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\connectors\\Connector_Horizontal.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\connectors\\Connector_Nothing.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\connectors\\Connector_Nothing.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\connectors\\Connector_Vertical.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\connectors\\Connector_Vertical.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\nodes": {
+			"sdcard": false
+		},
+		"\\src\\images\\nodes\\Node1.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\nodes\\Node1.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\nodes\\Node10.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\nodes\\Node10.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\nodes\\Node2.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\nodes\\Node2.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\nodes\\Node3.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\nodes\\Node3.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\nodes\\Node4.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\nodes\\Node4.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\nodes\\Node5.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\nodes\\Node5.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\nodes\\Node6.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\nodes\\Node6.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\nodes\\Node7.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\nodes\\Node7.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\nodes\\Node8.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\nodes\\Node8.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\nodes\\Node9.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\nodes\\Node9.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\nodes\\Nodes.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\nodes\\Puffs.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\DR_LastPuzzle_Preview.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\DR_SacredBook_BG.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\New folder": {
+			"sdcard": false
+		},
+		"\\src\\images\\puzzle": {
+			"sdcard": false
+		},
+		"\\src\\images\\puzzle\\DR_LastPuzzle_Preview.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\puzzle\\DR_SacredBook_BG - Copy.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\puzzle\\Puzzle_Border_TOP.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\puzzle\\Puzzle_Border_BOT.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\puzzle\\Puzzle_Border_LHS.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\puzzle\\Puzzle_Border_RHS.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\puzzle\\Puzzle_Cell_Background.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\puzzle\\Puffs.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\puzzle\\PuzzleImages.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\puzzle\\DR_LastPuzzle_Preview.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\puzzle\\Puzzle_Border_TOP.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\puzzle\\Puzzle_Border_BOT.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\puzzle\\Puzzle_Border_LHS.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\puzzle\\Puzzle_Border_RHS.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\puzzle\\Puzzle_Cell_Background.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\puzzle\\Puzzle_Cursor.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\puzzle\\Puzzle_Cursor.h": {
+			"sdcard": false
+		},
+		"\\src\\maps\\Puzzles.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\nodes\\Node1 - Copy.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\altar\\New folder": {
+			"sdcard": false
+		},
+		"\\src\\images\\altar\\Larger": {
+			"sdcard": false
+		},
+		"\\src\\images\\altar\\Large": {
+			"sdcard": false
+		},
+		"\\src\\images\\altar\\Large\\Rune_Red_05.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\altar\\Large\\Rune_Red_00.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\altar\\Large\\Rune_Red_01.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\altar\\Large\\Rune_Red_02.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\altar\\Large\\Rune_Red_03.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\altar\\Large\\Rune_Red_04.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\altar\\Large\\Rune_Red_05.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\altar\\Large\\Rune_Red_00.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\altar\\Large\\Rune_Red_01.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\altar\\Large\\Rune_Red_02.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\altar\\Large\\Rune_Red_03.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\altar\\Large\\Rune_Red_04.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\altar\\Large\\Rune_Red_00a.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\altar\\Large\\Rune_Red_01a.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\altar\\Large\\Rune_Red_02a.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\altar\\Large\\Rune_Red_03a.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\altar\\Large\\Rune_Red_04a.png": {
+			"sdcard": false
 		}
 	},
 	"BUILDFlags": {

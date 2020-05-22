@@ -24,6 +24,7 @@
 #include "maps/MapSegments_Type_14.h"
 #include "maps/MapSegments_Type_15.h"
 
+#include "maps/Puzzles.h"
 #include "maps/Maps.h"
 #include "maps/Maps_Help.h"
 #include "maps/MapRandom.h"
@@ -98,9 +99,36 @@ class Game {
         void showAltarPieceMessage();
         void showNeedRuneMessage();
         void mixAltarPieces();
+        void highScoreOrNot(uint8_t pts);
 
         const uint8_t * getSegment(uint8_t segmentType, uint8_t segmentIndex);
         uint32_t printLevelSummary(uint8_t yOffset, uint16_t time);  // Returns points earnt in this level ..
+
+
+        // Puzzle
+
+        void play_InitGame();
+        void play_NoSelection();
+        void play_NodeSelected();
+        void renderBoard(int8_t xOffset, int8_t yOffset, uint8_t topRow);
+
+        uint8_t leftValue(uint8_t val);
+        uint8_t rightValue(uint8_t val);
+        uint8_t getNodeValue(uint8_t x, uint8_t y);
+        uint8_t getPipeValue(uint8_t x, uint8_t y);
+
+        void initBoard(uint8_t puzzleType, uint8_t puzzleNumber);
+        bool nodeAlreadyPlayed(uint8_t value);
+        void clearBoard(uint8_t nodeValue);
+        bool isNode(uint8_t x, uint8_t y);
+        bool isPipe(uint8_t x, uint8_t y);
+        void setCellValue(uint8_t x, uint8_t y, uint8_t pipeValue, uint8_t nodeValue);
+        void clearSelection();
+        void clearHighlightAndSelection();
+        bool isPuzzleComplete();
+        void updatePipeWhenReversing(uint8_t x, uint8_t y);
+        bool validMove(uint8_t direction, Node selectedNode, int8_t x, int8_t y);
+        void puzzleGameOver();
 
         #ifdef DEBUG
         void clearCells();
@@ -115,6 +143,7 @@ class Game {
         MapInformation map;
 
         GameState gameState = GameState::SplashScreen;
+        GameState prevState = GameState::SplashScreen;
         GameMode gameMode = GameMode::Normal;
 
         int points = 0;
@@ -158,6 +187,7 @@ class Game {
             { Object::MauveSpell, 50, 1 },            
         };
 
+        Puzzle puzzle;
 
         #ifdef DEBUG
 

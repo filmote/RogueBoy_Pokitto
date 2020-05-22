@@ -131,3 +131,22 @@ struct PlayerStatus {
     InventoryItem inventoryItems[MAX_INVENTORY_ITEMS];
 
 };
+
+
+struct Node {
+    uint8_t x;
+    uint8_t y;
+    uint8_t value;
+};
+
+
+/* ----------------------------------------------------------------------------
+ *  Puzzle structure.
+ */
+struct Puzzle {
+    uint8_t level;                          // Level being played, eg. PUZZLE_5X5, PUZZLE_6X6 ..
+    uint8_t index;                          // Puzzle within the current level being played.
+    uint8_t board[9][9];                    // Actual board details - supports maximum of 9 x 9.
+    Node highlightedNode;
+    Node selectedNode;    
+};

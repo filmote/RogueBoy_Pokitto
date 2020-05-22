@@ -15,6 +15,9 @@
 #include "title/Title.h"
 #include "altar/AltarPieces.h"
 #include "guide/Guides.h"
+#include "puzzle/PuzzleImages.h"
+#include "nodes/Nodes.h"
+#include "connectors/Connectors.h"
 
 namespace Images {
 

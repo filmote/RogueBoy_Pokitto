@@ -8,17 +8,28 @@ using PS = Pokitto::Sound;
 
 void Game::win() {
     
-    PD::setCursor(0,0);
-    PD::print("WellDone!\n");
-    PD::print("You Scored: ");
-    PD::print(this->points, 10);
+    this->renderEnviroment(0, 0);
+    this->renderHud();
 
-    if (PC::buttons.pressed(BTN_A) || PC::buttons.pressed(BTN_B)) { 
+    PD::setColor(15);
+    PD::fillRectangle(10, 10, 90, 52);
+    PD::drawBitmap(0, 0, Images::LevelSplash_Left);
+    PD::drawBitmap(10, 0, Images::LevelSplash_Top);
+    PD::drawBitmap(100, 0, Images::LevelSplash_Right);
+    PD::drawBitmap(10, 62, Images::LevelSplash_Bottom);
+    PD::setColor(4, 15);
+
+    uint32_t pts = this->printLevelSummary(20, this->map.getTimer()/10);
+    
+    if ((PC::frameCount % 800 == 0) || (PC::buttons.pressed(BTN_A))) {  
+
+        this->highScoreOrNot(pts);
         //sound.noTone(); 
-        gameState = GameState::MainMenu; 
-        map.setLevel(0); 
-        this->points = 0;
+        gameState = GameState::HighScore; 
+
     }
+
+    PD::setColor(0, 0);
 
 }
 
