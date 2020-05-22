@@ -165,7 +165,7 @@ void Game::playSoundEffect(SoundEffect soundEffect) {
         case SoundEffect::LeverPull:
             
             if (soundEffectFile.openRO("music/darkrit2.raw")){
-                auto &music = Audio::play<2>(soundEffectFile);
+                auto &music = Audio::play<1>(soundEffectFile);
                 music.setLoop(false);
             } 
             
@@ -174,7 +174,7 @@ void Game::playSoundEffect(SoundEffect soundEffect) {
         case SoundEffect::OpenChest:
             
             if (soundEffectFile.openRO("music/darkrit3.raw")){
-                auto &music = Audio::play<2>(soundEffectFile);
+                auto &music = Audio::play<1>(soundEffectFile);
                 music.setLoop(false);
             } 
             
@@ -182,21 +182,21 @@ void Game::playSoundEffect(SoundEffect soundEffect) {
 
         case SoundEffect::CannotPickUp:
             {
-                Audio::play<1>(Sounds::sfx_CannotPickUp);
+                Audio::play<2>(Sounds::sfx_CannotPickUp);
             }
 
             break;
 
         case SoundEffect::PickUpCoin:
             {
-                Audio::play<1>(Sounds::sfx_PickUpCoin);
+                Audio::play<2>(Sounds::sfx_PickUpCoin);
             }
 
             break;
 
         case SoundEffect::Death1:
             {
-                Audio::play<1>(Sounds::sfx_Death1);
+                Audio::play<2>(Sounds::sfx_Death1);
             }
 
             break;

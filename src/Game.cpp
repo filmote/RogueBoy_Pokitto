@@ -13,7 +13,7 @@ void Game::setup(GameCookie *cookie) {
     map.setLevel(0);
 
     if (mainThemeFile.openRO("music/darkrit1.raw")) {
-        auto& music = Audio::play<2>(mainThemeFile);
+        auto& music = Audio::play<0>(mainThemeFile);
         music.setLoop(true);
     }
 
