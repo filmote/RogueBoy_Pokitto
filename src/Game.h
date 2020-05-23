@@ -44,14 +44,16 @@ class Game {
     private:
 
         void splashScreen();
+
         void renderHud();
         void renderEnviroment(int8_t damageOffsetX, int8_t damageOffsetY);
         void renderEnviroment_Top_Left(int x, int y, int drawX, int drawY);
         void renderEnviroment_Top_Right(int x, int y, int drawX, int drawY);
         void renderEnviroment_Bot_Left(int x, int y, int drawX, int drawY);
         void renderEnviroment_Bot_Right(int x, int y, int drawX, int drawY);
-        
+        void renderInventoryItem(InventoryItem inventotyItem);
         void renderPlayer(int8_t damageOffsetX, int8_t damageOffsetY);
+        void renderObjects();
 
         void updateMainMenu();
         void loadMap(const uint8_t * levelToLoad);
@@ -60,7 +62,6 @@ class Game {
         void showInventory();
         void mapDetails();
         void printMap();
-        void renderInventoryItem(InventoryItem inventotyItem);
 
         void init(uint16_t x, uint16_t y, bool resetObjects);
         bool intersect(uint16_t min0, uint16_t max0, uint16_t min1, uint16_t max1);
@@ -71,7 +72,6 @@ class Game {
         bool collision(Sprite &object, Bullet &bullet);        
 
         void updateObjects(bool ignorePlayerDamage);
-        void renderObjects();
         void death();
         void win();
         void win_Init();
@@ -116,8 +116,6 @@ class Game {
         void play_NodeSelected();
         void renderBoard(int8_t xOffset, int8_t yOffset, uint8_t topRow);
 
-        uint8_t leftValue(uint8_t val);
-        uint8_t rightValue(uint8_t val);
         uint8_t getNodeValue(uint8_t x, uint8_t y);
         uint8_t getPipeValue(uint8_t x, uint8_t y);
 
@@ -131,7 +129,7 @@ class Game {
         void clearHighlightAndSelection();
         bool isPuzzleComplete();
         void updatePipeWhenReversing(uint8_t x, uint8_t y);
-        bool validMove(uint8_t direction, Node selectedNode, int8_t x, int8_t y);
+        bool validMove(Direction direction, Node selectedNode, int8_t x, int8_t y);
         void puzzleGameOver();
 
         #ifdef DEBUG

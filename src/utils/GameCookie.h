@@ -42,6 +42,7 @@ class GameCookie : public Pokitto::Cookie {
 
 			}
 
+            this->levelNo = 255;
 			this->saveCookie();
 
 		}
