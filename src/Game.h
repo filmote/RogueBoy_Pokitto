@@ -1,6 +1,8 @@
 #pragma once
 
 #include "Pokitto.h"
+#include <LibAudio>
+
 #include "utils/Enums.h"
 #include "utils/Structs.h"
 #include "images/Images.h"
@@ -72,6 +74,7 @@ class Game {
         void renderObjects();
         void death();
         void win();
+        void win_Init();
         void endOfLevel();
         void updateGame(GameMode gameMode);
         void playerMovement(GameMode gameMode);
@@ -100,6 +103,7 @@ class Game {
         void showNeedRuneMessage();
         void mixAltarPieces();
         void highScoreOrNot(uint8_t pts);
+        void playSoundEffect(SoundEffect soundEffect);
 
         const uint8_t * getSegment(uint8_t segmentType, uint8_t segmentIndex);
         uint32_t printLevelSummary(uint8_t yOffset, uint16_t time);  // Returns points earnt in this level ..
@@ -154,12 +158,9 @@ class Game {
         int launchCyclopsDelay = 0;
         int launchBullChargeDelay = 0;
         int launchBullDungDelay = 0;
+
         Direction launchSkeletonDirection;
         Direction launchCyclopsDirection;
-      
-
-        // uint16_t eolXTile;
-        // uint16_t eolYTile;
 
         uint8_t shake = 0;
         uint8_t shockwave = 0;
@@ -172,8 +173,12 @@ class Game {
         HighScoreVariables highScoreVariables;
         SplashScreenVariables splashScreenVariables;
         TitleScreenVars titleScreenVars;
+        WinScreenVars winScreenVars;
 
         GameCookie *cookie;
+
+        File mainThemeFile;
+        File soundEffectFile;
 
         ShopObject shopObjects[9] = {
             { Object::Bread, 6, 2 },

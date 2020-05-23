@@ -3,7 +3,7 @@
 
 using PC = Pokitto::Core;
 using PD = Pokitto::Display;
-using PS = Pokitto::Sound;
+
 
 #define NOTHING                      0
 #define CONNECTOR_HORIZONTAL_LR           1
@@ -282,9 +282,9 @@ void Game::renderBoard(int8_t xOffset, int8_t yOffset, uint8_t topRow) {
 
     // Draw selected cell ..
 
-    if (PC::frameCount % 32 < 16) {
+    //if (PC::frameCount % 32 < 16) {
         PD::drawBitmap((puzzle.highlightedNode.x * GRID_WIDTH) + xOffset, (puzzle.highlightedNode.y * GRID_HEIGHT) + yOffset, Images::Puzzle_Cursor);
-    }
+    //}
     
 }
 
@@ -681,7 +681,7 @@ void Game::puzzleGameOver() {
     if (isPuzzleComplete()) {
 
         if (PC::buttons.pressed(BTN_A)) {
-            gameState = GameState::WinState;
+            gameState = GameState::WinState_Init;
         }
 
     }

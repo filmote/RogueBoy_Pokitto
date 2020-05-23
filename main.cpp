@@ -1,41 +1,31 @@
 #include "Pokitto.h"
+#include <LibAudio>
 #include "src/Game.h"
 #include "src/utils/GameCookie.h"
 
 using PC = Pokitto::Core;
 using PD = Pokitto::Display;
-using PS = Pokitto::Sound;
+
 
 Game game;
 GameCookie cookie;
+// File mainThemeFile;
 
-int main() {
+Audio::Sink<4, PROJ_AUD_FREQ> audio;
+
+void init() {
 
 
     // Initialise pokitto ..
 
     cookie.begin("DarkRit", sizeof(cookie), (char*)&cookie);
 
-
-    PC::begin();
     PD::loadRGBPalette(palettePico);   
     PD::persistence = true;
     PD::setColor(5);
     PD::setInvisibleColor(14);
     PC::setFrameRate(30);
     PD::setFont(fontKoubit);
-
-    #if POK_HIGH_RAM == HIGH_RAM_MUSIC
-    memset(buffers[0], 128, BUFFER_SIZE);
-    memset(buffers[1], 128, BUFFER_SIZE);
-    memset(buffers[2], 128, BUFFER_SIZE);
-    memset(buffers[3], 128, BUFFER_SIZE);
-    #else
-    memset(&(buffers[0]), 128, BUFFER_SIZE);
-    memset(&(buffers[1]), 128, BUFFER_SIZE);
-    memset(&(buffers[2]), 128, BUFFER_SIZE);
-    memset(&(buffers[3]), 128, BUFFER_SIZE);
-    #endif
 
     if (cookie.initialised != COOKIE_INITIALISED) {
 
@@ -49,15 +39,23 @@ int main() {
 
     game.setup(&cookie);
 
-    while( PC::isRunning() ) {
 
-        if (!PC::update()) continue;
+    // if (mainThemeFile.openRO("music/darkrit1.raw")) {
+    //     auto& music = Audio::play<2>(mainThemeFile);
+    //     music.setLoop(true);
+    // } 
 
-        PC::sound.updateStream();
-        game.loop();
+}
 
-    }
-    
-    return 0;
+
+void update() {
+
+    game.loop();
+
 }
 //https://felipemanga.github.io/PokittoEmu/?url=https://github.com/filmote/RogueBoy_Pokitto/raw/master/RogueBoy_Pokitto.bin
+/*
+2 LeverPull.raw
+3 OpenChest.raw
+4 PickUpCoin.raw
+*/

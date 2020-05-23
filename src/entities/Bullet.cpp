@@ -3,7 +3,7 @@
 
 using PC = Pokitto::Core;
 using PD = Pokitto::Display;
-using PS = Pokitto::Sound;
+
 
 
 bool Bullet::getActive()                        { return this->active;}
@@ -63,6 +63,8 @@ uint8_t Bullet::getWidth() {
         default: return 4;
 
     } 
+
+    return 4;
 
 }
 

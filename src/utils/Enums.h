@@ -1,5 +1,16 @@
 #pragma once
 
+enum class SoundEffect : uint8_t {
+    LeverPull,
+    OpenChest,
+    CannotPickUp,
+    PickUpCoin,
+    Death1,
+    Death3,
+    Damage,
+    CastSpell
+};
+
 enum class GameMode : uint8_t {
     Normal,
     Help,
@@ -119,6 +130,7 @@ enum class GameState : uint8_t {
 //  GameOver, 
     EndOfLevel, 
     Dead, 
+    WinState_Init,
     WinState,
     Inventory,
     MapDetails,
@@ -148,6 +160,12 @@ enum class Direction : uint8_t {
 enum class Axis : uint8_t {
     XAxis,
     YAxis
+};
+
+enum class WinScreenMode : uint8_t {
+    ShowAnim,
+    ShowMessage,
+    Score
 };
 
 enum MapTiles {

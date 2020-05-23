@@ -65,7 +65,9 @@ void Sprites::render(Player &player, bool showEnemies) {
             bool showGuideText = object.getGuideText();
             Direction direction = object.getDirection();
 
-            this->renderSprite(object.getType(), x, y, xOffset, yOffset, direction, frame, object.getCountdown(), showEnemies, showGuideText, object.getRenderHealthBar(), 10 * object.getHealth() / object.getHealthOrig());
+            int health = object.getHealthOrig() == 0 ? 0 : 10 * object.getHealth() / object.getHealthOrig();
+            this->renderSprite(object.getType(), x, y, xOffset, yOffset, direction, frame, object.getCountdown(), showEnemies, showGuideText, object.getRenderHealthBar(), health);
+
 
 
             // Render puff ?
@@ -201,49 +203,49 @@ void Sprites::renderSprite(Object type, int x, int y, int8_t xOffset, int8_t yOf
             }
             break;
 
-        case Object::Bull:
+        // case Object::Bull:
 
-            if (frame < 0) { 
+        //     if (frame < 0) { 
 
-                if (showEnemies) {
+        //         if (showEnemies) {
 
-                    switch (frame) {
+        //             switch (frame) {
 
-                        case -28 ... -22:
-                        case -14 ... -8:
-                            PD::drawBitmap(x + xOffset, y + yOffset, Images::Bull[16 + (static_cast<uint8_t>(direction) * 2)]);
-                            break;
+        //                 case -28 ... -22:
+        //                 case -14 ... -8:
+        //                     PD::drawBitmap(x + xOffset, y + yOffset, Images::Bull[16 + (static_cast<uint8_t>(direction) * 2)]);
+        //                     break;
 
-                        case -21 ... -15:
-                        case -7 ... -1:
-                            PD::drawBitmap(x + xOffset, y + yOffset, Images::Bull[17 + (static_cast<uint8_t>(direction) * 2)]);
-                            break;
-                    }
+        //                 case -21 ... -15:
+        //                 case -7 ... -1:
+        //                     PD::drawBitmap(x + xOffset, y + yOffset, Images::Bull[17 + (static_cast<uint8_t>(direction) * 2)]);
+        //                     break;
+        //             }
 
-                    if (renderHealth) { this->renderHealthBar(x + 6, y - 6, healthValue); }
+        //             if (renderHealth) { this->renderHealthBar(x + 6, y - 6, healthValue); }
 
-                }
+        //         }
 
-            }
-            else {
+        //     }
+        //     else {
 
-                if (showEnemies) {
+        //         if (showEnemies) {
 
-                    PD::drawBitmap(x + xOffset, y + yOffset, Images::Bull[(static_cast<uint8_t>(direction) * 2) + frame]); 
+        //             PD::drawBitmap(x + xOffset, y + yOffset, Images::Bull[(static_cast<uint8_t>(direction) * 2) + frame]); 
 
-                    if (countdown > 0) {
+        //             if (countdown > 0) {
 
-                        const int8_t xOffsets[] = { 6, -24, -18, -24, 6, 24, 18, 24 };
-                        const int8_t yOffsets[] = { 24,  24,  12, -24, -24, -24, 12, 24 };
+        //                 const int8_t xOffsets[] = { 6, -24, -18, -24, 6, 24, 18, 24 };
+        //                 const int8_t yOffsets[] = { 24,  24,  12, -24, -24, -24, 12, 24 };
 
-                        PD::drawBitmap(x + xOffset + xOffsets[static_cast<uint8_t>(direction)], y + yOffset + yOffsets[static_cast<uint8_t>(direction)], Images::Bull_Dust[(static_cast<uint8_t>(direction) * 2) + frame]); 
+        //                 PD::drawBitmap(x + xOffset + xOffsets[static_cast<uint8_t>(direction)], y + yOffset + yOffsets[static_cast<uint8_t>(direction)], Images::Bull_Dust[(static_cast<uint8_t>(direction) * 2) + frame]); 
 
-                    }
+        //             }
 
-                    if (renderHealth) { this->renderHealthBar(x + 6, y - 6, healthValue); }
-                }
-            }
-            break;
+        //             if (renderHealth) { this->renderHealthBar(x + 6, y - 6, healthValue); }
+        //         }
+        //     }
+        //     break;
 
         case Object::Beholder:
             if (showEnemies) {

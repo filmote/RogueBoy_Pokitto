@@ -3,7 +3,7 @@
 
 using PC = Pokitto::Core;
 using PD = Pokitto::Display;
-using PS = Pokitto::Sound;
+
 
 
 void Game::setup(GameCookie *cookie) { 
@@ -11,8 +11,12 @@ void Game::setup(GameCookie *cookie) {
     this->cookie = cookie;
     this->splashScreenVariables.buttonCounter = 16;
     map.setLevel(0);
-    PS::playMusicStream("music/darkrit1.raw", 0);
-    
+
+    if (mainThemeFile.openRO("music/darkrit1.raw")) {
+        auto& music = Audio::play<0>(mainThemeFile);
+        music.setLoop(true);
+    }
+
 }
 
 void Game::loop(void) {
@@ -52,6 +56,10 @@ void Game::loop(void) {
 
         case GameState::HighScore: 
             highScore(); 
+            break;
+
+        case GameState::WinState_Init:  
+            win_Init(); 
             break;
 
         case GameState::WinState:  

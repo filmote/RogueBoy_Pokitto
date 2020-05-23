@@ -6,7 +6,7 @@
 
 using PC = Pokitto::Core;
 using PD = Pokitto::Display;
-using PS = Pokitto::Sound;
+
 
 
 const uint8_t spriteWidths[] =  { 

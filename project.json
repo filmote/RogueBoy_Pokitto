@@ -10918,6 +10918,357 @@
 		},
 		"/src/images/puzzle/Puzzle_Cursor.png": {
 			"sdcard": false
+		},
+		"/src/sounds/OpenChest0.raw": {
+			"sdcard": false
+		},
+		"/aaa.bin": {
+			"sdcard": false
+		},
+		"/music/OpenChest.wav": {
+			"sdcard": false
+		},
+		"/music/LeverPull.wav": {
+			"sdcard": false
+		},
+		"/music/PickUpCoin.wav": {
+			"sdcard": false
+		},
+		"/music/LeverPull.raw": {
+			"sdcard": false
+		},
+		"/music/OpenChest.raw": {
+			"sdcard": false
+		},
+		"/music/PickUpCoin.raw": {
+			"sdcard": false
+		},
+		"/music/darkrit2.raw": {
+			"sdcard": true
+		},
+		"/music/darkrit3.raw": {
+			"sdcard": true
+		},
+		"/music/darkrit4.raw": {
+			"sdcard": true
+		},
+		"/src/sounds/Damage.raw": {
+			"sdcard": false
+		},
+		"/src/sounds/DarkRit1- GameRPGHorror.raw": {
+			"sdcard": false
+		},
+		"/src/sounds/DarkRit2 - LeverPull.raw": {
+			"sdcard": false
+		},
+		"/src/sounds/DarkRit3 - OpenChest.raw": {
+			"sdcard": false
+		},
+		"/src/sounds/DarkRit4 - CannotPickUp.raw": {
+			"sdcard": false
+		},
+		"/src/sounds/DarkRit5 - PickUpCoin.raw": {
+			"sdcard": false
+		},
+		"/src/sounds/DarkRit6 - Death1.raw": {
+			"sdcard": false
+		},
+		"/src/sounds/DarkRit7 - Death3.raw": {
+			"sdcard": false
+		},
+		"/src/sounds/DarkRit8 - Damage.raw": {
+			"sdcard": false
+		},
+		"/src/sounds/DarkRit9 - CastSpell.raw": {
+			"sdcard": false
+		},
+		"/music/DarkRit3 - OpenChest.raw": {
+			"sdcard": false
+		},
+		"/music/DarkRit9 - CastSpell.raw": {
+			"sdcard": false
+		},
+		"/music/DarkRit8 - Damage.raw": {
+			"sdcard": false
+		},
+		"/music/DarkRit7 - Death3.raw": {
+			"sdcard": false
+		},
+		"/music/DarkRit6 - Death1.raw": {
+			"sdcard": false
+		},
+		"/music/DarkRit1- GameRPGHorror.raw": {
+			"sdcard": false
+		},
+		"/music/DarkRit4 - CannotPickUp.raw": {
+			"sdcard": false
+		},
+		"/music/DarkRit5 - PickUpCoin.raw": {
+			"sdcard": false
+		},
+		"/music/DarkRit2 - LeverPull.raw": {
+			"sdcard": false
+		},
+		"/music/darkrit6.raw": {
+			"sdcard": false
+		},
+		"/music/darkrit8.raw": {
+			"sdcard": false
+		},
+		"/music/darkrit9.raw": {
+			"sdcard": false
+		},
+		"/music/darkrit7.raw": {
+			"sdcard": false
+		},
+		"/music/darkrit5.raw": {
+			"sdcard": false
+		},
+		"/music/darkrit1- GameRPGHorror.raw": {
+			"sdcard": false
+		},
+		"/music.zip": {
+			"sdcard": false
+		},
+		"/music 2": {
+			"sdcard": false
+		},
+		"/music 2/darkrit1.raw": {
+			"sdcard": false
+		},
+		"/music 2/darkrit2.raw": {
+			"sdcard": false
+		},
+		"/music 2/darkrit3.raw": {
+			"sdcard": false
+		},
+		"/music 2/darkrit4.raw": {
+			"sdcard": false
+		},
+		"/music 2/darkrit6.raw": {
+			"sdcard": false
+		},
+		"/music 2/darkrit5.raw": {
+			"sdcard": false
+		},
+		"/music 2/darkrit7.raw": {
+			"sdcard": false
+		},
+		"/music 2/darkrit9.raw": {
+			"sdcard": false
+		},
+		"/music 2/darkrit8.raw": {
+			"sdcard": false
+		},
+		"/Archive.zip": {
+			"sdcard": false
+		},
+		"/src/images/title/DR_WallBackground_Ending.png": {
+			"sdcard": false
+		},
+		"/src/images/title/DR_OpenBook_Ending.png": {
+			"sdcard": false
+		},
+		"/src/images/title/Dark_Ritual_PlayerCloseup.png": {
+			"sdcard": false
+		},
+		"/src/images/title/Player.png": {
+			"sdcard": false
+		},
+		"/src/images/title/DR_WallBackground_Ending.h": {
+			"sdcard": false
+		},
+		"/src/images/title/DR_OpenBook_Ending.h": {
+			"sdcard": false
+		},
+		"/src/images/title/Player.h": {
+			"sdcard": false
+		},
+		"/src/images/title/OpenBook.png": {
+			"sdcard": false
+		},
+		"/src/images/title/WallBackground_Ending.png": {
+			"sdcard": false
+		},
+		"/src/images/puzzle/Hand_Horiz.png": {
+			"sdcard": false
+		},
+		"/src/images/title/WallBackground_Ending.h": {
+			"sdcard": false
+		},
+		"/src/images/title/OpenBook.h": {
+			"sdcard": false
+		},
+		"/src/images/altar/Large/Large_Rune_00.png": {
+			"sdcard": false
+		},
+		"/src/images/altar/Large/Large_Rune_01.png": {
+			"sdcard": false
+		},
+		"/src/images/altar/Large/Large_Rune_02.png": {
+			"sdcard": false
+		},
+		"/src/images/altar/Large/Large_Rune_03.png": {
+			"sdcard": false
+		},
+		"/src/images/altar/Large/Large_Rune_04.png": {
+			"sdcard": false
+		},
+		"/src/images/altar/Large/Large_Rune_05.png": {
+			"sdcard": false
+		},
+		"/src/images/altar/untitled folder": {
+			"sdcard": false
+		},
+		"/src/images/altar/small": {
+			"sdcard": false
+		},
+		"/src/images/altar/small/Rune_Grey_00.h": {
+			"sdcard": false
+		},
+		"/src/images/altar/small/Rune_Grey_01.h": {
+			"sdcard": false
+		},
+		"/src/images/altar/small/Rune_Grey_00.png": {
+			"sdcard": false
+		},
+		"/src/images/altar/small/Rune_Grey_01.png": {
+			"sdcard": false
+		},
+		"/src/sounds/darkrit1- GameRPGHorror.raw": {
+			"sdcard": false
+		},
+		"/src/sounds/darkrit2 - LeverPull.raw": {
+			"sdcard": false
+		},
+		"/src/sounds/darkrit3 - OpenChest.raw": {
+			"sdcard": false
+		},
+		"/src/sounds/darkrit4 - CannotPickUp.raw": {
+			"sdcard": false
+		},
+		"/src/sounds/darkrit5 - PickUpCoin.raw": {
+			"sdcard": false
+		},
+		"/src/sounds/darkrit8 - Damage.raw": {
+			"sdcard": false
+		},
+		"/src/sounds/darkrit6 - Death1.raw": {
+			"sdcard": false
+		},
+		"/src/sounds/darkrit7 - Death3.raw": {
+			"sdcard": false
+		},
+		"/src/sounds/darkrit9 - CastSpell.raw": {
+			"sdcard": false
+		},
+		"/src/images/altar/large": {
+			"sdcard": false
+		},
+		"/src/images/altar/small/Rune_Grey_02.h": {
+			"sdcard": false
+		},
+		"/src/images/altar/small/Rune_Grey_03.h": {
+			"sdcard": false
+		},
+		"/src/images/altar/small/Rune_Grey_02.png": {
+			"sdcard": false
+		},
+		"/src/images/altar/small/Rune_Grey_03.png": {
+			"sdcard": false
+		},
+		"/src/images/altar/small/Rune_Grey_04.png": {
+			"sdcard": false
+		},
+		"/src/images/altar/small/Rune_Grey_04.h": {
+			"sdcard": false
+		},
+		"/src/images/altar/small/Rune_Grey_05.h": {
+			"sdcard": false
+		},
+		"/src/images/altar/small/Rune_Grey_05.png": {
+			"sdcard": false
+		},
+		"/src/images/altar/small/Rune_Red_00.h": {
+			"sdcard": false
+		},
+		"/src/images/altar/small/Rune_Red_00.png": {
+			"sdcard": false
+		},
+		"/src/images/altar/small/Rune_Red_01.h": {
+			"sdcard": false
+		},
+		"/src/images/altar/small/Rune_Red_02.h": {
+			"sdcard": false
+		},
+		"/src/images/altar/small/Rune_Red_01.png": {
+			"sdcard": false
+		},
+		"/src/images/altar/small/Rune_Red_03.h": {
+			"sdcard": false
+		},
+		"/src/images/altar/small/Rune_Red_02.png": {
+			"sdcard": false
+		},
+		"/src/images/altar/small/Rune_Red_03.png": {
+			"sdcard": false
+		},
+		"/src/images/altar/small/Rune_Red_04.h": {
+			"sdcard": false
+		},
+		"/src/images/altar/small/Rune_Red_04.png": {
+			"sdcard": false
+		},
+		"/src/images/altar/small/Rune_Red_05.h": {
+			"sdcard": false
+		},
+		"/src/images/altar/small/Rune_Red_05.png": {
+			"sdcard": false
+		},
+		"/src/images/altar/large/Large_Rune_00.png": {
+			"sdcard": false
+		},
+		"/src/images/altar/large/Large_Rune_02.png": {
+			"sdcard": false
+		},
+		"/src/images/altar/large/Large_Rune_01.png": {
+			"sdcard": false
+		},
+		"/src/images/altar/large/Large_Rune_03.png": {
+			"sdcard": false
+		},
+		"/src/images/altar/large/Large_Rune_04.png": {
+			"sdcard": false
+		},
+		"/src/images/altar/large/Large_Rune_05.png": {
+			"sdcard": false
+		},
+		"/src/images/altar/large/Large_Rune_02.h": {
+			"sdcard": false
+		},
+		"/src/images/altar/large/Large_Rune_00.h": {
+			"sdcard": false
+		},
+		"/src/images/altar/large/Large_Rune_04.h": {
+			"sdcard": false
+		},
+		"/src/images/altar/large/Large_Rune_05.h": {
+			"sdcard": false
+		},
+		"/src/images/altar/large/Large_Rune_01.h": {
+			"sdcard": false
+		},
+		"/src/images/altar/large/Large_Rune_03.h": {
+			"sdcard": false
+		},
+		"/src/images/background/CurseOfAztaroK_SavingPost2.png": {
+			"sdcard": false
+		},
+		"/src/images/background/Tile97.png": {
+			"sdcard": false
+		},
+		"/src/images/background/Tile97.h": {
+			"sdcard": false
 		}
 	},
 	"BUILDFlags": {

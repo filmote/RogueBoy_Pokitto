@@ -1,12 +1,13 @@
 #pragma once
 
 #include "Pokitto.h"
+#include <LibAudio>
 #include "../utils/Enums.h"
 #include "Sprites_Consts.h"
 
 using PC = Pokitto::Core;
 using PD = Pokitto::Display;
-using PS = Pokitto::Sound;
+
 
 
 class Sprite {
@@ -51,7 +52,7 @@ class Sprite {
         void update();
         void setPosition(uint16_t x, uint16_t y);
         void setSprite(uint16_t x, uint16_t y, uint8_t health, Object type, bool active, bool enablePuff);
-        void decHealth(Object weapon);
+        bool decHealth(Object weapon); // returns is dead
         Direction getDirection();
 
         void incFrame();

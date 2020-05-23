@@ -93,9 +93,10 @@ void Game::updateMainMenu() {
 
     }
 
-    PD::drawBitmap(19, 1, Images::PlayerTOP);
-    PD::drawBitmap(2, 17, Images::PlayerBOT);
-    PD::drawBitmap(68, 15, Images::DarkRitual);
+    // PD::drawBitmap(19, 1, Images::PlayerTOP);
+    // PD::drawBitmap(2, 17, Images::PlayerBOT);
+    PD::drawBitmap(2, 2, Images::Player);
+    PD::drawBitmap(66, 15, Images::DarkRitual);
 
     PD::drawBitmap(89, 69 + (this->titleScreenVars.arrowCounter < 0 ? -1 : 0), Images::ArrowUp);
     PD::drawBitmap(89, 83 + (this->titleScreenVars.arrowCounter > 0 ? 1 : 0), Images::ArrowDown);

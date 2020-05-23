@@ -1,15 +1,15 @@
 #pragma once
 
 #include "Pokitto.h"
-#include "MapRandom_SIze_00.h"
-#include "MapRandom_SIze_01.h"
-#include "MapRandom_SIze_02.h"
-#include "MapRandom_SIze_03.h"
+#include "MapRandom_Size_00.h"
+#include "MapRandom_Size_01.h"
+#include "MapRandom_Size_02.h"
+#include "MapRandom_Size_03.h"
 
 
 using PC = Pokitto::Core;
 using PD = Pokitto::Display;
-using PS = Pokitto::Sound;
+
 
 /*
 Bit 7       Blank segment.

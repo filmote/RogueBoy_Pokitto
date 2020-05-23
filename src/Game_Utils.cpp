@@ -3,7 +3,7 @@
 
 using PC = Pokitto::Core;
 using PD = Pokitto::Display;
-using PS = Pokitto::Sound;
+
 
 void Game::init(uint16_t x, uint16_t y, bool resetObjects) {
 
@@ -156,3 +156,86 @@ Direction Game::getNearestCardinalDirection(Direction direction, Axis axis) {
     return Direction::Up;
 
 }
+
+
+void Game::playSoundEffect(SoundEffect soundEffect) {
+
+    switch (soundEffect) {
+
+        case SoundEffect::LeverPull:
+            
+            if (soundEffectFile.openRO("music/darkrit2.raw")){
+                auto &music = Audio::play<1>(soundEffectFile);
+                music.setLoop(false);
+            } 
+            
+            break;
+
+        case SoundEffect::OpenChest:
+            
+            if (soundEffectFile.openRO("music/darkrit3.raw")){
+                auto &music = Audio::play<1>(soundEffectFile);
+                music.setLoop(false);
+            } 
+            
+            break;
+
+        case SoundEffect::CannotPickUp:
+            
+            if (soundEffectFile.openRO("music/darkrit4.raw")){
+                auto &music = Audio::play<1>(soundEffectFile);
+                music.setLoop(false);
+            } 
+
+            break;
+
+        case SoundEffect::PickUpCoin:
+            
+            if (soundEffectFile.openRO("music/darkrit5.raw")){
+                auto &music = Audio::play<1>(soundEffectFile);
+                music.setLoop(false);
+            } 
+
+            break;
+
+        case SoundEffect::Death1:
+            
+            if (soundEffectFile.openRO("music/darkrit6.raw")){
+                auto &music = Audio::play<1>(soundEffectFile);
+                music.setLoop(false);
+            } 
+
+            break;
+
+        case SoundEffect::Death3:
+            
+            if (soundEffectFile.openRO("music/darkrit7.raw")){
+                auto &music = Audio::play<1>(soundEffectFile);
+                music.setLoop(false);
+            } 
+
+            break;
+
+        case SoundEffect::Damage:
+            
+            if (soundEffectFile.openRO("music/darkrit8.raw")){
+                auto &music = Audio::play<1>(soundEffectFile);
+                music.setLoop(false);
+            } 
+
+            break;
+
+        case SoundEffect::CastSpell:
+            
+            if (soundEffectFile.openRO("music/darkrit9.raw")){
+                auto &music = Audio::play<1>(soundEffectFile);
+                music.setLoop(false);
+            } 
+
+            break;
+
+
+    }
+
+}
+
