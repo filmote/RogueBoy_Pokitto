@@ -753,13 +753,46 @@ void Game::playerMovement(GameMode gameMode) {
 
                 if (gameMode == GameMode::Normal) {
 
+
+                    // Have we ledt a run behind?
+
                     if (this->map.getHasRune()) {
                         gameState = GameState::NeedRune;
                     }
                     else {
-                        //sound.tone(NOTE_C3,100,NOTE_E3,100,NOTE_G3,100);
-                        gameState = GameState::EndOfLevel;
+
+                        
+                        // Is there a boss still alove?
+
+                        bool boss = false;
+
+                        for (uint8_t i = 0; i < this->objects.getObjectNum(); i++) {
+
+                            auto &object = this->objects.getSprite(i);
+
+                            if (object.getActive() && object.isEnemy() && object.getType() >= Object::Bull && object.getType() <= Object::Boss05) {
+
+                                boss = true;
+                                break;
+
+                            }
+
+                        }
+
+                        if (boss) {
+
+                            gameState = GameState::NeedRune;
+
+                        }
+                        else {
+
+                            //sound.tone(NOTE_C3,100,NOTE_E3,100,NOTE_G3,100);
+                            gameState = GameState::EndOfLevel;
+
+                        }
+                        
                     }
+
                 }
                 else {
                     gameState = GameState::MainMenu;
