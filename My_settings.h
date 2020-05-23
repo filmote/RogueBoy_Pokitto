@@ -6,7 +6,7 @@
 #define PROJ_ENABLE_SOUND 1
 //#define PROJ_ENABLE_SFX
 //#define PROJ_ENABLE_SD_MUSIC
-#define PROJ_AUD_FREQ 8000
+#define PROJ_AUD_FREQ 16000
 //#define PROJ_STREAM_LOOP 1
 //#define PROJ_ENABLE_SYNTH 0
 

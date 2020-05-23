@@ -6,6 +6,13 @@
 using PC = Pokitto::Core;
 using PD = Pokitto::Display;
 
+struct RuneEOG {
+
+    Direction direction;
+    uint8_t delay;
+    uint32_t index;
+    uint32_t x;
+};
 
 struct ShopObject {
 
@@ -77,6 +84,15 @@ struct TitleScreenVars {
     int8_t arrowCounter = 0;
     uint8_t orbCounter = 0;
     TitleScreenMode mode = TitleScreenMode::Start;
+
+};
+
+struct WinScreenVars {
+
+    RuneEOG runeEOG[6];
+    uint32_t counter = 0;
+    int32_t yPos = 0;
+    WinScreenMode mode = WinScreenMode::ShowAnim;
 
 };
 

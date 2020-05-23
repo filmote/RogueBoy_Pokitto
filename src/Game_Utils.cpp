@@ -181,23 +181,56 @@ void Game::playSoundEffect(SoundEffect soundEffect) {
             break;
 
         case SoundEffect::CannotPickUp:
-            {
-                Audio::play<2>(Sounds::sfx_CannotPickUp);
-            }
+            
+            if (soundEffectFile.openRO("music/darkrit4.raw")){
+                auto &music = Audio::play<1>(soundEffectFile);
+                music.setLoop(false);
+            } 
 
             break;
 
         case SoundEffect::PickUpCoin:
-            {
-                Audio::play<2>(Sounds::sfx_PickUpCoin);
-            }
+            
+            if (soundEffectFile.openRO("music/darkrit5.raw")){
+                auto &music = Audio::play<1>(soundEffectFile);
+                music.setLoop(false);
+            } 
 
             break;
 
         case SoundEffect::Death1:
-            {
-                Audio::play<2>(Sounds::sfx_Death1);
-            }
+            
+            if (soundEffectFile.openRO("music/darkrit6.raw")){
+                auto &music = Audio::play<1>(soundEffectFile);
+                music.setLoop(false);
+            } 
+
+            break;
+
+        case SoundEffect::Death3:
+            
+            if (soundEffectFile.openRO("music/darkrit7.raw")){
+                auto &music = Audio::play<1>(soundEffectFile);
+                music.setLoop(false);
+            } 
+
+            break;
+
+        case SoundEffect::Damage:
+            
+            if (soundEffectFile.openRO("music/darkrit8.raw")){
+                auto &music = Audio::play<1>(soundEffectFile);
+                music.setLoop(false);
+            } 
+
+            break;
+
+        case SoundEffect::CastSpell:
+            
+            if (soundEffectFile.openRO("music/darkrit9.raw")){
+                auto &music = Audio::play<1>(soundEffectFile);
+                music.setLoop(false);
+            } 
 
             break;
 

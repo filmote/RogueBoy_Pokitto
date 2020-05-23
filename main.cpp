@@ -9,7 +9,7 @@ using PD = Pokitto::Display;
 
 Game game;
 GameCookie cookie;
-File mainThemeFile;
+// File mainThemeFile;
 
 Audio::Sink<4, PROJ_AUD_FREQ> audio;
 

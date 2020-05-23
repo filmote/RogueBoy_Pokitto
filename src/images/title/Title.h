@@ -10,12 +10,13 @@ namespace Images {
     #include "Eyes_Closed.h"
     #include "Eyes_Open.h"
     #include "Orb.h"
-    #include "PlayerTOP.h"
-    #include "PlayerBOT.h"
     #include "Score.h"
     #include "Start.h"
     #include "Help.h"
     #include "Resume.h"
+    #include "Player.h"
+    #include "OpenBook.h"
+    #include "WallBackground_Ending.h"
 
     const uint8_t * const Title_Modes[] = { 
         Resume,

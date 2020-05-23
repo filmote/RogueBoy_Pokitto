@@ -65,7 +65,9 @@ void Sprites::render(Player &player, bool showEnemies) {
             bool showGuideText = object.getGuideText();
             Direction direction = object.getDirection();
 
-            this->renderSprite(object.getType(), x, y, xOffset, yOffset, direction, frame, object.getCountdown(), showEnemies, showGuideText, object.getRenderHealthBar(), 10 * object.getHealth() / object.getHealthOrig());
+            int health = object.getHealthOrig() == 0 ? 0 : 10 * object.getHealth() / object.getHealthOrig();
+            this->renderSprite(object.getType(), x, y, xOffset, yOffset, direction, frame, object.getCountdown(), showEnemies, showGuideText, object.getRenderHealthBar(), health);
+
 
 
             // Render puff ?

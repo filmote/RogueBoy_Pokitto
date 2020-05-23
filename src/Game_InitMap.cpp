@@ -476,7 +476,7 @@ void Game::nextLevelLoad(GameMode gameMode) {
 
     } 
     else {
-        gameState = GameState::WinState;
+        gameState = GameState::WinState_Init;
     }
 
 }

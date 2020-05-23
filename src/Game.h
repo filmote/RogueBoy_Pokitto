@@ -74,6 +74,7 @@ class Game {
         void renderObjects();
         void death();
         void win();
+        void win_Init();
         void endOfLevel();
         void updateGame(GameMode gameMode);
         void playerMovement(GameMode gameMode);
@@ -157,12 +158,9 @@ class Game {
         int launchCyclopsDelay = 0;
         int launchBullChargeDelay = 0;
         int launchBullDungDelay = 0;
+
         Direction launchSkeletonDirection;
         Direction launchCyclopsDirection;
-      
-
-        // uint16_t eolXTile;
-        // uint16_t eolYTile;
 
         uint8_t shake = 0;
         uint8_t shockwave = 0;
@@ -175,6 +173,7 @@ class Game {
         HighScoreVariables highScoreVariables;
         SplashScreenVariables splashScreenVariables;
         TitleScreenVars titleScreenVars;
+        WinScreenVars winScreenVars;
 
         GameCookie *cookie;
 

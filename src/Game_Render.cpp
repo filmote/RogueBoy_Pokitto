@@ -388,9 +388,15 @@ void Game::renderPlayer(int8_t damageOffsetX, int8_t damageOffsetY) {
 
     }
 
-    if (this->player.getPuffIndex() >= 0) {
+    switch (this->player.getPuffIndex()) {
 
-        PD::drawBitmap(CENTERX - damageOffsetX - 8, CENTERY - damageOffsetY - 8, Images::Puff[(10 - this->player.getPuffIndex()) / 2]);
+        case 10:
+            PD::drawBitmap(CENTERX - damageOffsetX - 8, CENTERY - damageOffsetY - 8, Images::Puff[4]);
+            break;
+
+        case 1 ... 9:
+            PD::drawBitmap(CENTERX - damageOffsetX - 8, CENTERY - damageOffsetY - 8, Images::Puff[(10 - this->player.getPuffIndex()) / 2]);
+            break;
 
     }
 

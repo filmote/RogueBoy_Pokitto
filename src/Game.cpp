@@ -58,6 +58,10 @@ void Game::loop(void) {
             highScore(); 
             break;
 
+        case GameState::WinState_Init:  
+            win_Init(); 
+            break;
+
         case GameState::WinState:  
             win(); 
             break;

@@ -145,7 +145,7 @@ void Sprite::setSprite(uint16_t x, uint16_t y, uint8_t health, Object type, bool
 };
 
 
-void Sprite::decHealth(Object weapon) {
+bool Sprite::decHealth(Object weapon) {
 
     switch (weapon) {
 
@@ -171,12 +171,13 @@ void Sprite::decHealth(Object weapon) {
 
     }
 
+    this->renderHealthBar = HEALTH_BAR_DELAY;
+
     if (this->health <= 0) {
         this->active = false; 
-        Audio::play<1>(Sounds::sfx_Death3);
     }
 
-    this->renderHealthBar = HEALTH_BAR_DELAY;
+    return (this->health <= 0);
 
 };
 
