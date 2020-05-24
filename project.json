@@ -11269,6 +11269,24 @@
 		},
 		"/src/images/background/Tile97.h": {
 			"sdcard": false
+		},
+		"/RogueBoy_Pokitto.bin.4.png": {
+			"sdcard": false
+		},
+		"/RogueBoy_Pokitto.bin.4.h": {
+			"sdcard": false
+		},
+		"/RogueBoy_Pokitto.bin.1.gif.sb-9bbd0edd-jNyiQa": {
+			"sdcard": false
+		},
+		"/RogueBoy_Pokitto.bin.1.gif.sb-9bbd0edd-jepJ6i": {
+			"sdcard": false
+		},
+		"/RogueBoy_Pokitto.bin.1.gif.sb-9bbd0edd-lpkAmb": {
+			"sdcard": false
+		},
+		"/EndScene.gif": {
+			"sdcard": false
 		}
 	},
 	"BUILDFlags": {

@@ -9,7 +9,7 @@ constexpr const char message01_01[] = "Dark Ritual";
 constexpr const char message01_02[] = "";
 constexpr const char message01_03[] = "You have entered";
 constexpr const char message01_04[] = "a dungeon system";
-constexpr const char message01_05[] = "full of suprises,";
+constexpr const char message01_05[] = "full of surprises,";
 constexpr const char message01_06[] = "challenges and, of";
 constexpr const char message01_07[] = "course, rewards. ";
 constexpr const char message01_08[] = "";
@@ -141,9 +141,49 @@ constexpr const char message07_10[] = "you explore.";
 constexpr const char message07_11[] = "";
 constexpr const char message07_12[] = "Good luck!";
 
-constexpr const char message08_01[] = "sdfsdfsd!";
+constexpr const char message08_01[] = "You may think you";
+constexpr const char message08_02[] = "have collected";
+constexpr const char message08_03[] = "everything from a";
+constexpr const char message08_04[] = "room but watch";
+constexpr const char message08_05[] = "those enemies as";
+constexpr const char message08_06[] = "they are thieves!";
 
-const uint8_t messageLengths[] = { 37, 16, 12, 17, 18, 17, 12, 1 };
+constexpr const char message09_01[] = "Barrels seem to";
+constexpr const char message09_02[] = "just block your way";
+constexpr const char message09_03[] = "but can be a great";
+constexpr const char message09_04[] = "shield. Sometimes";
+constexpr const char message09_05[] = "they can contain a";
+constexpr const char message09_06[] = "treasure.";
+
+constexpr const char message10_01[] = "Did you know that";
+constexpr const char message10_02[] = "certain treasures";
+constexpr const char message10_03[] = "can surprise you?";
+constexpr const char message10_04[] = "You might end up";
+constexpr const char message10_05[] = "being chased by";
+constexpr const char message10_06[] = "some.";
+
+constexpr const char message11_01[] = "Find all the runes";
+constexpr const char message11_02[] = "in order to perform";
+constexpr const char message11_03[] = "the secret ritual";
+constexpr const char message11_04[] = "before our rivals.";
+constexpr const char message11_05[] = "We must be the ones,";
+constexpr const char message11_06[] = "the chosen ones.";
+
+constexpr const char message12_01[] = "They say sometimes";
+constexpr const char message12_02[] = "you can hear bones";
+constexpr const char message12_03[] = "shattering loudly";
+constexpr const char message12_04[] = "underground. Cries.";
+constexpr const char message12_05[] = "Screams. Must be ";
+constexpr const char message12_06[] = "the necromancers.. ";
+
+constexpr const char message13_01[] = "In the depth of the";
+constexpr const char message13_02[] = "dungeons, even a";
+constexpr const char message13_03[] = "master cultist like";
+constexpr const char message13_04[] = "you could go insane";
+constexpr const char message13_05[] = "Maybe it's the only";
+constexpr const char message13_06[] = "way to ascend?";
+
+const uint8_t messageLengths[] = { 37, 16, 12, 17, 18, 17, 12, 6, 6, 6, 6, 6, 6 };
 
 constexpr const char * const messages01[] = { 
 message01_01,
@@ -297,6 +337,56 @@ message07_12,
 
 constexpr const char * const messages08[] = { 
 message08_01,
+message08_02,
+message08_03,
+message08_04,
+message08_05,
+message08_06,
+};
+
+constexpr const char * const messages09[] = { 
+message09_01,
+message09_02,
+message09_03,
+message09_04,
+message09_05,
+message09_06,
+};
+
+constexpr const char * const messages10[] = { 
+message10_01,
+message10_02,
+message10_03,
+message10_04,
+message10_05,
+message10_06,
+};
+
+constexpr const char * const messages11[] = { 
+message11_01,
+message11_02,
+message11_03,
+message11_04,
+message11_05,
+message11_06,
+};
+
+constexpr const char * const messages12[] = { 
+message12_01,
+message12_02,
+message12_03,
+message12_04,
+message12_05,
+message12_06,
+};
+
+constexpr const char * const messages13[] = { 
+message13_01,
+message13_02,
+message13_03,
+message13_04,
+message13_05,
+message13_06,
 };
 
 void Game::showGuide() {
@@ -342,6 +432,7 @@ void Game::showGuide() {
     PD::setFont(font3x5);
 
     uint8_t endLoop = (this->guideTop + 6 > messageLengths[this->guideNumber] ? messageLengths[this->guideNumber] : this->guideTop + 6);
+
 
     for (uint8_t x = this->guideTop; x < endLoop; x++) {
 
@@ -402,6 +493,41 @@ void Game::showGuide() {
                     showGuide_renderLine(x - this->guideTop, message);
                 }
                 break;
+
+            case 8:
+                {
+                    const char * message = messages09[x];
+                    showGuide_renderLine(x - this->guideTop, message);
+                }
+                break;
+
+            case 9:
+                {
+                    const char * message = messages10[x];
+                    showGuide_renderLine(x - this->guideTop, message);
+                }
+                break;         
+
+            case 10:
+                {
+                    const char * message = messages11[x];
+                    showGuide_renderLine(x - this->guideTop, message);
+                }
+                break;               
+
+            case 11:
+                {
+                    const char * message = messages12[x];
+                    showGuide_renderLine(x - this->guideTop, message);
+                }
+                break;       
+
+            case 12:
+                {
+                    const char * message = messages13[x];
+                    showGuide_renderLine(x - this->guideTop, message);
+                }
+                break;                       
 
         }
 

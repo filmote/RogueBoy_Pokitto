@@ -1047,7 +1047,8 @@ bool Game::interactWithBlock(int x, int y, MapTiles block) {
             return false;
 
         case MapTiles::Altar00 ... MapTiles::Altar05:
-            this->gameState = GameState::Puzzle_Init_Game; 
+            this->gameState = GameState::Puzzle_Init_Game; //
+            this->gameState = GameState::WinState_Init; 
             break;
 
     }

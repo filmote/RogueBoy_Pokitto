@@ -38,7 +38,7 @@ void Game::win_Init() {
     this->winScreenVars.runeEOG[5].index = 0;
     this->winScreenVars.runeEOG[5].x = 38;
 
-    this->winScreenVars.counter = 220;
+    this->winScreenVars.counter = 235;
     this->winScreenVars.yPos = 90;
     this->winScreenVars.mode = WinScreenMode::ShowAnim;
     
@@ -57,7 +57,11 @@ void Game::win() {
                                 72, 67, 62, 57, 53, 49, 45, 42, 
                                 39, 36, 33, 31, 29, 28, 27, 27, 
                                 26, 26, 26, 26, 27, 27, 28, 29, 
-                                31, 33, 36, 39 };
+                                31, 33, 36, 39, 42, 45, 49, 53,
+                                47, 62, 67, 72, 69, 66, 63, 61,
+                                59, 57, 55, 54, 53, 53, 52, 52,
+                                53, 53, 54, 55, 57, 59, 61, 63,
+                                66, 69, 72, 69, 66, 63, 61, 59 };
 
 
     switch (this->winScreenVars.mode) {
@@ -76,7 +80,8 @@ void Game::win() {
                     }
                     else {
                         
-                        if (rune.index < 75) {
+                        if (rune.index < 109){//75) {
+                            if (rune.index % 3 <= 1)
                             rune.x = rune.x + (rune.direction == Direction::Left ? -1 : 1);
                             rune.index++;
                         }
@@ -125,7 +130,7 @@ void Game::win() {
 
             this->winScreenVars.counter--;
             if (this->winScreenVars.counter == 0 || PC::buttons.pressed(BTN_A)) { 
-                this->winScreenVars.counter = 740;
+                this->winScreenVars.counter = 1130;
                 this->winScreenVars.mode = WinScreenMode::ShowMessage;
             }
                 
@@ -137,27 +142,77 @@ void Game::win() {
                 this->winScreenVars.yPos--;
             }
 
+            // PD::setColor(6, 0);
+            // PD::setCursor(2, static_cast<uint16_t>(this->winScreenVars.yPos));
+            // PD::print("Congratulations!"); 
+            // PD::setCursor(2, this->winScreenVars.yPos + 15);
+            // PD::print("You have scoured"); 
+            // PD::setCursor(2, this->winScreenVars.yPos + 24);
+            // PD::print("the corners of the"); 
+            // PD::setCursor(2, this->winScreenVars.yPos + 33);
+            // PD::print("underworld and "); 
+            // PD::setCursor(2, this->winScreenVars.yPos + 42);
+            // PD::print("fought for the six"); 
+            // PD::setCursor(2, this->winScreenVars.yPos + 51);
+            // PD::print("sacred runes. "); 
+            // PD::setCursor(2, this->winScreenVars.yPos + 66);
+            // PD::print("Presenting them"); 
+            // PD::setCursor(2, this->winScreenVars.yPos + 75);
+            // PD::print("at the altar has"); 
+            // PD::setCursor(2, this->winScreenVars.yPos + 84);
+            // PD::print("freed your soul - "); 
+            // PD::setCursor(2, this->winScreenVars.yPos + 93);
+            // PD::print("you are able to"); 
+            // PD::setCursor(2, this->winScreenVars.yPos + 102);
+            // PD::print("return back to"); 
+            // PD::setCursor(2, this->winScreenVars.yPos + 111);
+            // PD::print("the world of the "); 
+            // PD::setCursor(2, this->winScreenVars.yPos + 120);
+            // PD::print("living."); 
+
             PD::setColor(6, 0);
-            PD::setCursor(0, static_cast<uint16_t>(this->winScreenVars.yPos));
-            PD::print(" A sdfsd sdf fdsfs3"); 
-            PD::setCursor(0, this->winScreenVars.yPos + 9);
-            PD::print(" 1 sdfsd sdf fdsfs"); 
-            PD::setCursor(0, this->winScreenVars.yPos + 18);
-            PD::print(" 2 sdfsd sdf fds fs"); 
-            PD::setCursor(0, this->winScreenVars.yPos + 27);
-            PD::print(" 3 sdfsd sdf fdsfs"); 
-            PD::setCursor(0, this->winScreenVars.yPos + 36);
-            PD::print(" 4 sdfsd sdd dsfsg"); 
-            PD::setCursor(0, this->winScreenVars.yPos + 45);
-            PD::print(" 5 sdfsd sdf fdsfs"); 
-            PD::setCursor(0, this->winScreenVars.yPos + 54);
-            PD::print(" 6 sdfsd sdsf ds fs"); 
-            PD::setCursor(0, this->winScreenVars.yPos + 63);
-            PD::print(" 7 sdfsd sdf fdsffs"); 
-            PD::setCursor(0, this->winScreenVars.yPos + 72);
-            PD::print(" 8 sdfsd sdf fdsfs"); 
-            PD::setCursor(0, this->winScreenVars.yPos + 81);
-            PD::print(" 9 sdfsd sdf fdsfs"); 
+            if (this->winScreenVars.yPos > -100) {
+                PD::setCursor(6, this->winScreenVars.yPos);
+                PD::print("Congratulations!"); 
+                PD::setCursor(6, this->winScreenVars.yPos + 15);
+                PD::print("You have scoured"); 
+                PD::setCursor(2, this->winScreenVars.yPos + 24);
+                PD::print("the corners of the"); 
+                PD::setCursor(10, this->winScreenVars.yPos + 33);
+                PD::print("underworld and "); 
+                PD::setCursor(3, this->winScreenVars.yPos + 42);
+                PD::print("fought for the six"); 
+                PD::setCursor(17, this->winScreenVars.yPos + 51);
+                PD::print("sacred runes. "); 
+            }
+
+            PD::setCursor(8, this->winScreenVars.yPos + 66);
+            PD::print("Presenting them"); 
+            PD::setCursor(8, this->winScreenVars.yPos + 75);
+            PD::print("at the altar has"); 
+            PD::setCursor(7, this->winScreenVars.yPos + 84);
+            PD::print("freed your soul - "); 
+            PD::setCursor(12, this->winScreenVars.yPos + 93);
+            PD::print("you are able to"); 
+            PD::setCursor(11, this->winScreenVars.yPos + 102);
+            PD::print("return back to"); 
+            PD::setCursor(6, this->winScreenVars.yPos + 111);
+            PD::print("the world of the "); 
+            PD::setCursor(37, this->winScreenVars.yPos + 120);
+            PD::print("living."); 
+            PD::setCursor(4, this->winScreenVars.yPos + 145);
+            PD::print("Dark Ritual - 2020"); 
+            PD::setCursor(28, this->winScreenVars.yPos + 159);
+            PD::print("Vampirics"); 
+            PD::setCursor(32, this->winScreenVars.yPos + 168);
+            PD::print("Filmote"); 
+
+            if (this->winScreenVars.yPos < 30) {
+                PD::setCursor(17, this->winScreenVars.yPos + 177);
+                PD::print("Dreamer2345"); 
+                PD::setCursor(10, this->winScreenVars.yPos + 186);
+                PD::print("RafaeleSpindola"); 
+            }
 
             PD::setColor(0, 0);
             PD::fillRect(0, 0, 110, 7);
