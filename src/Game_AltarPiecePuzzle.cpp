@@ -5,7 +5,7 @@ using PC = Pokitto::Core;
 using PD = Pokitto::Display;
 
 
-#define NOTHING                      0
+#define NOTHING                           0
 #define CONNECTOR_HORIZONTAL_LR           1
 #define CONNECTOR_HORIZONTAL_RL           2
 #define CONNECTOR_VERTICAL_TB             3
@@ -18,42 +18,19 @@ using PD = Pokitto::Display;
 #define CONNECTOR_CORNER_LB               10
 #define CONNECTOR_CORNER_BR               11
 #define CONNECTOR_CORNER_RB               12
-#define NODE                         15
+#define NODE                              15
 
-#define GRID_WIDTH                   14
-#define GRID_HEIGHT                  14
-
-#define UP                           0
-#define DOWN                         1
-#define LEFT                         2
-#define RIGHT                        3
+#define GRID_WIDTH                        14
+#define GRID_HEIGHT                       14
 
 void Game::play_InitGame() {
 
     initBoard(puzzle.level, puzzle.index);
+    puzzle.highlightedNode.x = 0;
+    puzzle.highlightedNode.y = 0;
+    
     gameState = GameState::Puzzle_No_Selection;
 
-}
-
-
-
-/* ----------------------------------------------------------------------------
- *  Return the upper 4 bits of a byte.
- */
-uint8_t Game::leftValue(uint8_t val) {
-
-    return val >> 4; 
-      
-}
-
-
-/* ----------------------------------------------------------------------------
- *  Return the lower 4 bits of a byte.
- */
-uint8_t Game::rightValue(uint8_t val) {
-
-    return val & 0x0F; 
-      
 }
 
 
@@ -357,7 +334,7 @@ void Game::play_NodeSelected() {
 
     if (PC::buttons.pressed(BTN_LEFT)) {
 
-        if (validMove(LEFT, puzzle.selectedNode, puzzle.highlightedNode.x - 1, puzzle.highlightedNode.y)) {
+        if (validMove(Direction::Left, puzzle.selectedNode, puzzle.highlightedNode.x - 1, puzzle.highlightedNode.y)) {
 
             bool node = isNode(puzzle.highlightedNode.x - 1, puzzle.highlightedNode.y);
 
@@ -434,7 +411,7 @@ void Game::play_NodeSelected() {
 
     if (PC::buttons.pressed(BTN_RIGHT)) {
 
-        if (validMove(RIGHT, puzzle.selectedNode, puzzle.highlightedNode.x + 1, puzzle.highlightedNode.y)) {
+        if (validMove(Direction::Right, puzzle.selectedNode, puzzle.highlightedNode.x + 1, puzzle.highlightedNode.y)) {
 
             bool node = isNode(puzzle.highlightedNode.x + 1, puzzle.highlightedNode.y);
 
@@ -511,7 +488,7 @@ void Game::play_NodeSelected() {
 
     if (PC::buttons.pressed(BTN_UP)) {
 
-        if (validMove(UP, puzzle.selectedNode, puzzle.highlightedNode.x, puzzle.highlightedNode.y - 1)) {
+        if (validMove(Direction::Up, puzzle.selectedNode, puzzle.highlightedNode.x, puzzle.highlightedNode.y - 1)) {
 
             bool node = isNode(puzzle.highlightedNode.x, puzzle.highlightedNode.y - 1);
 
@@ -587,7 +564,7 @@ void Game::play_NodeSelected() {
 
     if (PC::buttons.pressed(BTN_DOWN)) {
 
-        if (validMove(DOWN, puzzle.selectedNode, puzzle.highlightedNode.x, puzzle.highlightedNode.y + 1)) {
+        if (validMove(Direction::Down, puzzle.selectedNode, puzzle.highlightedNode.x, puzzle.highlightedNode.y + 1)) {
 
             bool node = isNode(puzzle.highlightedNode.x, puzzle.highlightedNode.y + 1);
 
@@ -738,7 +715,7 @@ void Game::updatePipeWhenReversing(uint8_t x, uint8_t y) {
  *   selectedNode:  The node previously selected.
  *   x and y:       Coordinates to test.  Passed as int8_t to allow negatives.
  */
-bool Game::validMove(uint8_t direction, Node selectedNode, int8_t x, int8_t y) {
+bool Game::validMove(Direction direction, Node selectedNode, int8_t x, int8_t y) {
 
 
     // Off the grid!
@@ -758,7 +735,7 @@ bool Game::validMove(uint8_t direction, Node selectedNode, int8_t x, int8_t y) {
 
     switch (direction) {
 
-        case (UP):
+        case (Direction::Up):
 
             switch (getPipeValue(puzzle.highlightedNode.x, puzzle.highlightedNode.y)) {
 
@@ -771,7 +748,7 @@ bool Game::validMove(uint8_t direction, Node selectedNode, int8_t x, int8_t y) {
 
             break;
 
-        case (DOWN):
+        case (Direction::Down):
 
             switch (getPipeValue(puzzle.highlightedNode.x, puzzle.highlightedNode.y)) {
 
@@ -784,7 +761,7 @@ bool Game::validMove(uint8_t direction, Node selectedNode, int8_t x, int8_t y) {
 
             break;
 
-        case (LEFT):
+        case (Direction::Left):
 
             switch (getPipeValue(puzzle.highlightedNode.x, puzzle.highlightedNode.y)) {
 
@@ -797,7 +774,7 @@ bool Game::validMove(uint8_t direction, Node selectedNode, int8_t x, int8_t y) {
 
             break;
 
-        case (RIGHT):
+        case (Direction::Right):
 
             switch (getPipeValue(puzzle.highlightedNode.x, puzzle.highlightedNode.y)) {
 

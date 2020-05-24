@@ -90,14 +90,12 @@ void Game::updateObjects(bool ignorePlayerDamage) {
                     case Object::Coin: 
                         player.incCoins(1); 
                         objectI.setActive(false); 
-                        printf("PickupCoin\n");
                         playSoundEffect(SoundEffect::PickUpCoin);
                         break;
 
                     case Object::SackOCash: 
                         player.incCoins(5); 
                         objectI.setActive(false); 
-                        printf("PickupCoin\n");
                         playSoundEffect(SoundEffect::PickUpCoin);
                         break;
 
@@ -113,7 +111,6 @@ void Game::updateObjects(bool ignorePlayerDamage) {
 
                             if (slot != NO_SLOT_FOUND) {
                                 objectI.setActive(false);
-                        printf("PickupCoin\n");
                                 playSoundEffect(SoundEffect::PickUpCoin);
                             }
                             else {
@@ -130,7 +127,6 @@ void Game::updateObjects(bool ignorePlayerDamage) {
 
                             if (slot != NO_SLOT_FOUND) {
                                 objectI.setActive(false);
-                        printf("PickupCoin\n");
                                 playSoundEffect(SoundEffect::PickUpCoin);
                             }
                             else {
@@ -790,7 +786,7 @@ void Game::playerMovement(GameMode gameMode) {
                             gameState = GameState::EndOfLevel;
 
                         }
-                        
+
                     }
 
                 }

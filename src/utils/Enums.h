@@ -127,7 +127,6 @@ enum class GameState : uint8_t {
     Settings, 
     Game, 
     LoadMap,
-//  GameOver, 
     EndOfLevel, 
     Dead, 
     WinState_Init,
