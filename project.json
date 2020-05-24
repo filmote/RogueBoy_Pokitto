@@ -11287,6 +11287,9 @@
 		},
 		"/EndScene.gif": {
 			"sdcard": false
+		},
+		"/RogueBoy_1Bit.bin": {
+			"sdcard": false
 		}
 	},
 	"BUILDFlags": {

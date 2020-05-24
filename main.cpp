@@ -39,12 +39,6 @@ void init() {
 
     game.setup(&cookie);
 
-
-    // if (mainThemeFile.openRO("music/darkrit1.raw")) {
-    //     auto& music = Audio::play<2>(mainThemeFile);
-    //     music.setLoop(true);
-    // } 
-
 }
 
 
