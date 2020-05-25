@@ -326,7 +326,8 @@ void Game::updateObjects(bool ignorePlayerDamage) {
 
                                     switch (object.getType()) {
 
-                                        case Object::Bull:
+                                        case Object::Necromancer:
+                                        case Object::Beholder:
                                         case Object::Cyclop:
                                             this->player.incAltarPieces();
                                             this->gameState = GameState::AltarPieceAchieved;
@@ -750,7 +751,7 @@ void Game::playerMovement(GameMode gameMode) {
                 if (gameMode == GameMode::Normal) {
 
 
-                    // Have we ledt a run behind?
+                    // Have we left a ruin behind?
 
                     if (this->map.getHasRune()) {
                         gameState = GameState::NeedRune;
@@ -805,10 +806,6 @@ void Game::playerMovement(GameMode gameMode) {
 
             case MapTiles::Altar00 ... MapTiles::Altar05:
                 this->gameState = GameState::Puzzle_Init_Game;
-                break;
-
-            case MapTiles::SavePost:
-                this->cookie->saveCookie();
                 break;
 
             default:
@@ -1040,11 +1037,11 @@ bool Game::interactWithBlock(int x, int y, MapTiles block) {
 
         case MapTiles::SavePost:
             this->cookie->saveCookie();
+            this->gameState = GameState::GameSaved;
             return false;
 
         case MapTiles::Altar00 ... MapTiles::Altar05:
-            this->gameState = GameState::Puzzle_Init_Game; //
-            this->gameState = GameState::WinState_Init; 
+            this->gameState = GameState::Puzzle_Init_Game; 
             break;
 
     }
@@ -1624,7 +1621,7 @@ void Game::spriteAI(MapInformation &map, Player &player, Sprite &sprite) {
 
             break;
 
-        case Object::Guide01 ... Object::Guide08:
+        case Object::Guide01 ... Object::Guide15:
             spriteAI_UpdateFrame(sprite, 2, 96);
             break;
 

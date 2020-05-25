@@ -98,6 +98,10 @@ void Game::loop(void) {
             puzzleGameOver();
             break;
 
+        case GameState::GameSaved:
+            showGameSavedMessage();
+            break;
+
         #ifdef DEBUG
             case GameState::MapDetails:  
                 mapDetails(); 

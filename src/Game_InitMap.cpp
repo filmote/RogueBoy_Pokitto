@@ -113,7 +113,7 @@ void Game::loadMap(const uint8_t * levelToLoad) {
 }
 
 
-void Game::nextLevelLoad(GameMode gameMode) {
+void Game::nextLevelLoad(GameMode &gameMode) {
 
     uint16_t playerX = 0;
     uint16_t playerY = 0;
@@ -461,6 +461,7 @@ void Game::nextLevelLoad(GameMode gameMode) {
                         this->loadMap(levelToLoad);
                         this->map.setDefinedMapLevel(map.getDefinedMapLevel() + 1); 
                         this->player.setPlayerStatus(this->cookie->getPlayerStatus());
+                        gameMode = GameMode::Normal;
                     }
                     break;
 

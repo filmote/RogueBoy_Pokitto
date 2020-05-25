@@ -142,6 +142,7 @@ enum class GameState : uint8_t {
     Puzzle_No_Selection,
     Puzzle_Node_Selected,
     Puzzle_Game_Over,
+    GameSaved,
 };
 
 enum class Direction : uint8_t {

@@ -57,7 +57,7 @@ class Game {
 
         void updateMainMenu();
         void loadMap(const uint8_t * levelToLoad);
-        void nextLevelLoad(GameMode gameMode);
+        void nextLevelLoad(GameMode &gameMode);
 
         void showInventory();
         void mapDetails();
@@ -98,6 +98,7 @@ class Game {
         bool isBlockedBySolidSprite(Player player, uint16_t playerX, uint16_t playerY);
         bool isBlockedByPlayer(Player player, Sprite enemy, uint16_t enemyX, uint16_t enemyY);
         void showShop();
+        void showGameSavedMessage();
         void highScore();
         void showAltarPieceMessage();
         void showNeedRuneMessage();
