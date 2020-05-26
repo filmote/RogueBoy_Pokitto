@@ -150,7 +150,7 @@ void Game::updateObjects(bool ignorePlayerDamage) {
                     case Object::Necromancer:
                     case Object::Hobgoblin:
                     case Object::Cyclop:
-                    case Object::Bull:
+//                    case Object::Bull:
                     case Object::Beholder:
                     case Object::Boss04 ... Object::Boss05:
 
@@ -276,13 +276,21 @@ void Game::updateObjects(bool ignorePlayerDamage) {
 
                         if (spriteIdx == NO_SPRITE_FOUND) {
 
-                            this->objects.setObjectNum(this->objects.getObjectNum() + 1);
-                            spriteIdx = this->objects.getObjectNum() - 1;
+                            if (this->objects.getObjectNum() < MAXOBJECT - 1) {
+
+                                this->objects.setObjectNum(this->objects.getObjectNum() + 1);
+                                spriteIdx = this->objects.getObjectNum() - 1;
+
+                            }
 
                         }   
 
-                        Sprite &sprite = this->objects.getSprite(spriteIdx);
-                        sprite.setSprite((this->map.getTileX(rx) * TILE_SIZE) + 8, (this->map.getTileY(ry) * TILE_SIZE) + 8, 0, static_cast<Object>(object), true, true);
+                        if (spriteIdx != NO_SPRITE_FOUND) {
+
+                            Sprite &sprite = this->objects.getSprite(spriteIdx);
+                            sprite.setSprite((this->map.getTileX(rx) * TILE_SIZE) + 8, (this->map.getTileY(ry) * TILE_SIZE) + 8, 0, static_cast<Object>(object), true, true);
+
+                        }
 
                     }
 
@@ -767,7 +775,7 @@ void Game::playerMovement(GameMode gameMode) {
 
                             auto &object = this->objects.getSprite(i);
 
-                            if (object.getActive() && object.isEnemy() && object.getType() >= Object::Bull && object.getType() <= Object::Boss05) {
+                            if (object.getActive() && object.isBoss()) {
 
                                 boss = true;
                                 break;
@@ -871,13 +879,21 @@ bool Game::interactWithBlock(int x, int y, MapTiles block) {
 
                 if (spriteIdx == NO_SPRITE_FOUND) {
 
-                    this->objects.setObjectNum(this->objects.getObjectNum() + 1);
-                    spriteIdx = this->objects.getObjectNum() - 1;
+                    if (this->objects.getObjectNum() < MAXOBJECT - 1) {
+
+                        this->objects.setObjectNum(this->objects.getObjectNum() + 1);
+                        spriteIdx = this->objects.getObjectNum() - 1;
+
+                    }
 
                 }   
 
-                Sprite &sprite = this->objects.getSprite(spriteIdx);
-                sprite.setSprite((x * TILE_SIZE) + 8, (y * TILE_SIZE) + 8, 0, (block == MapTiles::ClosedChest_Key ? Object::Key : Object::Chest), true, false);
+                if (spriteIdx != NO_SPRITE_FOUND) {
+
+                    Sprite &sprite = this->objects.getSprite(spriteIdx);
+                    sprite.setSprite((x * TILE_SIZE) + 8, (y * TILE_SIZE) + 8, 0, (block == MapTiles::ClosedChest_Key ? Object::Key : Object::Chest), true, false);
+
+                }
 
             }
             return true;
@@ -895,16 +911,24 @@ bool Game::interactWithBlock(int x, int y, MapTiles block) {
 
                 if (spriteIdx == NO_SPRITE_FOUND) {
 
-                    this->objects.setObjectNum(this->objects.getObjectNum() + 1);
-                    spriteIdx = this->objects.getObjectNum() - 1;
+                    if (this->objects.getObjectNum() < MAXOBJECT - 1) {
+
+                        this->objects.setObjectNum(this->objects.getObjectNum() + 1);
+                        spriteIdx = this->objects.getObjectNum() - 1;
+
+                    }
 
                 }   
 
-                Sprite &sprite = this->objects.getSprite(spriteIdx);
-                sprite.setSprite((x * TILE_SIZE) + 8, (y * TILE_SIZE) + 8, HEALTH_CHEST, (block == MapTiles::ClosedChest_Key ? Object::Key : Object::Chest), true, false);
-                sprite.setCountdown(0);
-                sprite.setDirection(Direction::Down);
-                this->map.setBlock(x, y, MapTiles::Empty); 
+                if (spriteIdx != NO_SPRITE_FOUND) {
+
+                    Sprite &sprite = this->objects.getSprite(spriteIdx);
+                    sprite.setSprite((x * TILE_SIZE) + 8, (y * TILE_SIZE) + 8, HEALTH_CHEST, (block == MapTiles::ClosedChest_Key ? Object::Key : Object::Chest), true, false);
+                    sprite.setCountdown(0);
+                    sprite.setDirection(Direction::Down);
+                    this->map.setBlock(x, y, MapTiles::Empty); 
+
+                }
 
             }
             return true;
@@ -942,13 +966,21 @@ bool Game::interactWithBlock(int x, int y, MapTiles block) {
 
                 if (spriteIdx == NO_SPRITE_FOUND) {
 
-                    this->objects.setObjectNum(this->objects.getObjectNum() + 1);
-                    spriteIdx = this->objects.getObjectNum() - 1;
+                    if (this->objects.getObjectNum() < MAXOBJECT - 1) {
+
+                        this->objects.setObjectNum(this->objects.getObjectNum() + 1);
+                        spriteIdx = this->objects.getObjectNum() - 1;
+                    
+                    }
 
                 }   
 
-                Sprite &sprite = this->objects.getSprite(spriteIdx);
-                sprite.setSprite((x * TILE_SIZE) + 8, (y * TILE_SIZE) + 8, 0, static_cast<Object>(object), true, true);
+                if (spriteIdx != NO_SPRITE_FOUND) {
+
+                    Sprite &sprite = this->objects.getSprite(spriteIdx);
+                    sprite.setSprite((x * TILE_SIZE) + 8, (y * TILE_SIZE) + 8, 0, static_cast<Object>(object), true, true);
+
+                }
 
             }
             return true;
@@ -1132,7 +1164,7 @@ void Game::dropItem(Object droppedObject, uint16_t x, uint16_t y, bool enemyDrop
 
     // If no disabled slot was found, then select the next available one in the collection ..
 
-    if (this->objects.getObjectNum() < MAXOBJECT) {
+    if (this->objects.getObjectNum() < MAXOBJECT - 1) {
 
         uint8_t slotIndex = this->objects.getObjectNum();
         this->objects.setObjectNum(slotIndex + 1);
@@ -1213,47 +1245,55 @@ void Game::spriteAI(MapInformation &map, Player &player, Sprite &sprite) {
 
                     if (spriteIdx == NO_SPRITE_FOUND) {
 
-                        this->objects.setObjectNum(this->objects.getObjectNum() + 1);
-                        spriteIdx = this->objects.getObjectNum() - 1;
+                        if (this->objects.getObjectNum() < MAXOBJECT - 1) {
 
-                    }   
-
-                    Sprite &sprite = this->objects.getSprite(spriteIdx);
-
-
-                    // Make sure we can launch the skeleton in a clear spot and not on top of the player ..
-
-                    const int8_t launchSpider_X[] = { 0, 18, 18, 18, 18, -18, -18, -18 };
-                    const int8_t launchSpider_Y[] = { -18, -18, 0, 18, 18, 18, 0, -18 };
-                    const int8_t directions[] = { 8, 9, 7, 10, 6, 11, 5, 4 };
-
-                    for (uint8_t d = 0; d < 7; d++) {
-
-                        int launchX = location.x + launchSpider_X[(static_cast<uint8_t>(direction) + directions[d]) % 8];
-                        int launchY = location.y + launchSpider_Y[(static_cast<uint8_t>(direction) + directions[d]) % 8];
-
-                        uint8_t width = spriteWidths[static_cast<uint8_t>(Object::Spider)];
-                        uint8_t height = spriteHeights[static_cast<uint8_t>(Object::Spider)];
-                        sprite.setSprite(launchX, launchY, HEALTH_SPIDER, Object::Spider, false, false);
-
-                        if (map.isWalkable(launchX, launchY, direction, width, height) != WalkType::Stop && !collision(this->player, sprite)) {
-
-                            sprite.setFrame(-20);
-                            sprite.setCountdown(0);
-                            sprite.setDirection(direction);
-                            sprite.setActive(true);
-
-                            break;
+                            this->objects.setObjectNum(this->objects.getObjectNum() + 1);
+                            spriteIdx = this->objects.getObjectNum() - 1;
 
                         }
 
+                    }   
+
+                    if (spriteIdx != NO_SPRITE_FOUND) {
+                            
+                        Sprite &sprite = this->objects.getSprite(spriteIdx);
+
+
+                        // Make sure we can launch the spider in a clear spot and not on top of the player ..
+
+                        const int8_t launchSpider_X[] = { 0, 18, 18, 18, 18, -18, -18, -18 };
+                        const int8_t launchSpider_Y[] = { -18, -18, 0, 18, 18, 18, 0, -18 };
+                        const int8_t directions[] = { 8, 9, 7, 10, 6, 11, 5, 4 };
+
+                        for (uint8_t d = 0; d < 7; d++) {
+
+                            int launchX = location.x + launchSpider_X[(static_cast<uint8_t>(direction) + directions[d]) % 8];
+                            int launchY = location.y + launchSpider_Y[(static_cast<uint8_t>(direction) + directions[d]) % 8];
+
+                            uint8_t width = spriteWidths[static_cast<uint8_t>(Object::Spider)];
+                            uint8_t height = spriteHeights[static_cast<uint8_t>(Object::Spider)];
+                            sprite.setSprite(launchX, launchY, HEALTH_SPIDER, Object::Spider, false, false);
+
+                            if (map.isWalkable(launchX, launchY, direction, width, height) != WalkType::Stop && !collision(this->player, sprite)) {
+
+                                sprite.setFrame(-PUFF_FRAME_MAX + 1);
+                                sprite.setCountdown(0);
+                                sprite.setDirection(direction);
+                                sprite.setActive(true);
+
+                                break;
+
+                            }
+
+                        }
+
+
+
+                        // Should the enemy create a new spider ?
+
+                        this->launchSpiderDelay = random(LAUNCH_SPIDER_DELAY_MIN, LAUNCH_SPIDER_DELAY_MAX);
+
                     }
-
-
-
-                    // Should the enemy create a new spider ?
-
-                    this->launchSpiderDelay = random(LAUNCH_SPIDER_DELAY_MIN, LAUNCH_SPIDER_DELAY_MAX);
 
                 }
 
@@ -1279,36 +1319,44 @@ void Game::spriteAI(MapInformation &map, Player &player, Sprite &sprite) {
 
                             if (spriteIdx == NO_SPRITE_FOUND) {
 
-                                this->objects.setObjectNum(this->objects.getObjectNum() + 1);
-                                spriteIdx = this->objects.getObjectNum() - 1;
+                                if (this->objects.getObjectNum() < MAXOBJECT - 1) {
+
+                                    this->objects.setObjectNum(this->objects.getObjectNum() + 1);
+                                    spriteIdx = this->objects.getObjectNum() - 1;
+
+                                }
 
                             }   
 
-                            Sprite &sprite = this->objects.getSprite(spriteIdx);
+                            if (spriteIdx != NO_SPRITE_FOUND) {
+
+                                Sprite &sprite = this->objects.getSprite(spriteIdx);
 
 
-                            // Make sure we can launch the skeleton in a clear spot and not on top of the player ..
+                                // Make sure we can launch the skeleton in a clear spot and not on top of the player ..
 
-                            const int8_t launchSkeleton_X[] = { 0, 13, 13, 13, 13, -13, -13, -13 };
-                            const int8_t launchSkeleton_Y[] = { -13, -13, 0, 13, 13, 13, 0, -13 };
-                            const int8_t directions[] = { 8, 9, 7, 10, 6, 11, 5, 4 };
+                                const int8_t launchSkeleton_X[] = { 0, 13, 13, 13, 13, -13, -13, -13 };
+                                const int8_t launchSkeleton_Y[] = { -13, -13, 0, 13, 13, 13, 0, -13 };
+                                const int8_t directions[] = { 8, 9, 7, 10, 6, 11, 5, 4 };
 
-                            for (uint8_t d = 0; d < 7; d++) {
+                                for (uint8_t d = 0; d < 7; d++) {
 
-                                int launchX = location.x + launchSkeleton_X[(static_cast<uint8_t>(this->launchSkeletonDirection) + directions[d]) % 8];
-                                int launchY = location.y + launchSkeleton_Y[(static_cast<uint8_t>(this->launchSkeletonDirection) + directions[d]) % 8];
+                                    int launchX = location.x + launchSkeleton_X[(static_cast<uint8_t>(this->launchSkeletonDirection) + directions[d]) % 8];
+                                    int launchY = location.y + launchSkeleton_Y[(static_cast<uint8_t>(this->launchSkeletonDirection) + directions[d]) % 8];
 
-                                uint8_t width = spriteWidths[static_cast<uint8_t>(Object::Skeleton)];
-                                uint8_t height = spriteHeights[static_cast<uint8_t>(Object::Skeleton)];
-                                sprite.setSprite(launchX, launchY, HEALTH_SKELETON, Object::Skeleton, false, false);
+                                    uint8_t width = spriteWidths[static_cast<uint8_t>(Object::Skeleton)];
+                                    uint8_t height = spriteHeights[static_cast<uint8_t>(Object::Skeleton)];
+                                    sprite.setSprite(launchX, launchY, HEALTH_SKELETON, Object::Skeleton, false, false);
 
-                                if (map.isWalkable(launchX, launchY, this->launchSkeletonDirection, width, height) != WalkType::Stop && !collision(this->player, sprite)) {
+                                    if (map.isWalkable(launchX, launchY, this->launchSkeletonDirection, width, height) != WalkType::Stop && !collision(this->player, sprite)) {
 
-                                    sprite.setFrame(-47);
-                                    sprite.setCountdown(0);
-                                    sprite.setDirection(Direction::Down);
-                                    sprite.setActive(true);
-                                    break;
+                                        sprite.setFrame(-SKELETON_FRAME_MAX + 1);
+                                        sprite.setCountdown(0);
+                                        sprite.setDirection(Direction::Down);
+                                        sprite.setActive(true);
+                                        break;
+
+                                    }
 
                                 }
 
@@ -1327,7 +1375,7 @@ void Game::spriteAI(MapInformation &map, Player &player, Sprite &sprite) {
 
                                 // Should the enemy summons a skeleton ?
 
-                                sprite.setFrame(-39);
+                                sprite.setFrame(-NECROMANCER_FRAME_MAX + 1);
                                 this->launchSkeletonDirection = direction;
                                 this->launchSkeletonDelay = random(LAUNCH_SKELETON_DELAY_MIN, LAUNCH_SKELETON_DELAY_MAX);
 
@@ -1460,7 +1508,7 @@ void Game::spriteAI(MapInformation &map, Player &player, Sprite &sprite) {
 
                                 // Should the cyclops strike his club ?
 
-                                sprite.setFrame(-28);
+                                sprite.setFrame(-CYCLOPS_FRAME_MAX + 1);
                                 this->launchCyclopsDelay = random(LAUNCH_CYCLOPS_DELAY_MIN, LAUNCH_CYCLOPS_DELAY_MAX);
                                 this->launchCyclopsDirection = direction;
 
@@ -1474,69 +1522,69 @@ void Game::spriteAI(MapInformation &map, Player &player, Sprite &sprite) {
             }
             break;
 
-        case Object::Bull:   
-            {
-                sprite.decCountdown();
+        // case Object::Bull:   
+        //     {
+        //         sprite.decCountdown();
 
-                switch (sprite.getFrame()) {
+        //         switch (sprite.getFrame()) {
 
-                    case -100 ... -2:
-                        sprite.incFrame();
-                        break;
+        //             case -100 ... -2:
+        //                 sprite.incFrame();
+        //                 break;
 
-                    case -1:    // launch sparks
-                        {
-                            sprite.incFrame();
-                            sprite.setCountdown(LAUNCH_BULL_COUNTDOWN);
+        //             case -1:    // launch sparks
+        //                 {
+        //                     sprite.incFrame();
+        //                     sprite.setCountdown(LAUNCH_BULL_COUNTDOWN);
                             
-                        }
-                        break;
+        //                 }
+        //                 break;
 
-                    case 0 ... 100:
-                        {
-                            spriteAI_UpdateFrame(sprite, 4, 2);
-                            Direction direction = spriteAI_CheckForMove(map, player, sprite, location, 7);
-
-
-                            // Should the bull run ?
-
-                            if (direction != Direction::None && this->launchBullChargeDelay == 0) {
-
-                                sprite.setFrame(-28);
-                                this->launchBullChargeDelay = random(LAUNCH_BULL_CHARGE_DELAY_MIN, LAUNCH_BULL_CHARGE_DELAY_MAX);
-
-                            }
+        //             case 0 ... 100:
+        //                 {
+        //                     spriteAI_UpdateFrame(sprite, 4, 2);
+        //                     Direction direction = spriteAI_CheckForMove(map, player, sprite, location, 7);
 
 
-                            // Should the bull shit ?
+        //                     // Should the bull run ?
 
-                            if (direction != Direction::None && this->launchBullDungDelay == 0) {
+        //                     if (direction != Direction::None && this->launchBullChargeDelay == 0) {
 
-                                const int8_t xOffsets[] = { 0, -8, -8, -8, 0, 8, 8, 8 };
-                                const int8_t yOffsets[] = { 8,  8,  0, -8, -8, -8, 0, 8 };
+        //                         sprite.setFrame(-27);
+        //                         this->launchBullChargeDelay = random(LAUNCH_BULL_CHARGE_DELAY_MIN, LAUNCH_BULL_CHARGE_DELAY_MAX);
 
-                                uint8_t inactiveBulletIdx = this->bullets.getInactiveBossBullet();
+        //                     }
 
-                                if (inactiveBulletIdx != NO_INACTIVE_BULLET_FOUND) {
 
-                                    Bullet &bullet = this->bullets.getBossBullet(inactiveBulletIdx);
-                                    bullet.setBullet(sprite.getX() + xOffsets[static_cast<uint8_t>(direction)], sprite.getY() + yOffsets[static_cast<uint8_t>(direction)], direction, Object::Dung, BULL_DUNG_FRAMES);
-                                    this->launchBullDungDelay = random(LAUNCH_BULL_DUNG_DELAY_MIN, LAUNCH_BULL_DUNG_DELAY_MAX);
+        //                     // Should the bull shit ?
 
-                                    sprite.setX(1000);
+        //                     if (direction != Direction::None && this->launchBullDungDelay == 0) {
 
-                                }
+        //                         const int8_t xOffsets[] = { 0, -8, -8, -8, 0, 8, 8, 8 };
+        //                         const int8_t yOffsets[] = { 8,  8,  0, -8, -8, -8, 0, 8 };
 
-                            }
+        //                         uint8_t inactiveBulletIdx = this->bullets.getInactiveBossBullet();
 
-                        }
-                        break;
+        //                         if (inactiveBulletIdx != NO_INACTIVE_BULLET_FOUND) {
 
-                }
+        //                             Bullet &bullet = this->bullets.getBossBullet(inactiveBulletIdx);
+        //                             bullet.setBullet(sprite.getX() + xOffsets[static_cast<uint8_t>(direction)], sprite.getY() + yOffsets[static_cast<uint8_t>(direction)], direction, Object::Dung, BULL_DUNG_FRAMES);
+        //                             this->launchBullDungDelay = random(LAUNCH_BULL_DUNG_DELAY_MIN, LAUNCH_BULL_DUNG_DELAY_MAX);
 
-            }
+        //                             sprite.setX(1000);
 
-            break;
+        //                         }
+
+        //                     }
+
+        //                 }
+        //                 break;
+
+        //         }
+
+        //     }
+
+        //     break;
 
         case Object::Beholder:   
         case Object::Boss04 ... Object::Boss05:   

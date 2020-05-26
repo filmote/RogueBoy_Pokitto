@@ -57,6 +57,7 @@ class Sprite {
 
         void incFrame();
         bool isEnemy();
+        bool isBoss();
         bool isSolidSprite();
         bool isCarryable();
 

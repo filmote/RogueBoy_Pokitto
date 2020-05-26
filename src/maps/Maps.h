@@ -2,49 +2,6 @@
 
 #include <stdint.h>
 
-constexpr const uint8_t Map_04[] = 
-{
-	9, /*Width*/
-	12, /*Height*/
-	1, /*Player Start X*/
-	1, /*Player Start Y*/
-	255, /*Timer*/
-	37, /*Out of Bounds Tile ID*/
-	0, 24, 24, 24, 24, 0, 24, 24, 0,
-	21, 9, 0, 0, 84, 46, 0, 0, 23,
-	66, 0, 0, 0, 0, 4, 0, 0, 65,
-	66, 0, 0, 0, 0, 45, 0, 0, 65,
-	21, 0, 0, 0, 17, 43, 73, 0, 23,
-	0, 48, 4, 47, 44, 0, 44, 44, 0,
-	21, 0, 0, 0, 84, 43, 0, 73, 23,
-	21, 96, 0, 0, 0, 43, 0, 0, 23,
-	0, 44, 44, 44, 44, 35, 0, 0, 23,
-	21, 0, 0, 0, 0, 0, 0, 0, 23,
-	21, 3, 0, 0, 0, 0, 0, 28, 0,
-	0, 22, 67, 22, 67, 22, 67, 0, 0,
-	17, 
-	0, 2, 2, 10,
-	0, 2, 3, 10,
-	0, 3, 3, 10,
-	0, 3, 2, 10,
-	3, 4, 7, 10,
-	7, 4, 7, 50,
-	7, 3, 7, 50,
-	7, 2, 7, 50,
-	6, 7, 4, 50,
-	6, 7, 3, 50,
-	6, 7, 2, 50,
-	6, 7, 1, 50,
-	0, 7, 1, 50,
-	0, 7, 2, 50,
-	35, 4, 7, 0,
-	11, 3, 9, 50,
-	24, 5, 10, 60,
-	2,
-	6, 4, 7, 6,
-	7, 6, 6, 4,
-};
-
 constexpr const uint8_t Map_01[] = 
 {
 	11, /*Width*/
@@ -75,7 +32,7 @@ constexpr const uint8_t Map_01[] =
 	1, 2, 6, 2,
 };
 
-constexpr const uint8_t Map_02[] = 
+constexpr const uint8_t Map_03[] = 
 {
 	11, /*Width*/
 	13, /*Height*/
@@ -106,7 +63,7 @@ constexpr const uint8_t Map_02[] =
 	9, 9, 5, 7,
 };
 
-constexpr const uint8_t Map_03[] = 
+constexpr const uint8_t Map_05[] = 
 {
 	11, /*Width*/
 	14, /*Height*/
@@ -142,7 +99,50 @@ constexpr const uint8_t Map_03[] =
 	8, 12, 2, 5,
 };
 
-constexpr const uint8_t Map_05[] = 
+constexpr const uint8_t Map_07[] = 
+{
+	9, /*Width*/
+	12, /*Height*/
+	1, /*Player Start X*/
+	1, /*Player Start Y*/
+	255, /*Timer*/
+	37, /*Out of Bounds Tile ID*/
+	0, 24, 24, 24, 24, 0, 24, 24, 0,
+	21, 9, 0, 0, 84, 46, 0, 0, 23,
+	66, 0, 0, 0, 0, 4, 0, 0, 65,
+	66, 0, 0, 0, 0, 45, 0, 0, 65,
+	21, 0, 0, 0, 0, 43, 73, 0, 23,
+	0, 48, 4, 47, 44, 0, 44, 44, 0,
+	21, 0, 0, 0, 84, 43, 0, 73, 23,
+	21, 96, 0, 0, 0, 43, 0, 0, 23,
+	0, 44, 44, 44, 44, 35, 0, 0, 23,
+	21, 0, 0, 0, 0, 0, 0, 0, 23,
+	21, 3, 0, 0, 0, 0, 0, 28, 0,
+	0, 22, 67, 22, 67, 22, 67, 0, 0,
+	17, 
+	0, 2, 2, 10,
+	0, 2, 3, 10,
+	0, 3, 3, 10,
+	0, 3, 2, 10,
+	3, 4, 7, 10,
+	7, 4, 7, 50,
+	7, 3, 7, 50,
+	7, 2, 7, 50,
+	6, 7, 4, 50,
+	6, 7, 3, 50,
+	6, 7, 2, 50,
+	6, 7, 1, 50,
+	0, 7, 1, 50,
+	0, 7, 2, 50,
+	35, 4, 7, 0,
+	24, 5, 10, 60,
+	11, 3, 9, 50,
+	2,
+	6, 4, 7, 6,
+	7, 6, 6, 4,
+};
+
+constexpr const uint8_t Map_09[] = 
 {
 	12, /*Width*/
 	13, /*Height*/
@@ -184,7 +184,7 @@ constexpr const uint8_t Map_05[] =
 	0,
 };
 
-constexpr const uint8_t Map_06_Shop[] = 
+constexpr const uint8_t Map_11_Shop[] = 
 {
 	13, /*Width*/
 	11, /*Height*/
@@ -211,7 +211,7 @@ constexpr const uint8_t Map_06_Shop[] =
 	0,
 };
 
-constexpr const uint8_t Map_07[] = 
+constexpr const uint8_t Map_13[] = 
 {
 	11, /*Width*/
 	12, /*Height*/
@@ -246,7 +246,7 @@ constexpr const uint8_t Map_07[] =
 	8, 7, 3, 5,
 };
 
-constexpr const uint8_t Map_08[] = 
+constexpr const uint8_t Map_15[] = 
 {
 	12, /*Width*/
 	12, /*Height*/
@@ -281,7 +281,7 @@ constexpr const uint8_t Map_08[] =
 	0,
 };
 
-constexpr const uint8_t Map_09[] = 
+constexpr const uint8_t Map_17[] = 
 {
 	12, /*Width*/
 	12, /*Height*/
@@ -318,7 +318,7 @@ constexpr const uint8_t Map_09[] =
 	0,
 };
 
-constexpr const uint8_t Map_10[] = 
+constexpr const uint8_t Map_19[] = 
 {
 	11, /*Width*/
 	11, /*Height*/
@@ -355,7 +355,7 @@ constexpr const uint8_t Map_10[] =
 	1, 1, 1, 7,
 };
 
-constexpr const uint8_t Map_11_BossNecro[] = 
+constexpr const uint8_t Map_21_BossNecro[] = 
 {
 	14, /*Width*/
 	13, /*Height*/
@@ -398,7 +398,7 @@ constexpr const uint8_t Map_11_BossNecro[] =
 	0,
 };
 
-constexpr const uint8_t Map_12_Shop[] = 
+constexpr const uint8_t Map_23_Shop[] = 
 {
 	15, /*Width*/
 	11, /*Height*/
@@ -424,7 +424,7 @@ constexpr const uint8_t Map_12_Shop[] =
 	0,
 };
 
-constexpr const uint8_t Map_13[] = 
+constexpr const uint8_t Map_25[] = 
 {
 	18, /*Width*/
 	11, /*Height*/
@@ -459,7 +459,7 @@ constexpr const uint8_t Map_13[] =
 	0,
 };
 
-constexpr const uint8_t Map_14[] = 
+constexpr const uint8_t Map_27[] = 
 {
 	11, /*Width*/
 	12, /*Height*/
@@ -495,7 +495,7 @@ constexpr const uint8_t Map_14[] =
 	4, 9, 8, 3,
 };
 
-constexpr const uint8_t Map_15[] = 
+constexpr const uint8_t Map_29[] = 
 {
 	11, /*Width*/
 	11, /*Height*/
@@ -533,7 +533,7 @@ constexpr const uint8_t Map_15[] =
 	0,
 };
 
-constexpr const uint8_t Map_16[] = 
+constexpr const uint8_t Map_31[] = 
 {
 	12, /*Width*/
 	11, /*Height*/
@@ -584,7 +584,7 @@ constexpr const uint8_t Map_16[] =
 	3, 5, 1, 7,
 };
 
-constexpr const uint8_t Map_17_BossCyclops[] = 
+constexpr const uint8_t Map_33_BossCyclops[] = 
 {
 	13, /*Width*/
 	14, /*Height*/
@@ -632,7 +632,7 @@ constexpr const uint8_t Map_17_BossCyclops[] =
 	4, 5, 4, 7,
 };
 
-constexpr const uint8_t Map_18_Shop[] = 
+constexpr const uint8_t Map_35_Shop[] = 
 {
 	17, /*Width*/
 	14, /*Height*/
@@ -667,7 +667,7 @@ constexpr const uint8_t Map_18_Shop[] =
 	2, 11, 11, 7,
 };
 
-constexpr const uint8_t Map_19[] = 
+constexpr const uint8_t Map_37[] = 
 {
 	14, /*Width*/
 	20, /*Height*/
@@ -733,7 +733,7 @@ constexpr const uint8_t Map_19[] =
 	1, 11, 6, 9,
 };
 
-constexpr const uint8_t Map_20[] = 
+constexpr const uint8_t Map_39[] = 
 {
 	12, /*Width*/
 	11, /*Height*/
@@ -776,7 +776,7 @@ constexpr const uint8_t Map_20[] =
 	1, 5, 4, 5,
 };
 
-constexpr const uint8_t Map_21[] = 
+constexpr const uint8_t Map_41[] = 
 {
 	11, /*Width*/
 	10, /*Height*/
@@ -801,7 +801,7 @@ constexpr const uint8_t Map_21[] =
 	8, 6, 5, 8,
 };
 
-constexpr const uint8_t Map_22[] = 
+constexpr const uint8_t Map_43[] = 
 {
 	17, /*Width*/
 	21, /*Height*/
@@ -856,7 +856,7 @@ constexpr const uint8_t Map_22[] =
 	11, 7, 7, 9,
 };
 
-constexpr const uint8_t Map_23[] = 
+constexpr const uint8_t Map_45[] = 
 {
 	20, /*Width*/
 	19, /*Height*/
@@ -943,7 +943,7 @@ constexpr const uint8_t Map_23[] =
 	0,
 };
 
-constexpr const uint8_t Map_24[] = 
+constexpr const uint8_t Map_47[] = 
 {
 	21, /*Width*/
 	19, /*Height*/
@@ -1003,7 +1003,7 @@ constexpr const uint8_t Map_24[] =
 	1, 8, 7, 6,
 };
 
-constexpr const uint8_t Map_25_Altar[] = 
+constexpr const uint8_t Map_49_Altar[] = 
 {
 	15, /*Width*/
 	15, /*Height*/
@@ -1171,4 +1171,4 @@ constexpr const uint8_t Junk[] =
 
 constexpr const uint8_t numberOfMaps = 28;
 
-constexpr const uint8_t* maps[numberOfMaps] = { Map_04,Map_01,Map_02,Map_03,Map_05,Map_06_Shop,Map_07,Map_08,Map_09,Map_10,Map_11_BossNecro,Map_12_Shop,Map_13,Map_14,Map_15,Map_16,Map_17_BossCyclops,Map_18_Shop,Map_19,Map_20,Map_21,Map_22,Map_23,Map_24,Map_25_Altar,Map_Training,Bosses,Junk, };
+constexpr const uint8_t* maps[numberOfMaps] = { Map_01,Map_03,Map_05,Map_07,Map_09,Map_11_Shop,Map_13,Map_15,Map_17,Map_19,Map_21_BossNecro,Map_23_Shop,Map_25,Map_27,Map_29,Map_31,Map_33_BossCyclops,Map_35_Shop,Map_37,Map_39,Map_41,Map_43,Map_45,Map_47,Map_49_Altar,Map_Training,Bosses,Junk, };

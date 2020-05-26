@@ -11938,6 +11938,18 @@
 		},
 		"\\RogueBoy_Pokitto.bin.4 - Copy.png": {
 			"sdcard": false
+		},
+		"\\Cyclops.png": {
+			"sdcard": false
+		},
+		"\\Beholder.png": {
+			"sdcard": false
+		},
+		"\\RogueBoy_Pokitto.bin.4 - Copy.h": {
+			"sdcard": false
+		},
+		"\\DarkRitual_V091.bin": {
+			"sdcard": false
 		}
 	},
 	"BUILDFlags": {

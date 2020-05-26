@@ -253,6 +253,22 @@ bool Sprite::isEnemy() {
     
 }
 
+bool Sprite::isBoss() {
+    
+    switch (this->type) {
+
+        case Object::Necromancer:
+        case Object::Cyclop:
+        case Object::Beholder:
+            return true;
+
+        default:
+            return false;
+        
+    }
+    
+}
+
 bool Sprite::isSolidSprite() {
     
     switch (this->type) {

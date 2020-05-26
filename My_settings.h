@@ -167,6 +167,12 @@
 #define BULL_DUNG_FRAMES                100      // Number of frames to persist
 
 
+// Frame constants 
+
+#define PUFF_FRAME_MAX                  20
+#define SKELETON_FRAME_MAX              48
+#define NECROMANCER_FRAME_MAX           40
+#define CYCLOPS_FRAME_MAX               28
 
 
 /* -------------------------------------------------------------------------------
