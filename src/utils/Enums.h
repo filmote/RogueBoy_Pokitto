@@ -23,34 +23,39 @@ enum class WalkType : uint8_t {
     Slow,
 };
 
-enum class TitleScreenMode : uint8_t {
+enum class TitleScreenOption : uint8_t {
     Resume,
     Start,
     HighScore,
     Help
 };
 
-inline TitleScreenMode &operator++(TitleScreenMode &c ) {
-    c = static_cast<TitleScreenMode>( static_cast<uint8_t>(c) + 1 );
+inline TitleScreenOption &operator++(TitleScreenOption &c ) {
+    c = static_cast<TitleScreenOption>( static_cast<uint8_t>(c) + 1 );
     return c;
 }
 
-inline TitleScreenMode operator++(TitleScreenMode &c, int ) {
-    TitleScreenMode result = c;
+inline TitleScreenOption operator++(TitleScreenOption &c, int ) {
+    TitleScreenOption result = c;
     ++c;
     return result;
 }
 
-inline TitleScreenMode &operator--(TitleScreenMode &c ) {
-    c = static_cast<TitleScreenMode>( static_cast<uint8_t>(c) - 1 );
+inline TitleScreenOption &operator--(TitleScreenOption &c ) {
+    c = static_cast<TitleScreenOption>( static_cast<uint8_t>(c) - 1 );
     return c;
 }
 
-inline TitleScreenMode operator--(TitleScreenMode &c, int ) {
-    TitleScreenMode result = c;
+inline TitleScreenOption operator--(TitleScreenOption &c, int ) {
+    TitleScreenOption result = c;
     --c;
     return result;
 }
+
+enum class TitleScreenMode : uint8_t {
+    SelectOption,
+    Introduction
+};
 
 enum Object {
     Coin = 0,

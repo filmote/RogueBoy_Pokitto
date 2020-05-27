@@ -17,8 +17,9 @@ void Game::highScore() {
 
         if (PC::buttons.pressed(BTN_A)) {
 
-            gameState = GameState::MainMenu; 
-            map.setLevel(0); 
+            this->gameState = GameState::MainMenu; 
+            this->titleScreenVars.mode = TitleScreenMode::SelectOption;
+            this->map.setLevel(0); 
             this->points = 0; 
 
         }

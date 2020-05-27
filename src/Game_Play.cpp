@@ -800,7 +800,8 @@ void Game::playerMovement(GameMode gameMode) {
 
                 }
                 else {
-                    gameState = GameState::MainMenu;
+                    this->gameState = GameState::MainMenu;
+                    this->titleScreenVars.mode = TitleScreenMode::SelectOption;
                 }
                 break;
 

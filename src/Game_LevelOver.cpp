@@ -142,34 +142,6 @@ void Game::win() {
                 this->winScreenVars.yPos--;
             }
 
-            // PD::setColor(6, 0);
-            // PD::setCursor(2, static_cast<uint16_t>(this->winScreenVars.yPos));
-            // PD::print("Congratulations!"); 
-            // PD::setCursor(2, this->winScreenVars.yPos + 15);
-            // PD::print("You have scoured"); 
-            // PD::setCursor(2, this->winScreenVars.yPos + 24);
-            // PD::print("the corners of the"); 
-            // PD::setCursor(2, this->winScreenVars.yPos + 33);
-            // PD::print("underworld and "); 
-            // PD::setCursor(2, this->winScreenVars.yPos + 42);
-            // PD::print("fought for the six"); 
-            // PD::setCursor(2, this->winScreenVars.yPos + 51);
-            // PD::print("sacred runes. "); 
-            // PD::setCursor(2, this->winScreenVars.yPos + 66);
-            // PD::print("Presenting them"); 
-            // PD::setCursor(2, this->winScreenVars.yPos + 75);
-            // PD::print("at the altar has"); 
-            // PD::setCursor(2, this->winScreenVars.yPos + 84);
-            // PD::print("freed your soul - "); 
-            // PD::setCursor(2, this->winScreenVars.yPos + 93);
-            // PD::print("you are able to"); 
-            // PD::setCursor(2, this->winScreenVars.yPos + 102);
-            // PD::print("return back to"); 
-            // PD::setCursor(2, this->winScreenVars.yPos + 111);
-            // PD::print("the world of the "); 
-            // PD::setCursor(2, this->winScreenVars.yPos + 120);
-            // PD::print("living."); 
-
             PD::setColor(6, 0);
             if (this->winScreenVars.yPos > -100) {
                 PD::setCursor(6, this->winScreenVars.yPos);

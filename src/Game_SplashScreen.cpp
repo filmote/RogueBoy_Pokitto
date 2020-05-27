@@ -27,6 +27,7 @@ void Game::splashScreen() {
         else {
 
             this->gameState = GameState::MainMenu; 
+            this->titleScreenVars.mode = TitleScreenMode::SelectOption;
 
         }
 

@@ -83,7 +83,10 @@ struct TitleScreenVars {
 
     int8_t arrowCounter = 0;
     uint8_t orbCounter = 0;
-    TitleScreenMode mode = TitleScreenMode::Start;
+    uint8_t fadeCounter = 0;
+    int32_t yPos = 0;
+    TitleScreenOption option = TitleScreenOption::Start;
+    TitleScreenMode mode = TitleScreenMode::SelectOption;
 
 };
 
