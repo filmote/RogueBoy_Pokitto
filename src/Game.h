@@ -78,6 +78,7 @@ class Game {
         void win_Init();
         void endOfLevel();
         void updateGame(GameMode gameMode);
+        void updateMainMenuStartGame();
         void playerMovement(GameMode gameMode);
         bool interactWithBlock(int x, int y, MapTiles block);
         void updateEnvironmentBlock(MapInformation map, uint8_t x, uint8_t y, Environments &Envi);

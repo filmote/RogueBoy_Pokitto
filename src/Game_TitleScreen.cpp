@@ -56,9 +56,20 @@ void Game::updateMainMenu() {
 
 
             if (PC::buttons.pressed(BTN_A)) {
-                this->titleScreenVars.mode = TitleScreenMode::Introduction;
-                this->titleScreenVars.fadeCounter = 0;
-                this->titleScreenVars.yPos = 90;
+
+                if (this->titleScreenVars.option != TitleScreenOption::Start) {
+
+                    updateMainMenuStartGame();
+
+                }
+                else {
+
+                    this->titleScreenVars.mode = TitleScreenMode::Introduction;
+                    this->titleScreenVars.fadeCounter = 0;
+                    this->titleScreenVars.yPos = 90;
+
+                }
+
             }
 
             break;
@@ -67,50 +78,14 @@ void Game::updateMainMenu() {
 
             if (this->titleScreenVars.fadeCounter < 70) {
 
-                this->titleScreenVars.fadeCounter ++;
+                this->titleScreenVars.fadeCounter++;
 
             }
 
 
-            if (PC::buttons.pressed(BTN_A)) {
+            if (this->titleScreenVars.yPos < -405 || PC::buttons.pressed(BTN_A)) {
 
-
-                // Select a random amount for each shop object?
-
-                this->shopObjects[0].quantityLeft = random(INVENTORY_BREAD_MIN, INVENTORY_BREAD_MAX);
-                this->shopObjects[1].quantityLeft = random(INVENTORY_CHICKEN_MIN, INVENTORY_CHICKEN_MAX);
-                this->shopObjects[2].quantityLeft = random(INVENTORY_KEY_MIN, INVENTORY_KEY_MAX);
-                this->shopObjects[3].quantityLeft = random(INVENTORY_TOOLS_MIN, INVENTORY_TOOLS_MAX);
-                this->shopObjects[4].quantityLeft = random(INVENTORY_TONIC_MIN, INVENTORY_TONIC_MAX);
-                this->shopObjects[5].quantityLeft = random(INVENTORY_ICE_SPELL_MIN, INVENTORY_ICE_SPELL_MAX);
-                this->shopObjects[6].quantityLeft = random(INVENTORY_GREEN_SPELL_MIN, INVENTORY_GREEN_SPELL_MAX);
-                this->shopObjects[7].quantityLeft = random(INVENTORY_RED_SPELL_MIN, INVENTORY_RED_SPELL_MAX);
-                this->shopObjects[8].quantityLeft = random(INVENTORY_MAUVE_SPELL_MIN, INVENTORY_MAUVE_SPELL_MAX);
-                
-
-                switch (this->titleScreenVars.option) {
-
-                    case TitleScreenOption::Resume:
-                        this->gameState = GameState::LoadMap;
-                        this->gameMode = GameMode::Resume;
-                        break;
-
-                    case TitleScreenOption::Start:
-                        this->gameState = GameState::LoadMap;
-                        this->gameMode = GameMode::Normal;
-                        break;
-
-                    case TitleScreenOption::HighScore:
-                        this->highScoreVariables.entryIdx = NO_HIGH_SCORE_EDIT;
-                        gameState = GameState::HighScore;
-                        break;
-
-                    case TitleScreenOption::Help:
-                        this->gameState = GameState::LoadMap;
-                        this->gameMode = GameMode::Help;
-                        break;
-
-                }
+                updateMainMenuStartGame();
 
             }
 
@@ -165,7 +140,7 @@ void Game::updateMainMenu() {
 
                 PD::setColor(6, 0);
                 if (this->titleScreenVars.yPos > -60) {
-                    PD::drawBitmap(47, this->titleScreenVars.yPos, Images::Rune_Red_00);
+                    PD::drawBitmap(50, this->titleScreenVars.yPos, Images::Rune_Red_00);
                     PD::setCursor(7, this->titleScreenVars.yPos + 22);
                     PD::print("After a mishap on"); 
                     PD::setCursor(8, this->titleScreenVars.yPos + 31);
@@ -179,9 +154,9 @@ void Game::updateMainMenu() {
                     PD::print("hell."); 
                 }
 
-                if (this->titleScreenVars.yPos > -120 && this->titleScreenVars.yPos <= 0) {
+                if (this->titleScreenVars.yPos > -150 && this->titleScreenVars.yPos <= 0) {
 
-                    PD::drawBitmap(47, this->titleScreenVars.yPos + 72, Images::Rune_Red_01);
+                    PD::drawBitmap(50, this->titleScreenVars.yPos + 72, Images::Rune_Red_01);
                     PD::setCursor(6, this->titleScreenVars.yPos + 94);
                     PD::print("You are not alone"); 
                     PD::setCursor(2, this->titleScreenVars.yPos + 103);
@@ -192,8 +167,8 @@ void Game::updateMainMenu() {
                     PD::print("monsters ready to"); 
                     PD::setCursor(3, this->titleScreenVars.yPos + 130);
                     PD::print("kill the newcomer"); 
-                    PD::fillRect(102, this->titleScreenVars.yPos + 134, 2, 2); 
-                    PD::drawBitmap(47, this->titleScreenVars.yPos + 145, Images::Rune_Red_02);
+                    PD::fillRect(104, this->titleScreenVars.yPos + 134, 2, 1); 
+                    PD::drawBitmap(50, this->titleScreenVars.yPos + 145, Images::Rune_Red_02);
 
                 }
 
@@ -209,48 +184,53 @@ void Game::updateMainMenu() {
                     PD::print("all looking to you"); 
                     PD::setCursor(18, this->titleScreenVars.yPos + 203);
                     PD::print("to save them."); 
-                    PD::drawBitmap(47, this->titleScreenVars.yPos + 217, Images::Rune_Red_03);
+                    PD::drawBitmap(50, this->titleScreenVars.yPos + 217, Images::Rune_Red_03);
 
                 }
 
                 if (this->titleScreenVars.yPos > -360 && this->titleScreenVars.yPos <= -120) {
 
-                    PD::setCursor(5, this->titleScreenVars.yPos + 239);
+                    PD::setCursor(4, this->titleScreenVars.yPos + 239);
                     PD::print("You can save them");
-                    PD::setCursor(6, this->titleScreenVars.yPos + 248);
+                    PD::setCursor(5, this->titleScreenVars.yPos + 248);
                     PD::print("by collecting the");
-                    PD::setCursor(11, this->titleScreenVars.yPos + 257);
+                    PD::setCursor(10, this->titleScreenVars.yPos + 257);
                     PD::print("six sacred runes");
-                    PD::setCursor(5, this->titleScreenVars.yPos + 266);
+                    PD::setCursor(4, this->titleScreenVars.yPos + 266);
                     PD::print("that you will find"); 
-                    PD::setCursor(9, this->titleScreenVars.yPos + 274);
+                    PD::setCursor(8, this->titleScreenVars.yPos + 275);
                     PD::print("on your travels."); 
-                    PD::drawBitmap(47, this->titleScreenVars.yPos + 288, Images::Rune_Red_04);
+                    PD::drawBitmap(50, this->titleScreenVars.yPos + 289, Images::Rune_Red_04);
 
                 }
 
                 if (this->titleScreenVars.yPos > -420 && this->titleScreenVars.yPos <= -240) {
 
-                    PD::setCursor(12, this->titleScreenVars.yPos + 310);
+                    PD::setCursor(12, this->titleScreenVars.yPos + 311);
                     PD::print("Present the six");
-                    PD::setCursor(8, this->titleScreenVars.yPos + 319);
+                    PD::setCursor(8, this->titleScreenVars.yPos + 320);
                     PD::print("runes before the");
-                    PD::setCursor(18, this->titleScreenVars.yPos + 328);
+                    PD::setCursor(18, this->titleScreenVars.yPos + 329);
                     PD::print("altar to save");
-                    PD::setCursor(8, this->titleScreenVars.yPos + 337);
+                    PD::setCursor(8, this->titleScreenVars.yPos + 338);
                     PD::print("yourself and the"); 
-                    PD::setCursor(14, this->titleScreenVars.yPos + 346);
+                    PD::setCursor(14, this->titleScreenVars.yPos + 347);
                     PD::print("other cultists"); 
-                    PD::setCursor(18, this->titleScreenVars.yPos + 355);
+                    PD::setCursor(18, this->titleScreenVars.yPos + 356);
                     PD::print("and ascend to"); 
-                    PD::setCursor(21, this->titleScreenVars.yPos + 364);
+                    PD::setCursor(21, this->titleScreenVars.yPos + 365);
                     PD::print("the surface."); 
-                    PD::drawBitmap(47, this->titleScreenVars.yPos + 378, Images::Rune_Red_05);
+                    PD::drawBitmap(50, this->titleScreenVars.yPos + 379, Images::Rune_Red_05);
+                    PD::setCursor(24, this->titleScreenVars.yPos + 401);
+                    PD::print("Good Luck !"); 
 
                 }
 
             }
 
+            PD::setColor(0);
+            PD::fillRect(0, 0, 110, 9);
+            PD::fillRect(0, 57 + (this->titleScreenVars.fadeCounter / 2 < 21 ? this->titleScreenVars.fadeCounter / 2 : 21), 110, 20);
 
             for (uint8_t x = 0; x < 110; x = x + 16) {
 
@@ -268,7 +248,47 @@ void Game::updateMainMenu() {
             break;
 
     }
+
+}
+
+void Game::updateMainMenuStartGame() {
+
+
+    // Select a random amount for each shop object?
+
+    this->shopObjects[0].quantityLeft = random(INVENTORY_BREAD_MIN, INVENTORY_BREAD_MAX);
+    this->shopObjects[1].quantityLeft = random(INVENTORY_CHICKEN_MIN, INVENTORY_CHICKEN_MAX);
+    this->shopObjects[2].quantityLeft = random(INVENTORY_KEY_MIN, INVENTORY_KEY_MAX);
+    this->shopObjects[3].quantityLeft = random(INVENTORY_TOOLS_MIN, INVENTORY_TOOLS_MAX);
+    this->shopObjects[4].quantityLeft = random(INVENTORY_TONIC_MIN, INVENTORY_TONIC_MAX);
+    this->shopObjects[5].quantityLeft = random(INVENTORY_ICE_SPELL_MIN, INVENTORY_ICE_SPELL_MAX);
+    this->shopObjects[6].quantityLeft = random(INVENTORY_GREEN_SPELL_MIN, INVENTORY_GREEN_SPELL_MAX);
+    this->shopObjects[7].quantityLeft = random(INVENTORY_RED_SPELL_MIN, INVENTORY_RED_SPELL_MAX);
+    this->shopObjects[8].quantityLeft = random(INVENTORY_MAUVE_SPELL_MIN, INVENTORY_MAUVE_SPELL_MAX);
     
-    printf("%i\n", this->titleScreenVars.yPos);
+
+    switch (this->titleScreenVars.option) {
+
+        case TitleScreenOption::Resume:
+            this->gameState = GameState::LoadMap;
+            this->gameMode = GameMode::Resume;
+            break;
+
+        case TitleScreenOption::Start:
+            this->gameState = GameState::LoadMap;
+            this->gameMode = GameMode::Normal;
+            break;
+
+        case TitleScreenOption::HighScore:
+            this->highScoreVariables.entryIdx = NO_HIGH_SCORE_EDIT;
+            gameState = GameState::HighScore;
+            break;
+
+        case TitleScreenOption::Help:
+            this->gameState = GameState::LoadMap;
+            this->gameMode = GameMode::Help;
+            break;
+
+    }
 
 }

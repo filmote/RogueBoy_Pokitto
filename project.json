@@ -11968,6 +11968,36 @@
 		},
 		"\\src\\utils\\GameCookieHighScores.h": {
 			"sdcard": false
+		},
+		"/DarkRitual_V090.bin": {
+			"sdcard": false
+		},
+		"/DarkRitual_V091.bin": {
+			"sdcard": false
+		},
+		"/DarkRitual_V090.zip": {
+			"sdcard": false
+		},
+		"/RogueBoy_Pokitto.bin.4 - Copy.h": {
+			"sdcard": false
+		},
+		"/RogueBoy_Pokitto.bin.4 - Copy.png": {
+			"sdcard": false
+		},
+		"/src/Game_GameSaved.cpp": {
+			"sdcard": false
+		},
+		"/src/utils/GameCookieHighScores.h": {
+			"sdcard": false
+		},
+		"/src/utils/GameCookieSaveGame.h": {
+			"sdcard": false
+		},
+		"/src/images/title/Player - Copy.h": {
+			"sdcard": false
+		},
+		"/src/images/title/Player - Copy.png": {
+			"sdcard": false
 		}
 	},
 	"BUILDFlags": {
