@@ -174,8 +174,8 @@ void Game::updateMainMenu() {
 
                 if (this->titleScreenVars.yPos > -300 && this->titleScreenVars.yPos <= -00) {
     
-                    PD::setCursor(5, this->titleScreenVars.yPos + 167);
-                    PD::print("Suprisingly there");
+                    PD::setCursor(2, this->titleScreenVars.yPos + 167);
+                    PD::print("Surprisingly there");
                     PD::setCursor(3, this->titleScreenVars.yPos + 176);
                     PD::print("are other cultists");
                     PD::setCursor(5, this->titleScreenVars.yPos + 185);
@@ -190,8 +190,8 @@ void Game::updateMainMenu() {
 
                 if (this->titleScreenVars.yPos > -360 && this->titleScreenVars.yPos <= -120) {
 
-                    PD::setCursor(4, this->titleScreenVars.yPos + 239);
-                    PD::print("You can save them");
+                    PD::setCursor(5, this->titleScreenVars.yPos + 239);
+                    PD::print("Save the cultists");
                     PD::setCursor(5, this->titleScreenVars.yPos + 248);
                     PD::print("by collecting the");
                     PD::setCursor(10, this->titleScreenVars.yPos + 257);
