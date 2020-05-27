@@ -3,7 +3,9 @@
 namespace Images {
 
     #include "ArrowUp.h"
+    #include "ArrowUp_Grey.h"
     #include "ArrowDown.h"
+    #include "ArrowDown_Grey.h"
     #include "BorderBOT.h"
     #include "BorderTOP.h"
     #include "DarkRitual.h"

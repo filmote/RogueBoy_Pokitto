@@ -113,8 +113,19 @@ void Game::updateMainMenu() {
             PD::drawBitmap(2, 2, Images::Player);
             PD::drawBitmap(66, 15, Images::DarkRitual);
 
-            PD::drawBitmap(89, 69 + (this->titleScreenVars.arrowCounter < 0 ? -1 : 0), Images::ArrowUp);
-            PD::drawBitmap(89, 83 + (this->titleScreenVars.arrowCounter > 0 ? 1 : 0), Images::ArrowDown);
+            if (this->titleScreenVars.arrowCounter < 0 || (this->titleScreenVars.arrowCounter == 0 && this->cookieSaveGame->levelNo == 255 && this->titleScreenVars.option != TitleScreenOption::Start) || (this->titleScreenVars.arrowCounter == 0 && this->cookieSaveGame->levelNo != 255 && this->titleScreenVars.option != TitleScreenOption::Resume)) {
+                PD::drawBitmap(89, 69 + (this->titleScreenVars.arrowCounter < 0 ? -1 : 0), Images::ArrowUp);
+            }
+            else {
+                PD::drawBitmap(89, 69 + (this->titleScreenVars.arrowCounter < 0 ? -1 : 0), Images::ArrowUp_Grey);
+            }
+
+            if (this->titleScreenVars.arrowCounter > 0 || (this->titleScreenVars.arrowCounter == 0 && this->titleScreenVars.option != TitleScreenOption::Help)) {
+                PD::drawBitmap(89, 83 + (this->titleScreenVars.arrowCounter > 0 ? 1 : 0), Images::ArrowDown);
+            }
+            else {
+                PD::drawBitmap(89, 83 + (this->titleScreenVars.arrowCounter > 0 ? 1 : 0), Images::ArrowDown_Grey);
+            }
 
             if (PC::frameCount % 128 <= 1) {
                 PD::drawBitmap(22, 32, Images::Eyes_Closed);
