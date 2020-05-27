@@ -35,7 +35,7 @@ void Game::updateMainMenu() {
 
     // Handle player actions ..
 
-    if (PC::buttons.pressed(BTN_UP) && (this->titleScreenVars.mode > TitleScreenMode::Start || (this->cookie->getLevel() != 255 && this->titleScreenVars.mode > TitleScreenMode::Resume))) {
+    if (PC::buttons.pressed(BTN_UP) && (this->titleScreenVars.mode > TitleScreenMode::Start || (this->cookieSaveGame->getLevel() != 255 && this->titleScreenVars.mode > TitleScreenMode::Resume))) {
 
         this->titleScreenVars.mode--;
         this->titleScreenVars.arrowCounter = -3;
@@ -54,6 +54,20 @@ void Game::updateMainMenu() {
 
 
     if (PC::buttons.pressed(BTN_A)) {
+
+
+        // Select a random amount for each shop object?
+
+        this->shopObjects[0].quantityLeft = random(INVENTORY_BREAD_MIN, INVENTORY_BREAD_MAX);
+        this->shopObjects[1].quantityLeft = random(INVENTORY_CHICKEN_MIN, INVENTORY_CHICKEN_MAX);
+        this->shopObjects[2].quantityLeft = random(INVENTORY_KEY_MIN, INVENTORY_KEY_MAX);
+        this->shopObjects[3].quantityLeft = random(INVENTORY_TOOLS_MIN, INVENTORY_TOOLS_MAX);
+        this->shopObjects[4].quantityLeft = random(INVENTORY_TONIC_MIN, INVENTORY_TONIC_MAX);
+        this->shopObjects[5].quantityLeft = random(INVENTORY_ICE_SPELL_MIN, INVENTORY_ICE_SPELL_MAX);
+        this->shopObjects[6].quantityLeft = random(INVENTORY_GREEN_SPELL_MIN, INVENTORY_GREEN_SPELL_MAX);
+        this->shopObjects[7].quantityLeft = random(INVENTORY_RED_SPELL_MIN, INVENTORY_RED_SPELL_MAX);
+        this->shopObjects[8].quantityLeft = random(INVENTORY_MAUVE_SPELL_MIN, INVENTORY_MAUVE_SPELL_MAX);
+        
 
         switch (this->titleScreenVars.mode) {
 
@@ -93,6 +107,8 @@ void Game::updateMainMenu() {
 
     }
 
+
+
     // PD::drawBitmap(19, 1, Images::PlayerTOP);
     // PD::drawBitmap(2, 17, Images::PlayerBOT);
     PD::drawBitmap(2, 2, Images::Player);
@@ -110,5 +126,9 @@ void Game::updateMainMenu() {
 
     PD::drawBitmap(70 + (static_cast<uint8_t>(this->titleScreenVars.mode) > 0 ? 4 : 0), 74, Images::Title_Modes[static_cast<uint8_t>(this->titleScreenVars.mode)]);
     PD::drawBitmap(22, 56 + orbOffset[this->titleScreenVars.orbCounter], Images::Orb);
+
+
+
+    printf("%i\n", fade);
 
 }

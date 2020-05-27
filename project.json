@@ -11950,6 +11950,24 @@
 		},
 		"\\DarkRitual_V091.bin": {
 			"sdcard": false
+		},
+		"\\src\\utils\\GameCookie copy.h": {
+			"sdcard": false
+		},
+		"\\src\\utils\\GameCookieSaveGame.h": {
+			"sdcard": false
+		},
+		"\\src\\utils\\GameCookieHighScore.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\title\\Player - Copy.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\title\\Player - Copy.h": {
+			"sdcard": false
+		},
+		"\\src\\utils\\GameCookieHighScores.h": {
+			"sdcard": false
 		}
 	},
 	"BUILDFlags": {

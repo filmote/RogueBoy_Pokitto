@@ -1,15 +1,17 @@
 #include "Pokitto.h"
 #include <LibAudio>
 #include "src/Game.h"
-#include "src/utils/GameCookie.h"
+#include "src/utils/GameCookieHighScores.h"
+#include "src/utils/GameCookieSaveGame.h"
 
 using PC = Pokitto::Core;
 using PD = Pokitto::Display;
 
 
 Game game;
-GameCookie cookie;
-// File mainThemeFile;
+GameCookieHighScores cookieHighScore;
+GameCookieSaveGame cookieSaveGame;
+
 
 Audio::Sink<4, PROJ_AUD_FREQ> audio;
 
@@ -18,7 +20,8 @@ void init() {
 
     // Initialise pokitto ..
 
-    cookie.begin("DarkRit", sizeof(cookie), (char*)&cookie);
+    cookieHighScore.begin("DarkRi1", sizeof(cookieHighScore), (char*)&cookieHighScore);
+    cookieSaveGame.begin("DarkRi2", sizeof(cookieSaveGame), (char*)&cookieSaveGame);
 
     PD::loadRGBPalette(palettePico);   
     PD::persistence = true;
@@ -27,17 +30,24 @@ void init() {
     PC::setFrameRate(30);
     PD::setFont(fontKoubit);
 
-    if (cookie.initialised != COOKIE_INITIALISED) {
+    if (cookieHighScore.initialised != COOKIE_INITIALISED) {
 
-        cookie.initialise();
+        cookieHighScore.initialise();
 
     }
 
+    if (cookieSaveGame.initialised != COOKIE_INITIALISED) {
+
+        cookieSaveGame.initialise();
+
+    }
+
+    
     // Kick off the random number generator ..
     
     srand(time(0));
 
-    game.setup(&cookie);
+    game.setup(&cookieHighScore, &cookieSaveGame);
 
 }
 

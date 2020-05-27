@@ -136,7 +136,7 @@ void Game::nextLevelLoad(GameMode &gameMode) {
     #endif
 
     if (map.getLevel() > 0) {
-        this->cookie->updateStatus(map.getLevel(), map.getDefinedMapLevel(), this->player);
+        this->cookieSaveGame->updateStatus(map.getLevel(), map.getDefinedMapLevel(), this->player);
     }
 
     if (map.getLevel() < (numberOfMaps * 2) - 1) {
@@ -455,12 +455,12 @@ void Game::nextLevelLoad(GameMode &gameMode) {
 
                 case GameMode::Resume:
                     {
-                        this->map.setLevel(this->cookie->getLevel()); 
+                        this->map.setLevel(this->cookieSaveGame->getLevel()); 
                         this->map.setRandomLevel(false);
-                        const uint8_t * levelToLoad = maps[this->cookie->getDefinedMapLevel()];
+                        const uint8_t * levelToLoad = maps[this->cookieSaveGame->getDefinedMapLevel()];
                         this->loadMap(levelToLoad);
                         this->map.setDefinedMapLevel(map.getDefinedMapLevel() + 1); 
-                        this->player.setPlayerStatus(this->cookie->getPlayerStatus());
+                        this->player.setPlayerStatus(this->cookieSaveGame->getPlayerStatus());
                         gameMode = GameMode::Normal;
                     }
                     break;

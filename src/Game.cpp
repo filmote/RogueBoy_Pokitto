@@ -6,10 +6,12 @@ using PD = Pokitto::Display;
 
 
 
-void Game::setup(GameCookie *cookie) { 
+void Game::setup(GameCookieHighScores *cookieHighScore, GameCookieSaveGame *cookieSaveGame) { 
     
-    this->cookie = cookie;
+    this->cookieHighScore = cookieHighScore;
+    this->cookieSaveGame = cookieSaveGame;
     this->splashScreenVariables.buttonCounter = 16;
+
     map.setLevel(0);
 
     if (mainThemeFile.openRO("music/darkrit1.raw")) {

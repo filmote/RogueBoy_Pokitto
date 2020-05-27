@@ -105,8 +105,7 @@ const uint8_t MAP_Segment_Type00_01[] = {
     END_OF_OPTIONS,
 
     // Entrance / Exit Options -----------
-    2,
-    3,2,
+    1,
     5,6,
 };
 

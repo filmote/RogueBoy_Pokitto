@@ -1068,7 +1068,7 @@ bool Game::interactWithBlock(int x, int y, MapTiles block) {
             return false;
 
         case MapTiles::SavePost:
-            this->cookie->saveCookie();
+            this->cookieSaveGame->saveCookie();
             this->gameState = GameState::GameSaved;
             return false;
 

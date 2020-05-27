@@ -93,11 +93,44 @@
 #define CHEST_RANDOM_TOOLS              CHEST_RANDOM_CHICKEN + 10
 #define CHEST_RANDOM_TONIC              CHEST_RANDOM_TOOLS + 10
 #define CHEST_RANDOM_KEY                CHEST_RANDOM_TONIC + 10
-#define CHEST_RANDOM_ICE                CHEST_RANDOM_TONIC + 5
+#define CHEST_RANDOM_ICE                CHEST_RANDOM_KEY + 5
 #define CHEST_RANDOM_GREEN              CHEST_RANDOM_ICE + 5
 #define CHEST_RANDOM_RED                CHEST_RANDOM_GREEN + 5
 #define CHEST_RANDOM_MAUVE              CHEST_RANDOM_RED + 5
-#define CHEST_RANDOM_END                CHEST_RANDOM_MAUVE
+#define CHEST_RANDOM_END                CHEST_RANDOM_MAUVE + 5
+
+
+// Number of inventory items (note random(min, max)) ..
+
+#define INVENTORY_BREAD_MIN             2
+#define INVENTORY_BREAD_MAX             6
+#define INVENTORY_CHICKEN_MIN           2
+#define INVENTORY_CHICKEN_MAX           6
+#define INVENTORY_KEY_MIN               2
+#define INVENTORY_KEY_MAX               6
+#define INVENTORY_TOOLS_MIN             1
+#define INVENTORY_TOOLS_MAX             3
+#define INVENTORY_TONIC_MIN             1
+#define INVENTORY_TONIC_MAX             4
+#define INVENTORY_ICE_SPELL_MIN         0
+#define INVENTORY_ICE_SPELL_MAX         3
+#define INVENTORY_GREEN_SPELL_MIN       0
+#define INVENTORY_GREEN_SPELL_MAX       3
+#define INVENTORY_RED_SPELL_MIN         0
+#define INVENTORY_RED_SPELL_MAX         3
+#define INVENTORY_MAUVE_SPELL_MIN       0
+#define INVENTORY_MAUVE_SPELL_MAX       3
+
+
+#define INVENTORY_BREAD_PRICE           6
+#define INVENTORY_CHICKEN_PRICE         10
+#define INVENTORY_KEY_PRICE             15
+#define INVENTORY_TOOLS_PRICE           15
+#define INVENTORY_TONIC_PRICE           20
+#define INVENTORY_ICE_SPELL_PRICE       20
+#define INVENTORY_GREEN_SPELL_PRICE     25
+#define INVENTORY_RED_SPELL_PRICE       35
+#define INVENTORY_MAUVE_SPELL_PRICE     50
 
 
 //--------------------------------------------

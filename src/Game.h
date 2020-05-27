@@ -30,7 +30,8 @@
 #include "maps/Maps.h"
 #include "maps/Maps_Help.h"
 #include "maps/MapRandom.h"
-#include "utils/GameCookie.h"
+#include "utils/GameCookieHighScores.h"
+#include "utils/GameCookieSaveGame.h"
 #include "sounds/Sounds.h"
 
 
@@ -38,7 +39,7 @@ class Game {
     
     public:
 
-        void setup(GameCookie *cookie);
+        void setup(GameCookieHighScores *cookieHighScore, GameCookieSaveGame *cookieSaveGame);
         void loop();
 
     private:
@@ -174,21 +175,22 @@ class Game {
         TitleScreenVars titleScreenVars;
         WinScreenVars winScreenVars;
 
-        GameCookie *cookie;
+        GameCookieHighScores *cookieHighScore;
+        GameCookieSaveGame *cookieSaveGame;
 
         File mainThemeFile;
         File soundEffectFile;
 
         ShopObject shopObjects[9] = {
-            { Object::Bread, 6, 2 },
-            { Object::Chicken, 10, 3 },
-            { Object::Key, 15, 2 },            
-            { Object::Tools, 15, 1 },            
-            { Object::Tonic, 20, 3 },
-            { Object::IceSpell, 20, 2 },
-            { Object::GreenSpell, 25, 0 },
-            { Object::RedSpell, 35, 2 },
-            { Object::MauveSpell, 50, 1 },            
+            { Object::Bread, INVENTORY_BREAD_PRICE, 2 },
+            { Object::Chicken, INVENTORY_CHICKEN_PRICE, 3 },
+            { Object::Key, INVENTORY_KEY_PRICE, 2 },            
+            { Object::Tools, INVENTORY_TOOLS_PRICE, 1 },            
+            { Object::Tonic, INVENTORY_TONIC_PRICE, 3 },
+            { Object::IceSpell, INVENTORY_ICE_SPELL_PRICE, 2 },
+            { Object::GreenSpell, INVENTORY_GREEN_SPELL_PRICE, 2 },
+            { Object::RedSpell, INVENTORY_RED_SPELL_PRICE, 2 },
+            { Object::MauveSpell, INVENTORY_MAUVE_SPELL_PRICE, 1 },            
         };
 
         Puzzle puzzle;

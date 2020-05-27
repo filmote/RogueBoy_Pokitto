@@ -90,7 +90,7 @@ void Game::highScoreOrNot(uint8_t pts) {
 
     for (i = 0; i < 5; i++) {
 
-        if (this->cookie->score[i] < this->points + pts) {
+        if (this->cookieHighScore->score[i] < this->points + pts) {
             
             found = true;
             break;
@@ -103,29 +103,27 @@ void Game::highScoreOrNot(uint8_t pts) {
 
         for (int8_t j = 3; j >= i; j--) {
 
-            this->cookie->score[j + 1] = this->cookie->score[j];
-            this->cookie->level[j + 1] = this->cookie->level[j];
-            this->cookie->score_Char[j + 1][0] = this->cookie->score_Char[j][0];
-            this->cookie->score_Char[j + 1][1] = this->cookie->score_Char[j][1];
-            this->cookie->score_Char[j + 1][2] = this->cookie->score_Char[j][2];
+            this->cookieHighScore->score[j + 1] = this->cookieHighScore->score[j];
+            this->cookieHighScore->level[j + 1] = this->cookieHighScore->level[j];
+            this->cookieHighScore->score_Char[j + 1][0] = this->cookieHighScore->score_Char[j][0];
+            this->cookieHighScore->score_Char[j + 1][1] = this->cookieHighScore->score_Char[j][1];
+            this->cookieHighScore->score_Char[j + 1][2] = this->cookieHighScore->score_Char[j][2];
 
         }
 
         this->highScoreVariables.charIdx = 0;
         this->highScoreVariables.entryIdx = i;
 
-        this->cookie->score_Char[i][0] = 'A';
-        this->cookie->score_Char[i][1] = 'A';
-        this->cookie->score_Char[i][2] = 'A';
-        this->cookie->score[i] = static_cast<uint16_t>(this->points + pts);
-        this->cookie->level[i] = static_cast<uint8_t>(map.getLevel());
+        this->cookieHighScore->score_Char[i][0] = 'A';
+        this->cookieHighScore->score_Char[i][1] = 'A';
+        this->cookieHighScore->score_Char[i][2] = 'A';
+        this->cookieHighScore->score[i] = static_cast<uint16_t>(this->points + pts);
+        this->cookieHighScore->level[i] = static_cast<uint8_t>(map.getLevel());
 
     }
     else {
 
         this->highScoreVariables.entryIdx = 255;
-        // this->cookie->levelNo = 255;
-        // this->cookie->saveCookie();
 
     }
 
