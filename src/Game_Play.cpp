@@ -1492,7 +1492,7 @@ void Game::spriteAI(MapInformation &map, Player &player, Sprite &sprite) {
                             for (uint8_t x = 0; x < 8; x++) {
 
                                 Bullet &bullet = this->bullets.getEnemyBullet(ENEMY_BULLET_MAX + x);
-                                bullet.setBullet(sprite.getX() + xOffsets[static_cast<uint8_t>(this->launchCyclopsDirection)], sprite.getY() + 10, static_cast<Direction>(x), Object::Sparks, CYCLOP_SPARK_FRAMES);
+                                //bullet.setBullet(sprite.getX() + xOffsets[static_cast<uint8_t>(this->launchCyclopsDirection)], sprite.getY() + 10, static_cast<Direction>(x), Object::Sparks, CYCLOP_SPARK_FRAMES);
 
                             }
                             
