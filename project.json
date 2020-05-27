@@ -11998,6 +11998,24 @@
 		},
 		"/src/images/title/Player - Copy.png": {
 			"sdcard": false
+		},
+		"/src/images/title/ArrowUp copy.png": {
+			"sdcard": false
+		},
+		"/src/images/title/ArrowUp_Grey.png": {
+			"sdcard": false
+		},
+		"/src/images/title/ArrowDown copy.png": {
+			"sdcard": false
+		},
+		"/src/images/title/ArrowDown_Grey.png": {
+			"sdcard": false
+		},
+		"/src/images/title/ArrowUp_Grey.h": {
+			"sdcard": false
+		},
+		"/src/images/title/ArrowDown_Grey.h": {
+			"sdcard": false
 		}
 	},
 	"BUILDFlags": {
