@@ -134,6 +134,7 @@ class Game {
         void updatePipeWhenReversing(uint8_t x, uint8_t y);
         bool validMove(Direction direction, Node selectedNode, int8_t x, int8_t y);
         void puzzleGameOver();
+        void drawPlayer(uint8_t x, uint8_t y);
 
         #ifdef DEBUG
         void clearCells();

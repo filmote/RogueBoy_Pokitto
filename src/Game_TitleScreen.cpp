@@ -110,7 +110,8 @@ void Game::updateMainMenu() {
 
             }
 
-            PD::drawBitmap(2, 2, Images::Player);
+            // PD::drawBitmap(2, 2, Images::Player);
+            this->drawPlayer(2, 2);
             PD::drawBitmap(66, 15, Images::DarkRitual);
 
             if (this->titleScreenVars.arrowCounter < 0 || (this->titleScreenVars.arrowCounter == 0 && this->cookieSaveGame->levelNo == 255 && this->titleScreenVars.option != TitleScreenOption::Start) || (this->titleScreenVars.arrowCounter == 0 && this->cookieSaveGame->levelNo != 255 && this->titleScreenVars.option != TitleScreenOption::Resume)) {

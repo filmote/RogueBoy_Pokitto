@@ -10,11 +10,11 @@ using PD = Pokitto::Display;
 void Game::showInventory() {
 
 
-    // If the cursor > active inventory slots then decrease it ..
+    // If the cursor > active inventory slots then decrease it (Allow 1 for Rune Bag)..
 
-    if (this->inventoryMenu.mainCursor > player.getActiveSlotCount()) {
+    if (this->inventoryMenu.mainCursor > player.getActiveSlotCount() + 1) {
 
-        this->inventoryMenu.mainCursor = player.getActiveSlotCount();
+        this->inventoryMenu.mainCursor = player.getActiveSlotCount() + 1;
 
     }
 
@@ -35,7 +35,7 @@ void Game::showInventory() {
 
                 if (PC::buttons.pressed(BTN_C)) {
             
-                    this->inventoryMenu.mode = InventoryMenuMode::AltarPieces;
+                    gameState = GameState::Game;
 
                 }
 
@@ -45,7 +45,7 @@ void Game::showInventory() {
 
                 }
 
-                if (PC::buttons.pressed(BTN_DOWN) && this->inventoryMenu.mainCursor < player.getActiveSlotCount()) {
+                if (PC::buttons.pressed(BTN_DOWN) && this->inventoryMenu.mainCursor < player.getActiveSlotCount() + 1) {
 
                     this->inventoryMenu.mainCursor++;
 
@@ -53,7 +53,10 @@ void Game::showInventory() {
 
                 if (PC::buttons.pressed(BTN_A)) {
 
-                    if (this->inventoryMenu.mainCursor < player.getActiveSlotCount()) {
+                    if (this->inventoryMenu.mainCursor == 0) {
+                        this->inventoryMenu.mode = InventoryMenuMode::AltarPieces;
+                    }
+                    else if (this->inventoryMenu.mainCursor < player.getActiveSlotCount() + 1) {
                         this->inventoryMenu.showActionMenu = true;
                         this->inventoryMenu.actionCursor = 0;
                     }
@@ -93,7 +96,7 @@ void Game::showInventory() {
                         case 0:
                             {
                                 bool itemUsed = false;
-                                InventoryItem & inventoryItem = this->player.getActiveInventoryItem(this->inventoryMenu.mainCursor);
+                                InventoryItem & inventoryItem = this->player.getActiveInventoryItem(this->inventoryMenu.mainCursor - 1);
 
 
                                 // If the user selected 'put away' ..
@@ -211,11 +214,11 @@ void Game::showInventory() {
                             
                             break;
                         
-                        case 1:
+                        case 1: // Drop
                             {
                                 // Find a matching Object in the sprites collecion that is disabled, otherwise add one ..
 
-                                InventoryItem & inventoryItem = this->player.getActiveInventoryItem(this->inventoryMenu.mainCursor);
+                                InventoryItem & inventoryItem = this->player.getActiveInventoryItem(this->inventoryMenu.mainCursor - 1);
                                 uint8_t spriteIdx = this->objects.getFirstInactiveSpriteIndex(inventoryItem.type);
 
                                 if (spriteIdx == NO_SPRITE_FOUND) {
@@ -224,9 +227,9 @@ void Game::showInventory() {
                                     spriteIdx = this->objects.getObjectNum() - 1;
 
                                 }   
-
                                 Sprite &sprite = this->objects.getSprite(spriteIdx);
-                                sprite.setSprite(this->map.getTileX(this->player.getX()), this->map.getTileY(this->player.getY()), 0, inventoryItem.type, true, false);
+
+                                sprite.setSprite(this->player.getX(), this->player.getY(), 0, inventoryItem.type, true, false);
                                 sprite.setPreventImmediatePickup(true);
                                 sprite.setQuantity(inventoryItem.quantity);
 
@@ -246,7 +249,7 @@ void Game::showInventory() {
 
 
                                 // Did we just use the last item ?  If so move cursor up.
-                                
+                             
                                 if (inventoryItem.quantity == 0 && this->inventoryMenu.mainCursor > 0) this->inventoryMenu.mainCursor--;
                                 this->inventoryMenu.showActionMenu = false;
 
@@ -289,17 +292,20 @@ void Game::showInventory() {
                 this->renderEnviroment(0, 0);
                 this->renderHud();
                 PD::setColor(0);
-                PD::fillRectangle(0, 0, 88, 73);
+                PD::fillRectangle(0, 0, 88, 81);
                 PD::setColor(9);
-                PD::drawRectangle(0, 0, 85, 71);
+                PD::drawRectangle(0, 0, 85, 79);
                 PD::setColor(4);
-                PD::drawLine(1, 72, 86, 72);
-                PD::drawLine(86, 1, 86, 72);
+                PD::drawLine(1, 80, 86, 80);
+                PD::drawLine(86, 1, 86, 80);
                 PD::setColor(6);
                 PD::setCursor(4, 3);
                 PD::print("Inventory\n\n");
 
                 uint8_t items = 0;
+
+                PD::setCursor(10, 14);
+                PD::print("Rune Bag");       
 
                 if (player.getInventoryCount() > 0) {
 
@@ -309,7 +315,7 @@ void Game::showInventory() {
 
                         if (inventoryItem.quantity > 0) {
 
-                            PD::setCursor(10, 14 + (items * 9));
+                            PD::setCursor(10, 23 + (items * 9));
                             items++;
 
                             renderInventoryItem(inventoryItem);
@@ -319,45 +325,42 @@ void Game::showInventory() {
                     }
 
                 }
-                else {
 
-                    PD::setCursor(10, 14);
-                    PD::print("Empty !");       
-
-                }
-
-                PD::setCursor(10, 62);
+                PD::setCursor(10, 71);
                 PD::setColor(6);
                 PD::print("Go Back");
 
                 if (!this->inventoryMenu.showActionMenu) {
 
-                    if (this->inventoryMenu.mainCursor < player.getActiveSlotCount()) {
+                    if (this->inventoryMenu.mainCursor < player.getActiveSlotCount() + 1) {
                         PD::drawBitmap(3, 15 + (this->inventoryMenu.mainCursor * 9), Images::Arrow);
                     }
                     else {
-                        PD::drawBitmap(3, 63, Images::Arrow);
+                        PD::drawBitmap(3, 72, Images::Arrow);
                     }
 
                 }
                 else {
 
+                    const uint8_t itemOffset[] = { 0, 0, 0, 0, 2, 10, 0 };
+                    uint8_t yOffset = this->inventoryMenu.mainCursor[itemOffset];
+
                     PD::drawBitmap(3, 15 + (this->inventoryMenu.mainCursor * 9), Images::Arrow_Dark);
 
                     PD::setColor(0);
-                    PD::fillRect(39, 5 + this->inventoryMenu.mainCursor * 9, 72, 48);
+                    PD::fillRect(39, 5 + (this->inventoryMenu.mainCursor * 9) - yOffset, 72, 48);
                     PD::setColor(9);
-                    PD::drawRectangle(40, 6 + this->inventoryMenu.mainCursor * 9, 67, 45);
+                    PD::drawRectangle(40, 6 + (this->inventoryMenu.mainCursor * 9) - yOffset, 67, 45);
                     PD::setColor(4);
-                    PD::drawLine(41, 52 + this->inventoryMenu.mainCursor * 9, 108, 52 + this->inventoryMenu.mainCursor * 9);
-                    PD::drawLine(108, 7 + this->inventoryMenu.mainCursor * 9, 108, 52 + this->inventoryMenu.mainCursor * 9);
+                    PD::drawLine(41, 52 + (this->inventoryMenu.mainCursor * 9) - yOffset, 108, 52 + (this->inventoryMenu.mainCursor * 9) - yOffset);
+                    PD::drawLine(108, 7 + (this->inventoryMenu.mainCursor * 9) - yOffset, 108, 52 + (this->inventoryMenu.mainCursor * 9) - yOffset);
 
                     PD::setColor(6);
-                    PD::setCursor(44, 9 + this->inventoryMenu.mainCursor * 9);
+                    PD::setCursor(44, 9 + (this->inventoryMenu.mainCursor * 9) - yOffset);
                     PD::print("Actions");
-                    PD::setCursor(50, 20 + this->inventoryMenu.mainCursor * 9);
+                    PD::setCursor(50, 20 + (this->inventoryMenu.mainCursor * 9) - yOffset);
 
-                    InventoryItem & inventoryItem = this->player.getActiveInventoryItem(this->inventoryMenu.mainCursor);
+                    InventoryItem & inventoryItem = this->player.getActiveInventoryItem(this->inventoryMenu.mainCursor - 1);
 
                     if (inventoryItem.type == this->player.getWeapon()) {
                         PD::print("Put Away");
@@ -366,23 +369,23 @@ void Game::showInventory() {
                         PD::print("Use");
                     }
 
-                    PD::setCursor(50, 29 + this->inventoryMenu.mainCursor * 9);
+                    PD::setCursor(50, 29 + (this->inventoryMenu.mainCursor * 9) - yOffset);
                     PD::print("Drop");
-                    PD::setCursor(50, 41 + this->inventoryMenu.mainCursor * 9);
+                    PD::setCursor(50, 41 + (this->inventoryMenu.mainCursor * 9) - yOffset);
                     PD::print("Go Back");
 
                     switch (this->inventoryMenu.actionCursor) {
 
                         case 0:
-                            PD::drawBitmap(43, 21 + (this->inventoryMenu.mainCursor * 9), Images::Arrow);
+                            PD::drawBitmap(43, 21 + (this->inventoryMenu.mainCursor * 9) - yOffset, Images::Arrow);
                             break;
 
                         case 1:
-                            PD::drawBitmap(43, 30 + (this->inventoryMenu.mainCursor * 9), Images::Arrow);
+                            PD::drawBitmap(43, 30 + (this->inventoryMenu.mainCursor * 9) - yOffset, Images::Arrow);
                             break;
 
                         case 2:
-                            PD::drawBitmap(43, 42 + (this->inventoryMenu.mainCursor * 9), Images::Arrow);
+                            PD::drawBitmap(43, 42 + (this->inventoryMenu.mainCursor * 9) - yOffset, Images::Arrow);
                             break;
                             
                     }

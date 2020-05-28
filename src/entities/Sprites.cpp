@@ -208,10 +208,8 @@ void Sprites::renderSprite(Object type, int x, int y, int8_t xOffset, int8_t yOf
 
                 if (showEnemies) {
 
-uint8_t frameToRender = (CYCLOPS_FRAME_MAX + frame) / (CYCLOPS_FRAME_MAX / 10);
-if (frameToRender > 9) printf("%i\n", frameToRender);
+                    uint8_t frameToRender = (CYCLOPS_FRAME_MAX + frame) / (CYCLOPS_FRAME_MAX / 10);
                     PD::drawBitmap(x + xOffset, y + yOffset, Images::Cyclop[16 + (static_cast<uint8_t>(direction) * 10) + frameToRender]);
-
 
                     if (renderHealth) { this->renderHealthBar(x + 6, y - 6, healthValue); }
 

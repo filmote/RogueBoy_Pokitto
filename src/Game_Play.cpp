@@ -1094,8 +1094,6 @@ bool Game::interactWithBlock(int x, int y, MapTiles block) {
             return false;
 
         case MapTiles::SavePost:
-                        printf("Save\n");
-printf("Save level %i %i\n", map.getLevel(), map.getDefinedMapLevel());
 
             this->cookieSaveGame->updateStatus(map.getLevel(), map.getDefinedMapLevel(), this->playerStatus);
             this->cookieSaveGame->saveCookie();

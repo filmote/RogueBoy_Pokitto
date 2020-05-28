@@ -10445,10 +10445,46 @@
 		"/xxx.gif": {
 			"sdcard": false
 		},
+		"/src/images/enemies/bull/Bull_Dung_F0.h": {
+			"sdcard": false
+		},
+		"/src/images/enemies/bull/Bull_Dung_F0.png": {
+			"sdcard": false
+		},
+		"/src/images/enemies/bull/Bull_Dung_F1.h": {
+			"sdcard": false
+		},
+		"/src/images/enemies/bull/Bull_Dung_F1.png": {
+			"sdcard": false
+		},
 		"/yyy.gif": {
 			"sdcard": false
 		},
+		"/src/images/enemies/bull/Bull_Dung_F2.png": {
+			"sdcard": false
+		},
+		"/src/images/enemies/bull/Bull_Dung_F3.png": {
+			"sdcard": false
+		},
+		"/src/images/enemies/bull/Bull_Dung_F3.h": {
+			"sdcard": false
+		},
+		"/src/images/enemies/bull/Bull_Dung_F2.h": {
+			"sdcard": false
+		},
 		"/ezgif-6-bc0faa5aa888.gif": {
+			"sdcard": false
+		},
+		"/src/images/enemies/bull/Bull_Dung_F4.h": {
+			"sdcard": false
+		},
+		"/src/images/enemies/bull/Bull_Dung_F4.png": {
+			"sdcard": false
+		},
+		"/src/images/enemies/bull/Bull_Dung_F5.h": {
+			"sdcard": false
+		},
+		"/src/images/enemies/bull/Bull_Dung_F5.png": {
 			"sdcard": false
 		},
 		"/src/images/title/Score copy.png": {
@@ -11486,6 +11522,42 @@
 		"\\src\\images\\enemies\\beholder\\Beholder_06_F1.png": {
 			"sdcard": false
 		},
+		"\\src\\images\\enemies\\bull\\Bull_Dung_F0.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemies\\bull\\Bull_Dung_F1.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemies\\bull\\Bull_Dung_F0.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemies\\bull\\Bull_Dung_F1.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemies\\bull\\Bull_Dung_F2.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemies\\bull\\Bull_Dung_F2.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemies\\bull\\Bull_Dung_F4.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemies\\bull\\Bull_Dung_F3.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemies\\bull\\Bull_Dung_F3.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemies\\bull\\Bull_Dung_F4.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemies\\bull\\Bull_Dung_F5.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemies\\bull\\Bull_Dung_F5.png": {
+			"sdcard": false
+		},
 		"\\src\\images\\enemies\\cyclop\\Cyclop_02_F1.h": {
 			"sdcard": false
 		},
@@ -12036,6 +12108,15 @@
 			"sdcard": false
 		},
 		"\\src\\images\\enemies\\cyclop\\Cyclop_Hitting_05_F1.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\scoreboard\\DR_NewHD.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\scoreboard\\DR_NewHD.h": {
+			"sdcard": false
+		},
+		"\\DarkRitual_V092.bin": {
 			"sdcard": false
 		}
 	},

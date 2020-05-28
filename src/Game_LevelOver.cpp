@@ -91,7 +91,8 @@ void Game::win() {
                 }
 
                 PD::drawBitmap(0, 36, Images::WallBackground_Ending);
-                PD::drawBitmap(22, 2, Images::Player);
+                this->drawPlayer(22,2);
+//                PD::drawBitmap(22, 2, Images::Player);
 
                 if (PC::frameCount % 128 <= 1) {
                     PD::drawBitmap(42, 32, Images::Eyes_Closed);
