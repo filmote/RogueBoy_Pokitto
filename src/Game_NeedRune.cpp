@@ -21,8 +21,8 @@ void Game::showNeedRuneMessage() {
     // Rnder screen ..
 
     PD::fillScreen(0);
-    this->renderHud();
     this->renderEnviroment(0, 0);
+    this->renderHud();
     PD::setColor(6);
 
     PD::setColor(15);

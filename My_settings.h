@@ -3,13 +3,7 @@
 #define PROJ_BUTTONS_POLLING_ONLY
 
 #define PROJ_HIGH_RAM HIGH_RAM_MUSIC
-//#define PROJ_ENABLE_SOUND 1
-//#define PROJ_ENABLE_SFX
-//#define PROJ_ENABLE_SD_MUSIC
 #define PROJ_AUD_FREQ 16000
-//#define PROJ_STREAM_LOOP 1
-//#define PROJ_ENABLE_SYNTH 0
-
 
 #define DEBUG
 #define _DEBUG_IDE
@@ -24,9 +18,9 @@
 
 // Health ..
 
-#define HEALTH_INC_BREAD                10
-#define HEALTH_INC_CHICKEN              20
-#define HEALTH_INC_TONIC                30
+#define HEALTH_INC_BREAD                20
+#define HEALTH_INC_CHICKEN              35
+#define HEALTH_INC_TONIC                50
 #define HEALTH_DEC_SPIDERS_WEB          1       // Health decrement when running through a spider's web.
 #define HEALTH_DEC_EYES                 5
 #define HEALTH_DEC_SPIDER               2
@@ -38,8 +32,6 @@
 #define HEALTH_DEC_HOBGOBLIN            3
 #define HEALTH_DEC_SPIKE_FIRE           2
 #define HEALTH_DEC_CHEST                5
-#define HEALTH_DEC_FLOATER              15
-#define HEALTH_DEC_BULL                 10
 #define HEALTH_DEC_BOSS                 10
 #define HEALTH_DEC_CYCLOP               10
 
@@ -50,7 +42,6 @@
 #define HEALTH_EYE                      40
 #define HEALTH_SKELETON                 40
 #define HEALTH_SNAKE                    20
-#define HEALTH_FLOATER                  30
 #define HEALTH_SPIDER                   30
 #define HEALTH_LARGESPIDER              50
 #define HEALTH_NECROMANCER              60
@@ -89,11 +80,9 @@
 #define CHEST_RANDOM_COIN               70
 #define CHEST_RANDOM_SACK               CHEST_RANDOM_COIN + 10
 #define CHEST_RANDOM_BREAD              CHEST_RANDOM_SACK + 10
-#define CHEST_RANDOM_CHICKEN            CHEST_RANDOM_SACK + 10
-#define CHEST_RANDOM_TOOLS              CHEST_RANDOM_CHICKEN + 10
-#define CHEST_RANDOM_TONIC              CHEST_RANDOM_TOOLS + 10
-#define CHEST_RANDOM_KEY                CHEST_RANDOM_TONIC + 10
-#define CHEST_RANDOM_ICE                CHEST_RANDOM_KEY + 5
+#define CHEST_RANDOM_CHICKEN            CHEST_RANDOM_BREAD + 10
+#define CHEST_RANDOM_TONIC              CHEST_RANDOM_CHICKEN + 10
+#define CHEST_RANDOM_ICE                CHEST_RANDOM_TONIC + 5
 #define CHEST_RANDOM_GREEN              CHEST_RANDOM_ICE + 5
 #define CHEST_RANDOM_RED                CHEST_RANDOM_GREEN + 5
 #define CHEST_RANDOM_MAUVE              CHEST_RANDOM_RED + 5
@@ -180,11 +169,7 @@
 #define LAUNCH_SPIDER_DELAY_MAX         100
 #define LAUNCH_CYCLOPS_DELAY_MIN        100
 #define LAUNCH_CYCLOPS_DELAY_MAX        150
-#define LAUNCH_BULL_CHARGE_DELAY_MIN    300
-#define LAUNCH_BULL_CHARGE_DELAY_MAX    400
-#define LAUNCH_BULL_DUNG_DELAY_MIN      180
-#define LAUNCH_BULL_DUNG_DELAY_MAX      240
-#define LAUNCH_BULL_COUNTDOWN           120
+
 
 
 // Web bullet travel details ..
@@ -197,7 +182,6 @@
 #define BULLET_WEB_FRAMES_DIV5          3
 
 #define CYCLOP_SPARK_FRAMES             15       // Number of frames to travel
-#define BULL_DUNG_FRAMES                100      // Number of frames to persist
 
 
 // Frame constants 
@@ -205,7 +189,7 @@
 #define PUFF_FRAME_MAX                  20
 #define SKELETON_FRAME_MAX              48
 #define NECROMANCER_FRAME_MAX           40
-#define CYCLOPS_FRAME_MAX               28
+#define CYCLOPS_FRAME_MAX               40
 
 
 /* -------------------------------------------------------------------------------

@@ -158,7 +158,6 @@ class Game {
         int launchSkeletonDelay = 0;
         int launchCyclopsDelay = 0;
         int launchBullChargeDelay = 0;
-        int launchBullDungDelay = 0;
 
         Direction launchSkeletonDirection;
         Direction launchCyclopsDirection;
@@ -181,6 +180,7 @@ class Game {
 
         File mainThemeFile;
         File soundEffectFile;
+        PlayerStatus playerStatus;  // Backup player status at start of level.
 
         ShopObject shopObjects[9] = {
             { Object::Bread, INVENTORY_BREAD_PRICE, 2 },

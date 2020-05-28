@@ -4688,12 +4688,6 @@
 		"\\64CA3420": {
 			"sdcard": false
 		},
-		"\\src\\images\\sprites\\Bread.png": {
-			"sdcard": false
-		},
-		"\\src\\images\\sprites\\Bread.h": {
-			"sdcard": false
-		},
 		"\\src\\images\\Tile_32.png": {
 			"sdcard": false
 		},
@@ -5022,12 +5016,6 @@
 			"sdcard": false
 		},
 		"/src/images/ppot/Ppot_Full.h": {
-			"sdcard": false
-		},
-		"/src/images/sprites/Bread.h": {
-			"sdcard": false
-		},
-		"/src/images/sprites/Bread.png": {
 			"sdcard": false
 		},
 		"/src/images/ppot/Ppot_Full.png": {
@@ -7796,60 +7784,6 @@
 		"/src/images/altar/DarkRitual_Scrolls_with_one_rune_found.png": {
 			"sdcard": false
 		},
-		"/src/images/altar/Rune_Grey_00.h": {
-			"sdcard": false
-		},
-		"/src/images/altar/Rune_Grey_01.png": {
-			"sdcard": false
-		},
-		"/src/images/altar/Rune_Grey_02.h": {
-			"sdcard": false
-		},
-		"/src/images/altar/Rune_Grey_02.png": {
-			"sdcard": false
-		},
-		"/src/images/altar/Rune_Grey_03.h": {
-			"sdcard": false
-		},
-		"/src/images/altar/Rune_Grey_05.png": {
-			"sdcard": false
-		},
-		"/src/images/altar/Rune_Red_00.h": {
-			"sdcard": false
-		},
-		"/src/images/altar/Rune_Red_00.png": {
-			"sdcard": false
-		},
-		"/src/images/altar/Rune_Red_02.png": {
-			"sdcard": false
-		},
-		"/src/images/altar/Rune_Red_03.png": {
-			"sdcard": false
-		},
-		"/src/images/altar/Rune_Red_03.h": {
-			"sdcard": false
-		},
-		"/src/images/altar/Rune_Red_04.h": {
-			"sdcard": false
-		},
-		"/src/images/altar/Rune_Red_05.h": {
-			"sdcard": false
-		},
-		"/src/images/altar/Rune_Red_05.png": {
-			"sdcard": false
-		},
-		"/src/images/altar/Rune_Red_04.png": {
-			"sdcard": false
-		},
-		"/src/images/altar/Rune_Grey_01.h": {
-			"sdcard": false
-		},
-		"/src/images/altar/Rune_Grey_05.h": {
-			"sdcard": false
-		},
-		"/src/images/altar/Rune_Red_02.h": {
-			"sdcard": false
-		},
 		"/RogueBoy_Pokitto.bin.3.png": {
 			"sdcard": false
 		},
@@ -8139,33 +8073,6 @@
 			"sdcard": false
 		},
 		"/src/images/altar/AltarBOT_Wide.png": {
-			"sdcard": false
-		},
-		"/src/images/altar/Rune_Grey_00.png": {
-			"sdcard": false
-		},
-		"/src/images/altar/Rune_Grey_03.png": {
-			"sdcard": false
-		},
-		"/src/images/altar/Rune_Grey_04.png": {
-			"sdcard": false
-		},
-		"/src/images/altar/Rune_Grey_04.h": {
-			"sdcard": false
-		},
-		"/src/images/altar/Rune_Red_01.png": {
-			"sdcard": false
-		},
-		"/src/images/altar/Rune_Red_01.h": {
-			"sdcard": false
-		},
-		"/src/images/title/BorderTOP.png": {
-			"sdcard": false
-		},
-		"/src/images/title/PlayerBOT.png": {
-			"sdcard": false
-		},
-		"/src/images/title/PlayerTOP.png": {
 			"sdcard": false
 		},
 		"/src/images/enemies/necromancer/Necromancer_06_F1.h": {
@@ -8531,79 +8438,7 @@
 		"\\src\\images\\altar\\DarkRitual_Scrolls_with_one_rune_found.h": {
 			"sdcard": false
 		},
-		"\\src\\images\\altar\\Rune_Grey_00.h": {
-			"sdcard": false
-		},
 		"\\src\\images\\altar\\DarkRitual_Scrolls_with_one_rune_found.png": {
-			"sdcard": false
-		},
-		"\\src\\images\\altar\\Rune_Grey_00.png": {
-			"sdcard": false
-		},
-		"\\src\\images\\altar\\Rune_Grey_01.png": {
-			"sdcard": false
-		},
-		"\\src\\images\\altar\\Rune_Grey_01.h": {
-			"sdcard": false
-		},
-		"\\src\\images\\altar\\Rune_Grey_02.h": {
-			"sdcard": false
-		},
-		"\\src\\images\\altar\\Rune_Grey_02.png": {
-			"sdcard": false
-		},
-		"\\src\\images\\altar\\Rune_Grey_03.h": {
-			"sdcard": false
-		},
-		"\\src\\images\\altar\\Rune_Grey_04.png": {
-			"sdcard": false
-		},
-		"\\src\\images\\altar\\Rune_Grey_03.png": {
-			"sdcard": false
-		},
-		"\\src\\images\\altar\\Rune_Grey_05.h": {
-			"sdcard": false
-		},
-		"\\src\\images\\altar\\Rune_Grey_04.h": {
-			"sdcard": false
-		},
-		"\\src\\images\\altar\\Rune_Grey_05.png": {
-			"sdcard": false
-		},
-		"\\src\\images\\altar\\Rune_Red_00.png": {
-			"sdcard": false
-		},
-		"\\src\\images\\altar\\Rune_Red_00.h": {
-			"sdcard": false
-		},
-		"\\src\\images\\altar\\Rune_Red_01.h": {
-			"sdcard": false
-		},
-		"\\src\\images\\altar\\Rune_Red_01.png": {
-			"sdcard": false
-		},
-		"\\src\\images\\altar\\Rune_Red_02.h": {
-			"sdcard": false
-		},
-		"\\src\\images\\altar\\Rune_Red_03.h": {
-			"sdcard": false
-		},
-		"\\src\\images\\altar\\Rune_Red_02.png": {
-			"sdcard": false
-		},
-		"\\src\\images\\altar\\Rune_Red_03.png": {
-			"sdcard": false
-		},
-		"\\src\\images\\altar\\Rune_Red_04.h": {
-			"sdcard": false
-		},
-		"\\src\\images\\altar\\Rune_Red_04.png": {
-			"sdcard": false
-		},
-		"\\src\\images\\altar\\Rune_Red_05.h": {
-			"sdcard": false
-		},
-		"\\src\\images\\altar\\Rune_Red_05.png": {
 			"sdcard": false
 		},
 		"\\src\\images\\bullets\\Bullet_Red_00.h": {
@@ -10610,46 +10445,10 @@
 		"/xxx.gif": {
 			"sdcard": false
 		},
-		"/src/images/enemies/bull/Bull_Dung_F0.h": {
-			"sdcard": false
-		},
-		"/src/images/enemies/bull/Bull_Dung_F0.png": {
-			"sdcard": false
-		},
-		"/src/images/enemies/bull/Bull_Dung_F1.h": {
-			"sdcard": false
-		},
-		"/src/images/enemies/bull/Bull_Dung_F1.png": {
-			"sdcard": false
-		},
 		"/yyy.gif": {
 			"sdcard": false
 		},
-		"/src/images/enemies/bull/Bull_Dung_F2.png": {
-			"sdcard": false
-		},
-		"/src/images/enemies/bull/Bull_Dung_F3.png": {
-			"sdcard": false
-		},
-		"/src/images/enemies/bull/Bull_Dung_F3.h": {
-			"sdcard": false
-		},
-		"/src/images/enemies/bull/Bull_Dung_F2.h": {
-			"sdcard": false
-		},
 		"/ezgif-6-bc0faa5aa888.gif": {
-			"sdcard": false
-		},
-		"/src/images/enemies/bull/Bull_Dung_F4.h": {
-			"sdcard": false
-		},
-		"/src/images/enemies/bull/Bull_Dung_F4.png": {
-			"sdcard": false
-		},
-		"/src/images/enemies/bull/Bull_Dung_F5.h": {
-			"sdcard": false
-		},
-		"/src/images/enemies/bull/Bull_Dung_F5.png": {
 			"sdcard": false
 		},
 		"/src/images/title/Score copy.png": {
@@ -11123,18 +10922,6 @@
 		"/src/images/altar/small": {
 			"sdcard": false
 		},
-		"/src/images/altar/small/Rune_Grey_00.h": {
-			"sdcard": false
-		},
-		"/src/images/altar/small/Rune_Grey_01.h": {
-			"sdcard": false
-		},
-		"/src/images/altar/small/Rune_Grey_00.png": {
-			"sdcard": false
-		},
-		"/src/images/altar/small/Rune_Grey_01.png": {
-			"sdcard": false
-		},
 		"/src/sounds/darkrit1- GameRPGHorror.raw": {
 			"sdcard": false
 		},
@@ -11163,102 +10950,6 @@
 			"sdcard": false
 		},
 		"/src/images/altar/large": {
-			"sdcard": false
-		},
-		"/src/images/altar/small/Rune_Grey_02.h": {
-			"sdcard": false
-		},
-		"/src/images/altar/small/Rune_Grey_03.h": {
-			"sdcard": false
-		},
-		"/src/images/altar/small/Rune_Grey_02.png": {
-			"sdcard": false
-		},
-		"/src/images/altar/small/Rune_Grey_03.png": {
-			"sdcard": false
-		},
-		"/src/images/altar/small/Rune_Grey_04.png": {
-			"sdcard": false
-		},
-		"/src/images/altar/small/Rune_Grey_04.h": {
-			"sdcard": false
-		},
-		"/src/images/altar/small/Rune_Grey_05.h": {
-			"sdcard": false
-		},
-		"/src/images/altar/small/Rune_Grey_05.png": {
-			"sdcard": false
-		},
-		"/src/images/altar/small/Rune_Red_00.h": {
-			"sdcard": false
-		},
-		"/src/images/altar/small/Rune_Red_00.png": {
-			"sdcard": false
-		},
-		"/src/images/altar/small/Rune_Red_01.h": {
-			"sdcard": false
-		},
-		"/src/images/altar/small/Rune_Red_02.h": {
-			"sdcard": false
-		},
-		"/src/images/altar/small/Rune_Red_01.png": {
-			"sdcard": false
-		},
-		"/src/images/altar/small/Rune_Red_03.h": {
-			"sdcard": false
-		},
-		"/src/images/altar/small/Rune_Red_02.png": {
-			"sdcard": false
-		},
-		"/src/images/altar/small/Rune_Red_03.png": {
-			"sdcard": false
-		},
-		"/src/images/altar/small/Rune_Red_04.h": {
-			"sdcard": false
-		},
-		"/src/images/altar/small/Rune_Red_04.png": {
-			"sdcard": false
-		},
-		"/src/images/altar/small/Rune_Red_05.h": {
-			"sdcard": false
-		},
-		"/src/images/altar/small/Rune_Red_05.png": {
-			"sdcard": false
-		},
-		"/src/images/altar/large/Large_Rune_00.png": {
-			"sdcard": false
-		},
-		"/src/images/altar/large/Large_Rune_02.png": {
-			"sdcard": false
-		},
-		"/src/images/altar/large/Large_Rune_01.png": {
-			"sdcard": false
-		},
-		"/src/images/altar/large/Large_Rune_03.png": {
-			"sdcard": false
-		},
-		"/src/images/altar/large/Large_Rune_04.png": {
-			"sdcard": false
-		},
-		"/src/images/altar/large/Large_Rune_05.png": {
-			"sdcard": false
-		},
-		"/src/images/altar/large/Large_Rune_02.h": {
-			"sdcard": false
-		},
-		"/src/images/altar/large/Large_Rune_00.h": {
-			"sdcard": false
-		},
-		"/src/images/altar/large/Large_Rune_04.h": {
-			"sdcard": false
-		},
-		"/src/images/altar/large/Large_Rune_05.h": {
-			"sdcard": false
-		},
-		"/src/images/altar/large/Large_Rune_01.h": {
-			"sdcard": false
-		},
-		"/src/images/altar/large/Large_Rune_03.h": {
 			"sdcard": false
 		},
 		"/src/images/background/CurseOfAztaroK_SavingPost2.png": {
@@ -11324,7 +11015,25 @@
 		"\\music\\darkrit9.raw": {
 			"sdcard": false
 		},
+		"\\DarkRitual_V090.bin": {
+			"sdcard": false
+		},
+		"\\DarkRitual_V090.zip": {
+			"sdcard": false
+		},
+		"\\DarkRitual_V091.bin": {
+			"sdcard": false
+		},
+		"\\RogueBoy_Pokitto.bin.4 - Copy.png": {
+			"sdcard": false
+		},
+		"\\RogueBoy_Pokitto.bin.4 - Copy.h": {
+			"sdcard": false
+		},
 		"\\src\\Game_AltarPiecePuzzle.cpp": {
+			"sdcard": false
+		},
+		"\\src\\Game_GameSaved.cpp": {
 			"sdcard": false
 		},
 		"\\src\\images\\connectors": {
@@ -11351,10 +11060,10 @@
 		"\\src\\sounds\\darkrit4 - CannotPickUp.raw": {
 			"sdcard": false
 		},
-		"\\src\\sounds\\darkrit6 - Death1.raw": {
+		"\\src\\sounds\\darkrit5 - PickUpCoin.raw": {
 			"sdcard": false
 		},
-		"\\src\\sounds\\darkrit5 - PickUpCoin.raw": {
+		"\\src\\sounds\\darkrit6 - Death1.raw": {
 			"sdcard": false
 		},
 		"\\src\\sounds\\darkrit7 - Death3.raw": {
@@ -11366,10 +11075,16 @@
 		"\\src\\sounds\\darkrit8 - Damage.raw": {
 			"sdcard": false
 		},
-		"\\src\\images\\altar\\large": {
+		"\\src\\utils\\GameCookieHighScores.h": {
+			"sdcard": false
+		},
+		"\\src\\utils\\GameCookieSaveGame.h": {
 			"sdcard": false
 		},
 		"\\src\\images\\altar\\small": {
+			"sdcard": false
+		},
+		"\\src\\images\\altar\\large": {
 			"sdcard": false
 		},
 		"\\src\\images\\background\\Tile97.h": {
@@ -11378,43 +11093,43 @@
 		"\\src\\images\\bullets\\Spark_00.h": {
 			"sdcard": false
 		},
-		"\\src\\images\\bullets\\Spark_00.png": {
+		"\\src\\images\\bullets\\Spark_01.h": {
 			"sdcard": false
 		},
-		"\\src\\images\\bullets\\Spark_01.h": {
+		"\\src\\images\\bullets\\Spark_00.png": {
 			"sdcard": false
 		},
 		"\\src\\images\\bullets\\Spark_01.png": {
 			"sdcard": false
 		},
-		"\\src\\images\\bullets\\Spark_02.h": {
-			"sdcard": false
-		},
 		"\\src\\images\\bullets\\Spark_02.png": {
 			"sdcard": false
 		},
-		"\\src\\images\\bullets\\Spark_04.png": {
+		"\\src\\images\\bullets\\Spark_02.h": {
 			"sdcard": false
 		},
 		"\\src\\images\\bullets\\Spark_03.h": {
 			"sdcard": false
 		},
-		"\\src\\images\\bullets\\Spark_03.png": {
-			"sdcard": false
-		},
 		"\\src\\images\\bullets\\Spark_04.h": {
 			"sdcard": false
 		},
-		"\\src\\images\\bullets\\Spark_05.h": {
+		"\\src\\images\\bullets\\Spark_03.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\bullets\\Spark_04.png": {
 			"sdcard": false
 		},
 		"\\src\\images\\bullets\\Spark_05.png": {
 			"sdcard": false
 		},
-		"\\src\\images\\bullets\\Spark_06.h": {
+		"\\src\\images\\bullets\\Spark_05.h": {
 			"sdcard": false
 		},
 		"\\src\\images\\bullets\\Spark_07.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\bullets\\Spark_06.h": {
 			"sdcard": false
 		},
 		"\\src\\images\\bullets\\Spark_06.png": {
@@ -11423,22 +11138,25 @@
 		"\\src\\images\\bullets\\Spark_07.png": {
 			"sdcard": false
 		},
-		"\\src\\images\\bullets\\Spark_08.png": {
-			"sdcard": false
-		},
 		"\\src\\images\\bullets\\Spark_08.h": {
 			"sdcard": false
 		},
-		"\\src\\images\\bullets\\Spark_09.png": {
+		"\\src\\images\\bullets\\Spark_08.png": {
 			"sdcard": false
 		},
 		"\\src\\images\\bullets\\Spark_09.h": {
 			"sdcard": false
 		},
-		"\\src\\images\\connectors\\Connectors.h": {
+		"\\src\\images\\bullets\\Spark_09.png": {
 			"sdcard": false
 		},
 		"\\src\\images\\connectors\\Connector_Corner_BL.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\connectors\\Connectors.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\connectors\\Connector_Corner_BL.h": {
 			"sdcard": false
 		},
 		"\\src\\images\\connectors\\Connector_Corner_BR.png": {
@@ -11447,37 +11165,34 @@
 		"\\src\\images\\connectors\\Connector_Corner_BR.h": {
 			"sdcard": false
 		},
-		"\\src\\images\\connectors\\Connector_Corner_BL.h": {
-			"sdcard": false
-		},
 		"\\src\\images\\connectors\\Connector_Corner_TL.h": {
-			"sdcard": false
-		},
-		"\\src\\images\\connectors\\Connector_Corner_TL.png": {
-			"sdcard": false
-		},
-		"\\src\\images\\connectors\\Connector_Horizontal.h": {
 			"sdcard": false
 		},
 		"\\src\\images\\connectors\\Connector_Corner_TR.h": {
 			"sdcard": false
 		},
+		"\\src\\images\\connectors\\Connector_Corner_TL.png": {
+			"sdcard": false
+		},
 		"\\src\\images\\connectors\\Connector_Corner_TR.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\connectors\\Connector_Horizontal.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\connectors\\Connector_Horizontal.h": {
 			"sdcard": false
 		},
 		"\\src\\images\\connectors\\Connector_Nothing.h": {
 			"sdcard": false
 		},
-		"\\src\\images\\connectors\\Connector_Horizontal.png": {
+		"\\src\\images\\connectors\\Connector_Vertical.h": {
 			"sdcard": false
 		},
 		"\\src\\images\\connectors\\Connector_Nothing.png": {
 			"sdcard": false
 		},
 		"\\src\\images\\connectors\\Connector_Vertical.png": {
-			"sdcard": false
-		},
-		"\\src\\images\\connectors\\Connector_Vertical.h": {
 			"sdcard": false
 		},
 		"\\src\\images\\enemies\\beholder": {
@@ -11492,43 +11207,46 @@
 		"\\src\\images\\nodes\\Node10.h": {
 			"sdcard": false
 		},
-		"\\src\\images\\nodes\\Node2.h": {
-			"sdcard": false
-		},
-		"\\src\\images\\nodes\\Node2.png": {
-			"sdcard": false
-		},
 		"\\src\\images\\nodes\\Node10.png": {
 			"sdcard": false
 		},
-		"\\src\\images\\nodes\\Node3.png": {
+		"\\src\\images\\nodes\\Node2.h": {
 			"sdcard": false
 		},
 		"\\src\\images\\nodes\\Node3.h": {
 			"sdcard": false
 		},
-		"\\src\\images\\nodes\\Node4.h": {
+		"\\src\\images\\nodes\\Node3.png": {
 			"sdcard": false
 		},
-		"\\src\\images\\nodes\\Node5.h": {
+		"\\src\\images\\nodes\\Node2.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\nodes\\Node4.h": {
 			"sdcard": false
 		},
 		"\\src\\images\\nodes\\Node4.png": {
 			"sdcard": false
 		},
-		"\\src\\images\\nodes\\Node6.h": {
+		"\\src\\images\\nodes\\Node5.h": {
 			"sdcard": false
 		},
-		"\\src\\images\\nodes\\Node6.png": {
+		"\\src\\images\\nodes\\Node6.h": {
 			"sdcard": false
 		},
 		"\\src\\images\\nodes\\Node5.png": {
 			"sdcard": false
 		},
-		"\\src\\images\\nodes\\Node7.png": {
+		"\\src\\images\\nodes\\Node6.png": {
 			"sdcard": false
 		},
 		"\\src\\images\\nodes\\Node7.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\nodes\\Node7.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\nodes\\Node9.png": {
 			"sdcard": false
 		},
 		"\\src\\images\\nodes\\Node8.h": {
@@ -11540,28 +11258,25 @@
 		"\\src\\images\\nodes\\Node9.h": {
 			"sdcard": false
 		},
-		"\\src\\images\\nodes\\Node9.png": {
-			"sdcard": false
-		},
 		"\\src\\images\\nodes\\Nodes.h": {
 			"sdcard": false
 		},
 		"\\src\\images\\puzzle\\DR_LastPuzzle_Preview.h": {
 			"sdcard": false
 		},
-		"\\src\\images\\puzzle\\Puzzle_Border_BOT.h": {
+		"\\src\\images\\puzzle\\DR_LastPuzzle_Preview.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\puzzle\\Puzzle_Border_BOT.png": {
 			"sdcard": false
 		},
 		"\\src\\images\\puzzle\\PuzzleImages.h": {
 			"sdcard": false
 		},
-		"\\src\\images\\puzzle\\DR_LastPuzzle_Preview.png": {
-			"sdcard": false
-		},
 		"\\src\\images\\puzzle\\Puzzle_Border_LHS.h": {
 			"sdcard": false
 		},
-		"\\src\\images\\puzzle\\Puzzle_Border_BOT.png": {
+		"\\src\\images\\puzzle\\Puzzle_Border_BOT.h": {
 			"sdcard": false
 		},
 		"\\src\\images\\puzzle\\Puzzle_Border_LHS.png": {
@@ -11585,16 +11300,19 @@
 		"\\src\\images\\puzzle\\Puzzle_Cell_Background.png": {
 			"sdcard": false
 		},
-		"\\src\\images\\puzzle\\Puzzle_Cursor.h": {
-			"sdcard": false
-		},
 		"\\src\\images\\puzzle\\Puzzle_Cursor.png": {
 			"sdcard": false
 		},
-		"\\src\\images\\title\\OpenBook.h": {
+		"\\src\\images\\puzzle\\Puzzle_Cursor.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\sprites\\Bread.h": {
 			"sdcard": false
 		},
 		"\\src\\images\\title\\OpenBook.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\title\\OpenBook.h": {
 			"sdcard": false
 		},
 		"\\src\\images\\title\\Player.h": {
@@ -11615,42 +11333,6 @@
 		"\\src\\images\\title\\WallBackground_Ending.png": {
 			"sdcard": false
 		},
-		"\\src\\images\\altar\\large\\Large_Rune_00.h": {
-			"sdcard": false
-		},
-		"\\src\\images\\altar\\large\\Large_Rune_01.h": {
-			"sdcard": false
-		},
-		"\\src\\images\\altar\\large\\Large_Rune_01.png": {
-			"sdcard": false
-		},
-		"\\src\\images\\altar\\large\\Large_Rune_02.h": {
-			"sdcard": false
-		},
-		"\\src\\images\\altar\\large\\Large_Rune_00.png": {
-			"sdcard": false
-		},
-		"\\src\\images\\altar\\large\\Large_Rune_02.png": {
-			"sdcard": false
-		},
-		"\\src\\images\\altar\\large\\Large_Rune_03.h": {
-			"sdcard": false
-		},
-		"\\src\\images\\altar\\large\\Large_Rune_03.png": {
-			"sdcard": false
-		},
-		"\\src\\images\\altar\\large\\Large_Rune_04.h": {
-			"sdcard": false
-		},
-		"\\src\\images\\altar\\large\\Large_Rune_04.png": {
-			"sdcard": false
-		},
-		"\\src\\images\\altar\\large\\Large_Rune_05.h": {
-			"sdcard": false
-		},
-		"\\src\\images\\altar\\large\\Large_Rune_05.png": {
-			"sdcard": false
-		},
 		"\\src\\images\\altar\\small\\Rune_Grey_00.h": {
 			"sdcard": false
 		},
@@ -11663,28 +11345,28 @@
 		"\\src\\images\\altar\\small\\Rune_Grey_01.png": {
 			"sdcard": false
 		},
-		"\\src\\images\\altar\\small\\Rune_Grey_02.h": {
+		"\\src\\images\\altar\\small\\Rune_Grey_03.h": {
 			"sdcard": false
 		},
 		"\\src\\images\\altar\\small\\Rune_Grey_02.png": {
 			"sdcard": false
 		},
-		"\\src\\images\\altar\\small\\Rune_Grey_03.h": {
-			"sdcard": false
-		},
 		"\\src\\images\\altar\\small\\Rune_Grey_03.png": {
-			"sdcard": false
-		},
-		"\\src\\images\\altar\\small\\Rune_Grey_04.h": {
-			"sdcard": false
-		},
-		"\\src\\images\\altar\\small\\Rune_Grey_05.h": {
 			"sdcard": false
 		},
 		"\\src\\images\\altar\\small\\Rune_Grey_04.png": {
 			"sdcard": false
 		},
+		"\\src\\images\\altar\\small\\Rune_Grey_04.h": {
+			"sdcard": false
+		},
 		"\\src\\images\\altar\\small\\Rune_Grey_05.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\altar\\small\\Rune_Grey_05.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\altar\\small\\Rune_Red_00.png": {
 			"sdcard": false
 		},
 		"\\src\\images\\altar\\small\\Rune_Red_00.h": {
@@ -11714,13 +11396,46 @@
 		"\\src\\images\\altar\\small\\Rune_Red_04.png": {
 			"sdcard": false
 		},
-		"\\src\\images\\altar\\small\\Rune_Red_05.png": {
-			"sdcard": false
-		},
 		"\\src\\images\\altar\\small\\Rune_Red_05.h": {
 			"sdcard": false
 		},
-		"\\src\\images\\altar\\small\\Rune_Red_00.png": {
+		"\\src\\images\\altar\\small\\Rune_Red_05.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\altar\\large\\Large_Rune_00.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\altar\\large\\Large_Rune_00.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\altar\\large\\Large_Rune_01.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\altar\\large\\Large_Rune_01.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\altar\\large\\Large_Rune_02.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\altar\\large\\Large_Rune_02.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\altar\\large\\Large_Rune_03.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\altar\\large\\Large_Rune_03.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\altar\\large\\Large_Rune_04.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\altar\\large\\Large_Rune_04.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\altar\\large\\Large_Rune_05.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\altar\\large\\Large_Rune_05.png": {
 			"sdcard": false
 		},
 		"\\src\\images\\enemies\\beholder\\Beholder_00_F0.h": {
@@ -11729,37 +11444,37 @@
 		"\\src\\images\\enemies\\beholder\\Beholder_00_F0.png": {
 			"sdcard": false
 		},
+		"\\src\\images\\enemies\\beholder\\Beholder_00_F1.png": {
+			"sdcard": false
+		},
 		"\\src\\images\\enemies\\beholder\\Beholder_00_F1.h": {
 			"sdcard": false
 		},
 		"\\src\\images\\enemies\\beholder\\Beholder_02_F0.h": {
 			"sdcard": false
 		},
-		"\\src\\images\\enemies\\beholder\\Beholder_02_F0.png": {
-			"sdcard": false
-		},
-		"\\src\\images\\enemies\\beholder\\Beholder_00_F1.png": {
-			"sdcard": false
-		},
 		"\\src\\images\\enemies\\beholder\\Beholder_02_F1.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemies\\beholder\\Beholder_02_F0.png": {
 			"sdcard": false
 		},
 		"\\src\\images\\enemies\\beholder\\Beholder_02_F1.png": {
 			"sdcard": false
 		},
-		"\\src\\images\\enemies\\beholder\\Beholder_04_F0.h": {
+		"\\src\\images\\enemies\\beholder\\Beholder_04_F0.png": {
 			"sdcard": false
 		},
-		"\\src\\images\\enemies\\beholder\\Beholder_04_F0.png": {
+		"\\src\\images\\enemies\\beholder\\Beholder_04_F0.h": {
 			"sdcard": false
 		},
 		"\\src\\images\\enemies\\beholder\\Beholder_04_F1.h": {
 			"sdcard": false
 		},
-		"\\src\\images\\enemies\\beholder\\Beholder_06_F0.h": {
+		"\\src\\images\\enemies\\beholder\\Beholder_04_F1.png": {
 			"sdcard": false
 		},
-		"\\src\\images\\enemies\\beholder\\Beholder_04_F1.png": {
+		"\\src\\images\\enemies\\beholder\\Beholder_06_F0.h": {
 			"sdcard": false
 		},
 		"\\src\\images\\enemies\\beholder\\Beholder_06_F0.png": {
@@ -11771,19 +11486,22 @@
 		"\\src\\images\\enemies\\beholder\\Beholder_06_F1.png": {
 			"sdcard": false
 		},
+		"\\src\\images\\enemies\\cyclop\\Cyclop_02_F1.h": {
+			"sdcard": false
+		},
 		"\\src\\images\\enemies\\cyclop\\Cyclop_02_F0.h": {
 			"sdcard": false
 		},
 		"\\src\\images\\enemies\\cyclop\\Cyclop_02_F0.png": {
 			"sdcard": false
 		},
-		"\\src\\images\\enemies\\cyclop\\Cyclop_02_F1.h": {
-			"sdcard": false
-		},
 		"\\src\\images\\enemies\\cyclop\\Cyclop_02_F1.png": {
 			"sdcard": false
 		},
 		"\\src\\images\\enemies\\cyclop\\Cyclop_06_F0.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemies\\cyclop\\Cyclop_06_F1.png": {
 			"sdcard": false
 		},
 		"\\src\\images\\enemies\\cyclop\\Cyclop_06_F0.png": {
@@ -11795,31 +11513,28 @@
 		"\\src\\images\\enemies\\cyclop\\Cyclop_Hitting_00_F0.h": {
 			"sdcard": false
 		},
-		"\\src\\images\\enemies\\cyclop\\Cyclop_06_F1.png": {
-			"sdcard": false
-		},
 		"\\src\\images\\enemies\\cyclop\\Cyclop_Hitting_00_F0.png": {
-			"sdcard": false
-		},
-		"\\src\\images\\enemies\\cyclop\\Cyclop_Hitting_00_F1.h": {
-			"sdcard": false
-		},
-		"\\src\\images\\enemies\\cyclop\\Cyclop_Hitting_00_F2.png": {
 			"sdcard": false
 		},
 		"\\src\\images\\enemies\\cyclop\\Cyclop_Hitting_00_F1.png": {
 			"sdcard": false
 		},
+		"\\src\\images\\enemies\\cyclop\\Cyclop_Hitting_00_F1.h": {
+			"sdcard": false
+		},
 		"\\src\\images\\enemies\\cyclop\\Cyclop_Hitting_00_F2.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemies\\cyclop\\Cyclop_Hitting_00_F2.png": {
 			"sdcard": false
 		},
 		"\\src\\images\\enemies\\cyclop\\Cyclop_Hitting_02_F0.h": {
 			"sdcard": false
 		},
-		"\\src\\images\\enemies\\cyclop\\Cyclop_Hitting_02_F0.png": {
+		"\\src\\images\\enemies\\cyclop\\Cyclop_Hitting_02_F1.h": {
 			"sdcard": false
 		},
-		"\\src\\images\\enemies\\cyclop\\Cyclop_Hitting_02_F1.h": {
+		"\\src\\images\\enemies\\cyclop\\Cyclop_Hitting_02_F0.png": {
 			"sdcard": false
 		},
 		"\\src\\images\\enemies\\cyclop\\Cyclop_Hitting_02_F1.png": {
@@ -11840,181 +11555,487 @@
 		"\\src\\images\\enemies\\cyclop\\Cyclop_Hitting_04_F1.h": {
 			"sdcard": false
 		},
-		"\\src\\images\\enemies\\cyclop\\Cyclop_Hitting_04_F2.h": {
+		"\\src\\images\\enemies\\cyclop\\Cyclop_Hitting_04_F1.png": {
 			"sdcard": false
 		},
-		"\\src\\images\\enemies\\cyclop\\Cyclop_Hitting_04_F1.png": {
+		"\\src\\images\\enemies\\cyclop\\Cyclop_Hitting_04_F2.h": {
 			"sdcard": false
 		},
 		"\\src\\images\\enemies\\cyclop\\Cyclop_Hitting_04_F2.png": {
 			"sdcard": false
 		},
-		"\\src\\images\\enemies\\cyclop\\Cyclop_Hitting_06_F0.h": {
-			"sdcard": false
-		},
 		"\\src\\images\\enemies\\cyclop\\Cyclop_Hitting_06_F1.png": {
 			"sdcard": false
 		},
-		"\\src\\images\\enemies\\cyclop\\Cyclop_Hitting_06_F2.h": {
-			"sdcard": false
-		},
-		"\\src\\images\\enemies\\cyclop\\Cyclop_Hitting_06_F0.png": {
+		"\\src\\images\\enemies\\cyclop\\Cyclop_Hitting_06_F0.h": {
 			"sdcard": false
 		},
 		"\\src\\images\\enemies\\cyclop\\Cyclop_Hitting_06_F1.h": {
 			"sdcard": false
 		},
+		"\\src\\images\\enemies\\cyclop\\Cyclop_Hitting_06_F0.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemies\\cyclop\\Cyclop_Hitting_06_F2.h": {
+			"sdcard": false
+		},
 		"\\src\\images\\enemies\\cyclop\\Cyclop_Hitting_06_F2.png": {
 			"sdcard": false
 		},
-		"\\src\\images\\enemies\\bull\\Bull_Dung_F0.h": {
+		"\\src\\images\\sprites\\Bread.png": {
 			"sdcard": false
 		},
-		"\\src\\images\\enemies\\bull\\Bull_Dung_F0.png": {
+		"\\src\\images\\altar\\small\\Rune_Grey_02.h": {
 			"sdcard": false
 		},
-		"\\src\\images\\enemies\\bull\\Bull_Dung_F1.h": {
+		"\\src\\images\\enemies\\cyclop\\New folder": {
 			"sdcard": false
 		},
-		"\\src\\images\\enemies\\bull\\Bull_Dung_F1.png": {
+		"\\src\\images\\enemies\\cyclop\\orig": {
 			"sdcard": false
 		},
-		"\\src\\images\\enemies\\bull\\Bull_Dung_F2.h": {
+		"\\src\\images\\enemies\\cyclop\\orig\\Cyclop_00_F0.h": {
 			"sdcard": false
 		},
-		"\\src\\images\\enemies\\bull\\Bull_Dung_F3.png": {
+		"\\src\\images\\enemies\\cyclop\\orig\\Cyclop_00_F0.png": {
 			"sdcard": false
 		},
-		"\\src\\images\\enemies\\bull\\Bull_Dung_F3.h": {
+		"\\src\\images\\enemies\\cyclop\\orig\\Cyclop_00_F1.h": {
 			"sdcard": false
 		},
-		"\\src\\images\\enemies\\bull\\Bull_Dung_F2.png": {
+		"\\src\\images\\enemies\\cyclop\\orig\\Cyclop_00_F1.png": {
 			"sdcard": false
 		},
-		"\\src\\images\\enemies\\bull\\Bull_Dung_F4.png": {
+		"\\src\\images\\enemies\\cyclop\\orig\\Cyclop_02_F0.h": {
 			"sdcard": false
 		},
-		"\\src\\images\\enemies\\bull\\Bull_Dung_F4.h": {
+		"\\src\\images\\enemies\\cyclop\\orig\\Cyclop_02_F1.h": {
 			"sdcard": false
 		},
-		"\\src\\images\\enemies\\bull\\Bull_Dung_F5.h": {
+		"\\src\\images\\enemies\\cyclop\\orig\\Cyclop_02_F0.png": {
 			"sdcard": false
 		},
-		"\\src\\images\\enemies\\bull\\Bull_Dung_F5.png": {
+		"\\src\\images\\enemies\\cyclop\\orig\\Cyclop_02_F1.png": {
 			"sdcard": false
 		},
-		"\\src\\Game_HighScore copy.cpp": {
+		"\\src\\images\\enemies\\cyclop\\orig\\Cyclop_04_F0.png": {
 			"sdcard": false
 		},
-		"\\src\\Game_AltarPiece copy.cpp": {
+		"\\src\\images\\enemies\\cyclop\\orig\\Cyclop_04_F1.h": {
 			"sdcard": false
 		},
-		"\\src\\Game_GameSaved.cpp": {
+		"\\src\\images\\enemies\\cyclop\\orig\\Cyclop_04_F1.png": {
 			"sdcard": false
 		},
-		"\\DarkRitual.bin": {
+		"\\src\\images\\enemies\\cyclop\\orig\\Cyclop_06_F1.png": {
 			"sdcard": false
 		},
-		"\\music.zip": {
+		"\\src\\images\\enemies\\cyclop\\orig\\Cyclop_Hitting_00_F0.h": {
 			"sdcard": false
 		},
-		"\\music.zip~RF3c16f3e3.TMP": {
+		"\\src\\images\\enemies\\cyclop\\orig\\Cyclop_Hitting_00_F1.h": {
 			"sdcard": false
 		},
-		"\\DarkRitual.zip": {
+		"\\src\\images\\enemies\\cyclop\\orig\\Cyclop_Hitting_00_F2.h": {
 			"sdcard": false
 		},
-		"\\music.zip~RF3c1b9ddb.TMP": {
+		"\\src\\images\\enemies\\cyclop\\orig\\Cyclop_Hitting_00_F1.png": {
 			"sdcard": false
 		},
-		"\\DarkRitual_V090.bin": {
+		"\\src\\images\\enemies\\cyclop\\orig\\Cyclop_Hitting_00_F2.png": {
 			"sdcard": false
 		},
-		"\\DarkRitual_V090.zip": {
+		"\\src\\images\\enemies\\cyclop\\orig\\Cyclop_Hitting_02_F0.png": {
 			"sdcard": false
 		},
-		"\\DarkRitual_V090.zip~RF3c24726a.TMP": {
+		"\\src\\images\\enemies\\cyclop\\orig\\Cyclop_Hitting_02_F0.h": {
 			"sdcard": false
 		},
-		"\\RogueBoy_Pokitto.bin.4 - Copy.png": {
+		"\\src\\images\\enemies\\cyclop\\orig\\Cyclop_Hitting_04_F0.h": {
 			"sdcard": false
 		},
-		"\\Cyclops.png": {
+		"\\src\\images\\enemies\\cyclop\\orig\\Cyclop_Hitting_04_F0.png": {
 			"sdcard": false
 		},
-		"\\Beholder.png": {
+		"\\src\\images\\enemies\\cyclop\\orig\\Cyclop_Hitting_04_F1.h": {
 			"sdcard": false
 		},
-		"\\RogueBoy_Pokitto.bin.4 - Copy.h": {
+		"\\src\\images\\enemies\\cyclop\\orig\\Cyclop_Hitting_04_F1.png": {
 			"sdcard": false
 		},
-		"\\DarkRitual_V091.bin": {
+		"\\src\\images\\enemies\\cyclop\\orig\\Cyclop_Hitting_04_F2.h": {
 			"sdcard": false
 		},
-		"\\src\\utils\\GameCookie copy.h": {
+		"\\src\\images\\enemies\\cyclop\\orig\\Cyclop_Hitting_04_F2.png": {
 			"sdcard": false
 		},
-		"\\src\\utils\\GameCookieSaveGame.h": {
+		"\\src\\images\\enemies\\cyclop\\orig\\Cyclop_Hitting_06_F0.h": {
 			"sdcard": false
 		},
-		"\\src\\utils\\GameCookieHighScore.h": {
+		"\\src\\images\\enemies\\cyclop\\orig\\Cyclop_Hitting_06_F1.h": {
 			"sdcard": false
 		},
-		"\\src\\images\\title\\Player - Copy.png": {
+		"\\src\\images\\enemies\\cyclop\\orig\\Cyclop_Hitting_06_F1.png": {
 			"sdcard": false
 		},
-		"\\src\\images\\title\\Player - Copy.h": {
+		"\\src\\images\\enemies\\cyclop\\orig\\Cyclop_Hitting_06_F2.h": {
 			"sdcard": false
 		},
-		"\\src\\utils\\GameCookieHighScores.h": {
+		"\\src\\images\\enemies\\cyclop\\orig\\Cyclop_Hitting_06_F2.png": {
 			"sdcard": false
 		},
-		"/DarkRitual_V090.bin": {
+		"\\src\\images\\enemies\\cyclop\\orig\\Cyclop_Idle_00.h": {
 			"sdcard": false
 		},
-		"/DarkRitual_V091.bin": {
+		"\\src\\images\\enemies\\cyclop\\orig\\Cyclop_Idle_03.h": {
 			"sdcard": false
 		},
-		"/DarkRitual_V090.zip": {
+		"\\src\\images\\enemies\\cyclop\\orig\\Cyclop_Idle_03.png": {
 			"sdcard": false
 		},
-		"/RogueBoy_Pokitto.bin.4 - Copy.h": {
+		"\\src\\images\\enemies\\cyclop\\orig\\Cyclop_04_F0.h": {
 			"sdcard": false
 		},
-		"/RogueBoy_Pokitto.bin.4 - Copy.png": {
+		"\\src\\images\\enemies\\cyclop\\orig\\Cyclop_Hitting_02_F2.h": {
 			"sdcard": false
 		},
-		"/src/Game_GameSaved.cpp": {
+		"\\src\\images\\enemies\\cyclop\\orig\\Cyclop_Hitting_06_F0.png": {
 			"sdcard": false
 		},
-		"/src/utils/GameCookieHighScores.h": {
+		"\\src\\images\\enemies\\cyclop\\orig\\Cyclop_Idle_02.h": {
 			"sdcard": false
 		},
-		"/src/utils/GameCookieSaveGame.h": {
+		"\\src\\images\\enemies\\cyclop\\f50599b648733c3698e48108905baa87bb2fa5e1.png": {
 			"sdcard": false
 		},
-		"/src/images/title/Player - Copy.h": {
+		"\\src\\images\\enemies\\cyclop\\64d31ef1ca56b77db9d7a2ddc6cf3063c5954f9a.png": {
 			"sdcard": false
 		},
-		"/src/images/title/Player - Copy.png": {
+		"\\src\\images\\enemies\\cyclop\\Cyclop_01_F0.png": {
 			"sdcard": false
 		},
-		"/src/images/title/ArrowUp copy.png": {
+		"\\src\\images\\puzzle\\Cyclop_01_F1.png": {
 			"sdcard": false
 		},
-		"/src/images/title/ArrowUp_Grey.png": {
+		"\\src\\images\\enemies\\cyclop\\Cyclop_07_F0.png": {
 			"sdcard": false
 		},
-		"/src/images/title/ArrowDown copy.png": {
+		"\\src\\images\\enemies\\cyclop\\Cyclop_01_F1.png": {
 			"sdcard": false
 		},
-		"/src/images/title/ArrowDown_Grey.png": {
+		"\\src\\images\\enemies\\cyclop\\Cyclop_07_F1.png": {
 			"sdcard": false
 		},
-		"/src/images/title/ArrowUp_Grey.h": {
+		"\\src\\images\\enemies\\cyclop\\55f6a08d9ddfe2e1ea585bb38d83922e7f24875a.png": {
 			"sdcard": false
 		},
-		"/src/images/title/ArrowDown_Grey.h": {
+		"\\src\\images\\enemies\\cyclop\\2ff75db231424f486f4e5d7362326e19aa5dc259.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemies\\cyclop\\Cyclop_03_F0.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemies\\cyclop\\Cyclop_03_F1.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemies\\cyclop\\Cyclop_05_F0.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemies\\cyclop\\Cyclop_05_F1.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\title\\ArrowDown_Grey.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\title\\ArrowDown_Grey.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\title\\ArrowUp_Grey.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\title\\ArrowUp_Grey.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemies\\cyclop\\orig\\Cyclop_06_F1.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemies\\cyclop\\Cyclop_01_F0.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemies\\cyclop\\Cyclop_07_F0.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemies\\cyclop\\Cyclop_07_F1.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemies\\cyclop\\Cyclop_01_F1.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemies\\cyclop\\Cyclop_03_F0.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemies\\cyclop\\Cyclop_03_F1.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemies\\cyclop\\Cyclop_05_F0.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemies\\cyclop\\Cyclop_05_F1.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemies\\cyclop\\13b103da864894b349d8892b2e84c4e3509fd846.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemies\\cyclop\\7787b524f2cf5c6a489f071a74b1c9e15296250d.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemies\\cyclop\\86cb1835bb8fc29cddbdf0995c28edc344b143d3.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemies\\cyclop\\5a0708b7b5b140ac3743c5f10dc870f731cf7368.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemies\\cyclop\\Cyclop_Hitting_01_F0.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemies\\cyclop\\Cyclop_Hitting_01_F0 - Copy.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemies\\cyclop\\Cyclop_Hitting_01_F0 - Copy (2).png": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemies\\cyclop\\Cyclop_Hitting_01_F0 - Copy (3).png": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemies\\cyclop\\Cyclop_Hitting_01_F0 - Copy (4).png": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemies\\cyclop\\Cyclop_Hitting_01_F0 - Copy (5).png": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemies\\cyclop\\Cyclop_Hitting_01_F0 - Copy (6).png": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemies\\cyclop\\Cyclop_Hitting_01_F1.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemies\\cyclop\\Cyclop_Hitting_01_F3.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemies\\cyclop\\Cyclop_Hitting_01_F2.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemies\\cyclop\\Cyclop_Hitting_01_F4.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemies\\cyclop\\Cyclop_Hitting_01_F5.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemies\\cyclop\\Cyclop_Hitting_01_F6.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemies\\cyclop\\Cyclop_Hitting_01_F6 - Copy.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemies\\cyclop\\Cyclop_Hitting_01_F1 - Copy.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemies\\cyclop\\Cyclop_Hitting_01_F2 - Copy.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemies\\cyclop\\Cyclop_Hitting_01_F3 - Copy.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemies\\cyclop\\Cyclop_Hitting_01_F4 - Copy.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemies\\cyclop\\Cyclop_Hitting_01_F5 - Copy.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemies\\cyclop\\Cyclop_Hitting_07_F0.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemies\\cyclop\\Cyclop_Hitting_07_F1.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemies\\cyclop\\Cyclop_Hitting_07_F2.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemies\\cyclop\\Cyclop_Hitting_07_F3.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemies\\cyclop\\Cyclop_Hitting_07_F4.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemies\\cyclop\\Cyclop_Hitting_07_F5.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemies\\cyclop\\Cyclop_Hitting_07_F6.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemies\\cyclop\\Cyclop_Hitting_03_F0.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemies\\cyclop\\Cyclop_Hitting_03_F0 - Copy.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemies\\cyclop\\Cyclop_Hitting_03_F0 - Copy (2).png": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemies\\cyclop\\Cyclop_Hitting_03_F0 - Copy (3).png": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemies\\cyclop\\Cyclop_Hitting_03_F0 - Copy (4).png": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemies\\cyclop\\Cyclop_Hitting_03_F0 - Copy (5).png": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemies\\cyclop\\Cyclop_Hitting_03_F0 - Copy (6).png": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemies\\cyclop\\Cyclop_Hitting_03_F1.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemies\\cyclop\\Cyclop_Hitting_03_F2.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemies\\cyclop\\Cyclop_Hitting_03_F3.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemies\\cyclop\\Cyclop_Hitting_03_F4.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemies\\cyclop\\Cyclop_Hitting_03_F5.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemies\\cyclop\\Cyclop_Hitting_03_F6.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemies\\cyclop\\Cyclop_Hitting_03_F6 - Copy.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemies\\cyclop\\Cyclop_Hitting_03_F1 - Copy.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemies\\cyclop\\Cyclop_Hitting_03_F2 - Copy.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemies\\cyclop\\Cyclop_Hitting_03_F3 - Copy.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemies\\cyclop\\Cyclop_Hitting_03_F4 - Copy.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemies\\cyclop\\Cyclop_Hitting_03_F5 - Copy.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemies\\cyclop\\Cyclop_Hitting_05_F0.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemies\\cyclop\\Cyclop_Hitting_05_F2.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemies\\cyclop\\Cyclop_Hitting_05_F3.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemies\\cyclop\\Cyclop_Hitting_05_F4.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemies\\cyclop\\Cyclop_Hitting_05_F5.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemies\\cyclop\\Cyclop_Hitting_05_F6.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemies\\cyclop\\Cyclop_Hitting_05_F1.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemies\\cyclop\\Cyclop_Hitting_01_F0.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemies\\cyclop\\Cyclop_Hitting_01_F1.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemies\\cyclop\\13b103da864894b349d8892b2e84c4e3509fd846.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemies\\cyclop\\Cyclop_Hitting_01_F3.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemies\\cyclop\\Cyclop_Hitting_01_F2.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemies\\cyclop\\Cyclop_Hitting_01_F4.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemies\\cyclop\\Cyclop_Hitting_01_F5.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemies\\cyclop\\Cyclop_Hitting_01_F6.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemies\\cyclop\\Cyclop_Hitting_07_F1.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemies\\cyclop\\Cyclop_Hitting_07_F0.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemies\\cyclop\\Cyclop_Hitting_07_F2.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemies\\cyclop\\Cyclop_Hitting_07_F3.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemies\\cyclop\\Cyclop_Hitting_07_F4.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemies\\cyclop\\Cyclop_Hitting_07_F5.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemies\\cyclop\\Cyclop_Hitting_07_F6.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemies\\cyclop\\Cyclop_Hitting_03_F1.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemies\\cyclop\\Cyclop_Hitting_03_F0.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemies\\cyclop\\Cyclop_Hitting_03_F2.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemies\\cyclop\\Cyclop_Hitting_03_F3.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemies\\cyclop\\Cyclop_Hitting_03_F5.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemies\\cyclop\\Cyclop_Hitting_03_F4.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemies\\cyclop\\Cyclop_Hitting_03_F6.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemies\\cyclop\\Cyclop_Hitting_05_F0.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemies\\cyclop\\Cyclop_Hitting_05_F2.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemies\\cyclop\\Cyclop_Hitting_05_F3.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemies\\cyclop\\Cyclop_Hitting_05_F4.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemies\\cyclop\\Cyclop_Hitting_05_F5.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemies\\cyclop\\Cyclop_Hitting_05_F6.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemies\\cyclop\\Cyclop_Hitting_05_F1.h": {
 			"sdcard": false
 		}
 	},

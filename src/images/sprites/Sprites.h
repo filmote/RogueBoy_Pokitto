@@ -3,7 +3,6 @@
 namespace Images {
 
     #include "Bread.h"
-    #include "Floater.h"
     #include "Chicken.h"
     #include "SackOCash.h"
     #include "Tools.h"

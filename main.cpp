@@ -20,8 +20,8 @@ void init() {
 
     // Initialise pokitto ..
 
-    cookieHighScore.begin("DarkRi1", sizeof(cookieHighScore), (char*)&cookieHighScore);
-    cookieSaveGame.begin("DarkRi2", sizeof(cookieSaveGame), (char*)&cookieSaveGame);
+    cookieHighScore.begin("DarkRit1", sizeof(cookieHighScore), (char*)&cookieHighScore);
+    cookieSaveGame.begin("DarkRit2", sizeof(cookieSaveGame), (char*)&cookieSaveGame);
 
     PD::loadRGBPalette(palettePico);   
     PD::persistence = true;

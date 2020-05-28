@@ -17,8 +17,6 @@ void Game::updateObjects(bool ignorePlayerDamage) {
     if (this->launchSkeletonDelay > 0)      this->launchSkeletonDelay--;
     if (this->launchSpiderDelay > 0)        this->launchSpiderDelay--;
     if (this->launchCyclopsDelay > 0)       this->launchCyclopsDelay--;
-    if (this->launchBullChargeDelay > 0)    this->launchBullChargeDelay--;
-    if (this->launchBullDungDelay > 0)      this->launchBullDungDelay--;
 
 
     // Update other objects ..
@@ -136,7 +134,6 @@ void Game::updateObjects(bool ignorePlayerDamage) {
                         }
                         break;
 
-                    case Object::Floater:
                     case Object::Eye:
                     case Object::Spider:
                     case Object::BigSpider:
@@ -150,9 +147,7 @@ void Game::updateObjects(bool ignorePlayerDamage) {
                     case Object::Necromancer:
                     case Object::Hobgoblin:
                     case Object::Cyclop:
-//                    case Object::Bull:
                     case Object::Beholder:
-                    case Object::Boss04 ... Object::Boss05:
 
                         if (!ignorePlayerDamage) {
                                 
@@ -169,14 +164,6 @@ void Game::updateObjects(bool ignorePlayerDamage) {
 
                         }
 
-                        break;
-
-                    case Object::Guide01 ... Object::Guide15:
-                        this->guideNumber = static_cast<uint8_t>(type) - static_cast<uint8_t>(Object::Guide01);
-                        this->guideTop = 0;
-                        this->gameState = GameState::Guide;
-                        objectI.setGuideText(false);
-                        objectI.setPreventImmediatePickup(true);
                         break;
                         
                 }
@@ -390,7 +377,7 @@ void Game::updateGame(GameMode gameMode) {
     if (player.getHealth() > 0) {
 
         if (Pokitto::Core::frameCount % TIMER_STEP == 0) { this->map.decTimer();  }
-        if (this->map.getTimer() == 0) { player.setHealth(0); }
+        //if (this->map.getTimer() == 0) { player.setHealth(0); }
         this->playerMovement(gameMode);
 
     }
@@ -748,6 +735,43 @@ void Game::playerMovement(GameMode gameMode) {
 
     if (PC::buttons.pressed(BTN_A)) {
 
+
+
+        // Interaction with objects ..
+
+        for (uint8_t i = 0; i < this->objects.getObjectNum(); i++) {
+
+            auto &object = this->objects.getSprite(i);
+
+            if (object.getActive() && this->collision(this->player, object)) { 
+
+                switch (object.getType()) {
+
+                    case Object::Guide01 ... Object::Guide15:
+
+                        object.setGuideText(false);
+                        object.setPreventImmediatePickup(true);
+
+                        if (PC::buttons.pressed(BTN_A) || PC::buttons.repeat(BTN_A, 1)) {
+
+                            this->guideNumber = static_cast<uint8_t>(object.getType()) - static_cast<uint8_t>(Object::Guide01);
+                            this->guideTop = 0;
+                            this->gameState = GameState::Guide;
+
+                        }
+
+                        break;
+
+                }
+
+            }
+
+        }
+
+
+        //
+
+
         int relx = this->map.getTileX(x);
         int rely = this->map.getTileY(y);
         MapTiles block = static_cast<MapTiles>(this->map.getBlock(relx, rely));
@@ -816,6 +840,7 @@ void Game::playerMovement(GameMode gameMode) {
             case MapTiles::Altar00 ... MapTiles::Altar05:
                 this->gameState = GameState::Puzzle_Init_Game;
                 break;
+
 
             default:
 
@@ -942,8 +967,8 @@ bool Game::interactWithBlock(int x, int y, MapTiles block) {
 
                 // random
 
-                const uint8_t randomLimit[12] = { CHEST_RANDOM_COIN, CHEST_RANDOM_SACK, CHEST_RANDOM_BREAD, CHEST_RANDOM_CHICKEN, CHEST_RANDOM_TOOLS, CHEST_RANDOM_TONIC, CHEST_RANDOM_KEY, CHEST_RANDOM_ICE, CHEST_RANDOM_GREEN, CHEST_RANDOM_RED, CHEST_RANDOM_MAUVE, CHEST_RANDOM_END }; 
-                const uint8_t randomItems[11] = {      Object::Coin, Object::SackOCash,      Object::Bread,      Object::Chicken,      Object::Tools,      Object::Tonic,      Object::Key, Object::IceSpell, Object::GreenSpell, Object::RedSpell, Object::MauveSpell, };
+                const uint8_t randomLimit[10] = { CHEST_RANDOM_COIN, CHEST_RANDOM_SACK, CHEST_RANDOM_BREAD, CHEST_RANDOM_CHICKEN, CHEST_RANDOM_TONIC, CHEST_RANDOM_ICE, CHEST_RANDOM_GREEN, CHEST_RANDOM_RED, CHEST_RANDOM_MAUVE, CHEST_RANDOM_END }; 
+                const uint8_t randomItems[9] =  {      Object::Coin, Object::SackOCash,      Object::Bread,      Object::Chicken,      Object::Tonic,  Object::IceSpell, Object::GreenSpell, Object::RedSpell, Object::MauveSpell, };
 
 
                 uint8_t randObject = random(0, CHEST_RANDOM_END);
@@ -1069,6 +1094,10 @@ bool Game::interactWithBlock(int x, int y, MapTiles block) {
             return false;
 
         case MapTiles::SavePost:
+                        printf("Save\n");
+printf("Save level %i %i\n", map.getLevel(), map.getDefinedMapLevel());
+
+            this->cookieSaveGame->updateStatus(map.getLevel(), map.getDefinedMapLevel(), this->playerStatus);
             this->cookieSaveGame->saveCookie();
             this->gameState = GameState::GameSaved;
             return false;
@@ -1206,11 +1235,6 @@ void Game::spriteAI(MapInformation &map, Player &player, Sprite &sprite) {
 
         case Object::Coin: 
             spriteAI_UpdateFrame(sprite, 4, 6);
-            break;
-
-        case Object::Floater:            
-
-            spriteAI_CheckForMove(map, player, sprite, location, 7);
             break;
 
         case Object::Eye:     
@@ -1487,12 +1511,11 @@ void Game::spriteAI(MapInformation &map, Player &player, Sprite &sprite) {
                         {
                             sprite.incFrame();
 
-                            const int32_t xOffsets[8] = { 10, 10, 10, 10, -10, -10, -10, -10 };
-
                             for (uint8_t x = 0; x < 8; x++) {
 
                                 Bullet &bullet = this->bullets.getEnemyBullet(ENEMY_BULLET_MAX + x);
-                                //bullet.setBullet(sprite.getX() + xOffsets[static_cast<uint8_t>(this->launchCyclopsDirection)], sprite.getY() + 10, static_cast<Direction>(x), Object::Sparks, CYCLOP_SPARK_FRAMES);
+                                bullet.setBullet(sprite.getX(), sprite.getY() + 10, static_cast<Direction>(x), Object::Sparks, CYCLOP_SPARK_FRAMES);
+                                if (this->shake == 0) this->shake = 7;
 
                             }
                             
@@ -1523,72 +1546,7 @@ void Game::spriteAI(MapInformation &map, Player &player, Sprite &sprite) {
             }
             break;
 
-        // case Object::Bull:   
-        //     {
-        //         sprite.decCountdown();
-
-        //         switch (sprite.getFrame()) {
-
-        //             case -100 ... -2:
-        //                 sprite.incFrame();
-        //                 break;
-
-        //             case -1:    // launch sparks
-        //                 {
-        //                     sprite.incFrame();
-        //                     sprite.setCountdown(LAUNCH_BULL_COUNTDOWN);
-                            
-        //                 }
-        //                 break;
-
-        //             case 0 ... 100:
-        //                 {
-        //                     spriteAI_UpdateFrame(sprite, 4, 2);
-        //                     Direction direction = spriteAI_CheckForMove(map, player, sprite, location, 7);
-
-
-        //                     // Should the bull run ?
-
-        //                     if (direction != Direction::None && this->launchBullChargeDelay == 0) {
-
-        //                         sprite.setFrame(-27);
-        //                         this->launchBullChargeDelay = random(LAUNCH_BULL_CHARGE_DELAY_MIN, LAUNCH_BULL_CHARGE_DELAY_MAX);
-
-        //                     }
-
-
-        //                     // Should the bull shit ?
-
-        //                     if (direction != Direction::None && this->launchBullDungDelay == 0) {
-
-        //                         const int8_t xOffsets[] = { 0, -8, -8, -8, 0, 8, 8, 8 };
-        //                         const int8_t yOffsets[] = { 8,  8,  0, -8, -8, -8, 0, 8 };
-
-        //                         uint8_t inactiveBulletIdx = this->bullets.getInactiveBossBullet();
-
-        //                         if (inactiveBulletIdx != NO_INACTIVE_BULLET_FOUND) {
-
-        //                             Bullet &bullet = this->bullets.getBossBullet(inactiveBulletIdx);
-        //                             bullet.setBullet(sprite.getX() + xOffsets[static_cast<uint8_t>(direction)], sprite.getY() + yOffsets[static_cast<uint8_t>(direction)], direction, Object::Dung, BULL_DUNG_FRAMES);
-        //                             this->launchBullDungDelay = random(LAUNCH_BULL_DUNG_DELAY_MIN, LAUNCH_BULL_DUNG_DELAY_MAX);
-
-        //                             sprite.setX(1000);
-
-        //                         }
-
-        //                     }
-
-        //                 }
-        //                 break;
-
-        //         }
-
-        //     }
-
-        //     break;
-
         case Object::Beholder:   
-        case Object::Boss04 ... Object::Boss05:   
             {
                 if (sprite.getFrame() < 0) {
 
@@ -1710,26 +1668,7 @@ Direction Game::spriteAI_CheckForMove(MapInformation &map, Player &player, Sprit
                             }
                             break;
 
-                        case Object::Bull:
-
-                            switch (sprite.getCountdown()) {
-
-                                case 0: // Normal
-                                    if (PC::frameCount % 6 == 0) {
-                                        direction = this->spriteAI_UpdateEnemy(location, map, player, sprite);
-                                    }
-                                    break;
-
-                                default:
-                                    direction = this->spriteAI_UpdateEnemy(location, map, player, sprite, 2);
-                                    break;
-
-                            }
-
-                            break;
-
                         case Object::Beholder:
-                        case Object::Boss04 ... Object::Boss05:
                             if (PC::frameCount % 8 == 0) {
                                 direction = this->spriteAI_UpdateEnemy(location, map, player, sprite);
                             }
@@ -1767,29 +1706,7 @@ Direction Game::spriteAI_CheckForMove(MapInformation &map, Player &player, Sprit
                         }
                         break;
 
-                    case Object::Bull:
-
-                        switch (sprite.getCountdown()) {
-
-                            case 0: // Normal
-                                if (PC::frameCount % 3 == 0) {
-                                    direction = this->spriteAI_UpdateEnemy(location, map, player, sprite);
-                                }
-                                break;
-
-                            default:
-                                {
-                                    const uint8_t movement[] = { 4, 5, 6, 7, 8, 8, 9, 9, 10, 10, 10, 10, 5, 5, };
-                                    direction = this->spriteAI_UpdateEnemy(location, map, player, sprite, movement[sprite.getCountdown() / 10]);
-                                }
-                                break;
-
-                        }
-
-                        break;
-
                     case Object::Beholder:
-                    case Object::Boss04 ... Object::Boss05:
                         if (PC::frameCount % 4 == 0) {
                             direction = this->spriteAI_UpdateEnemy(location, map, player, sprite);
                         }

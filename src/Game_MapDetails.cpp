@@ -27,7 +27,6 @@ void Game::mapDetails() {
                     PD::print(this->cells[y][x].segment < 10 ? "0" : "");
                     PD::print(this->cells[y][x].segment, 10);
                 
-    //                PD::setCursor(x*18 + 9, (y+2)*7 + 3);
                     PD::print(this->cells[y][x].variation < 10 ? "0" : "");
                     PD::print(this->cells[y][x].variation, 10);
                     PD::print(" ");

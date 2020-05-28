@@ -133,8 +133,6 @@ static inline bool collide(Rect rect1, Rect rect2) {
 
 struct PlayerStatus {
 
-    // uint16_t x;
-    // uint16_t y;
     Direction direction;
     int8_t health;
     uint8_t coins;

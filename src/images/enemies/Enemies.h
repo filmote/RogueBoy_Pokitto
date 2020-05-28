@@ -111,66 +111,42 @@ namespace Images {
     #include "hobgoblin/Hobgoblin_06_F0.h"
     #include "hobgoblin/Hobgoblin_06_F1.h"
 
-    #include "cyclop/Cyclop_00_F0.h"
-    #include "cyclop/Cyclop_00_F1.h"
-    #include "cyclop/Cyclop_02_F0.h"
-    #include "cyclop/Cyclop_02_F1.h"
-    #include "cyclop/Cyclop_04_F0.h"
-    #include "cyclop/Cyclop_04_F1.h"
-    #include "cyclop/Cyclop_06_F0.h"
-    #include "cyclop/Cyclop_06_F1.h"
-    #include "cyclop/Cyclop_Hitting_00_F0.h"
-    #include "cyclop/Cyclop_Hitting_00_F1.h"
-    #include "cyclop/Cyclop_Hitting_00_F2.h"
-    #include "cyclop/Cyclop_Hitting_02_F0.h"
-    #include "cyclop/Cyclop_Hitting_02_F1.h"
-    #include "cyclop/Cyclop_Hitting_02_F2.h"
-    #include "cyclop/Cyclop_Hitting_04_F0.h"
-    #include "cyclop/Cyclop_Hitting_04_F1.h"
-    #include "cyclop/Cyclop_Hitting_04_F2.h"
-    #include "cyclop/Cyclop_Hitting_06_F0.h"
-    #include "cyclop/Cyclop_Hitting_06_F1.h"
-    #include "cyclop/Cyclop_Hitting_06_F2.h"
-
-    #include "bull/Bull_00_F0.h"
-    #include "bull/Bull_00_F1.h"
-    #include "bull/Bull_02_F0.h"
-    #include "bull/Bull_02_F1.h"
-    #include "bull/Bull_04_F0.h"
-    #include "bull/Bull_04_F1.h"
-    #include "bull/Bull_06_F0.h"
-    #include "bull/Bull_06_F1.h"
-    #include "bull/Bull_Stamping_00_F0.h"
-    #include "bull/Bull_Stamping_00_F1.h"
-    #include "bull/Bull_Stamping_02_F0.h"
-    #include "bull/Bull_Stamping_02_F1.h"
-    #include "bull/Bull_Stamping_04_F0.h"
-    #include "bull/Bull_Stamping_04_F1.h"
-    #include "bull/Bull_Stamping_06_F0.h"
-    #include "bull/Bull_Stamping_06_F1.h"
-    #include "bull/Bull_Dust_00_F0.h"
-    #include "bull/Bull_Dust_00_F1.h"
-    #include "bull/Bull_Dust_01_F0.h"
-    #include "bull/Bull_Dust_01_F1.h"
-    #include "bull/Bull_Dust_02_F0.h"
-    #include "bull/Bull_Dust_02_F1.h"
-    #include "bull/Bull_Dust_03_F0.h"
-    #include "bull/Bull_Dust_03_F1.h"
-    #include "bull/Bull_Dust_04_F0.h"
-    #include "bull/Bull_Dust_04_F1.h"
-    #include "bull/Bull_Dust_05_F0.h"
-    #include "bull/Bull_Dust_05_F1.h"
-    #include "bull/Bull_Dust_06_F0.h"
-    #include "bull/Bull_Dust_06_F1.h"
-    #include "bull/Bull_Dust_07_F0.h"
-    #include "bull/Bull_Dust_07_F1.h"
-
-    #include "bull/Bull_Dung_F0.h"
-    #include "bull/Bull_Dung_F1.h"
-    #include "bull/Bull_Dung_F2.h"
-    #include "bull/Bull_Dung_F3.h"
-    #include "bull/Bull_Dung_F4.h"
-    #include "bull/Bull_Dung_F5.h"
+    #include "cyclop/Cyclop_01_F0.h"
+    #include "cyclop/Cyclop_01_F1.h"
+    #include "cyclop/Cyclop_03_F0.h"
+    #include "cyclop/Cyclop_03_F1.h"
+    #include "cyclop/Cyclop_05_F0.h"
+    #include "cyclop/Cyclop_05_F1.h"
+    #include "cyclop/Cyclop_07_F0.h"
+    #include "cyclop/Cyclop_07_F1.h"
+    #include "cyclop/Cyclop_Hitting_01_F0.h"
+    #include "cyclop/Cyclop_Hitting_01_F1.h"
+    #include "cyclop/Cyclop_Hitting_01_F2.h"
+    #include "cyclop/Cyclop_Hitting_01_F3.h"
+    #include "cyclop/Cyclop_Hitting_01_F4.h"
+    #include "cyclop/Cyclop_Hitting_01_F5.h"
+    #include "cyclop/Cyclop_Hitting_01_F6.h"
+    #include "cyclop/Cyclop_Hitting_03_F0.h"
+    #include "cyclop/Cyclop_Hitting_03_F1.h"
+    #include "cyclop/Cyclop_Hitting_03_F2.h"
+    #include "cyclop/Cyclop_Hitting_03_F3.h"
+    #include "cyclop/Cyclop_Hitting_03_F4.h"
+    #include "cyclop/Cyclop_Hitting_03_F5.h"
+    #include "cyclop/Cyclop_Hitting_03_F6.h"
+    #include "cyclop/Cyclop_Hitting_05_F0.h"
+    #include "cyclop/Cyclop_Hitting_05_F1.h"
+    #include "cyclop/Cyclop_Hitting_05_F2.h"
+    #include "cyclop/Cyclop_Hitting_05_F3.h"
+    #include "cyclop/Cyclop_Hitting_05_F4.h"
+    #include "cyclop/Cyclop_Hitting_05_F5.h"
+    #include "cyclop/Cyclop_Hitting_05_F6.h"
+    #include "cyclop/Cyclop_Hitting_07_F0.h"
+    #include "cyclop/Cyclop_Hitting_07_F1.h"
+    #include "cyclop/Cyclop_Hitting_07_F2.h"
+    #include "cyclop/Cyclop_Hitting_07_F3.h"
+    #include "cyclop/Cyclop_Hitting_07_F4.h"
+    #include "cyclop/Cyclop_Hitting_07_F5.h"
+    #include "cyclop/Cyclop_Hitting_07_F6.h"
 
     #include "HealthBar.h"
 
@@ -182,9 +158,6 @@ namespace Images {
     #include "beholder/Beholder_04_F1.h"
     #include "beholder/Beholder_06_F0.h"
     #include "beholder/Beholder_06_F1.h"
-
-    #include "Pico8_44.h"
-    #include "Pico8_45.h"
 
     const uint8_t * const Bats[] = { 
         Bat_00,
@@ -303,109 +276,113 @@ namespace Images {
     };
 
     const uint8_t * const Cyclop[] = { 
-        Cyclop_00_F0,
-        Cyclop_00_F1,
-        Cyclop_00_F0,
-        Cyclop_00_F1,
-        Cyclop_02_F0,
-        Cyclop_02_F1,
-        Cyclop_02_F0,
-        Cyclop_02_F1,
-        Cyclop_04_F0,
-        Cyclop_04_F1,
-        Cyclop_04_F0,
-        Cyclop_04_F1,
-        Cyclop_06_F0,
-        Cyclop_06_F1,
-        Cyclop_06_F0,
-        Cyclop_06_F1,
-        Cyclop_Hitting_00_F0,
-        Cyclop_Hitting_00_F1,
-        Cyclop_Hitting_00_F2,
-        Cyclop_Hitting_02_F0,
-        Cyclop_Hitting_02_F1,
-        Cyclop_Hitting_02_F2,
-        Cyclop_Hitting_02_F0,
-        Cyclop_Hitting_02_F1,
-        Cyclop_Hitting_02_F2,
-        Cyclop_Hitting_02_F0,
-        Cyclop_Hitting_02_F1,
-        Cyclop_Hitting_02_F2,
-        Cyclop_Hitting_04_F0,
-        Cyclop_Hitting_04_F1,
-        Cyclop_Hitting_04_F2,
-        Cyclop_Hitting_06_F0,
-        Cyclop_Hitting_06_F1,
-        Cyclop_Hitting_06_F2,
-        Cyclop_Hitting_06_F0,
-        Cyclop_Hitting_06_F1,
-        Cyclop_Hitting_06_F2,
-        Cyclop_Hitting_06_F0,
-        Cyclop_Hitting_06_F1,
-        Cyclop_Hitting_06_F2,
-    };
+        Cyclop_01_F0,
+        Cyclop_01_F1,
+        Cyclop_01_F0,
+        Cyclop_01_F1,
 
-    const uint8_t * const Bull[] = { 
-        Bull_00_F0,
-        Bull_00_F1,
-        Bull_00_F0,
-        Bull_00_F1,
-        Bull_02_F0,
-        Bull_02_F1,
-        Bull_02_F0,
-        Bull_02_F1,
-        Bull_04_F0,
-        Bull_04_F1,
-        Bull_04_F0,
-        Bull_04_F1,
-        Bull_06_F0,
-        Bull_06_F1,
-        Bull_06_F0,
-        Bull_06_F1,
-        Bull_Stamping_00_F0,
-        Bull_Stamping_00_F1,
-        Bull_Stamping_00_F0,
-        Bull_Stamping_00_F1,
-        Bull_Stamping_02_F0,
-        Bull_Stamping_02_F1,
-        Bull_Stamping_02_F0,
-        Bull_Stamping_02_F1,
-        Bull_Stamping_04_F0,
-        Bull_Stamping_04_F1,
-        Bull_Stamping_04_F0,
-        Bull_Stamping_04_F1,
-        Bull_Stamping_06_F0,
-        Bull_Stamping_06_F1,
-        Bull_Stamping_06_F0,
-        Bull_Stamping_06_F1,
-    };
+        Cyclop_03_F0,
+        Cyclop_03_F1,
+        Cyclop_03_F0,
+        Cyclop_03_F1,
 
-    const uint8_t * const Bull_Dust[] = {         
-        Bull_Dust_00_F0,
-        Bull_Dust_00_F1,
-        Bull_Dust_01_F0,
-        Bull_Dust_01_F1,
-        Bull_Dust_02_F0,
-        Bull_Dust_02_F1,
-        Bull_Dust_03_F0,
-        Bull_Dust_03_F1,
-        Bull_Dust_04_F0,
-        Bull_Dust_04_F1,
-        Bull_Dust_05_F0,
-        Bull_Dust_05_F1,
-        Bull_Dust_06_F0,
-        Bull_Dust_06_F1,
-        Bull_Dust_07_F0,
-        Bull_Dust_07_F1,
-    };
+        Cyclop_05_F0,
+        Cyclop_05_F1,
+        Cyclop_05_F0,
+        Cyclop_05_F1,
 
-    const uint8_t * const Bull_Dung[] = {         
-        Bull_Dung_F0,
-        Bull_Dung_F1,
-        Bull_Dung_F2,
-        Bull_Dung_F3,
-        Bull_Dung_F4,
-        Bull_Dung_F5,
+        Cyclop_07_F0,
+        Cyclop_07_F1,
+        Cyclop_07_F0,
+        Cyclop_07_F1,
+
+        Cyclop_Hitting_01_F0,
+        Cyclop_Hitting_01_F1,
+        Cyclop_Hitting_01_F2,
+        Cyclop_Hitting_01_F3,
+        Cyclop_Hitting_01_F4,
+        Cyclop_Hitting_01_F5,
+        Cyclop_Hitting_01_F6,
+        Cyclop_Hitting_01_F2,
+        Cyclop_Hitting_01_F1,
+        Cyclop_Hitting_01_F0,
+
+        Cyclop_Hitting_01_F0,
+        Cyclop_Hitting_01_F1,
+        Cyclop_Hitting_01_F2,
+        Cyclop_Hitting_01_F3,
+        Cyclop_Hitting_01_F4,
+        Cyclop_Hitting_01_F5,
+        Cyclop_Hitting_01_F6,
+        Cyclop_Hitting_01_F2,
+        Cyclop_Hitting_01_F1,
+        Cyclop_Hitting_01_F0,
+
+        Cyclop_Hitting_03_F0,
+        Cyclop_Hitting_03_F1,
+        Cyclop_Hitting_03_F2,
+        Cyclop_Hitting_03_F3,
+        Cyclop_Hitting_03_F4,
+        Cyclop_Hitting_03_F5,
+        Cyclop_Hitting_03_F6,
+        Cyclop_Hitting_03_F2,
+        Cyclop_Hitting_03_F1,
+        Cyclop_Hitting_03_F0,
+
+        Cyclop_Hitting_03_F0,
+        Cyclop_Hitting_03_F1,
+        Cyclop_Hitting_03_F2,
+        Cyclop_Hitting_03_F3,
+        Cyclop_Hitting_03_F4,
+        Cyclop_Hitting_03_F5,
+        Cyclop_Hitting_03_F6,
+        Cyclop_Hitting_03_F2,
+        Cyclop_Hitting_03_F1,
+        Cyclop_Hitting_03_F0,
+
+        Cyclop_Hitting_05_F0,
+        Cyclop_Hitting_05_F1,
+        Cyclop_Hitting_05_F2,
+        Cyclop_Hitting_05_F3,
+        Cyclop_Hitting_05_F4,
+        Cyclop_Hitting_05_F5,
+        Cyclop_Hitting_05_F6,
+        Cyclop_Hitting_05_F2,
+        Cyclop_Hitting_05_F1,
+        Cyclop_Hitting_05_F0,
+
+        Cyclop_Hitting_05_F0,
+        Cyclop_Hitting_05_F1,
+        Cyclop_Hitting_05_F2,
+        Cyclop_Hitting_05_F3,
+        Cyclop_Hitting_05_F4,
+        Cyclop_Hitting_05_F5,
+        Cyclop_Hitting_05_F6,
+        Cyclop_Hitting_05_F2,
+        Cyclop_Hitting_05_F1,
+        Cyclop_Hitting_05_F0,
+
+        Cyclop_Hitting_07_F0,
+        Cyclop_Hitting_07_F1,
+        Cyclop_Hitting_07_F2,
+        Cyclop_Hitting_07_F3,
+        Cyclop_Hitting_07_F4,
+        Cyclop_Hitting_07_F5,
+        Cyclop_Hitting_07_F6,
+        Cyclop_Hitting_07_F2,
+        Cyclop_Hitting_07_F1,
+        Cyclop_Hitting_07_F0,
+
+        Cyclop_Hitting_07_F0,
+        Cyclop_Hitting_07_F1,
+        Cyclop_Hitting_07_F2,
+        Cyclop_Hitting_07_F3,
+        Cyclop_Hitting_07_F4,
+        Cyclop_Hitting_07_F5,
+        Cyclop_Hitting_07_F6,
+        Cyclop_Hitting_07_F2,
+        Cyclop_Hitting_07_F1,
+        Cyclop_Hitting_07_F0,
     };
 
     const uint8_t * const Beholder[] = { 

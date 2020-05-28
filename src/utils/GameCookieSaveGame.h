@@ -25,11 +25,11 @@ class GameCookieSaveGame : public Pokitto::Cookie {
 
 		}
 
-        void updateStatus(uint8_t level, uint8_t definedMapLevel, Player player) {
+        void updateStatus(uint8_t level, uint8_t definedMapLevel, PlayerStatus playerStatus) {
 
             this->levelNo = level;
             this->definedMapLevel = definedMapLevel;
-            this->playerStatus = player.getPlayerStatus();
+            this->playerStatus = playerStatus;
 
         }
 

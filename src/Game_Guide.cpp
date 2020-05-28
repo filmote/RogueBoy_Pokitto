@@ -183,7 +183,19 @@ constexpr const char message13_04[] = "you could go insane";
 constexpr const char message13_05[] = "Maybe it's the only";
 constexpr const char message13_06[] = "way to ascend?";
 
-const uint8_t messageLengths[] = { 37, 16, 12, 17, 18, 17, 12, 6, 6, 6, 6, 6, 6 };
+constexpr const char message14_01[] = "Save some of your";
+constexpr const char message14_02[] = "potions and spells";
+constexpr const char message14_03[] = "for later levels -";
+constexpr const char message14_04[] = "you will definitely";
+constexpr const char message14_05[] = "need them!";
+
+constexpr const char message15_01[] = "The cultists are all";
+constexpr const char message15_02[] = "counting on you to";
+constexpr const char message15_03[] = "free our souls. Go";
+constexpr const char message15_04[] = "forth and conquer";
+constexpr const char message15_05[] = "thise enemies!";
+
+const uint8_t messageLengths[] = { 37, 16, 12, 17, 18, 17, 12, 6, 6, 6, 6, 6, 6, 5, 5 };
 
 constexpr const char * const messages01[] = { 
 message01_01,
@@ -389,6 +401,23 @@ message13_05,
 message13_06,
 };
 
+constexpr const char * const messages14[] = { 
+message14_01,
+message14_02,
+message14_03,
+message14_04,
+message14_05,
+};
+
+constexpr const char * const messages15[] = { 
+message15_01,
+message15_02,
+message15_03,
+message15_04,
+message15_05,
+};
+
+
 void Game::showGuide() {
 
 
@@ -525,6 +554,20 @@ void Game::showGuide() {
             case 12:
                 {
                     const char * message = messages13[x];
+                    showGuide_renderLine(x - this->guideTop, message);
+                }
+                break;              
+
+            case 13:
+                {
+                    const char * message = messages14[x];
+                    showGuide_renderLine(x - this->guideTop, message);
+                }
+                break;              
+
+            case 14:
+                {
+                    const char * message = messages15[x];
                     showGuide_renderLine(x - this->guideTop, message);
                 }
                 break;                       

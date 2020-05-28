@@ -54,8 +54,6 @@ void Sprites::render(Player &player, bool showEnemies) {
 
         if (object.getActive()) {
 
-            // int x = (CENTERX - PLAYER_WIDTH_HALF) - (player.getX() - object.getX());
-            // int y = (CENTERY - PLAYER_HEIGHT_HALF) - (player.getY() - object.getY());
             int x = CENTERX - (player.getX() - object.getX());
             int y = CENTERY - (player.getY() - object.getY());
             
@@ -87,9 +85,6 @@ void Sprites::render(Player &player, bool showEnemies) {
 
 void Sprites::renderSprite(Object type, int x, int y) {
 
-// PD::drawLine(x - 15, y - 15, x + 15, y + 15);
-// PD::drawLine(x + 15, y - 15, x - 15, y + 15);
-
     int8_t xOffset = spriteOffsets[static_cast<uint8_t>(type) * 2];
     int8_t yOffset = spriteOffsets[(static_cast<uint8_t>(type) * 2) + 1];
 
@@ -99,9 +94,6 @@ void Sprites::renderSprite(Object type, int x, int y) {
 
 
 void Sprites::renderSprite(Object type, int x, int y, int8_t xOffset, int8_t yOffset, Direction direction, int8_t frame, uint8_t countdown, bool showEnemies, bool showGuideText, bool renderHealth, int healthValue) {
-
-// PD::drawLine(x, y - 20, x, y + 20);
-// PD::drawLine(x - 20, y, x + 20, y);
 
     switch (type) {
 
@@ -203,50 +195,6 @@ void Sprites::renderSprite(Object type, int x, int y, int8_t xOffset, int8_t yOf
             }
             break;
 
-        // case Object::Bull:
-
-        //     if (frame < 0) { 
-
-        //         if (showEnemies) {
-
-        //             switch (frame) {
-
-        //                 case -28 ... -22:
-        //                 case -14 ... -8:
-        //                     PD::drawBitmap(x + xOffset, y + yOffset, Images::Bull[16 + (static_cast<uint8_t>(direction) * 2)]);
-        //                     break;
-
-        //                 case -21 ... -15:
-        //                 case -7 ... -1:
-        //                     PD::drawBitmap(x + xOffset, y + yOffset, Images::Bull[17 + (static_cast<uint8_t>(direction) * 2)]);
-        //                     break;
-        //             }
-
-        //             if (renderHealth) { this->renderHealthBar(x + 6, y - 6, healthValue); }
-
-        //         }
-
-        //     }
-        //     else {
-
-        //         if (showEnemies) {
-
-        //             PD::drawBitmap(x + xOffset, y + yOffset, Images::Bull[(static_cast<uint8_t>(direction) * 2) + frame]); 
-
-        //             if (countdown > 0) {
-
-        //                 const int8_t xOffsets[] = { 6, -24, -18, -24, 6, 24, 18, 24 };
-        //                 const int8_t yOffsets[] = { 24,  24,  12, -24, -24, -24, 12, 24 };
-
-        //                 PD::drawBitmap(x + xOffset + xOffsets[static_cast<uint8_t>(direction)], y + yOffset + yOffsets[static_cast<uint8_t>(direction)], Images::Bull_Dust[(static_cast<uint8_t>(direction) * 2) + frame]); 
-
-        //             }
-
-        //             if (renderHealth) { this->renderHealthBar(x + 6, y - 6, healthValue); }
-        //         }
-        //     }
-        //     break;
-
         case Object::Beholder:
             if (showEnemies) {
                 PD::drawBitmap(x + xOffset, y + yOffset, Images::Beholder[(static_cast<uint8_t>(direction) * 2) + frame]);  
@@ -260,22 +208,10 @@ void Sprites::renderSprite(Object type, int x, int y, int8_t xOffset, int8_t yOf
 
                 if (showEnemies) {
 
-                    switch (frame) {
+uint8_t frameToRender = (CYCLOPS_FRAME_MAX + frame) / (CYCLOPS_FRAME_MAX / 10);
+if (frameToRender > 9) printf("%i\n", frameToRender);
+                    PD::drawBitmap(x + xOffset, y + yOffset, Images::Cyclop[16 + (static_cast<uint8_t>(direction) * 10) + frameToRender]);
 
-                        case -28 ... -22:
-                            PD::drawBitmap(x + xOffset, y + yOffset, Images::Cyclop[16 + (static_cast<uint8_t>(direction) * 3)]);
-                            break;
-
-                        case -21 ... -15:
-                        case -7 ... -1:
-                            PD::drawBitmap(x + xOffset, y + yOffset, Images::Cyclop[17 + (static_cast<uint8_t>(direction) * 3)]);
-                            break;
-
-                        case -14 ... -8:
-                            PD::drawBitmap(x + xOffset, y + yOffset, Images::Cyclop[18 + (static_cast<uint8_t>(direction) * 3)]);
-                            break;
-
-                    }
 
                     if (renderHealth) { this->renderHealthBar(x + 6, y - 6, healthValue); }
 
@@ -289,20 +225,6 @@ void Sprites::renderSprite(Object type, int x, int y, int8_t xOffset, int8_t yOf
                     if (renderHealth) { this->renderHealthBar(x + 6, y - 6, healthValue); }
                 }
 
-            }
-            break;
-
-        case Object::Boss04:
-            if (showEnemies) {
-                PD::drawBitmap(x + xOffset, y + yOffset, Images::Pico8_44); 
-                if (renderHealth) { this->renderHealthBar(x + 6, y - 6, healthValue); }
-            }
-            break;
-
-        case Object::Boss05:
-            if (showEnemies) {
-                PD::drawBitmap(x + xOffset, y + yOffset, Images::Pico8_45); 
-                if (renderHealth) { this->renderHealthBar(x + 6, y - 6, healthValue); }
             }
             break;
 
@@ -320,11 +242,6 @@ void Sprites::renderSprite(Object type, int x, int y, int8_t xOffset, int8_t yOf
 
         case Object::Chicken:
             PD::drawBitmap(x + xOffset, y + yOffset, Images::Chicken);
-            break;
-
-        case Object::Floater:
-            if (renderHealth) { this->renderHealthBar(x + 6, y - 6, healthValue); }
-            PD::drawBitmap(x + xOffset, y + yOffset, Images::Floater);
             break;
 
         case Object::Tools:

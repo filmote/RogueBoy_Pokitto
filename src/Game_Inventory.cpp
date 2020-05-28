@@ -246,17 +246,8 @@ void Game::showInventory() {
 
                                 Sprite &sprite = this->objects.getSprite(spriteIdx);
                                 sprite.setSprite(this->map.getTileX(this->player.getX()), this->map.getTileY(this->player.getY()), 0, inventoryItem.type, true, false);
-
-                                // uint8_t x = this->map.getTileX(this->player.getX());
-                                // uint8_t y = this->map.getTileY(this->player.getY());
-
-                                // sprite.setType(inventoryItem.type);
-                                // sprite.setActive(true);
-                                // sprite.setX((x * TILE_SIZE) + 4);
-                                // sprite.setY((y * TILE_SIZE) + 4);
                                 sprite.setPreventImmediatePickup(true);
                                 sprite.setQuantity(inventoryItem.quantity);
-                                // sprite.setCarrying(Object::None);
 
                                 switch (inventoryItem.type) {
 
@@ -308,64 +299,6 @@ void Game::showInventory() {
     }
     
 
-    // // Work out arrow direction ..
-
-    // Direction rot = Direction::Up;
-
-    // if (this->player.getX() / TILE_SIZE > this->eolXTile) { // Left
-
-    //     if (this->player.getY() / TILE_SIZE > this->eolYTile) {
-
-    //         rot = Direction::UpLeft;
-
-    //     }
-    //     else if (this->player.getY() / TILE_SIZE == this->eolYTile) {
-
-    //         rot = Direction::Left;
-
-    //     }
-    //     else if (this->player.getY() / TILE_SIZE < this->eolYTile) {
-
-    //         rot = Direction::DownLeft;
-
-    //     }
-
-    // }
-    // else if (this->player.getX() / TILE_SIZE == this->eolXTile) { // Up / down
-
-    //     if (this->player.getY() / TILE_SIZE > this->eolYTile) {
-
-    //         rot = Direction::Up;
-
-    //     }
-    //     else if (this->player.getY() / TILE_SIZE < this->eolYTile) {
-
-    //         rot = Direction::Down;
-
-    //     }
-
-    // }
-    // else if (this->player.getX() / TILE_SIZE < this->eolXTile) { // Right
-
-    //     if (this->player.getY() / TILE_SIZE > this->eolYTile) {
-
-    //         rot = Direction::UpRight;
-
-    //     }
-    //     else if (this->player.getY() / TILE_SIZE == this->eolYTile) {
-
-    //         rot = Direction::Right;
-
-    //     }
-    //     else if (this->player.getY() / TILE_SIZE < this->eolYTile) {
-
-    //         rot = Direction::DownRight;
-
-    //     }
-
-    // }
-
-
     // Render screen ..
 
     switch (this->inventoryMenu.mode) {
@@ -374,7 +307,6 @@ void Game::showInventory() {
             {    
                 this->renderEnviroment(0, 0);
                 this->renderHud();
-                // PD::drawBitmap(92, 74, Images::Directions[static_cast<uint8_t>(rot)]);
                 PD::setColor(0);
                 PD::fillRectangle(0, 0, 88, 73);
                 PD::setColor(9);
@@ -484,7 +416,6 @@ void Game::showInventory() {
 
             this->renderEnviroment(0, 0);
             this->renderHud();
-            // PD::drawBitmap(92, 74, Images::Directions[static_cast<uint8_t>(rot)]);
 
             PD::setColor(15);
             PD::fillRect(22, 8, 70, 60);
@@ -500,13 +431,6 @@ void Game::showInventory() {
             PD::drawBitmap(33, 43, this->player.getAltarPieces() >= 4 ? Images::Rune_Red_03 : Images::Rune_Grey_03);
             PD::drawBitmap(50, 43, this->player.getAltarPieces() >= 5 ? Images::Rune_Red_04 : Images::Rune_Grey_04);
             PD::drawBitmap(67, 43, this->player.getAltarPieces() >= 6 ? Images::Rune_Red_05 : Images::Rune_Grey_05);
-
-            // PD::drawBitmap(25 + (this->player.getAltarPieces() < 1 ? 8 : 0), 7 + (this->player.getAltarPieces() < 1 ? 8 : 0), this->player.getAltarPieces() >= 1 ? Images::Rune_Red_00 : Images::Rune_Grey_00);
-            // PD::drawBitmap(42 + (this->player.getAltarPieces() < 2 ? 8 : 0), 7 + (this->player.getAltarPieces() < 2 ? 8 : 0), this->player.getAltarPieces() >= 2 ? Images::Rune_Red_01 : Images::Rune_Grey_01);
-            // PD::drawBitmap(59 + (this->player.getAltarPieces() < 3 ? 8 : 0), 7 + (this->player.getAltarPieces() < 3 ? 8 : 0), this->player.getAltarPieces() >= 3 ? Images::Rune_Red_02 : Images::Rune_Grey_02);
-            // PD::drawBitmap(25 + (this->player.getAltarPieces() < 4 ? 8 : 0), 35 + (this->player.getAltarPieces() < 4 ? 8 : 0), this->player.getAltarPieces() >= 4 ? Images::Rune_Red_03 : Images::Rune_Grey_03);
-            // PD::drawBitmap(42 + (this->player.getAltarPieces() < 5 ? 8 : 0), 35 + (this->player.getAltarPieces() < 5 ? 8 : 0), this->player.getAltarPieces() >= 5 ? Images::Rune_Red_04 : Images::Rune_Grey_04);
-            // PD::drawBitmap(59 + (this->player.getAltarPieces() < 6 ? 8 : 0), 35 + (this->player.getAltarPieces() < 6 ? 8 : 0), this->player.getAltarPieces() >= 6 ? Images::Rune_Red_05 : Images::Rune_Grey_05);
 
             break;
 

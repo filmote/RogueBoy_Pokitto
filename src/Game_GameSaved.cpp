@@ -21,9 +21,8 @@ void Game::showGameSavedMessage() {
     // Rnder screen ..
 
     PD::fillScreen(0);
-    this->renderHud();
     this->renderEnviroment(0, 0);
-    PD::setColor(6);
+    this->renderHud();
 
     PD::setColor(15);
     PD::fillRect(21, 27, 70, 24);

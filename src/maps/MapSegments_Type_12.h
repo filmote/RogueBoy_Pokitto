@@ -117,7 +117,7 @@ const uint8_t MAP_Segment_Type12_01[] = {
     5,
     0,Object::Bat, 3, 2, HEALTH_BAT,
     1,Object::Spider, 3, 2, HEALTH_SPIDER,
-    1,Object::Floater, 3, 2, HEALTH_FLOATER,
+    1,Object::Hobgoblin, 3, 2, HEALTH_HOBGOBLIN,
     1,Object::Snake, 3, 2, HEALTH_SNAKE,
     1,Object::Skeleton, 3, 2, HEALTH_SKELETON,
     END_OF_OPTIONS,

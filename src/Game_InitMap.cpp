@@ -32,14 +32,6 @@ void Game::loadMap(const uint8_t * levelToLoad) {
 
         uint8_t tile = levelToLoad[cursor];
         this->map.setBlock(idx, static_cast<MapTiles>(tile));
-
-
-        // Capture the exit location so we can show the 'cheat' arrow ..
-    
-        // if (tile == MapTiles::DownStairs || tile == MapTiles::LockedStairs) {
-        //     this->eolXTile = px;
-        //     this->eolYTile = py;
-        // }
     
         if (tile == MapTiles::ClosedChest_Altar) {
             map.setHasRune(true);
@@ -134,10 +126,9 @@ void Game::nextLevelLoad(GameMode &gameMode) {
     #ifdef DEBUG
         this->clearCells();
     #endif
-
-    if (map.getLevel() > 0) {
-        this->cookieSaveGame->updateStatus(map.getLevel(), map.getDefinedMapLevel(), this->player);
-    }
+printf("-------------------\n");
+printf("load map %i %i %i\n", map.getLevel(), map.getDefinedMapLevel(), map.getRandomLevel());
+    this->playerStatus = this->player.getPlayerStatus();
 
     if (map.getLevel() < (numberOfMaps * 2) - 1) {
 
@@ -413,8 +404,6 @@ void Game::nextLevelLoad(GameMode &gameMode) {
                             }
 
                             this->map.setBlock((xSegment * RANDOM_TILE_SIZE) + levelEndX, (ySegment * RANDOM_TILE_SIZE) + levelEndY, static_cast<MapTiles>(MapTiles::DownStairs));
-                            // this->eolXTile = (xSegment * RANDOM_TILE_SIZE) + levelEndX;
-                            // this->eolYTile = (ySegment * RANDOM_TILE_SIZE) + levelEndY;
                             levelEndX = 0;
                             levelEndY = 0;
 
@@ -455,12 +444,15 @@ void Game::nextLevelLoad(GameMode &gameMode) {
 
                 case GameMode::Resume:
                     {
-                        this->map.setLevel(this->cookieSaveGame->getLevel()); 
-                        this->map.setRandomLevel(false);
-                        const uint8_t * levelToLoad = maps[this->cookieSaveGame->getDefinedMapLevel()];
-                        this->loadMap(levelToLoad);
-                        this->map.setDefinedMapLevel(map.getDefinedMapLevel() + 1); 
+                        printf("restore\n");
+printf("restore level %i %i\n", this->cookieSaveGame->getLevel(), this->cookieSaveGame->getDefinedMapLevel());
+
                         this->player.setPlayerStatus(this->cookieSaveGame->getPlayerStatus());
+                        this->map.setLevel(this->cookieSaveGame->getLevel() - 1); 
+                        this->map.setRandomLevel(false);
+                        const uint8_t * levelToLoad = maps[this->cookieSaveGame->getDefinedMapLevel() - 1];
+                        this->loadMap(levelToLoad);
+                        this->map.setDefinedMapLevel(this->cookieSaveGame->getDefinedMapLevel()); 
                         gameMode = GameMode::Normal;
                     }
                     break;

@@ -53,8 +53,6 @@ const uint8_t spriteWidths[] =  {
     24, /* Bull */
     24, /* Beholder */
     24, /* Cyclop */
-    24, /* Boss04 */
-    24, /* Boss05 */
 };
 
 const uint8_t spriteHeights[] = { 
@@ -101,8 +99,6 @@ const uint8_t spriteHeights[] = {
     24, /* Bull */
     24, /* Beholder */
     24, /* Cyclop */
-    24, /* Boss04 */
-    24, /* Boss05 */
 };
 
         
@@ -150,8 +146,6 @@ const int8_t spriteOffsets[] = {
     -12, -12,  /* Bull */
     -12, -12,  /* Beholder */
     -12, -12,  /* Cyclop */
-    -12, -12,  /* Boss4 */
-    -12, -12,  /* Boss5 */
 };
 
 const uint8_t object_DamamgeOnPlayer[] = {
@@ -160,7 +154,7 @@ const uint8_t object_DamamgeOnPlayer[] = {
     0,                      /* Bread */
     0,                      /* Key */
     0,                      /* Chicken */
-    HEALTH_DEC_FLOATER,     /* Floater */  
+    0,                      /* Floater */  
     HEALTH_DEC_EYES,        /* Eye */
     HEALTH_DEC_SPIDER,      /* Spider */
     HEALTH_DEC_BAT,         /* Bat */
@@ -195,11 +189,9 @@ const uint8_t object_DamamgeOnPlayer[] = {
     0,                      /* Guide13 */ 
     0,                      /* Guide14 */ 
     0,                      /* Guide15 */ 
-    HEALTH_DEC_BULL,        /* Bull */ 
+    0,                      /* Bull */ 
     HEALTH_DEC_BOSS,        /* Beholder */ 
     HEALTH_DEC_CYCLOP,      /* Cyclop */ 
-    HEALTH_DEC_BOSS,        /* Boss04 */ 
-    HEALTH_DEC_BOSS,        /* Boss05 */ 
 };
 
 const char object_Desc_00[] = "Coin";
@@ -245,8 +237,6 @@ const char object_Desc_39[] = "Guide 15";
 const char object_Desc_40[] = "Bull";
 const char object_Desc_41[] = "Beholder";
 const char object_Desc_42[] = "Cyclop";
-const char object_Desc_43[] = "Boss 04";
-const char object_Desc_44[] = "Boss 05";
 
 const char * const object_Descs[] = { 
     object_Desc_00,
@@ -292,8 +282,6 @@ const char * const object_Descs[] = {
     object_Desc_40,
     object_Desc_41,
     object_Desc_42,
-    object_Desc_43,
-    object_Desc_44,
 };
 
                                 // 0  1  2  3  4  5  6  7  8  9  0  1  2  3  4  5  6  7  8  9  0  1  2  3  4   

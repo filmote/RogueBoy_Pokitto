@@ -26,11 +26,6 @@ uint8_t Bullet::getWidth() {
 
     switch (this->weapon) {
 
-        case Object::Dung:
-
-            return 16;
-
-
         case Object::Sparks:
 
             return 2;
@@ -125,26 +120,6 @@ void Bullet::update() {
     if (this->getActive()) {
 
         switch (this->weapon) {
-
-            case Object::Dung:
-
-                this->lifeCountdown--;
-
-                if (this->lifeCountdown == 0) {
-
-                    this->setActive(false);
-                    break;
-
-                }
-                else {
-
-                    this->frame++;
-                    this->frame = this->frame % 12;
-
-
-                }
-
-                break;
 
             case Object::FireBall:
             case Object::IceSpell:

@@ -109,26 +109,6 @@ void Bullets::render(Player &player) {
                     PD::drawBitmap((CENTERX - 2) - x, (CENTERY - 2) - y, Images::Bullets[frame + 12]);
                     break;
 
-                case Object::Dung:
-
-                    switch (bullet.getCountdown()) {
-
-                        case 11 ... 255:
-                            PD::drawBitmap((CENTERX - 4) - x, (CENTERY - 4) - y, Images::Bull_Dung[frame / 3]);
-                            break;
-
-                        case 6 ... 10:
-                            PD::drawBitmap((CENTERX - 4) - x, (CENTERY - 4) - y, Images::Bull_Dung[4]);
-                            break;
-
-                        case 0 ... 5:
-                            PD::drawBitmap((CENTERX - 4) - x, (CENTERY - 4) - y, Images::Bull_Dung[5]);
-                            break;
-
-                    }
-
-                    break;
-
                 case Object::Sparks:
 
                     switch (bullet.getCountdown()) {

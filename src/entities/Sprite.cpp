@@ -57,12 +57,12 @@ Rect Sprite::getRect() {
 
             if (frame == 0) {
 
-                return Rect { this->getX() - (this->getWidth() / 2),  this->getY() - (this->getHeight() / 2), 2 };
+                return Rect { 0, 0, 0, 0 }; 
 
             }
             else {
 
-                return Rect { this->getX() - (this->getWidth() / 2),  this->getY() - (this->getHeight() / 2), this->getWidth(), this->getHeight() };
+                return Rect { this->getX() - (this->getWidth() / 2) + 2,  this->getY() - (this->getHeight() / 2), this->getWidth() - 4, this->getHeight() };
 
             }
 
@@ -70,12 +70,12 @@ Rect Sprite::getRect() {
         
             if (frame == 0) {
 
-                return Rect { this->getX() - (this->getWidth() / 2),  this->getY() + (this->getHeight() / 2) - 2, this->getWidth(), 2 };
+                return Rect { 0, 0, 0, 0 }; 
 
             }
             else {
 
-                return Rect { this->getX() - (this->getWidth() / 2),  this->getY() - (this->getHeight() / 2), this->getWidth(), this->getHeight() };
+                return Rect { this->getX() - (this->getWidth() / 2) + 2,  this->getY() - (this->getHeight() / 2), this->getWidth() - 4, this->getHeight() };
 
             }
 
@@ -231,7 +231,6 @@ bool Sprite::isEnemy() {
     switch (this->type) {
 
         case Object::Bat:
-        case Object::Floater:
         case Object::Eye:
         case Object::Spider:
         case Object::BigSpider:
@@ -241,9 +240,7 @@ bool Sprite::isEnemy() {
         case Object::Necromancer:
         case Object::Hobgoblin:
         case Object::Cyclop:
-        case Object::Bull:
         case Object::Beholder:
-        case Object::Boss04 ... Object::Boss05:
             return true;
 
         default:

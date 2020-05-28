@@ -48,8 +48,8 @@ void Game::renderHud() {
     PD::print(player.getInventoryCount(Object::Key), 10);
     PD::setCursor(74, 80);
 
-    if (player.getCoinsOverall() < 10) PD::print("0");
-    PD::print(player.getCoinsOverall(), 10);
+    PD::print("0");
+    PD::print(player.getAltarPieces(), 10);
 
 
     // Health ..
