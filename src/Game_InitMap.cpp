@@ -126,8 +126,7 @@ void Game::nextLevelLoad(GameMode &gameMode) {
     #ifdef DEBUG
         this->clearCells();
     #endif
-printf("-------------------\n");
-printf("load map %i %i %i\n", map.getLevel(), map.getDefinedMapLevel(), map.getRandomLevel());
+
     this->playerStatus = this->player.getPlayerStatus();
 
     if (map.getLevel() < (numberOfMaps * 2) - 1) {
@@ -444,8 +443,6 @@ printf("load map %i %i %i\n", map.getLevel(), map.getDefinedMapLevel(), map.getR
 
                 case GameMode::Resume:
                     {
-                        printf("restore\n");
-printf("restore level %i %i\n", this->cookieSaveGame->getLevel(), this->cookieSaveGame->getDefinedMapLevel());
 
                         this->player.setPlayerStatus(this->cookieSaveGame->getPlayerStatus());
                         this->map.setLevel(this->cookieSaveGame->getLevel() - 1); 

@@ -10,25 +10,6 @@ using PD = Pokitto::Display;
 void Game::showInventory() {
 
 
-    // Update timer ..
-
-    /* Remove timer decrease,
-    
-    if (Pokitto::Core::frameCount % TIMER_STEP == 0) { this->map.decTimer();  }
-    if (this->map.getTimer() == 0) { 
-        
-        player.setHealth(0); 
-     
-        if (player.getHealth() <= 0) {
-            ////aPS::playSFX(Sounds::sfx_Death5, Sounds::sfx_Death5_length); 
-            gameState = GameState::Dead;
-
-        }
-        
-    }
-    */
-
-
     // If the cursor > active inventory slots then decrease it ..
 
     if (this->inventoryMenu.mainCursor > player.getActiveSlotCount()) {
