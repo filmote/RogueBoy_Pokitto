@@ -67,6 +67,7 @@ void Game::renderHud() {
             break;
 
         case Object::IceSpell:
+        printf("%i\n", this->player.getWeaponFrame());
             PD::drawBitmap(94, 75, Images::IceSpell_Scoreboard[this->player.getWeaponFrame()]);
             break;
 

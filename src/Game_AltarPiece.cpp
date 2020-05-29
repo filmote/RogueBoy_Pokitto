@@ -39,8 +39,8 @@ void Game::showAltarPieceMessage() {
     PD::print("Congratulations!");
     PD::setCursor(26, 37);
     PD::print("You have found");
-    PD::setCursor(25, 44);
-    PD::print("an altar piece.");
+    PD::setCursor(27, 44);
+    PD::print("a sacred rune.");
 
     PD::setFont(fontKoubit);
 

@@ -292,15 +292,27 @@ void Game::showInventory() {
                 this->renderEnviroment(0, 0);
                 this->renderHud();
                 PD::setColor(0);
-                PD::fillRectangle(0, 0, 88, 81);
+                PD::fillRectangle(0, 0, 91, 81);
                 PD::setColor(9);
-                PD::drawRectangle(0, 0, 85, 79);
+                PD::drawRectangle(0, 0, 88, 79);
                 PD::setColor(4);
-                PD::drawLine(1, 80, 86, 80);
-                PD::drawLine(86, 1, 86, 80);
+                PD::drawLine(1, 80, 89, 80);
+                PD::drawLine(89, 1, 89, 80);
                 PD::setColor(6);
                 PD::setCursor(4, 3);
                 PD::print("Inventory\n\n");
+
+                PD::setColor(5);
+                PD::setFont(font3x5);
+                PD::setCursor(68, 4);
+                PD::print(player.getActiveSlotCount(), 10);
+                PD::setCursor(73, 4);
+                PD::print("of");
+                PD::setCursor(82, 4);
+                PD::print(static_cast<uint8_t>(MAX_INVENTORY_ITEMS), 10);
+                PD::setFont(fontKoubit);
+                PD::setColor(6);
+
 
                 uint8_t items = 0;
 
@@ -315,10 +327,8 @@ void Game::showInventory() {
 
                         if (inventoryItem.quantity > 0) {
 
-                            PD::setCursor(10, 23 + (items * 9));
+                            renderInventoryItem(23 + (items * 9), inventoryItem);
                             items++;
-
-                            renderInventoryItem(inventoryItem);
                 
                         }
 
@@ -424,13 +434,21 @@ void Game::showInventory() {
 
 }
 
-void Game::renderInventoryItem(InventoryItem inventoryItem) {
+void Game::renderInventoryItem(uint8_t y, InventoryItem inventoryItem) {
 
+    PD::setCursor(10, y);
+
+    PD::setFont(fontKoubit);
     PD::setColor(6);
     PD::print(object_Descs[static_cast<uint8_t>(inventoryItem.type)]);
     PD::setColor(5);
-    PD::print(" x ");
+    PD::setFont(font3x5);
+    PD::setCursor(64, y + 1);
+    PD::print(" x");
+    PD::setFont(fontKoubit);
+    PD::setCursor(72, y);
     PD::print(inventoryItem.quantity, 10);
     PD::print("\n");
 
 }
+

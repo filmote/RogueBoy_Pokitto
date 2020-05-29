@@ -12118,6 +12118,15 @@
 		},
 		"\\DarkRitual_V092.bin": {
 			"sdcard": false
+		},
+		"\\src\\images\\title\\Player - Copy.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\title\\Player - Copy.h": {
+			"sdcard": false
+		},
+		"\\DarkRitual_V093.bin": {
+			"sdcard": false
 		}
 	},
 	"BUILDFlags": {

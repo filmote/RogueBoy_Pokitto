@@ -41,6 +41,7 @@ void Game::loadMap(const uint8_t * levelToLoad) {
 
     }
 
+
     // Load objects ..
 
     objects.setObjectNum(levelToLoad[cursor++]);
@@ -62,7 +63,7 @@ void Game::loadMap(const uint8_t * levelToLoad) {
 
                 case Object::GreenSpell:
                 case Object::RedSpell:
-                    object.setQuantity(random(3, 8));
+                    object.setQuantity(random(SPELL_BULLETS_MIN, SPELL_BULLETS_MAX));
                     break;
 
                 default:
@@ -444,12 +445,12 @@ void Game::nextLevelLoad(GameMode &gameMode) {
                 case GameMode::Resume:
                     {
 
-                        this->player.setPlayerStatus(this->cookieSaveGame->getPlayerStatus());
                         this->map.setLevel(this->cookieSaveGame->getLevel() - 1); 
                         this->map.setRandomLevel(false);
                         const uint8_t * levelToLoad = maps[this->cookieSaveGame->getDefinedMapLevel() - 1];
                         this->loadMap(levelToLoad);
                         this->map.setDefinedMapLevel(this->cookieSaveGame->getDefinedMapLevel()); 
+                        this->player.setPlayerStatus(this->cookieSaveGame->getPlayerStatus());
                         gameMode = GameMode::Normal;
                     }
                     break;

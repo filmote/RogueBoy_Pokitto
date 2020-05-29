@@ -14,7 +14,7 @@
 
 // Inventory ..
 
-#define MAX_INVENTORY_COUNT             6       // NUmber of items the player can hold, two of one type counts as two.
+#define MAX_INVENTORY_COUNT             5       // NUmber of items the player can hold, two of one type counts as two.
 
 // Health ..
 
@@ -120,6 +120,9 @@
 #define INVENTORY_GREEN_SPELL_PRICE     25
 #define INVENTORY_RED_SPELL_PRICE       35
 #define INVENTORY_MAUVE_SPELL_PRICE     50
+
+#define SPELL_BULLETS_MIN               10
+#define SPELL_BULLETS_MAX               20
 
 
 //--------------------------------------------

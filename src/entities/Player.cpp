@@ -165,7 +165,7 @@ void Player::setWeapon(Object weapon) {
     switch (weapon) {
 
         case Object::IceSpell:
-            this->playerStatus.weaponCount = ICE_SPELL_DELAY;
+            this->playerStatus.weaponCount = ICE_SPELL_DELAY - 1;
             break;
 
         default: 

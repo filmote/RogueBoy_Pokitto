@@ -425,6 +425,7 @@ void Game::showGuide() {
 
     if (PC::buttons.pressed(BTN_A) || PC::buttons.pressed(BTN_B) || PC::buttons.pressed(BTN_C)) {
 
+        PD::setColor(0);
         gameState = GameState::Game; 
 
     }
@@ -462,6 +463,7 @@ void Game::showGuide() {
 
     uint8_t endLoop = (this->guideTop + 6 > messageLengths[this->guideNumber] ? messageLengths[this->guideNumber] : this->guideTop + 6);
 
+    uint8_t xOffset = (endLoop > 6 ? 0 : 2);
 
     for (uint8_t x = this->guideTop; x < endLoop; x++) {
 
@@ -470,105 +472,105 @@ void Game::showGuide() {
             case 0:
                 {
                     const char * message = messages01[x];
-                    showGuide_renderLine(x - this->guideTop, message);
+                    showGuide_renderLine(x - this->guideTop, xOffset, message);
                 }
                 break;
 
             case 1:
                 {
                     const char * message = messages02[x];
-                    showGuide_renderLine(x - this->guideTop, message);
+                    showGuide_renderLine(x - this->guideTop, xOffset, message);
                 }
                 break;
 
             case 2:
                 {
                     const char * message = messages03[x];
-                    showGuide_renderLine(x - this->guideTop, message);
+                    showGuide_renderLine(x - this->guideTop, xOffset, message);
                 }
                 break;
 
             case 3:
                 {
                     const char * message = messages04[x];
-                    showGuide_renderLine(x - this->guideTop, message);
+                    showGuide_renderLine(x - this->guideTop, xOffset, message);
                 }
                 break;
 
             case 4:
                 {
                     const char * message = messages05[x];
-                    showGuide_renderLine(x - this->guideTop, message);
+                    showGuide_renderLine(x - this->guideTop, xOffset, message);
                 }
                 break;
 
             case 5:
                 {
                     const char * message = messages06[x];
-                    showGuide_renderLine(x - this->guideTop, message);
+                    showGuide_renderLine(x - this->guideTop, xOffset, message);
                 }
                 break;
 
             case 6:
                 {
                     const char * message = messages07[x];
-                    showGuide_renderLine(x - this->guideTop, message);
+                    showGuide_renderLine(x - this->guideTop, xOffset, message);
                 }
                 break;
 
             case 7:
                 {
                     const char * message = messages08[x];
-                    showGuide_renderLine(x - this->guideTop, message);
+                    showGuide_renderLine(x - this->guideTop, xOffset, message);
                 }
                 break;
 
             case 8:
                 {
                     const char * message = messages09[x];
-                    showGuide_renderLine(x - this->guideTop, message);
+                    showGuide_renderLine(x - this->guideTop, xOffset, message);
                 }
                 break;
 
             case 9:
                 {
                     const char * message = messages10[x];
-                    showGuide_renderLine(x - this->guideTop, message);
+                    showGuide_renderLine(x - this->guideTop, xOffset, message);
                 }
                 break;         
 
             case 10:
                 {
                     const char * message = messages11[x];
-                    showGuide_renderLine(x - this->guideTop, message);
+                    showGuide_renderLine(x - this->guideTop, xOffset, message);
                 }
                 break;               
 
             case 11:
                 {
                     const char * message = messages12[x];
-                    showGuide_renderLine(x - this->guideTop, message);
+                    showGuide_renderLine(x - this->guideTop, xOffset, message);
                 }
                 break;       
 
             case 12:
                 {
                     const char * message = messages13[x];
-                    showGuide_renderLine(x - this->guideTop, message);
+                    showGuide_renderLine(x - this->guideTop, xOffset, message);
                 }
                 break;              
 
             case 13:
                 {
                     const char * message = messages14[x];
-                    showGuide_renderLine(x - this->guideTop, message);
+                    showGuide_renderLine(x - this->guideTop, xOffset, message);
                 }
                 break;              
 
             case 14:
                 {
                     const char * message = messages15[x];
-                    showGuide_renderLine(x - this->guideTop, message);
+                    showGuide_renderLine(x - this->guideTop, xOffset, message);
                 }
                 break;                       
 
@@ -579,34 +581,38 @@ void Game::showGuide() {
 
     // Draw scroll bar ..
 
-    PD::setColor(9);
-    PD::drawRect(91, 13, 4, 43);
+    if (endLoop > 6) {
+            
+        PD::setColor(9);
+        PD::drawRect(91, 13, 4, 43);
 
-    if (messageLengths[this->guideNumber] > 6) {
+        if (messageLengths[this->guideNumber] > 6) {
 
-        uint16_t length = 410 / messageLengths[this->guideNumber];
+            uint16_t length = 410 / messageLengths[this->guideNumber];
 
-        PD::drawLine(93, 15 + ((this->guideTop * length) / 10), 93, 14 + ((this->guideTop + 6) * length) / 10);
+            PD::drawLine(93, 15 + ((this->guideTop * length) / 10), 93, 14 + ((this->guideTop + 6) * length) / 10);
 
-        if (this->guideTop > 0) {
-            PD::drawBitmap(91, 8, Images::ArrowUpEnabled);
+            if (this->guideTop > 0) {
+                PD::drawBitmap(91, 8, Images::ArrowUpEnabled);
+            }
+            else {
+                PD::drawBitmap(91, 8, Images::ArrowUpDisabled);
+            }
+
+            if (this->guideTop + 6 == messageLengths[this->guideNumber]) {
+                PD::drawBitmap(91, 58, Images::ArrowDownDisabled);
+            }
+            else {
+                PD::drawBitmap(91, 58, Images::ArrowDownEnabled);
+            }
+            
         }
         else {
+
             PD::drawBitmap(91, 8, Images::ArrowUpDisabled);
-        }
-
-        if (this->guideTop + 6 == messageLengths[this->guideNumber]) {
             PD::drawBitmap(91, 58, Images::ArrowDownDisabled);
-        }
-        else {
-            PD::drawBitmap(91, 58, Images::ArrowDownEnabled);
-        }
-        
-    }
-    else {
 
-        PD::drawBitmap(91, 8, Images::ArrowUpDisabled);
-        PD::drawBitmap(91, 58, Images::ArrowDownDisabled);
+        }
 
     }
 
@@ -614,9 +620,9 @@ void Game::showGuide() {
 
 }
 
-void Game::showGuide_renderLine(uint8_t line, const char message[]) {
+void Game::showGuide_renderLine(uint8_t line, uint8_t xOffset, const char message[]) {
 
-    PD::setCursor(16, 13 + (line * 8));
+    PD::setCursor(16 + xOffset, 13 + (line * 8));
     PD::print(message);
 
 }

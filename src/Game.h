@@ -52,7 +52,7 @@ class Game {
         void renderEnviroment_Top_Right(int x, int y, int drawX, int drawY);
         void renderEnviroment_Bot_Left(int x, int y, int drawX, int drawY);
         void renderEnviroment_Bot_Right(int x, int y, int drawX, int drawY);
-        void renderInventoryItem(InventoryItem inventotyItem);
+        void renderInventoryItem(uint8_t y, InventoryItem inventotyItem);
         void renderPlayer(int8_t damageOffsetX, int8_t damageOffsetY);
         void renderObjects();
 
@@ -83,7 +83,7 @@ class Game {
         bool interactWithBlock(int x, int y, MapTiles block);
         void updateEnvironmentBlock(MapInformation map, uint8_t x, uint8_t y, Environments &Envi);
         void showGuide();
-        void showGuide_renderLine(uint8_t line, const char message[]);
+        void showGuide_renderLine(uint8_t line,  uint8_t xOffset, const char message[]);
 
         void dropItem(Object droppedObject, uint16_t x, uint16_t y, bool enemyDrop, Sprite *enemy, Sprites &objects);
         void spriteAI(MapInformation &map, Player &player, Sprite &sprite);
@@ -134,7 +134,7 @@ class Game {
         void updatePipeWhenReversing(uint8_t x, uint8_t y);
         bool validMove(Direction direction, Node selectedNode, int8_t x, int8_t y);
         void puzzleGameOver();
-        void drawPlayer(uint8_t x, uint8_t y);
+        void drawPlayer(int16_t x, uint8_t y);
 
         #ifdef DEBUG
         void clearCells();

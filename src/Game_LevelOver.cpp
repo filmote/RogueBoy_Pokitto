@@ -91,8 +91,9 @@ void Game::win() {
                 }
 
                 PD::drawBitmap(0, 36, Images::WallBackground_Ending);
-                this->drawPlayer(22,2);
-//                PD::drawBitmap(22, 2, Images::Player);
+                PD::drawBitmapXFlipped(110 - 34, 36, Images::WallBackground_Ending);
+                this->drawPlayer(21,2);
+
 
                 if (PC::frameCount % 128 <= 1) {
                     PD::drawBitmap(42, 32, Images::Eyes_Closed);
@@ -114,6 +115,7 @@ void Game::win() {
                 }
 
                 PD::drawBitmap(0, 78, Images::OpenBook);
+                PD::drawBitmapXFlipped(110 - 56, 78, Images::OpenBook);
 
                 for (uint8_t x = 0; x < 6; x++) {
 
@@ -131,7 +133,7 @@ void Game::win() {
 
             this->winScreenVars.counter--;
             if (this->winScreenVars.counter == 0 || PC::buttons.pressed(BTN_A)) { 
-                this->winScreenVars.counter = 1130;
+                this->winScreenVars.counter = 1150;
                 this->winScreenVars.mode = WinScreenMode::ShowMessage;
             }
                 
@@ -185,11 +187,14 @@ void Game::win() {
                 PD::print("Dreamer2345"); 
                 PD::setCursor(10, this->winScreenVars.yPos + 186);
                 PD::print("RafaeleSpindola"); 
+                PD::setCursor(10, this->winScreenVars.yPos + 195);
+                PD::print("Tuxinator2009"); 
             }
 
             PD::setColor(0, 0);
             PD::fillRect(0, 0, 110, 7);
             PD::drawBitmap(0, 78, Images::OpenBook);
+            PD::drawBitmapXFlipped(110 - 56, 78, Images::OpenBook);
 
             this->winScreenVars.counter--;
             if (this->winScreenVars.counter == 0 || PC::buttons.pressed(BTN_A)) { 

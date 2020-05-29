@@ -232,9 +232,10 @@ void Game::playSoundEffect(SoundEffect soundEffect) {
 
 }
 
-void Game::drawPlayer(uint8_t x, uint8_t y) {
+void Game::drawPlayer(int16_t x, uint8_t y) {
 
     PD::drawBitmap(x, y, Images::Player);
+    PD::drawBitmapXFlipped(x + 34, y, Images::Player);
 
 }
 

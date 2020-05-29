@@ -1649,89 +1649,128 @@ void Game::spriteAI_UpdateFrame(Sprite &sprite, uint8_t frameMultiple, uint8_t f
 Direction Game::spriteAI_CheckForMove(MapInformation &map, Player &player, Sprite &sprite, Point &location, uint8_t dist) {
 
     Direction direction = Direction::None;
+    uint8_t multiplier = (this->player.getWeapon() == Object::IceSpell ? 2 : 1);
 
     if (this->map.getDistance(location.x, location.y, player.getX(), player.getY()) <= dist) {
 
-        switch (this->player.getWeapon()) {
+        if ((this->player.getWeapon() == Object::IceSpell && this->player.getWeaponCount() % 2 == 0) || this->player.getWeapon() != Object::IceSpell) {
 
-            case Object::IceSpell:
+            switch (sprite.getType()) {
 
-                if (this->player.getWeaponCount() % 2 == 0) {
-
-                    switch (sprite.getType()) {
-
-                        case Object::Cyclop:
-                            if (PC::frameCount % 4 == 0) {
-                                direction = this->spriteAI_UpdateEnemy(location, map, player, sprite);
-                            }
-                            break;
-
-                        case Object::Beholder:
-                            if (PC::frameCount % 8 == 0) {
-                                direction = this->spriteAI_UpdateEnemy(location, map, player, sprite);
-                            }
-                            break;
-
-                        case Object::Necromancer:
-                        case Object::BigSpider:
-                            if (PC::frameCount % 8 == 0) {
-                                direction = this->spriteAI_UpdateEnemy(location, map, player, sprite);
-                            }
-                            break;
-
-                        case Object::Hobgoblin:
-                            if (PC::frameCount % 4 == 0) {
-                                direction = this->spriteAI_UpdateEnemy(location, map, player, sprite);
-                            }
-                            break;
-
-                        default:
-                            direction = this->spriteAI_UpdateEnemy(location, map, player, sprite);
-                            break;
-
-                    }
-
-                }
-                break;
-
-            default:
-
-                switch (sprite.getType()) {
-
-                    case Object::Cyclop:
-                        if (PC::frameCount % 2 == 0) {
-                            direction = this->spriteAI_UpdateEnemy(location, map, player, sprite);
-                        }
-                        break;
-
-                    case Object::Beholder:
-                        if (PC::frameCount % 4 == 0) {
-                            direction = this->spriteAI_UpdateEnemy(location, map, player, sprite);
-                        }
-                        break;
-
-                    case Object::Necromancer: 
-                    case Object::BigSpider:
-                        if (PC::frameCount % 4 == 0) {
-                            direction = this->spriteAI_UpdateEnemy(location, map, player, sprite);
-                        }
-                        break;
-
-                    case Object::Hobgoblin:
-                        if (PC::frameCount % 2 == 0) {
-                            direction = this->spriteAI_UpdateEnemy(location, map, player, sprite);
-                        }
-                        break;
-
-                    default:
+                case Object::Cyclop:
+                    if (PC::frameCount % (2 * multiplier) == 0) {
                         direction = this->spriteAI_UpdateEnemy(location, map, player, sprite);
-                        break;
+                    }
+                    break;
 
-                }
+                case Object::Beholder:
+                    if (PC::frameCount % (4 * multiplier) == 0) {
+                        direction = this->spriteAI_UpdateEnemy(location, map, player, sprite);
+                    }
+                    break;
 
-                break;
+                case Object::Necromancer: 
+                case Object::BigSpider:
+                    if (PC::frameCount % (4 * multiplier) == 0) {
+                        direction = this->spriteAI_UpdateEnemy(location, map, player, sprite);
+                    }
+                    break;
+
+                case Object::Hobgoblin:
+                    if (PC::frameCount % (2 * multiplier) == 0) {
+                        direction = this->spriteAI_UpdateEnemy(location, map, player, sprite);
+                    }
+                    break;
+
+                default:
+                    direction = this->spriteAI_UpdateEnemy(location, map, player, sprite);
+                    break;
+
+            }
 
         }
+
+
+        // switch (this->player.getWeapon()) {
+
+        //     case Object::IceSpell:
+
+        //         if (this->player.getWeaponCount() % 2 == 0) {
+
+        //             switch (sprite.getType()) {
+
+        //                 case Object::Cyclop:
+        //                     if (PC::frameCount % 4 == 0) {
+        //                         direction = this->spriteAI_UpdateEnemy(location, map, player, sprite);
+        //                     }
+        //                     break;
+
+        //                 case Object::Beholder:
+        //                     if (PC::frameCount % 8 == 0) {
+        //                         direction = this->spriteAI_UpdateEnemy(location, map, player, sprite);
+        //                     }
+        //                     break;
+
+        //                 case Object::Necromancer:
+        //                 case Object::BigSpider:
+        //                     if (PC::frameCount % 8 == 0) {
+        //                         direction = this->spriteAI_UpdateEnemy(location, map, player, sprite);
+        //                     }
+        //                     break;
+
+        //                 case Object::Hobgoblin:
+        //                     if (PC::frameCount % 4 == 0) {
+        //                         direction = this->spriteAI_UpdateEnemy(location, map, player, sprite);
+        //                     }
+        //                     break;
+
+        //                 default:
+        //                     direction = this->spriteAI_UpdateEnemy(location, map, player, sprite);
+        //                     break;
+
+        //             }
+
+        //         }
+        //         break;
+
+        //     default:
+
+        //         switch (sprite.getType()) {
+
+        //             case Object::Cyclop:
+        //                 if (PC::frameCount % 2 == 0) {
+        //                     direction = this->spriteAI_UpdateEnemy(location, map, player, sprite);
+        //                 }
+        //                 break;
+
+        //             case Object::Beholder:
+        //                 if (PC::frameCount % 4 == 0) {
+        //                     direction = this->spriteAI_UpdateEnemy(location, map, player, sprite);
+        //                 }
+        //                 break;
+
+        //             case Object::Necromancer: 
+        //             case Object::BigSpider:
+        //                 if (PC::frameCount % 4 == 0) {
+        //                     direction = this->spriteAI_UpdateEnemy(location, map, player, sprite);
+        //                 }
+        //                 break;
+
+        //             case Object::Hobgoblin:
+        //                 if (PC::frameCount % 2 == 0) {
+        //                     direction = this->spriteAI_UpdateEnemy(location, map, player, sprite);
+        //                 }
+        //                 break;
+
+        //             default:
+        //                 direction = this->spriteAI_UpdateEnemy(location, map, player, sprite);
+        //                 break;
+
+        //         }
+
+        //         break;
+
+        // }
 
     }
 
