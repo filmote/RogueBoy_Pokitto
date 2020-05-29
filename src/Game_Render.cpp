@@ -172,6 +172,8 @@ void Game::renderEnviroment(int8_t damageOffsetX, int8_t damageOffsetY) {
 
                         case MapTiles::CornerLL:
                             PD::drawBitmap(drawX, drawY - 8, Images::CornerFillLL);
+                            this->map.setBlock(drawX / TILE_WIDTH, (drawY - 8) / TILE_HEIGHT, MapTiles::CornerFillLL);
+printf("1\n");                            
                             break;
 
                     }                
@@ -180,6 +182,8 @@ void Game::renderEnviroment(int8_t damageOffsetX, int8_t damageOffsetY) {
 
                         case MapTiles::CornerTL:
                             PD::drawBitmap(drawX, drawY + 16, Images::CornerFillTL);
+                            //this->map.setBlock(drawX / TILE_WIDTH, (drawY + 16) / TILE_HEIGHT, MapTiles::CornerFillTL);
+printf("2\n");                            
                             break;
 
                     }                
@@ -192,6 +196,8 @@ void Game::renderEnviroment(int8_t damageOffsetX, int8_t damageOffsetY) {
 
                         case MapTiles::CornerLR:
                             PD::drawBitmap(drawX + 8, drawY - 8, Images::CornerFillLR);
+                            //this->map.setBlock((drawX + 8) / TILE_WIDTH, (drawY - 8) / TILE_HEIGHT, MapTiles::CornerFillLR);
+printf("3\n");
                             break;
 
                     }                
@@ -200,6 +206,8 @@ void Game::renderEnviroment(int8_t damageOffsetX, int8_t damageOffsetY) {
 
                         case MapTiles::CornerTR:
                             PD::drawBitmap(drawX + 8, drawY + 16, Images::CornerFillTR);
+                            //this->map.setBlock((drawX + 8) / TILE_WIDTH, (drawY + 16) / TILE_HEIGHT, MapTiles::CornerFillTR);
+printf("4\n");
                             break;
 
                     }                
@@ -401,8 +409,6 @@ void Game::renderPlayer(int8_t damageOffsetX, int8_t damageOffsetY) {
 
 }
 
-
-
 void Game::renderEnviroment_Top_Left(int x, int y, int drawX, int drawY) {
 
     switch (this->map.getBlock(x - 1, y - 1)) {
@@ -445,7 +451,6 @@ void Game::renderEnviroment_Bot_Left(int x, int y, int drawX, int drawY) {
     }
 
 }
-
 
 void Game::renderEnviroment_Bot_Right(int x, int y, int drawX, int drawY) {
 

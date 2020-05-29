@@ -267,6 +267,7 @@ enum MapTiles {
     Altar05 = 95,
     ClosedChest_Altar = 96,
     SavePost = 97,
+    CornerFill = 98,
 };
 
 enum class ShopMessage : uint8_t {

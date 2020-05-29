@@ -46,6 +46,8 @@ class Sprite {
         void setPreventImmediatePickup(bool value);
         void setDirection(Direction direction);
         void setGuideText(bool guideText);
+        void setWidth(uint8_t value);
+        void setHeight(uint8_t value);
 
         void decCountdown();
         Rect getRect();

@@ -227,9 +227,66 @@ void Game::showInventory() {
                                     spriteIdx = this->objects.getObjectNum() - 1;
 
                                 }   
+
+
+
+
                                 Sprite &sprite = this->objects.getSprite(spriteIdx);
 
-                                sprite.setSprite(this->player.getX(), this->player.getY(), 0, inventoryItem.type, true, false);
+
+                                // See if we can drop the item in a clear spot behind the player ..
+
+                                const int8_t launchXOffset[] = { 0, -16, -16, -16, 0, 16, 16, 16 };
+                                const int8_t launchYOffset[] = { 16, 16, 0, -16, -16, -16, 0, 16 };
+                                const int8_t directions[] = { 8, 9, 7, 10, 6, 11, 5, 4 };
+
+                                int launchX = 0;
+                                int launchY = 0;
+                                bool found = false;
+
+                                for (uint8_t d = 0; d < 7; d++) {
+
+                                    launchX = this->player.getX() + launchXOffset[(static_cast<uint8_t>(this->player.getDirection()) + directions[d]) % 8];
+                                    launchY = this->player.getY() + launchYOffset[(static_cast<uint8_t>(this->player.getDirection()) + directions[d]) % 8];
+
+                                    uint8_t tileLaunchX = this->map.getTileX(launchX);
+                                    uint8_t tileLaunchY = this->map.getTileX(launchY);
+
+                                    // uint8_t width = spriteWidths[sprite.getType()];
+                                    // uint8_t height = spriteHeights[sprite.getType()];
+                                    
+                                    launchX = (tileLaunchX * TILE_WIDTH) + spriteWidths[sprite.getType()];
+                                    launchY = (tileLaunchY * TILE_HEIGHT) + spriteHeights[sprite.getType()];
+                                        
+                                    sprite.setX(launchX);
+                                    sprite.setY(launchY);
+                                    sprite.setWidth(spriteWidths[sprite.getType()]);
+                                    sprite.setHeight(spriteHeights[sprite.getType()]);
+                                    sprite.setType(inventoryItem.type);
+
+                                    if (map.getBlock(tileLaunchX, tileLaunchY) == MapTiles::Empty && !collision(this->player, sprite)) {
+
+//                                    if (map.isWalkable(launchX, launchY, static_cast<Direction>((static_cast<uint8_t>(this->player.getDirection()) + directions[d]) % 8), width, height) != WalkType::Stop) {
+
+
+                                        found = true;
+                                        break;
+
+                                    }
+
+                                }
+
+
+                                // If we could not find a proper location to drop it, then drop it on the player itself!
+
+                                if (!found) {
+
+                                    launchX = this->player.getX();
+                                    launchY = this->player.getY();
+
+                                }
+
+                                sprite.setSprite(launchX, launchY, 0, inventoryItem.type, true, false);
                                 sprite.setPreventImmediatePickup(true);
                                 sprite.setQuantity(inventoryItem.quantity);
 

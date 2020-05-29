@@ -30,6 +30,8 @@ void Sprite::setCarrying(Object carrying)           { this->carrying = carrying;
 void Sprite::setCountdown(uint8_t countdown)        { this->countdown = countdown; }
 void Sprite::setPreventImmediatePickup(bool value)  { this->preventImmediatePickup = value; }
 void Sprite::setGuideText(bool value)               { this->guideText = value; }
+void Sprite::setHeight(uint8_t value)               { this->height = value; }
+void Sprite::setWidth(uint8_t value)                { this->width = value; }
 
 void Sprite::decCountdown() { 
 

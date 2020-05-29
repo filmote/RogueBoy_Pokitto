@@ -50,7 +50,7 @@ const uint8_t Map_Random_Size_02_00[] = {
     /* Map Data */
     BLANK_SEG,    ANY_SEG | 11, BLANK_SEG,
     ANY_SEG | 0,  ANY_SEG | 10, ANY_SEG | 1,
-    ANY_SEG | 7,  ANY_SEG | 6,  ANY_SEG | 9,
+    ANY_SEG | 7,  ANY_SEG | 10, ANY_SEG | 9,
     ANY_SEG | 2,  ANY_SEG | 6,  ANY_SEG | 3,
 };
 

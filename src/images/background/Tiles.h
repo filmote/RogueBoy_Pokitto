@@ -201,6 +201,7 @@ namespace Images {
     Tile_95,
     Tile_08, //96 is chest random same as 08.
     Tile_97,
+    Tile_00, //98 Filler
     };
 
 };

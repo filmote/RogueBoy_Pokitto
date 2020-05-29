@@ -256,6 +256,7 @@ WalkType MapInformation::isWalkable(uint16_t x, uint16_t y, Direction direction,
         case MapTiles::UpStairs:
         case MapTiles::DownStairs:
         case MapTiles::Empty:
+        case MapTiles::CornerFill:
         case MapTiles::OpenChest:
         case MapTiles::Rubble:
         case MapTiles::PressPlate_Up:
@@ -830,6 +831,7 @@ WalkType MapInformation::isWalkable(uint16_t x, uint16_t y, Direction direction,
             case MapTiles::UpStairs:
             case MapTiles::DownStairs:
             case MapTiles::Empty:
+            case MapTiles::CornerFill:
             case MapTiles::OpenChest:
             case MapTiles::Rubble:
             case MapTiles::PressPlate_Up:

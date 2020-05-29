@@ -12127,6 +12127,12 @@
 		},
 		"\\DarkRitual_V093.bin": {
 			"sdcard": false
+		},
+		"\\src\\images\\background\\CornerFillLL - Copy.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\background\\Tile_98.png": {
+			"sdcard": false
 		}
 	},
 	"BUILDFlags": {
