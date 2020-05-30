@@ -292,7 +292,7 @@ const uint8_t MAP_Segment_Type08_04[] = {
     0,Object::Bread,5,7,HEALTH_NONE,
     1,Object::Bat,4,4,HEALTH_BAT,
     1,Object::Bat,4,5,HEALTH_BAT,
-    1,Object::Necromancer,4,6,HEALTH_NECROMANCER,
+    1,Object::Hobgoblin,4,6,HEALTH_HOBGOBLIN,
     2,Object::Bat,4,6,HEALTH_BAT,
     2,Object::Eye,4,5,HEALTH_BAT,
     2,Object::Chicken,5,7,HEALTH_NONE,

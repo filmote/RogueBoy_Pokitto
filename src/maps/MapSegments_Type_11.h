@@ -118,7 +118,7 @@ const uint8_t MAP_Segment_Type11_01[] = {
     1,Object::Spider, 3, 2, HEALTH_SPIDER,
     2,Object::Snake, 3, 2, HEALTH_SNAKE,
     3,Object::Skeleton, 3, 2, HEALTH_SKELETON,
-    4,Object::Necromancer, 3, 2, HEALTH_NECROMANCER,
+    4,Object::Hobgoblin, 3, 2, HEALTH_HOBGOBLIN,
     END_OF_OPTIONS,
 
     // Entrance / Exit Options -----------
