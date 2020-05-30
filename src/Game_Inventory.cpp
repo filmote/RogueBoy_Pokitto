@@ -362,7 +362,7 @@ void Game::showInventory() {
                 PD::setColor(5);
                 PD::setFont(font3x5);
                 PD::setCursor(68, 4);
-                PD::print(player.getActiveSlotCount(), 10);
+                PD::print(player.getInventoryCount(), 10);
                 PD::setCursor(73, 4);
                 PD::print("of");
                 PD::setCursor(82, 4);

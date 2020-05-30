@@ -12,6 +12,7 @@ void Game::showGameSavedMessage() {
 
     if (PC::buttons.pressed(BTN_A)) {
 
+        PD::setColor(0);
         gameState = GameState::Game; 
 
     }

@@ -8,7 +8,7 @@ using PD = Pokitto::Display;
 void Game::init(uint16_t x, uint16_t y, bool resetObjects) {
 
     //sound.tone(NOTE_C7H,150, NOTE_REST,100, NOTE_C6,150);
-    player.init(x, y);
+    this->player.initLevel(x, y);
 
     for (uint8_t i = 0; i < 6; i++) {
 

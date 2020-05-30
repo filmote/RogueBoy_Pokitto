@@ -25,12 +25,25 @@ void Player::reset() {
     this->playerStatus.weapon = Object::FireBall;
     this->playerStatus.weaponCount = 0;
     this->playerStatus.puffIndex = 0;
+    this->playerStatus.altarPieces = 0;
 
     for (uint8_t x = 0; x < MAX_INVENTORY_ITEMS; x++) {
         this->playerStatus.inventoryItems[x].type = Object::None;
         this->playerStatus.inventoryItems[x].quantity = 0;
     }
 
+}
+
+void Player::initLevel(uint16_t x, uint16_t y) {
+
+    this->x = x;
+    this->y = y;
+    this->playerStatus.direction = Direction::Down;
+    this->playerStatus.coins = 0;
+    this->playerStatus.kills = 0;
+    this->playerStatus.health = (this->playerStatus.health <= 0 ? 100 : this->playerStatus.health);
+    this->playerStatus.moving = false;
+    
 }
 
 void Player::incAltarPieces() {
@@ -214,19 +227,6 @@ void Player::incFrame() {
     this->playerStatus.frame++;
     this->playerStatus.frame %= 2;
 
-}
-
-void Player::init(uint16_t x, uint16_t y) {
-
-    this->x = x;
-    this->y = y;
-    this->playerStatus.direction = Direction::Down;
-    this->playerStatus.coins = 0;
-    this->playerStatus.kills = 0;
-    this->playerStatus.health = (this->playerStatus.health <= 0 ? 100 : this->playerStatus.health);
-    this->playerStatus.moving = false;
-    this->playerStatus.altarPieces = 0;
-    
 }
 
 

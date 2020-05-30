@@ -45,7 +45,7 @@ class Player {
 
         void incFrame();
         void incCoins(uint8_t coins);
-        void init(uint16_t x, uint16_t y);
+        void initLevel(uint16_t x, uint16_t y);
         void decWeaponCount();
         void decPuffIndex();
 

@@ -1094,7 +1094,6 @@ bool Game::interactWithBlock(int x, int y, MapTiles block) {
             return false;
 
         case MapTiles::SavePost:
-
             this->cookieSaveGame->updateStatus(map.getLevel(), map.getDefinedMapLevel(), this->playerStatus);
             this->cookieSaveGame->saveCookie();
             this->gameState = GameState::GameSaved;
