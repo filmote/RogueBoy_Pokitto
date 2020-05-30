@@ -462,116 +462,185 @@ bool Game::isBlockedByPlayer(Player player, Sprite enemy, uint16_t enemyX, uint1
 
 }
 
+void Game::playerMovement_Up(Direction &direction, uint16_t &x, uint16_t &y, bool &moving, bool &nudgeUp, bool &nudgeDown, bool &nudgeLeft, bool &nudgeRight) {
+
+    WalkType walk = this->map.isWalkable(x, y - 2, Direction::Up, this->player.getWidth(), this->player.getHeight(), nudgeUp, nudgeDown, nudgeLeft, nudgeRight);
+
+    if ((walk == WalkType::Normal || (walk == WalkType::Slow && PC::frameCount % WALK_SLOW_FRAME_COUNT == 0)) && !isBlockedByEnemy(this->player, x, y - 2) && !isBlockedBySolidSprite(this->player, x, y - 2)) {
+        
+        y-=2;
+        moving = true;
+
+        if (walk == WalkType::Slow) {
+            player.decHealth(HEALTH_DEC_SPIDERS_WEB); 
+        }
+
+    }
+
+    switch (direction) {
+
+        case Direction::Left:
+            direction = Direction::UpLeft;
+            break;
+
+        case Direction::Right:
+            direction = Direction::UpRight;
+            break;
+
+        default:
+            direction = Direction::Up;
+            break;
+            
+    }
+
+}
+
+void Game::playerMovement_Down(Direction &direction, uint16_t &x, uint16_t &y, bool &moving, bool &nudgeUp, bool &nudgeDown, bool &nudgeLeft, bool &nudgeRight) {
+
+    WalkType walk = this->map.isWalkable(x, y + 2, Direction::Down, this->player.getWidth(), this->player.getHeight(), nudgeUp, nudgeDown, nudgeLeft, nudgeRight);
+
+    if ((walk == WalkType::Normal || (walk == WalkType::Slow && PC::frameCount % WALK_SLOW_FRAME_COUNT == 0)) && !isBlockedByEnemy(this->player, x, y + 2) && !isBlockedBySolidSprite(this->player, x, y + 2)) {
+
+        y+=2;
+        moving = true;
+
+        if (walk == WalkType::Slow) {
+            player.decHealth(HEALTH_DEC_SPIDERS_WEB); 
+        }
+
+    }
+
+    switch (direction) {
+
+        case Direction::Left:
+            direction = Direction::DownLeft;
+            break;
+
+        case Direction::Right:
+            direction = Direction::DownRight;
+            break;
+
+        default:
+            direction = Direction::Down;
+            break;
+            
+    }
+
+}
+
+void Game::playerMovement_Right(Direction &direction, uint16_t &x, uint16_t &y, bool &moving, bool &nudgeUp, bool &nudgeDown, bool &nudgeLeft, bool &nudgeRight) {
+
+    WalkType walk = this->map.isWalkable(x + 2, y, Direction::Right, this->player.getWidth(), this->player.getHeight(), nudgeUp, nudgeDown, nudgeLeft, nudgeRight);
+
+    if ((walk == WalkType::Normal || (walk == WalkType::Slow && PC::frameCount % WALK_SLOW_FRAME_COUNT == 0)) && !isBlockedByEnemy(this->player, x + 2, y) && !isBlockedBySolidSprite(this->player, x + 2, y)) {
+
+        x+=2;
+        moving = true;
+
+        if (walk == WalkType::Slow) {
+            player.decHealth(HEALTH_DEC_SPIDERS_WEB); 
+        }
+
+    }
+    else {
+
+        if (nudgeUp)    playerMovement_Up(direction, x, y, moving, nudgeUp, nudgeDown, nudgeLeft, nudgeRight);
+        if (nudgeDown)  playerMovement_Down(direction, x, y, moving, nudgeUp, nudgeDown, nudgeLeft, nudgeRight);
+
+    }
+
+    switch (direction) {
+
+        case Direction::Up:
+            direction = Direction::UpRight;
+            break;
+
+        case Direction::Down:
+            direction = Direction::DownRight;
+            break;
+
+        default:
+            direction = Direction::Right;
+            break;
+            
+    }
+
+}
+
+void Game::playerMovement_Left(Direction &direction, uint16_t &x, uint16_t &y, bool &moving, bool &nudgeUp, bool &nudgeDown, bool &nudgeLeft, bool &nudgeRight) {
+
+    WalkType walk = this->map.isWalkable(x - 2, y, Direction::Left, this->player.getWidth(), this->player.getHeight(), nudgeUp, nudgeDown, nudgeLeft, nudgeRight);
+
+    if ((walk == WalkType::Normal || (walk == WalkType::Slow && PC::frameCount % WALK_SLOW_FRAME_COUNT == 0)) && !isBlockedByEnemy(this->player, x - 2, y) && !isBlockedBySolidSprite(this->player, x - 2, y)) {
+
+        x-=2;
+        moving = true;
+
+        if (walk == WalkType::Slow) {
+            player.decHealth(HEALTH_DEC_SPIDERS_WEB); 
+        }
+
+    }
+    else {
+
+        if (nudgeUp)    playerMovement_Up(direction, x, y, moving, nudgeUp, nudgeDown, nudgeLeft, nudgeRight);
+        if (nudgeDown)  playerMovement_Down(direction, x, y, moving, nudgeUp, nudgeDown, nudgeLeft, nudgeRight);
+
+    }
+
+    switch (direction) {
+
+        case Direction::Up:
+            direction = Direction::UpLeft;
+            break;
+
+        case Direction::Down:
+            direction = Direction::DownLeft;
+            break;
+
+        default:
+            direction = Direction::Left;
+            break;
+            
+    }
+
+}
+
 void Game::playerMovement(GameMode gameMode) {
 
     uint16_t x = player.getX();
     uint16_t y = player.getY();
     Direction direction = player.getDirection();
+
     bool moving = player.getMoving();
+    bool nudgeUp = false;
+    bool nudgeDown = false;
+    bool nudgeLeft = false;
+    bool nudgeRight = false;
 
     moving = false;
 
-    if ((PC::buttons.pressed(BTN_UP) || PC::buttons.repeat(BTN_UP, 1))) {
+    if (PC::buttons.pressed(BTN_UP) || PC::buttons.repeat(BTN_UP, 1)) {
 
-        WalkType walk = this->map.isWalkable(x, y - 2, Direction::Up, this->player.getWidth(), this->player.getHeight());
-
-        if ((walk == WalkType::Normal || (walk == WalkType::Slow && PC::frameCount % WALK_SLOW_FRAME_COUNT == 0)) && !isBlockedByEnemy(this->player, x, y - 2) && !isBlockedBySolidSprite(this->player, x, y - 2)) {
-            
-            y-=2;
-            moving = true;
-
-            if (walk == WalkType::Slow) {
-                player.decHealth(HEALTH_DEC_SPIDERS_WEB); 
-            }
-
-        }
-
-        direction = Direction::Up;
+        playerMovement_Up(direction, x, y, moving, nudgeUp, nudgeDown, nudgeLeft, nudgeRight);
 
     }
 
-    if ((PC::buttons.pressed(BTN_DOWN) || PC::buttons.repeat(BTN_DOWN, 1))) {
+    else if (PC::buttons.pressed(BTN_DOWN) || PC::buttons.repeat(BTN_DOWN, 1)) {
 
-        WalkType walk = this->map.isWalkable(x, y + 2, Direction::Down, this->player.getWidth(), this->player.getHeight());
-
-        if ((walk == WalkType::Normal || (walk == WalkType::Slow && PC::frameCount % WALK_SLOW_FRAME_COUNT == 0)) && !isBlockedByEnemy(this->player, x, y + 2) && !isBlockedBySolidSprite(this->player, x, y + 2)) {
-
-            y+=2;
-            moving = true;
-
-            if (walk == WalkType::Slow) {
-                player.decHealth(HEALTH_DEC_SPIDERS_WEB); 
-            }
-
-        }
-
-        direction = Direction::Down;
+        playerMovement_Down(direction, x, y, moving, nudgeUp, nudgeDown, nudgeLeft, nudgeRight);
 
     }
 
-    if ((PC::buttons.pressed(BTN_RIGHT) || PC::buttons.repeat(BTN_RIGHT, 1))) {
+    if (PC::buttons.pressed(BTN_RIGHT) || PC::buttons.repeat(BTN_RIGHT, 1) || (nudgeRight && !moving)) {
 
-        WalkType walk = this->map.isWalkable(x + 2, y, Direction::Right, this->player.getWidth(), this->player.getHeight());
-
-        if ((walk == WalkType::Normal || (walk == WalkType::Slow && PC::frameCount % WALK_SLOW_FRAME_COUNT == 0)) && !isBlockedByEnemy(this->player, x + 2, y) && !isBlockedBySolidSprite(this->player, x + 2, y)) {
-
-            x+=2;
-            moving = true;
-
-            if (walk == WalkType::Slow) {
-                player.decHealth(HEALTH_DEC_SPIDERS_WEB); 
-            }
-
-        }
-
-        switch (direction) {
-
-            case Direction::Up:
-                direction = Direction::UpRight;
-                break;
-
-            case Direction::Down:
-                direction = Direction::DownRight;
-                break;
-
-            default:
-                direction = Direction::Right;
-                break;
-                
-        }
+        playerMovement_Right(direction, x, y, moving, nudgeUp, nudgeDown, nudgeLeft, nudgeRight);
 
     }
     
-    if ((PC::buttons.pressed(BTN_LEFT) || PC::buttons.repeat(BTN_LEFT, 1))) {
+    if (PC::buttons.pressed(BTN_LEFT) || PC::buttons.repeat(BTN_LEFT, 1) || (nudgeLeft && !moving) ) {
 
-        WalkType walk = this->map.isWalkable(x - 2, y, Direction::Left, this->player.getWidth(), this->player.getHeight());
-
-        if ((walk == WalkType::Normal || (walk == WalkType::Slow && PC::frameCount % WALK_SLOW_FRAME_COUNT == 0)) && !isBlockedByEnemy(this->player, x - 2, y) && !isBlockedBySolidSprite(this->player, x - 2, y)) {
-
-            x-=2;
-            moving = true;
-
-            if (walk == WalkType::Slow) {
-                player.decHealth(HEALTH_DEC_SPIDERS_WEB); 
-            }
-
-        }
-
-        switch (direction) {
-
-            case Direction::Up:
-                direction = Direction::UpLeft;
-                break;
-
-            case Direction::Down:
-                direction = Direction::DownLeft;
-                break;
-
-            default:
-                direction = Direction::Left;
-                break;
-                
-        }
+        playerMovement_Left(direction, x, y, moving, nudgeUp, nudgeDown, nudgeLeft, nudgeRight);
 
     }   
 
@@ -588,7 +657,7 @@ void Game::playerMovement(GameMode gameMode) {
         uint8_t ofy = this->map.getTileYOffset(y);
         uint8_t block = this->map.getBlock(relx, rely);
 
-        if (this->map. between(3, 3, 11, 11, ofx, ofy) && block == MapTiles::PressPlate_Up) {
+        if (this->map.between(3, 3, 11, 11, ofx, ofy) && block == MapTiles::PressPlate_Up) {
             this->map.setBlock(relx,rely,MapTiles::PressPlate_Down);
             updateEnvironmentBlock(map, relx, rely, this->environments);
             //sound.tone(NOTE_D2,150,NOTE_E2,50);
@@ -1352,7 +1421,7 @@ void Game::spriteAI(MapInformation &map, Player &player, Sprite &sprite) {
 
                             if (spriteIdx != NO_SPRITE_FOUND) {
 
-                                Sprite &sprite = this->objects.getSprite(spriteIdx);
+                                Sprite &spriteNew = this->objects.getSprite(spriteIdx);
 
 
                                 // Make sure we can launch the skeleton in a clear spot and not on top of the player ..
@@ -1366,16 +1435,20 @@ void Game::spriteAI(MapInformation &map, Player &player, Sprite &sprite) {
                                     int launchX = location.x + launchSkeleton_X[(static_cast<uint8_t>(this->launchSkeletonDirection) + directions[d]) % 8];
                                     int launchY = location.y + launchSkeleton_Y[(static_cast<uint8_t>(this->launchSkeletonDirection) + directions[d]) % 8];
 
-                                    uint8_t width = spriteWidths[static_cast<uint8_t>(Object::Skeleton)];
-                                    uint8_t height = spriteHeights[static_cast<uint8_t>(Object::Skeleton)];
-                                    sprite.setSprite(launchX, launchY, HEALTH_SKELETON, Object::Skeleton, false, false);
+                                    uint8_t tileLaunchX = this->map.getTileX(launchX);
+                                    uint8_t tileLaunchY = this->map.getTileX(launchY);
+                                    
+                                    launchX = (tileLaunchX * TILE_WIDTH) + spriteWidths[sprite.getType()];
+                                    launchY = (tileLaunchY * TILE_HEIGHT) + spriteHeights[sprite.getType()];
 
-                                    if (map.isWalkable(launchX, launchY, this->launchSkeletonDirection, width, height) != WalkType::Stop && !collision(this->player, sprite)) {
+                                    spriteNew.setSprite(launchX, launchY, HEALTH_SKELETON, Object::Skeleton, false, false);
 
-                                        sprite.setFrame(-SKELETON_FRAME_MAX + 1);
-                                        sprite.setCountdown(0);
-                                        sprite.setDirection(Direction::Down);
-                                        sprite.setActive(true);
+                                    if (map.getBlock(tileLaunchX, tileLaunchY) == MapTiles::Empty && !collision(spriteNew, sprite)) {
+
+                                        spriteNew.setFrame(-SKELETON_FRAME_MAX + 1);
+                                        spriteNew.setCountdown(0);
+                                        spriteNew.setDirection(Direction::Down);
+                                        spriteNew.setActive(true);
                                         break;
 
                                     }
@@ -1688,88 +1761,6 @@ Direction Game::spriteAI_CheckForMove(MapInformation &map, Player &player, Sprit
             }
 
         }
-
-
-        // switch (this->player.getWeapon()) {
-
-        //     case Object::IceSpell:
-
-        //         if (this->player.getWeaponCount() % 2 == 0) {
-
-        //             switch (sprite.getType()) {
-
-        //                 case Object::Cyclop:
-        //                     if (PC::frameCount % 4 == 0) {
-        //                         direction = this->spriteAI_UpdateEnemy(location, map, player, sprite);
-        //                     }
-        //                     break;
-
-        //                 case Object::Beholder:
-        //                     if (PC::frameCount % 8 == 0) {
-        //                         direction = this->spriteAI_UpdateEnemy(location, map, player, sprite);
-        //                     }
-        //                     break;
-
-        //                 case Object::Necromancer:
-        //                 case Object::BigSpider:
-        //                     if (PC::frameCount % 8 == 0) {
-        //                         direction = this->spriteAI_UpdateEnemy(location, map, player, sprite);
-        //                     }
-        //                     break;
-
-        //                 case Object::Hobgoblin:
-        //                     if (PC::frameCount % 4 == 0) {
-        //                         direction = this->spriteAI_UpdateEnemy(location, map, player, sprite);
-        //                     }
-        //                     break;
-
-        //                 default:
-        //                     direction = this->spriteAI_UpdateEnemy(location, map, player, sprite);
-        //                     break;
-
-        //             }
-
-        //         }
-        //         break;
-
-        //     default:
-
-        //         switch (sprite.getType()) {
-
-        //             case Object::Cyclop:
-        //                 if (PC::frameCount % 2 == 0) {
-        //                     direction = this->spriteAI_UpdateEnemy(location, map, player, sprite);
-        //                 }
-        //                 break;
-
-        //             case Object::Beholder:
-        //                 if (PC::frameCount % 4 == 0) {
-        //                     direction = this->spriteAI_UpdateEnemy(location, map, player, sprite);
-        //                 }
-        //                 break;
-
-        //             case Object::Necromancer: 
-        //             case Object::BigSpider:
-        //                 if (PC::frameCount % 4 == 0) {
-        //                     direction = this->spriteAI_UpdateEnemy(location, map, player, sprite);
-        //                 }
-        //                 break;
-
-        //             case Object::Hobgoblin:
-        //                 if (PC::frameCount % 2 == 0) {
-        //                     direction = this->spriteAI_UpdateEnemy(location, map, player, sprite);
-        //                 }
-        //                 break;
-
-        //             default:
-        //                 direction = this->spriteAI_UpdateEnemy(location, map, player, sprite);
-        //                 break;
-
-        //         }
-
-        //         break;
-
-        // }
 
     }
 

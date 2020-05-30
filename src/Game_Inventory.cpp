@@ -266,9 +266,6 @@ void Game::showInventory() {
 
                                     if (map.getBlock(tileLaunchX, tileLaunchY) == MapTiles::Empty && !collision(this->player, sprite)) {
 
-//                                    if (map.isWalkable(launchX, launchY, static_cast<Direction>((static_cast<uint8_t>(this->player.getDirection()) + directions[d]) % 8), width, height) != WalkType::Stop) {
-
-
                                         found = true;
                                         break;
 

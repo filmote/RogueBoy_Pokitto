@@ -78,7 +78,7 @@ void MapInformation::setHasRune(bool hasRune) {
 
 void MapInformation::decTimer() {
     //SJH 
-    this->timer--;
+    if (this->timer > 0) this->timer--;
 }
 
 MapTiles MapInformation::getBlock(int16_t x, int16_t y) {
@@ -185,7 +185,16 @@ void MapInformation::clearMap() {
 
 }
 
+
 WalkType MapInformation::isWalkable(uint16_t x, uint16_t y, Direction direction, uint8_t width, uint8_t height) {
+
+    bool up, down, left, right;
+
+    return isWalkable(x, y, direction, width, height, up, down, left, right);
+
+}
+
+WalkType MapInformation::isWalkable(uint16_t x, uint16_t y, Direction direction, uint8_t width, uint8_t height, bool &nudgeUp, bool &nudgeDown, bool &nudgeLeft, bool &nudgeRight) {
 
     MapTiles tile1 = MapTiles::Empty;
     MapTiles tile2 = MapTiles::Empty;
@@ -200,53 +209,32 @@ WalkType MapInformation::isWalkable(uint16_t x, uint16_t y, Direction direction,
     switch (direction) {
 
         case Direction::Up:
-            // printf("Up (%i,%i) %i,%i > %i,%i > %i,%i .. ", x, y, this->getTileX(x), this->getTileY(y), this->getTileX(x - widthHalf), this->getTileY(y - heightHalf), this->getTileX(x - widthHalf+ 16), this->getTileY(y - heightHalf));        
-            // printf("x=%i %% 16 = %i .. ", x, ((x - widthHalf) % 16) + width);        
             tile1 = this->getBlock(this->getTileX(x - widthHalf), this->getTileY(y - heightHalf));
-//            if (((x - widthHalf) % 16) + width > 16) tile2 = this->getBlock(this->getTileX(x - widthHalf + 16), this->getTileY(y - heightHalf));
             if (((x - widthHalf) % 16) + width > 16) tile2 = this->getBlock(this->getTileX(x + widthHalf), this->getTileY(y - heightHalf));
-            // printf("%i %i ", tile1, tile2);
+            nudgeRight = isEmptyTile(tile2) && (16 - ((x - widthHalf) % TILE_SIZE)) <= 7;  // 5 Tighter
+            nudgeLeft = isEmptyTile(tile1) && ((x - widthHalf) % TILE_SIZE) <= 11; // 9 Tighter
             break;
 
         case Direction::Right:
-// if (width == 4) {
-// printf("Right (%i,%i) %i,%i > %i,%i > %i,%i .. ", x, y, this->getTileX(x), this->getTileY(y), this->getTileX(x + widthHalf - 1), this->getTileY(y - heightHalf), this->getTileX(x + widthHalf - 1), this->getTileY(y - heightHalf + 16));        
-// printf("y=%i %% 16 = %i .. ", y, ((y - heightHalf) % 16) + height);        
-// }
             tile1 = this->getBlock(this->getTileX(x + widthHalf - 1), this->getTileY(y - heightHalf));
-//            if (((y - heightHalf) % 16) + height > 16) tile2 = this->getBlock(this->getTileX(x + widthHalf - 1), this->getTileY(y - heightHalf + 16)); 
             if (((y - heightHalf) % 16) + height > 16) tile2 = this->getBlock(this->getTileX(x + widthHalf - 1), this->getTileY(y + heightHalf)); 
-// if (width == 4) {
-// printf("%i %i \n", tile1, tile2);
-// }
+            nudgeDown = isEmptyTile(tile2) && (16 - ((y - widthHalf) % TILE_SIZE)) <= 7;  // 5 Tighter
+            nudgeUp = isEmptyTile(tile1) && ((y - widthHalf) % TILE_SIZE) <= 11; // 9 Tighter
             break;
 
         case Direction::Down:
-// if (width == 24) {        
-// printf("Down (%i,%i) %i,%i > %i,%i > %i,%i .. ", x, y, this->getTileX(x), this->getTileY(y), this->getTileX(x - widthHalf), this->getTileY(y + heightHalf - 1), this->getTileX(x - widthHalf+ 16), this->getTileY(y + heightHalf - 1));        
-// printf("y=%i %% 16 = %i .. ", y, ((x - widthHalf) % 16) + width);        
-// }
             tile1 = this->getBlock(this->getTileX(x - widthHalf), this->getTileY(y + heightHalf - 1));
-//            if (((x - widthHalf) % 16) + width > 16) tile2 = this->getBlock(this->getTileX(x - widthHalf + 16), this->getTileY(y + heightHalf - 1));
             if (((x - widthHalf) % 16) + width > 16) tile2 = this->getBlock(this->getTileX(x + widthHalf), this->getTileY(y + heightHalf - 1));
-// if (width == 24) {        
-// printf("%i %i \n", tile1, tile2);
-// }
+            nudgeRight = isEmptyTile(tile2) && (16 - ((x - widthHalf) % TILE_SIZE)) <= 7;  // 5 Tighter
+            nudgeLeft = isEmptyTile(tile1) && ((x - widthHalf) % TILE_SIZE) <= 11; // 9 Tighter
             break;
 
         case Direction::Left:
-// if (width == 4) {
-// printf("Left (%i,%i) %i,%i > %i,%i > %i,%i .. ", x, y, this->getTileX(x), this->getTileY(y), this->getTileX(x - widthHalf), this->getTileY(y - heightHalf), this->getTileX(x - widthHalf), this->getTileY(y - heightHalf + 16));        
-// printf("y=%i %% 16 = %i .. ", y, ((y - heightHalf) % 16) + height);        
-// }
             tile1 = this->getBlock(this->getTileX(x - widthHalf), this->getTileY(y - heightHalf));
-//            if (((y - heightHalf) % 16) + height > 16) tile2 = this->getBlock(this->getTileX(x - widthHalf), this->getTileY(y - heightHalf + 16));
             if (((y - heightHalf) % 16) + height > 16) tile2 = this->getBlock(this->getTileX(x - widthHalf), this->getTileY(y + heightHalf));
-// if (width == 4) {
-// printf("%i %i \n", tile1, tile2);
-// }
+            nudgeDown = isEmptyTile(tile2) && (16 - ((y - widthHalf) % TILE_SIZE)) <= 7;  // 5 Tighter
+            nudgeUp = isEmptyTile(tile1) && ((y - widthHalf) % TILE_SIZE) <= 11; // 9 Tighter
             break;
-
             
     }
 
@@ -279,21 +267,18 @@ WalkType MapInformation::isWalkable(uint16_t x, uint16_t y, Direction direction,
 
                 case Direction::Up:
                     yMod = (y - widthHalf) % 16;
-                    // printf("Shop1 U %i %i\n", xMod, yMod);
                     walk = ((yMod == 0) || (yMod > 8) ? WalkType::Normal : WalkType::Stop);
                     break;
 
                 case Direction::Left:
                     xMod = (x - widthHalf) % 16;
                     yMod = (y - widthHalf) % 16;
-                    // printf("Shop1 L %i %i\n", xMod, yMod);
                     walk = ((xMod > 10 && yMod <= 8) || (yMod > 8) ? WalkType::Normal : WalkType::Stop);
                     break;
 
                 case Direction::Right:
                     xMod = (x + widthHalf) % 16;
                     yMod = (y - widthHalf) % 16;
-                    // printf("Shop1 R %i %i\n", xMod, yMod);
                     walk = ((xMod <= 6 && yMod <= 8) || (yMod > 8) ? WalkType::Normal : WalkType::Stop);
                     break;
 
@@ -308,28 +293,24 @@ WalkType MapInformation::isWalkable(uint16_t x, uint16_t y, Direction direction,
                 case Direction::Left:
                     xMod = (x - widthHalf) % 16;
                     yMod = (y - widthHalf) % 16;
-                    // printf("BAR1 L %i %i\n", xMod, yMod);
                     walk = ((xMod > 10) || (yMod == 0) ? WalkType::Normal : WalkType::Stop);
                     break;
 
                 case Direction::Right:
                     xMod = (x + widthHalf) % 16;
                     yMod = (y - widthHalf) % 16;
-                    // printf("BAR1 R %i %i\n", xMod, yMod);
                     walk = ((xMod < 6) || (yMod == 0) ? WalkType::Normal : WalkType::Stop);
                     break;
 
                 case Direction::Up:
                     xMod = (x - widthHalf) % 16;
                     yMod = (y - widthHalf) % 16;
-                    // printf("BAR1 U %i %i\n", xMod, yMod);
                     walk = ((xMod >= 12) || (yMod < 4) ? WalkType::Normal : WalkType::Stop);
                     break;
 
                 case Direction::Down:
                     xMod = (x - widthHalf) % 16;
                     yMod = (y + widthHalf) % 16;
-                    // printf("BAR1 D %i %i\n", xMod, yMod);
                     walk = ((xMod >= 12) || (yMod == 0) ? WalkType::Normal : WalkType::Stop);
                     break;
                 
@@ -437,9 +418,6 @@ WalkType MapInformation::isWalkable(uint16_t x, uint16_t y, Direction direction,
 
                 case Direction::Right:
                     walk = WalkType::Stop;
-//                     xMod = (x - widthHalf) % 16;
-// printf("SpearDoorLHS %i \n", xMod);  
-//                     walk = ((xMod == 0) || (xMod > 6) ? WalkType::Normal : WalkType::Stop);
                     break;
 
                 default:
@@ -457,9 +435,6 @@ WalkType MapInformation::isWalkable(uint16_t x, uint16_t y, Direction direction,
 
                 case Direction::Left:
                     walk = WalkType::Stop;
-//                     xMod = (x - widthHalf) % 16;
-// printf("SpearDoorRHS %i \n", xMod);                    
-//                     walk = ((xMod < 12) ? WalkType::Normal : WalkType::Stop);
                     break;
 
                 case Direction::Right:
@@ -550,7 +525,6 @@ WalkType MapInformation::isWalkable(uint16_t x, uint16_t y, Direction direction,
             switch (direction) {
 
                 case Direction::Left:
-                    // printf("%i, %i > %i\n", xMod, yMod, xMod + yMod);
                     if (xMod + yMod >= 16) {
                         walk = WalkType::Normal;
                     }
@@ -560,7 +534,6 @@ WalkType MapInformation::isWalkable(uint16_t x, uint16_t y, Direction direction,
                     break;
 
                 case Direction::Up:
-                    // printf("NULT:1 %i, %i > %i\n", xMod, yMod, xMod + yMod);
                     if (xMod + yMod >= 16) {
                         walk = WalkType::Normal;
                     }
@@ -582,7 +555,7 @@ WalkType MapInformation::isWalkable(uint16_t x, uint16_t y, Direction direction,
                 case Direction::Right:
                     xMod = (x + widthHalf) % 16;
                     yMod = (y + heightHalf) % 16;
-                                // printf("UR-R1 %i, %i > %i\n", xMod - 2, yMod, xMod + yMod);
+
                     if (xMod - 2 < yMod) {
                         walk = WalkType::Normal;
                     }
@@ -594,7 +567,7 @@ WalkType MapInformation::isWalkable(uint16_t x, uint16_t y, Direction direction,
                 case Direction::Up:
                     xMod = (x + widthHalf) % 16;
                     yMod = (y - heightHalf) % 16;
-                    // printf("UR-U1 %i, %i > %i\n", xMod, yMod, xMod + yMod);
+
                     if (xMod!= 0 && xMod <= yMod) {
                         walk = WalkType::Normal;
                     }
@@ -617,7 +590,6 @@ WalkType MapInformation::isWalkable(uint16_t x, uint16_t y, Direction direction,
             switch (direction) {
 
                 case Direction::Left:
-                    // printf("LL-R1 %i, %i > %i\n", xMod, yMod, xMod + yMod);
                     if (yMod != 0 && xMod >= yMod) {
                         walk = WalkType::Normal;
                     }
@@ -627,7 +599,6 @@ WalkType MapInformation::isWalkable(uint16_t x, uint16_t y, Direction direction,
                     break;
 
                 case Direction::Down:
-                    // printf("LL-D1 %i, %i > %i\n", xMod, yMod, xMod + yMod);
                     if (xMod >= yMod) {
                         walk = WalkType::Normal;
                     }
@@ -650,7 +621,6 @@ WalkType MapInformation::isWalkable(uint16_t x, uint16_t y, Direction direction,
             switch (direction) {
 
                 case Direction::Right:
-                    // printf("LR-R1 %i, %i > %i\n", xMod, yMod, xMod + yMod);
                     if (yMod != 0 && xMod + yMod <= 16) {
                         walk = WalkType::Normal;
                     }
@@ -660,7 +630,6 @@ WalkType MapInformation::isWalkable(uint16_t x, uint16_t y, Direction direction,
                     break;
 
                 case Direction::Down:
-                    // printf("LR-D1 %i, %i > %i\n", xMod, yMod, xMod + yMod);
                     if (xMod != 0 && xMod + yMod <= 16) {
                         walk = WalkType::Normal;
                     }
@@ -684,7 +653,6 @@ WalkType MapInformation::isWalkable(uint16_t x, uint16_t y, Direction direction,
 
                 case Direction::Left:
                 case Direction::Right:
-                    // printf("SWTL1_L %i, %i > %i\n", xMod, yMod, xMod + yMod);
                     if (xMod + yMod >= 18) {
                         walk = WalkType::Normal;
                     }
@@ -695,7 +663,6 @@ WalkType MapInformation::isWalkable(uint16_t x, uint16_t y, Direction direction,
 
                 case Direction::Up:
                 case Direction::Down:
-                    // printf("SWTL1_U %i, %i > %i\n", xMod, yMod, xMod + yMod);
                     if (xMod + yMod >= 18) {
                         walk = WalkType::Normal;
                     }
@@ -718,7 +685,7 @@ WalkType MapInformation::isWalkable(uint16_t x, uint16_t y, Direction direction,
                 case Direction::Right:
                     xMod = (x + widthHalf) % 16;
                     yMod = (y - heightHalf) % 16;
-                    // printf("SWTR1_R %i, %i > %i\n", xMod - 2, yMod, xMod + yMod);
+
                     if (xMod - 4 < yMod) {
                         walk = WalkType::Normal;
                     }
@@ -731,7 +698,7 @@ WalkType MapInformation::isWalkable(uint16_t x, uint16_t y, Direction direction,
                 case Direction::Down:
                     xMod = (x + widthHalf) % 16;
                     yMod = (y - heightHalf) % 16;
-                    // printf("SWTR1_U %i, %i > %i\n", xMod, yMod, xMod + yMod);
+
                     if (xMod!= 0 && xMod < yMod) {
                         walk = WalkType::Normal;
                     }
@@ -755,7 +722,6 @@ WalkType MapInformation::isWalkable(uint16_t x, uint16_t y, Direction direction,
 
                 case Direction::Left:
                 case Direction::Right:
-                    // printf("LL-R1 %i, %i > %i\n", xMod, yMod, xMod + yMod);
                     if (yMod != 0 && xMod >= yMod) {
                         walk = WalkType::Normal;
                     }
@@ -766,7 +732,6 @@ WalkType MapInformation::isWalkable(uint16_t x, uint16_t y, Direction direction,
 
                 case Direction::Up:
                 case Direction::Down:
-                    // printf("LL-D1 %i, %i > %i\n", xMod, yMod, xMod + yMod);
                     if (xMod >= yMod) {
                         walk = WalkType::Normal;
                     }
@@ -790,7 +755,6 @@ WalkType MapInformation::isWalkable(uint16_t x, uint16_t y, Direction direction,
 
                 case Direction::Left:
                 case Direction::Right:
-                    // printf("LR-R1 %i, %i > %i\n", xMod, yMod, xMod + yMod);
                     if (yMod != 0 && xMod + yMod <= 16) {
                         walk = WalkType::Normal;
                     }
@@ -801,7 +765,6 @@ WalkType MapInformation::isWalkable(uint16_t x, uint16_t y, Direction direction,
 
                 case Direction::Up:
                 case Direction::Down:
-                    // printf("LR-D1 %i, %i > %i\n", xMod, yMod, xMod + yMod);
                     if (xMod != 0 && xMod + yMod <= 16) {
                         walk = WalkType::Normal;
                     }
@@ -845,7 +808,6 @@ WalkType MapInformation::isWalkable(uint16_t x, uint16_t y, Direction direction,
             case MapTiles::SpearDoorTOPOpen:
             case MapTiles::SpearDoorBOTOpen:
             case MapTiles::WormHole_F0:
-                // walk = WalkType::Normal;
                 break;
 
             case MapTiles::StraightTOP:
@@ -859,7 +821,6 @@ WalkType MapInformation::isWalkable(uint16_t x, uint16_t y, Direction direction,
 
                     case Direction::Left:
                     case Direction::Right:
-                        // walk = WalkType::Normal;
                         break;
 
                     default:
@@ -876,21 +837,18 @@ WalkType MapInformation::isWalkable(uint16_t x, uint16_t y, Direction direction,
 
                     case Direction::Up:
                         yMod = (y - widthHalf) % 16;
-                        // printf("Shop2 U %i %i\n", xMod, yMod);
                         walk = ((yMod == 0) || (yMod > 8) ? walk : WalkType::Stop);
                         break;
 
                     case Direction::Left:
                         xMod = (x - widthHalf) % 16;
                         yMod = (y + widthHalf) % 16;
-                        // printf("Shop2 L %i %i\n", xMod, yMod);
                         walk = ((xMod > 10 && yMod <= 8) || (yMod > 8) ? walk : WalkType::Stop);
                         break;
 
                     case Direction::Right:
                         xMod = (x + widthHalf) % 16;
                         yMod = (y + widthHalf) % 16;
-                        // printf("Shop2 R %i %i\n", xMod, yMod);
                         walk = ((xMod <= 6 && yMod <= 8) || (yMod > 8) ? walk : WalkType::Stop);
                         break;
 
@@ -905,28 +863,24 @@ WalkType MapInformation::isWalkable(uint16_t x, uint16_t y, Direction direction,
                     case Direction::Left:
                         xMod = (x - widthHalf) % 16;
                         yMod = (y - widthHalf) % 16;
-                        // printf("BAR2 L %i %i\n", xMod, yMod);
                         walk = ((xMod > 10) || (yMod == 8) ? walk : WalkType::Stop);
                         break;
 
                     case Direction::Right:
                         xMod = (x + widthHalf) % 16;
                         yMod = (y - widthHalf) % 16;
-                        // printf("BAR2 R %i %i\n", xMod, yMod);
                         walk = ((xMod < 6) || (yMod == 8) ? walk : WalkType::Stop);
                         break;
 
                     case Direction::Up:
                         xMod = (x + widthHalf) % 16;
                         yMod = (y - widthHalf) % 16;
-                        // printf("BAR2 U %i %i\n", xMod, yMod);
                         walk = ((xMod <= 4) || (yMod < 4) ? walk : WalkType::Stop);
                         break;
 
                     case Direction::Down:
                         xMod = (x + widthHalf) % 16;
                         yMod = (y + widthHalf) % 16;
-                        // printf("BAR2 D %i %i\n", xMod, yMod);
                         walk = ((xMod <= 4) || (yMod < 4) ? walk : WalkType::Stop);
                         break;
                     
@@ -945,7 +899,6 @@ WalkType MapInformation::isWalkable(uint16_t x, uint16_t y, Direction direction,
 
                     case Direction::Up:
                     case Direction::Down:
-                        // walk = WalkType::Normal;
                         break;
 
                     default:
@@ -971,7 +924,6 @@ WalkType MapInformation::isWalkable(uint16_t x, uint16_t y, Direction direction,
                         break;
 
                     default:
-                        // walk = WalkType::Normal;
                         break;
                     
                 }
@@ -993,7 +945,6 @@ WalkType MapInformation::isWalkable(uint16_t x, uint16_t y, Direction direction,
                         break;
 
                     default:
-                        // walk = WalkType::Normal;
                         break;
                     
                 }
@@ -1012,12 +963,9 @@ WalkType MapInformation::isWalkable(uint16_t x, uint16_t y, Direction direction,
 
                     case Direction::Right:
                         walk = WalkType::Stop;
-                        // xMod = (y - widthHalf) % 16;
-                        // walk = ((xMod == 0) || (xMod > 6) ? walk: WalkType::Stop);
                         break;
                         
                     default:
-                        // walk = WalkType::Normal;
                         break;
                     
                 }
@@ -1031,8 +979,6 @@ WalkType MapInformation::isWalkable(uint16_t x, uint16_t y, Direction direction,
 
                     case Direction::Left:
                         walk = WalkType::Stop;
-                        // xMod = (x - widthHalf) % 16;
-                        // walk = ((xMod < 14) ? walk : WalkType::Stop);
                         break;
 
                     case Direction::Right:
@@ -1041,7 +987,6 @@ WalkType MapInformation::isWalkable(uint16_t x, uint16_t y, Direction direction,
                         break;
 
                     default:
-                        // walk = WalkType::Normal;
                         break;
                     
                 }
@@ -1054,7 +999,6 @@ WalkType MapInformation::isWalkable(uint16_t x, uint16_t y, Direction direction,
 
                     case Direction::Down:
                     case Direction::Left:
-                        // walk = WalkType::Normal;
                         break;
 
                     default:
@@ -1071,7 +1015,6 @@ WalkType MapInformation::isWalkable(uint16_t x, uint16_t y, Direction direction,
 
                     case Direction::Down:
                     case Direction::Right:
-                        // walk = WalkType::Normal;
                         break;
 
                     default:
@@ -1088,7 +1031,6 @@ WalkType MapInformation::isWalkable(uint16_t x, uint16_t y, Direction direction,
 
                     case Direction::Up:
                     case Direction::Left:
-                        // walk = WalkType::Normal;
                         break;
 
                     default:
@@ -1105,7 +1047,6 @@ WalkType MapInformation::isWalkable(uint16_t x, uint16_t y, Direction direction,
 
                     case Direction::Up:
                     case Direction::Right:
-                        // walk = WalkType::Normal;
                         break;
 
                     default:
@@ -1117,7 +1058,6 @@ WalkType MapInformation::isWalkable(uint16_t x, uint16_t y, Direction direction,
                 break;
 
             case MapTiles::TriangleTL:
-                    // walk = WalkType::Normal;
                     break;
 
             case MapTiles::TriangleTR:
@@ -1127,75 +1067,54 @@ WalkType MapInformation::isWalkable(uint16_t x, uint16_t y, Direction direction,
                 switch (direction) {
 
                     case Direction::Up:
-                        // printf("UR-U2 %i, %i > %i\n", xMod, yMod, xMod + yMod);
-                        if (xMod - 2 < yMod) {
-                            // walk = WalkType::Normal;
-                        }
-                        else {
+                        if (xMod - 2 >= yMod) {
                             walk = WalkType::Stop;
                         }
                         break;
 
                     default:
-                        // walk = WalkType::Normal;
                         break;
 
                 }
                 break;
 
             case MapTiles::TriangleLL:
-                // printf("ll\n");
                 xMod = (x - widthHalf) % 16;
                 yMod = (y + heightHalf) % 16;
 
                 switch (direction) {
 
                     case Direction::Left:
-                        // printf("LL-L2 %i, %i > %i\n", xMod, yMod, xMod + yMod);
-                        if (xMod >= yMod) {
-                            // walk = WalkType::Normal;
-                        }
-                        else {
+                        if (xMod < yMod) {
                             walk = WalkType::Stop;
                         }
                         break;
 
                     default:
-                        // walk = WalkType::Normal;
                         break;
 
                 }
                 break;
 
             case MapTiles::TriangleLR:
-                // printf("up\n");
                 xMod = (x + widthHalf) % 16;
                 yMod = (y + heightHalf) % 16;
 
                 switch (direction) {
 
                     case Direction::Right:
-                        // printf("LR-R2 %i, %i > %i\n", xMod, yMod, xMod + yMod);
-                        if (xMod + yMod <= 16) {
-                            // walk = WalkType::Normal;
-                        }
-                        else {
+                        if (xMod + yMod > 16) {
                             walk = WalkType::Stop;
                         }
                         break;
 
                     case Direction::Down:
-                        // printf("LR-D2 %i, %i > %i\n", xMod, yMod, xMod + yMod);
-                        if (xMod + yMod <= 16) {
-                            // walk = WalkType::Normal;
-                        }
-                        else {
+                        if (xMod + yMod > 16) {
                             walk = WalkType::Stop;
                         }
                         break;
 
                     default:
-                        // walk = WalkType::Normal;
                         break;
 
                 }
@@ -1210,7 +1129,6 @@ WalkType MapInformation::isWalkable(uint16_t x, uint16_t y, Direction direction,
 
                     case Direction::Left:
                     case Direction::Right:
-                        // printf("SWTL2_L %i, %i > %i\n", xMod, yMod, xMod + yMod);
                         if (xMod + yMod >= 18) {
                             walk = WalkType::Normal;
                         }
@@ -1233,7 +1151,7 @@ WalkType MapInformation::isWalkable(uint16_t x, uint16_t y, Direction direction,
                     case Direction::Right:
                         xMod = (x + widthHalf) % 16;
                         yMod = (y - heightHalf) % 16;
-                        // printf("SWTR2_R %i, %i > %i\n", xMod - 2, yMod, xMod + yMod);
+
                         if (xMod - 4 < yMod) {
                             walk = WalkType::Normal;
                         }
@@ -1257,7 +1175,6 @@ WalkType MapInformation::isWalkable(uint16_t x, uint16_t y, Direction direction,
 
                     case Direction::Left:
                     case Direction::Right:
-                        // printf("SWLL2_L %i, %i > %i\n", xMod, yMod, xMod + yMod);
                         if (yMod != 0 && xMod >= yMod) {
                             walk = WalkType::Normal;
                         }
@@ -1268,7 +1185,6 @@ WalkType MapInformation::isWalkable(uint16_t x, uint16_t y, Direction direction,
 
                     case Direction::Up:
                     case Direction::Down:
-                        // printf("SWLL2_D %i, %i > %i\n", xMod, yMod, xMod + yMod);
                         if (xMod >= yMod) {
                             walk = WalkType::Normal;
                         }
@@ -1292,7 +1208,6 @@ WalkType MapInformation::isWalkable(uint16_t x, uint16_t y, Direction direction,
 
                     case Direction::Left:
                     case Direction::Right:
-                        // printf("SWLLR_R %i, %i > %i\n", xMod, yMod, xMod + yMod);
                         if (yMod != 0 && xMod + yMod <= 16) {
                             walk = WalkType::Normal;
                         }
@@ -1303,7 +1218,6 @@ WalkType MapInformation::isWalkable(uint16_t x, uint16_t y, Direction direction,
 
                     case Direction::Up:
                     case Direction::Down:
-                        // printf("SWLLR_D %i, %i > %i\n", xMod, yMod, xMod + yMod);
                         if (xMod != 0 && xMod + yMod <= 16) {
                             walk = WalkType::Normal;
                         }
@@ -1327,8 +1241,46 @@ WalkType MapInformation::isWalkable(uint16_t x, uint16_t y, Direction direction,
 
     }
 
-    // printf(" -----> %i\n", walk);
-    return walk;
+    if (walk != WalkType::Stop) {
 
+        nudgeUp = false;
+        nudgeDown = false;
+        nudgeLeft = false;
+        nudgeRight = false;
+
+    }
+
+    return walk;
     
+}
+
+bool MapInformation::isEmptyTile(MapTiles tile) {
+
+    switch (tile) {
+
+        case MapTiles::OpenDoor:
+        case MapTiles::UpStairs:
+        case MapTiles::DownStairs:
+        case MapTiles::Empty:
+        case MapTiles::CornerFill:
+        case MapTiles::OpenChest:
+        case MapTiles::Rubble:
+        case MapTiles::PressPlate_Up:
+        case MapTiles::PressPlate_Down:
+        case MapTiles::DoorLHSOpen:
+        case MapTiles::DoorRHSOpen:
+        case MapTiles::DoorTOPOpen:
+        case MapTiles::DoorBOTOpen:
+        case MapTiles::SpearDoorLHSOpen:
+        case MapTiles::SpearDoorRHSOpen:
+        case MapTiles::SpearDoorTOPOpen:
+        case MapTiles::SpearDoorBOTOpen:
+        case MapTiles::WormHole_F0:
+            return true;
+
+        default:
+            return false;
+
+    }
+
 }

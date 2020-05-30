@@ -80,6 +80,11 @@ class Game {
         void updateGame(GameMode gameMode);
         void updateMainMenuStartGame();
         void playerMovement(GameMode gameMode);
+        void playerMovement_Up(Direction &direction, uint16_t &x, uint16_t &y, bool &moving, bool &nudgeUp, bool &nudgeDown, bool &nudgeLeft, bool &nudgeRight);
+        void playerMovement_Down(Direction &direction, uint16_t &x, uint16_t &y, bool &moving, bool &nudgeUp, bool &nudgeDown, bool &nudgeLeft, bool &nudgeRight);
+        void playerMovement_Left(Direction &direction, uint16_t &x, uint16_t &y, bool &moving, bool &nudgeUp, bool &nudgeDown, bool &nudgeLeft, bool &nudgeRight);
+        void playerMovement_Right(Direction &direction, uint16_t &x, uint16_t &y, bool &moving, bool &nudgeUp, bool &nudgeDown, bool &nudgeLeft, bool &nudgeRight);
+           
         bool interactWithBlock(int x, int y, MapTiles block);
         void updateEnvironmentBlock(MapInformation map, uint8_t x, uint8_t y, Environments &Envi);
         void showGuide();
