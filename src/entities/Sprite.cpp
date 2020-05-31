@@ -32,6 +32,7 @@ void Sprite::setPreventImmediatePickup(bool value)  { this->preventImmediatePick
 void Sprite::setGuideText(bool value)               { this->guideText = value; }
 void Sprite::setHeight(uint8_t value)               { this->height = value; }
 void Sprite::setWidth(uint8_t value)                { this->width = value; }
+void Sprite::setPuffIndex(uint8_t value)            { this->puffIndex = value; }
 
 void Sprite::decCountdown() { 
 
@@ -91,7 +92,15 @@ Rect Sprite::getRect() {
 void Sprite::update() { 
     
     if (this->renderHealthBar > 0) this->renderHealthBar--; 
-    if (this->puffIndex > 0) this->puffIndex--; 
+    if (this->puffIndex > 0) { 
+
+        this->puffIndex--; 
+
+        if (this->puffIndex == 0 && this->type >= Object::Guide01 && this->type <= Object::Guide15) {
+            this->active = false;
+        }
+
+    }
     
 }
 

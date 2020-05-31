@@ -12166,6 +12166,12 @@
 		},
 		"\\DarkRitual_V096.bin": {
 			"sdcard": false
+		},
+		"\\roundandround.gif": {
+			"sdcard": false
+		},
+		"\\DarkRitual_V097.bin": {
+			"sdcard": false
 		}
 	},
 	"BUILDFlags": {

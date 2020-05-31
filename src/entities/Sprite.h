@@ -48,6 +48,7 @@ class Sprite {
         void setGuideText(bool guideText);
         void setWidth(uint8_t value);
         void setHeight(uint8_t value);
+        void setPuffIndex(uint8_t value);
 
         void decCountdown();
         Rect getRect();

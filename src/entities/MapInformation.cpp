@@ -72,6 +72,13 @@ void MapInformation::setRandomLow(uint8_t randomLow) {
     this->randomLow = randomLow;
 }
 
+void MapInformation::incRandomLow() {
+
+    if (this->randomLow + 3 < MAPS_RANDOM_COUNT)
+        this->randomLow++;
+
+}
+
 void MapInformation::setHasRune(bool hasRune) {
     this->hasRune = hasRune;
 }
@@ -208,6 +215,34 @@ WalkType MapInformation::isWalkable(uint16_t x, uint16_t y, Direction direction,
 
     switch (direction) {
 
+        // case Direction::Up:
+        //     tile1 = this->getBlock(this->getTileX(x - widthHalf), this->getTileY(y - heightHalf));
+        //     if (((x - widthHalf) % 16) + width > 16) tile2 = this->getBlock(this->getTileX(x + widthHalf), this->getTileY(y - heightHalf));
+        //     nudgeRight = isEmptyTile(tile2) && isWallTile(tile1) && (16 - ((x - widthHalf) % TILE_SIZE)) <= 7;  // 5 Tighter
+        //     nudgeLeft = isEmptyTile(tile1) && isWallTile(tile2) && ((x - widthHalf) % TILE_SIZE) <= 11; // 9 Tighter
+        //     break;
+
+        // case Direction::Right:
+        //     tile1 = this->getBlock(this->getTileX(x + widthHalf - 1), this->getTileY(y - heightHalf));
+        //     if (((y - heightHalf) % 16) + height > 16) tile2 = this->getBlock(this->getTileX(x + widthHalf - 1), this->getTileY(y + heightHalf)); 
+        //     nudgeDown = isEmptyTile(tile2) && isWallTile(tile1) && (16 - ((y - widthHalf) % TILE_SIZE)) <= 7;  // 5 Tighter
+        //     nudgeUp = isEmptyTile(tile1) && isWallTile(tile2) && ((y - widthHalf) % TILE_SIZE) <= 11; // 9 Tighter
+        //     break;
+
+        // case Direction::Down:
+        //     tile1 = this->getBlock(this->getTileX(x - widthHalf), this->getTileY(y + heightHalf - 1));
+        //     if (((x - widthHalf) % 16) + width > 16) tile2 = this->getBlock(this->getTileX(x + widthHalf), this->getTileY(y + heightHalf - 1));
+        //     nudgeRight = isEmptyTile(tile2) && isWallTile(tile1) && (16 - ((x - widthHalf) % TILE_SIZE)) <= 7;  // 5 Tighter
+        //     nudgeLeft = isEmptyTile(tile1) && isWallTile(tile2) && ((x - widthHalf) % TILE_SIZE) <= 11; // 9 Tighter
+        //     break;
+
+        // case Direction::Left:
+        //     tile1 = this->getBlock(this->getTileX(x - widthHalf), this->getTileY(y - heightHalf));
+        //     if (((y - heightHalf) % 16) + height > 16) tile2 = this->getBlock(this->getTileX(x - widthHalf), this->getTileY(y + heightHalf));
+        //     nudgeDown = isEmptyTile(tile2) && isWallTile(tile1) && (16 - ((y - widthHalf) % TILE_SIZE)) <= 7;  // 5 Tighter
+        //     nudgeUp = isEmptyTile(tile1) && isWallTile(tile2) && ((y - widthHalf) % TILE_SIZE) <= 11; // 9 Tighter
+        //     break;
+            
         case Direction::Up:
             tile1 = this->getBlock(this->getTileX(x - widthHalf), this->getTileY(y - heightHalf));
             if (((x - widthHalf) % 16) + width > 16) tile2 = this->getBlock(this->getTileX(x + widthHalf), this->getTileY(y - heightHalf));
@@ -234,8 +269,7 @@ WalkType MapInformation::isWalkable(uint16_t x, uint16_t y, Direction direction,
             if (((y - heightHalf) % 16) + height > 16) tile2 = this->getBlock(this->getTileX(x - widthHalf), this->getTileY(y + heightHalf));
             nudgeDown = isEmptyTile(tile2) && (16 - ((y - widthHalf) % TILE_SIZE)) <= 7;  // 5 Tighter
             nudgeUp = isEmptyTile(tile1) && ((y - widthHalf) % TILE_SIZE) <= 11; // 9 Tighter
-            break;
-            
+            break;            
     }
 
     switch (tile1) {
@@ -293,25 +327,25 @@ WalkType MapInformation::isWalkable(uint16_t x, uint16_t y, Direction direction,
                 case Direction::Left:
                     xMod = (x - widthHalf) % 16;
                     yMod = (y - widthHalf) % 16;
-                    walk = ((xMod > 10) || (yMod == 0) ? WalkType::Normal : WalkType::Stop);
+                    walk = ((xMod > 11) || (yMod >= 13) ? WalkType::Normal : WalkType::Stop);
                     break;
 
                 case Direction::Right:
                     xMod = (x + widthHalf) % 16;
                     yMod = (y - widthHalf) % 16;
-                    walk = ((xMod < 6) || (yMod == 0) ? WalkType::Normal : WalkType::Stop);
+                    walk = ((xMod < 5 && yMod <= 9) || (xMod < 7 && yMod > 9 && yMod < 13) || (yMod >= 13) ? WalkType::Normal : WalkType::Stop);
                     break;
 
                 case Direction::Up:
                     xMod = (x - widthHalf) % 16;
                     yMod = (y - widthHalf) % 16;
-                    walk = ((xMod >= 12) || (yMod < 4) ? WalkType::Normal : WalkType::Stop);
+                    walk = ((xMod < 13 && yMod >= 13 ) || (xMod >= 13) ? WalkType::Normal : WalkType::Stop);
                     break;
 
                 case Direction::Down:
                     xMod = (x - widthHalf) % 16;
                     yMod = (y + widthHalf) % 16;
-                    walk = ((xMod >= 12) || (yMod == 0) ? WalkType::Normal : WalkType::Stop);
+                    walk = ((xMod >= 12) || (yMod <= 1) ? WalkType::Normal : WalkType::Stop);
                     break;
                 
             }
@@ -519,13 +553,15 @@ WalkType MapInformation::isWalkable(uint16_t x, uint16_t y, Direction direction,
             break;
 
         case MapTiles::TriangleTL:
+
             xMod = (x - widthHalf) % 16;
             yMod = (y - heightHalf) % 16;
 
             switch (direction) {
 
                 case Direction::Left:
-                    if (xMod + yMod >= 16) {
+//                    if (xMod + yMod >= 16) {
+                    if (xMod + yMod >= 14) {
                         walk = WalkType::Normal;
                     }
                     else {
@@ -534,7 +570,8 @@ WalkType MapInformation::isWalkable(uint16_t x, uint16_t y, Direction direction,
                     break;
 
                 case Direction::Up:
-                    if (xMod + yMod >= 16) {
+//                    if (xMod + yMod >= 16) {
+                    if (xMod + yMod >= 14) {
                         walk = WalkType::Normal;
                     }
                     else {
@@ -555,20 +592,14 @@ WalkType MapInformation::isWalkable(uint16_t x, uint16_t y, Direction direction,
                 case Direction::Right:
                     xMod = (x + widthHalf) % 16;
                     yMod = (y + heightHalf) % 16;
-
-                    if (xMod - 2 < yMod) {
-                        walk = WalkType::Normal;
-                    }
-                    else {
-                        walk = WalkType::Stop;
-                    }
+                    walk = ((xMod <= yMod + 5 && yMod <= 10) || (xMod < yMod - 9 && yMod > 10) ? walk : WalkType::Stop);
                     break;
 
                 case Direction::Up:
                     xMod = (x + widthHalf) % 16;
                     yMod = (y - heightHalf) % 16;
 
-                    if (xMod!= 0 && xMod <= yMod) {
+                    if (xMod!= 0 && xMod <= yMod + 2) {
                         walk = WalkType::Normal;
                     }
                     else {
@@ -863,25 +894,25 @@ WalkType MapInformation::isWalkable(uint16_t x, uint16_t y, Direction direction,
                     case Direction::Left:
                         xMod = (x - widthHalf) % 16;
                         yMod = (y - widthHalf) % 16;
-                        walk = ((xMod > 10) || (yMod == 8) ? walk : WalkType::Stop);
+                        walk = ((xMod > 11) || (yMod <= 7) ? WalkType::Normal : WalkType::Stop);
                         break;
 
                     case Direction::Right:
                         xMod = (x + widthHalf) % 16;
                         yMod = (y - widthHalf) % 16;
-                        walk = ((xMod < 6) || (yMod == 8) ? walk : WalkType::Stop);
+                        walk = ((xMod < 5 && yMod > 7) || (yMod <= 7) ? walk : WalkType::Stop);
                         break;
 
                     case Direction::Up:
                         xMod = (x + widthHalf) % 16;
                         yMod = (y - widthHalf) % 16;
-                        walk = ((xMod <= 4) || (yMod < 4) ? walk : WalkType::Stop);
+                        walk = ((xMod <= 4) || (xMod <= 5 && yMod > 9) || (xMod >5 && yMod > 11) ? walk : WalkType::Stop);
                         break;
 
                     case Direction::Down:
                         xMod = (x + widthHalf) % 16;
                         yMod = (y + widthHalf) % 16;
-                        walk = ((xMod <= 4) || (yMod < 4) ? walk : WalkType::Stop);
+                        walk = ((xMod <= 3) || (yMod <= 1) ? walk : WalkType::Stop);
                         break;
                     
                 }
@@ -1058,7 +1089,7 @@ WalkType MapInformation::isWalkable(uint16_t x, uint16_t y, Direction direction,
                 break;
 
             case MapTiles::TriangleTL:
-                    break;
+                break;
 
             case MapTiles::TriangleTR:
                 xMod = (x + widthHalf) % 16;
@@ -1067,9 +1098,7 @@ WalkType MapInformation::isWalkable(uint16_t x, uint16_t y, Direction direction,
                 switch (direction) {
 
                     case Direction::Up:
-                        if (xMod - 2 >= yMod) {
-                            walk = WalkType::Stop;
-                        }
+                        walk = ((xMod < 3 && yMod < 14) || (xMod >= 3 && yMod > xMod - 3) ? walk : WalkType::Stop);
                         break;
 
                     default:
@@ -1276,6 +1305,44 @@ bool MapInformation::isEmptyTile(MapTiles tile) {
         case MapTiles::SpearDoorTOPOpen:
         case MapTiles::SpearDoorBOTOpen:
         case MapTiles::WormHole_F0:
+            return true;
+
+        default:
+            return false;
+
+    }
+
+}
+
+
+bool MapInformation::isWallTile(MapTiles tile) {
+
+    switch (tile) {
+
+        case MapTiles::StraightTOP:
+        case MapTiles::StraightBOT:
+        case MapTiles::StraightLHS:
+        case MapTiles::StraightRHS:
+        case MapTiles::StraightTorchTOP_F0:
+        case MapTiles::StraightTorchTOP_F1:
+        case MapTiles::StraightTorchBOT_F0:
+        case MapTiles::StraightTorchBOT_F1:
+        case MapTiles::StraightTorchLHS_F0:
+        case MapTiles::StraightTorchLHS_F1:
+        case MapTiles::StraightTorchRHS_F0:
+        case MapTiles::StraightTorchRHS_F1:
+        case MapTiles::CornerLL:
+        case MapTiles::CornerLR:
+        case MapTiles::CornerTL:
+        case MapTiles::CornerTR:
+        case MapTiles::StraightLR:
+        case MapTiles::StraightTB:
+        case MapTiles::FullBlockWall:
+        case MapTiles::FullSquare:
+        case MapTiles::EndTRL:
+        case MapTiles::EndRBL:
+        case MapTiles::EndTBL:
+        case MapTiles::EndTRB:
             return true;
 
         default:

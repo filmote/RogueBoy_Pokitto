@@ -56,7 +56,8 @@ void Sprites::render(Player &player, bool showEnemies) {
 
             int x = CENTERX - (player.getX() - object.getX());
             int y = CENTERY - (player.getY() - object.getY());
-            
+
+            uint8_t puffIndex = object.getPuffIndex();
             uint8_t frame = object.getFrame();
             int8_t xOffset = object.getXOffset();
             int8_t yOffset = object.getYOffset();
@@ -64,14 +65,31 @@ void Sprites::render(Player &player, bool showEnemies) {
             Direction direction = object.getDirection();
 
             int health = object.getHealthOrig() == 0 ? 0 : 10 * object.getHealth() / object.getHealthOrig();
-            this->renderSprite(object.getType(), x, y, xOffset, yOffset, direction, frame, object.getCountdown(), showEnemies, showGuideText, object.getRenderHealthBar(), health);
+
+            switch (object.getType()) {
+
+                case Object::Guide01 ... Object::Guide15:
+
+                    if (puffIndex == 0 || puffIndex > 5) {
+
+                        this->renderSprite(object.getType(), x, y, xOffset, yOffset, direction, frame, object.getCountdown(), showEnemies, showGuideText, object.getRenderHealthBar(), health);
+
+                    }
+
+                    break;
+
+
+                default:
+                    this->renderSprite(object.getType(), x, y, xOffset, yOffset, direction, frame, object.getCountdown(), showEnemies, showGuideText, object.getRenderHealthBar(), health);
+                    break;
+
+            }
 
 
 
             // Render puff ?
 
-            uint8_t puffIndex = object.getPuffIndex();
-            if (puffIndex > 0) {
+            if (puffIndex > 0 && puffIndex <= 10) {
 
                 PD::drawBitmap(x - 8, y - 8, Images::Puff[(10 - puffIndex) / 2]);
 

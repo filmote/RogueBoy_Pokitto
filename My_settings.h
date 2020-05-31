@@ -6,15 +6,12 @@
 #define PROJ_AUD_FREQ 16000
 
 #define DEBUG
-#define _DEBUG_IDE
+
 
 //--------------------------------------------
 // Confgurable Settings
 //--------------------------------------------
 
-// Inventory ..
-
-#define MAX_INVENTORY_COUNT             5       // NUmber of items the player can hold, two of one type counts as two.
 
 // Health ..
 
@@ -129,6 +126,9 @@
 // Do not touch!
 //--------------------------------------------
 
+#define MAX_INVENTORY_COUNT             5       // NUmber of items the player can hold, two of one type counts as two.
+
+#define MAPS_RANDOM_COUNT               24
 #define CENTERX                         55
 #define CENTERY                         36
 
@@ -159,7 +159,7 @@
 #define END_OF_OPTIONS                  255
 
 #define TIMER_STEP                      24
-#define LEVEL_START_DELAY               60
+#define LEVEL_START_DELAY               40
 #define COOKIE_INITIALISED              25
 #define SHOP_PURCHASE_DELAY             48
 

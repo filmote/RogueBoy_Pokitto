@@ -8,7 +8,7 @@ using PD = Pokitto::Display;
 
 void Game::renderObjects() {
 
-    objects.render(player, (this->levelStartDelay == 0 || this->levelStartDelay % 32 < 16) );
+    objects.render(player, (this->levelStartDelay == 0 || this->levelStartDelay % 24 < 12) );
     bullets.render(player);
 
 }

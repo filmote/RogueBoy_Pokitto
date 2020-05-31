@@ -425,8 +425,9 @@ void Game::showGuide() {
 
     if (PC::buttons.pressed(BTN_A) || PC::buttons.pressed(BTN_B) || PC::buttons.pressed(BTN_C)) {
 
-        PD::setColor(0);
+        PD::setColor(0, 0);
         gameState = GameState::Game; 
+        this->guide->setPuffIndex(20);
 
     }
 
@@ -443,7 +444,7 @@ void Game::showGuide() {
     }
 
 
-    // Rnder screen ..
+    // Render screen ..
 
     PD::fillScreen(0);
     this->renderEnviroment(0, 0);

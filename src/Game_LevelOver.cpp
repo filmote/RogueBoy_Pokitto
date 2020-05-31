@@ -254,6 +254,7 @@ void Game::endOfLevel() {
         if (this->map.getRandomLevel()) { this->map.setRandomLow(this->map.getRandomLow() + 1); }
         gameState = GameState::LoadMap;
         this->points += pts;
+        
     }
 
     PD::setColor(0, 0);

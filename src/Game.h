@@ -173,6 +173,7 @@ class Game {
         uint16_t levelStartDelay = 255;
         uint8_t guideNumber = 0;
         uint8_t guideTop = 0;
+        Sprite *guide;
 
         ShopVariables shopVariables;
         InventoryMenuVariables inventoryMenu;
@@ -281,12 +282,20 @@ class Game {
 
 
         // ---------------------------------------------------------------------------------------------
-
-        const uint8_t * mapsRandom[17] = {
+        
+        const uint8_t * mapsRandom[MAPS_RANDOM_COUNT] = {
+            // 2                   4                      6                      8
             Map_Random_Size_00_00, Map_Random_Size_00_01, Map_Random_Size_00_02, Map_Random_Size_00_04,
+            // 10                  12                     14                     16
             Map_Random_Size_01_00, Map_Random_Size_01_01, Map_Random_Size_01_02, Map_Random_Size_01_04,
+            // 18                  20                     22                     24                     26
             Map_Random_Size_02_00, Map_Random_Size_02_01, Map_Random_Size_02_02, Map_Random_Size_02_04, Map_Random_Size_02_05,
-            Map_Random_Size_03_00, Map_Random_Size_03_01, Map_Random_Size_03_02, Map_Random_Size_03_03
+            // 28                  30                     32                     34                     36
+            Map_Random_Size_02_00, Map_Random_Size_02_01, Map_Random_Size_02_02, Map_Random_Size_02_04, Map_Random_Size_02_05,
+            // 38                  40                     42                     44                     46
+            Map_Random_Size_03_00, Map_Random_Size_03_01, Map_Random_Size_03_02, Map_Random_Size_03_01, Map_Random_Size_03_01, 
+            // 48                 
+            Map_Random_Size_03_03, 
         };
 
 };

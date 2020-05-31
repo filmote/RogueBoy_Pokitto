@@ -37,6 +37,7 @@ class MapInformation {
         void setBlock(uint16_t index, MapTiles block);
         void setRandomLevel(bool randomLevel);
         void setRandomLow(uint8_t randomLow);
+        void incRandomLow();
         void setHasRune(bool hasRune);
 
         bool between(uint8_t x, uint8_t y, uint8_t x1, uint8_t y1, uint8_t x2, uint8_t y2);
@@ -47,6 +48,7 @@ class MapInformation {
         void clearMap();
         void reset();
         bool isEmptyTile(MapTiles tile);
+        bool isWallTile(MapTiles tile);
 
     private:       
 

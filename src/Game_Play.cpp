@@ -824,6 +824,7 @@ void Game::playerMovement(GameMode gameMode) {
                         if (PC::buttons.pressed(BTN_A) || PC::buttons.repeat(BTN_A, 1)) {
 
                             this->guideNumber = static_cast<uint8_t>(object.getType()) - static_cast<uint8_t>(Object::Guide01);
+                            this->guide = &object;
                             this->guideTop = 0;
                             this->gameState = GameState::Guide;
 

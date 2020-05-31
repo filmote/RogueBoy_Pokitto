@@ -26,21 +26,21 @@ void Game::showGameSavedMessage() {
     this->renderHud();
 
     PD::setColor(15);
-    PD::fillRect(21, 27, 70, 24);
-    PD::drawBitmap(15, 22, Images::MessagePanelTOP); 
-    PD::drawBitmap(15, 29, Images::MessagePanelLHS); 
-    PD::drawBitmap(88, 29, Images::MessagePanelRHS); 
-    PD::drawBitmap(15, 50, Images::MessagePanelBOT); 
+    PD::fillRect(14, 27, 87, 24);
+    PD::drawBitmap(8, 22, Images::AltarTOP_Wide); 
+    PD::drawBitmap(8, 29, Images::MessagePanelLHS); 
+    PD::drawBitmap(98, 29, Images::MessagePanelRHS); 
+    PD::drawBitmap(8, 50, Images::AltarBOT_Wide); 
     PD::setColor(4, 15);
     PD::setFont(font3x5);
 
 
-    PD::setCursor(22, 30);
-    PD::print("Ah, you found the");
-    PD::setCursor(26, 37);
-    PD::print("save post! Your");
-    PD::setCursor(29, 44);
-    PD::print("game is saved.");
+    PD::setCursor(19, 30);
+    PD::print("Game Saved. Resuming");
+    PD::setCursor(19, 37);
+    PD::print("will take you to the");
+    PD::setCursor(19, 44);
+    PD::print("START of the level.");
 
     PD::setFont(fontKoubit);
 

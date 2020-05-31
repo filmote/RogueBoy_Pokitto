@@ -99,10 +99,6 @@ void Game::loadMap(const uint8_t * levelToLoad) {
 
     }
 
-    #ifdef DEBUG_IDE
-    this->printMap();
-    #endif
-
 }
 
 
@@ -148,12 +144,6 @@ void Game::nextLevelLoad(GameMode &gameMode) {
             uint16_t cursor = 0;
             uint8_t xSegments = levelToLoad[cursor++];
             uint8_t ySegments = levelToLoad[cursor++];
-
-            #ifdef DEBUG_IDE
-                /* DEBUG */ printf("=========================================================================\n");
-                /* DEBUG */ printf("Random Level: %i", randomLevel);
-                /* DEBUG */ printf("Size %i %i\n",xSegments, ySegments);
-            #endif
             
             map.setWidth(xSegments * RANDOM_TILE_SIZE);
             map.setHeight(ySegments * RANDOM_TILE_SIZE);
@@ -188,10 +178,6 @@ void Game::nextLevelLoad(GameMode &gameMode) {
 
             }
 
-            #ifdef DEBUG_IDE
-                /* DEBUG */ printf("Player %i %i, EOL %i %i\n",playerX, playerY, levelEndX, levelEndY);
-            #endif
-
             // Load segments ..
 
             for (uint8_t ySegment = 0; ySegment < ySegments; ySegment++) {
@@ -202,19 +188,8 @@ void Game::nextLevelLoad(GameMode &gameMode) {
                     uint8_t cursorTile = 0;
                     const uint8_t * segmentToLoad = nullptr; // = this->mapsSegments[tileIdx];
 
-                    #ifdef DEBUG_IDE
-                        /* DEBUG */ printf("segmentDetails >  %i, & 128 > %i, & 64 > %i, &32 > %i\n", segmentDetails, segmentDetails & 128, segmentDetails & 64, segmentDetails & 32);
-                    #endif
 
                     // Determine which segement to load ..
-
-                    if ((segmentDetails & BLANK_SEG) > 0) {
-
-                        #ifdef DEBUG_IDE
-                            this->cells[ySegment][xSegment].isBlank = true;
-                        #endif
-
-                    }
 
                     if ((segmentDetails & ANY_SEG) > 0) {
 
@@ -235,12 +210,6 @@ void Game::nextLevelLoad(GameMode &gameMode) {
 
                         uint8_t segmentType = segmentDetails & 0x1F;
                         uint8_t segmentId = levelToLoad[cursor++];
-
-                        #ifdef DEBUG_IDE
-                            this->cells[ySegment][xSegment].segment = segmentType;
-                            this->cells[ySegment][xSegment].variation = segmentId;
-                            this->cells[ySegment][xSegment].isBlank = false;
-                        #endif
 
                         segmentToLoad = this->getSegment(segmentType, segmentId);
 
@@ -379,7 +348,6 @@ void Game::nextLevelLoad(GameMode &gameMode) {
 
                             this->map.setBlock((xSegment * RANDOM_TILE_SIZE) + playerX, (ySegment * RANDOM_TILE_SIZE) + playerY, static_cast<MapTiles>(MapTiles::UpStairs));
 
-
                             init(px, py, false);
                             playerX = 0;
                             playerY = 0;
@@ -417,11 +385,6 @@ void Game::nextLevelLoad(GameMode &gameMode) {
 
             this->environments.setEnvironmentNum(environmentCount);
             this->objects.setObjectNum(objectCount);
-
-            #ifdef DEBUG_IDE
-            this->printMap();
-            #endif
-
 
         }
         else {
