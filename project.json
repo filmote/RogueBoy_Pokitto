@@ -12184,6 +12184,432 @@
 		},
 		"\\DarkRitual_V098.bin": {
 			"sdcard": false
+		},
+		"\\src\\images\\background\\New folder": {
+			"sdcard": false
+		},
+		"\\src\\images\\background\\bossLevel": {
+			"sdcard": false
+		},
+		"\\src\\images\\background\\bossLevel\\Tile_24_Boss.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\background\\bossLevel\\Tile_25_Boss.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\background\\bossLevel\\Tile_28_Boss.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\background\\bossLevel\\Tile_23_Boss.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\background\\bossLevel\\Tile_34_Boss.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\background\\bossLevel\\Tile_22_Boss.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\background\\bossLevel\\Tile_21_Boss.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\background\\bossLevel\\Tile_35_Boss.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\background\\bossLevel\\Tile_37_Boss.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\background\\bossLevel\\Tile_27_Boss.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\background\\bossLevel\\Tile_36_Boss.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\background\\bossLevel\\Tile_26_Boss.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\background\\bossLevel\\Tile_65_Boss.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\background\\bossLevel\\Tile_69_Boss.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\background\\bossLevel\\Tile_66_Boss.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\background\\bossLevel\\Tile_70_Boss.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\background\\bossLevel\\Tile_67_Boss.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\background\\bossLevel\\Tile_71_Boss.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\background\\bossLevel\\Tile_68_Boss.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\background\\bossLevel\\Tile_72_Boss.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\background\\orig": {
+			"sdcard": false
+		},
+		"\\src\\images\\background\\orig\\Tile_21.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\background\\orig\\Tile_23.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\background\\orig\\Tile_27.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\background\\orig\\Tile_25.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\background\\orig\\Tile_26.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\background\\orig\\Tile_28.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\background\\orig\\Tile_34.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\background\\orig\\Tile_36.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\background\\orig\\Tile_37.h": {
+			"sdcard": false
+		},
+		"\\orig": {
+			"sdcard": false
+		},
+		"\\orig\\Tile_21.h": {
+			"sdcard": false
+		},
+		"\\orig\\Tile_24.h": {
+			"sdcard": false
+		},
+		"\\orig\\Tile_22.h": {
+			"sdcard": false
+		},
+		"\\orig\\Tile_23.h": {
+			"sdcard": false
+		},
+		"\\orig\\Tile_25.h": {
+			"sdcard": false
+		},
+		"\\orig\\Tile_26.h": {
+			"sdcard": false
+		},
+		"\\orig\\Tile_27.h": {
+			"sdcard": false
+		},
+		"\\orig\\Tile_35.h": {
+			"sdcard": false
+		},
+		"\\orig\\Tile_28.h": {
+			"sdcard": false
+		},
+		"\\orig\\Tile_34.h": {
+			"sdcard": false
+		},
+		"\\orig\\Tile_37.h": {
+			"sdcard": false
+		},
+		"\\orig\\Tile_36.h": {
+			"sdcard": false
+		},
+		"\\src\\orig": {
+			"sdcard": false
+		},
+		"\\src\\images\\orig": {
+			"sdcard": false
+		},
+		"\\src\\images\\background\\orig\\Tile_21.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\background\\orig\\Tile_24.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\background\\orig\\Tile_23.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\background\\orig\\Tile_26.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\background\\orig\\Tile_27.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\background\\orig\\Tile_28.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\background\\orig\\Tile_34.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\background\\orig\\Tile_36.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\background\\orig\\Tile_37.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\background\\orig\\Tile_65.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\background\\orig\\Tile_67.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\background\\orig\\Tile_68.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\background\\orig\\Tile_71.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\background\\orig\\Tile_72.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\background\\orig\\Tile_70.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\background\\boss": {
+			"sdcard": false
+		},
+		"\\src\\images\\background\\Tile_98.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\background\\orig\\Tile_65.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\background\\orig\\Tile_68.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\background\\orig\\Tile_67.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\background\\orig\\Tile_71.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\background\\orig\\Tile_72.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\background\\orig\\Tile_70.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\background\\boss\\CornerFillLR_Boss.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\background\\boss\\CornerFillTL_Boss.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\background\\boss\\CornerFillLL_Boss.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\background\\boss\\CornerFillTR_Boss.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\background\\boss\\Tile_21_Boss.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\background\\boss\\Tile_22_Boss.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\background\\boss\\Tile_24_Boss.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\background\\boss\\Tile_23_Boss.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\background\\boss\\Tile_26_Boss.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\background\\boss\\Tile_25_Boss.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\background\\boss\\Tile_27_Boss.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\background\\boss\\Tile_28_Boss.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\background\\boss\\Tile_35_Boss.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\background\\boss\\Tile_34_Boss.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\background\\boss\\Tile_36_Boss.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\background\\boss\\Tile_37_Boss.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\background\\boss\\Tile_65_Boss.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\background\\boss\\Tile_66_Boss.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\background\\boss\\Tile_67_Boss.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\background\\boss\\Tile_68_Boss.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\background\\boss\\Tile_70_Boss.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\background\\boss\\Tile_71_Boss.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\background\\boss\\Tile_69_Boss.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\background\\boss\\Tile_72_Boss.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\background\\orig\\CornerFillLL.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\background\\orig\\CornerFillLL.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\background\\orig\\CornerFillLR.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\background\\orig\\CornerFillLR.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\background\\orig\\CornerFillTL.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\background\\orig\\CornerFillTR.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\background\\orig\\CornerFillTL.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\background\\orig\\CornerFillTR.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\background\\orig\\Tile_22.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\background\\orig\\Tile_22.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\background\\orig\\Tile_24.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\background\\orig\\Tile_25.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\background\\orig\\Tile_35.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\background\\orig\\Tile_35.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\background\\orig\\Tile_66.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\background\\orig\\Tile_69.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\background\\boss\\CornerFillLR_Boss.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\background\\boss\\CornerFillTL_Boss.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\background\\boss\\CornerFillLL_Boss.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\background\\boss\\CornerFillTR_Boss.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\background\\boss\\Tile_21_Boss.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\background\\boss\\Tile_22_Boss.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\background\\boss\\Tile_24_Boss.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\background\\boss\\Tile_23_Boss.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\background\\boss\\Tile_26_Boss.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\background\\boss\\Tile_25_Boss.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\background\\boss\\Tile_27_Boss.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\background\\boss\\Tile_28_Boss.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\background\\boss\\Tile_34_Boss.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\background\\boss\\Tile_35_Boss.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\background\\boss\\Tile_36_Boss.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\background\\boss\\Tile_37_Boss.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\background\\boss\\Tile_65_Boss.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\background\\boss\\Tile_66_Boss.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\background\\boss\\Tile_67_Boss.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\background\\boss\\Tile_70_Boss.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\background\\boss\\Tile_68_Boss.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\background\\boss\\Tile_71_Boss.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\background\\boss\\Tile_69_Boss.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\background\\boss\\Tile_72_Boss.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\background\\orig\\Tile_66.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\background\\orig\\Tile_69.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\background\\Tile_99.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\background\\Tile_99.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\background\\boss\\Tile_38_Boss.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\background\\orig\\Tile_38.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\background\\boss\\Tile_38_Boss.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\background\\orig\\Tile_38.h": {
+			"sdcard": false
 		}
 	},
 	"BUILDFlags": {

@@ -7,7 +7,7 @@ using PD = Pokitto::Display;
 
 void Game::death() {
 
-    this->renderEnviroment(0, 0);
+    this->renderEnvironment(this->map.isBossLevel(), 0, 0);
     this->renderHud();
 
     PD::setColor(15);

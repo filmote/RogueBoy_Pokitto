@@ -112,7 +112,7 @@ void Game::renderHud() {
 
 }
 
-void Game::renderEnviroment(int8_t damageOffsetX, int8_t damageOffsetY) {
+void Game::renderEnvironment(bool renderOrig, int8_t damageOffsetX, int8_t damageOffsetY) {
 
     int tileX = this->map.getTileX(player.getX());
     int tileY = this->map.getTileY(player.getY());
@@ -149,20 +149,20 @@ void Game::renderEnviroment(int8_t damageOffsetX, int8_t damageOffsetY) {
                     break;
 
                 case MapTiles::StraightTOP:
-                    this->renderEnviroment_Top_Left(tileX + i, tileY + j, drawX, drawY);
-                    this->renderEnviroment_Top_Right(tileX + i, tileY + j, drawX, drawY);
+                    this->renderEnvironment_Top_Left(renderOrig, tileX + i, tileY + j, drawX, drawY);
+                    this->renderEnvironment_Top_Right(renderOrig, tileX + i, tileY + j, drawX, drawY);
                     break;
 
                 case MapTiles::StraightBOT:
-                    this->renderEnviroment_Bot_Left(tileX + i, tileY + j, drawX, drawY);
-                    this->renderEnviroment_Bot_Right(tileX + i, tileY + j, drawX, drawY);
+                    this->renderEnvironment_Bot_Left(renderOrig, tileX + i, tileY + j, drawX, drawY);
+                    this->renderEnvironment_Bot_Right(renderOrig, tileX + i, tileY + j, drawX, drawY);
                     break;
 
                 case MapTiles::StraightTB:
-                    this->renderEnviroment_Top_Left(tileX + i, tileY + j, drawX, drawY);
-                    this->renderEnviroment_Top_Right(tileX + i, tileY + j, drawX, drawY);
-                    this->renderEnviroment_Bot_Left(tileX + i, tileY + j, drawX, drawY);
-                    this->renderEnviroment_Bot_Right(tileX + i, tileY + j, drawX, drawY);
+                    this->renderEnvironment_Top_Left(renderOrig, tileX + i, tileY + j, drawX, drawY);
+                    this->renderEnvironment_Top_Right(renderOrig, tileX + i, tileY + j, drawX, drawY);
+                    this->renderEnvironment_Bot_Left(renderOrig, tileX + i, tileY + j, drawX, drawY);
+                    this->renderEnvironment_Bot_Right(renderOrig, tileX + i, tileY + j, drawX, drawY);
                     break;
 
                 case MapTiles::StraightLHS:
@@ -170,7 +170,12 @@ void Game::renderEnviroment(int8_t damageOffsetX, int8_t damageOffsetY) {
                     switch (this->map.getBlock(tileX + i - 1, tileY + j - 1)) {
 
                         case MapTiles::CornerLL:
-                            PD::drawBitmap(drawX, drawY - 8, Images::CornerFillLL);
+                            if (renderOrig) {
+                                PD::drawBitmap(drawX, drawY - 8, Images::CornerFillLL);
+                            }
+                            else {
+                                PD::drawBitmap(drawX, drawY - 8, Images::CornerFillLL_Boss);
+                            }
                             break;
 
                     }                
@@ -178,7 +183,12 @@ void Game::renderEnviroment(int8_t damageOffsetX, int8_t damageOffsetY) {
                     switch (this->map.getBlock(tileX + i - 1, tileY + j + 1)) {
 
                         case MapTiles::CornerTL:
-                            PD::drawBitmap(drawX, drawY + 16, Images::CornerFillTL);
+                            if (renderOrig) {
+                                PD::drawBitmap(drawX, drawY + 16, Images::CornerFillTL);
+                            }
+                            else {
+                                PD::drawBitmap(drawX, drawY + 16, Images::CornerFillTL_Boss);
+                            }
                             break;
 
                     }                
@@ -190,7 +200,12 @@ void Game::renderEnviroment(int8_t damageOffsetX, int8_t damageOffsetY) {
                     switch (this->map.getBlock(tileX + i + 1, tileY + j - 1)) {
 
                         case MapTiles::CornerLR:
-                            PD::drawBitmap(drawX + 8, drawY - 8, Images::CornerFillLR);
+                            if (renderOrig) {
+                                PD::drawBitmap(drawX + 8, drawY - 8, Images::CornerFillLR);
+                            }
+                            else {
+                                PD::drawBitmap(drawX + 8, drawY - 8, Images::CornerFillLR_Boss);
+                            }
                             break;
 
                     }                
@@ -198,7 +213,12 @@ void Game::renderEnviroment(int8_t damageOffsetX, int8_t damageOffsetY) {
                     switch (this->map.getBlock(tileX + i + 1, tileY + j + 1)) {
 
                         case MapTiles::CornerTR:
-                            PD::drawBitmap(drawX + 8, drawY + 16, Images::CornerFillTR);
+                            if (renderOrig) {
+                                PD::drawBitmap(drawX + 8, drawY + 16, Images::CornerFillTR);
+                            }
+                            else {
+                                PD::drawBitmap(drawX + 8, drawY + 16, Images::CornerFillTR_Boss);
+                            }
                             break;
 
                     }                
@@ -206,13 +226,13 @@ void Game::renderEnviroment(int8_t damageOffsetX, int8_t damageOffsetY) {
                     break;
 
                 case MapTiles::EndTBL:
-                    this->renderEnviroment_Top_Right(tileX + i, tileY + j, drawX, drawY);
-                    this->renderEnviroment_Bot_Right(tileX + i, tileY + j, drawX, drawY);
+                    this->renderEnvironment_Top_Right(renderOrig, tileX + i, tileY + j, drawX, drawY);
+                    this->renderEnvironment_Bot_Right(renderOrig, tileX + i, tileY + j, drawX, drawY);
                     break;
 
                 case MapTiles::EndTRB:
-                    this->renderEnviroment_Top_Left(tileX + i, tileY + j, drawX, drawY);
-                    this->renderEnviroment_Bot_Left(tileX + i, tileY + j, drawX, drawY);
+                    this->renderEnvironment_Top_Left(renderOrig, tileX + i, tileY + j, drawX, drawY);
+                    this->renderEnvironment_Bot_Left(renderOrig, tileX + i, tileY + j, drawX, drawY);
                     break;
 
                 case MapTiles::EndTRL:
@@ -221,7 +241,12 @@ void Game::renderEnviroment(int8_t damageOffsetX, int8_t damageOffsetY) {
 
                         case MapTiles::StraightTOP:
                         case MapTiles::StraightTB:
-                            PD::drawBitmap(drawX, drawY + 16, Images::CornerFillTL);
+                            if (renderOrig) {
+                                PD::drawBitmap(drawX, drawY + 16, Images::CornerFillTL);
+                            }
+                            else {
+                                PD::drawBitmap(drawX, drawY + 16, Images::CornerFillTL_Boss);
+                            }
                             break;
 
                     }
@@ -230,7 +255,12 @@ void Game::renderEnviroment(int8_t damageOffsetX, int8_t damageOffsetY) {
 
                         case MapTiles::StraightTOP:
                         case MapTiles::StraightTB:
-                            PD::drawBitmap(drawX + 16, drawY + 16, Images::CornerFillTR);
+                            if (renderOrig) {
+                                PD::drawBitmap(drawX + 16, drawY + 16, Images::CornerFillTR);
+                            }
+                            else {
+                                PD::drawBitmap(drawX + 16, drawY + 16, Images::CornerFillTR_Boss);
+                            }
                             break;
 
                     }
@@ -242,7 +272,12 @@ void Game::renderEnviroment(int8_t damageOffsetX, int8_t damageOffsetY) {
 
                         case MapTiles::StraightBOT:
                         case MapTiles::StraightTB:
-                            PD::drawBitmap(drawX, drawY - 8, Images::CornerFillLL);
+                            if (renderOrig) {
+                                PD::drawBitmap(drawX, drawY - 8, Images::CornerFillLL);
+                            }
+                            else {
+                                PD::drawBitmap(drawX, drawY - 8, Images::CornerFillLL_Boss);
+                            }
                             break;
 
                     }
@@ -251,7 +286,12 @@ void Game::renderEnviroment(int8_t damageOffsetX, int8_t damageOffsetY) {
 
                         case MapTiles::StraightBOT:
                         case MapTiles::StraightTB:
-                            PD::drawBitmap(drawX + 16, drawY - 8, Images::CornerFillLR);
+                            if (renderOrig) {
+                                PD::drawBitmap(drawX + 16, drawY - 8, Images::CornerFillLR);
+                            }
+                            else {
+                                PD::drawBitmap(drawX + 16, drawY - 8, Images::CornerFillLR_Boss);
+                            }
                             break;
 
                     }
@@ -265,7 +305,12 @@ void Game::renderEnviroment(int8_t damageOffsetX, int8_t damageOffsetY) {
                         case MapTiles::StraightTB:
                         case MapTiles::CornerTL:
                         case MapTiles::EndTBL:
-                            PD::drawBitmap(drawX, drawY + 16, Images::CornerFillTL);
+                            if (renderOrig) {
+                                PD::drawBitmap(drawX, drawY + 16, Images::CornerFillTL);
+                            }
+                            else {
+                                PD::drawBitmap(drawX, drawY + 16, Images::CornerFillTL_Boss);
+                            }
                             break;
 
                     }
@@ -276,7 +321,12 @@ void Game::renderEnviroment(int8_t damageOffsetX, int8_t damageOffsetY) {
                         case MapTiles::StraightLR:
                         case MapTiles::CornerLR:
                         case MapTiles::EndRBL:
-                            PD::drawBitmap(drawX + 8, drawY + 8, Images::CornerFillLR);
+                            if (renderOrig) {
+                                PD::drawBitmap(drawX + 8, drawY + 8, Images::CornerFillLR);
+                            }
+                            else {
+                                PD::drawBitmap(drawX + 8, drawY + 8, Images::CornerFillLR_Boss);
+                            }
                             break;
 
                     }
@@ -289,7 +339,12 @@ void Game::renderEnviroment(int8_t damageOffsetX, int8_t damageOffsetY) {
                         case MapTiles::StraightTOP:
                         case MapTiles::StraightTB:
                         case MapTiles::EndTBL:
-                            PD::drawBitmap(drawX + 8, drawY + 16, Images::CornerFillTR);
+                            if (renderOrig) {
+                                PD::drawBitmap(drawX + 8, drawY + 16, Images::CornerFillTR);
+                            }
+                            else {
+                                PD::drawBitmap(drawX + 8, drawY + 16, Images::CornerFillTR_Boss);
+                            }
                             break;
 
                     }
@@ -300,7 +355,12 @@ void Game::renderEnviroment(int8_t damageOffsetX, int8_t damageOffsetY) {
                         case MapTiles::StraightLR:
                         case MapTiles::CornerLL:
                         case MapTiles::EndRBL:
-                            PD::drawBitmap(drawX, drawY + 8, Images::CornerFillLL);
+                            if (renderOrig) {
+                                PD::drawBitmap(drawX, drawY + 8, Images::CornerFillLL);
+                            }
+                            else {
+                                PD::drawBitmap(drawX, drawY + 8, Images::CornerFillLL_Boss);
+                            }
                             break;
 
                     }
@@ -314,7 +374,12 @@ void Game::renderEnviroment(int8_t damageOffsetX, int8_t damageOffsetY) {
                         case MapTiles::StraightLR:
                         case MapTiles::CornerLL:
                         case MapTiles::EndRBL:
-                            PD::drawBitmap(drawX + 16, drawY + 8, Images::CornerFillLL);
+                            if (renderOrig) {
+                                PD::drawBitmap(drawX + 16, drawY + 8, Images::CornerFillLL);
+                            }
+                            else {
+                                PD::drawBitmap(drawX + 16, drawY + 8, Images::CornerFillLL_Boss);
+                            }
                             break;
 
                     }
@@ -328,7 +393,12 @@ void Game::renderEnviroment(int8_t damageOffsetX, int8_t damageOffsetY) {
                         case MapTiles::StraightLR:
                         case MapTiles::CornerLR:
                         case MapTiles::EndRBL:
-                            PD::drawBitmap(drawX - 8, drawY + 8, Images::CornerFillLR);
+                            if (renderOrig) {
+                                PD::drawBitmap(drawX - 8, drawY + 8, Images::CornerFillLR);
+                            }
+                            else {
+                                PD::drawBitmap(drawX - 8, drawY + 8, Images::CornerFillLR_Boss);
+                            }
                             break;
 
                     }
@@ -339,8 +409,17 @@ void Game::renderEnviroment(int8_t damageOffsetX, int8_t damageOffsetY) {
 
             }
 
+            if (renderOrig) {
 
-            PD::drawBitmap(drawX, drawY, Images::Tiles[block]);
+                PD::drawBitmap(drawX, drawY, Images::Tiles[block]);
+
+            }
+            else {
+
+                PD::drawBitmap(drawX, drawY, Images::Tiles_Boss[block]);
+
+            }
+
 
         }
 
@@ -400,35 +479,45 @@ void Game::renderPlayer(int8_t damageOffsetX, int8_t damageOffsetY) {
 
 }
 
-void Game::renderEnviroment_Top_Left(int x, int y, int drawX, int drawY) {
+void Game::renderEnvironment_Top_Left(bool renderOrig, int x, int y, int drawX, int drawY) {
 
     switch (this->map.getBlock(x - 1, y - 1)) {
 
         case MapTiles::StraightRHS:
         case MapTiles::StraightLR:
         case MapTiles::EndTRL:
-            PD::drawBitmap(drawX - 8, drawY, Images::CornerFillTR);
+            if (renderOrig) {
+                PD::drawBitmap(drawX - 8, drawY, Images::CornerFillTR);
+            }
+            else {
+                PD::drawBitmap(drawX - 8, drawY, Images::CornerFillTR_Boss);
+            }
             break;
 
     }
 
 }
 
-void Game::renderEnviroment_Top_Right(int x, int y, int drawX, int drawY) {
+void Game::renderEnvironment_Top_Right(bool renderOrig, int x, int y, int drawX, int drawY) {
 
     switch (this->map.getBlock(x + 1, y - 1)) {
 
         case MapTiles::StraightLHS:
         case MapTiles::StraightLR:
         case MapTiles::EndTRL:
-            PD::drawBitmap(drawX + 16, drawY, Images::CornerFillTL);
+            if (renderOrig) {
+                PD::drawBitmap(drawX + 16, drawY, Images::CornerFillTL);
+            }
+            else {
+                PD::drawBitmap(drawX + 16, drawY, Images::CornerFillTL_Boss);
+            }
             break;
 
     }
 
 }
 
-void Game::renderEnviroment_Bot_Left(int x, int y, int drawX, int drawY) {
+void Game::renderEnvironment_Bot_Left(bool renderOrig, int x, int y, int drawX, int drawY) {
 
     switch (this->map.getBlock(x - 1, y + 1)) {
 
@@ -436,14 +525,19 @@ void Game::renderEnviroment_Bot_Left(int x, int y, int drawX, int drawY) {
         case MapTiles::StraightLR:
         case MapTiles::EndRBL:
         case MapTiles::CornerLR:
-            PD::drawBitmap(drawX - 8, drawY + 8, Images::CornerFillLR);
+            if (renderOrig) {
+                PD::drawBitmap(drawX - 8, drawY + 8, Images::CornerFillLR);
+            }
+            else {
+                PD::drawBitmap(drawX - 8, drawY + 8, Images::CornerFillLR_Boss);
+            }
             break;
 
     }
 
 }
 
-void Game::renderEnviroment_Bot_Right(int x, int y, int drawX, int drawY) {
+void Game::renderEnvironment_Bot_Right(bool renderOrig, int x, int y, int drawX, int drawY) {
 
     switch (this->map.getBlock(x + 1, y + 1)) {
 
@@ -451,7 +545,12 @@ void Game::renderEnviroment_Bot_Right(int x, int y, int drawX, int drawY) {
         case MapTiles::StraightLR:
         case MapTiles::EndRBL:
         case MapTiles::CornerLL:
-            PD::drawBitmap(drawX + 16, drawY + 8, Images::CornerFillLL);
+            if (renderOrig) {
+                PD::drawBitmap(drawX + 16, drawY + 8, Images::CornerFillLL);
+            }
+            else {
+                PD::drawBitmap(drawX + 16, drawY + 8, Images::CornerFillLL_Boss);
+            }
             break;
 
     }

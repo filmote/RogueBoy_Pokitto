@@ -47,11 +47,11 @@ class Game {
         void splashScreen();
 
         void renderHud();
-        void renderEnviroment(int8_t damageOffsetX, int8_t damageOffsetY);
-        void renderEnviroment_Top_Left(int x, int y, int drawX, int drawY);
-        void renderEnviroment_Top_Right(int x, int y, int drawX, int drawY);
-        void renderEnviroment_Bot_Left(int x, int y, int drawX, int drawY);
-        void renderEnviroment_Bot_Right(int x, int y, int drawX, int drawY);
+        void renderEnvironment(bool renderOrig, int8_t damageOffsetX, int8_t damageOffsetY);
+        void renderEnvironment_Top_Left(bool renderOrig, int x, int y, int drawX, int drawY);
+        void renderEnvironment_Top_Right(bool renderOrig, int x, int y, int drawX, int drawY);
+        void renderEnvironment_Bot_Left(bool renderOrig, int x, int y, int drawX, int drawY);
+        void renderEnvironment_Bot_Right(bool renderOrig, int x, int y, int drawX, int drawY);
         void renderInventoryItem(uint8_t y, InventoryItem inventotyItem);
         void renderPlayer(int8_t damageOffsetX, int8_t damageOffsetY);
         void renderObjects();

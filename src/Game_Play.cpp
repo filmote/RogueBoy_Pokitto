@@ -420,11 +420,11 @@ void Game::updateGame(GameMode gameMode) {
     this->updateObjects(player.getHealth() <= 0);
 
     if (this->shake > 0) {
-        this->renderEnviroment(offX[(this->shake - 1) % 2], offY[(this->shake - 1) % 2]);
+        this->renderEnvironment(this->map.isBossLevel(), offX[(this->shake - 1) % 2], offY[(this->shake - 1) % 2]);
         this->renderPlayer(offX[(this->shake - 1) % 2], offY[(this->shake - 1) % 2]);
     }
     else {
-        this->renderEnviroment(0, 0);
+        this->renderEnvironment(this->map.isBossLevel(), 0, 0);
         this->renderPlayer(0, 0);
     }
 

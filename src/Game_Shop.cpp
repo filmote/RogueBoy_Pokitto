@@ -120,7 +120,7 @@ void Game::showShop() {
 
 
 
-    //this->renderEnviroment(0, 0);
+    //this->renderEnvironment(this->map.isBossLevel(), 0, 0);
     PD::setColor(15, 0);
     this->renderHud();
     PD::setColor(6);
