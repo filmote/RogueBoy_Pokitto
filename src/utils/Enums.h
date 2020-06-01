@@ -1,5 +1,11 @@
 #pragma once
 
+enum class SpriteStatus : uint8_t {
+    Inactive,
+    Active,
+    Dying
+};
+
 enum class SoundEffect : uint8_t {
     LeverPull,
     OpenChest,

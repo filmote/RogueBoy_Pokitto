@@ -12175,6 +12175,15 @@
 		},
 		"\\src\\maps\\Maps2.h": {
 			"sdcard": false
+		},
+		"\\Flames.gif": {
+			"sdcard": false
+		},
+		"\\Spikes.gif": {
+			"sdcard": false
+		},
+		"\\DarkRitual_V098.bin": {
+			"sdcard": false
 		}
 	},
 	"BUILDFlags": {

@@ -14,7 +14,7 @@ uint8_t Sprites::getFirstInactiveSpriteIndex(Object type) {
 
         auto &object = this->objects[i];
 
-        if (object.getType() == type && !object.getActive()) {
+        if (object.getType() == type && object.getActive() != SpriteStatus::Active) {
 
             return i;
 
@@ -52,7 +52,7 @@ void Sprites::render(Player &player, bool showEnemies) {
 
         auto &object = this->objects[i];
 
-        if (object.getActive()) {
+        if (object.getActive() != SpriteStatus::Inactive) {
 
             int x = CENTERX - (player.getX() - object.getX());
             int y = CENTERY - (player.getY() - object.getY());
@@ -64,11 +64,11 @@ void Sprites::render(Player &player, bool showEnemies) {
             bool showGuideText = object.getGuideText();
             Direction direction = object.getDirection();
 
-            int health = object.getHealthOrig() == 0 ? 0 : 10 * object.getHealth() / object.getHealthOrig();
+            int health = object.getHealthOrig() <= 0 || object.getHealth() <= 0 ? 0 : 10 * object.getHealth() / object.getHealthOrig();
 
-            switch (object.getType()) {
+            // switch (object.getType()) {
 
-                case Object::Guide01 ... Object::Guide15:
+            //     case Object::Guide01 ... Object::Guide15:
 
                     if (puffIndex == 0 || puffIndex > 5) {
 
@@ -76,14 +76,14 @@ void Sprites::render(Player &player, bool showEnemies) {
 
                     }
 
-                    break;
+                //     break;
 
 
-                default:
-                    this->renderSprite(object.getType(), x, y, xOffset, yOffset, direction, frame, object.getCountdown(), showEnemies, showGuideText, object.getRenderHealthBar(), health);
-                    break;
+                // default:
+                //     this->renderSprite(object.getType(), x, y, xOffset, yOffset, direction, frame, object.getCountdown(), showEnemies, showGuideText, object.getRenderHealthBar(), health);
+                //     break;
 
-            }
+            //}
 
 
 

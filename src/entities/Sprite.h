@@ -30,12 +30,12 @@ class Sprite {
         int16_t getHealth();
         int16_t getHealthOrig();
         bool getGuideText();
-        bool getActive();
+        SpriteStatus getActive();
         bool getRenderHealthBar();
         uint8_t getCountdown();
         bool getPreventImmediatePickup();
 
-        void setActive(bool k);
+        void setActive(SpriteStatus value);
         void setFrame(int8_t frame);
         void setQuantity(uint8_t quantity);
         void setX(uint16_t x);
@@ -54,7 +54,7 @@ class Sprite {
         Rect getRect();
         void update();
         void setPosition(uint16_t x, uint16_t y);
-        void setSprite(uint16_t x, uint16_t y, uint8_t health, Object type, bool active, bool enablePuff);
+        void setSprite(uint16_t x, uint16_t y, uint8_t health, Object type, SpriteStatus active, bool enablePuff);
         bool decHealth(Object weapon); // returns is dead
         Direction getDirection();
 
@@ -78,7 +78,7 @@ class Sprite {
         Object carrying = Object::None;
         int8_t frame;
         uint8_t countdown = 50;
-        bool active;
+        SpriteStatus active;
         bool guideText;
         uint8_t quantity;
 

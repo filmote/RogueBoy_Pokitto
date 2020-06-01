@@ -54,6 +54,7 @@
 #define DAMAGE_GREENSPELL               20
 #define DAMAGE_REDSPELL                 30
 #define DAMAGE_BULLET                   15
+#define DAMAGE_SPIKE_FIRE               5
 
 // Other settings ..
 

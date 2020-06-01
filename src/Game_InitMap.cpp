@@ -57,7 +57,7 @@ void Game::loadMap(const uint8_t * levelToLoad) {
             bool active = true;
 
             auto & object = objects.getSprite(i);
-            object.setSprite(px, py, h, static_cast<Object>(type), active, false);
+            object.setSprite(px, py, h, static_cast<Object>(type), SpriteStatus::Active, false);
 
             switch (type) {
 
@@ -306,7 +306,7 @@ void Game::nextLevelLoad(GameMode &gameMode) {
                                 if (option == randOption) {
 
                                     auto & object = objects.getSprite(objectCount);
-                                    object.setSprite((xSegment * RANDOM_TILE_SIZE * TILE_SIZE) + x, (ySegment * RANDOM_TILE_SIZE * TILE_SIZE) + y, h, static_cast<Object>(type), true, false);
+                                    object.setSprite((xSegment * RANDOM_TILE_SIZE * TILE_SIZE) + x, (ySegment * RANDOM_TILE_SIZE * TILE_SIZE) + y, h, static_cast<Object>(type), SpriteStatus::Active, false);
                                                
                                     switch (type) {
 
@@ -586,7 +586,7 @@ void Game::printMap() {
 
     for (int i=0; i<MAXOBJECT; i++) {
 
-        if (objects.getSprite(i).getActive()) {
+        if (objects.getSprite(i).getActive() == SpriteStatus::Active) {
             /* DEBUG */ printf("obj[%i] x: %i, y: %i, type: %i, health %i \n", i, objects.getSprite(i).getX(), objects.getSprite(i).getY(), objects.getSprite(i).getType(), objects.getSprite(i).getHealth());
         }
 

@@ -21,7 +21,7 @@ void Game::init(uint16_t x, uint16_t y, bool resetObjects) {
         for (uint8_t i = 0; i < MAXOBJECT; i++) {
 
             auto & object = this->objects.getSprite(i);
-            object.setActive(false);
+            object.setActive(SpriteStatus::Inactive);
 
         }
 

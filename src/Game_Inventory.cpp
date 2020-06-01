@@ -283,7 +283,7 @@ void Game::showInventory() {
 
                                 }
 
-                                sprite.setSprite(launchX, launchY, 0, inventoryItem.type, true, false);
+                                sprite.setSprite(launchX, launchY, 0, inventoryItem.type, SpriteStatus::Active, false);
                                 sprite.setPreventImmediatePickup(true);
                                 sprite.setQuantity(inventoryItem.quantity);
 

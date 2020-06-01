@@ -26,12 +26,12 @@ void Game::updateObjects(bool ignorePlayerDamage) {
         auto &objectI = this->objects.getSprite(i);
         bool objectI_IsEnemy = objectI.isEnemy();
 
-        if (objectI.getActive()) { 
 
+        // Reduce the health bar visual indicator counter ..
 
-            // Reduce the health bar visual indicator counter ..
+        objectI.update();
 
-            objectI.update();
+        if (objectI.getActive() == SpriteStatus::Active) { 
 
 
             // Dow we need to update the object?
@@ -42,7 +42,42 @@ void Game::updateObjects(bool ignorePlayerDamage) {
 
                 auto &objectJ = this->objects.getSprite(j);
 
-                if (objectJ.getActive()) {
+                if (objectJ.getActive() == SpriteStatus::Active) {
+
+
+                    // If the enemy has collided with a flame or spear then decrease health ..
+
+                    if (objectI.isEnemy() && (objectJ.getType() == Object::FireTOP || objectJ.getType() == Object::FireBOT) && collision(objectI, objectJ)) {
+
+                        if (objectI.decHealth(Object::FireTOP)) {
+                            playSoundEffect(SoundEffect::Death3);
+                        }
+
+                    }
+
+                    if (objectI.isEnemy() && (objectJ.getType() == Object::SpikeLHS || objectJ.getType() == Object::SpikeRHS) && collision(objectI, objectJ)) {
+
+                        if (objectI.decHealth(Object::SpikeLHS)) {
+                            playSoundEffect(SoundEffect::Death3);
+                        }
+
+                    }
+
+                    if (objectJ.isEnemy() && (objectI.getType() == Object::FireTOP || objectI.getType() == Object::FireBOT) && collision(objectI, objectJ)) {
+
+                        if (objectI.decHealth(Object::FireTOP)) {
+                            playSoundEffect(SoundEffect::Death3);
+                        }
+
+                    }
+
+                    if (objectJ.isEnemy() && (objectI.getType() == Object::SpikeLHS || objectI.getType() == Object::SpikeRHS) && collision(objectI, objectJ)) {
+
+                        if (objectJ.decHealth(Object::SpikeLHS)) {
+                            playSoundEffect(SoundEffect::Death3);
+                        }
+
+                    }
 
 
                     // If the enemy has collided with another enemy then do not update the position ..
@@ -60,7 +95,7 @@ void Game::updateObjects(bool ignorePlayerDamage) {
 
                         if (objectI.getCarrying() == Object::None) {
 
-                            objectJ.setActive(false);
+                            objectJ.setActive(SpriteStatus::Inactive);
                             objectI.setCarrying(objectJ.getType());
                             
                         }
@@ -87,13 +122,13 @@ void Game::updateObjects(bool ignorePlayerDamage) {
 
                     case Object::Coin: 
                         player.incCoins(1); 
-                        objectI.setActive(false); 
+                        objectI.setActive(SpriteStatus::Inactive); 
                         playSoundEffect(SoundEffect::PickUpCoin);
                         break;
 
                     case Object::SackOCash: 
                         player.incCoins(5); 
-                        objectI.setActive(false); 
+                        objectI.setActive(SpriteStatus::Inactive); 
                         playSoundEffect(SoundEffect::PickUpCoin);
                         break;
 
@@ -108,7 +143,7 @@ void Game::updateObjects(bool ignorePlayerDamage) {
                             uint8_t slot = this->player.addInventoryItem(static_cast<Object>(type), 1);
 
                             if (slot != NO_SLOT_FOUND) {
-                                objectI.setActive(false);
+                                objectI.setActive(SpriteStatus::Inactive);
                                 playSoundEffect(SoundEffect::PickUpCoin);
                             }
                             else {
@@ -124,7 +159,7 @@ void Game::updateObjects(bool ignorePlayerDamage) {
                             uint8_t slot = this->player.addInventoryItem(static_cast<Object>(type), objectI.getQuantity());
 
                             if (slot != NO_SLOT_FOUND) {
-                                objectI.setActive(false);
+                                objectI.setActive(SpriteStatus::Inactive);
                                 playSoundEffect(SoundEffect::PickUpCoin);
                             }
                             else {
@@ -275,7 +310,7 @@ void Game::updateObjects(bool ignorePlayerDamage) {
                         if (spriteIdx != NO_SPRITE_FOUND) {
 
                             Sprite &sprite = this->objects.getSprite(spriteIdx);
-                            sprite.setSprite((this->map.getTileX(rx) * TILE_SIZE) + 8, (this->map.getTileY(ry) * TILE_SIZE) + 8, 0, static_cast<Object>(object), true, true);
+                            sprite.setSprite((this->map.getTileX(rx) * TILE_SIZE) + 8, (this->map.getTileY(ry) * TILE_SIZE) + 8, 0, static_cast<Object>(object), SpriteStatus::Active, true);
 
                         }
 
@@ -300,7 +335,7 @@ void Game::updateObjects(bool ignorePlayerDamage) {
 
                             // Did we hit an enemy?
                             
-                            if (object.getActive() && object.isEnemy() && this->collision(object, bullet)) {
+                            if (object.getActive() == SpriteStatus::Active && object.isEnemy() && this->collision(object, bullet)) {
 
                                 if (object.decHealth(bullet.getWeapon())) {
                                     playSoundEffect(SoundEffect::Death3);
@@ -308,7 +343,7 @@ void Game::updateObjects(bool ignorePlayerDamage) {
 
                                 bullet.setActive(false);
 
-                                if (!object.getActive()) {
+                                if (object.getActive() != SpriteStatus::Active) {
 
                                     player.setKills(this->player.getKills() + 1);
 
@@ -419,7 +454,7 @@ bool Game::isBlockedByEnemy(Player player, uint16_t playerX, uint16_t playerY) {
 
         auto &object = this->objects.getSprite(i);
 
-        if (object.getActive() && object.isEnemy()) {
+        if (object.getActive() == SpriteStatus::Active && object.isEnemy()) {
             
             Rect objectRect = object.getRect();
 
@@ -441,7 +476,7 @@ bool Game::isBlockedBySolidSprite(Player player, uint16_t playerX, uint16_t play
 
         auto &object = this->objects.getSprite(i);
 
-        if (object.getActive() && object.isSolidSprite()) {
+        if (object.getActive() == SpriteStatus::Active && object.isSolidSprite()) {
             
             Rect objectRect = object.getRect();
 
@@ -748,7 +783,7 @@ void Game::playerMovement(GameMode gameMode) {
 
                         auto &object = this->objects.getSprite(i);
 
-                        if (object.getActive() && object.isEnemy() && object.getX() >= xMin && object.getX() <= xMax && object.getY() >= yMin & object.getY() <= yMax) {
+                        if (object.getActive() == SpriteStatus::Active && object.isEnemy() && object.getX() >= xMin && object.getX() <= xMax && object.getY() >= yMin & object.getY() <= yMax) {
 
                             object.decHealth(Object::MauveSpell);
 
@@ -812,7 +847,7 @@ void Game::playerMovement(GameMode gameMode) {
 
             auto &object = this->objects.getSprite(i);
 
-            if (object.getActive() && this->collision(this->player, object)) { 
+            if (object.getActive() == SpriteStatus::Active && this->collision(this->player, object)) { 
 
                 switch (object.getType()) {
 
@@ -869,7 +904,7 @@ void Game::playerMovement(GameMode gameMode) {
 
                             auto &object = this->objects.getSprite(i);
 
-                            if (object.getActive() && object.isBoss()) {
+                            if (object.getActive() == SpriteStatus::Active && object.isBoss()) {
 
                                 boss = true;
                                 break;
@@ -987,7 +1022,7 @@ bool Game::interactWithBlock(int x, int y, MapTiles block) {
                 if (spriteIdx != NO_SPRITE_FOUND) {
 
                     Sprite &sprite = this->objects.getSprite(spriteIdx);
-                    sprite.setSprite((x * TILE_SIZE) + 8, (y * TILE_SIZE) + 8, 0, (block == MapTiles::ClosedChest_Key ? Object::Key : Object::Chest), true, false);
+                    sprite.setSprite((x * TILE_SIZE) + 8, (y * TILE_SIZE) + 8, 0, (block == MapTiles::ClosedChest_Key ? Object::Key : Object::Chest), SpriteStatus::Active, false);
 
                 }
 
@@ -1019,7 +1054,7 @@ bool Game::interactWithBlock(int x, int y, MapTiles block) {
                 if (spriteIdx != NO_SPRITE_FOUND) {
 
                     Sprite &sprite = this->objects.getSprite(spriteIdx);
-                    sprite.setSprite((x * TILE_SIZE) + 8, (y * TILE_SIZE) + 8, HEALTH_CHEST, (block == MapTiles::ClosedChest_Key ? Object::Key : Object::Chest), true, false);
+                    sprite.setSprite((x * TILE_SIZE) + 8, (y * TILE_SIZE) + 8, HEALTH_CHEST, (block == MapTiles::ClosedChest_Key ? Object::Key : Object::Chest), SpriteStatus::Active, false);
                     sprite.setCountdown(0);
                     sprite.setDirection(Direction::Down);
                     this->map.setBlock(x, y, MapTiles::Empty); 
@@ -1074,7 +1109,7 @@ bool Game::interactWithBlock(int x, int y, MapTiles block) {
                 if (spriteIdx != NO_SPRITE_FOUND) {
 
                     Sprite &sprite = this->objects.getSprite(spriteIdx);
-                    sprite.setSprite((x * TILE_SIZE) + 8, (y * TILE_SIZE) + 8, 0, static_cast<Object>(object), true, true);
+                    sprite.setSprite((x * TILE_SIZE) + 8, (y * TILE_SIZE) + 8, 0, static_cast<Object>(object), SpriteStatus::Active, true);
 
                 }
 
@@ -1248,7 +1283,7 @@ void Game::dropItem(Object droppedObject, uint16_t x, uint16_t y, bool enemyDrop
 
         auto &obj = this->objects.getSprite(i);
         
-        if (!(obj.getActive())) {
+        if (obj.getActive() != SpriteStatus::Active) {
             slotFound = true;
             slotIndex = i;
             break;
@@ -1275,12 +1310,12 @@ void Game::dropItem(Object droppedObject, uint16_t x, uint16_t y, bool enemyDrop
 
     if (enemyDrop) {
 
-        object.setSprite(x, y, 1, static_cast<Object>(droppedObject), true, true);
+        object.setSprite(x, y, 1, static_cast<Object>(droppedObject), SpriteStatus::Active, true);
         
     }
     else{
 
-        object.setSprite(x, y, 1, static_cast<Object>(droppedObject), true, false);
+        object.setSprite(x, y, 1, static_cast<Object>(droppedObject), SpriteStatus::Active, false);
 
     }
     
@@ -1364,14 +1399,14 @@ void Game::spriteAI(MapInformation &map, Player &player, Sprite &sprite) {
 
                             uint8_t width = spriteWidths[static_cast<uint8_t>(Object::Spider)];
                             uint8_t height = spriteHeights[static_cast<uint8_t>(Object::Spider)];
-                            sprite.setSprite(launchX, launchY, HEALTH_SPIDER, Object::Spider, false, false);
+                            sprite.setSprite(launchX, launchY, HEALTH_SPIDER, Object::Spider, SpriteStatus::Inactive, false);
 
                             if (map.isWalkable(launchX, launchY, direction, width, height) != WalkType::Stop && !collision(this->player, sprite)) {
 
                                 sprite.setFrame(-PUFF_FRAME_MAX + 1);
                                 sprite.setCountdown(0);
                                 sprite.setDirection(direction);
-                                sprite.setActive(true);
+                                sprite.setActive(SpriteStatus::Active);
 
                                 break;
 
@@ -1442,14 +1477,14 @@ void Game::spriteAI(MapInformation &map, Player &player, Sprite &sprite) {
                                     launchX = (tileLaunchX * TILE_WIDTH) + spriteWidths[sprite.getType()];
                                     launchY = (tileLaunchY * TILE_HEIGHT) + spriteHeights[sprite.getType()];
 
-                                    spriteNew.setSprite(launchX, launchY, HEALTH_SKELETON, Object::Skeleton, false, false);
+                                    spriteNew.setSprite(launchX, launchY, HEALTH_SKELETON, Object::Skeleton, SpriteStatus::Inactive, false);
 
                                     if (map.getBlock(tileLaunchX, tileLaunchY) == MapTiles::Empty && !collision(spriteNew, sprite)) {
 
                                         spriteNew.setFrame(-SKELETON_FRAME_MAX + 1);
                                         spriteNew.setCountdown(0);
                                         spriteNew.setDirection(Direction::Down);
-                                        spriteNew.setActive(true);
+                                        spriteNew.setActive(SpriteStatus::Active);
                                         break;
 
                                     }

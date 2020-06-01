@@ -16,11 +16,11 @@ int16_t Sprite::getHealth()                         { return this->health; }
 int16_t Sprite::getHealthOrig()                     { return this->healthOrig; }
 uint8_t Sprite::getCountdown()                      { return this->countdown; }
 bool Sprite::getGuideText()                         { return this->guideText; }
-bool Sprite::getActive()                            { return this->active; }
+SpriteStatus Sprite::getActive()                    { return this->active; }
 bool Sprite::getRenderHealthBar()                   { return this->renderHealthBar > 0; }
 bool Sprite::getPreventImmediatePickup()            { return this->preventImmediatePickup; }
 
-void Sprite::setActive(bool k)                      { this->active = k; }
+void Sprite::setActive(SpriteStatus value)          { this->active = value; }
 void Sprite::setFrame(int8_t frame)                 { this->frame = frame;}
 void Sprite::setQuantity(uint8_t quantity)          { this->quantity = quantity;}
 void Sprite::setX(uint16_t x)                       { this->x = x; }
@@ -51,10 +51,30 @@ Rect Sprite::getRect() {
     switch (this->type) {
 
         case Object::SpikeLHS:
-            return Rect { this->getX() - (this->getWidth() / 2),  this->getY() - (this->getHeight() / 2), spike_frameIdx[frame] * 2, this->getHeight() };
+
+            if (frame == 0) {
+
+                return Rect { 0, 0, 0, 0 }; 
+
+            }
+            else {
+
+                return Rect { this->getX() - (this->getWidth() / 2),  this->getY() - (this->getHeight() / 2), spike_frameIdx[frame] * 2, this->getHeight() };
+
+            }
 
         case Object::SpikeRHS:
-            return Rect { this->getX() - (this->getWidth() / 2) + this->getWidth() - (spike_frameIdx[frame] * 2), this->getY() - (this->getHeight() / 2), spike_frameIdx[frame] * 2, this->getHeight() };
+
+            if (frame == 0) {
+
+                return Rect { 0, 0, 0, 0 }; 
+
+            }
+            else {
+
+                return Rect { this->getX() - (this->getWidth() / 2) + this->getWidth() - (spike_frameIdx[frame] * 2), this->getY() - (this->getHeight() / 2), spike_frameIdx[frame] * 2, this->getHeight() };
+
+            }
 
         case Object::FireTOP:
 
@@ -96,8 +116,8 @@ void Sprite::update() {
 
         this->puffIndex--; 
 
-        if (this->puffIndex == 0 && this->type >= Object::Guide01 && this->type <= Object::Guide15) {
-            this->active = false;
+        if (this->puffIndex == 0 ) {
+            this->active = SpriteStatus::Inactive;
         }
 
     }
@@ -130,7 +150,7 @@ void Sprite::setPosition(uint16_t x, uint16_t y) {
 
 }
 
-void Sprite::setSprite(uint16_t x, uint16_t y, uint8_t health, Object type, bool active, bool enablePuff) {
+void Sprite::setSprite(uint16_t x, uint16_t y, uint8_t health, Object type, SpriteStatus active, bool enablePuff) {
 
     this->x = x;
     this->y = y;
@@ -180,12 +200,29 @@ bool Sprite::decHealth(Object weapon) {
             this->health = 0;
             break;
 
+        case Object::FireTOP:
+        case Object::FireBOT:
+            this->health = DAMAGE_SPIKE_FIRE;
+            break;
+
+        case Object::SpikeLHS:
+        case Object::SpikeRHS:
+            this->health = DAMAGE_SPIKE_FIRE;
+            break;
+
     }
 
     this->renderHealthBar = HEALTH_BAR_DELAY;
 
     if (this->health <= 0) {
-        this->active = false; 
+
+        if (isEnemy()) {
+            this->active = SpriteStatus::Dying;
+            this->puffIndex = 10;
+        }
+        else {
+            this->active = SpriteStatus::Inactive; 
+        }
     }
 
     return (this->health <= 0);
