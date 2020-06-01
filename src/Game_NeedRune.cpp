@@ -25,14 +25,15 @@ void Game::showNeedRuneMessage() {
     this->renderHud();
     PD::setColor(6);
 
-    PD::setColor(15);
-    PD::fillRect(21, 27, 70, 24);
-    PD::drawBitmap(15, 22, Images::MessagePanelTOP); 
-    PD::drawBitmap(15, 29, Images::MessagePanelLHS); 
-    PD::drawBitmap(88, 29, Images::MessagePanelRHS); 
-    PD::drawBitmap(15, 50, Images::MessagePanelBOT); 
-    PD::setColor(4, 15);
-    PD::setFont(font3x5);
+    // PD::setColor(15);
+    // PD::fillRect(21, 27, 70, 24);
+    // PD::drawBitmap(15, 22, Images::MessagePanelTOP); 
+    // PD::drawBitmap(15, 29, Images::MessagePanelLHS); 
+    // PD::drawBitmap(88, 29, Images::MessagePanelRHS); 
+    // PD::drawBitmap(15, 50, Images::MessagePanelBOT); 
+    // PD::setColor(4, 15);
+    // PD::setFont(font3x5);
+    this->renderMessageBox();
 
     PD::setCursor(26, 30);
     PD::print("You have left a");

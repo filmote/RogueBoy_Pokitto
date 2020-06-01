@@ -153,83 +153,12 @@ Direction Game::getNearestCardinalDirection(Direction direction, Axis axis) {
 
 void Game::playSoundEffect(SoundEffect soundEffect) {
 
-    switch (soundEffect) {
-
-        case SoundEffect::LeverPull:
-        case SoundEffect::PressPlate:
-            
-            if (soundEffectFile.openRO("music/darkrit2.raw")){
-                auto &music = Audio::play<1>(soundEffectFile);
-                music.setLoop(false);
-            } 
-            
-            break;
-
-        case SoundEffect::OpenChest:
-            
-            if (soundEffectFile.openRO("music/darkrit3.raw")){
-                auto &music = Audio::play<1>(soundEffectFile);
-                music.setLoop(false);
-            } 
-            
-            break;
-
-        case SoundEffect::CannotPickUp:
-            
-            if (soundEffectFile.openRO("music/darkrit4.raw")){
-                auto &music = Audio::play<1>(soundEffectFile);
-                music.setLoop(false);
-            } 
-
-            break;
-
-        case SoundEffect::PickUpCoin:
-            
-            if (soundEffectFile.openRO("music/darkrit5.raw")){
-                auto &music = Audio::play<1>(soundEffectFile);
-                music.setLoop(false);
-            } 
-
-            break;
-
-        case SoundEffect::Death1:
-            
-            if (soundEffectFile.openRO("music/darkrit6.raw")){
-                auto &music = Audio::play<1>(soundEffectFile);
-                music.setLoop(false);
-            } 
-
-            break;
-
-        case SoundEffect::Death3:
-            
-            if (soundEffectFile.openRO("music/darkrit7.raw")){
-                auto &music = Audio::play<1>(soundEffectFile);
-                music.setLoop(false);
-            } 
-
-            break;
-
-        case SoundEffect::Damage:
-            
-            if (soundEffectFile.openRO("music/darkrit8.raw")){
-                auto &music = Audio::play<1>(soundEffectFile);
-                music.setLoop(false);
-            } 
-
-            break;
-
-        case SoundEffect::CastSpell:
-            
-            if (soundEffectFile.openRO("music/darkrit9.raw")){
-                auto &music = Audio::play<1>(soundEffectFile);
-                music.setLoop(false);
-            } 
-
-            break;
-
-
-    }
+    char sounds[9][19] = { "music/darkrit2.raw", "music/darkrit3.raw", "music/darkrit4.raw", "music/darkrit5.raw", "music/darkrit6.raw", "music/darkrit7.raw", "music/darkrit8.raw", "music/darkrit9.raw", "music/darkrit2.raw" };
+        
+    if (soundEffectFile.openRO(sounds[ static_cast<uint8_t>(soundEffect) ])) {
+        auto &music = Audio::play<1>(soundEffectFile);
+        music.setLoop(false);
+    } 
 
 }
 
@@ -239,4 +168,3 @@ void Game::drawPlayer(int16_t x, uint8_t y) {
     PD::drawBitmapXFlipped(x + 34, y, Images::Player);
 
 }
-

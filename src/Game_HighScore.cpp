@@ -92,15 +92,17 @@ void Game::highScore() {
     this->renderEnvironment(this->map.isBossLevel(), 0, 0);
     this->renderHud();
 
-    PD::setColor(15);
     PD::fillScreen(15);
-    PD::drawBitmap(0, 0, Images::LevelSplash_UpperLeft);
-    PD::drawBitmap(0, 16, Images::LevelSplash_Left);
-    PD::drawBitmap(10, 0, Images::LevelSplash_Top);
-    PD::drawBitmap(100, 0, Images::LevelSplash_UpperRight);
-    PD::drawBitmap(100, 16, Images::LevelSplash_Right);
-    PD::drawBitmap(10, 78, Images::LevelSplash_Bottom);
-    PD::setColor(4, 15);
+    this->renderLevelSplash();
+    // PD::setColor(15);
+    // PD::drawBitmap(0, 0, Images::LevelSplash_UpperLeft);
+    // PD::drawBitmap(0, 16, Images::LevelSplash_Left);
+    // PD::drawBitmap(10, 2, Images::LevelSplash_Top);
+    // PD::drawBitmapXFlipped(54, 2, Images::LevelSplash_Top);
+    // PD::drawBitmap(100, 0, Images::LevelSplash_UpperRight);
+    // PD::drawBitmap(100, 16, Images::LevelSplash_Right);
+    // PD::drawBitmap(10, 78, Images::LevelSplash_Bottom);
+    // PD::setColor(4, 15);
     
     PD::setCursor(24, 21);
     PD::print("High Scores");

@@ -556,3 +556,31 @@ void Game::renderEnvironment_Bot_Right(bool renderOrig, int x, int y, int drawX,
     }
 
 }
+
+void Game::renderMessageBox() {
+
+    PD::setColor(15);
+    PD::fillRect(21, 27, 70, 24);
+    PD::drawBitmap(15, 22, Images::MessagePanelTOP); 
+    PD::drawBitmap(15, 29, Images::MessagePanelLHS); 
+    PD::drawBitmap(88, 29, Images::MessagePanelRHS); 
+    PD::drawBitmap(15, 50, Images::MessagePanelBOT); 
+    PD::setColor(4, 15);
+    PD::setFont(font3x5);
+
+}
+
+void Game::renderLevelSplash() {
+    
+    PD::setColor(15);
+    PD::fillRectangle(10, 10, 90, 52);
+    PD::drawBitmap(0, 0, Images::LevelSplash_UpperLeft);
+    PD::drawBitmap(0, 16, Images::LevelSplash_Left);
+    PD::drawBitmap(10, 2, Images::LevelSplash_Top);
+    PD::drawBitmapXFlipped(54, 2, Images::LevelSplash_Top);
+    PD::drawBitmap(100, 0, Images::LevelSplash_UpperRight);
+    PD::drawBitmap(100, 16, Images::LevelSplash_Right);
+    PD::drawBitmap(10, 78, Images::LevelSplash_Bottom);
+    PD::setColor(4, 15);
+
+}

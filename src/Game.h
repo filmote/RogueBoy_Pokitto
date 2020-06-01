@@ -140,6 +140,8 @@ class Game {
         bool validMove(Direction direction, Node selectedNode, int8_t x, int8_t y);
         void puzzleGameOver();
         void drawPlayer(int16_t x, uint8_t y);
+        void renderMessageBox();
+        void renderLevelSplash();
 
         #ifdef DEBUG
         void clearCells();
