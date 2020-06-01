@@ -12172,6 +12172,9 @@
 		},
 		"\\DarkRitual_V097.bin": {
 			"sdcard": false
+		},
+		"\\src\\maps\\Maps2.h": {
+			"sdcard": false
 		}
 	},
 	"BUILDFlags": {

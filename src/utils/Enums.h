@@ -8,7 +8,8 @@ enum class SoundEffect : uint8_t {
     Death1,
     Death3,
     Damage,
-    CastSpell
+    CastSpell,
+    TouchTile
 };
 
 enum class GameMode : uint8_t {

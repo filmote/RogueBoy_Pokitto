@@ -174,6 +174,7 @@ class Game {
         uint8_t guideNumber = 0;
         uint8_t guideTop = 0;
         Sprite *guide;
+        uint32_t randomSeed = 255;
 
         ShopVariables shopVariables;
         InventoryMenuVariables inventoryMenu;

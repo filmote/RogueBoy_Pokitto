@@ -105,11 +105,11 @@ const uint8_t MAP_Segment_Type07_01[] = {
     1,Object::Bat, 2, 3, HEALTH_NONE,
     1,Object::Bat, 2, 4, HEALTH_NONE,
     1,Object::Bat, 2, 5, HEALTH_NONE,
-    1,Object::Spider, 3, 6, HEALTH_SPIDER,
-    1,Object::Eye, 2, 5, HEALTH_EYE,
-    1,Object::Spider, 3, 6, HEALTH_SPIDER,
-    1,Object::Eye, 2, 5, HEALTH_EYE,
-    1,Object::Skeleton, 3, 6, HEALTH_SKELETON,
+    2,Object::Spider, 3, 6, HEALTH_SPIDER,
+    2,Object::Eye, 2, 5, HEALTH_EYE,
+    3,Object::Spider, 3, 6, HEALTH_SPIDER,
+    3,Object::Eye, 2, 5, HEALTH_EYE,
+    3,Object::Skeleton, 3, 6, HEALTH_SKELETON,
     END_OF_OPTIONS,
 
     // Entrance / Exit Options -----------

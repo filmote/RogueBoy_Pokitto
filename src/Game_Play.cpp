@@ -289,7 +289,7 @@ void Game::updateObjects(bool ignorePlayerDamage) {
                 switch (bulletIdx) {
                     
 
-                    // Did we bullet an enemy?  Test only id it is a player bullet ..
+                    // Did the bullet hit an enemy?  Test only id it is a player bullet ..
 
                     case 0 ... PLAYER_BULLET_MAX - 1:
 
@@ -355,6 +355,7 @@ void Game::updateObjects(bool ignorePlayerDamage) {
                             playSoundEffect(SoundEffect::Death1);
                             bullet.setActive(false);
 
+
                         }
 
                         break;
@@ -377,7 +378,6 @@ void Game::updateGame(GameMode gameMode) {
     if (player.getHealth() > 0) {
 
         if (Pokitto::Core::frameCount % TIMER_STEP == 0) { this->map.decTimer();  }
-        //if (this->map.getTimer() == 0) { player.setHealth(0); }
         this->playerMovement(gameMode);
 
     }

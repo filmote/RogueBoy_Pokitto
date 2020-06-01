@@ -18,18 +18,6 @@ void Game::showShop() {
     // Update timer, counters, etc ..
 
     if (Pokitto::Core::frameCount % TIMER_STEP == 0) { this->map.decTimer();  }
-    
-    // if (this->map.getTimer() == 0) { 
-        
-    //     player.setHealth(0); 
-     
-    //     if (player.getHealth() <= 0) {
-    //         ////aPS::playSFX(Sounds::sfx_Death5, Sounds::sfx_Death5_length); 
-    //         gameState = GameState::Dead;
-
-    //     }
-        
-    // }
 
     if (this->shopVariables.counter > 0) this->shopVariables.counter--;
 

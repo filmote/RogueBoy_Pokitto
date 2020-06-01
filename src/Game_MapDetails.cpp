@@ -9,6 +9,8 @@ void Game::mapDetails() {
         PD::setCursor(0,0);
         PD::print("Map: ");
         PD::print(this->level, 10);
+        PD::print("   Seed: ");
+        PD::print(this->randomSeed, 10);
         PD::print("\n");
 
         for (int x=0; x<map.getWidth()/9; x++) {

@@ -130,6 +130,9 @@ void Game::nextLevelLoad(GameMode &gameMode) {
 
         if (this->map.getRandomLevel()) {
 
+            this->randomSeed = random(0, 256*256);
+            srand(this->randomSeed);
+
             uint8_t randomLevel = random(this->map.getRandomLow(), this->map.getRandomLow() + 4);
 
             #ifdef DEBUG
@@ -414,6 +417,7 @@ void Game::nextLevelLoad(GameMode &gameMode) {
                         this->loadMap(levelToLoad);
                         this->map.setDefinedMapLevel(this->cookieSaveGame->getDefinedMapLevel()); 
                         this->player.setPlayerStatus(this->cookieSaveGame->getPlayerStatus());
+                        this->playerStatus = this->cookieSaveGame->getPlayerStatus();
                         gameMode = GameMode::Normal;
                     }
                     break;
@@ -544,7 +548,7 @@ void Game::clearCells() {
 void Game::printMap() {
 
     /* DEBUG */ printf("-----------------------------\n");
-    /* DEBUG */ printf("W: %i", map.getWidth());
+    /* DEBUG */ printf("W: %i   S:", map.getWidth(), this->randomSeed);
     /* DEBUG */ printf("H: %i",map.getHeight());
     /* DEBUG */ printf("\n-----------------------------\n");
 

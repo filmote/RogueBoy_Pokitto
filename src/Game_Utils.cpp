@@ -156,6 +156,7 @@ void Game::playSoundEffect(SoundEffect soundEffect) {
     switch (soundEffect) {
 
         case SoundEffect::LeverPull:
+        case SoundEffect::PressPlate:
             
             if (soundEffectFile.openRO("music/darkrit2.raw")){
                 auto &music = Audio::play<1>(soundEffectFile);
