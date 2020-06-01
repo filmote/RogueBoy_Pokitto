@@ -660,7 +660,7 @@ void Game::playerMovement(GameMode gameMode) {
         if (this->map.between(3, 3, 11, 11, ofx, ofy) && block == MapTiles::PressPlate_Up) {
             this->map.setBlock(relx,rely,MapTiles::PressPlate_Down);
             updateEnvironmentBlock(map, relx, rely, this->environments);
-            //sound.tone(NOTE_D2,150,NOTE_E2,50);
+            playSoundEffect(SoundEffect::PressPlate);
         }
 
 
