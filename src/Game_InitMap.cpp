@@ -432,6 +432,36 @@ void Game::nextLevelLoad(GameMode &gameMode) {
         this->map.setLevel(map.getLevel() + 1); 
         this->map.setRandomLevel(!this->map.getRandomLevel());
 
+
+        // Check to see if this is a boss or shop level ..
+
+        this->map.setBossLevel(false);
+        this->map.setShopLevel(false);
+
+        for (uint8_t i = 0; i < this->objects.getObjectNum(); i++) {
+
+            auto &object = this->objects.getSprite(i);
+
+            if (object.getActive() == SpriteStatus::Active && object.isBoss()) {
+
+                this->map.setBossLevel(true);
+                break;
+
+            }
+
+        }
+
+        for (uint16_t i = 0; i < (this->map.getHeight() * this->map.getWidth()); i++) {
+
+            if (this->map.getBlock(i) >= MapTiles::Shop00 && this->map.getBlock(i) <= MapTiles::Shop05) {
+
+                this->map.setShopLevel(true);
+                break;
+
+            }
+
+        }
+
     } 
     else {
         gameState = GameState::WinState_Init;

@@ -44,6 +44,14 @@ bool MapInformation::getHasRune() {
     return this->hasRune;
 }
 
+bool MapInformation::isBossLevel() {
+    return this->bossLevel;
+}
+
+bool MapInformation::isShopLevel() {
+    return this->shopLevel;
+}
+
 void MapInformation::setLevel(uint8_t level) {
     this->level = level;
 }
@@ -62,6 +70,14 @@ void MapInformation::setHeight(uint16_t height) {
 
 void MapInformation::setTimer(uint16_t timer) {
     this->timer = timer;
+}
+
+void MapInformation::setShopLevel(bool value) {
+    this->shopLevel = value;
+}
+
+void MapInformation::setBossLevel(bool value) {
+    this->bossLevel = value;
 }
 
 void MapInformation::setRandomLevel(bool randomLevel) {

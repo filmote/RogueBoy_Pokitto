@@ -2,43 +2,6 @@
 
 #include <stdint.h>
 
-constexpr const uint8_t MapTest[] = 
-{
-	15, /*Width*/
-	17, /*Height*/
-	13, /*Player Start X*/
-	10, /*Player Start Y*/
-	200, /*Timer*/
-	1, /*Out of Bounds Tile ID*/
-	0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 24, 0,
-	0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 21, 0, 23,
-	0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 21, 0, 23,
-	0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 21, 0, 23,
-	0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 21, 0, 23,
-	0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 21, 0, 23,
-	0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 21, 0, 23,
-	0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 21, 0, 23,
-	0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 21, 0, 23,
-	0, 0, 0, 24, 24, 24, 24, 24, 24, 24, 24, 24, 35, 0, 23,
-	0, 0, 21, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 23,
-	0, 0, 0, 22, 22, 22, 22, 22, 22, 22, 22, 22, 22, 22, 0,
-	0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
-	0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
-	0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
-	0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
-	0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
-	8, 
-	19, 7, 10, 0,
-	20, 8, 10, 0,
-	8, 5, 10, 20,
-	21, 3, 10, 20,
-	8, 13, 3, 20,
-	21, 13, 1, 20,
-	17, 13, 5, 0,
-	18, 13, 6, 0,
-	0,
-};
-
 constexpr const uint8_t Map_01[] = 
 {
 	11, /*Width*/
@@ -1139,6 +1102,6 @@ constexpr const uint8_t Map_49_Altar[] =
 	12, 13, 7, 10,
 };
 
-constexpr const uint8_t numberOfMaps = 26;
+constexpr const uint8_t numberOfMaps = 25;
 
-constexpr const uint8_t* maps[numberOfMaps] = { MapTest,Map_01,Map_03,Map_05_Shop,Map_07,Map_09,Map_11_Shop,Map_13,Map_15,Map_17_Shop,Map_19,Map_21_BossNecro,Map_23_Shop,Map_25,Map_27,Map_29_Shop,Map_31,Map_33_BossCyclops,Map_35_Shop,Map_37,Map_39,Map_41_Shop,Map_43,Map_45,Map_47,Map_49_Altar, };
+constexpr const uint8_t* maps[numberOfMaps] = { Map_01,Map_03,Map_05_Shop,Map_07,Map_09,Map_11_Shop,Map_13,Map_15,Map_17_Shop,Map_19,Map_21_BossNecro,Map_23_Shop,Map_25,Map_27,Map_29_Shop,Map_31,Map_33_BossCyclops,Map_35_Shop,Map_37,Map_39,Map_41_Shop,Map_43,Map_45,Map_47,Map_49_Altar, };

@@ -27,6 +27,8 @@ class MapInformation {
         uint8_t getRandomLow();
         bool getRandomLevel();
         bool getHasRune();
+        bool isBossLevel();
+        bool isShopLevel();
 
         void setLevel(uint8_t level);
         void setDefinedMapLevel(uint8_t definedMapLevel);
@@ -39,6 +41,8 @@ class MapInformation {
         void setRandomLow(uint8_t randomLow);
         void incRandomLow();
         void setHasRune(bool hasRune);
+        void setBossLevel(bool value);
+        void setShopLevel(bool value);
 
         bool between(uint8_t x, uint8_t y, uint8_t x1, uint8_t y1, uint8_t x2, uint8_t y2);
         WalkType isWalkable(uint16_t x, uint16_t y, Direction direction, uint8_t width, uint8_t height);
@@ -63,6 +67,10 @@ class MapInformation {
         uint8_t definedMapLevel = 0;
         uint8_t mapData[MAP_SIZE];
         uint8_t randomLow = 0;
+
         bool randomLevel = false;
         bool hasRune = false;
+        bool bossLevel = false;
+        bool shopLevel = false;
+        
 };
