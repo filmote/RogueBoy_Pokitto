@@ -13360,6 +13360,18 @@
 		},
 		"/src/images/enemies/cyclop/Cyclop_Hitting_07_F6.png": {
 			"sdcard": false
+		},
+		"/src/sounds/darkritB - Barrel Exploding.raw": {
+			"sdcard": false
+		},
+		"/src/sounds/BarrelExploding.mp3": {
+			"sdcard": false
+		},
+		"/music/darkritB - Barrel Exploding.raw": {
+			"sdcard": false
+		},
+		"/music/darkritB.raw": {
+			"sdcard": false
 		}
 	},
 	"BUILDFlags": {
