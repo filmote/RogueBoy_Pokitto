@@ -36,6 +36,14 @@ void Game::loop(void) {
             updateMainMenu(); 
             break;
 
+        case GameState::Game_Init_Music:
+            if (mainThemeFile.openRO("music/darkrit1.raw")) {
+                auto& music = Audio::play<0>(mainThemeFile);
+                music.setLoop(true);
+            }  
+            gameState = GameState::Game;
+            [[fallthrough]];
+
         case GameState::Game: 
             updateGame(this->gameMode); 
             break;
@@ -67,6 +75,14 @@ void Game::loop(void) {
         case GameState::WinState:  
             win(); 
             break;
+
+        case GameState::Shop_Init_Music:  
+            if (mainThemeFile.openRO("music/darkritA.raw")) {
+                auto& music = Audio::play<0>(mainThemeFile);
+                music.setLoop(true);
+            }  
+            gameState = GameState::Shop;
+            [[fallthrough]];
 
         case GameState::Shop:  
             showShop(); 

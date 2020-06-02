@@ -205,18 +205,9 @@ void Game::win() {
 
         case WinScreenMode::Score:
             {
-                this->renderEnvironment(!this->map.isBossLevel() && !this->map.isAltarLevel() && !this->map.isShopLevel(), 0, 0);
+                this->renderEnvironment(!this->map.isBossLevel() && !this->map.isAltarLevel(), 0, 0);
                 this->renderHud();
                 this->renderLevelSplash();
-
-                // PD::setColor(15);
-                // PD::fillRectangle(10, 10, 90, 52);
-                // PD::drawBitmap(0, 0, Images::LevelSplash_Left);
-                // PD::drawBitmap(10, 2, Images::LevelSplash_Top);
-                // PD::drawBitmapXFlipped(54, 2, Images::LevelSplash_Top);
-                // PD::drawBitmap(100, 0, Images::LevelSplash_Right);
-                // PD::drawBitmap(10, 62, Images::LevelSplash_Bottom);
-                // PD::setColor(4, 15);
     
                 uint32_t pts = this->printLevelSummary(20, this->map.getTimer()/10);
                 
@@ -238,22 +229,9 @@ void Game::win() {
 
 void Game::endOfLevel() {
 
-    // this->renderEnvironment(!this->map.isBossLevel() && !this->map.isAltarLevel() && !this->map.isShopLevel(), 0, 0);
-    // this->renderHud();
-    // this->renderLevelSplash();
-
     PD::setColor(15);
     PD::fillRectangle(10, 0, 90, 82);
     this->renderLevelSplash();
-
-    // PD::setColor(15);
-    // PD::fillRectangle(10, 10, 90, 52);
-    // PD::drawBitmap(0, 0, Images::LevelSplash_Left);
-    // PD::drawBitmap(10, 2, Images::LevelSplash_Top);
-    // PD::drawBitmapXFlipped(54, 2, Images::LevelSplash_Top);
-    // PD::drawBitmap(100, 0, Images::LevelSplash_Right);
-    // PD::drawBitmap(10, 62, Images::LevelSplash_Bottom);
-    // PD::setColor(4, 15);
 
     uint32_t pts = this->printLevelSummary(20, this->map.getTimer()/10);
     

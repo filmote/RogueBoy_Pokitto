@@ -22,7 +22,7 @@ void Game::showGameSavedMessage() {
     // Rnder screen ..
 
     PD::fillScreen(0);
-    this->renderEnvironment(!this->map.isBossLevel() && !this->map.isAltarLevel() && !this->map.isShopLevel(), 0, 0);
+    this->renderEnvironment(!this->map.isBossLevel() && !this->map.isAltarLevel(), 0, 0);
     this->renderHud();
 
     PD::setColor(15);

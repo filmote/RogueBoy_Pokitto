@@ -420,11 +420,11 @@ void Game::updateGame(GameMode gameMode) {
     this->updateObjects(player.getHealth() <= 0);
 
     if (this->shake > 0) {
-        this->renderEnvironment(!this->map.isBossLevel() && !this->map.isAltarLevel() && !this->map.isShopLevel(), offX[(this->shake - 1) % 2], offY[(this->shake - 1) % 2]);
+        this->renderEnvironment(!this->map.isBossLevel() && !this->map.isAltarLevel(), offX[(this->shake - 1) % 2], offY[(this->shake - 1) % 2]);
         this->renderPlayer(offX[(this->shake - 1) % 2], offY[(this->shake - 1) % 2]);
     }
     else {
-        this->renderEnvironment(!this->map.isBossLevel() && !this->map.isAltarLevel() && !this->map.isShopLevel(), 0, 0);
+        this->renderEnvironment(!this->map.isBossLevel() && !this->map.isAltarLevel(), 0, 0);
         this->renderPlayer(0, 0);
     }
 
@@ -939,7 +939,7 @@ void Game::playerMovement(GameMode gameMode) {
                 break;
 
             case MapTiles::Shop00 ... MapTiles::Shop05:
-                this->gameState = GameState::Shop;
+                this->gameState = GameState::Shop_Init_Music;
                 break;
 
             case MapTiles::Altar00 ... MapTiles::Altar05:

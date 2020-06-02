@@ -571,7 +571,7 @@ void Game::renderMessageBox() {
 }
 
 void Game::renderLevelSplash() {
-    
+
     PD::setColor(15);
     PD::fillRectangle(10, 10, 90, 52);
     PD::drawBitmap(0, 0, Images::LevelSplash_UpperLeft);

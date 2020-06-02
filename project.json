@@ -12619,6 +12619,9 @@
 		},
 		"\\src\\images\\background\\Tile_100.h": {
 			"sdcard": false
+		},
+		"\\music\\darkritA.raw": {
+			"sdcard": false
 		}
 	},
 	"BUILDFlags": {

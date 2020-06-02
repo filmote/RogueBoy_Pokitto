@@ -67,7 +67,7 @@ void Game::showShop() {
 
 
     if (PC::buttons.pressed(BTN_B) || PC::buttons.pressed(BTN_C)) {
-        gameState = GameState::Game;
+        gameState = GameState::Game_Init_Music;
     }
 
     if (PC::buttons.pressed(BTN_UP)) {
@@ -120,7 +120,7 @@ void Game::showShop() {
 
 
 
-    //this->renderEnvironment(!this->map.isBossLevel() && !this->map.isAltarLevel() && !this->map.isShopLevel(), 0, 0);
+    //this->renderEnvironment(!this->map.isBossLevel() && !this->map.isAltarLevel(), 0, 0);
     PD::setColor(15, 0);
     this->renderHud();
     PD::setColor(6);
