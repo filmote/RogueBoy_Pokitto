@@ -12634,6 +12634,9 @@
 		},
 		"\\src\\sounds\\darkritB - Barrel Exploding.raw": {
 			"sdcard": false
+		},
+		"\\music\\darkrit1 - Copy.raw": {
+			"sdcard": false
 		}
 	},
 	"BUILDFlags": {
