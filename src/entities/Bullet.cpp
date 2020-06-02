@@ -214,8 +214,8 @@ void Bullet::update() {
 
 void Bullet::updatePosition() {
 
-    const int32_t xOffsets[8] = { 0, 3, 3, 3, 0, -3, -3, -3 };
-    const int32_t yOffsets[8] = { -3, -3, 0, 3, 3, 3, 0, -3 };
+    const int32_t xOffsets[9] = { 0, 3, 3, 3, 0, -3, -3, -3, 0 };
+    const int32_t yOffsets[9] = { -3, -3, 0, 3, 3, 3, 0, -3, 0 };
 
     this->setX(this->getX() + xOffsets[static_cast<uint8_t>(this->getDirection())]);
     this->setY(this->getY() + yOffsets[static_cast<uint8_t>(this->getDirection())]);
