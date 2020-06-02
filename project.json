@@ -12626,16 +12626,13 @@
 		"\\DarkRitual_V099.bin": {
 			"sdcard": false
 		},
-		"/src/sounds/darkritB - Barrel Exploding.raw": {
+		"\\music\\darkritB.raw": {
 			"sdcard": false
 		},
-		"/src/sounds/BarrelExploding.mp3": {
+		"\\src\\sounds\\BarrelExploding.mp3": {
 			"sdcard": false
 		},
-		"/music/darkritB - Barrel Exploding.raw": {
-			"sdcard": false
-		},
-		"/music/darkritB.raw": {
+		"\\src\\sounds\\darkritB - Barrel Exploding.raw": {
 			"sdcard": false
 		}
 	},

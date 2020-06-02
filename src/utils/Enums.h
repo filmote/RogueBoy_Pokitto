@@ -15,7 +15,8 @@ enum class SoundEffect : uint8_t {
     Death3,
     Damage,
     CastSpell,
-    PressPlate
+    PressPlate,
+    BarrelExploding
 };
 
 enum class GameMode : uint8_t {

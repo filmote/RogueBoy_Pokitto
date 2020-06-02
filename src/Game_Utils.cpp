@@ -77,7 +77,8 @@ bool Game::collision(Sprite &object, Bullet &bullet) {
 void Game::barrelBreak(MapInformation &map, uint8_t x, uint8_t y, Sprites &objects) {
     
     this->map.setBlock(x, y, MapTiles::Rubble);
-    //sound.tone(NOTE_C3,50, NOTE_C2,50, NOTE_E3,150);
+    this->playSoundEffect(SoundEffect::BarrelExploding);
+
 }
 
 void Game::printPaddedNumber(int32_t number, uint8_t places) {
@@ -153,8 +154,8 @@ Direction Game::getNearestCardinalDirection(Direction direction, Axis axis) {
 
 void Game::playSoundEffect(SoundEffect soundEffect) {
 
-    char sounds[9][19] = { "music/darkrit2.raw", "music/darkrit3.raw", "music/darkrit4.raw", "music/darkrit5.raw", "music/darkrit6.raw", "music/darkrit7.raw", "music/darkrit8.raw", "music/darkrit9.raw", "music/darkrit2.raw" };
-        
+    char sounds[10][19] = { "music/darkrit2.raw", "music/darkrit3.raw", "music/darkrit4.raw", "music/darkrit5.raw", "music/darkrit6.raw", "music/darkrit7.raw", "music/darkrit8.raw", "music/darkrit9.raw", "music/darkrit2.raw", "music/darkritB.raw" };
+
     if (soundEffectFile.openRO(sounds[ static_cast<uint8_t>(soundEffect) ])) {
         auto &music = Audio::play<1>(soundEffectFile);
         music.setLoop(false);
