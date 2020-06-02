@@ -116,8 +116,18 @@ void Sprite::update() {
 
         this->puffIndex--; 
 
-        if (this->puffIndex == 0 ) {
-            this->active = SpriteStatus::Inactive;
+        if (this->puffIndex == 0) {
+
+            switch (this->type) {
+
+                case Object::Guide01 ... Object::Guide15:
+                    this->active = SpriteStatus::Inactive;
+
+                    break;
+
+                default: break;
+            }
+
         }
 
     }

@@ -133,7 +133,7 @@ void Game::nextLevelLoad(GameMode &gameMode) {
             this->randomSeed = random(0, 256*256);
             srand(this->randomSeed);
 
-            uint8_t randomLevel = random(this->map.getRandomLow(), this->map.getRandomLow() + 4);
+            uint8_t randomLevel = this->map.getRandomLevelIndex();
 
             #ifdef DEBUG
                 this->level = randomLevel;

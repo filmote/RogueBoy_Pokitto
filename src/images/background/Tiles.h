@@ -99,6 +99,7 @@ namespace Images {
     #include "Tile_97.h"
     #include "Tile_99.h"
     #include "Tile_100.h"
+
     #include "orig/CornerFillTL.h"
     #include "orig/CornerFillTR.h"
     #include "orig/CornerFillLL.h"
@@ -129,6 +130,17 @@ namespace Images {
     #include "boss/Tile_70_Boss.h"
     #include "boss/Tile_71_Boss.h"
     #include "boss/Tile_72_Boss.h"
+
+    const uint8_t * const CornerFills[] = { 
+    CornerFillTL,
+    CornerFillTR,
+    CornerFillLL,
+    CornerFillLR,
+    CornerFillTL_Boss,
+    CornerFillTR_Boss,
+    CornerFillLL_Boss,
+    CornerFillLR_Boss,
+    };
 
     const uint8_t * const Tiles[] = { 
     Tile_00,

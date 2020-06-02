@@ -12637,6 +12637,21 @@
 		},
 		"\\music\\darkrit1 - Copy.raw": {
 			"sdcard": false
+		},
+		"\\music.zip": {
+			"sdcard": false
+		},
+		"\\V099.zip": {
+			"sdcard": false
+		},
+		"\\DarkRitual_V099A.bin": {
+			"sdcard": false
+		},
+		"\\music.zip~RF28e699a.TMP": {
+			"sdcard": false
+		},
+		"\\V099A.zip": {
+			"sdcard": false
 		}
 	},
 	"BUILDFlags": {

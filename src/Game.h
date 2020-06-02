@@ -294,11 +294,9 @@ class Game {
             // 18                  20                     22                     24                     26
             Map_Random_Size_02_00, Map_Random_Size_02_01, Map_Random_Size_02_02, Map_Random_Size_02_04, Map_Random_Size_02_05,
             // 28                  30                     32                     34                     36
-            Map_Random_Size_02_00, Map_Random_Size_02_01, Map_Random_Size_02_02, Map_Random_Size_02_04, Map_Random_Size_02_05,
-            // 38                  40                     42                     44                     46
-            Map_Random_Size_03_00, Map_Random_Size_03_01, Map_Random_Size_03_02, Map_Random_Size_03_01, Map_Random_Size_03_01, 
-            // 48                 
-            Map_Random_Size_03_03, 
+            Map_Random_Size_02_00, Map_Random_Size_03_00, Map_Random_Size_03_01, Map_Random_Size_03_02, Map_Random_Size_03_01, 
+            // 38                  40                     42
+            Map_Random_Size_03_01, Map_Random_Size_03_02, Map_Random_Size_03_03, 
         };
 
 };

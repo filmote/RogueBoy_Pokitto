@@ -24,7 +24,7 @@ class MapInformation {
         uint8_t getTileYOffset(uint16_t y);
         uint16_t getDistance(int x,int y,int x1,int y1);
         uint8_t getOffset(uint8_t x, uint8_t y);
-        uint8_t getRandomLow();
+        uint8_t getRandomLevelIndex();
         bool getRandomLevel();
         bool getHasRune();
         bool isBossLevel();
@@ -39,8 +39,8 @@ class MapInformation {
         void setBlock(uint16_t x, uint16_t y, MapTiles block);
         void setBlock(uint16_t index, MapTiles block);
         void setRandomLevel(bool randomLevel);
-        void setRandomLow(uint8_t randomLow);
-        void incRandomLow();
+        void setRandomLevelIndex(uint8_t randomLevelIndex);
+        void incRandomLevelIndex();
         void setHasRune(bool hasRune);
         void setBossLevel(bool value);
         void setShopLevel(bool value);
@@ -68,7 +68,7 @@ class MapInformation {
         uint8_t level = 0;
         uint8_t definedMapLevel = 0;
         uint8_t mapData[MAP_SIZE];
-        uint8_t randomLow = 0;
+        uint8_t randomLevelIndex = 0;
 
         bool randomLevel = false;
         bool hasRune = false;

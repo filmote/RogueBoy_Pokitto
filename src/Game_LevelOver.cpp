@@ -230,14 +230,15 @@ void Game::win() {
 void Game::endOfLevel() {
 
     PD::setColor(15);
-    PD::fillRectangle(10, 0, 90, 82);
+    this->renderEnvironment(!this->map.isBossLevel() && !this->map.isAltarLevel(), 0, 0);
+    this->renderHud();
     this->renderLevelSplash();
 
     uint32_t pts = this->printLevelSummary(20, this->map.getTimer()/10);
     
     if ((PC::frameCount % 800 == 0) || (PC::buttons.pressed(BTN_A))) {  
 
-        if (this->map.getRandomLevel()) { this->map.setRandomLow(this->map.getRandomLow() + 1); }
+        if (this->map.getRandomLevel()) { this->map.setRandomLevelIndex(this->map.getRandomLevelIndex() + 1); }
         gameState = GameState::LoadMap;
         this->points += pts;
         

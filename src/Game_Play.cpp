@@ -289,7 +289,6 @@ void Game::updateObjects(bool ignorePlayerDamage) {
 
                     }
 
-
                     // Find a matching Object in the sprites collecion that is disabled, otherwise add one ..
 
                     if (object != Object::None) {

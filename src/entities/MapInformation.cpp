@@ -9,7 +9,7 @@ void MapInformation::reset() {
     this->level = 0;
     this->definedMapLevel = 0;
     this->randomLevel = false;
-    this->randomLow = 0;
+    this->randomLevelIndex = 0;
 }
 
 uint8_t MapInformation::getLevel() {
@@ -36,8 +36,8 @@ bool MapInformation::getRandomLevel() {
     return this->randomLevel;
 }
 
-uint8_t MapInformation::getRandomLow() {
-    return this->randomLow;
+uint8_t MapInformation::getRandomLevelIndex() {
+    return this->randomLevelIndex;
 }
 
 bool MapInformation::getHasRune() {
@@ -92,15 +92,12 @@ void MapInformation::setRandomLevel(bool randomLevel) {
     this->randomLevel = randomLevel;
 }
 
-void MapInformation::setRandomLow(uint8_t randomLow) {
-    this->randomLow = randomLow;
+void MapInformation::setRandomLevelIndex(uint8_t randomLevelIndex) {
+    this->randomLevelIndex = randomLevelIndex;
 }
 
-void MapInformation::incRandomLow() {
-
-    if (this->randomLow + 3 < MAPS_RANDOM_COUNT)
-        this->randomLow++;
-
+void MapInformation::incRandomLevelIndex() {
+    this->randomLevelIndex++;
 }
 
 void MapInformation::setHasRune(bool hasRune) {
