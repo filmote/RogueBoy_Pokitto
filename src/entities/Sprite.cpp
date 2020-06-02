@@ -120,6 +120,17 @@ void Sprite::update() {
 
             switch (this->type) {
 
+                case Object::Bat:
+                case Object::Eye:
+                case Object::Spider:
+                case Object::BigSpider:
+                case Object::Skeleton:
+                case Object::Snake:
+                case Object::Chest:
+                case Object::Necromancer:
+                case Object::Hobgoblin:
+                case Object::Cyclop:
+                case Object::Beholder:
                 case Object::Guide01 ... Object::Guide15:
                     this->active = SpriteStatus::Inactive;
 
