@@ -456,7 +456,12 @@ void Game::nextLevelLoad(GameMode &gameMode) {
             if (this->map.getBlock(i) >= MapTiles::Shop00 && this->map.getBlock(i) <= MapTiles::Shop05) {
 
                 this->map.setShopLevel(true);
-                break;
+
+            }
+
+            if (this->map.getBlock(i) >= MapTiles::Altar00 && this->map.getBlock(i) <= MapTiles::Altar05) {
+
+                this->map.setAltarLevel(true);
 
             }
 

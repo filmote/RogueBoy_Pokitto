@@ -447,7 +447,7 @@ void Game::showGuide() {
     // Render screen ..
 
     PD::fillScreen(0);
-    this->renderEnvironment(this->map.isBossLevel(), 0, 0);
+    this->renderEnvironment(!this->map.isBossLevel() && !this->map.isAltarLevel() && !this->map.isShopLevel(), 0, 0);
     this->renderHud();
 
     PD::setColor(15);

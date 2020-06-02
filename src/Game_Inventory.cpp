@@ -343,7 +343,7 @@ void Game::showInventory() {
 
         case InventoryMenuMode::Inventory:
             {    
-                this->renderEnvironment(this->map.isBossLevel(), 0, 0);
+                this->renderEnvironment(!this->map.isBossLevel() && !this->map.isAltarLevel() && !this->map.isShopLevel(), 0, 0);
                 this->renderHud();
                 PD::setColor(0);
                 PD::fillRectangle(0, 0, 91, 81);
@@ -462,7 +462,7 @@ void Game::showInventory() {
 
         case InventoryMenuMode::AltarPieces:
 
-            this->renderEnvironment(this->map.isBossLevel(), 0, 0);
+            this->renderEnvironment(!this->map.isBossLevel() && !this->map.isAltarLevel() && !this->map.isShopLevel(), 0, 0);
             this->renderHud();
 
             PD::setColor(15);

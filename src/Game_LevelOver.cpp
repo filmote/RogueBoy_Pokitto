@@ -205,9 +205,10 @@ void Game::win() {
 
         case WinScreenMode::Score:
             {
-                this->renderEnvironment(this->map.isBossLevel(), 0, 0);
+                this->renderEnvironment(!this->map.isBossLevel() && !this->map.isAltarLevel() && !this->map.isShopLevel(), 0, 0);
                 this->renderHud();
                 this->renderLevelSplash();
+
                 // PD::setColor(15);
                 // PD::fillRectangle(10, 10, 90, 52);
                 // PD::drawBitmap(0, 0, Images::LevelSplash_Left);
@@ -237,9 +238,14 @@ void Game::win() {
 
 void Game::endOfLevel() {
 
-    this->renderEnvironment(this->map.isBossLevel(), 0, 0);
-    this->renderHud();
+    // this->renderEnvironment(!this->map.isBossLevel() && !this->map.isAltarLevel() && !this->map.isShopLevel(), 0, 0);
+    // this->renderHud();
+    // this->renderLevelSplash();
+
+    PD::setColor(15);
+    PD::fillRectangle(10, 0, 90, 82);
     this->renderLevelSplash();
+
     // PD::setColor(15);
     // PD::fillRectangle(10, 10, 90, 52);
     // PD::drawBitmap(0, 0, Images::LevelSplash_Left);

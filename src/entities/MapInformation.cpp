@@ -52,6 +52,10 @@ bool MapInformation::isShopLevel() {
     return this->shopLevel;
 }
 
+bool MapInformation::isAltarLevel() {
+    return this->altarLevel;
+}
+
 void MapInformation::setLevel(uint8_t level) {
     this->level = level;
 }
@@ -78,6 +82,10 @@ void MapInformation::setShopLevel(bool value) {
 
 void MapInformation::setBossLevel(bool value) {
     this->bossLevel = value;
+}
+
+void MapInformation::setAltarLevel(bool value) {
+    this->altarLevel = value;
 }
 
 void MapInformation::setRandomLevel(bool randomLevel) {
@@ -308,6 +316,7 @@ WalkType MapInformation::isWalkable(uint16_t x, uint16_t y, Direction direction,
         case MapTiles::SpearDoorTOPOpen:
         case MapTiles::SpearDoorBOTOpen:
         case MapTiles::WormHole_F0:
+        case MapTiles::ThreeSkulls:
             walk = WalkType::Normal;
             break;
 
@@ -855,6 +864,7 @@ WalkType MapInformation::isWalkable(uint16_t x, uint16_t y, Direction direction,
             case MapTiles::SpearDoorTOPOpen:
             case MapTiles::SpearDoorBOTOpen:
             case MapTiles::WormHole_F0:
+            case MapTiles::ThreeSkulls:
                 break;
 
             case MapTiles::StraightTOP:

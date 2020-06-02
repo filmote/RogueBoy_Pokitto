@@ -98,6 +98,7 @@ namespace Images {
     #include "Tile_95.h"
     #include "Tile_97.h"
     #include "Tile_99.h"
+    #include "Tile_100.h"
     #include "orig/CornerFillTL.h"
     #include "orig/CornerFillTR.h"
     #include "orig/CornerFillLL.h"
@@ -230,6 +231,7 @@ namespace Images {
     Tile_97,
     Tile_00, //98 Filler
     Tile_99, // 3 Skulls
+    Tile_100, // Shadow
     };
 
     const uint8_t * const Tiles_Boss[] = { 
@@ -333,6 +335,7 @@ namespace Images {
     Tile_97,
     Tile_00, //98 Filler
     Tile_99, // 3 Skulls
+    Tile_100, // Shadow
     };
 
 };

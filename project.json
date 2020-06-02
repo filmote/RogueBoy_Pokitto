@@ -12610,6 +12610,15 @@
 		},
 		"\\src\\images\\background\\orig\\Tile_38.h": {
 			"sdcard": false
+		},
+		"\\src\\images\\background\\Tile_61 - Copy.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\background\\Tile_100.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\background\\Tile_100.h": {
+			"sdcard": false
 		}
 	},
 	"BUILDFlags": {
