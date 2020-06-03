@@ -195,6 +195,8 @@
 #define NECROMANCER_FRAME_MAX           40
 #define CYCLOPS_FRAME_MAX               40
 
+#define CHANGE_STATE_DELAY              24
+
 
 /* -------------------------------------------------------------------------------
 Bit 7       Blank segment.

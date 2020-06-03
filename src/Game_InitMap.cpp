@@ -459,7 +459,7 @@ void Game::nextLevelLoad(GameMode &gameMode) {
 
             }
 
-            if (this->map.getBlock(i) >= MapTiles::Altar00 && this->map.getBlock(i) <= MapTiles::Altar05) {
+            if (this->map.getBlock(i) == MapTiles::Altar04) {
 
                 this->map.setAltarLevel(true);
 

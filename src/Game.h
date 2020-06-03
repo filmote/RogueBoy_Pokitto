@@ -157,6 +157,7 @@ class Game {
 
         GameState gameState = GameState::SplashScreen;
         GameState prevState = GameState::SplashScreen;
+        GameState nextState = GameState::SplashScreen;
         GameMode gameMode = GameMode::Normal;
 
         int points = 0;
@@ -165,7 +166,7 @@ class Game {
         int launchSpiderDelay = 0;
         int launchSkeletonDelay = 0;
         int launchCyclopsDelay = 0;
-        int launchBullChargeDelay = 0;
+        int changeStateDelay = 0;
 
         Direction launchSkeletonDirection;
         Direction launchCyclopsDirection;

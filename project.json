@@ -12658,6 +12658,9 @@
 		},
 		"\\DarkRitual_V099B.bin": {
 			"sdcard": false
+		},
+		"\\DarkRitual_V099C.bin": {
+			"sdcard": false
 		}
 	},
 	"BUILDFlags": {

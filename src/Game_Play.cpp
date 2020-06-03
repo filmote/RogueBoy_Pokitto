@@ -13,10 +13,20 @@ void Game::updateObjects(bool ignorePlayerDamage) {
     if (this->shake > 0)                    this->shake--;
     if (this->shockwave > 0)                this->shockwave--;
     if (this->levelStartDelay > 0)          this->levelStartDelay--;
-    if (this->enemyBulletDelay > 0)         this->enemyBulletDelay--;
     if (this->launchSkeletonDelay > 0)      this->launchSkeletonDelay--;
     if (this->launchSpiderDelay > 0)        this->launchSpiderDelay--;
     if (this->launchCyclopsDelay > 0)       this->launchCyclopsDelay--;
+
+    if (this->changeStateDelay > 0) {
+
+        this->changeStateDelay--;
+
+        if (changeStateDelay == 0) {
+
+            this->gameState = this->nextState;
+        }
+
+    }
 
 
     // Update other objects ..
@@ -353,14 +363,12 @@ void Game::updateObjects(bool ignorePlayerDamage) {
 
                                     // Did we kill a boss ?
 
-                                    switch (object.getType()) {
+                                    if (object.isBoss()) {
 
-                                        case Object::Necromancer:
-                                        case Object::Beholder:
-                                        case Object::Cyclop:
-                                            this->player.incAltarPieces();
-                                            this->gameState = GameState::AltarPieceAchieved;
-                                            break;
+                                        this->player.incAltarPieces();
+                                        this->nextState = GameState::AltarPieceAchieved;
+                                        this->changeStateDelay = 24;
+                                        break;
                                             
                                     }
 
@@ -784,7 +792,19 @@ void Game::playerMovement(GameMode gameMode) {
 
                         if (object.getActive() == SpriteStatus::Active && object.isEnemy() && object.getX() >= xMin && object.getX() <= xMax && object.getY() >= yMin & object.getY() <= yMax) {
 
-                            object.decHealth(Object::MauveSpell);
+                            bool isDead = object.decHealth(Object::MauveSpell);
+
+
+                            // Did we kill a boss ?
+
+                            if (isDead && object.isBoss()) {
+                                
+                                this->player.incAltarPieces();
+                                this->nextState = GameState::AltarPieceAchieved;
+                                this->changeStateDelay = 24;
+                                break;
+                                    
+                            }
 
                         }
 
@@ -942,7 +962,9 @@ void Game::playerMovement(GameMode gameMode) {
                 break;
 
             case MapTiles::Altar00 ... MapTiles::Altar05:
-                this->gameState = GameState::Puzzle_Init_Game;
+                if (this->map.isAltarLevel()) { 
+                    this->gameState = GameState::Puzzle_Init_Game;
+                }
                 break;
 
 
@@ -1122,8 +1144,8 @@ bool Game::interactWithBlock(int x, int y, MapTiles block) {
                 playSoundEffect(SoundEffect::OpenChest);
 
                 this->player.incAltarPieces();
-                this->gameState = GameState::AltarPieceAchieved;
-
+                this->nextState = GameState::AltarPieceAchieved;
+                this->changeStateDelay = 24;
             }
             return true;
 
@@ -1204,7 +1226,9 @@ bool Game::interactWithBlock(int x, int y, MapTiles block) {
             return false;
 
         case MapTiles::Altar00 ... MapTiles::Altar05:
-            this->gameState = GameState::Puzzle_Init_Game; 
+            if (this->map.isAltarLevel()) { 
+                this->gameState = GameState::Puzzle_Init_Game;
+            }
             break;
 
     }
