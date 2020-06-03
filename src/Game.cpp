@@ -37,10 +37,18 @@ void Game::loop(void) {
             break;
 
         case GameState::Game_Init_Music:
-            if (mainThemeFile.openRO("music/darkrit1.raw")) {
-                auto& music = Audio::play<0>(mainThemeFile);
-                music.setLoop(true);
-            }  
+            if (!this->map.isBossLevel()) {
+                if (mainThemeFile.openRO("music/darkrit1.raw")) {
+                    auto& music = Audio::play<0>(mainThemeFile);
+                    music.setLoop(true);
+                }
+            }
+            else {
+                if (mainThemeFile.openRO("music/darkritC.raw")) {
+                    auto& music = Audio::play<0>(mainThemeFile);
+                    music.setLoop(true);
+                }
+            } 
             gameState = GameState::Game;
             [[fallthrough]];
 

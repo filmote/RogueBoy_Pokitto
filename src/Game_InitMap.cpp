@@ -428,7 +428,7 @@ void Game::nextLevelLoad(GameMode &gameMode) {
 
         this->mixAltarPieces();
 
-        gameState = GameState::Game;
+        gameState = GameState::Game_Init_Music;
         this->map.setLevel(map.getLevel() + 1); 
         this->map.setRandomLevel(!this->map.getRandomLevel());
 
