@@ -549,7 +549,7 @@ constexpr const uint8_t Map_27_Cyclops[] =
 	2, 1, 6, 0,
 	8, 1, 9, 20,
 	8, 11, 1, 20,
-	7,
+	9,
 	6, 11, 7, 9,
 	6, 11, 11, 6,
 	6, 11, 7, 3,
@@ -557,6 +557,8 @@ constexpr const uint8_t Map_27_Cyclops[] =
 	7, 8, 7, 9,
 	7, 8, 11, 6,
 	7, 8, 7, 3,
+	14, 4, 16, 8,
+	14, 4, 17, 7,
 };
 
 constexpr const uint8_t Map_29[] = 
